@@ -5,19 +5,19 @@ import { GraphViewer } from '../components/GraphViewer.js'
 export async function Domain(container, { id }) {
   container.innerHTML = ''
 
-  let domainName = id
+  const controller = new AbortController()
+  window.addEventListener('hashchange', () => controller.abort(), { once: true, signal: controller.signal })
+
+  let domain = { id, name: id, has_book: false, capstone: null }
   try {
     const catalog = await loadCatalog()
-    const domain = catalog.find(d => d.id === id)
-    if (domain) domainName = domain.name
-  } catch (_) {
-    // fall back to raw id
-  }
+    domain = catalog.find(d => d.id === id) ?? domain
+  } catch (_) {}
 
-  container.appendChild(Header({ showBack: true, domainName }))
+  container.appendChild(Header({ showBack: true, domainName: domain.name }))
 
   const main = document.createElement('main')
   main.className = 'cb-domain'
-  main.appendChild(GraphViewer(id))
+  main.appendChild(GraphViewer(domain))
   container.appendChild(main)
 }

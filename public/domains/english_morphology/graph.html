@@ -278,12 +278,12 @@ function topoSort(nodeSet) {
 const container = document.getElementById('graph-container');
 const visNodes = new vis.DataSet(RAW.nodes.map(n => ({
   id: n.id,
-  label: n.label,
+  label: n.label.replace(/ /g, '\n'),
   level: bfsLevels[n.id] !== undefined ? bfsLevels[n.id] : n.tier,
   color: n.color,
   font: n.font,
   title: `<b>${n.label}</b> [${n.kind}]<br>${n.defines || ''}`,
-  shape: n.kind === 'primitive' ? 'diamond' : n.kind === 'application' ? 'box' : 'ellipse',
+  shape: n.kind === 'concept' ? 'ellipse' : 'box',
 })));
 const visEdges = new vis.DataSet(RAW.edges.map((e, i) => ({
   id: i, from: e.from, to: e.to,

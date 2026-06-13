@@ -26,7 +26,88 @@ produces.
 
 ---
 
-## 2. Architecture
+## 2. What Makes This Different — Design Principles
+
+These observations emerged from the first working prototype (linalg and geometry
+graphs, 2026-06-13). They are the core design principles that distinguish
+concept-book from every other learning tool.
+
+### 2.1 The graph IS the curriculum
+
+In a conventional textbook, a visualization is bolted on as supplementary material
+— a chapter map, a mind-map sidebar. Here the graph is primary. The YAML concept
+graph is the authoritative source; the chapter ordering, the learning path, and the
+dependency chain all derive from it. The graph is not a picture of the curriculum —
+it *is* the curriculum.
+
+**Implication for the web-app:** the graph navigator is the home screen, not a
+feature buried in a sidebar.
+
+### 2.2 Click = personalized path, not a fixed chapter sequence
+
+When a learner clicks any node, they see the BFS shortest path from the graph's
+roots to that concept — the exact minimum set of prerequisites in the right order,
+personalized to that target. A learner who wants to understand `gram schmidt` (BFS
+level 5 in linalg) sees an 11-step path. A learner who wants `linear combination`
+(BFS level 1) sees a 3-step path. No two learners need to follow the same sequence.
+
+This is structurally impossible in a textbook. It requires the DAG.
+
+### 2.3 Depth is visible at a glance
+
+A node sitting at BFS level 5 communicates "this is deep — plan accordingly"
+without any annotation. No textbook chapter number, no difficulty star rating, no
+prerequisite list in an appendix conveys this as directly. The vertical position in
+the hierarchical layout *is* the difficulty signal, and it is derived automatically
+from the graph structure, not editorially assigned.
+
+**Analogy:** `gram schmidt` at the bottom of the linalg DAG immediately tells a
+learner they will need to climb through 5 levels of concepts to get there. A
+student who tries to learn it first — without the graph — is walking in without a
+map.
+
+### 2.4 Highlighted paths feel like neurons firing
+
+When a node is selected, the ancestors highlight in yellow-orange, tracing back to
+the primitives. The visual effect — a chain of nodes lighting up across the graph —
+mirrors how conceptual understanding actually works: prerequisite knowledge
+activating in sequence, each concept unlocking the next. The metaphor is not
+decorative; it reflects the cognitive reality of building on prior knowledge.
+
+**Design goal:** keep this highlight fast and immediate (no animation delay).
+The snap of the highlight IS the feedback.
+
+### 2.5 Three layers, visible simultaneously
+
+| Layer | Shape | Color | Meaning |
+|---|---|---|---|
+| **Primitive** | rectangle | green | What we assume — axioms, definitions, undefined terms |
+| **Concept** | oval | blue | What we build — derived ideas, theorems, techniques |
+| **Application** | rectangle | orange | What we unlock — real-world uses, tools, domains |
+
+Most curricula flatten these into one undifferentiated list. Separating them
+visually makes the structure of a knowledge domain legible at a glance:
+how many axioms does geometry assume? (4 primitives). How many applications does
+linear algebra unlock from the `orthonormal basis` node? (follow the orange boxes).
+
+### 2.6 The highlight is bidirectional in intent
+
+The current implementation highlights **ancestors** (what I need to learn first —
+upstream dependencies). The graph structure also supports **descendants** (what
+this concept unlocks — downstream fan-out). Both directions are load-bearing for
+the learner:
+
+- **Top-down (ancestors lit):** "I want to learn X — what must I learn first?"
+- **Bottom-up (descendants lit):** "I know X — what can I now learn next?"
+
+The bottom-up direction is especially powerful for elemental primitives in the
+Chinese characters domain (see §8). Phase 2 of the web-app should add a toggle:
+**"What does this unlock?"** that switches the highlight from ancestor-path to
+descendant-fan.
+
+---
+
+## 3. Architecture
 
 ```
 SPL.py (content engine)
@@ -77,7 +158,7 @@ dist/                                  (GitHub Pages / school server / Raspberry
 
 ---
 
-## 3. Related repos
+## 4. Related repos
 
 | Repo | Role |
 |---|---|
@@ -88,7 +169,7 @@ dist/                                  (GitHub Pages / school server / Raspberry
 
 ---
 
-## 4. Tech Stack
+## 5. Tech Stack
 
 | Layer | Choice | Rationale |
 |---|---|---|
@@ -102,7 +183,7 @@ dist/                                  (GitHub Pages / school server / Raspberry
 
 ---
 
-## 5. Content Pipeline (SPL.py → concept-book)
+## 6. Content Pipeline (SPL.py → concept-book)
 
 ### 5.1 Generate content in SPL.py
 
@@ -162,7 +243,7 @@ cp $SPL_OUTPUT/linalg_concept_book.html $DEST/linalg/concept_book.html
 
 ---
 
-## 6. Folder Structure (target)
+## 7. Folder Structure (target)
 
 ```
 concept-book/
@@ -206,7 +287,7 @@ concept-book/
 
 ---
 
-## 7. Domain Spotlight — Chinese Characters (the founding use-case)
+## 8. Domain Spotlight — Chinese Characters (the founding use-case)
 
 The Chinese characters domain (`chinese_characters_graph.yaml`) is the reason
 concept-book exists. It is the direct evolution of the ZiNets research project
@@ -307,7 +388,7 @@ curriculum, not a fixed sequence.
 
 ---
 
-## 8. Implementation Phases
+## 9. Implementation Phases
 
 ### Phase 1 — MVP (Vite + Vanilla JS, static)  ← **implement this now**
 
@@ -370,7 +451,7 @@ Deliverables:
 
 ---
 
-## 9. Getting Started (for implementing Claude session)
+## 10. Getting Started (for implementing Claude session)
 
 ```bash
 # 1. Clone and enter repo
@@ -411,7 +492,7 @@ npm run build
 
 ---
 
-## 10. Open Questions
+## 11. Open Questions
 
 1. **Domain card image / icon** — should each domain have a visual thumbnail, or is the
    graph preview sufficient? (Option: render a tiny SVG of the graph at sync time)
@@ -432,7 +513,7 @@ npm run build
 
 ---
 
-## 10. Related Files in SPL.py
+## 12. Related Files in SPL.py
 
 | Path | Role |
 |---|---|
