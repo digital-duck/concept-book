@@ -1,0 +1,238 @@
+domain: intro_geometry
+primitives:
+  point:
+    symbol: P
+    defines: the floor for location — an undefined notion; everything else is built from collections of
+      points
+    tier: 0
+  line:
+    symbol: ℓ
+    defines: the floor for straightness — an undefined notion of infinite extent with no width
+    tier: 0
+  plane:
+    symbol: π
+    defines: the floor for flatness — an undefined notion of two-dimensional extent; the ambient space
+      everything else lives in
+    tier: 0
+  distance:
+    symbol: d(A,B)
+    defines: first radical — the metric; assigns a non-negative number to every pair of points
+    tier: 0
+  angle:
+    symbol: ∠ABC
+    defines: second radical — rotation; assigns a measure to the turning between two rays sharing a vertex;
+      not reducible to distance
+    tier: 0
+    introduced_in: trigonometry
+first_radical_primitives:
+- point
+- line
+- plane
+- distance
+concepts:
+  line_segment:
+    composed_of:
+    - point
+    - line
+    - distance
+    defines: bounded portion of a line between two endpoints; its length is the distance between them
+    verifier: sympy
+    lab: sympy.geometry
+    play: place two points; measure the segment; slide one and watch the length change
+    tier: 1
+  ray:
+    composed_of:
+    - point
+    - line
+    defines: 'half-line: an endpoint together with all points of a line on one side of it'
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 1
+  angle_measure:
+    composed_of:
+    - angle
+    defines: the numeric value of an angle (degrees); classified acute / right / obtuse / straight / reflex
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 1
+  parallel_lines:
+    composed_of:
+    - line
+    - angle_measure
+    defines: coplanar lines that never meet; a transversal makes corresponding and alternate-interior
+      angles equal
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 2
+  polygon:
+    composed_of:
+    - line_segment
+    - angle_measure
+    defines: closed plane figure bounded by line segments — has vertices, sides, and interior angles
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 2
+  rigid_motion:
+    composed_of:
+    - distance
+    - angle
+    defines: a transformation of the plane (translation, rotation, reflection) that preserves both distance
+      and angle measure — the floor for 'sameness of shape'
+    verifier: sympy
+    lab: sympy.geometry
+    play: translate, rotate, and reflect a triangle; verify side lengths and angles are unchanged
+    tier: 2
+  triangle:
+    composed_of:
+    - polygon
+    defines: three-sided polygon; interior angles always sum to 180°
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 3
+  congruence:
+    composed_of:
+    - rigid_motion
+    defines: two figures related by a rigid motion — 'same size and same shape', written ≅
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 3
+  circle:
+    composed_of:
+    - point
+    - distance
+    defines: set of all points at a fixed distance (the radius) from a center point
+    verifier: sympy
+    lab: sympy.geometry
+    play: vary the radius; compute circumference and area; check the ratio C/d is always π
+    tier: 3
+  triangle_congruence_criteria:
+    composed_of:
+    - triangle
+    - congruence
+    defines: SSS, SAS, ASA, AAS — minimal sets of equal measurements that force two triangles to be congruent
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 4
+  similarity:
+    composed_of:
+    - rigid_motion
+    - angle_measure
+    defines: rigid motion composed with a uniform scaling (dilation) — preserves angle measure and ratios
+      of distances; 'same shape, possibly different size', written ∼
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 4
+  quadrilateral:
+    composed_of:
+    - polygon
+    - parallel_lines
+    defines: four-sided polygon — parallelograms, trapezoids, rectangles, rhombi, squares, classified
+      by which sides/angles are equal or parallel
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 4
+  coordinate_plane:
+    composed_of:
+    - point
+    - distance
+    defines: Cartesian (x, y) representation of the plane — every point becomes an ordered pair of numbers
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 4
+  triangle_similarity_criteria:
+    composed_of:
+    - triangle
+    - similarity
+    defines: AA, SAS∼, SSS∼ — minimal sets of equal angles or proportional sides that force two triangles
+      to be similar
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 5
+  area:
+    composed_of:
+    - polygon
+    - distance
+    defines: measure of the two-dimensional region enclosed by a polygon or circle
+    verifier: sage|sympy
+    lab: graph_lib.verify_polygon_area (exact QQ shoelace; Sage preferred, SymPy fallback)
+    play: decompose an irregular polygon into triangles; sum their areas; compare to the shoelace formula
+    tier: 5
+  pythagorean_theorem:
+    composed_of:
+    - triangle_congruence_criteria
+    - area
+    defines: in a right triangle, a² + b² = c² — the metric radical (side lengths) meets the rotational
+      radical (the right angle) for the first time
+    verifier: sage|sympy
+    lab: graph_lib.verify_right_triangle (exact QQ recompute; Sage preferred, SymPy fallback)
+    play: build right triangles with integer sides; verify a**2 + b**2 == c**2 for Pythagorean triples
+    tier: 6
+  circle_theorems:
+    composed_of:
+    - circle
+    - angle_measure
+    - congruence
+    defines: inscribed angle, central angle, tangent–chord, and arc–chord relationships — angle measure
+      governs the geometry of circles
+    verifier: sympy
+    lab: sympy.geometry
+    tier: 5
+  distance_formula:
+    composed_of:
+    - coordinate_plane
+    - pythagorean_theorem
+    defines: d = √((x₂−x₁)² + (y₂−y₁)²) — the Pythagorean theorem restated in coordinates
+    verifier: sage|sympy
+    lab: graph_lib.verify_distance_squared (exact QQ recompute; Sage preferred, SymPy fallback)
+    play: plot two points; compute the distance both via the formula and via Point.distance(); compare
+    tier: 7
+  trigonometric_ratios:
+    composed_of:
+    - triangle_similarity_criteria
+    - pythagorean_theorem
+    defines: sin, cos, tan — ratios of side lengths (distance) determined entirely by an acute angle (angle)
+      in a right triangle; the ratio is invariant under similarity — both radicals meet here
+    verifier: sympy
+    lab: sympy.geometry
+    play: build similar right triangles at different scales; verify sin/cos/tan of the shared angle is
+      the same in each
+    tier: 8
+applications:
+  navigation_surveying:
+    needs:
+    - trigonometric_ratios
+    - distance_formula
+    domain: navigation and land surveying
+    defines: GPS trilateration and surveying triangulation both reduce to solving triangles with trigonometric
+      ratios and the distance formula
+  architecture_construction:
+    needs:
+    - pythagorean_theorem
+    - area
+    - similarity
+    domain: architecture and structural engineering
+    defines: squaring foundations (3-4-5 triangles), computing material quantities (area), and scaling
+      blueprints (similarity)
+  computer_graphics:
+    needs:
+    - rigid_motion
+    - coordinate_plane
+    - similarity
+    domain: computer graphics and game design
+    defines: every on-screen animation is a composition of rigid motions and similarity transformations
+      on coordinate data
+  astronomy:
+    needs:
+    - trigonometric_ratios
+    - circle_theorems
+    domain: astronomy
+    defines: measuring distances to celestial objects via parallax and triangulation — trigonometric ratios
+      applied at planetary scale
+  art_and_design:
+    needs:
+    - rigid_motion
+    - congruence
+    - similarity
+    domain: art, design, and architecture ornament
+    defines: tessellation, perspective drawing, and logo scaling are rigid motions and similarity transformations
+      made visible

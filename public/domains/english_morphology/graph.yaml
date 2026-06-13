@@ -1,0 +1,359 @@
+# "Unlocking English Words the LEGO Way" — concept-book morphology graph (pilot)
+# (sibling pilot to chinese_characters_graph.yaml — two writing systems, ONE
+#  schema, ONE verifier: graph_lib.verify_character_lego checks both files)
+# Publisher: Digital Duck (github.com/digital-duck)
+#
+# The cross-language thesis this domain demonstrates: language learning IS a
+# STEM discipline once vocabulary is treated as a verifiable decomposition
+# system. The two-radical convention maps onto the deepest fact of Latinate
+# English:
+#   first radical  — FORM:     roots (the semantic core — what the word is about)
+#   second radical — OPERATOR: affixes (prefixes steer the meaning; suffixes
+#                              change the part of speech)
+# Their meeting is morphological derivation — the engine behind most academic,
+# scientific, legal, and medical vocabulary.
+# Target: morphological_decoding_principle — at production scale, learn ~220
+# bricks (~50 prefixes / ~120 roots / ~50 suffixes) + 1 principle, decode tens
+# of thousands of words. graph_lib.reducible() machine-checks the LEGO claim:
+# every word reduces to the brick set — and NOT from roots alone, because the
+# affix system is irreducible content (the theorem 马 proves for Chinese).
+#
+# The pedagogy has a validated tradition — Structured Word Inquiry's "word
+# sums" (in + spect + ion → inspection) ARE this file's `pieces` lists; what
+# recipe 74 adds is making the word sum machine-checked and the textbook
+# generative. This pilot is a 36-node slice (13 bricks: 5 roots, 5 prefixes,
+# 3 suffixes); production graphs scale the brick inventory, not the schema.
+domain: english_morphology
+primitives:
+  spect:
+    symbol: Latin specere — to look
+    defines: the looking root — every act of watching, checking, and expecting English ever borrowed
+    tier: 0
+  port:
+    symbol: Latin portare — to carry
+    defines: the carrying root — goods, meanings, and files all get ported
+    tier: 0
+  dict:
+    symbol: Latin dicere — to say
+    defines: the saying root — speech, rulings, and dictionaries flow from it
+    tier: 0
+  struct:
+    symbol: Latin struere — to build
+    defines: the building root — structures physical, social, and grammatical
+    tier: 0
+  ject:
+    symbol: Latin iacere — to throw
+    defines: the throwing root — things thrown back, in, out, and across
+    tier: 0
+  re-:
+    symbol: prefix — again, back
+    defines: the repeat/return steerer; aims any root backward or once more
+    tier: 0
+  in-:
+    symbol: prefix — in, into
+    defines: the inward steerer — and this graph's resident shape-shifter; it surfaces as im-/il-/ir-
+      depending on the sound that follows
+    tier: 0
+  con-:
+    symbol: prefix — together, with
+    defines: the gathering steerer; whatever the root does, con- makes it done jointly
+    tier: 0
+  trans-:
+    symbol: prefix — across
+    defines: the crossing steerer; movement over a boundary, literal or abstract
+    tier: 0
+  pre-:
+    symbol: prefix — before
+    defines: the beforehand steerer; time-shifts any root earlier
+    tier: 0
+  -ion:
+    symbol: suffix — act or result of
+    defines: the noun-maker — turns a verb into the act or product of that verb; the single most
+      common operator in academic English
+    tier: 0
+  -or:
+    symbol: suffix — one who does
+    defines: the agent-maker — turns a verb into its doer
+    tier: 0
+  -able:
+    symbol: suffix — capable of being
+    defines: the adjective-maker — turns a verb into a capability claim
+    tier: 0
+first_radical_primitives:
+- spect
+- port
+- dict
+- struct
+- ject
+concepts:
+  inspect:
+    composed_of:
+    - in-
+    - spect
+    pieces:
+    - in-
+    - spect
+    defines: look into — in- steers the looking inward; the word IS its word sum
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: build inspect from its two bricks; then guess what looking BACK (re- + spect) should mean
+      before checking
+    tier: 1
+  transport:
+    composed_of:
+    - trans-
+    - port
+    pieces:
+    - trans-
+    - port
+    defines: carry across — the crossing steerer aims the carrying root over a boundary
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: swap the prefix — what should ex- + port and in- + port mean? Predict, then meet import below
+    tier: 1
+  predict:
+    composed_of:
+    - pre-
+    - dict
+    pieces:
+    - pre-
+    - dict
+    defines: say beforehand — the time-shifting steerer on the saying root
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: contradict puts contra- (against) on the same root — decode it cold, then verify
+    tier: 1
+  construct:
+    composed_of:
+    - con-
+    - struct
+    pieces:
+    - con-
+    - struct
+    defines: build together — pieces gathered into a structure
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: de- means "down/apart" — predict what destruct-family words mean before looking them up
+    tier: 1
+  reject:
+    composed_of:
+    - re-
+    - ject
+    pieces:
+    - re-
+    - ject
+    defines: throw back — the return steerer on the throwing root
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: in-, e-, and pro- all combine with ject — decode inject, eject, project from their steerers alone
+    tier: 1
+  portable:
+    composed_of:
+    - port
+    - -able
+    pieces:
+    - port
+    - -able
+    defines: able to be carried — the first OPERATOR suffix; notice the part of speech flipped from
+      verb to adjective
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: -able attaches to almost any verb — coin three new -able words and test them on a friend
+    tier: 1
+  import:
+    composed_of:
+    - in-
+    - port
+    pieces:
+    - in-
+    - port
+    defines: carry in (im- is in- assimilated before p) — the same brick as in inspect, wearing a
+      different surface; the first shape-shifter in this book
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: say in-port aloud fast — feel your lips force the n into m; pronunciation wrote the spelling
+    tier: 2
+  inspection:
+    composed_of:
+    - inspect
+    - -ion
+    pieces:
+    - in-
+    - spect
+    - -ion
+    defines: the act of looking into — the noun-maker stacks on an already-built word; three bricks,
+      one glance
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: write the full word sum in + spect + ion = inspection; this notation is the whole method
+    tier: 2
+  inspector:
+    composed_of:
+    - inspect
+    - -or
+    pieces:
+    - in-
+    - spect
+    - -or
+    defines: one who looks into — same base as inspection, different operator; the act vs. the agent
+      is ONE brick swap
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: inspection/inspector is a minimal pair — find three more act/agent pairs built with -ion/-or
+    tier: 2
+  prediction:
+    composed_of:
+    - predict
+    - -ion
+    pieces:
+    - pre-
+    - dict
+    - -ion
+    defines: the act of saying beforehand — the operator stacks the same way on every base
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: predictor follows for free — state its meaning and its word sum without looking
+    tier: 2
+  construction:
+    composed_of:
+    - construct
+    - -ion
+    pieces:
+    - con-
+    - struct
+    - -ion
+    defines: the act or result of building together — prefix steers, root carries, suffix operates
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: constructor — say its word sum and meaning before checking; the system never surprises you
+    tier: 2
+  rejection:
+    composed_of:
+    - reject
+    - -ion
+    pieces:
+    - re-
+    - ject
+    - -ion
+    defines: the act of throwing back — by now the pattern reads itself
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: projection, injection, ejection — decode all three from bricks you already own
+    tier: 2
+  transportable:
+    composed_of:
+    - transport
+    - -able
+    pieces:
+    - trans-
+    - port
+    - -able
+    defines: able to be carried across — three bricks compose left to right like arithmetic
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: which is bigger, the set of -able words or the set you could ever memorize one by one?
+    tier: 2
+  reconstruction:
+    composed_of:
+    - re-
+    - construction
+    pieces:
+    - re-
+    - con-
+    - struct
+    - -ion
+    defines: the act of building together AGAIN — four bricks, double prefix; the 森 of this graph
+      (brick count grows, meaning compounds, nothing new to memorize)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (the word sum, machine-checked)
+    play: write the four-brick word sum, then top it — find or coin a five-brick English word
+    tier: 3
+  prefix_root_composition:
+    composed_of:
+    - inspect
+    - transport
+    - predict
+    - construct
+    - reject
+    - import
+    defines: the steering principle — prefixes aim a root's meaning (into, across, before, together,
+      back); the 会意 of Latinate English
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: take one root you know and run it through all five prefixes; how many are real words?
+    tier: 3
+  suffix_derivation:
+    composed_of:
+    - portable
+    - inspection
+    - inspector
+    - prediction
+    - construction
+    - rejection
+    - transportable
+    defines: the operator principle — suffixes change what KIND of word you hold; -ion makes the act,
+      -or makes the doer, -able makes the capability
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: pick any verb from today's homework and derive its -ion, -or, and -able forms; flag the
+      ones English actually uses
+    tier: 3
+  allomorphy:
+    composed_of:
+    - inspect
+    - import
+    defines: the shape-shifting principle — one brick, several surfaces; in- stays in- before s (inspect)
+      but becomes im- before p (import), il-/ir- before l/r; the 水→氵 of English, and the reason
+      spelling is derivation rather than memorization
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: inspect vs import is the minimal pair — now explain why illegal and irregular double their
+      letters
+    tier: 3
+  morphological_decoding_principle:
+    composed_of:
+    - prefix_root_composition
+    - suffix_derivation
+    - allomorphy
+    defines: the payoff — prefix steers + root carries + suffix operates composes most academic,
+      scientific, legal, and medical English; master ~220 bricks and this single principle, and tens
+      of thousands of unseen words become decodable on sight — the LEGO way
+    verifier: structural
+    lab: graph_lib.reducible — the LEGO claim, machine-checked (every word reduces to the brick set)
+    play: open any science article, pick the longest word, write its word sum, and make your meaning
+      guess before the dictionary settles it
+    tier: 4
+applications:
+  decoding_unseen_words:
+    needs:
+    - morphological_decoding_principle
+    domain: literacy
+    defines: the decoding superpower — meet a brand-new word and extract a meaning guess from its
+      bricks before any lookup
+  academic_vocabulary:
+    needs:
+    - suffix_derivation
+    domain: education and equity
+    defines: -ion/-or/-able words dominate textbooks past grade four; morphological awareness is the
+      best-documented lever on the academic-vocabulary gap, and it is rarely taught explicitly —
+      bricks before brute-force word lists
+  scientific_terminology:
+    needs:
+    - morphological_decoding_principle
+    domain: STEM literacy
+    defines: spectrometer, trajectory, conductor, transformer — STEM vocabulary is the densest
+      morpheme LEGO there is; the decoding principle IS a lab instrument
+  spelling_insight:
+    needs:
+    - allomorphy
+    domain: spelling
+    defines: spelling becomes derivation, not memorization — immobile and irregular double their
+      letters because a shape-shifted in- meets the root's first letter; the word sum explains what
+      the spelling test only punishes
+  cross_language_transfer:
+    needs:
+    - prefix_root_composition
+    domain: multilingual learning
+    defines: the same bricks surface in Spanish, French, and Portuguese cognates (transportar,
+      prédiction) — and the schema itself transfers; this file and chinese_characters_graph.yaml
+      are machine-checked by the SAME verifier

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Concept Graph — mechanics_graph</title>
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:100vh}
+.app{
+  display:grid;
+  grid-template-columns:230px 1fr 210px;
+  grid-template-rows:60vh 40vh;
+  height:100vh;
+  gap:0;
+}
+/* ── Left sidebar: learning path ── */
+#path-sidebar{
+  grid-column:1;grid-row:1/3;
+  background:#f5f6f8;color:#2a2a2a;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border-right:1px solid #dde0e6;
+}
+#path-header{
+  padding:14px 14px 10px;
+  border-bottom:1px solid #dde0e6;
+  flex-shrink:0;
+}
+#path-header h1{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#888;margin-bottom:2px;font-weight:700}
+#path-header .domain-name{font-size:11px;color:#555;margin-top:4px}
+#path-steps{flex:1;overflow-y:auto;padding:8px 0}
+#path-steps .hint{color:#aaa;font-size:12px;text-align:center;padding:24px 12px;line-height:1.5}
+.step-item{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:7px 12px;cursor:pointer;
+  border-left:3px solid transparent;
+  transition:background .15s;
+}
+.step-item:hover{background:#ebebf0}
+.step-item.active{background:#e8eef8;border-left-color:#4a90d9}
+.step-item.target{background:#eaf5ea;border-left-color:#4caf50}
+.step-num{min-width:20px;font-size:10px;font-weight:700;color:#bbb;padding-top:2px;flex-shrink:0}
+.step-item.target .step-num{color:#4caf50}
+.step-label{font-size:12px;font-weight:600;color:#333;line-height:1.4}
+.step-def{font-size:10px;color:#888;margin-top:2px;line-height:1.4}
+.step-kind{display:inline-block;padding:0 5px;border-radius:8px;font-size:9px;font-weight:700;margin-left:4px}
+#path-count{font-size:10px;color:#aaa;margin-top:3px}
+/* ── Graph panel ── */
+#graph-panel{
+  grid-column:2;grid-row:1;
+  position:relative;background:#fff;
+  border-bottom:2px solid #dde;
+}
+#graph-container{width:100%;height:100%}
+#legend{
+  position:absolute;top:10px;right:10px;
+  background:rgba(255,255,255,.9);border:1px solid #ddd;
+  border-radius:6px;padding:8px 10px;font-size:11px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.leg{display:flex;align-items:center;gap:4px}
+.leg-dot{width:11px;height:11px;border-radius:2px;border:2px solid;flex-shrink:0}
+/* ── Explanation panel ── */
+#explain-panel{
+  grid-column:2;grid-row:2;
+  background:#fff;overflow-y:auto;
+  padding:16px 20px;
+}
+#explain-panel .empty{color:#aaa;font-size:13px;padding:20px 0;text-align:center}
+#explain-panel .node-title{
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+#explain-panel .node-title h2{font-size:16px;color:#1e3a5f}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-size:11px;font-weight:700;
+}
+.badge.primitive{background:#e8f5e9;color:#2e7d32}
+.badge.concept{background:#e3f2fd;color:#1565c0}
+.badge.application{background:#fff3e0;color:#ef6c00}
+.tier-tag{font-size:11px;color:#999;margin-left:auto}
+#explain-panel .defines{
+  font-size:14px;color:#333;line-height:1.6;margin-bottom:12px;
+  padding:10px 12px;background:#f8f9fb;border-radius:6px;
+  border-left:3px solid #90b4e8;
+}
+#explain-panel .section-label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:#999;margin-bottom:6px;
+}
+#explain-panel .prereq-list{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.prereq-chip{
+  padding:3px 9px;border-radius:12px;font-size:11px;
+  background:#e3f2fd;color:#1565c0;cursor:pointer;
+  border:1px solid #90caf9;transition:background .12s;
+}
+.prereq-chip:hover{background:#bbdefb}
+#explain-panel .meta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.meta-item{font-size:12px;color:#555}
+.meta-item b{color:#1e3a5f}
+#explain-panel .play-hint{
+  font-size:12px;color:#5a5a5a;line-height:1.6;
+  padding:8px 12px;background:#fffde7;border-radius:6px;
+  border-left:3px solid #ffd54f;margin-bottom:8px;
+}
+/* ── Notes sidebar ── */
+#notes-sidebar{
+  grid-column:3;grid-row:1/3;
+  background:#fafaf8;
+  border-left:2px solid #e8e8e0;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+#notes-header{
+  padding:12px 12px 8px;
+  border-bottom:1px solid #e0e0d8;
+  flex-shrink:0;
+}
+#notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em}
+#notes-node-label{font-size:11px;color:#999;margin-top:2px}
+#notes-textarea{
+  flex:1;border:none;resize:none;
+  padding:12px;font-size:12px;line-height:1.6;
+  font-family:inherit;background:#fafaf8;color:#333;
+  outline:none;
+}
+#notes-actions{
+  padding:8px 10px;border-top:1px solid #e8e8e0;flex-shrink:0;
+  display:flex;gap:6px;align-items:center;
+}
+#notes-actions button{
+  font-size:11px;padding:4px 10px;border-radius:4px;
+  border:1px solid #ccc;background:#fff;cursor:pointer;color:#444;
+}
+#notes-actions button:hover{background:#f0f0e8}
+#notes-with-entries{
+  border-top:1px solid #e8e8e0;flex-shrink:0;
+  max-height:35vh;overflow-y:auto;
+}
+.note-entry{
+  padding:6px 12px;cursor:pointer;
+  border-bottom:1px solid #f0f0e8;
+  font-size:11px;
+}
+.note-entry:hover{background:#f0efe8}
+.note-entry .note-node{font-weight:600;color:#555}
+.note-entry .note-preview{color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ── kind badge colours in sidebar ── */
+.primitive-k{background:#e8f5e9;color:#2e7d32}
+.concept-k{background:#e3f2fd;color:#1565c0}
+.application-k{background:#fff3e0;color:#ef6c00}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- LEFT: learning path sidebar -->
+<aside id="path-sidebar">
+  <div id="path-header">
+    <h1>Learning Path</h1>
+    <div class="domain-name">mechanics_graph</div>
+    <div id="path-count"></div>
+  </div>
+  <div id="path-steps">
+    <div class="hint">Click any node in the graph<br>to see its learning path</div>
+  </div>
+</aside>
+
+<!-- CENTRE TOP: concept graph -->
+<div id="graph-panel">
+  <div id="graph-container"></div>
+  <div id="legend">
+    <div class="leg"><div class="leg-dot" style="background:#e8f5e9;border-color:#2e7d32"></div>primitive</div>
+    <div class="leg"><div class="leg-dot" style="background:#e3f2fd;border-color:#1565c0"></div>concept</div>
+    <div class="leg"><div class="leg-dot" style="background:#fff3e0;border-color:#ef6c00"></div>application</div>
+  </div>
+</div>
+
+<!-- CENTRE BOTTOM: explanation panel -->
+<div id="explain-panel">
+  <div class="empty">Select a node to see its definition, prerequisites, and learning context.</div>
+</div>
+
+<!-- RIGHT: notes sidebar -->
+<aside id="notes-sidebar">
+  <div id="notes-header">
+    <h2>Notes</h2>
+    <div id="notes-node-label">no node selected</div>
+  </div>
+  <textarea id="notes-textarea" placeholder="Type notes here&#10;(auto-saved per node)"></textarea>
+  <div id="notes-actions">
+    <button onclick="exportNotes()">Export JSON</button>
+    <button onclick="clearNote()">Clear</button>
+  </div>
+  <div id="notes-with-entries"></div>
+</aside>
+
+</div><!-- .app -->
+
+<script>
+const RAW = {"nodes": [{"id": "position", "label": "position", "kind": "primitive", "tier": 0, "defines": "first radical — configuration; where things are; an undefined notion every other kinematic quantity is built from", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "time", "label": "time", "kind": "primitive", "tier": 0, "defines": "first radical — the parameter motion unfolds in; change is measured against it", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "mass", "label": "mass", "kind": "primitive", "tier": 0, "defines": "second radical — inertia; a body's resistance to changes in its state of motion; not reducible to kinematics", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "force", "label": "force", "kind": "primitive", "tier": 0, "defines": "second radical — interaction; what changes states of motion; the dynamical floor", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "velocity", "label": "velocity", "kind": "concept", "tier": 1, "defines": "rate of change of position — v = dx/dt; the first derived kinematic quantity", "prereqs": ["position", "time"], "verifier": "sympy", "lab": "sympy.diff", "play": "differentiate x(t) = t**2 symbolically; compare v(t) against the difference quotient as h shrinks", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "acceleration", "label": "acceleration", "kind": "concept", "tier": 2, "defines": "rate of change of velocity — a = dv/dt = d²x/dt²; the quantity dynamics acts on", "prereqs": ["velocity", "time"], "verifier": "sympy", "lab": "sympy.diff", "play": "differentiate v(t) twice for free fall x(t) = -g*t**2/2 and recover the constant -g", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "constraints", "label": "constraints", "kind": "concept", "tier": 1, "defines": "restrictions on allowed configurations (a pendulum bob stays on its circle) — they carve the space motion actually happens in", "prereqs": ["position"], "verifier": "sympy", "lab": "sympy.geometry", "play": "write the constraint x**2 + y**2 == L**2 for a pendulum; count the surviving degrees of freedom", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "momentum", "label": "momentum", "kind": "concept", "tier": 2, "defines": "p = m·v — the conserved currency of motion; what collisions exchange", "prereqs": ["mass", "velocity"], "verifier": "sage|sympy", "lab": "graph_lib.verify_momentum_conservation (exact QQ recompute; Sage preferred, SymPy fallback)", "play": "collide two carts with rational masses and speeds; verify total p before == after, exactly", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "newtons_second_law", "label": "newtons second law", "kind": "concept", "tier": 3, "defines": "F = m·a — the bridge between the two radicals; dynamics (force, mass) determines kinematics (acceleration)", "prereqs": ["force", "mass", "acceleration"], "verifier": "sympy", "lab": "sympy.solve", "play": "given F and m as exact rationals, solve for a; check units and limiting cases (m → large, a → small)", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "work", "label": "work", "kind": "concept", "tier": 3, "defines": "W = F·d — force acting through a displacement; the mechanism by which energy moves between forms", "prereqs": ["force", "position"], "verifier": "sympy", "lab": "sympy.integrate", "play": "integrate a position-dependent force F(x) = -k*x over a displacement; compare with the area under the F-x curve", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "kinetic_energy", "label": "kinetic energy", "kind": "concept", "tier": 3, "defines": "T = ½·m·v² — energy of motion; the kinematic half of the energy ledger", "prereqs": ["mass", "velocity"], "verifier": "sympy", "lab": "sympy", "play": "verify the work-energy theorem on a worked example — net work equals ΔT exactly over the rationals", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "potential_energy", "label": "potential energy", "kind": "concept", "tier": 4, "defines": "V(x) — stored work; energy of configuration; defined so that conservative forces satisfy F = -dV/dx", "prereqs": ["work"], "verifier": "sympy", "lab": "sympy.diff", "play": "differentiate V(x) = m*g*h and V(x) = k*x**2/2; recover gravity and the spring force", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "torque", "label": "torque", "kind": "concept", "tier": 4, "defines": "τ = r × F — the rotational analog of force; what changes rotational states of motion", "prereqs": ["force", "position"], "verifier": "sympy", "lab": "sympy.Matrix.cross", "play": "compute r × F for exact rational vectors; check the right-hand rule against the sign", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "angular_momentum", "label": "angular momentum", "kind": "concept", "tier": 4, "defines": "L = r × p — the rotational analog of momentum; conserved when torque vanishes", "prereqs": ["momentum", "position"], "verifier": "sympy", "lab": "sympy.Matrix.cross", "play": "verify Kepler's second law on a worked orbit — equal areas in equal times is constant L", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "energy_conservation", "label": "energy conservation", "kind": "concept", "tier": 5, "defines": "T + V is constant along the motion when all forces are conservative — the deepest bookkeeping identity in mechanics", "prereqs": ["kinetic_energy", "potential_energy", "work"], "verifier": "sage|sympy", "lab": "graph_lib.verify_energy_conservation (exact QQ recompute; Sage preferred, SymPy fallback)", "play": "drop a mass from height h with rational data; verify ½mv₀² + mgh₀ == ½mv₁² + mgh₁ exactly", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "rotational_dynamics", "label": "rotational dynamics", "kind": "concept", "tier": 5, "defines": "τ = dL/dt — Newton's second law transplanted to rotation; spinning tops, flywheels, orbits", "prereqs": ["torque", "angular_momentum", "newtons_second_law"], "verifier": "sympy", "lab": "sympy.diff", "play": "differentiate L(t) for a worked example and compare against the applied torque", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "configuration_space", "label": "configuration space", "kind": "concept", "tier": 5, "defines": "the manifold of allowed configurations — a pendulum lives on a circle, a double pendulum on a torus; geometry becomes the stage for dynamics", "prereqs": ["position", "constraints"], "verifier": "sage", "lab": "classical_mechanics_seed.sphere_scalar_curvature (SageManifolds — charts, metric, curvature; Sage-only, fails fast without Sage)", "play": "build S² as a Riemannian manifold and compute its Ricci scalar — exactly 2/r² (see classical_mechanics_seed.py)", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "harmonic_oscillator", "label": "harmonic oscillator", "kind": "concept", "tier": 6, "defines": "m·x'' = -k·x — the one system every other system becomes near equilibrium; solution x(t) = A·cos(ωt) + B·sin(ωt) with ω² = k/m", "prereqs": ["newtons_second_law", "potential_energy"], "verifier": "sage|sympy", "lab": "graph_lib.verify_sho_solution (symbolic differentiation recompute; Sage preferred, SymPy fallback)", "play": "substitute x(t) = A*cos(w*t) + B*sin(w*t) into x'' + w**2*x and watch it vanish identically", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "generalized_coordinates", "label": "generalized coordinates", "kind": "concept", "tier": 6, "defines": "q₁ … qₙ — coordinates adapted to the constraints (the pendulum's angle, not its x and y); the right variables make the physics simple", "prereqs": ["configuration_space"], "verifier": "sympy", "lab": "sympy", "play": "rewrite the pendulum's energy in θ alone; the constraint disappears from the equations", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "lagrangian", "label": "lagrangian", "kind": "concept", "tier": 7, "defines": "L = T - V — one scalar function of (q, q̇, t) that encodes the entire dynamics; the payoff of the energy ledger", "prereqs": ["kinetic_energy", "potential_energy", "generalized_coordinates"], "verifier": "sympy", "lab": "sympy", "play": "write L for the pendulum in θ; check its dimensions and its small-angle limit", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "least_action", "label": "least action", "kind": "concept", "tier": 8, "defines": "motion makes the action S = ∫L dt stationary — dynamics restated as a variational principle; the bridge to optics, field theory, and quantum mechanics", "prereqs": ["lagrangian", "time"], "verifier": "sympy", "lab": "sympy.integrate", "play": "compare the action of the true free-fall path against nearby wiggled paths on exact polynomial trajectories", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "euler_lagrange_equations", "label": "euler lagrange equations", "kind": "concept", "tier": 8, "defines": "d/dt(∂L/∂q̇) = ∂L/∂q — the equations of motion extracted from the action; Newton's laws recovered coordinate-free", "prereqs": ["least_action", "generalized_coordinates"], "verifier": "sympy", "lab": "sympy.diff", "play": "run Euler-Lagrange on the SHO Lagrangian and watch m·x'' = -k·x reappear", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "normal_modes", "label": "normal modes", "kind": "concept", "tier": 9, "defines": "coupled oscillators decouple into independent harmonic motions at characteristic frequencies — the eigenvalue problem of mechanics, and this textbook's target", "prereqs": ["harmonic_oscillator", "euler_lagrange_equations"], "verifier": "sage|sympy", "lab": "sympy.Matrix.eigenvals (frequencies are eigenvalues of the dynamical matrix — the bridge back to the linalg domain)", "play": "two carts and three springs — find both mode frequencies exactly and watch symmetric/antisymmetric motion decouple", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "orbital_mechanics", "label": "orbital mechanics", "kind": "application", "tier": 0, "defines": "every transfer orbit is an exercise in conserving E and L — Kepler's laws are conservation laws in disguise", "prereqs": ["energy_conservation", "angular_momentum"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "robotics", "label": "robotics", "kind": "application", "tier": 0, "defines": "a robot arm is a point moving on its configuration manifold; its controllers integrate Euler-Lagrange equations in real time", "prereqs": ["configuration_space", "euler_lagrange_equations"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "molecular_vibrations", "label": "molecular vibrations", "kind": "application", "tier": 0, "defines": "infrared spectra read off a molecule's normal-mode frequencies — quantum chemistry's daily use of the dynamical eigenvalue problem", "prereqs": ["normal_modes", "harmonic_oscillator"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "structural_engineering", "label": "structural engineering", "kind": "application", "tier": 0, "defines": "buildings and bridges fail at resonance — engineers compute normal modes to keep driving frequencies away from them", "prereqs": ["normal_modes", "energy_conservation"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "quantum_bridge", "label": "quantum bridge", "kind": "application", "tier": 0, "defines": "canonical quantization starts from the Lagrangian and the path integral sums over least-action's nearby paths — classical mechanics is the stationary-phase limit", "prereqs": ["lagrangian", "least_action"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}], "edges": [{"from": "position", "to": "velocity"}, {"from": "position", "to": "constraints"}, {"from": "position", "to": "work"}, {"from": "position", "to": "torque"}, {"from": "position", "to": "angular_momentum"}, {"from": "position", "to": "configuration_space"}, {"from": "time", "to": "velocity"}, {"from": "time", "to": "acceleration"}, {"from": "time", "to": "least_action"}, {"from": "mass", "to": "momentum"}, {"from": "mass", "to": "newtons_second_law"}, {"from": "mass", "to": "kinetic_energy"}, {"from": "force", "to": "newtons_second_law"}, {"from": "force", "to": "work"}, {"from": "force", "to": "torque"}, {"from": "velocity", "to": "acceleration"}, {"from": "velocity", "to": "momentum"}, {"from": "velocity", "to": "kinetic_energy"}, {"from": "acceleration", "to": "newtons_second_law"}, {"from": "constraints", "to": "configuration_space"}, {"from": "momentum", "to": "angular_momentum"}, {"from": "newtons_second_law", "to": "rotational_dynamics"}, {"from": "newtons_second_law", "to": "harmonic_oscillator"}, {"from": "work", "to": "potential_energy"}, {"from": "work", "to": "energy_conservation"}, {"from": "kinetic_energy", "to": "energy_conservation"}, {"from": "kinetic_energy", "to": "lagrangian"}, {"from": "potential_energy", "to": "energy_conservation"}, {"from": "potential_energy", "to": "harmonic_oscillator"}, {"from": "potential_energy", "to": "lagrangian"}, {"from": "torque", "to": "rotational_dynamics"}, {"from": "angular_momentum", "to": "rotational_dynamics"}, {"from": "angular_momentum", "to": "orbital_mechanics"}, {"from": "energy_conservation", "to": "orbital_mechanics"}, {"from": "energy_conservation", "to": "structural_engineering"}, {"from": "configuration_space", "to": "generalized_coordinates"}, {"from": "configuration_space", "to": "robotics"}, {"from": "harmonic_oscillator", "to": "normal_modes"}, {"from": "harmonic_oscillator", "to": "molecular_vibrations"}, {"from": "generalized_coordinates", "to": "lagrangian"}, {"from": "generalized_coordinates", "to": "euler_lagrange_equations"}, {"from": "lagrangian", "to": "least_action"}, {"from": "lagrangian", "to": "quantum_bridge"}, {"from": "least_action", "to": "euler_lagrange_equations"}, {"from": "least_action", "to": "quantum_bridge"}, {"from": "euler_lagrange_equations", "to": "normal_modes"}, {"from": "euler_lagrange_equations", "to": "robotics"}, {"from": "normal_modes", "to": "molecular_vibrations"}, {"from": "normal_modes", "to": "structural_engineering"}]};
+const DOMAIN_KEY = "mechanics_graph";
+
+// ── index ──────────────────────────────────────────────────────────────────
+const nodeIndex = {};
+RAW.nodes.forEach(n => nodeIndex[n.id] = n);
+
+const prereqOf  = {};  // id → ids that are direct prerequisites OF id
+const dependsOn = {};  // id → ids that id feeds into
+RAW.nodes.forEach(n => { prereqOf[n.id] = []; dependsOn[n.id] = []; });
+RAW.edges.forEach(e => {
+  prereqOf[e.to].push(e.from);
+  dependsOn[e.from].push(e.to);
+});
+
+// ── BFS longest-path levels (fixes application nodes at wrong tier) ─────────
+const bfsLevels = (() => {
+  const levels = {};
+  const successors = {};
+  RAW.nodes.forEach(n => { levels[n.id] = -1; successors[n.id] = []; });
+  RAW.edges.forEach(e => successors[e.from].push(e.to));
+  const sources = RAW.nodes.filter(n => !RAW.edges.some(e => e.to === n.id));
+  const queue = sources.map(n => n.id);
+  queue.forEach(n => levels[n] = 0);
+  let i = 0;
+  while (i < queue.length) {
+    const cur = queue[i++];
+    for (const succ of successors[cur]) {
+      const nl = levels[cur] + 1;
+      if (levels[succ] < nl) { levels[succ] = nl; queue.push(succ); }
+    }
+  }
+  return levels;
+})();
+
+// ── graph algorithms ────────────────────────────────────────────────────────
+function getAncestors(targetId) {
+  const visited = new Set();
+  const queue = [targetId];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const p of prereqOf[cur])
+      if (!visited.has(p)) { visited.add(p); queue.push(p); }
+  }
+  return visited;
+}
+
+function topoSort(nodeSet) {
+  const inDeg = {};
+  nodeSet.forEach(n => inDeg[n] = 0);
+  nodeSet.forEach(n => { for (const p of prereqOf[n]) if (nodeSet.has(p)) inDeg[n]++; });
+  const reach = {};
+  nodeSet.forEach(n => {
+    let r = 0;
+    nodeSet.forEach(m => { if (m !== n && getAncestors(m).has(n)) r++; });
+    reach[n] = r;
+  });
+  const heap = [];
+  nodeSet.forEach(n => { if (inDeg[n] === 0) heap.push(n); });
+  heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+  const result = [];
+  while (heap.length) {
+    const node = heap.shift();
+    result.push(node);
+    for (const succ of dependsOn[node]) {
+      if (!nodeSet.has(succ)) continue;
+      if (--inDeg[succ] === 0) {
+        heap.push(succ);
+        heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+      }
+    }
+  }
+  return result;
+}
+
+// ── vis.js network ──────────────────────────────────────────────────────────
+const container = document.getElementById('graph-container');
+const visNodes = new vis.DataSet(RAW.nodes.map(n => ({
+  id: n.id,
+  label: n.label,
+  level: bfsLevels[n.id] !== undefined ? bfsLevels[n.id] : n.tier,
+  color: n.color,
+  font: n.font,
+  title: `<b>${n.label}</b> [${n.kind}]<br>${n.defines || ''}`,
+  shape: n.kind === 'primitive' ? 'diamond' : n.kind === 'application' ? 'box' : 'ellipse',
+})));
+const visEdges = new vis.DataSet(RAW.edges.map((e, i) => ({
+  id: i, from: e.from, to: e.to,
+  arrows: 'to', color: {color: '#c8ccd4'}, width: 1,
+})));
+const network = new vis.Network(container, {nodes: visNodes, edges: visEdges}, {
+  layout: { hierarchical: {
+    enabled: true, direction: 'UD',
+    sortMethod: 'directed', levelSeparation: 85, nodeSpacing: 130,
+  } },
+  physics: { enabled: false },
+  interaction: { hover: true, tooltipDelay: 150 },
+  edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical' } },
+});
+
+const C_PATH   = {background: '#fff9c4', border: '#f9a825'};
+const C_TARGET = {background: '#ffe082', border: '#e65100'};
+
+function resetColors() {
+  visNodes.update(RAW.nodes.map(n => ({id: n.id, color: n.color})));
+  visEdges.update(RAW.edges.map((e, i) => ({id: i, color: {color: '#c8ccd4'}, width: 1})));
+}
+
+// ── explanation panel ───────────────────────────────────────────────────────
+function renderExplanation(node) {
+  const kclass = node.kind;
+  const prereqChips = (node.prereqs || []).map(p =>
+    `<span class="prereq-chip" onclick="selectNode('${p}')">${p.replace(/_/g,' ')}</span>`
+  ).join('');
+  const metaItems = [
+    node.verifier ? `<span class="meta-item"><b>Verifier:</b> ${node.verifier}</span>` : '',
+    node.lab      ? `<span class="meta-item"><b>Lab:</b> ${node.lab}</span>` : '',
+  ].filter(Boolean).join('');
+  const playHtml = node.play
+    ? `<div class="section-label">Try it</div><div class="play-hint">${node.play}</div>`
+    : '';
+
+  document.getElementById('explain-panel').innerHTML = `
+    <div class="node-title">
+      <h2>${node.label}</h2>
+      <span class="badge ${kclass}">${kclass}</span>
+      <span class="tier-tag">BFS level ${bfsLevels[node.id] ?? node.tier}</span>
+    </div>
+    ${node.defines ? `<div class="defines">${node.defines}</div>` : ''}
+    ${prereqChips ? `<div class="section-label">Prerequisites</div><div class="prereq-list">${prereqChips}</div>` : ''}
+    ${metaItems ? `<div class="meta-row">${metaItems}</div>` : ''}
+    ${playHtml}
+  `;
+}
+
+// ── learning path sidebar ───────────────────────────────────────────────────
+function renderPathSidebar(orderedPath, targetId) {
+  const stepsEl = document.getElementById('path-steps');
+  const countEl = document.getElementById('path-count');
+  countEl.textContent = orderedPath.length
+    ? `${orderedPath.length} step${orderedPath.length !== 1 ? 's' : ''} to learn first`
+    : 'Root concept — no prerequisites';
+
+  const target = nodeIndex[targetId];
+  const kc = k => `${k.charAt(0).toUpperCase() + k.slice(1)}`;
+
+  stepsEl.innerHTML = orderedPath.map((n, i) => {
+    const nd = nodeIndex[n];
+    return `<div class="step-item" onclick="selectNode('${n}')">
+      <span class="step-num">${i + 1}.</span>
+      <div>
+        <div class="step-label">${nd.label}
+          <span class="step-kind ${nd.kind}-k">${nd.kind}</span>
+        </div>
+        ${nd.defines ? `<div class="step-def">${nd.defines}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('') + `<div class="step-item target">
+    <span class="step-num">▶</span>
+    <div>
+      <div class="step-label">${target.label}
+        <span class="step-kind ${target.kind}-k">${target.kind}</span>
+      </div>
+      ${target.defines ? `<div class="step-def">${target.defines}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+// ── notes (localStorage) ────────────────────────────────────────────────────
+let currentNodeId = null;
+
+function noteKey(nodeId) { return `concept_notes_${DOMAIN_KEY}_${nodeId}`; }
+
+function loadNote(nodeId) {
+  return localStorage.getItem(noteKey(nodeId)) || '';
+}
+
+function saveNote(nodeId, text) {
+  if (text.trim()) localStorage.setItem(noteKey(nodeId), text);
+  else localStorage.removeItem(noteKey(nodeId));
+  renderNotesList();
+}
+
+function renderNotesList() {
+  const container = document.getElementById('notes-with-entries');
+  const entries = RAW.nodes
+    .filter(n => localStorage.getItem(noteKey(n.id)))
+    .map(n => ({id: n.id, label: n.label, preview: localStorage.getItem(noteKey(n.id)).slice(0, 60)}));
+  if (!entries.length) { container.innerHTML = ''; return; }
+  container.innerHTML = entries.map(e =>
+    `<div class="note-entry" onclick="selectNode('${e.id}')">
+      <div class="note-node">${e.label}</div>
+      <div class="note-preview">${e.preview}</div>
+    </div>`
+  ).join('');
+}
+
+function switchNotes(nodeId) {
+  if (currentNodeId !== null) {
+    saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+  }
+  currentNodeId = nodeId;
+  document.getElementById('notes-textarea').value = loadNote(nodeId);
+  document.getElementById('notes-node-label').textContent =
+    nodeIndex[nodeId]?.label || nodeId;
+}
+
+function clearNote() {
+  document.getElementById('notes-textarea').value = '';
+  if (currentNodeId) saveNote(currentNodeId, '');
+}
+
+function exportNotes() {
+  const notes = {};
+  RAW.nodes.forEach(n => {
+    const v = localStorage.getItem(noteKey(n.id));
+    if (v) notes[n.id] = v;
+  });
+  const blob = new Blob([JSON.stringify(notes, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${DOMAIN_KEY}_notes.json`;
+  a.click();
+}
+
+document.getElementById('notes-textarea').addEventListener('input', () => {
+  if (currentNodeId) saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+});
+
+// ── unified node select ─────────────────────────────────────────────────────
+function selectNode(nodeId) {
+  if (!nodeIndex[nodeId]) return;
+  network.selectNodes([nodeId]);
+  handleSelect(nodeId);
+}
+
+function handleSelect(targetId) {
+  const node = nodeIndex[targetId];
+
+  renderExplanation(node);
+  switchNotes(targetId);
+
+  const ancestors = getAncestors(targetId);
+  const pathSet = new Set([...ancestors]);
+  const orderedPath = topoSort(pathSet);
+
+  renderPathSidebar(orderedPath, targetId);
+
+  resetColors();
+  visNodes.update(orderedPath.map(n => ({id: n, color: C_PATH})));
+  visNodes.update([{id: targetId, color: C_TARGET}]);
+  visEdges.update(RAW.edges.map((e, i) => {
+    const inPath = pathSet.has(e.from) && (pathSet.has(e.to) || e.to === targetId);
+    return {id: i, color: {color: inPath ? '#f9a825' : '#c8ccd4'}, width: inPath ? 2 : 1};
+  }));
+}
+
+network.on('click', params => {
+  if (params.nodes.length) handleSelect(params.nodes[0]);
+});
+
+// initialise notes list on load
+renderNotesList();
+</script>
+</body>
+</html>

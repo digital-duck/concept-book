@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Concept Graph — chemistry_elements_graph</title>
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:100vh}
+.app{
+  display:grid;
+  grid-template-columns:230px 1fr 210px;
+  grid-template-rows:60vh 40vh;
+  height:100vh;
+  gap:0;
+}
+/* ── Left sidebar: learning path ── */
+#path-sidebar{
+  grid-column:1;grid-row:1/3;
+  background:#f5f6f8;color:#2a2a2a;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border-right:1px solid #dde0e6;
+}
+#path-header{
+  padding:14px 14px 10px;
+  border-bottom:1px solid #dde0e6;
+  flex-shrink:0;
+}
+#path-header h1{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#888;margin-bottom:2px;font-weight:700}
+#path-header .domain-name{font-size:11px;color:#555;margin-top:4px}
+#path-steps{flex:1;overflow-y:auto;padding:8px 0}
+#path-steps .hint{color:#aaa;font-size:12px;text-align:center;padding:24px 12px;line-height:1.5}
+.step-item{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:7px 12px;cursor:pointer;
+  border-left:3px solid transparent;
+  transition:background .15s;
+}
+.step-item:hover{background:#ebebf0}
+.step-item.active{background:#e8eef8;border-left-color:#4a90d9}
+.step-item.target{background:#eaf5ea;border-left-color:#4caf50}
+.step-num{min-width:20px;font-size:10px;font-weight:700;color:#bbb;padding-top:2px;flex-shrink:0}
+.step-item.target .step-num{color:#4caf50}
+.step-label{font-size:12px;font-weight:600;color:#333;line-height:1.4}
+.step-def{font-size:10px;color:#888;margin-top:2px;line-height:1.4}
+.step-kind{display:inline-block;padding:0 5px;border-radius:8px;font-size:9px;font-weight:700;margin-left:4px}
+#path-count{font-size:10px;color:#aaa;margin-top:3px}
+/* ── Graph panel ── */
+#graph-panel{
+  grid-column:2;grid-row:1;
+  position:relative;background:#fff;
+  border-bottom:2px solid #dde;
+}
+#graph-container{width:100%;height:100%}
+#legend{
+  position:absolute;top:10px;right:10px;
+  background:rgba(255,255,255,.9);border:1px solid #ddd;
+  border-radius:6px;padding:8px 10px;font-size:11px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.leg{display:flex;align-items:center;gap:4px}
+.leg-dot{width:11px;height:11px;border-radius:2px;border:2px solid;flex-shrink:0}
+/* ── Explanation panel ── */
+#explain-panel{
+  grid-column:2;grid-row:2;
+  background:#fff;overflow-y:auto;
+  padding:16px 20px;
+}
+#explain-panel .empty{color:#aaa;font-size:13px;padding:20px 0;text-align:center}
+#explain-panel .node-title{
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+#explain-panel .node-title h2{font-size:16px;color:#1e3a5f}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-size:11px;font-weight:700;
+}
+.badge.primitive{background:#e8f5e9;color:#2e7d32}
+.badge.concept{background:#e3f2fd;color:#1565c0}
+.badge.application{background:#fff3e0;color:#ef6c00}
+.tier-tag{font-size:11px;color:#999;margin-left:auto}
+#explain-panel .defines{
+  font-size:14px;color:#333;line-height:1.6;margin-bottom:12px;
+  padding:10px 12px;background:#f8f9fb;border-radius:6px;
+  border-left:3px solid #90b4e8;
+}
+#explain-panel .section-label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:#999;margin-bottom:6px;
+}
+#explain-panel .prereq-list{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.prereq-chip{
+  padding:3px 9px;border-radius:12px;font-size:11px;
+  background:#e3f2fd;color:#1565c0;cursor:pointer;
+  border:1px solid #90caf9;transition:background .12s;
+}
+.prereq-chip:hover{background:#bbdefb}
+#explain-panel .meta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.meta-item{font-size:12px;color:#555}
+.meta-item b{color:#1e3a5f}
+#explain-panel .play-hint{
+  font-size:12px;color:#5a5a5a;line-height:1.6;
+  padding:8px 12px;background:#fffde7;border-radius:6px;
+  border-left:3px solid #ffd54f;margin-bottom:8px;
+}
+/* ── Notes sidebar ── */
+#notes-sidebar{
+  grid-column:3;grid-row:1/3;
+  background:#fafaf8;
+  border-left:2px solid #e8e8e0;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+#notes-header{
+  padding:12px 12px 8px;
+  border-bottom:1px solid #e0e0d8;
+  flex-shrink:0;
+}
+#notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em}
+#notes-node-label{font-size:11px;color:#999;margin-top:2px}
+#notes-textarea{
+  flex:1;border:none;resize:none;
+  padding:12px;font-size:12px;line-height:1.6;
+  font-family:inherit;background:#fafaf8;color:#333;
+  outline:none;
+}
+#notes-actions{
+  padding:8px 10px;border-top:1px solid #e8e8e0;flex-shrink:0;
+  display:flex;gap:6px;align-items:center;
+}
+#notes-actions button{
+  font-size:11px;padding:4px 10px;border-radius:4px;
+  border:1px solid #ccc;background:#fff;cursor:pointer;color:#444;
+}
+#notes-actions button:hover{background:#f0f0e8}
+#notes-with-entries{
+  border-top:1px solid #e8e8e0;flex-shrink:0;
+  max-height:35vh;overflow-y:auto;
+}
+.note-entry{
+  padding:6px 12px;cursor:pointer;
+  border-bottom:1px solid #f0f0e8;
+  font-size:11px;
+}
+.note-entry:hover{background:#f0efe8}
+.note-entry .note-node{font-weight:600;color:#555}
+.note-entry .note-preview{color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ── kind badge colours in sidebar ── */
+.primitive-k{background:#e8f5e9;color:#2e7d32}
+.concept-k{background:#e3f2fd;color:#1565c0}
+.application-k{background:#fff3e0;color:#ef6c00}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- LEFT: learning path sidebar -->
+<aside id="path-sidebar">
+  <div id="path-header">
+    <h1>Learning Path</h1>
+    <div class="domain-name">chemistry_elements_graph</div>
+    <div id="path-count"></div>
+  </div>
+  <div id="path-steps">
+    <div class="hint">Click any node in the graph<br>to see its learning path</div>
+  </div>
+</aside>
+
+<!-- CENTRE TOP: concept graph -->
+<div id="graph-panel">
+  <div id="graph-container"></div>
+  <div id="legend">
+    <div class="leg"><div class="leg-dot" style="background:#e8f5e9;border-color:#2e7d32"></div>primitive</div>
+    <div class="leg"><div class="leg-dot" style="background:#e3f2fd;border-color:#1565c0"></div>concept</div>
+    <div class="leg"><div class="leg-dot" style="background:#fff3e0;border-color:#ef6c00"></div>application</div>
+  </div>
+</div>
+
+<!-- CENTRE BOTTOM: explanation panel -->
+<div id="explain-panel">
+  <div class="empty">Select a node to see its definition, prerequisites, and learning context.</div>
+</div>
+
+<!-- RIGHT: notes sidebar -->
+<aside id="notes-sidebar">
+  <div id="notes-header">
+    <h2>Notes</h2>
+    <div id="notes-node-label">no node selected</div>
+  </div>
+  <textarea id="notes-textarea" placeholder="Type notes here&#10;(auto-saved per node)"></textarea>
+  <div id="notes-actions">
+    <button onclick="exportNotes()">Export JSON</button>
+    <button onclick="clearNote()">Clear</button>
+  </div>
+  <div id="notes-with-entries"></div>
+</aside>
+
+</div><!-- .app -->
+
+<script>
+const RAW = {"nodes": [{"id": "H", "label": "H", "kind": "primitive", "tier": 0, "defines": "the lightest brick — one proton; star fuel, and the \"hydro\" (water-maker) of every acid and ocean", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "C", "label": "C", "kind": "primitive", "tier": 0, "defines": "the connector brick — bonds four ways at once, which is why all of life is built on it", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "N", "label": "N", "kind": "primitive", "tier": 0, "defines": "most of every breath you take — inert in the air, essential in every protein", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "O", "label": "O", "kind": "primitive", "tier": 0, "defines": "the eager bonder — burns fuel, rusts iron, and pairs with almost everything (oxy+gen, \"acid-maker\", a naming mistake that stuck)", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "Na", "label": "Na", "kind": "primitive", "tier": 0, "defines": "a soft metal that explodes in water — and sits calmly in your salt shaker once it gives its electron away", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "S", "label": "S", "kind": "primitive", "tier": 0, "defines": "the yellow brick of volcanoes and matches; heart of battery acid", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "Cl", "label": "Cl", "kind": "primitive", "tier": 0, "defines": "a green toxic gas — and your salt shaker's other half once it takes an electron; bonding behavior is not visible in the brick", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "Fe", "label": "Fe", "kind": "primitive", "tier": 0, "defines": "the metal of blood, bridges, and the Earth's core — and of rust, once O gets hold of it", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "valence_electron", "label": "valence electron", "kind": "primitive", "tier": 0, "defines": "the second radical — the brick that does the bonding; every reaction in this book is this brick being shared (covalent) or handed over (ionic); element identity alone predicts nothing about it", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "H2", "label": "H2", "kind": "concept", "tier": 1, "defines": "hydrogen gas — the lightest brick travels in pairs; repetition as construction (the 林 of this graph)", "prereqs": ["H"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "the formula H₂ IS the pieces list — read the subscript as a brick count", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "O2", "label": "O2", "kind": "concept", "tier": 1, "defines": "oxygen gas — the fifth of the air that keeps you alive, also paired", "prereqs": ["O"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "why do these gases pair up? hold the question — the answer is the second radical", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "H2O", "label": "H2O", "kind": "concept", "tier": 1, "defines": "water — nature's own pieces list; two H bricks, one O brick, and the most important molecule on Earth", "prereqs": ["H", "O"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "read five formulas off any bottled-water label's mineral list — every subscript is a brick count", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "CO2", "label": "CO2", "kind": "concept", "tier": 1, "defines": "carbon dioxide — what you exhale and plants inhale; one connector brick, two eager bonders", "prereqs": ["C", "O"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "di- means two — the english_morphology pilot is already reading chemistry for you", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "NaCl", "label": "NaCl", "kind": "concept", "tier": 1, "defines": "table salt — an explosive metal plus a toxic gas makes dinner; proof that compounds are NEW things, not mixtures of their bricks", "prereqs": ["Na", "Cl"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "nothing about Na or Cl alone predicts \"safe and salty\" — what changed? (the second radical changed hands)", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "CH4", "label": "CH4", "kind": "concept", "tier": 1, "defines": "methane — the connector brick using all four of its hands at once; natural gas, and the simplest portrait of carbon's talent", "prereqs": ["C", "H"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "carbon bonds four ways — predict the formula of carbon-with-chlorine before looking up CCl₄", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "NH3", "label": "NH3", "kind": "concept", "tier": 1, "defines": "ammonia — nitrogen's three-handed compound; fertilizer, and the smell of cleaning day", "prereqs": ["N", "H"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "N takes 3 H, C takes 4, O takes 2 — the hand-count pattern is the periodic table whispering", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "Fe2O3", "label": "Fe2O3", "kind": "concept", "tier": 2, "defines": "rust — iron slowly surrendering electrons to oxygen; five bricks, and every bridge inspector's enemy", "prereqs": ["Fe", "O"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "find three rusty things today and read Fe₂O₃ off them like a label", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "H2SO4", "label": "H2SO4", "kind": "concept", "tier": 2, "defines": "sulfuric acid — seven bricks, three element kinds; car batteries and half of industrial chemistry (the 森 of formulas — brick count grows, nothing new to memorize)", "prereqs": ["H", "S", "O"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "count the bricks in the formula, then in the pieces list — they must agree, and a machine checks it", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "glucose", "label": "glucose", "kind": "concept", "tier": 2, "defines": "C₆H₁₂O₆ — twenty-four bricks of three kinds, and it is breakfast; the LEGO claim at biological scale (your body runs on a pieces list)", "prereqs": ["C", "H", "O"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)", "play": "photosynthesis builds this from six CO₂ and six H₂O — count both sides and feel the ledger principle coming", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "covalent_bonding", "label": "covalent bonding", "kind": "concept", "tier": 3, "defines": "the sharing principle — nonmetal bricks SPLIT the difference, pooling valence electrons in pairs; why gases pair up, why water is bent, why carbon makes chains", "prereqs": ["H2", "O2", "H2O", "CO2", "CH4", "NH3", "valence_electron"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (principle node — reducibility check)", "play": "revisit H₂ — two identical bricks with nothing to give each other can still share; that one idea is half of chemistry", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "ionic_bonding", "label": "ionic bonding", "kind": "concept", "tier": 3, "defines": "the transfer principle — a metal brick HANDS its valence electron to a nonmetal, and the two now-charged bricks snap together; salt and rust are the same move", "prereqs": ["NaCl", "Fe2O3", "valence_electron"], "verifier": "structural", "lab": "graph_lib.verify_character_lego (principle node — reducibility check)", "play": "the Chinese radicals already know this split — 钅-radical elements transfer, 气/石-radical elements share; check it against 钠 and 氧", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "conservation_of_atoms", "label": "conservation of atoms", "kind": "concept", "tier": 3, "defines": "the ledger principle — a chemical equation is a LEGO inventory check; bricks rearrange, never appear or vanish (2H₂ + O₂ → 2H₂O — four H and two O on each side, exactly)", "prereqs": ["H2", "O2", "H2O", "CH4", "CO2"], "verifier": "structural", "lab": "graph_lib.verify_balanced_equation — exact integer atom ledger, machine-checked", "play": "balance CH₄ + O₂ → CO₂ + H₂O by hand (try 2 before the O₂), then let the verifier grade you", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "stoichiometry", "label": "stoichiometry", "kind": "concept", "tier": 4, "defines": "the payoff — share, transfer, and keep the ledger; with ~20 element bricks and these three principles, every formula on every label and every equation in a first chemistry course becomes readable — the LEGO way", "prereqs": ["covalent_bonding", "ionic_bonding", "conservation_of_atoms"], "verifier": "structural", "lab": "graph_lib.reducible + graph_lib.verify_balanced_equation — both rungs of the verifier ladder in one domain", "play": "pick any ingredient label, find one E-number or formula, and read its brick list aloud", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "reading_chemical_formulas", "label": "reading chemical formulas", "kind": "application", "tier": 0, "defines": "the decoding superpower — subscripts are brick counts, formulas are pieces lists; every label, every safety sheet, every textbook equation", "prereqs": ["stoichiometry"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "balancing_equations", "label": "balancing equations", "kind": "application", "tier": 0, "defines": "the first machine-checkable homework in chemistry — verify_balanced_equation recomputes the atom ledger with exact integer arithmetic, the same shape as recipe 74's momentum and energy verifiers", "prereqs": ["conservation_of_atoms"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "chinese_element_characters", "label": "chinese element characters", "kind": "application", "tier": 0, "defines": "the periodic table was ported to Chinese by MINTING new 形声 characters — FORM radical encodes state and bonding family (气 gas, 钅 metal, 石 solid nonmetal, 氵 liquid), a phonetic brick lends the sound (氧 yǎng ← 羊); the chinese_characters pilot's principle, run in reverse by 19th-century chemists — and machine-checked by the same verifier", "prereqs": ["ionic_bonding", "covalent_bonding"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "everyday_chemistry", "label": "everyday chemistry", "kind": "application", "tier": 0, "defines": "water, salt, rust, breath — the kitchen and the garage are a chemistry lab already labeled in formulas", "prereqs": ["H2O", "NaCl", "Fe2O3"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "molecular_model_kits", "label": "molecular model kits", "kind": "application", "tier": 0, "defines": "ball-and-stick kits are pieces lists rendered in plastic — building C₆H₁₂O₆ by hand IS executing this graph's multiset, one brick at a time", "prereqs": ["CH4", "glucose"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}], "edges": [{"from": "H", "to": "H2"}, {"from": "H", "to": "H2O"}, {"from": "H", "to": "CH4"}, {"from": "H", "to": "NH3"}, {"from": "H", "to": "H2SO4"}, {"from": "H", "to": "glucose"}, {"from": "C", "to": "CO2"}, {"from": "C", "to": "CH4"}, {"from": "C", "to": "glucose"}, {"from": "N", "to": "NH3"}, {"from": "O", "to": "O2"}, {"from": "O", "to": "H2O"}, {"from": "O", "to": "CO2"}, {"from": "O", "to": "Fe2O3"}, {"from": "O", "to": "H2SO4"}, {"from": "O", "to": "glucose"}, {"from": "Na", "to": "NaCl"}, {"from": "S", "to": "H2SO4"}, {"from": "Cl", "to": "NaCl"}, {"from": "Fe", "to": "Fe2O3"}, {"from": "valence_electron", "to": "covalent_bonding"}, {"from": "valence_electron", "to": "ionic_bonding"}, {"from": "H2", "to": "covalent_bonding"}, {"from": "H2", "to": "conservation_of_atoms"}, {"from": "O2", "to": "covalent_bonding"}, {"from": "O2", "to": "conservation_of_atoms"}, {"from": "H2O", "to": "covalent_bonding"}, {"from": "H2O", "to": "conservation_of_atoms"}, {"from": "H2O", "to": "everyday_chemistry"}, {"from": "CO2", "to": "covalent_bonding"}, {"from": "CO2", "to": "conservation_of_atoms"}, {"from": "NaCl", "to": "ionic_bonding"}, {"from": "NaCl", "to": "everyday_chemistry"}, {"from": "CH4", "to": "covalent_bonding"}, {"from": "CH4", "to": "conservation_of_atoms"}, {"from": "CH4", "to": "molecular_model_kits"}, {"from": "NH3", "to": "covalent_bonding"}, {"from": "Fe2O3", "to": "ionic_bonding"}, {"from": "Fe2O3", "to": "everyday_chemistry"}, {"from": "glucose", "to": "molecular_model_kits"}, {"from": "covalent_bonding", "to": "stoichiometry"}, {"from": "covalent_bonding", "to": "chinese_element_characters"}, {"from": "ionic_bonding", "to": "stoichiometry"}, {"from": "ionic_bonding", "to": "chinese_element_characters"}, {"from": "conservation_of_atoms", "to": "stoichiometry"}, {"from": "conservation_of_atoms", "to": "balancing_equations"}, {"from": "stoichiometry", "to": "reading_chemical_formulas"}]};
+const DOMAIN_KEY = "chemistry_elements_graph";
+
+// ── index ──────────────────────────────────────────────────────────────────
+const nodeIndex = {};
+RAW.nodes.forEach(n => nodeIndex[n.id] = n);
+
+const prereqOf  = {};  // id → ids that are direct prerequisites OF id
+const dependsOn = {};  // id → ids that id feeds into
+RAW.nodes.forEach(n => { prereqOf[n.id] = []; dependsOn[n.id] = []; });
+RAW.edges.forEach(e => {
+  prereqOf[e.to].push(e.from);
+  dependsOn[e.from].push(e.to);
+});
+
+// ── BFS longest-path levels (fixes application nodes at wrong tier) ─────────
+const bfsLevels = (() => {
+  const levels = {};
+  const successors = {};
+  RAW.nodes.forEach(n => { levels[n.id] = -1; successors[n.id] = []; });
+  RAW.edges.forEach(e => successors[e.from].push(e.to));
+  const sources = RAW.nodes.filter(n => !RAW.edges.some(e => e.to === n.id));
+  const queue = sources.map(n => n.id);
+  queue.forEach(n => levels[n] = 0);
+  let i = 0;
+  while (i < queue.length) {
+    const cur = queue[i++];
+    for (const succ of successors[cur]) {
+      const nl = levels[cur] + 1;
+      if (levels[succ] < nl) { levels[succ] = nl; queue.push(succ); }
+    }
+  }
+  return levels;
+})();
+
+// ── graph algorithms ────────────────────────────────────────────────────────
+function getAncestors(targetId) {
+  const visited = new Set();
+  const queue = [targetId];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const p of prereqOf[cur])
+      if (!visited.has(p)) { visited.add(p); queue.push(p); }
+  }
+  return visited;
+}
+
+function topoSort(nodeSet) {
+  const inDeg = {};
+  nodeSet.forEach(n => inDeg[n] = 0);
+  nodeSet.forEach(n => { for (const p of prereqOf[n]) if (nodeSet.has(p)) inDeg[n]++; });
+  const reach = {};
+  nodeSet.forEach(n => {
+    let r = 0;
+    nodeSet.forEach(m => { if (m !== n && getAncestors(m).has(n)) r++; });
+    reach[n] = r;
+  });
+  const heap = [];
+  nodeSet.forEach(n => { if (inDeg[n] === 0) heap.push(n); });
+  heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+  const result = [];
+  while (heap.length) {
+    const node = heap.shift();
+    result.push(node);
+    for (const succ of dependsOn[node]) {
+      if (!nodeSet.has(succ)) continue;
+      if (--inDeg[succ] === 0) {
+        heap.push(succ);
+        heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+      }
+    }
+  }
+  return result;
+}
+
+// ── vis.js network ──────────────────────────────────────────────────────────
+const container = document.getElementById('graph-container');
+const visNodes = new vis.DataSet(RAW.nodes.map(n => ({
+  id: n.id,
+  label: n.label,
+  level: bfsLevels[n.id] !== undefined ? bfsLevels[n.id] : n.tier,
+  color: n.color,
+  font: n.font,
+  title: `<b>${n.label}</b> [${n.kind}]<br>${n.defines || ''}`,
+  shape: n.kind === 'primitive' ? 'diamond' : n.kind === 'application' ? 'box' : 'ellipse',
+})));
+const visEdges = new vis.DataSet(RAW.edges.map((e, i) => ({
+  id: i, from: e.from, to: e.to,
+  arrows: 'to', color: {color: '#c8ccd4'}, width: 1,
+})));
+const network = new vis.Network(container, {nodes: visNodes, edges: visEdges}, {
+  layout: { hierarchical: {
+    enabled: true, direction: 'UD',
+    sortMethod: 'directed', levelSeparation: 85, nodeSpacing: 130,
+  } },
+  physics: { enabled: false },
+  interaction: { hover: true, tooltipDelay: 150 },
+  edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical' } },
+});
+
+const C_PATH   = {background: '#fff9c4', border: '#f9a825'};
+const C_TARGET = {background: '#ffe082', border: '#e65100'};
+
+function resetColors() {
+  visNodes.update(RAW.nodes.map(n => ({id: n.id, color: n.color})));
+  visEdges.update(RAW.edges.map((e, i) => ({id: i, color: {color: '#c8ccd4'}, width: 1})));
+}
+
+// ── explanation panel ───────────────────────────────────────────────────────
+function renderExplanation(node) {
+  const kclass = node.kind;
+  const prereqChips = (node.prereqs || []).map(p =>
+    `<span class="prereq-chip" onclick="selectNode('${p}')">${p.replace(/_/g,' ')}</span>`
+  ).join('');
+  const metaItems = [
+    node.verifier ? `<span class="meta-item"><b>Verifier:</b> ${node.verifier}</span>` : '',
+    node.lab      ? `<span class="meta-item"><b>Lab:</b> ${node.lab}</span>` : '',
+  ].filter(Boolean).join('');
+  const playHtml = node.play
+    ? `<div class="section-label">Try it</div><div class="play-hint">${node.play}</div>`
+    : '';
+
+  document.getElementById('explain-panel').innerHTML = `
+    <div class="node-title">
+      <h2>${node.label}</h2>
+      <span class="badge ${kclass}">${kclass}</span>
+      <span class="tier-tag">BFS level ${bfsLevels[node.id] ?? node.tier}</span>
+    </div>
+    ${node.defines ? `<div class="defines">${node.defines}</div>` : ''}
+    ${prereqChips ? `<div class="section-label">Prerequisites</div><div class="prereq-list">${prereqChips}</div>` : ''}
+    ${metaItems ? `<div class="meta-row">${metaItems}</div>` : ''}
+    ${playHtml}
+  `;
+}
+
+// ── learning path sidebar ───────────────────────────────────────────────────
+function renderPathSidebar(orderedPath, targetId) {
+  const stepsEl = document.getElementById('path-steps');
+  const countEl = document.getElementById('path-count');
+  countEl.textContent = orderedPath.length
+    ? `${orderedPath.length} step${orderedPath.length !== 1 ? 's' : ''} to learn first`
+    : 'Root concept — no prerequisites';
+
+  const target = nodeIndex[targetId];
+  const kc = k => `${k.charAt(0).toUpperCase() + k.slice(1)}`;
+
+  stepsEl.innerHTML = orderedPath.map((n, i) => {
+    const nd = nodeIndex[n];
+    return `<div class="step-item" onclick="selectNode('${n}')">
+      <span class="step-num">${i + 1}.</span>
+      <div>
+        <div class="step-label">${nd.label}
+          <span class="step-kind ${nd.kind}-k">${nd.kind}</span>
+        </div>
+        ${nd.defines ? `<div class="step-def">${nd.defines}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('') + `<div class="step-item target">
+    <span class="step-num">▶</span>
+    <div>
+      <div class="step-label">${target.label}
+        <span class="step-kind ${target.kind}-k">${target.kind}</span>
+      </div>
+      ${target.defines ? `<div class="step-def">${target.defines}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+// ── notes (localStorage) ────────────────────────────────────────────────────
+let currentNodeId = null;
+
+function noteKey(nodeId) { return `concept_notes_${DOMAIN_KEY}_${nodeId}`; }
+
+function loadNote(nodeId) {
+  return localStorage.getItem(noteKey(nodeId)) || '';
+}
+
+function saveNote(nodeId, text) {
+  if (text.trim()) localStorage.setItem(noteKey(nodeId), text);
+  else localStorage.removeItem(noteKey(nodeId));
+  renderNotesList();
+}
+
+function renderNotesList() {
+  const container = document.getElementById('notes-with-entries');
+  const entries = RAW.nodes
+    .filter(n => localStorage.getItem(noteKey(n.id)))
+    .map(n => ({id: n.id, label: n.label, preview: localStorage.getItem(noteKey(n.id)).slice(0, 60)}));
+  if (!entries.length) { container.innerHTML = ''; return; }
+  container.innerHTML = entries.map(e =>
+    `<div class="note-entry" onclick="selectNode('${e.id}')">
+      <div class="note-node">${e.label}</div>
+      <div class="note-preview">${e.preview}</div>
+    </div>`
+  ).join('');
+}
+
+function switchNotes(nodeId) {
+  if (currentNodeId !== null) {
+    saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+  }
+  currentNodeId = nodeId;
+  document.getElementById('notes-textarea').value = loadNote(nodeId);
+  document.getElementById('notes-node-label').textContent =
+    nodeIndex[nodeId]?.label || nodeId;
+}
+
+function clearNote() {
+  document.getElementById('notes-textarea').value = '';
+  if (currentNodeId) saveNote(currentNodeId, '');
+}
+
+function exportNotes() {
+  const notes = {};
+  RAW.nodes.forEach(n => {
+    const v = localStorage.getItem(noteKey(n.id));
+    if (v) notes[n.id] = v;
+  });
+  const blob = new Blob([JSON.stringify(notes, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${DOMAIN_KEY}_notes.json`;
+  a.click();
+}
+
+document.getElementById('notes-textarea').addEventListener('input', () => {
+  if (currentNodeId) saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+});
+
+// ── unified node select ─────────────────────────────────────────────────────
+function selectNode(nodeId) {
+  if (!nodeIndex[nodeId]) return;
+  network.selectNodes([nodeId]);
+  handleSelect(nodeId);
+}
+
+function handleSelect(targetId) {
+  const node = nodeIndex[targetId];
+
+  renderExplanation(node);
+  switchNotes(targetId);
+
+  const ancestors = getAncestors(targetId);
+  const pathSet = new Set([...ancestors]);
+  const orderedPath = topoSort(pathSet);
+
+  renderPathSidebar(orderedPath, targetId);
+
+  resetColors();
+  visNodes.update(orderedPath.map(n => ({id: n, color: C_PATH})));
+  visNodes.update([{id: targetId, color: C_TARGET}]);
+  visEdges.update(RAW.edges.map((e, i) => {
+    const inPath = pathSet.has(e.from) && (pathSet.has(e.to) || e.to === targetId);
+    return {id: i, color: {color: inPath ? '#f9a825' : '#c8ccd4'}, width: inPath ? 2 : 1};
+  }));
+}
+
+network.on('click', params => {
+  if (params.nodes.length) handleSelect(params.nodes[0]);
+});
+
+// initialise notes list on load
+renderNotesList();
+</script>
+</body>
+</html>

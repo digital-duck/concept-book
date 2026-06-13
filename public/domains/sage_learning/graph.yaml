@@ -1,0 +1,260 @@
+# "Doing Math in SageMath Lab" — concept-book concept graph
+# (Book I of the trilogy with "Proving Math the Lean Way" and "Doing Science with Python"
+#  — Book I finds it, Book II proves it, Book III measures it)
+# Publisher: Digital Duck (github.com/digital-duck)
+#
+# E-book mission: a free, verified, interactive introduction to SageMath —
+# mathematics as an experimental science, on a CAS anyone can install for $0.
+# Compiled by recipe 74 (build_concept_book.spl --lang python/domain_textbook);
+# every worked example is checked by Sage itself — the textbook's subject IS
+# its own verifier (the ultimate engine-of-record).
+#
+# Two radicals:
+#   first  — EXACTNESS: integers and rationals that never round (1/3 stays 1/3)
+#   second — STRUCTURE: symbols and parents (every object knows the ring it lives in)
+# Target: experimental_mathematics — the conjecture → compute → falsify/verify loop.
+domain: sage_learning
+primitives:
+  exact_integer:
+    symbol: ZZ
+    defines: the floor of exactness — Sage Integers are arbitrary-precision and never overflow or round;
+      2^100 is one exact number, not a float
+    tier: 0
+  exact_rational:
+    symbol: QQ
+    defines: the floor of exact division — 1/3 is a Rational that stays 1/3 forever; decimals appear only
+      when you ask for them
+    tier: 0
+  symbolic_variable:
+    symbol: x
+    defines: the floor of generality — var('x') creates a symbol that stands for every number at once;
+      algebra before arithmetic
+    tier: 0
+  parent_structure:
+    symbol: Parent
+    defines: the floor of structure — every Sage object lives in a parent (ZZ, QQ, GF(7), SR); asking
+      .parent() tells you which mathematics you are doing
+    tier: 0
+first_radical_primitives:
+- exact_integer
+- exact_rational
+concepts:
+  preparser:
+    composed_of:
+    - exact_integer
+    defines: "Sage's input language — ^ means power (not XOR), integer literals become exact Integers,
+      and 1/2 is a Rational; preparser(False) drops back to plain Python"
+    verifier: sage
+    lab: sage preparser
+    play: "type 2^10, 2**10, and 1/3 + 1/3 + 1/3 in a Sage cell; then preparser(False) and watch the
+      same inputs change meaning"
+    tier: 1
+  exact_vs_float:
+    composed_of:
+    - exact_rational
+    defines: the central habit — compute exactly, convert to decimal only at the end with n(); floats
+      are a display format, not a number system
+    verifier: sage|sympy
+    lab: sage n()
+    play: compare (1/10 + 2/10 == 3/10) in Sage with 0.1 + 0.2 == 0.3 in plain Python; explain the difference
+    tier: 1
+  symbolic_expression:
+    composed_of:
+    - symbolic_variable
+    - parent_structure
+    defines: expressions in the Symbolic Ring SR — built from symbols, composed with functions, carried
+      exactly until you decide otherwise
+    verifier: sage|sympy
+    lab: sage SR
+    play: build (x+1)^5, expand it, factor it back; nothing was ever approximated
+    tier: 1
+  substitution_evaluation:
+    composed_of:
+    - symbolic_expression
+    defines: subs() and n() — the bridge from the general symbol to the particular number, kept separate
+      on purpose
+    verifier: sage|sympy
+    lab: sage subs
+    play: substitute x=1/2 into a polynomial and keep the exact rational answer; only then call n(digits=50)
+    tier: 2
+  simplification:
+    composed_of:
+    - symbolic_expression
+    defines: "simplify_full(), trig identities, and is_zero() — deciding whether two expressions are
+      the SAME mathematics; note expr == 0 builds an equation object, is_zero() answers it"
+    verifier: sage|sympy
+    lab: sage simplify_full
+    play: show sin(x)^2 + cos(x)^2 - 1 simplifies to 0; try is_zero() on expressions you believe are identities
+    tier: 2
+  algebraic_numbers:
+    composed_of:
+    - exact_rational
+    - parent_structure
+    defines: QQbar and AA — sqrt(2) as an exact algebraic number whose square is exactly 2; exactness
+      beyond the rationals
+    verifier: sage
+    lab: sage QQbar
+    play: verify AA(sqrt(2))^2 == 2 exactly; then try the same with floating point and count the error digits
+    tier: 2
+  solving_equations:
+    composed_of:
+    - simplification
+    - substitution_evaluation
+    defines: solve() over the symbolic ring — exact roots with multiplicity, not numeric approximations;
+      assume() narrows the search
+    verifier: sage|sympy
+    lab: sage solve
+    play: solve x^2 == 2 and get ±sqrt(2) exactly; substitute each root back and watch it verify
+    tier: 3
+  calculus_sage:
+    composed_of:
+    - symbolic_expression
+    - simplification
+    defines: diff, integrate, limit, series — calculus done symbolically; the fundamental theorem checked
+      on every example by differentiating the antiderivative back
+    verifier: sage|sympy
+    lab: sage diff/integrate
+    play: integrate log(x), differentiate the result, simplify the difference to zero — generate-then-verify
+      by hand
+    tier: 3
+  polynomial_rings:
+    composed_of:
+    - parent_structure
+    - exact_integer
+    defines: "PolynomialRing(QQ, 'x') — polynomials as first-class citizens of a declared ring; factor(),
+      gcd(), roots() answer exactly because the ring is known"
+    verifier: sage
+    lab: sage PolynomialRing
+    play: factor x^12 - 1 over QQ, then over GF(7), and explain why the answers differ
+    tier: 3
+  exact_linear_algebra:
+    composed_of:
+    - parent_structure
+    - exact_rational
+    defines: "matrix(QQ, ...) — RREF, kernels, eigenvalues computed exactly over the rationals or algebraics;
+      no condition-number anxiety"
+    verifier: sage
+    lab: sage matrix(QQ)
+    play: take a 3x3 rational matrix, get exact eigenvalues from the characteristic polynomial, and verify
+      A*v == lambda*v with zero error
+    tier: 3
+  plotting_visualization:
+    composed_of:
+    - substitution_evaluation
+    defines: plot, plot3d, implicit_plot — pictures generated from the exact objects themselves; visualization
+      as a check on symbolic work
+    verifier: sage
+    lab: sage plot
+    play: plot a function and its derivative on one canvas; read the maxima of one off the zeros of the
+      other
+    tier: 3
+  number_theory_sage:
+    composed_of:
+    - exact_integer
+    - polynomial_rings
+    defines: factor(), is_prime(), euler_phi(), CRT — industrial-strength number theory (PARI under the
+      hood) at interactive speed
+    verifier: sage
+    lab: sage factor/PARI
+    play: factor a 40-digit number; verify the factorization by multiplying back exactly
+    tier: 4
+  interactive_notebooks:
+    composed_of:
+    - plotting_visualization
+    - preparser
+    defines: the Jupyter workflow — the sagemath kernel, @interact sliders, and notebooks as reproducible
+      lab reports
+    verifier: sage
+    lab: sagemath Jupyter kernel
+    play: wrap a parameterized plot in @interact and explore a family of curves with a slider
+    tier: 4
+  finite_fields:
+    composed_of:
+    - polynomial_rings
+    - number_theory_sage
+    defines: GF(p) and GF(p^n) — arithmetic that wraps around; the parents where cryptography lives
+    verifier: sage
+    lab: sage GF
+    play: build GF(7), verify every nonzero element has an inverse, and watch Fermat's little theorem
+      hold elementwise
+    tier: 5
+  group_theory_sage:
+    composed_of:
+    - parent_structure
+    - number_theory_sage
+    defines: permutation groups, matrix groups, and GAP — symmetry as a computable object; orders, centers,
+      and subgroup lattices on demand
+    verifier: sage
+    lab: sage/GAP PermutationGroup
+    play: build the symmetries of a square as a permutation group; verify its order is 8 and find its
+      center
+    tier: 5
+  manifolds_geometry:
+    composed_of:
+    - calculus_sage
+    - exact_linear_algebra
+    defines: SageManifolds — charts, metrics, connections, curvature; differential geometry as executable
+      mathematics
+    verifier: sage
+    lab: classical_mechanics_seed.sphere_scalar_curvature (SageManifolds; see cookbook/74_concept_book/classical_mechanics_seed.py)
+    play: build the round 2-sphere and compute its Ricci scalar — exactly 2/r^2, symbolically
+    tier: 5
+  conjecture_loop:
+    composed_of:
+    - solving_equations
+    - number_theory_sage
+    - plotting_visualization
+    defines: the experimental method — generate many exact examples fast, look for the pattern, hunt
+      the counterexample before believing the conjecture
+    verifier: sage
+    lab: sage list comprehension + exact arithmetic
+    play: "test 'n^2 + n + 41 is prime' for n = 0..100; find the first counterexample and explain it"
+    tier: 6
+  experimental_mathematics:
+    composed_of:
+    - conjecture_loop
+    - manifolds_geometry
+    - group_theory_sage
+    defines: the payoff — mathematics practiced as an experimental science; conjecture, compute, falsify
+      or believe, then go prove it (the hand-off to a proof assistant)
+    verifier: sage
+    lab: sage (whole stack)
+    play: pick any integer sequence you can generate; search OEIS for it; form a conjecture about its
+      growth and test it to n = 10^4
+    tier: 7
+applications:
+  cryptography:
+    needs:
+    - finite_fields
+    - number_theory_sage
+    domain: cryptography and security
+    defines: RSA keys, discrete logs, and elliptic-curve arithmetic are finite-field number theory you
+      can experiment with interactively before trusting them
+  general_relativity:
+    needs:
+    - manifolds_geometry
+    - calculus_sage
+    domain: physics and general relativity
+    defines: SageManifolds computes Christoffel symbols, geodesics, and curvature tensors for real metrics
+      — research-grade GR from a free tool
+  math_research:
+    needs:
+    - experimental_mathematics
+    domain: mathematical research
+    defines: conjecture-hunting at scale — exact computation generates the evidence; the experimental
+      loop is how modern conjectures are born
+  stem_classroom:
+    needs:
+    - exact_vs_float
+    - plotting_visualization
+    - interactive_notebooks
+    domain: education and equity
+    defines: a complete CAS with no license fee — every student gets the same exact mathematics; @interact
+      turns lessons into laboratories
+  spl_verifier_ladder:
+    needs:
+    - exact_linear_algebra
+    - simplification
+    domain: SPL neurosymbolic workflows
+    defines: Sage is an engine-of-record in SPL's verifier ladder — the same exact checks this textbook
+      teaches are what stamp machine_verified on generated content
