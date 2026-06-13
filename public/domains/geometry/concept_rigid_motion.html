@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rigid Motion | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="rigid-motion">Rigid Motion</h2>
+<h3 id="definition">Definition</h3>
+<p>A <strong>rigid motion</strong> (or <em>isometry</em>) of $\mathbb{R}^n$ is a map $T : \mathbb{R}^n \to \mathbb{R}^n$ that preserves the Euclidean distance between every pair of points. Formally, $T$ is a rigid motion if and only if</p>
+$$
+\|T(\mathbf{x}) - T(\mathbf{y})\| = \|\mathbf{x} - \mathbf{y}\| \quad \forall\, \mathbf{x}, \mathbf{y} \in \mathbb{R}^n.
+$$
+<p>Every rigid motion decomposes uniquely as the composition of an orthogonal linear map $R \in O(n)$ — a matrix satisfying $R^{\top}R = I$ — and a translation by a fixed vector $\mathbf{t} \in \mathbb{R}^n$:</p>
+$$
+T(\mathbf{x}) = R\mathbf{x} + \mathbf{t}.
+$$
+<p>Here $R$ and $\mathbf{t}$ are assumed to be known building blocks; the content of this section is the rigid motion itself — the particular combination that guarantees distances are unchanged.</p>
+<hr>
+<h3 id="worked-example">Worked Example</h3>
+<p>Consider the rigid motion $T : \mathbb{R}^2 \to \mathbb{R}^2$ defined by a rotation of $\theta = \frac{\pi}{3}$ about the origin followed by a translation $\mathbf{t} = (2,\,1)^\top$.</p>
+<p>The rotation matrix is</p>
+$$
+R = \begin{pmatrix} \cos\tfrac{\pi}{3} & -\sin\tfrac{\pi}{3} \\ \sin\tfrac{\pi}{3} & \cos\tfrac{\pi}{3} \end{pmatrix} = \begin{pmatrix} \tfrac{1}{2} & -\tfrac{\sqrt{3}}{2} \\ \tfrac{\sqrt{3}}{2} & \tfrac{1}{2} \end{pmatrix}.
+$$
+<p>Applying $T$ to the point $\mathbf{x} = (2, 0)^\top$:</p>
+$$
+T\!\begin{pmatrix}2\\0\end{pmatrix} = \begin{pmatrix}\tfrac{1}{2}&-\tfrac{\sqrt{3}}{2}\\\tfrac{\sqrt{3}}{2}&\tfrac{1}{2}\end{pmatrix}\begin{pmatrix}2\\0\end{pmatrix} + \begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}1\\\sqrt{3}\end{pmatrix} + \begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}3\\\sqrt{3}+1\end{pmatrix}.
+$$
+<p>One verifies distance preservation by computing $\|T(\mathbf{x}) - T(\mathbf{0})\| = \|(3-2,\,\sqrt{3}+1-1)^\top\| = \|(1,\sqrt{3})^\top\| = 2 = \|\mathbf{x}\|$. $\checkmark$</p>
+<hr>
+<h3 id="key-theorem">Key Theorem</h3>
+<p><strong>Theorem (Structure of Isometries).</strong> Every isometry $T$ of $\mathbb{R}^n$ has the form $T(\mathbf{x}) = R\mathbf{x} + \mathbf{t}$ with $R \in O(n)$. Furthermore, the composition of two rigid motions is again a rigid motion, and every rigid motion has an inverse that is also a rigid motion.</p>
+<p><em>Proof sketch.</em> Distance-preservation implies that $T$ maps affine lines to affine lines and is therefore affine. Writing $T(\mathbf{x}) = A\mathbf{x} + \mathbf{t}$ and expanding $\|T(\mathbf{x})-T(\mathbf{y})\|^2 = \|\mathbf{x}-\mathbf{y}\|^2$ yields $A^\top A = I$, so $A \in O(n)$. Closure under composition follows by direct substitution: if $T_1(\mathbf{x}) = R_1\mathbf{x}+\mathbf{t}_1$ and $T_2(\mathbf{x}) = R_2\mathbf{x}+\mathbf{t}_2$, then $T_2 \circ T_1(\mathbf{x}) = R_2 R_1\mathbf{x} + R_2\mathbf{t}_1 + \mathbf{t}_2$, which has orthogonal part $R_2 R_1 \in O(n)$.</p>
+<hr>
+<h3 id="lab-cell-sympy">Lab Cell (SymPy)</h3>
+<pre><code>import sympy as sp
+
+theta = sp.pi / 3
+R = sp.Matrix([
+    [sp.cos(theta), -sp.sin(theta)],
+    [sp.sin(theta),  sp.cos(theta)]
+])
+t = sp.Matrix([2, 1])
+x = sp.Matrix([2, 0])
+
+Tx = R @ x + t
+print("T(x) =", Tx)                          # [3, sqrt(3)+1]
+print("det(R) =", R.det())                    # 1
+print("R^T R =", sp.simplify(R.T @ R))        # Identity</code></pre>
+<p>Running this cell confirms $R^\top R = I$, establishing that $T(\mathbf{x}) = R\mathbf{x} + \mathbf{t}$ is a rigid motion: all distances from the origin are preserved after applying it.</p>
+  </main>
+</div>
+</body>
+</html>

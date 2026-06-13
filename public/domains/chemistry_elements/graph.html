@@ -53,14 +53,6 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
   border-bottom:2px solid #dde;
 }
 #graph-container{width:100%;height:100%}
-#legend{
-  position:absolute;top:10px;right:10px;
-  background:rgba(255,255,255,.9);border:1px solid #ddd;
-  border-radius:6px;padding:8px 10px;font-size:11px;
-  display:flex;gap:10px;flex-wrap:wrap;
-}
-.leg{display:flex;align-items:center;gap:4px}
-.leg-dot{width:11px;height:11px;border-radius:2px;border:2px solid;flex-shrink:0}
 /* ── Explanation panel ── */
 #explain-panel{
   grid-column:2;grid-row:2;
@@ -170,11 +162,6 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
 <!-- CENTRE TOP: concept graph -->
 <div id="graph-panel">
   <div id="graph-container"></div>
-  <div id="legend">
-    <div class="leg"><div class="leg-dot" style="background:#e8f5e9;border-color:#2e7d32"></div>primitive</div>
-    <div class="leg"><div class="leg-dot" style="background:#e3f2fd;border-color:#1565c0"></div>concept</div>
-    <div class="leg"><div class="leg-dot" style="background:#fff3e0;border-color:#ef6c00"></div>application</div>
-  </div>
 </div>
 
 <!-- CENTRE BOTTOM: explanation panel -->
@@ -462,6 +449,27 @@ network.on('click', params => {
 
 // initialise notes list on load
 renderNotesList();
+
+// When viewed directly (not in an iframe), inject a back link next to the
+// "Learning Path" heading so it doesn't look like a title-bar element.
+if (window.parent === window) {
+  var h1 = document.querySelector('#path-header h1');
+  if (h1) {
+    var backLink = document.createElement('a');
+    backLink.href = '../../';
+    backLink.textContent = '← App';
+    backLink.style.cssText = [
+      'font-size:10px','color:#2563eb','font-family:system-ui,sans-serif',
+      'text-decoration:none','font-weight:400','letter-spacing:normal',
+      'text-transform:none','white-space:nowrap','flex-shrink:0'
+    ].join(';');
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:baseline;gap:8px;';
+    h1.parentNode.insertBefore(row, h1);
+    row.appendChild(h1);
+    row.appendChild(backLink);
+  }
+}
 </script>
 </body>
 </html>

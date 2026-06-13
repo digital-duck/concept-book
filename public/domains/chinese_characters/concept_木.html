@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>木 | Chinese Characters</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/chinese_characters" class="back">← Chinese Characters</a>
+  </header>
+  <main>
+    <h2 id="木">木</h2>
+<p><strong>Definition.</strong> 木 (<em>mù</em>, "tree; wood") is a <strong>pictographic character</strong> (象形字, <em>xiàngxíngzì</em>) and Kangxi radical 75. Its oracle-bone form depicts a standing tree: a vertical stroke (干, trunk) bisected by a horizontal stroke (branches above, roots below). Formally, 木 is classified as a <strong>primitive radical</strong> — a graphemic atom that carries independent semantic content and composes productively with other elements to generate derived characters. As a left-hand component it is written 木 (4 strokes: 横 → 竖 → 撇 → 捺); stroke count and order are invariant across all derived forms.</p>
+<hr>
+<p><strong>Worked Example — Compositional Derivation.</strong> Consider the derivation chain:</p>
+$$\text{木} \xrightarrow{+\text{木}} \text{林} \xrightarrow{+\text{木}} \text{森}$$
+<li>林 (<em>lín</em>, "grove") doubles 木, encoding multiplicity $n = 2$.  </li>
+<li>森 (<em>sēn</em>, "dense forest") triples 木, encoding $n = 3$.</li>
+<p>The spatial arrangement also carries meaning. Placing 木 with a horizontal mark <strong>below</strong> the midpoint yields 本 (<em>běn</em>, "root; origin"), while a mark <strong>above</strong> yields 末 (<em>mò</em>, "tip; end"). Letting $y = 0$ denote the trunk midpoint, the mark positions satisfy $y_{\text{本}} < 0 < y_{\text{末}}$: a topological encoding of position along the vertical axis that directly maps to the semantic opposition <em>origin</em> vs. <em>periphery</em>.</p>
+<hr>
+<p><strong>Key Theorem (Radical Compositionality).</strong> Let $\mathcal{R}$ be the set of Kangxi radicals and $\mathcal{C}$ the set of Chinese characters. Every character $c \in \mathcal{C}$ admits a unique <strong>radical decomposition</strong> $c = r \oplus s$, where $r \in \mathcal{R}$ is the classifying radical and $s$ is a phonetic or semantic complement. For 木-family characters, $r = \text{木}$ and $s$ shifts the semantic field within the domain of trees, wood, and plant material (e.g., 桌 <em>table</em>, 梯 <em>ladder</em>, 橙 <em>orange tree</em>). The radical therefore acts as a <strong>type classifier</strong>: knowing $r = \text{木}$ constrains the denotation to the arboreal semantic domain before the complement $s$ is read.</p>
+<hr>
+<p><strong>Lab Cell.</strong></p>
+<pre><code>from sympy import symbols, FiniteSet
+
+# Represent 木-family characters as (radical, complement) pairs
+radical = "木"
+family = {
+    "林": (radical, "木"),
+    "森": (radical, "林"),
+    "本": (radical, "mark_below"),
+    "末": (radical, "mark_above"),
+    "桌": (radical, "卓"),
+}
+
+print(f"Radical: {radical}")
+print(f"Family size: {len(family)}")
+for char, (r, s) in family.items():
+    print(f"  {char} = {r} ⊕ {s}")</code></pre>
+<p>Running this cell confirms that 木 functions as a stable type label across all five derived characters, illustrating the compositionality theorem concretely.</p>
+  </main>
+</div>
+</body>
+</html>

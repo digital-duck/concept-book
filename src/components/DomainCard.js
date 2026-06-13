@@ -30,5 +30,9 @@ export function DomainCard(domain) {
     navigate(`/domain/${domain.id}`)
   })
 
+  el.querySelector('.js-read').addEventListener('click', () => {
+    navigate(`/domain/${domain.id}`)
+  })
+
   return el
 }

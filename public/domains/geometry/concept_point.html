@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Point | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="point">Point</h2>
+<p><strong>Definition.</strong> A <em>point</em> is the most primitive object in Euclidean geometry: it has no dimension, no length, no area, and no volume. Formally, in $\mathbb{R}^n$, a point is an ordered $n$-tuple</p>
+$$P = (x_1, x_2, \ldots, x_n) \in \mathbb{R}^n,$$
+<p>where each $x_i \in \mathbb{R}$ is called a <em>coordinate</em> of $P$ along the $i$-th axis. In the plane ($n = 2$) we write $P = (x, y)$; in space ($n = 3$) we write $P = (x, y, z)$. A point is location without extent — it satisfies Euclid's first postulate: <em>"A point is that which has no part."</em></p>
+<p><strong>Worked Example.</strong> Let $P = (3, -1)$ and $Q = (7, 2)$ be two points in $\mathbb{R}^2$. The <em>distance</em> between them is given by the Euclidean metric</p>
+$$d(P, Q) = \sqrt{(7 - 3)^2 + (2 - (-1))^2} = \sqrt{16 + 9} = \sqrt{25} = 5.$$
+<p>Observe that $d(P, Q) = d(Q, P)$, and that $d(P, Q) = 0$ if and only if $P$ and $Q$ are the same point — properties that make the Euclidean metric a proper <em>metric</em> in the sense of analysis. The distance of 5 units here is exact; no rounding occurs because the radicand is a perfect square.</p>
+<p><strong>Key Theorem (Distance Formula).</strong> For any two points $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ in $\mathbb{R}^2$,</p>
+$$d(P, Q) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}.$$
+<p><em>Proof sketch.</em> Drop a perpendicular from $Q$ to the horizontal line through $P$, forming a right triangle with legs $|x_2 - x_1|$ and $|y_2 - y_1|$. The hypotenuse equals $d(P, Q)$; the result follows directly from the Pythagorean theorem. The formula extends to $\mathbb{R}^n$ by induction, adding one squared-difference term per additional coordinate. $\blacksquare$</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import sqrt
+
+x1, y1, x2, y2 = 3, -1, 7, 2
+distance = sqrt((x2 - x1)**2 + (y2 - y1)**2)
+
+print("Distance :", distance)   # 5</code></pre>
+<p>Running this cell confirms the computation symbolically, illustrating how SymPy handles exact arithmetic — returning the integer $5$ rather than the floating-point approximation $5.0$. This distinction matters whenever subsequent steps require algebraic manipulation of the result.</p>
+  </main>
+</div>
+</body>
+</html>

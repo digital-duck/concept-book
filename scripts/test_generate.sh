@@ -18,16 +18,16 @@ COOKBOOK="cookbook/74_concept_book"
 
 DOMAIN="${1:-geometry}"
 TARGET="${2:-area}"
-OUTPUT="$REPO/public/domains/$DOMAIN/concept_book.html"
+OUTPUT_DIR="$REPO/public/domains/$DOMAIN"
 
-echo "domain : $DOMAIN"
-echo "target : $TARGET"
-echo "output : $OUTPUT"
-echo "llm    : $LLM"
-echo "spl_dir: $SPL_DIR"
+echo "domain    : $DOMAIN"
+echo "target    : $TARGET"
+echo "output_dir: $OUTPUT_DIR"
+echo "llm       : $LLM"
+echo "spl_dir   : $SPL_DIR"
 echo "---"
 
-mkdir -p "$(dirname "$OUTPUT")"
+mkdir -p "$OUTPUT_DIR"
 
 cd "$SPL_DIR"
 spl3 run "$COOKBOOK/build_concept_book.spl" \
@@ -36,7 +36,7 @@ spl3 run "$COOKBOOK/build_concept_book.spl" \
     --param "domain_yaml=${DOMAIN}_graph.yaml" \
     --param "target=$TARGET" \
     --param "language=en" \
-    --param "output_html=$OUTPUT"
+    --param "output_dir=$OUTPUT_DIR"
 
 echo "---"
-echo "Done. Output: $OUTPUT"
+echo "Done. Book index: $OUTPUT_DIR/book_${TARGET}.html"

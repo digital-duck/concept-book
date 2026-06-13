@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polygon | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="polygon">Polygon</h2>
+<p><strong>Definition.</strong> A <em>polygon</em> is a closed plane figure formed by a finite sequence of line segments—called <em>sides</em> or <em>edges</em>—such that each segment shares exactly one endpoint with the next, and the last segment connects back to the first. Formally, a polygon $P$ with $n$ sides ($n \geq 3$) is determined by an ordered set of <em>vertices</em> $\{V_1, V_2, \ldots, V_n\} \subset \mathbb{R}^2$, with edges $\overline{V_1V_2},\, \overline{V_2V_3},\, \ldots,\, \overline{V_{n-1}V_n},\, \overline{V_nV_1}$. A polygon is called <em>simple</em> if no two non-adjacent edges intersect; all results in this section assume simplicity.</p>
+<hr>
+<p><strong>Worked Example.</strong> Consider the regular hexagon with center at the origin and circumradius $R = 2$. Its six vertices are given by</p>
+$$V_k = \left(2\cos\!\left(\frac{2\pi(k-1)}{6}\right),\; 2\sin\!\left(\frac{2\pi(k-1)}{6}\right)\right), \quad k = 1, 2, \ldots, 6.$$
+<p>Computing explicitly: $V_1 = (2, 0)$, $V_2 = (1, \sqrt{3})$, $V_3 = (-1, \sqrt{3})$, and so on. The side length equals $s = R = 2$, and the interior angle at each vertex is $\dfrac{(6-2)\cdot 180^\circ}{6} = 120^\circ$.</p>
+<hr>
+<p><strong>Key Theorem (Interior Angle Sum).</strong> For any simple polygon with $n$ vertices, the sum of interior angles is</p>
+$$\sum_{i=1}^{n} \theta_i = (n - 2)\cdot \pi \text{ radians} = (n-2)\cdot 180^\circ.$$
+<p><em>Proof sketch.</em> Triangulate the polygon by drawing $n - 3$ non-crossing diagonals from a single vertex, producing exactly $n - 2$ triangles. Since each triangle's angles sum to $\pi$, and every triangle angle is an interior angle of $P$, the total is $(n-2)\pi$. $\square$</p>
+<p>The area of a simple polygon whose vertices are listed in order is computed via the <em>Shoelace Formula</em>:</p>
+$$A = \frac{1}{2}\left|\sum_{i=1}^{n}\bigl(x_i\, y_{i+1} - x_{i+1}\, y_i\bigr)\right|,$$
+<p>where indices are taken modulo $n$.</p>
+<hr>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import cos, sin, pi, simplify, Polygon, Point
+
+# Regular hexagon with circumradius R = 2
+R, n = 2, 6
+vertices = [Point(R*cos(2*pi*k/n), R*sin(2*pi*k/n)) for k in range(n)]
+hex_poly = Polygon(*vertices)
+
+print("Area:              ", simplify(hex_poly.area))       # 6√3
+print("Perimeter:         ", simplify(hex_poly.perimeter))  # 12
+print("Interior angle sum:", (n - 2) * 180, "degrees")      # 720</code></pre>
+<p>Running this confirms $A = 6\sqrt{3} \approx 10.39$ and perimeter $= 12$, consistent with the formula $A = \tfrac{3\sqrt{3}}{2}s^2$ for a regular hexagon of side $s = 2$.</p>
+  </main>
+</div>
+</body>
+</html>

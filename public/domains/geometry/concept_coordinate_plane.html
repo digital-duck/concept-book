@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coordinate Plane | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="coordinate-plane">Coordinate Plane</h2>
+<p><strong>Definition.</strong> The <em>Cartesian coordinate plane</em> (also called the <em>xy-plane</em>) is the set $\mathbb{R}^2 = \{(x, y) \mid x, y \in \mathbb{R}\}$, equipped with a distinguished point called the <em>origin</em> $O = (0, 0)$ and two mutually perpendicular directed lines called the <em>coordinate axes</em>. The horizontal axis is the $x$-axis and the vertical axis is the $y$-axis. Every point $P$ in the plane is uniquely identified by an ordered pair $(a, b)$, where $a$ is the <em>abscissa</em> (signed horizontal distance from the $y$-axis) and $b$ is the <em>ordinate</em> (signed vertical distance from the $x$-axis).</p>
+<p>The axes divide the plane into four <em>quadrants</em>, labeled $\mathrm{I}$–$\mathrm{IV}$ counterclockwise from the positive $x$-axis:</p>
+<p>| Quadrant | Sign of $x$ | Sign of $y$ | |----------|-------------|-------------| | I | $+$ | $+$ | | II | $-$ | $+$ | | III | $-$ | $-$ | | IV | $+$ | $-$ |</p>
+<p><strong>Worked Example.</strong> Plot the points $A = (3, 2)$, $B = (-1, 4)$, and $C = (0, -3)$. Compute the distance $|AB|$.</p>
+<p>Using the <em>distance formula</em> derived from the Pythagorean theorem:</p>
+$$|AB| = \sqrt{(3 - (-1))^2 + (2 - 4)^2} = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5} \approx 4.47.$$
+<p>Point $A$ lies in Quadrant I, $B$ in Quadrant II, and $C$ on the negative $y$-axis (not in any quadrant).</p>
+<p><strong>Key Theorem (Distance Formula).</strong> For any two points $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$ in the coordinate plane:</p>
+$$d(P_1, P_2) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}.$$
+<p><em>Proof sketch.</em> Form a right triangle whose hypotenuse connects $P_1$ to $P_2$. The horizontal leg runs parallel to the $x$-axis and has length $|x_2 - x_1|$; the vertical leg runs parallel to the $y$-axis and has length $|y_2 - y_1|$. Because the coordinate axes are perpendicular by definition, these legs are themselves perpendicular. The Pythagorean theorem then gives $d^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$, and taking the positive square root yields the formula. $\square$</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import sqrt, Point
+A, B = Point(3, 2), Point(-1, 4)
+print(A.distance(B))   # 2*sqrt(5)</code></pre>
+  </main>
+</div>
+</body>
+</html>

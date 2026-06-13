@@ -9,9 +9,14 @@
     "primitives": 5,
     "concepts": 25,
     "applications": 7,
-    "tags": ["math", "university"],
+    "tags": [
+      "math",
+      "university"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   },
   {
     "id": "geometry",
@@ -23,9 +28,99 @@
     "primitives": 5,
     "concepts": 19,
     "applications": 5,
-    "tags": ["math"],
+    "tags": [
+      "math"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": true,
+    "books": [
+      {
+        "target": "area",
+        "file": "book_area.html"
+      },
+      {
+        "target": "similarity",
+        "file": "book_similarity.html"
+      },
+      {
+        "target": "line_segment",
+        "file": "book_line_segment.html"
+      },
+      {
+        "target": "ray",
+        "file": "book_ray.html"
+      },
+      {
+        "target": "coordinate_plane",
+        "file": "book_coordinate_plane.html"
+      },
+      {
+        "target": "polygon",
+        "file": "book_polygon.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "angle",
+        "label": "Angle",
+        "file": "concept_angle.html"
+      },
+      {
+        "name": "angle_measure",
+        "label": "Angle Measure",
+        "file": "concept_angle_measure.html"
+      },
+      {
+        "name": "area",
+        "label": "Area",
+        "file": "concept_area.html"
+      },
+      {
+        "name": "coordinate_plane",
+        "label": "Coordinate Plane",
+        "file": "concept_coordinate_plane.html"
+      },
+      {
+        "name": "distance",
+        "label": "Distance",
+        "file": "concept_distance.html"
+      },
+      {
+        "name": "line",
+        "label": "Line",
+        "file": "concept_line.html"
+      },
+      {
+        "name": "line_segment",
+        "label": "Line Segment",
+        "file": "concept_line_segment.html"
+      },
+      {
+        "name": "point",
+        "label": "Point",
+        "file": "concept_point.html"
+      },
+      {
+        "name": "polygon",
+        "label": "Polygon",
+        "file": "concept_polygon.html"
+      },
+      {
+        "name": "ray",
+        "label": "Ray",
+        "file": "concept_ray.html"
+      },
+      {
+        "name": "rigid_motion",
+        "label": "Rigid Motion",
+        "file": "concept_rigid_motion.html"
+      },
+      {
+        "name": "similarity",
+        "label": "Similarity",
+        "file": "concept_similarity.html"
+      }
+    ]
   },
   {
     "id": "mechanics",
@@ -37,9 +132,14 @@
     "primitives": 4,
     "concepts": 19,
     "applications": 5,
-    "tags": ["science", "university"],
+    "tags": [
+      "science",
+      "university"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   },
   {
     "id": "chemistry_elements",
@@ -51,9 +151,14 @@
     "primitives": 9,
     "concepts": 14,
     "applications": 5,
-    "tags": ["science", "university"],
+    "tags": [
+      "science",
+      "university"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   },
   {
     "id": "chinese_characters",
@@ -65,9 +170,30 @@
     "primitives": 12,
     "concepts": 16,
     "applications": 5,
-    "tags": ["language", "stem"],
+    "tags": [
+      "language",
+      "stem"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": true,
+    "books": [
+      {
+        "target": "林",
+        "file": "book_林.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "木",
+        "label": "木",
+        "file": "concept_木.html"
+      },
+      {
+        "name": "林",
+        "label": "林",
+        "file": "concept_林.html"
+      }
+    ]
   },
   {
     "id": "english_morphology",
@@ -79,9 +205,13 @@
     "primitives": 13,
     "concepts": 18,
     "applications": 5,
-    "tags": ["language"],
+    "tags": [
+      "language"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   },
   {
     "id": "python_science",
@@ -93,9 +223,14 @@
     "primitives": 4,
     "concepts": 19,
     "applications": 5,
-    "tags": ["cs", "science"],
+    "tags": [
+      "cs",
+      "science"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   },
   {
     "id": "sage_learning",
@@ -107,9 +242,14 @@
     "primitives": 4,
     "concepts": 18,
     "applications": 5,
-    "tags": ["math", "cs"],
+    "tags": [
+      "math",
+      "cs"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   },
   {
     "id": "lean_proving",
@@ -121,9 +261,14 @@
     "primitives": 4,
     "concepts": 19,
     "applications": 5,
-    "tags": ["math", "cs"],
+    "tags": [
+      "math",
+      "cs"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   },
   {
     "id": "music_theory",
@@ -135,8 +280,12 @@
     "primitives": 4,
     "concepts": 17,
     "applications": 5,
-    "tags": ["arts"],
+    "tags": [
+      "arts"
+    ],
     "has_navigator": true,
-    "has_book": false
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   }
 ]

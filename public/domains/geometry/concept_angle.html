@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angle | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="angle">Angle</h2>
+<p><strong>Definition.</strong> Let $\mathbf{u}$ and $\mathbf{v}$ be two nonzero vectors in $\mathbb{R}^n$. The <em>angle</em> $\theta$ between them is the unique value in $[0, \pi]$ satisfying</p>
+$$\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|},$$
+<p>where $\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{n} u_i v_i$ is the Euclidean inner product and $\|\mathbf{u}\| = \sqrt{\mathbf{u} \cdot \mathbf{u}}$ is the Euclidean norm. This definition extends the familiar geometric notion of angle to arbitrary finite dimensions.</p>
+<p><strong>Worked Example.</strong> Let $\mathbf{u} = (1, 2, 2)$ and $\mathbf{v} = (4, 0, -3)$ in $\mathbb{R}^3$. Compute:</p>
+$$\mathbf{u} \cdot \mathbf{v} = (1)(4) + (2)(0) + (2)(-3) = 4 + 0 - 6 = -2,$$
+$$\|\mathbf{u}\| = \sqrt{1 + 4 + 4} = 3, \qquad \|\mathbf{v}\| = \sqrt{16 + 0 + 9} = 5.$$
+<p>Therefore,</p>
+$$\cos\theta = \frac{-2}{3 \cdot 5} = -\frac{2}{15}, \qquad \theta = \arccos\!\left(-\tfrac{2}{15}\right) \approx 97.7°.$$
+<p>Since $\cos\theta < 0$, the vectors form an obtuse angle, which is geometrically consistent with $\mathbf{v}$ having a component directly opposing $\mathbf{u}$.</p>
+<p><strong>Key Theorem (Cauchy–Schwarz Inequality).</strong> For all $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$,</p>
+$$|\mathbf{u} \cdot \mathbf{v}| \leq \|\mathbf{u}\|\,\|\mathbf{v}\|,$$
+<p>with equality if and only if $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent. This inequality guarantees that the ratio $\dfrac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|}$ always lies in $[-1, 1]$, making the definition of $\theta$ via $\arccos$ well-posed in any dimension.</p>
+<p><em>Proof sketch.</em> Consider $f(t) = \|\mathbf{u} + t\mathbf{v}\|^2 \geq 0$ for all $t \in \mathbb{R}$. Expanding yields a quadratic in $t$ whose discriminant must be non-positive, giving $(\mathbf{u} \cdot \mathbf{v})^2 \leq \|\mathbf{u}\|^2\|\mathbf{v}\|^2$. $\square$</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>import sympy as sp
+
+u = sp.Matrix([1, 2, 2])
+v = sp.Matrix([4, 0, -3])
+
+cos_theta = u.dot(v) / (u.norm() * v.norm())
+theta = sp.acos(cos_theta)
+print(sp.simplify(theta))          # exact form
+print(float(theta.evalf()) * 180 / float(sp.pi))  # degrees</code></pre>
+  </main>
+</div>
+</body>
+</html>

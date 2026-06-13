@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Similarity | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="similarity">Similarity</h2>
+<p><strong>Definition.</strong> Two geometric figures are <em>similar</em> if one can be obtained from the other by a finite composition of isometries (rotations, reflections, translations) and a uniform scaling. Formally, figures $F$ and $F'$ are similar, written $F \sim F'$, if there exists a <em>similarity transformation</em> $T : \mathbb{R}^n \to \mathbb{R}^n$ of the form</p>
+$$T(\mathbf{x}) = k R \mathbf{x} + \mathbf{t},$$
+<p>where $k > 0$ is the <em>scale factor</em>, $R$ is an orthogonal matrix ($R^T R = I$), and $\mathbf{t} \in \mathbb{R}^n$ is a translation vector. When $k = 1$ the transformation reduces to a rigid motion (congruence); similarity is strictly weaker than congruence.</p>
+<p>For triangles, similarity is characterized by angle equality alone: $\triangle ABC \sim \triangle DEF$ if and only if $\angle A = \angle D$, $\angle B = \angle E$, and $\angle C = \angle F$. The corresponding sides are then <em>proportional</em>:</p>
+$$\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD} = k.$$
+<p><strong>Worked Example.</strong> Suppose $\triangle ABC$ has sides $AB = 6$, $BC = 8$, $CA = 10$, and $\triangle DEF$ has sides $DE = 9$, $EF = 12$, $FD = 15$. Check whether the triangles are similar.</p>
+<p>Compute the ratios:</p>
+$$\frac{DE}{AB} = \frac{9}{6} = \frac{3}{2}, \quad \frac{EF}{BC} = \frac{12}{8} = \frac{3}{2}, \quad \frac{FD}{CA} = \frac{15}{10} = \frac{3}{2}.$$
+<p>All three ratios equal $k = \tfrac{3}{2}$, so $\triangle ABC \sim \triangle DEF$ with scale factor $\tfrac{3}{2}$. Note also that $6^2 + 8^2 = 100 = 10^2$, confirming both triangles are right triangles, which independently guarantees AA similarity.</p>
+<p><strong>Key Theorem (AA Criterion).</strong> Two triangles are similar if and only if two pairs of corresponding angles are equal. <em>Proof sketch:</em> Given $\angle A = \angle D$ and $\angle B = \angle E$, the angle-sum identity forces $\angle C = \angle F$. Placing $D$ at $A$ and scaling $\triangle DEF$ by $AB/DE$ yields a congruent copy sharing two angles and one side with $\triangle ABC$; the triangles coincide by ASA congruence, establishing proportionality of all sides. $\square$</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import symbols, Rational, simplify
+
+AB, BC, CA = 6, 8, 10
+DE, EF, FD = 9, 12, 15
+
+ratios = [Rational(DE, AB), Rational(EF, BC), Rational(FD, CA)]
+print("Ratios:", ratios)                        # [3/2, 3/2, 3/2]
+print("Similar?", len(set(ratios)) == 1)        # True
+print("Scale factor k =", ratios[0])            # 3/2</code></pre>
+  </main>
+</div>
+</body>
+</html>

@@ -16,8 +16,8 @@ _COOKBOOK = "cookbook/74_concept_book"
 
 async def stream_generate(domain_id: str, target: str, language: str = "en"):
     spl_dir: Path = settings.spl_dir
-    output_path = settings.public_domains / domain_id / "concept_book.html"
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_dir = settings.public_domains / domain_id
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     cmd = [
         "spl3", "run", f"{_COOKBOOK}/build_concept_book.spl",
@@ -26,7 +26,7 @@ async def stream_generate(domain_id: str, target: str, language: str = "en"):
         "--param", f"domain_yaml={domain_id}_graph.yaml",
         "--param", f"target={target}",
         "--param", f"language={language}",
-        "--param", f"output_html={output_path}",
+        "--param", f"output_dir={output_dir}",
     ]
 
     yield {"event": "started", "data": json.dumps({"domain": domain_id, "target": target})}
@@ -48,8 +48,8 @@ async def stream_generate(domain_id: str, target: str, language: str = "en"):
 
     if proc.returncode == 0:
         from api.services.catalog_svc import mark_book_generated
-        mark_book_generated(domain_id)
-        yield {"event": "done", "data": json.dumps({"domain": domain_id})}
+        mark_book_generated(domain_id, target)
+        yield {"event": "done", "data": json.dumps({"domain": domain_id, "target": target})}
     else:
         yield {
             "event": "gen_error",

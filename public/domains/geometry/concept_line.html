@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Line | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="line">Line</h2>
+<p><strong>Definition.</strong> A <em>line</em> in the Euclidean plane $\mathbb{R}^2$ is a one-dimensional affine subspace. Formally, given a point $P_0 = (x_0, y_0)$ and a nonzero direction vector $\mathbf{d} = (d_1, d_2)$, the line $\ell$ is the set</p>
+$$\ell = \bigl\{(x_0 + t\,d_1,\; y_0 + t\,d_2) : t \in \mathbb{R}\bigr\}.$$
+<p>This is the <strong>parametric form</strong>. Eliminating $t$ by solving the first component for $t$ and substituting into the second yields the equivalent <strong>implicit (Cartesian) form</strong></p>
+$$ax + by = c, \qquad (a,b) \neq (0,0),$$
+<p>where $a = d_2$, $b = -d_1$, and $c = d_2 x_0 - d_1 y_0$. The implicit form is often more convenient for checking whether a given point lies on the line: substitute the coordinates and verify the equality.</p>
+<hr>
+<p><strong>Worked Example.</strong> Find the equation of the line passing through $A = (1, 3)$ and $B = (4, 9)$.</p>
+<p><em>Direction vector:</em> $\mathbf{d} = B - A = (3, 6)$, so we may take $(d_1, d_2) = (1, 2)$.</p>
+<p><em>Parametric form</em> anchored at $A$:</p>
+$$(x, y) = (1 + t,\; 3 + 2t), \quad t \in \mathbb{R}.$$
+<p><em>Implicit form:</em> $a = 2$, $b = -1$, $c = 2(1) - 1(3) = -1$, giving $2x - y = -1$, or equivalently $y = 2x + 1$.</p>
+<p>Verification: $y(4) = 2(4) + 1 = 9$ ✓.</p>
+<hr>
+<p><strong>Key Theorem (Unique Line Through Two Points).</strong> <em>For any two distinct points $P, Q \in \mathbb{R}^2$, there exists exactly one line containing both.</em></p>
+<p><em>Proof sketch.</em> Existence: take $\mathbf{d} = Q - P$ and use the parametric form above. Uniqueness: if two lines $\ell_1, \ell_2$ both contain $P$ and $Q$, their direction vectors are both parallel to $Q - P$, hence they share a point and a direction, so $\ell_1 = \ell_2$. $\square$</p>
+<hr>
+<p><strong>Lab Cell (SymPy)</strong></p>
+<pre><code>from sympy import symbols, solve, Rational
+
+x, y = symbols('x y')
+
+# Two points
+x0, y0 = 1, 3
+x1, y1 = 4, 9
+
+# Direction vector components
+d1, d2 = x1 - x0, y1 - y0          # (3, 6), simplified to (1, 2)
+
+# Implicit form: a*x + b*y = c
+a, b = d2, -d1
+c = d2 * x0 - d1 * y0
+
+implicit_eq = a*x + b*y - c
+print(f"{a}*x + ({b})*y = {c}")     # 6*x + (-3)*y = -3, i.e. 2x - y = -1
+
+# Solve for x given y = 7
+sol = solve(implicit_eq.subs(y, 7), x)
+print(f"x when y=7: {sol[0]}")      # x = 3</code></pre>
+  </main>
+</div>
+</body>
+</html>

@@ -8,7 +8,7 @@ export async function Domain(container, { id }) {
   const controller = new AbortController()
   window.addEventListener('hashchange', () => controller.abort(), { once: true, signal: controller.signal })
 
-  let domain = { id, name: id, has_book: false, capstone: null }
+  let domain = { id, name: id, has_book: false, books: [], generated_concepts: [], capstone: null }
   try {
     const catalog = await loadCatalog()
     domain = catalog.find(d => d.id === id) ?? domain

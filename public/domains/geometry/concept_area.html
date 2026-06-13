@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="area">Area</h2>
+<p><strong>Definition.</strong> Let $R$ be a bounded region in the plane $\mathbb{R}^2$. The <em>area</em> of $R$, denoted $A(R)$, is the limiting value of a sequence of Riemann sums formed by partitioning $R$ into infinitesimally small rectangles. More precisely, if $R$ is described by $a \le x \le b$ and $g_1(x) \le y \le g_2(x)$ for continuous functions $g_1, g_2$, then</p>
+$$A(R) = \int_a^b \bigl[g_2(x) - g_1(x)\bigr]\, dx.$$
+<p>Area is always non-negative: $A(R) \ge 0$, and $A(R) = 0$ only when $R$ has no interior — for instance, a single point or a curve.</p>
+<hr>
+<p><strong>Worked Example.</strong> Find the area enclosed between $f(x) = x^2$ and $g(x) = x + 2$.</p>
+<p><em>Step 1 — Find intersections.</em> Set $x^2 = x + 2$, giving $x^2 - x - 2 = 0$, so $(x-2)(x+1) = 0$. The curves meet at $x = -1$ and $x = 2$.</p>
+<p><em>Step 2 — Identify the upper curve.</em> On $[-1, 2]$, test $x = 0$: $g(0) = 2 > f(0) = 0$, so $g(x) = x+2$ lies above $f(x) = x^2$.</p>
+<p><em>Step 3 — Integrate.</em></p>
+$$A = \int_{-1}^{2} \bigl[(x+2) - x^2\bigr]\, dx = \int_{-1}^{2} \bigl(-x^2 + x + 2\bigr)\, dx.$$
+$$= \left[-\frac{x^3}{3} + \frac{x^2}{2} + 2x\right]_{-1}^{2} = \left(-\frac{8}{3} + 2 + 4\right) - \left(\frac{1}{3} + \frac{1}{2} - 2\right) = \frac{9}{2}.$$
+<hr>
+<p><strong>Key Theorem (Additivity of Area).</strong> If $R = R_1 \cup R_2$ with $R_1 \cap R_2$ having no interior, then $A(R) = A(R_1) + A(R_2)$. This additivity property is what allows complex regions to be decomposed into simpler sub-regions and integrated piecewise.</p>
+<hr>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import symbols, integrate, solve
+
+x = symbols('x')
+f, g = x**2, x + 2
+xs = solve(f - g, x)          # [-1, 2]
+area = integrate(g - f, (x, xs[0], xs[1]))
+print(area)                    # 9/2</code></pre>
+  </main>
+</div>
+</body>
+</html>
