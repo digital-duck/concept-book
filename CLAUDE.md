@@ -36,9 +36,17 @@ No test runner is wired up; `playwright` is in devDependencies but has no npm te
 **Backend** (`api/`): FastAPI.
 - `GET /api/generate` (SSE) — streams `spl3 run build_concept_book.spl` subprocess output as `log`/`done`/`gen_error` events. Requires the `spl123` conda env with `spl3` on PATH.
 - `GET /api/domains` / `/api/domains/{id}/status` — reads `catalog.json`.
-- `api/config.py` — `Settings` reads env vars prefixed `CB_`: `CB_SPL_DIR` (default `~/projects/digital-duck/SPL.py`) and `CB_PUBLIC_DOMAINS` (default `./public/domains`). `CB_LLM` defaults to `claude_cli:claude-sonnet-4-6`.
+- `api/config.py` — `Settings` reads env vars prefixed `CB_`: `CB_SPL_DIR` (default `~/projects/digital-duck/SPL.py`), `CB_PUBLIC_DOMAINS` (default `./public/domains`), and `CB_LLM` (default `claude_cli:claude-sonnet-4-6`).
 
 **Deployment:** GitHub Pages (static). The backend is a local-only tool; generated `concept_book.html` files are committed into `public/domains/` and included in the `dist/` build.
+
+## Iframe ↔ parent event protocol
+
+`GraphViewer.js` bridges the iframe (`graph.html`) and the parent app via custom events on `window`:
+- `cb:graphLoaded` — dispatched after iframe loads. `detail.concepts` is an array of `{id, label, kind, tier}`.
+- `cb:nodeSelected` — dispatched when a user clicks a node. `detail.nodeId` and `detail.node` (full node object from `nodeIndex`).
+
+The iframe's `graph.html` exposes script-scoped `RAW` (full graph data), `nodeIndex` (id→node map), `handleSelect(nodeId)`, and `selectNode(nodeId)` functions. `GraphViewer` promotes `RAW`/`nodeIndex` to `window.__cb_RAW`/`window.__cb_nodeIndex` via `eval()`.
 
 ## Key data shapes
 
@@ -54,8 +62,20 @@ No test runner is wired up; `playwright` is in devDependencies but has no npm te
 }
 ```
 
+`books` = full concept books (TOC index). `generated_concepts` = individual concept component books. Both are shown in the "Concept Books" sidebar dropdown.
+
 `graph.yaml` node fields used by the frontend: `id`, `label`, `kind` (`primitive` nodes are excluded from the Generate dropdown), `tier`.
 
 ## Vite base path
 
 `vite.config.js` sets `base: '/concept-book/'`. All asset and domain URLs must use `import.meta.env.BASE_URL` as prefix (see `GraphViewer.js` iframe `src`).
+
+## Adding a new domain
+
+1. Add the domain ID to the `DOMAINS` array in `scripts/sync_from_spl.sh` (hardcoded list).
+2. Add an entry to `public/domains/catalog.json`.
+3. Run `bash scripts/sync_from_spl.sh` to copy `graph.html` and `graph.yaml`.
+
+## i18n
+
+`src/i18n.js` provides a `t(key)` translation function. Currently English-only; the `zh` locale is planned for Phase 2. Translation keys are defined inline in `i18n.js`, not in external JSON files.
