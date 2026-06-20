@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prefix | English Morphology</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/english_morphology" class="back">← English Morphology</a>
+  </header>
+  <main>
+    <h2 id="prefix">Prefix</h2>
+<p>A prefix is a sequence of characters that is placed at the beginning of a word or phrase to modify its meaning, often by indicating the quantity or extent of something. In mathematics and computer science, prefixes are also used to denote specific operations or transformations.</p>
+<p>Definition: A prefix is a symbol or set of symbols that precedes a word or expression in order to indicate a change in meaning, magnitude, or direction.</p>
+<p>Proof Sketch:</p>
+<p>The concept of prefix can be understood through the lens of binary operators. In mathematics, binary operators are functions that take two inputs and produce an output based on a specific rule. Prefixes can be viewed as a type of operator that modifies the input before applying the main operation.</p>
+<p>Given a function $f(x)$ and a prefix $p$, we can define the composition $p \circ f$ as follows:</p>
+$$
+(p\circ f)(x) = p(f(x))
+$$
+<p>This definition captures the idea that the prefix modifies the input to the original function before applying it.</p>
+<p>Concrete Worked Example:</p>
+<p>Consider the binary operator $\cdot$, which represents multiplication, and the prefix $\times$. We can define the composition $ \times \cdot$ as follows:</p>
+$$
+\times \cdot(x) = x\cdot \times (x)
+$$
+<p>Using this definition, we can simplify the expression $2 \times 3 \cdot$ as follows:</p>
+$$
+\begin{align*}
+&2 \times 3 \\
+\stackrel{\text{(} \times )}{=}\ & 2 \times (\times 3) \\
+= {}& \times (2 \times 3) \\
+= {}& \times (6) \\
+= {}& 6
+\end{align*}
+$$
+<p>Key Theorem:</p>
+<p>The prefix operator $\circ$ satisfies the following associativity property:</p>
+$$
+a \circ (b \circ c) = (a \circ b) \circ c
+$$
+<p>where $a$, $b$, and $c$ are any two operators.</p>
+<p>Lab Cell (SymPy):</p>
+<pre><code>import sympy as sp
+
+# Define the prefix operator
+def circ(a, b):
+    return a * b
+
+# Test the associativity property
+x = sp.symbols('x')
+y = sp.symbols('y')
+z = sp.symbols('z')
+
+assert sp.simplify(circ(circ(x, y), z)) == sp.simplify((circ(x, y) * z))</code></pre>
+  </main>
+</div>
+</body>
+</html>

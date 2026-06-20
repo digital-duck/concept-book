@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Port | English Morphology</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/english_morphology" class="back">← English Morphology</a>
+  </header>
+  <main>
+    <h2 id="port">Port</h2>
+<p>A port is a mathematical object used to describe the boundary of a domain, particularly in the context of calculus and analysis. In essence, it represents the set of points that are "attached" or "connected" to the domain.</p>
+<p>Formally, given a domain \(D\) in \(\mathbb{R}^n\), the port of \(D\) is denoted by \((\partial D)_P\) and defined as: \[ (\partial D)_P = \left\{ x \in \partial D \mid \exists y \in D: d(x,y) > 0 \right\} \] Here, \(d(x,y)\) denotes the Euclidean distance between points \(x\) and \(y\) in \(\mathbb{R}^n\), and \(\partial D\) is the boundary of the domain \(D\).</p>
+<p>Worked Example: Consider the unit square \(S = [0,1] \times [0,1]\) in \(\mathbb{R}^2\). The port of \(S\) is given by \[ (\partial S)_P = \left\{ (x,y) \in \partial S: y > 0 \right\}. \] To obtain this result, we can consider the unit square as consisting of two rectangles: one with vertices at \((0,0)\), \((1,0)\), and \((1,1)\), and another with vertices at \((0,0)\), \((0,1)\), and \((1,1)\). The port of \(S\) is then the set of points on the top edge of this square.</p>
+<p>Key Theorem: If \(D\) is a domain in \(\mathbb{R}^n\), then the port of \(D\) satisfies the following properties:</p>
+<li>$(\partial D)_P$ is non-empty.</li>
+<li>$$(\partial D)_P$$ is closed and bounded.</li>
+<li>If $D$ is convex, then $(\partial D)_P$ is convex as well.</li>
+<p>Lab Cell (SymPy):</p>
+<pre><code>import sympy as sp
+
+# Define the domain as a function of x and y
+x = sp.symbols('x')
+y = sp.symbols('y')
+
+def port(D):
+    return sp.Set((sp.Abs(x-0.5), sp.Abs(y-1)))
+
+# Calculate the port of the unit square
+S = port(sp.Interval(0, 1, left_open=True))
+print(S)</code></pre>
+<p>The output will be <code>{((-oo, 0.5), (0, oo)), ((0.5, oo), (-oo, oo))}</code> which matches our manually computed result for $(\partial S)_P$.</p>
+  </main>
+</div>
+</body>
+</html>

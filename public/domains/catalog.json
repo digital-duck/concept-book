@@ -57,6 +57,10 @@
       {
         "target": "polygon",
         "file": "book_polygon.html"
+      },
+      {
+        "target": "circle",
+        "file": "book_circle.html"
       }
     ],
     "generated_concepts": [
@@ -74,6 +78,11 @@
         "name": "area",
         "label": "Area",
         "file": "concept_area.html"
+      },
+      {
+        "name": "circle",
+        "label": "Circle",
+        "file": "concept_circle.html"
       },
       {
         "name": "coordinate_plane",
@@ -198,20 +207,52 @@
   {
     "id": "english_morphology",
     "name": "English Morphology",
-    "description": "From root words and affixes to vocabulary mastery.",
-    "capstone": null,
-    "nodes": 36,
-    "edges": 46,
-    "primitives": 13,
-    "concepts": 18,
+    "description": "Unlocking English Words the LEGO Way — from prefix/stem/suffix bricks to morphological decoding.",
+    "capstone": "morphological_decoding_principle",
+    "nodes": 39,
+    "edges": 64,
+    "primitives": 3,
+    "concepts": 31,
     "applications": 5,
     "tags": [
-      "language"
+      "language",
+      "stem"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "import",
+        "file": "book_import.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "import",
+        "label": "Import",
+        "file": "concept_import.html"
+      },
+      {
+        "name": "in-",
+        "label": "In-",
+        "file": "concept_in-.html"
+      },
+      {
+        "name": "port",
+        "label": "Port",
+        "file": "concept_port.html"
+      },
+      {
+        "name": "prefix",
+        "label": "Prefix",
+        "file": "concept_prefix.html"
+      },
+      {
+        "name": "stem",
+        "label": "Stem",
+        "file": "concept_stem.html"
+      }
+    ]
   },
   {
     "id": "python_science",

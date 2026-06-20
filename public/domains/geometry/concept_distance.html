@@ -39,34 +39,27 @@ section:first-of-type{border-top:none;padding-top:0}
   </header>
   <main>
     <h2 id="distance">Distance</h2>
-<p><strong>Definition.</strong> Let $\mathbf{u} = (u_1, u_2, \ldots, u_n)$ and $\mathbf{v} = (v_1, v_2, \ldots, v_n)$ be two points in $\mathbb{R}^n$. The <strong>(Euclidean) distance</strong> between $\mathbf{u}$ and $\mathbf{v}$ is defined by</p>
-$$
-d(\mathbf{u}, \mathbf{v}) = \|\mathbf{u} - \mathbf{v}\| = \sqrt{\sum_{i=1}^{n}(u_i - v_i)^2}.
-$$
-<p>This quantity generalises the familiar ruler measurement on a number line to any finite dimension and arises naturally from the inner product: $d(\mathbf{u}, \mathbf{v}) = \sqrt{\langle \mathbf{u}-\mathbf{v},\, \mathbf{u}-\mathbf{v}\rangle}$. Non-negativity ($d(\mathbf{u},\mathbf{v}) \geq 0$, with equality if and only if $\mathbf{u} = \mathbf{v}$) and symmetry ($d(\mathbf{u},\mathbf{v}) = d(\mathbf{v},\mathbf{u})$) follow immediately from the definition; both are left as short exercises.</p>
-<p><strong>Worked Example.</strong> Compute the distance between $\mathbf{u} = (1, 3, -2)$ and $\mathbf{v} = (4, -1, 2)$ in $\mathbb{R}^3$.</p>
-$$
-\mathbf{u} - \mathbf{v} = (1-4,\; 3-(-1),\; -2-2) = (-3,\; 4,\; -4).
-$$
-$$
-d(\mathbf{u}, \mathbf{v}) = \sqrt{(-3)^2 + 4^2 + (-4)^2} = \sqrt{9 + 16 + 16} = \sqrt{41} \approx 6.403.
-$$
-<p><strong>Key Theorem (Triangle Inequality).</strong> For all $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$,</p>
-$$
-d(\mathbf{u}, \mathbf{w}) \leq d(\mathbf{u}, \mathbf{v}) + d(\mathbf{v}, \mathbf{w}).
-$$
-<p>Geometrically, no side of a triangle is longer than the sum of the other two. This is the non-trivial metric axiom and the one with genuine content to prove.</p>
-<p><em>Proof sketch.</em> By the Cauchy–Schwarz inequality, $|\langle \mathbf{x}, \mathbf{y}\rangle| \leq \|\mathbf{x}\|\,\|\mathbf{y}\|$. Set $\mathbf{x} = \mathbf{u}-\mathbf{v}$ and $\mathbf{y} = \mathbf{v}-\mathbf{w}$. Expanding $\|\mathbf{u}-\mathbf{w}\|^2 = \|(\mathbf{u}-\mathbf{v})+(\mathbf{v}-\mathbf{w})\|^2$ and applying the inequality to the cross term yields $\|\mathbf{u}-\mathbf{w}\|^2 \leq \bigl(\|\mathbf{u}-\mathbf{v}\|+\|\mathbf{v}-\mathbf{w}\|\bigr)^2$; taking square roots gives the result. $\blacksquare$</p>
+<p><strong>Definition.</strong> Let $\mathbb{R}^n$ denote $n$-dimensional Euclidean space. Given two points $\mathbf{p} = (p_1, p_2, \ldots, p_n)$ and $\mathbf{q} = (q_1, q_2, \ldots, q_n)$, the <strong>Euclidean distance</strong> between them is</p>
+$$d(\mathbf{p}, \mathbf{q}) = \|\mathbf{p} - \mathbf{q}\| = \sqrt{\sum_{i=1}^{n}(p_i - q_i)^2}.$$
+<p>This formula generalises the familiar Pythagorean theorem: in $\mathbb{R}^2$ it reduces to $\sqrt{(p_1-q_1)^2+(p_2-q_2)^2}$, the length of the hypotenuse of the right triangle whose legs run parallel to the coordinate axes. The function $d$ is non-negative, equals zero precisely when $\mathbf{p} = \mathbf{q}$, and is symmetric: $d(\mathbf{p},\mathbf{q}) = d(\mathbf{q},\mathbf{p})$.</p>
+<p><strong>Worked Example.</strong> Find the Euclidean distance between $A = (1, -2, 4)$ and $B = (5, 2, 1)$ in $\mathbb{R}^3$.</p>
+$$d(A, B) = \sqrt{(5-1)^2 + (2-(-2))^2 + (1-4)^2} = \sqrt{16 + 16 + 9} = \sqrt{41} \approx 6.403.$$
+<p>Note that the result is independent of the order of the arguments: $d(A,B) = d(B,A)$, consistent with symmetry.</p>
+<p><strong>Key Theorem (Triangle Inequality in $\mathbb{R}^n$).</strong> For all $\mathbf{p}, \mathbf{q}, \mathbf{r} \in \mathbb{R}^n$,</p>
+$$d(\mathbf{p}, \mathbf{r}) \leq d(\mathbf{p}, \mathbf{q}) + d(\mathbf{q}, \mathbf{r}).$$
+<p><em>Proof sketch.</em> Set $\mathbf{u} = \mathbf{q} - \mathbf{p}$ and $\mathbf{v} = \mathbf{r} - \mathbf{q}$, so $\mathbf{r} - \mathbf{p} = \mathbf{u} + \mathbf{v}$. Then $\|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\|$ follows directly from the Cauchy–Schwarz inequality $|\mathbf{u} \cdot \mathbf{v}| \leq \|\mathbf{u}\|\|\mathbf{v}\|$. $\square$</p>
+<p>This inequality captures the geometric intuition that a straight-line path between two points is never longer than any detour through a third point. In later sections, this property will be seen as one of the defining axioms of the broader class of distance functions known as metrics.</p>
 <p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>from sympy import Matrix, sqrt, simplify
+<pre><code>from sympy import sqrt, Matrix
 
-u = Matrix([1, 3, -2])
-v = Matrix([4, -1, 2])
+A = Matrix([1, -2, 4])
+B = Matrix([5,  2, 1])
 
-diff = u - v
+diff = B - A
 dist = sqrt(diff.dot(diff))
-print("Distance:", simplify(dist))   # sqrt(41)</code></pre>
-<p>Running this cell confirms $d(\mathbf{u}, \mathbf{v}) = \sqrt{41}$. Experiment by replacing the coordinates to build intuition for how each component contributes quadratically to the total separation.</p>
+print(f"d(A, B) = {dist} ≈ {float(dist):.4f}")
+# d(A, B) = sqrt(41) ≈ 6.4031</code></pre>
+<p>Running this cell confirms the analytic result and illustrates how SymPy preserves exact radical form before converting to a decimal approximation.</p>
   </main>
 </div>
 </body>

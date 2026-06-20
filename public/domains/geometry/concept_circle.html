@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circle | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="circle">Circle</h2>
+<p><strong>Definition.</strong> A <em>circle</em> is the set of all points in the Euclidean plane that lie at a fixed distance $r > 0$ from a given point $C = (h, k)$, called the <em>centre</em>. Formally,</p>
+$$\mathcal{C} = \{(x, y) \in \mathbb{R}^2 \mid (x - h)^2 + (y - k)^2 = r^2\}.$$
+<p>The constant $r$ is the <em>radius</em>. When the centre is the origin, the equation reduces to $x^2 + y^2 = r^2$. Expanding the standard form yields the <em>general form</em></p>
+$$x^2 + y^2 + Dx + Ey + F = 0,$$
+<p>where $D = -2h$, $E = -2k$, and $F = h^2 + k^2 - r^2$. A general second-degree equation of this type represents a circle precisely when $D^2 + E^2 - 4F > 0$.</p>
+<p><strong>Worked Example.</strong> Identify the centre and radius of $x^2 + y^2 - 6x + 4y - 3 = 0$.</p>
+<p><em>Complete the square</em> in each variable:</p>
+$$
+(x^2 - 6x + 9) + (y^2 + 4y + 4) = 3 + 9 + 4,
+$$
+$$
+(x - 3)^2 + (y + 2)^2 = 16.
+$$
+<p>Hence the centre is $(3, -2)$ and the radius is $r = \sqrt{16} = 4$.</p>
+<p><strong>Key Theorem (Tangent–Radius Perpendicularity).</strong> <em>A tangent line to a circle is perpendicular to the radius drawn to the point of tangency.</em> Precisely, if $T$ lies on $\mathcal{C}$ and $\ell$ is the unique line through $T$ meeting $\mathcal{C}$ at exactly one point (the <em>tangent</em> at $T$), then $\ell \perp CT$.</p>
+<p><em>Proof sketch.</em> Suppose $\ell$ is not perpendicular to $CT$. Then the foot of the perpendicular from $C$ to $\ell$ is a point $Q \neq T$ with $|CQ| < |CT| = r$. Points of $\ell$ sufficiently close to $Q$ therefore lie strictly inside $\mathcal{C}$, forcing $\ell$ to cross $\mathcal{C}$ at a second point — contradicting the assumption that $\ell$ is tangent. $\square$</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import symbols, sqrt
+
+x, y = symbols('x y')
+
+# Complete the square for x^2 + y^2 - 6x + 4y - 3 = 0
+completed = (x - 3)**2 + (y + 2)**2 - 16
+
+centre = (3, -2)
+radius = sqrt(16)
+print(f"Centre: {centre}, Radius: {radius}")   # Centre: (3, -2), Radius: 4
+
+# Verify: the rightmost point lies on the circle
+x_pt, y_pt = 3 + 4, -2
+print(completed.subs({x: x_pt, y: y_pt}))     # 0</code></pre>
+  </main>
+</div>
+</body>
+</html>

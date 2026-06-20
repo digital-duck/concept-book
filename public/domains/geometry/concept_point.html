@@ -39,23 +39,26 @@ section:first-of-type{border-top:none;padding-top:0}
   </header>
   <main>
     <h2 id="point">Point</h2>
-<p><strong>Definition.</strong> A <em>point</em> is the most primitive object in Euclidean geometry: it has no dimension, no length, no area, and no volume. Formally, in $\mathbb{R}^n$, a point is an ordered $n$-tuple</p>
-$$P = (x_1, x_2, \ldots, x_n) \in \mathbb{R}^n,$$
-<p>where each $x_i \in \mathbb{R}$ is called a <em>coordinate</em> of $P$ along the $i$-th axis. In the plane ($n = 2$) we write $P = (x, y)$; in space ($n = 3$) we write $P = (x, y, z)$. A point is location without extent — it satisfies Euclid's first postulate: <em>"A point is that which has no part."</em></p>
-<p><strong>Worked Example.</strong> Let $P = (3, -1)$ and $Q = (7, 2)$ be two points in $\mathbb{R}^2$. The <em>distance</em> between them is given by the Euclidean metric</p>
-$$d(P, Q) = \sqrt{(7 - 3)^2 + (2 - (-1))^2} = \sqrt{16 + 9} = \sqrt{25} = 5.$$
-<p>Observe that $d(P, Q) = d(Q, P)$, and that $d(P, Q) = 0$ if and only if $P$ and $Q$ are the same point — properties that make the Euclidean metric a proper <em>metric</em> in the sense of analysis. The distance of 5 units here is exact; no rounding occurs because the radicand is a perfect square.</p>
-<p><strong>Key Theorem (Distance Formula).</strong> For any two points $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ in $\mathbb{R}^2$,</p>
+<p><strong>Definition.</strong> A <em>point</em> is the most fundamental object in geometry: it has no dimension, no length, no area, and no volume — it is a precise location in space. In the Euclidean plane $\mathbb{R}^2$, a point $P$ is an ordered pair $(x, y)$ where $x, y \in \mathbb{R}$. More generally, a point in $\mathbb{R}^n$ is an ordered $n$-tuple $(x_1, x_2, \ldots, x_n)$. Points are the atomic building blocks from which all geometric figures — lines, curves, surfaces — are constructed.</p>
+<p>The <strong>distance</strong> between two points $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ in $\mathbb{R}^2$ is given by the Euclidean metric:</p>
 $$d(P, Q) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}.$$
-<p><em>Proof sketch.</em> Drop a perpendicular from $Q$ to the horizontal line through $P$, forming a right triangle with legs $|x_2 - x_1|$ and $|y_2 - y_1|$. The hypotenuse equals $d(P, Q)$; the result follows directly from the Pythagorean theorem. The formula extends to $\mathbb{R}^n$ by induction, adding one squared-difference term per additional coordinate. $\blacksquare$</p>
+<p>This formula extends directly to $\mathbb{R}^n$: $d(P, Q) = \sqrt{\sum_{i=1}^{n}(q_i - p_i)^2}$.</p>
+<p><strong>Worked Example.</strong> Let $P = (1, 3)$ and $Q = (4, 7)$. Compute the distance $d(P, Q)$.</p>
+$$d(P, Q) = \sqrt{(4-1)^2 + (7-3)^2} = \sqrt{9 + 16} = \sqrt{25} = 5.$$
+<p>The displacement in the $x$-direction is $3$ and in the $y$-direction is $4$; these form the legs of a right triangle whose hypotenuse — the direct distance between the two points — has length $5$. This connection to the Pythagorean theorem is not coincidental: the Euclidean metric is defined precisely to encode it.</p>
+<p><strong>Key Theorem (Triangle Inequality).</strong> For any three points $A$, $B$, $C$ in $\mathbb{R}^n$,</p>
+$$d(A, C) \leq d(A, B) + d(B, C),$$
+<p>with equality if and only if $B$ lies on the line segment $\overline{AC}$. This is the cornerstone of metric geometry: no indirect path can be shorter than the direct one. A proof sketch applies the Cauchy–Schwarz inequality to the displacement vectors $\mathbf{u} = B - A$ and $\mathbf{v} = C - B$, noting that $\|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\|$.</p>
 <p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>from sympy import sqrt
+<pre><code>from sympy import Point
 
-x1, y1, x2, y2 = 3, -1, 7, 2
-distance = sqrt((x2 - x1)**2 + (y2 - y1)**2)
+P = Point(1, 3)
+Q = Point(4, 7)
 
-print("Distance :", distance)   # 5</code></pre>
-<p>Running this cell confirms the computation symbolically, illustrating how SymPy handles exact arithmetic — returning the integer $5$ rather than the floating-point approximation $5.0$. This distinction matters whenever subsequent steps require algebraic manipulation of the result.</p>
+dist = P.distance(Q)          # returns 5
+
+print(f"Distance : {dist}")</code></pre>
+<p>Running this cell confirms $d(P, Q) = 5$, agreeing with the hand calculation above. Students are encouraged to modify the coordinates and verify that the computed distance always satisfies the Triangle Inequality for a third point $R$ of their choosing.</p>
   </main>
 </div>
 </body>

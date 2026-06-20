@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stem | English Morphology</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/english_morphology" class="back">← English Morphology</a>
+  </header>
+  <main>
+    <h2 id="stem">Stem</h2>
+<h3 id="definition">Definition</h3>
+<p>In mathematics, a stem is a part of an expression that contains the operation being performed. It is typically denoted by parentheses or other grouping symbols. The stem is the part of the expression that separates the operands (the values being operated on) from the operator.</p>
+<p>For example, in the expression $2 + 3$, the stem is the $+$ symbol.</p>
+<h3 id="worked-example">Worked Example</h3>
+<p>Consider the expression $(x^2 + 1)/(x - 1)$. To evaluate this expression, we need to simplify it first. We can do this by using the distributive property of division over addition:</p>
+$$\frac{x^2 + 1}{x - 1} = \frac{(x^2)}{x - 1} + \frac{1}{x - 1}.$$
+<p>Now, we can evaluate each term separately. The first term is $\frac{x^2}{x-1}$.</p>
+<h3 id="key-theorem">Key Theorem</h3>
+<p>If $f(x)$ and $g(x)$ are two functions, then the quotient of their compositions is equal to the composition of their quotients:</p>
+$$(f \circ g)(x) = (f/g)(x).$$
+<p>This theorem can be used to simplify complex expressions by rewriting them as a product of simpler expressions.</p>
+<h3 id="lab-cell-sympy">Lab Cell (SymPy)</h3>
+<pre><code>from sympy import symbols, Eq, solve
+
+# Define the variable
+x = symbols('x')
+
+# Define the expression
+expr = (x**2 + 1)/(x - 1)
+
+# Simplify the expression
+simplified_expr = expr.simplify()
+
+print(simplified_expr)</code></pre>
+<p>This code uses SymPy to simplify the expression $(x^2 + 1)/(x - 1)$. The output will be the simplified expression, which can be used for further calculations.</p>
+  </main>
+</div>
+</body>
+</html>
