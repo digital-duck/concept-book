@@ -25,7 +25,26 @@ No test runner is wired up; `playwright` is in devDependencies but has no npm te
 
 ## Architecture
 
-**Content pipeline (external):** SPL.py generates `*_graph.yaml` and `*_graph.html` (vis.js navigators), and can generate `concept_book.html` via LLM. These are synced into `public/domains/{id}/` by `scripts/sync_from_spl.sh`.
+**Content pipeline:** `spl/build_concept_book.spl` is the concept-book generation workflow (forked from SPL.py recipe 74). It uses `@level` (intro/core/college/research) instead of `@style`. Supporting files: `spl/level_profiles.py` (level definitions), `spl/tools.py` (SPL tool functions), `spl/graph_lib.py` (graph algorithms). The `*_graph.yaml` inputs and `*_graph.html` navigators are synced from SPL.py by `scripts/sync_from_spl.sh`.
+
+**Domain directory layout:**
+```
+public/domains/{id}/
+  input/graph.yaml                        # concept graph definition (from SPL.py)
+  output/graph.html                       # vis.js navigator (level/lang invariant)
+  output/{level}.{lang}/html/             # e.g. core.en/, intro.zh/
+    book_{target}.html                    # TOC-index concept books
+    concept_{name}.html                   # individual concept component books
+  output/{level}.{lang}/pdf/              # (future) PDF output
+```
+
+**Content levels** (learner progression, not tied to school systems):
+- `intro` — basic concepts (elementary)
+- `core` — expanded coverage (intermediate)
+- `college` — extensive coverage (undergraduate)
+- `research` — advanced coverage (graduate+)
+
+A domain can have books at multiple levels — level is a content property, not a domain property. Current defaults: chinese_characters/english_morphology→intro, geometry/chemistry_elements/music_theory→core, mechanics/linalg/python_science→college, sage_learning/lean_proving→research.
 
 **Frontend** (`src/`): Vite + Vanilla JS with zero frameworks.
 - `router.js` — hash-based router (`#/`, `#/domain/:id`, `#/about`). No library.
@@ -34,7 +53,7 @@ No test runner is wired up; `playwright` is in devDependencies but has no npm te
 - `components/GraphViewer.js` — the key integration point. Loads `graph.html` in an iframe, then uses `contentWindow.eval()` to expose `RAW`/`nodeIndex`, patches `handleSelect` to emit `cb:nodeSelected` custom events, and injects two sidebar sections (Generate Book, Concept Books) directly into the iframe DOM via `insertAdjacentElement`. This is same-origin, not cross-origin — both `graph.html` and the shell are served from the same Vite dev server.
 
 **Backend** (`api/`): FastAPI.
-- `GET /api/generate` (SSE) — streams `spl3 run build_concept_book.spl` subprocess output as `log`/`done`/`gen_error` events. Requires the `spl123` conda env with `spl3` on PATH.
+- `GET /api/generate` (SSE) — params: `domain`, `target`, `level` (default `intro`), `language` (default `en`). Streams `spl3 run build_concept_book.spl` subprocess output as `log`/`done`/`gen_error` events. Requires the `spl123` conda env with `spl3` on PATH.
 - `GET /api/domains` / `/api/domains/{id}/status` — reads `catalog.json`.
 - `api/config.py` — `Settings` reads env vars prefixed `CB_`: `CB_SPL_DIR` (default `~/projects/digital-duck/SPL.py`), `CB_PUBLIC_DOMAINS` (default `./public/domains`), and `CB_LLM` (default `claude_cli:claude-sonnet-4-6`).
 
@@ -57,8 +76,8 @@ The iframe's `graph.html` exposes script-scoped `RAW` (full graph data), `nodeIn
   "title": "Linear Algebra",
   "tags": ["math"],
   "capstone": "linear_algebra",
-  "books": [{"target": "linear_algebra", "file": "concept_book.html"}],
-  "generated_concepts": [{"label": "Vector", "file": "vector_book.html"}]
+  "books": [{"target": "linear_algebra", "file": "output/college.en/html/book_linear_algebra.html"}],
+  "generated_concepts": [{"label": "Vector", "file": "output/college.en/html/concept_vector.html"}]
 }
 ```
 
@@ -72,9 +91,9 @@ The iframe's `graph.html` exposes script-scoped `RAW` (full graph data), `nodeIn
 
 ## Adding a new domain
 
-1. Add the domain ID to the `DOMAINS` array in `scripts/sync_from_spl.sh` (hardcoded list).
+1. Add the domain ID and its default level to the `LEVEL_MAP` in `scripts/sync_from_spl.sh`.
 2. Add an entry to `public/domains/catalog.json`.
-3. Run `bash scripts/sync_from_spl.sh` to copy `graph.html` and `graph.yaml`.
+3. Run `bash scripts/sync_from_spl.sh` to copy files into `input/` and `output/{level}.{lang}/html/`.
 
 ## i18n
 

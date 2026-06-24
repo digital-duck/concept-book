@@ -36,98 +36,98 @@
     "books": [
       {
         "target": "area",
-        "file": "book_area.html"
+        "file": "output/core.en/html/book_area.html"
       },
       {
         "target": "similarity",
-        "file": "book_similarity.html"
+        "file": "output/core.en/html/book_similarity.html"
       },
       {
         "target": "line_segment",
-        "file": "book_line_segment.html"
+        "file": "output/core.en/html/book_line_segment.html"
       },
       {
         "target": "ray",
-        "file": "book_ray.html"
+        "file": "output/core.en/html/book_ray.html"
       },
       {
         "target": "coordinate_plane",
-        "file": "book_coordinate_plane.html"
+        "file": "output/core.en/html/book_coordinate_plane.html"
       },
       {
         "target": "polygon",
-        "file": "book_polygon.html"
+        "file": "output/core.en/html/book_polygon.html"
       },
       {
         "target": "circle",
-        "file": "book_circle.html"
+        "file": "output/core.en/html/book_circle.html"
       }
     ],
     "generated_concepts": [
       {
         "name": "angle",
         "label": "Angle",
-        "file": "concept_angle.html"
+        "file": "output/core.en/html/concept_angle.html"
       },
       {
         "name": "angle_measure",
         "label": "Angle Measure",
-        "file": "concept_angle_measure.html"
+        "file": "output/core.en/html/concept_angle_measure.html"
       },
       {
         "name": "area",
         "label": "Area",
-        "file": "concept_area.html"
+        "file": "output/core.en/html/concept_area.html"
       },
       {
         "name": "circle",
         "label": "Circle",
-        "file": "concept_circle.html"
+        "file": "output/core.en/html/concept_circle.html"
       },
       {
         "name": "coordinate_plane",
         "label": "Coordinate Plane",
-        "file": "concept_coordinate_plane.html"
+        "file": "output/core.en/html/concept_coordinate_plane.html"
       },
       {
         "name": "distance",
         "label": "Distance",
-        "file": "concept_distance.html"
+        "file": "output/core.en/html/concept_distance.html"
       },
       {
         "name": "line",
         "label": "Line",
-        "file": "concept_line.html"
+        "file": "output/core.en/html/concept_line.html"
       },
       {
         "name": "line_segment",
         "label": "Line Segment",
-        "file": "concept_line_segment.html"
+        "file": "output/core.en/html/concept_line_segment.html"
       },
       {
         "name": "point",
         "label": "Point",
-        "file": "concept_point.html"
+        "file": "output/core.en/html/concept_point.html"
       },
       {
         "name": "polygon",
         "label": "Polygon",
-        "file": "concept_polygon.html"
+        "file": "output/core.en/html/concept_polygon.html"
       },
       {
         "name": "ray",
         "label": "Ray",
-        "file": "concept_ray.html"
+        "file": "output/core.en/html/concept_ray.html"
       },
       {
         "name": "rigid_motion",
         "label": "Rigid Motion",
-        "file": "concept_rigid_motion.html"
+        "file": "output/core.en/html/concept_rigid_motion.html"
       },
       {
         "name": "similarity",
         "label": "Similarity",
-        "file": "concept_similarity.html"
+        "file": "output/core.en/html/concept_similarity.html"
       }
     ]
   },
@@ -188,19 +188,19 @@
     "books": [
       {
         "target": "林",
-        "file": "book_林.html"
+        "file": "output/intro.en/html/book_林.html"
       }
     ],
     "generated_concepts": [
       {
         "name": "木",
         "label": "木",
-        "file": "concept_木.html"
+        "file": "output/intro.en/html/concept_木.html"
       },
       {
         "name": "林",
         "label": "林",
-        "file": "concept_林.html"
+        "file": "output/intro.en/html/concept_林.html"
       }
     ]
   },
@@ -223,34 +223,34 @@
     "books": [
       {
         "target": "import",
-        "file": "book_import.html"
+        "file": "output/intro.en/html/book_import.html"
       }
     ],
     "generated_concepts": [
       {
         "name": "import",
         "label": "Import",
-        "file": "concept_import.html"
+        "file": "output/intro.en/html/concept_import.html"
       },
       {
         "name": "in-",
         "label": "In-",
-        "file": "concept_in-.html"
+        "file": "output/intro.en/html/concept_in-.html"
       },
       {
         "name": "port",
         "label": "Port",
-        "file": "concept_port.html"
+        "file": "output/intro.en/html/concept_port.html"
       },
       {
         "name": "prefix",
         "label": "Prefix",
-        "file": "concept_prefix.html"
+        "file": "output/intro.en/html/concept_prefix.html"
       },
       {
         "name": "stem",
         "label": "Stem",
-        "file": "concept_stem.html"
+        "file": "output/intro.en/html/concept_stem.html"
       }
     ]
   },

@@ -1,4 +1,4 @@
-export function GraphViewer(domain) {
+export function GraphViewer(domain, { level = 'intro', lang = 'en' } = {}) {
   const { id: domainId, books = [], generated_concepts: genConcepts = [], capstone } = domain
 
   const el = document.createElement('div')
@@ -6,7 +6,7 @@ export function GraphViewer(domain) {
 
   const frame = document.createElement('iframe')
   frame.className = 'cb-graph-viewer__frame'
-  frame.src = `${import.meta.env.BASE_URL}domains/${domainId}/graph.html`
+  frame.src = `${import.meta.env.BASE_URL}domains/${domainId}/output/graph.html`
   frame.title = `${domainId} concept graph`
   frame.setAttribute('allowfullscreen', '')
 
@@ -44,7 +44,7 @@ export function GraphViewer(domain) {
       if (books.length > 0 || genConcepts.length > 0) {
         _injectConceptBooksSection(win, frame.contentDocument, domainId, books, genConcepts)
       }
-      _injectGenerateSection(win, frame.contentDocument, domainId, capstone)
+      _injectGenerateSection(win, frame.contentDocument, domainId, capstone, level, lang)
     } catch (_) { /* cross-origin safety */ }
   })
 
@@ -162,7 +162,7 @@ function _injectConceptBooksSection(win, doc, domainId, books, genConcepts) {
 
 // ── Generate Book section ─────────────────────────────────────────────────────
 
-function _injectGenerateSection(win, doc, domainId, capstone) {
+function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
   const sidebar = doc.querySelector('#path-sidebar')
   const pathHeader = doc.querySelector('#path-header')
   if (!sidebar || !pathHeader || doc.querySelector('#cb-gen')) return
@@ -226,7 +226,7 @@ function _injectGenerateSection(win, doc, domainId, capstone) {
     log.style.display = 'block'
     log.textContent = `▶ target: ${target}\n`
 
-    const url = `/api/generate?domain=${encodeURIComponent(domainId)}&target=${encodeURIComponent(target)}`
+    const url = `/api/generate?domain=${encodeURIComponent(domainId)}&target=${encodeURIComponent(target)}&level=${encodeURIComponent(level)}&language=${encodeURIComponent(lang)}`
     const es = new win.EventSource(url)
 
     es.addEventListener('log', e => {

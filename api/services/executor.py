@@ -11,20 +11,22 @@ from pathlib import Path
 
 from api.config import settings
 
-_COOKBOOK = "cookbook/74_concept_book"
+_REPO_ROOT = Path(__file__).parent.parent.parent
+_SPL_DIR = _REPO_ROOT / "spl"
 
 
-async def stream_generate(domain_id: str, target: str, language: str = "en"):
+async def stream_generate(domain_id: str, target: str, level: str = "intro", language: str = "en"):
     spl_dir: Path = settings.spl_dir
-    output_dir = settings.public_domains / domain_id
+    output_dir = settings.public_domains / domain_id / "output" / f"{level}.{language}" / "html"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     cmd = [
-        "spl3", "run", f"{_COOKBOOK}/build_concept_book.spl",
-        "--tools", f"{_COOKBOOK}/tools.py",
+        "spl3", "run", str(_SPL_DIR / "build_concept_book.spl"),
+        "--tools", str(_SPL_DIR / "tools.py"),
         "--llm", settings.llm,
         "--param", f"domain_yaml={domain_id}_graph.yaml",
         "--param", f"target={target}",
+        "--param", f"level={level}",
         "--param", f"language={language}",
         "--param", f"output_dir={output_dir}",
     ]
@@ -48,7 +50,7 @@ async def stream_generate(domain_id: str, target: str, language: str = "en"):
 
     if proc.returncode == 0:
         from api.services.catalog_svc import mark_book_generated
-        mark_book_generated(domain_id, target)
+        mark_book_generated(domain_id, target, level, language)
         yield {"event": "done", "data": json.dumps({"domain": domain_id, "target": target})}
     else:
         yield {

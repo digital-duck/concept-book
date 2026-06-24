@@ -9,18 +9,21 @@ SPL_YAML="$SPL_DIR/cookbook/74_concept_book"
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DEST="$REPO_ROOT/public/domains"
 
-DOMAINS=(
-  chemistry_elements
-  chinese_characters
-  english_morphology
-  geometry
-  lean_proving
-  linalg
-  mechanics
-  music_theory
-  python_science
-  sage_learning
+declare -A LEVEL_MAP=(
+  [chemistry_elements]=core
+  [chinese_characters]=intro
+  [english_morphology]=intro
+  [geometry]=core
+  [lean_proving]=research
+  [linalg]=college
+  [mechanics]=college
+  [music_theory]=core
+  [python_science]=college
+  [sage_learning]=research
 )
+
+DOMAINS=("${!LEVEL_MAP[@]}")
+LANG="${LANG:-en}"
 
 echo "Source HTML : $SPL_HTML"
 echo "Source YAML : $SPL_YAML"
@@ -28,25 +31,27 @@ echo "Destination : $DEST"
 echo ""
 
 for domain in "${DOMAINS[@]}"; do
-  mkdir -p "$DEST/$domain"
+  level="${LEVEL_MAP[$domain]}"
+  variant="$level.$LANG"
+  mkdir -p "$DEST/$domain/input" "$DEST/$domain/output/$variant/html"
 
   if [ -f "$SPL_HTML/${domain}_graph.html" ]; then
-    cp "$SPL_HTML/${domain}_graph.html" "$DEST/$domain/graph.html"
-    echo "  ✓  $domain/graph.html"
+    cp "$SPL_HTML/${domain}_graph.html" "$DEST/$domain/output/graph.html"
+    echo "  ✓  $domain/output/graph.html"
   else
-    echo "  ✗  $domain/graph.html (not found in $SPL_HTML)"
+    echo "  ✗  $domain/output/graph.html (not found in $SPL_HTML)"
   fi
 
   if [ -f "$SPL_YAML/${domain}_graph.yaml" ]; then
-    cp "$SPL_YAML/${domain}_graph.yaml" "$DEST/$domain/graph.yaml"
-    echo "  ✓  $domain/graph.yaml"
+    cp "$SPL_YAML/${domain}_graph.yaml" "$DEST/$domain/input/graph.yaml"
+    echo "  ✓  $domain/input/graph.yaml"
   else
-    echo "  ✗  $domain/graph.yaml (not found)"
+    echo "  ✗  $domain/input/graph.yaml (not found)"
   fi
 
   if [ -f "$SPL_HTML/${domain}_concept_book.html" ]; then
-    cp "$SPL_HTML/${domain}_concept_book.html" "$DEST/$domain/concept_book.html"
-    echo "  ✓  $domain/concept_book.html"
+    cp "$SPL_HTML/${domain}_concept_book.html" "$DEST/$domain/output/$variant/html/concept_book.html"
+    echo "  ✓  $domain/output/$variant/html/concept_book.html"
   fi
 done
 

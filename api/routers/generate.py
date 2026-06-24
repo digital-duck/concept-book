@@ -7,5 +7,5 @@ router = APIRouter()
 
 
 @router.get("/api/generate")
-async def generate(domain: str, target: str, language: str = "en"):
-    return EventSourceResponse(stream_generate(domain, target, language))
+async def generate(domain: str, target: str, level: str = "intro", language: str = "en"):
+    return EventSourceResponse(stream_generate(domain, target, level, language))

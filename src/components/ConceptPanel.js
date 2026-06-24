@@ -1,4 +1,4 @@
-export function ConceptPanel(domain, { selectNode, signal } = {}) {
+export function ConceptPanel(domain, { selectNode, signal, level = 'intro', lang = 'en' } = {}) {
   const el = document.createElement('aside')
   el.className = 'cb-concept-panel'
 
@@ -12,7 +12,7 @@ export function ConceptPanel(domain, { selectNode, signal } = {}) {
       .map(p => `<button class="cb-prereq-chip" data-id="${p}">${p.replace(/_/g, ' ')}</button>`)
       .join('')
     const bookAnchor = node.id.replace(/_/g, '-')
-    const bookUrl = `${import.meta.env.BASE_URL}domains/${domain.id}/concept_book.html#${bookAnchor}`
+    const bookUrl = `${import.meta.env.BASE_URL}domains/${domain.id}/output/${level}.${lang}/html/concept_book.html#${bookAnchor}`
 
     el.innerHTML = `
       <div class="cb-panel__node">
