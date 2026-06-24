@@ -26,7 +26,7 @@ async def stream_generate(domain_id: str, target: str, level: str = "intro", lan
         "--llm", settings.llm,
         "--param", f"domain_yaml={domain_id}_graph.yaml",
         "--param", f"target={target}",
-        "--param", f"level={level}",
+        "--param", f"lvl={level}",
         "--param", f"language={language}",
         "--param", f"output_dir={output_dir}",
     ]

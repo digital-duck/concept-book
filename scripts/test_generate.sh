@@ -41,7 +41,7 @@ spl3 run "$SPL_WORKFLOW/build_concept_book.spl" \
     --llm "$LLM" \
     --param "domain_yaml=${DOMAIN}_graph.yaml" \
     --param "target=$TARGET" \
-    --param "level=$LEVEL" \
+    --param "lvl=$LEVEL" \
     --param "language=$LANG" \
     --param "output_dir=$OUTPUT_DIR"
 

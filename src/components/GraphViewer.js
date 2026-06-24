@@ -186,11 +186,17 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
              font-family:system-ui,sans-serif">
       Generate
     </button>
-    <pre id="cb-gen-log"
-      style="display:none;margin-top:8px;font-size:10px;line-height:1.5;
-             color:#2a2a2a;background:#e8eaed;padding:8px;border-radius:4px;
-             max-height:160px;overflow-y:auto;white-space:pre-wrap;
-             font-family:Menlo,Consolas,monospace"></pre>
+    <div style="position:relative">
+      <pre id="cb-gen-log"
+        style="display:none;margin-top:8px;font-size:10px;line-height:1.5;
+               color:#2a2a2a;background:#e8eaed;padding:8px;border-radius:4px;
+               max-height:160px;overflow-y:auto;white-space:pre-wrap;
+               font-family:Menlo,Consolas,monospace"></pre>
+      <button id="cb-gen-copy"
+        style="display:none;position:absolute;top:12px;right:4px;padding:2px 6px;
+               font-size:10px;background:#fff;border:1px solid #ccc;border-radius:3px;
+               cursor:pointer;font-family:system-ui,sans-serif;color:#555">Copy</button>
+    </div>
   `
 
   pathHeader.insertAdjacentElement('afterend', div)
@@ -198,6 +204,14 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
   const sel = div.querySelector('#cb-target-sel')
   const btn = div.querySelector('#cb-gen-btn')
   const log = div.querySelector('#cb-gen-log')
+  const copyBtn = div.querySelector('#cb-gen-copy')
+
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(log.textContent).then(() => {
+      copyBtn.textContent = 'Copied!'
+      setTimeout(() => { copyBtn.textContent = 'Copy' }, 1500)
+    })
+  })
 
   // Populate sorted alphabetically
   const sorted = (win.__cb_RAW?.nodes || [])
@@ -224,6 +238,7 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
     btn.textContent = 'Generating…'
     btn.style.background = '#ea580c'
     log.style.display = 'block'
+    copyBtn.style.display = 'block'
     log.textContent = `▶ target: ${target}\n`
 
     const url = `/api/generate?domain=${encodeURIComponent(domainId)}&target=${encodeURIComponent(target)}&level=${encodeURIComponent(level)}&language=${encodeURIComponent(lang)}`
