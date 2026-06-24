@@ -269,6 +269,11 @@ button { cursor: pointer; font-family: inherit; }
   font-size: 0.85rem;
   font-weight: 500;
 }
+.cb-settings__hint {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-top: 8px;
+}
 
 /* ── Home page ── */
 .cb-home {
@@ -398,6 +403,20 @@ button { cursor: pointer; font-family: inherit; }
   gap: 8px;
   margin-top: 8px;
 }
+
+/* ── Attribution bar ── */
+.cb-attribution {
+  padding: 4px 16px;
+  font-size: 11px;
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+.cb-attribution a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+.cb-attribution a:hover { text-decoration: underline; }
 
 /* ── Domain page ── */
 .cb-domain {

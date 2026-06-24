@@ -42,7 +42,7 @@ export function GraphViewer(domain, { level = 'intro', lang = 'en' } = {}) {
       // first (it lands after path-header), then inject Generate (it lands between
       // path-header and Concept Books, ending up on top).
       if (books.length > 0 || genConcepts.length > 0) {
-        _injectConceptBooksSection(win, frame.contentDocument, domainId, books, genConcepts)
+        _injectConceptBooksSection(win, frame.contentDocument, domainId, books, genConcepts, level, lang)
       }
       _injectGenerateSection(win, frame.contentDocument, domainId, capstone, level, lang)
     } catch (_) { /* cross-origin safety */ }
@@ -82,7 +82,11 @@ const _SUB_LABEL = [
 
 // ── Concept Books section ─────────────────────────────────────────────────────
 
-function _injectConceptBooksSection(win, doc, domainId, books, genConcepts) {
+function _localizePath(file, level, lang) {
+  return file.replace(/output\/[^/]+\//, `output/${level}.${lang}/`)
+}
+
+function _injectConceptBooksSection(win, doc, domainId, books, genConcepts, level, lang) {
   const pathHeader = doc.querySelector('#path-header')
   if (!pathHeader || doc.querySelector('#cb-read')) return
 
@@ -99,7 +103,7 @@ function _injectConceptBooksSection(win, doc, domainId, books, genConcepts) {
       <select id="cb-book-sel" style="${_SEL}">
         <option value="">Select book…</option>
         ${sortedBooks.map(b =>
-          `<option value="${b.file}">${b.target.replace(/_/g, ' ')}</option>`
+          `<option value="${_localizePath(b.file, level, lang)}">${b.target.replace(/_/g, ' ')}</option>`
         ).join('')}
       </select>
       <button id="cb-book-btn" disabled style="${_OPEN_BTN_DIS}">Open</button>
@@ -113,7 +117,7 @@ function _injectConceptBooksSection(win, doc, domainId, books, genConcepts) {
       <select id="cb-cpt-sel" style="${_SEL}">
         <option value="">Select concept…</option>
         ${sortedConcepts.map(c =>
-          `<option value="${c.file}">${c.label}</option>`
+          `<option value="${_localizePath(c.file, level, lang)}">${c.label}</option>`
         ).join('')}
       </select>
       <button id="cb-cpt-btn" disabled style="${_OPEN_BTN_DIS}">Open</button>
@@ -197,9 +201,9 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
                max-height:160px;overflow-y:auto;white-space:pre-wrap;
                font-family:Menlo,Consolas,monospace"></pre>
       <button id="cb-gen-copy"
-        style="display:none;position:absolute;top:12px;right:4px;padding:2px 6px;
-               font-size:10px;background:#fff;border:1px solid #ccc;border-radius:3px;
-               cursor:pointer;font-family:system-ui,sans-serif;color:#555">Copy</button>
+        style="display:none;position:absolute;top:12px;right:4px;padding:2px 8px;
+               font-size:10px;background:#2563eb;border:none;border-radius:3px;
+               cursor:pointer;font-family:system-ui,sans-serif;color:#fff">Copy</button>
     </div>
   `
 

@@ -1,6 +1,7 @@
 import { loadCatalog } from '../data/catalog.js'
 import { Header } from '../components/Header.js'
 import { GraphViewer } from '../components/GraphViewer.js'
+import { getContentLang } from './Settings.js'
 
 export async function Domain(container, { id }) {
   container.innerHTML = ''
@@ -16,8 +17,17 @@ export async function Domain(container, { id }) {
 
   container.appendChild(Header({ showBack: true, domainName: domain.name }))
 
+  if (domain.source) {
+    const attr = document.createElement('div')
+    attr.className = 'cb-attribution'
+    attr.innerHTML = `Source: <a href="${domain.source.url}" target="_blank">${domain.source.title}</a> by ${domain.source.authors} (${domain.source.license}). ${domain.source.attribution}`
+    container.appendChild(attr)
+  }
+
   const main = document.createElement('main')
   main.className = 'cb-domain'
-  main.appendChild(GraphViewer(domain))
+  const level = domain.default_level || 'intro'
+  const lang = getContentLang()
+  main.appendChild(GraphViewer(domain, { level, lang }))
   container.appendChild(main)
 }

@@ -1,4 +1,22 @@
 import { Header } from '../components/Header.js'
+import { getLocale, setLocale } from '../i18n.js'
+
+const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'zh', label: '中文 (Chinese)' },
+  { code: 'es', label: 'Español (Spanish)' },
+  { code: 'fr', label: 'Français (French)' },
+  { code: 'de', label: 'Deutsch (German)' },
+  { code: 'ja', label: '日本語 (Japanese)' },
+  { code: 'ko', label: '한국어 (Korean)' },
+  { code: 'pt', label: 'Português (Portuguese)' },
+  { code: 'ar', label: 'العربية (Arabic)' },
+  { code: 'hi', label: 'हिन्दी (Hindi)' },
+]
+
+export function getContentLang() {
+  return getLocale()
+}
 
 const ADAPTERS = {
   claude_cli: {
@@ -64,8 +82,21 @@ export async function Settings(container) {
 
   const main = document.createElement('main')
   main.className = 'cb-settings'
+  const currentLang = getLocale()
   main.innerHTML = `
     <h2>Settings</h2>
+    <section class="cb-settings__section">
+      <div class="cb-settings__section-title">Content</div>
+      <div class="cb-settings__field">
+        <label class="cb-settings__label">Generation Language</label>
+        <select id="cb-content-lang" class="cb-settings__select" style="max-width:280px">
+          ${LANGUAGES.map(l =>
+            `<option value="${l.code}" ${l.code === currentLang ? 'selected' : ''}>${l.label}</option>`
+          ).join('')}
+        </select>
+      </div>
+      <p class="cb-settings__hint">Language used when generating concept books. Changing this affects new generations only.</p>
+    </section>
     <section class="cb-settings__section">
       <div class="cb-settings__section-title">LLM</div>
       <div class="cb-settings__pair">
@@ -90,6 +121,11 @@ export async function Settings(container) {
     </section>
   `
   container.appendChild(main)
+
+  const langSel = main.querySelector('#cb-content-lang')
+  langSel.addEventListener('change', () => {
+    setLocale(langSel.value)
+  })
 
   const adapterSel = main.querySelector('#cb-adapter')
   const modelSel = main.querySelector('#cb-model')

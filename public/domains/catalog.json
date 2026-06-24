@@ -497,5 +497,169 @@
     "books": [],
     "generated_concepts": [],
     "default_level": "core"
+  },
+  {
+    "id": "college_physics_ch1",
+    "name": "Physics Ch1: Nature of Science",
+    "description": "From scientific method to units, measurement, and approximation.",
+    "capstone": "approximation",
+    "nodes": 22,
+    "edges": 21,
+    "primitives": 4,
+    "concepts": 17,
+    "applications": 1,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "approximation",
+        "file": "output/core.en/html/book_approximation.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/intro.en/html/concept_approximation.html"
+      },
+      {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/intro.en/html/concept_order_of_magnitude.html"
+      },
+      {
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/intro.en/html/concept_physical_quantity.html"
+      },
+      {
+        "name": "precision",
+        "label": "Precision",
+        "file": "output/intro.en/html/concept_precision.html"
+      },
+      {
+        "name": "significant_figures",
+        "label": "Significant Figures",
+        "file": "output/intro.en/html/concept_significant_figures.html"
+      },
+      {
+        "name": "uncertainty",
+        "label": "Uncertainty",
+        "file": "output/intro.en/html/concept_uncertainty.html"
+      }
+    ],
+    "default_level": "core",
+    "source": {
+      "title": "College Physics 2e",
+      "authors": "OpenStax",
+      "license": "CC BY 4.0",
+      "url": "https://openstax.org/details/books/college-physics-2e",
+      "attribution": "Access for free at openstax.org."
+    }
+  },
+  {
+    "id": "college_physics_ch2",
+    "name": "Physics Ch2: Kinematics",
+    "description": "From position and time to velocity, acceleration, and free-fall.",
+    "capstone": "stopping_distance",
+    "nodes": 23,
+    "edges": 31,
+    "primitives": 6,
+    "concepts": 15,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "stopping_distance",
+        "file": "output/core.en/html/book_stopping_distance.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "coordinate_system",
+        "label": "Coordinate System",
+        "file": "output/core.en/html/concept_coordinate_system.html"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/core.en/html/concept_position.html"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/core.en/html/concept_time.html"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/core.en/html/concept_vector.html"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/core.en/html/concept_displacement.html"
+      },
+      {
+        "name": "elapsed_time",
+        "label": "Elapsed Time",
+        "file": "output/core.en/html/concept_elapsed_time.html"
+      },
+      {
+        "name": "average_velocity",
+        "label": "Average Velocity",
+        "file": "output/core.en/html/concept_average_velocity.html"
+      },
+      {
+        "name": "average_acceleration",
+        "label": "Average Acceleration",
+        "file": "output/core.en/html/concept_average_acceleration.html"
+      },
+      {
+        "name": "instantaneous_velocity",
+        "label": "Instantaneous Velocity",
+        "file": "output/core.en/html/concept_instantaneous_velocity.html"
+      },
+      {
+        "name": "instantaneous_acceleration",
+        "label": "Instantaneous Acceleration",
+        "file": "output/core.en/html/concept_instantaneous_acceleration.html"
+      },
+      {
+        "name": "constant_acceleration",
+        "label": "Constant Acceleration",
+        "file": "output/core.en/html/concept_constant_acceleration.html"
+      },
+      {
+        "name": "deceleration",
+        "label": "Deceleration",
+        "file": "output/core.en/html/concept_deceleration.html"
+      },
+      {
+        "name": "kinematic_equations",
+        "label": "Kinematic Equations",
+        "file": "output/core.en/html/concept_kinematic_equations.html"
+      },
+      {
+        "name": "stopping_distance",
+        "label": "Stopping Distance",
+        "file": "output/core.en/html/concept_stopping_distance.html"
+      }
+    ],
+    "default_level": "core",
+    "source": {
+      "title": "College Physics 2e",
+      "authors": "OpenStax",
+      "license": "CC BY 4.0",
+      "url": "https://openstax.org/details/books/college-physics-2e",
+      "attribution": "Access for free at openstax.org."
+    }
   }
 ]

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Point | Geometry</title>
+<title>Point — Geometry</title>
 <script>
 MathJax = {
   tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
@@ -19,6 +19,10 @@ h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
 h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
 p{margin-bottom:16px;font-size:1rem}
 li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
 pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
     padding:16px 20px;overflow-x:auto;margin:16px 0}
 code{font-family:Menlo,Consolas,monospace;font-size:.87em}
@@ -26,39 +30,53 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 .back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
       color:#2563eb;text-decoration:none;margin-bottom:24px}
 .back:hover{text-decoration:underline}
-.page{max-width:780px;margin:0 auto;padding:40px 32px}
-header{margin-bottom:32px}
-section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:4px}
+.subtitle{color:#666;margin-bottom:48px;font-size:1rem;font-style:italic;font-family:system-ui,sans-serif}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
 section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
 </style>
 </head>
 <body>
 <div class="page">
-  <header>
-    <a href="../../#/domain/geometry" class="back">← Geometry</a>
-  </header>
+  <nav class="toc">
+    <a href="../../../../#/domain/geometry" class="back">← Geometry</a>
+    <h2>Contents</h2>
+    <ol>
+<li><a href="concept_distance.html">Distance</a></li>
+<li class="toc-target"><a href="concept_point.html">Point</a></li>
+<li><a href="concept_circle.html">Circle</a></li>
+</ol>
+  </nav>
   <main>
-    <h2 id="point">Point</h2>
-<p><strong>Definition.</strong> A <em>point</em> is the most fundamental object in geometry: it has no dimension, no length, no area, and no volume — it is a precise location in space. In the Euclidean plane $\mathbb{R}^2$, a point $P$ is an ordered pair $(x, y)$ where $x, y \in \mathbb{R}$. More generally, a point in $\mathbb{R}^n$ is an ordered $n$-tuple $(x_1, x_2, \ldots, x_n)$. Points are the atomic building blocks from which all geometric figures — lines, curves, surfaces — are constructed.</p>
-<p>The <strong>distance</strong> between two points $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ in $\mathbb{R}^2$ is given by the Euclidean metric:</p>
-$$d(P, Q) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}.$$
-<p>This formula extends directly to $\mathbb{R}^n$: $d(P, Q) = \sqrt{\sum_{i=1}^{n}(q_i - p_i)^2}$.</p>
-<p><strong>Worked Example.</strong> Let $P = (1, 3)$ and $Q = (4, 7)$. Compute the distance $d(P, Q)$.</p>
-$$d(P, Q) = \sqrt{(4-1)^2 + (7-3)^2} = \sqrt{9 + 16} = \sqrt{25} = 5.$$
-<p>The displacement in the $x$-direction is $3$ and in the $y$-direction is $4$; these form the legs of a right triangle whose hypotenuse — the direct distance between the two points — has length $5$. This connection to the Pythagorean theorem is not coincidental: the Euclidean metric is defined precisely to encode it.</p>
-<p><strong>Key Theorem (Triangle Inequality).</strong> For any three points $A$, $B$, $C$ in $\mathbb{R}^n$,</p>
-$$d(A, C) \leq d(A, B) + d(B, C),$$
-<p>with equality if and only if $B$ lies on the line segment $\overline{AC}$. This is the cornerstone of metric geometry: no indirect path can be shorter than the direct one. A proof sketch applies the Cauchy–Schwarz inequality to the displacement vectors $\mathbf{u} = B - A$ and $\mathbf{v} = C - B$, noting that $\|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\|$.</p>
-<p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>from sympy import Point
-
-P = Point(1, 3)
-Q = Point(4, 7)
-
-dist = P.distance(Q)          # returns 5
-
-print(f"Distance : {dist}")</code></pre>
-<p>Running this cell confirms $d(P, Q) = 5$, agreeing with the hand calculation above. Students are encouraged to modify the coordinates and verify that the computed distance always satisfies the Triangle Inequality for a third point $R$ of their choosing.</p>
+    <h1 class="book-title">Point</h1>
+    <p class="subtitle">Geometry &middot; Generated by SPL</p>
+    <section>
+<h2 id="point">Point</h2>
+<p>Every map begins with a single pin. Before you can draw a route, measure a distance, or outline a region, you need a way to say <em>where</em>. In geometry, that role belongs to the <strong>point</strong> — the simplest and most fundamental object in the entire subject.</p>
+<p><strong>Definition.</strong> A <em>point</em> is a location in space that has no size, no shape, and no dimension. It has position and nothing else. We label points with capital letters and represent them as dots on the page, but the dot is only a visual aid — a true point is infinitely small.</p>
+<p>Formally, in a coordinate system, a point in the plane is an ordered pair $P = (x, y)$ where $x, y \in \mathbb{R}$. In three-dimensional space, a point is an ordered triple $P = (x, y, z)$.</p>
+<p><strong>Worked Example.</strong> Consider the point $A = (3, 5)$. This tells us $A$ sits exactly 3 units along the horizontal axis and 5 units along the vertical axis from the origin $O = (0, 0)$. The point $A$ occupies that single location — it contains no length, no area, nothing to measure except its coordinates.</p>
+<p>Now consider $B = (3, 5)$ labeled differently. Despite the different letter, $A$ and $B$ are the <em>same point</em> because they share identical coordinates. A point's identity is its position: two points are equal if and only if their corresponding coordinates match. Conversely, $C = (5, 3)$ is a <em>different point</em> from $A$, because order matters in an ordered pair — $(3, 5) \neq (5, 3)$.</p>
+<p><strong>Why it's true.</strong> Euclid opens the <em>Elements</em> with: "A point is that which has no part." This is not a theorem but an axiom — an irreducible starting agreement. We accept it because every geometric object (lines, planes, solids) can be described as collections of points, yet no geometric object can be decomposed into anything simpler than a point. It is the atom of geometry.</p>
+<p><strong>Practice Problem.</strong> A point $P$ in the plane has coordinates $(a,\; 2a - 1)$. If $P$ is the same point as $Q = (4, 7)$, find $a$ and verify that both coordinates match.</p>
+</section>
   </main>
 </div>
 </body>

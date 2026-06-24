@@ -136,7 +136,8 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
   font-size:11px;
 }
 .note-entry:hover{background:#f0efe8}
-.note-entry .note-node{font-weight:600;color:#555}
+.note-entry .note-node{font-weight:600;color:#555;display:flex;justify-content:space-between;align-items:center}
+.note-entry .note-ts{font-weight:400;color:#bbb;font-size:10px}
 .note-entry .note-preview{color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* ── kind badge colours in sidebar ── */
 .primitive-k{background:#e8f5e9;color:#2e7d32}
@@ -286,48 +287,31 @@ const network = new vis.Network(container, {nodes: visNodes, edges: visEdges}, {
   edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical' } },
 });
 
-// Sort nodes at the same BFS level alphabetically and pull disconnected
-// nodes into the main grid instead of letting vis.js exile them to the side.
+// Compact layout: group by tier, sort alphabetically, left-align all nodes.
 network.once('afterDrawing', function() {
   const pos = network.getPositions();
-  const connected = new Set();
-  RAW.edges.forEach(e => { connected.add(e.from); connected.add(e.to); });
-  const disconnected = RAW.nodes.filter(n => !connected.has(n.id)).map(n => n.id);
+  const spacing = 140;
 
-  if (disconnected.length > 0) {
-    // Find the Y of level-0 nodes and the rightmost X of connected level-0 nodes
-    const level0Y = Object.entries(pos)
-      .filter(([id]) => bfsLevels[id] === 0 && connected.has(id))
-      .map(([, p]) => p.y);
-    const targetY = level0Y.length ? level0Y[0] : 0;
-    const level0Xs = Object.entries(pos)
-      .filter(([id]) => bfsLevels[id] === 0 && connected.has(id))
-      .map(([, p]) => p.x);
-    const maxX = level0Xs.length ? Math.max(...level0Xs) : 0;
-    const spacing = 130;
+  // Group nodes by their BFS tier
+  const byTier = {};
+  RAW.nodes.forEach(n => {
+    const tier = bfsLevels[n.id] ?? n.tier ?? 0;
+    if (!byTier[tier]) byTier[tier] = [];
+    byTier[tier].push(n.id);
+  });
 
-    // Place disconnected nodes to the left of connected level-0 nodes
-    const sortedDisc = [...disconnected].sort();
-    const minConnX = level0Xs.length ? Math.min(...level0Xs) : 0;
-    sortedDisc.forEach((id, i) => {
-      network.moveNode(id, minConnX - (sortedDisc.length - i) * spacing, targetY);
+  // Sort each tier alphabetically, assign X starting from 0
+  const tiers = Object.keys(byTier).map(Number).sort((a, b) => a - b);
+  const tierSep = 85;
+  tiers.forEach((tier, ti) => {
+    const ids = byTier[tier].sort();
+    const y = ti * tierSep;
+    ids.forEach((id, i) => {
+      network.moveNode(id, i * spacing, y);
     });
-  }
+  });
 
-  // Re-sort all nodes at the same Y level alphabetically
-  const posAfter = network.getPositions();
-  const byY = {};
-  Object.entries(posAfter).forEach(([id, p]) => {
-    const key = Math.round(p.y);
-    if (!byY[key]) byY[key] = [];
-    byY[key].push({id, x: p.x, y: p.y});
-  });
-  Object.values(byY).forEach(group => {
-    if (group.length < 2) return;
-    const sorted = [...group].sort((a, b) => a.id.localeCompare(b.id));
-    const xs = group.map(n => n.x).sort((a, b) => a - b);
-    sorted.forEach((node, i) => network.moveNode(node.id, xs[i], node.y));
-  });
+  network.fit({ animation: false });
 });
 
 const C_PATH   = {background: '#fff9c4', border: '#f9a825'};
@@ -404,24 +388,49 @@ let currentNodeId = null;
 function noteKey(nodeId) { return `concept_notes_${DOMAIN_KEY}_${nodeId}`; }
 
 function loadNote(nodeId) {
-  return localStorage.getItem(noteKey(nodeId)) || '';
+  const parsed = _parseNote(localStorage.getItem(noteKey(nodeId)));
+  return parsed ? parsed.text : '';
 }
 
 function saveNote(nodeId, text) {
-  if (text.trim()) localStorage.setItem(noteKey(nodeId), text);
-  else localStorage.removeItem(noteKey(nodeId));
+  if (text.trim()) {
+    const data = JSON.stringify({ text, ts: new Date().toISOString() });
+    localStorage.setItem(noteKey(nodeId), data);
+  } else {
+    localStorage.removeItem(noteKey(nodeId));
+  }
   renderNotesList();
+}
+
+function _parseNote(raw) {
+  if (!raw) return null;
+  try { const d = JSON.parse(raw); return { text: d.text || '', ts: d.ts || '' }; }
+  catch (_) { return { text: raw, ts: '' }; }
+}
+
+function _fmtTs(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  const yy = d.getFullYear();
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  const hh = String(d.getHours()).padStart(2,'0');
+  const mi = String(d.getMinutes()).padStart(2,'0');
+  return `${yy}-${mm}-${dd} ${hh}:${mi}`;
 }
 
 function renderNotesList() {
   const container = document.getElementById('notes-with-entries');
   const entries = RAW.nodes
     .filter(n => localStorage.getItem(noteKey(n.id)))
-    .map(n => ({id: n.id, label: n.label, preview: localStorage.getItem(noteKey(n.id)).slice(0, 60)}));
+    .map(n => {
+      const parsed = _parseNote(localStorage.getItem(noteKey(n.id)));
+      return {id: n.id, label: n.label, preview: (parsed?.text || '').slice(0, 60), ts: parsed?.ts || ''};
+    });
   if (!entries.length) { container.innerHTML = ''; return; }
   container.innerHTML = entries.map(e =>
     `<div class="note-entry" onclick="selectNode('${e.id}')">
-      <div class="note-node">${e.label}</div>
+      <div class="note-node">${e.label}<span class="note-ts">${_fmtTs(e.ts)}</span></div>
       <div class="note-preview">${e.preview}</div>
     </div>`
   ).join('');

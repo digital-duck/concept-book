@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Distance | Geometry</title>
+<title>Distance — Geometry</title>
 <script>
 MathJax = {
   tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
@@ -19,6 +19,10 @@ h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
 h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
 p{margin-bottom:16px;font-size:1rem}
 li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
 pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
     padding:16px 20px;overflow-x:auto;margin:16px 0}
 code{font-family:Menlo,Consolas,monospace;font-size:.87em}
@@ -26,40 +30,55 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 .back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
       color:#2563eb;text-decoration:none;margin-bottom:24px}
 .back:hover{text-decoration:underline}
-.page{max-width:780px;margin:0 auto;padding:40px 32px}
-header{margin-bottom:32px}
-section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:4px}
+.subtitle{color:#666;margin-bottom:48px;font-size:1rem;font-style:italic;font-family:system-ui,sans-serif}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
 section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
 </style>
 </head>
 <body>
 <div class="page">
-  <header>
-    <a href="../../#/domain/geometry" class="back">← Geometry</a>
-  </header>
+  <nav class="toc">
+    <a href="../../../../#/domain/geometry" class="back">← Geometry</a>
+    <h2>Contents</h2>
+    <ol>
+<li class="toc-target"><a href="concept_distance.html">Distance</a></li>
+<li><a href="concept_point.html">Point</a></li>
+<li><a href="concept_circle.html">Circle</a></li>
+</ol>
+  </nav>
   <main>
-    <h2 id="distance">Distance</h2>
-<p><strong>Definition.</strong> Let $\mathbb{R}^n$ denote $n$-dimensional Euclidean space. Given two points $\mathbf{p} = (p_1, p_2, \ldots, p_n)$ and $\mathbf{q} = (q_1, q_2, \ldots, q_n)$, the <strong>Euclidean distance</strong> between them is</p>
-$$d(\mathbf{p}, \mathbf{q}) = \|\mathbf{p} - \mathbf{q}\| = \sqrt{\sum_{i=1}^{n}(p_i - q_i)^2}.$$
-<p>This formula generalises the familiar Pythagorean theorem: in $\mathbb{R}^2$ it reduces to $\sqrt{(p_1-q_1)^2+(p_2-q_2)^2}$, the length of the hypotenuse of the right triangle whose legs run parallel to the coordinate axes. The function $d$ is non-negative, equals zero precisely when $\mathbf{p} = \mathbf{q}$, and is symmetric: $d(\mathbf{p},\mathbf{q}) = d(\mathbf{q},\mathbf{p})$.</p>
-<p><strong>Worked Example.</strong> Find the Euclidean distance between $A = (1, -2, 4)$ and $B = (5, 2, 1)$ in $\mathbb{R}^3$.</p>
-$$d(A, B) = \sqrt{(5-1)^2 + (2-(-2))^2 + (1-4)^2} = \sqrt{16 + 16 + 9} = \sqrt{41} \approx 6.403.$$
-<p>Note that the result is independent of the order of the arguments: $d(A,B) = d(B,A)$, consistent with symmetry.</p>
-<p><strong>Key Theorem (Triangle Inequality in $\mathbb{R}^n$).</strong> For all $\mathbf{p}, \mathbf{q}, \mathbf{r} \in \mathbb{R}^n$,</p>
-$$d(\mathbf{p}, \mathbf{r}) \leq d(\mathbf{p}, \mathbf{q}) + d(\mathbf{q}, \mathbf{r}).$$
-<p><em>Proof sketch.</em> Set $\mathbf{u} = \mathbf{q} - \mathbf{p}$ and $\mathbf{v} = \mathbf{r} - \mathbf{q}$, so $\mathbf{r} - \mathbf{p} = \mathbf{u} + \mathbf{v}$. Then $\|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\|$ follows directly from the Cauchy–Schwarz inequality $|\mathbf{u} \cdot \mathbf{v}| \leq \|\mathbf{u}\|\|\mathbf{v}\|$. $\square$</p>
-<p>This inequality captures the geometric intuition that a straight-line path between two points is never longer than any detour through a third point. In later sections, this property will be seen as one of the defining axioms of the broader class of distance functions known as metrics.</p>
-<p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>from sympy import sqrt, Matrix
-
-A = Matrix([1, -2, 4])
-B = Matrix([5,  2, 1])
-
-diff = B - A
-dist = sqrt(diff.dot(diff))
-print(f"d(A, B) = {dist} ≈ {float(dist):.4f}")
-# d(A, B) = sqrt(41) ≈ 6.4031</code></pre>
-<p>Running this cell confirms the analytic result and illustrates how SymPy preserves exact radical form before converting to a decimal approximation.</p>
+    <h1 class="book-title">Distance</h1>
+    <p class="subtitle">Geometry &middot; Generated by SPL</p>
+    <section>
+<h2 id="distance">Distance</h2>
+<p>When you check a map app for directions, the straight-line distance between two points is almost never the route you drive — yet that straight line is the most fundamental measurement in all of geometry. Understanding distance precisely lets us quantify closeness, define circles, and eventually build calculus.</p>
+<p><strong>Definition.</strong> Given two points $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ in the Euclidean plane, the <em>distance</em> between them is</p>
+$$d(P, Q) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}.$$
+<p><strong>Worked example.</strong> Find the distance between $A = (1, 2)$ and $B = (4, 6)$.</p>
+$$d(A, B) = \sqrt{(4 - 1)^2 + (6 - 2)^2} = \sqrt{9 + 16} = \sqrt{25} = 5.$$
+<p><strong>Why it's true.</strong> The formula is a direct application of the Pythagorean theorem. Draw a right triangle whose hypotenuse connects $A$ to $B$. The horizontal leg has length $|x_2 - x_1| = 3$ and the vertical leg has length $|y_2 - y_1| = 4$. By the Pythagorean theorem, the hypotenuse satisfies $c^2 = 3^2 + 4^2 = 25$, so $c = 5$. This argument works for any two points: the coordinate differences give the legs, and the theorem gives the hypotenuse — which is exactly the straight-line distance.</p>
+<p>Notice that the formula always returns a non-negative number, and swapping the two points doesn't change the result — both facts follow from squaring the differences before taking the square root. These properties match our intuition: a distance is never negative, and the distance from $A$ to $B$ is the same as from $B$ to $A$.</p>
+<p>Because the formula relies only on coordinate differences, it generalizes cleanly: in three dimensions you add a $(z_2 - z_1)^2$ term under the radical, in four dimensions another term, and so on. But the core idea — sum the squared differences, then take the square root — remains the Pythagorean theorem at work.</p>
+<p><strong>Practice problem.</strong> A triangle has vertices at $P = (0, 0)$, $Q = (3, 0)$, and $R = (0, 4)$. Compute all three side lengths and confirm that no single side is longer than the sum of the other two.</p>
+</section>
   </main>
 </div>
 </body>

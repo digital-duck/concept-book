@@ -1,0 +1,139 @@
+domain: college_physics_ch2
+source:
+  title: "College Physics 2e"
+  authors: "OpenStax"
+  license: "CC BY 4.0"
+  url: "https://openstax.org/details/books/college-physics-2e"
+  attribution: "Access for free at openstax.org."
+  chapter: 2
+  chapter_title: "Kinematics"
+primitives:
+  position:
+    defines: The location of an object at a particular time, specified relative to a convenient reference
+      frame.
+    tier: 0
+  reference_frame:
+    defines: A framework relative to which an object's position and motion are described.
+    tier: 0
+  time:
+    defines: The interval over which change occurs, measured in seconds, serving as the independent variable
+      in kinematics.
+    tier: 0
+  scalar:
+    defines: A quantity that has magnitude but no direction.
+    tier: 0
+  vector:
+    defines: A quantity that has both magnitude and direction.
+    tier: 0
+  coordinate_system:
+    defines: A one-dimensional axis within a reference frame that assigns positive and negative signs
+      to indicate direction.
+    tier: 0
+concepts:
+  displacement:
+    defines: The change in position, calculated as final minus initial position, with both magnitude and
+      direction.
+    composed_of:
+    - position
+    - vector
+    - coordinate_system
+    tier: 1
+  elapsed_time:
+    defines: The difference between ending and beginning time of a motion.
+    composed_of:
+    - time
+    tier: 1
+  distance:
+    defines: The magnitude of displacement between two positions, a scalar quantity with no direction.
+    composed_of:
+    - displacement
+    - scalar
+    tier: 2
+  distance_traveled:
+    defines: The total length of path traveled, which can exceed the magnitude of displacement.
+    composed_of:
+    - displacement
+    - scalar
+    tier: 2
+  average_velocity:
+    defines: Displacement divided by elapsed time, a vector with the same direction as displacement.
+    composed_of:
+    - displacement
+    - elapsed_time
+    tier: 2
+  instantaneous_velocity:
+    defines: Velocity at a specific instant, the limit of average velocity over an infinitesimally small
+      time interval.
+    composed_of:
+    - average_velocity
+    tier: 3
+  average_speed:
+    defines: Total distance traveled divided by elapsed time, a scalar not simply equal to the magnitude
+      of average velocity.
+    composed_of:
+    - distance_traveled
+    - elapsed_time
+    tier: 3
+  average_acceleration:
+    defines: The change in velocity divided by the change in time.
+    composed_of:
+    - average_velocity
+    - elapsed_time
+    tier: 3
+  instantaneous_speed:
+    defines: The magnitude of instantaneous velocity at a given moment, a scalar.
+    composed_of:
+    - instantaneous_velocity
+    - scalar
+    tier: 4
+  instantaneous_acceleration:
+    defines: Acceleration at a specific instant, found via velocity change over an infinitesimally small
+      time interval.
+    composed_of:
+    - average_acceleration
+    tier: 4
+  deceleration:
+    defines: Acceleration directed opposite to velocity, resulting in decreased speed.
+    composed_of:
+    - instantaneous_acceleration
+    - instantaneous_velocity
+    tier: 5
+  constant_acceleration:
+    defines: The condition where acceleration does not change over time, making average and instantaneous
+      acceleration equal.
+    composed_of:
+    - average_acceleration
+    - instantaneous_acceleration
+    tier: 5
+  kinematic_equations:
+    defines: Four equations relating position, velocity, acceleration, and time under constant acceleration.
+    composed_of:
+    - constant_acceleration
+    - displacement
+    - instantaneous_velocity
+    tier: 6
+  free_fall:
+    defines: Motion resulting from gravitational force only, with negligible air resistance and friction.
+    composed_of:
+    - constant_acceleration
+    tier: 6
+  acceleration_due_to_gravity:
+    defines: The constant downward acceleration near Earth's surface, averaging 9.80 m/s².
+    composed_of:
+    - free_fall
+    tier: 7
+applications:
+  graphical_analysis_of_motion:
+    defines: Determining velocity from position-vs-time graph slopes and acceleration from velocity-vs-time
+      graph slopes.
+    needs:
+    - instantaneous_velocity
+    - instantaneous_acceleration
+    tier: 5
+  stopping_distance:
+    defines: Distance traveled before coming to rest, calculated using kinematic equations with reaction
+      time.
+    needs:
+    - kinematic_equations
+    - deceleration
+    tier: 7

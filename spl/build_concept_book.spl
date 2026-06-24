@@ -162,7 +162,7 @@ DO
         @textbook := @textbook + "\n\n---\n\n" + @section
         EVALUATE @output_dir
             WHEN != "" THEN
-                CALL write_concept_html(@concept, @section, @domain_yaml, @output_dir) INTO @_
+                CALL write_concept_html(@concept, @section, @domain_yaml, @output_dir, @language) INTO @_
             ELSE
                 LOGGING "Concept HTML skipped" LEVEL INFO
         END
