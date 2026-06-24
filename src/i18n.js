@@ -1,10 +1,12 @@
 const translations = {
   en: {
-    'app.title': 'concept-book',
+    'app.title': 'ConceptBook',
     'app.tagline': 'Explore knowledge through concept graphs',
     'nav.about': 'About',
+    'nav.settings': 'Settings',
     'home.subtitle': 'Choose a domain to explore',
     'home.filter.all': 'All',
+    'home.filter.level': 'Level',
     'card.nodes': 'nodes',
     'card.edges': 'edges',
     'card.explore': 'Explore graph',

@@ -6,41 +6,49 @@ export function Header({ showBack = false, domainName = '' } = {}) {
   const el = document.createElement('header')
   el.className = 'cb-header'
 
-  const inner = document.createElement('div')
-  inner.className = 'cb-header__inner'
-
-  if (showBack) {
-    const back = document.createElement('button')
-    back.className = 'cb-btn-ghost cb-header__back'
-    back.textContent = t('domain.back')
-    back.addEventListener('click', () => navigate('/'))
-    inner.appendChild(back)
-  }
+  const topRow = document.createElement('div')
+  topRow.className = 'cb-header__top'
 
   const logo = document.createElement('a')
   logo.className = 'cb-header__logo'
   logo.href = '#/'
   logo.textContent = t('app.title')
-  inner.appendChild(logo)
-
-  if (domainName) {
-    const dn = document.createElement('span')
-    dn.className = 'cb-header__domain'
-    dn.textContent = domainName
-    inner.appendChild(dn)
-  }
+  topRow.appendChild(logo)
 
   const spacer = document.createElement('span')
   spacer.className = 'cb-header__spacer'
-  inner.appendChild(spacer)
+  topRow.appendChild(spacer)
 
-  inner.appendChild(LanguagePicker())
+  topRow.appendChild(LanguagePicker())
 
   const nav = document.createElement('nav')
   nav.className = 'cb-header__nav'
-  nav.innerHTML = `<a href="#/about">${t('nav.about')}</a>`
-  inner.appendChild(nav)
+  nav.innerHTML = `<a href="#/settings">${t('nav.settings')}</a> <a href="#/about">${t('nav.about')}</a>`
+  topRow.appendChild(nav)
 
-  el.appendChild(inner)
+  el.appendChild(topRow)
+
+  if (showBack || domainName) {
+    const subRow = document.createElement('div')
+    subRow.className = 'cb-header__sub'
+
+    if (showBack) {
+      const back = document.createElement('button')
+      back.className = 'cb-btn-ghost cb-header__back'
+      back.textContent = t('domain.back')
+      back.addEventListener('click', () => navigate('/'))
+      subRow.appendChild(back)
+    }
+
+    if (domainName) {
+      const dn = document.createElement('span')
+      dn.className = 'cb-header__domain'
+      dn.textContent = domainName
+      subRow.appendChild(dn)
+    }
+
+    el.appendChild(subRow)
+  }
+
   return el
 }

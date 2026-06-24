@@ -91,7 +91,15 @@ def load_domain(yaml_path: str | Path) -> dict[str, Any]:
     """
     path = Path(yaml_path)
     if not path.is_absolute() and not path.exists():
-        path = Path(__file__).parent / path
+        # Try spl/ dir first (legacy), then public/domains/{id}/input/
+        local = Path(__file__).parent / path
+        if local.exists():
+            path = local
+        else:
+            import re
+            domain_id = re.sub(r'(_graph)?\.(ya?ml|json)$', '', path.name)
+            repo_root = Path(__file__).parent.parent
+            path = repo_root / "public" / "domains" / domain_id / "input" / "graph.yaml"
     with path.open(encoding="utf-8") as fh:
         return yaml.safe_load(fh)
 

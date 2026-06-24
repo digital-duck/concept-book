@@ -21,23 +21,35 @@ export async function Home(container) {
   }
 
   const allTags = [...new Set(catalog.flatMap(d => d.tags))].sort()
+  const allLevels = ['intro', 'core', 'college', 'research']
   let activeTag = 'all'
+  let activeLevel = 'all'
 
-  function render(tag) {
-    activeTag = tag
-    const filtered = tag === 'all' ? catalog : catalog.filter(d => d.tags.includes(tag))
+  function render() {
+    let filtered = catalog
+    if (activeTag !== 'all') filtered = filtered.filter(d => d.tags.includes(activeTag))
+    if (activeLevel !== 'all') filtered = filtered.filter(d => d.default_level === activeLevel)
 
     main.innerHTML = `
       <div class="cb-home__hero">
         <p class="cb-home__subtitle">${t('home.subtitle')}</p>
       </div>
       <div class="cb-home__filters">
-        <button class="cb-filter-btn ${activeTag === 'all' ? 'active' : ''}" data-tag="all">
-          ${t('home.filter.all')}
-        </button>
-        ${allTags.map(t_ =>
-          `<button class="cb-filter-btn ${activeTag === t_ ? 'active' : ''}" data-tag="${t_}">${t_}</button>`
-        ).join('')}
+        <span class="cb-filter-group">
+          <span class="cb-filter-label">Subject</span>
+          <button class="cb-filter-btn ${activeTag === 'all' ? 'active' : ''}" data-tag="all">All</button>
+          ${allTags.map(t_ =>
+            `<button class="cb-filter-btn ${activeTag === t_ ? 'active' : ''}" data-tag="${t_}">${t_}</button>`
+          ).join('')}
+        </span>
+        <span class="cb-filter-sep"></span>
+        <span class="cb-filter-group">
+          <span class="cb-filter-label">Level</span>
+          <button class="cb-filter-btn ${activeLevel === 'all' ? 'active' : ''}" data-level="all">All</button>
+          ${allLevels.map(l =>
+            `<button class="cb-filter-btn ${activeLevel === l ? 'active' : ''}" data-level="${l}">${l}</button>`
+          ).join('')}
+        </span>
       </div>
       <div class="cb-card-grid"></div>
     `
@@ -45,10 +57,13 @@ export async function Home(container) {
     const grid = main.querySelector('.cb-card-grid')
     filtered.forEach(domain => grid.appendChild(DomainCard(domain)))
 
-    main.querySelectorAll('.cb-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => render(btn.dataset.tag))
+    main.querySelectorAll('.cb-filter-btn[data-tag]').forEach(btn => {
+      btn.addEventListener('click', () => { activeTag = btn.dataset.tag; render() })
+    })
+    main.querySelectorAll('.cb-filter-btn[data-level]').forEach(btn => {
+      btn.addEventListener('click', () => { activeLevel = btn.dataset.level; render() })
     })
   }
 
-  render('all')
+  render()
 }

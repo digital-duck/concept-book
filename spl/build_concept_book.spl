@@ -77,7 +77,8 @@ WORKFLOW build_concept_book
         @language TEXT DEFAULT 'en',
         @output_html TEXT DEFAULT "",
         @output_dir TEXT DEFAULT "",
-        @log_dir TEXT DEFAULT 'spl/logs'
+        @log_dir TEXT DEFAULT 'spl/logs',
+        @skip_cache TEXT DEFAULT 'no'
     OUTPUT:
         @textbook TEXT
 DO
@@ -117,7 +118,12 @@ DO
 
         LOGGING f"Section {@_i}: {@concept}" LEVEL INFO
 
-        CALL cache_get(@concept) INTO @section
+        EVALUATE @skip_cache
+            WHEN = "yes" THEN
+                @section := "miss"
+            ELSE
+                CALL cache_get(@concept) INTO @section
+        END
         CALL concept_label(@concept) INTO @_label
         EVALUATE @section
             WHEN = "miss" THEN

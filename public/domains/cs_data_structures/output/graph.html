@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Concept Graph — graph</title>
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:100vh}
+.app{
+  display:grid;
+  grid-template-columns:230px 1fr 210px;
+  grid-template-rows:60vh 40vh;
+  height:100vh;
+  gap:0;
+}
+/* ── Left sidebar: learning path ── */
+#path-sidebar{
+  grid-column:1;grid-row:1/3;
+  background:#f5f6f8;color:#2a2a2a;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border-right:1px solid #dde0e6;
+}
+#path-header{
+  padding:14px 14px 10px;
+  border-bottom:1px solid #dde0e6;
+  flex-shrink:0;
+}
+#path-header h1{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#888;margin-bottom:2px;font-weight:700}
+#path-header .domain-name{font-size:11px;color:#555;margin-top:4px}
+#path-steps{flex:1;overflow-y:auto;padding:8px 0}
+#path-steps .hint{color:#aaa;font-size:12px;text-align:center;padding:24px 12px;line-height:1.5}
+.step-item{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:7px 12px;cursor:pointer;
+  border-left:3px solid transparent;
+  transition:background .15s;
+}
+.step-item:hover{background:#ebebf0}
+.step-item.active{background:#e8eef8;border-left-color:#4a90d9}
+.step-item.target{background:#eaf5ea;border-left-color:#4caf50}
+.step-num{min-width:20px;font-size:10px;font-weight:700;color:#bbb;padding-top:2px;flex-shrink:0}
+.step-item.target .step-num{color:#4caf50}
+.step-label{font-size:12px;font-weight:600;color:#333;line-height:1.4}
+.step-def{font-size:10px;color:#888;margin-top:2px;line-height:1.4}
+.step-kind{display:inline-block;padding:0 5px;border-radius:8px;font-size:9px;font-weight:700;margin-left:4px}
+#path-count{font-size:10px;color:#aaa;margin-top:3px}
+/* ── Graph panel ── */
+#graph-panel{
+  grid-column:2;grid-row:1;
+  position:relative;background:#fff;
+  border-bottom:2px solid #dde;
+}
+#graph-container{width:100%;height:100%}
+/* ── Explanation panel ── */
+#explain-panel{
+  grid-column:2;grid-row:2;
+  background:#fff;overflow-y:auto;
+  padding:16px 20px;
+}
+#explain-panel .empty{color:#aaa;font-size:13px;padding:20px 0;text-align:center}
+#explain-panel .node-title{
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+#explain-panel .node-title h2{font-size:16px;color:#1e3a5f}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-size:11px;font-weight:700;
+}
+.badge.primitive{background:#e8f5e9;color:#2e7d32}
+.badge.concept{background:#e3f2fd;color:#1565c0}
+.badge.application{background:#fff3e0;color:#ef6c00}
+.tier-tag{font-size:11px;color:#999;margin-left:auto}
+#explain-panel .defines{
+  font-size:14px;color:#333;line-height:1.6;margin-bottom:12px;
+  padding:10px 12px;background:#f8f9fb;border-radius:6px;
+  border-left:3px solid #90b4e8;
+}
+#explain-panel .section-label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:#999;margin-bottom:6px;
+}
+#explain-panel .prereq-list{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.prereq-chip{
+  padding:3px 9px;border-radius:12px;font-size:11px;
+  background:#e3f2fd;color:#1565c0;cursor:pointer;
+  border:1px solid #90caf9;transition:background .12s;
+}
+.prereq-chip:hover{background:#bbdefb}
+#explain-panel .meta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.meta-item{font-size:12px;color:#555}
+.meta-item b{color:#1e3a5f}
+#explain-panel .play-hint{
+  font-size:12px;color:#5a5a5a;line-height:1.6;
+  padding:8px 12px;background:#fffde7;border-radius:6px;
+  border-left:3px solid #ffd54f;margin-bottom:8px;
+}
+/* ── Notes sidebar ── */
+#notes-sidebar{
+  grid-column:3;grid-row:1/3;
+  background:#fafaf8;
+  border-left:2px solid #e8e8e0;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+#notes-header{
+  padding:12px 12px 8px;
+  border-bottom:1px solid #e0e0d8;
+  flex-shrink:0;
+}
+#notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em}
+#notes-node-label{font-size:11px;color:#999;margin-top:2px}
+#notes-textarea{
+  flex:1;border:none;resize:none;
+  padding:12px;font-size:12px;line-height:1.6;
+  font-family:inherit;background:#fafaf8;color:#333;
+  outline:none;
+}
+#notes-actions{
+  padding:8px 10px;border-top:1px solid #e8e8e0;flex-shrink:0;
+  display:flex;gap:6px;align-items:center;
+}
+#notes-actions button{
+  font-size:11px;padding:4px 10px;border-radius:4px;
+  border:1px solid #ccc;background:#fff;cursor:pointer;color:#444;
+}
+#notes-actions button:hover{background:#f0f0e8}
+#notes-with-entries{
+  border-top:1px solid #e8e8e0;flex-shrink:0;
+  max-height:35vh;overflow-y:auto;
+}
+.note-entry{
+  padding:6px 12px;cursor:pointer;
+  border-bottom:1px solid #f0f0e8;
+  font-size:11px;
+}
+.note-entry:hover{background:#f0efe8}
+.note-entry .note-node{font-weight:600;color:#555}
+.note-entry .note-preview{color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ── kind badge colours in sidebar ── */
+.primitive-k{background:#e8f5e9;color:#2e7d32}
+.concept-k{background:#e3f2fd;color:#1565c0}
+.application-k{background:#fff3e0;color:#ef6c00}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- LEFT: learning path sidebar -->
+<aside id="path-sidebar">
+  <div id="path-header">
+    <h1>Learning Path</h1>
+    <div class="domain-name">graph</div>
+    <div id="path-count"></div>
+  </div>
+  <div id="path-steps">
+    <div class="hint">Click any node in the graph<br>to see its learning path</div>
+  </div>
+</aside>
+
+<!-- CENTRE TOP: concept graph -->
+<div id="graph-panel">
+  <div id="graph-container"></div>
+</div>
+
+<!-- CENTRE BOTTOM: explanation panel -->
+<div id="explain-panel">
+  <div class="empty">Select a node to see its definition, prerequisites, and learning context.</div>
+</div>
+
+<!-- RIGHT: notes sidebar -->
+<aside id="notes-sidebar">
+  <div id="notes-header">
+    <h2>Notes</h2>
+    <div id="notes-node-label">no node selected</div>
+  </div>
+  <textarea id="notes-textarea" placeholder="Type notes here&#10;(auto-saved per node)"></textarea>
+  <div id="notes-actions">
+    <button onclick="exportNotes()">Export JSON</button>
+    <button onclick="clearNote()">Clear</button>
+  </div>
+  <div id="notes-with-entries"></div>
+</aside>
+
+</div><!-- .app -->
+
+<script>
+const RAW = {"nodes": [{"id": "memory_cell", "label": "memory cell", "kind": "primitive", "tier": 0, "defines": "first radical — a fixed-size, addressable unit of storage; holds a value and is identified by its address; the floor below which we do not descend in this domain (transistors live at the hardware level)", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "pointer", "label": "pointer", "kind": "primitive", "tier": 0, "defines": "first radical — a value whose interpretation is as the address of another memory_cell; the mechanism that lets structures escape the contiguous layout of the array; without pointers there is only the array", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "comparison", "label": "comparison", "kind": "primitive", "tier": 0, "defines": "second radical — a binary predicate on keys that establishes a total order; not derivable from storage alone; required for sorted structures, search, and priority", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "key", "label": "key", "kind": "primitive", "tier": 0, "defines": "second radical — the part of a stored element used to identify, sort, and retrieve it; distinct from the associated value; what the comparison predicate acts on", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "array", "label": "array", "kind": "concept", "tier": 1, "defines": "a contiguous block of memory_cells of uniform size — O(1) random access by index arithmetic; the simplest structure and the building block of almost everything else; cache-friendly because adjacent cells are adjacent in memory", "prereqs": ["memory_cell"], "verifier": "python", "lab": "python (implement get/set by index arithmetic; time O(1) access vs. linked-list O(n) scan)", "play": "allocate [1,2,3,4,5]; access index 3 in one step; insert at index 1 and count the shifts — O(n) in the worst case", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "linked_list", "label": "linked list", "kind": "concept", "tier": 2, "defines": "a sequence of nodes, each pairing a value with a pointer to the next node — O(1) insert/delete at a known node; O(n) access by position; the simplest pointer structure", "prereqs": ["memory_cell", "pointer"], "verifier": "python", "lab": "python (implement Node + LinkedList; unit-test insert_head, insert_tail, delete, traverse)", "play": "build a list of 5 integers; delete the middle node; verify O(1) delete requires a pointer to the predecessor — the classic interview insight", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "stack", "label": "stack", "kind": "concept", "tier": 3, "defines": "last-in, first-out (LIFO) collection — push and pop at the same end; models call stacks, undo histories, and balanced-bracket checking; can also be implemented atop an array", "prereqs": ["linked_list"], "verifier": "python", "lab": "python (implement Stack with push/pop/peek; unit-test LIFO invariant; solve balanced-brackets with it)", "play": "check whether '({[]})' is balanced using a stack; trace through character by character and verify the stack is empty at the end iff balanced", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "queue", "label": "queue", "kind": "concept", "tier": 3, "defines": "first-in, first-out (FIFO) collection — enqueue at the tail, dequeue at the head; models task queues, BFS frontiers, and producer-consumer buffers", "prereqs": ["linked_list"], "verifier": "python", "lab": "python (implement Queue with enqueue/dequeue; unit-test FIFO invariant; implement level-order tree traversal using it)", "play": "simulate a single-server queue with Poisson arrivals (λ) and exponential service (μ); verify average wait ≈ λ/(μ(μ−λ)) (M/M/1 formula) by simulation", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "binary_tree", "label": "binary tree", "kind": "concept", "tier": 3, "defines": "a node with a value and at most two child pointers (left, right); the branching structure that achieves O(log n) operations when balanced; the foundation of BST, heap, and trie", "prereqs": ["memory_cell", "pointer"], "verifier": "python", "lab": "python (implement BinaryTreeNode; recursive inorder/preorder/postorder traversal; verify traversal order)", "play": "insert [5,3,7,1,4] into a binary tree; print inorder traversal — the result is sorted iff the tree is a BST", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "binary_search_tree", "label": "binary search tree", "kind": "concept", "tier": 4, "defines": "a binary_tree with the BST invariant — left subtree keys < node key < right subtree keys — enabling O(log n) search, insert, delete in the average case; degrades to O(n) on sorted input (the pathological case that motivates balancing)", "prereqs": ["binary_tree", "comparison", "key"], "verifier": "python", "lab": "python (implement BST insert/search/delete; verify BST invariant after each operation with an inorder walk; measure height on random vs. sorted input)", "play": "insert [1,2,3,4,5] in order; observe a height-5 chain; then insert in random order and observe height ≈ 2 log n — visualize the difference", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "heap", "label": "heap", "kind": "concept", "tier": 4, "defines": "a complete binary_tree satisfying the heap property — every node's key is ≤ (min-heap) or ≥ (max-heap) its children's keys — stored compactly in an array via the index formula children of i are 2i+1 and 2i+2; enables O(log n) insert and extract-min/max", "prereqs": ["binary_tree", "comparison"], "verifier": "python", "lab": "python (implement heapify, push, pop using array index arithmetic; verify heap property after each operation; time heapsort vs. sorted() on random data)", "play": "build a max-heap from [3,1,4,1,5,9,2,6]; extract the max three times; verify you receive 9,6,5 in that order", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "hash_table", "label": "hash table", "kind": "concept", "tier": 4, "defines": "an array indexed by hash(key) % capacity — amortized O(1) insert, lookup, delete under a good hash function; collisions handled by chaining (linked_list per bucket) or open addressing; the single fastest general-purpose lookup structure", "prereqs": ["array", "key"], "verifier": "python", "lab": "python (implement HashTable with polynomial rolling hash + chaining; measure load factor vs. collision rate; verify worst case degrades to O(n) at load 1 with adversarial keys)", "play": "insert 100 random strings; compute the distribution of chain lengths; observe that at load factor 0.7 most chains have length ≤ 2", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "graph", "label": "graph", "kind": "concept", "tier": 4, "defines": "a set of vertices V and edges E ⊆ V×V — represented as adjacency list (array of linked_lists) for sparse graphs or adjacency matrix for dense; the universal model for networks, dependencies, and state spaces", "prereqs": ["memory_cell", "pointer"], "verifier": "python", "lab": "python (implement Graph with add_vertex/add_edge; verify adjacency list and matrix representations are consistent; compute degree sequence)", "play": "model a five-city road network; compute degree of each city; identify which cities are hubs (degree > 2)", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "balanced_bst", "label": "balanced bst", "kind": "concept", "tier": 5, "defines": "a BST that maintains O(log n) height via rotations on insert/delete — AVL trees (height-balanced), red-black trees (color-balanced); the guarantee that worst-case search is O(log n), not O(n); used inside most language standard libraries", "prereqs": ["binary_search_tree"], "verifier": "python", "lab": "python (implement AVL rotations; verify height ≤ 1.44 log₂(n) after 1000 random inserts by measuring actual height)", "play": "insert [1..15] into an AVL tree; trace the rotations; count the height at each step and confirm it never exceeds ⌈log₂(n)⌉ + 1", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "trie", "label": "trie", "kind": "concept", "tier": 5, "defines": "a tree where each edge is labeled by a character and each root-to-leaf path spells a key — O(m) insert/search for a key of length m, independent of n; ideal for prefix-based operations (autocomplete, IP routing, dictionary compression)", "prereqs": ["pointer", "key"], "verifier": "python", "lab": "python (implement Trie with insert/search/starts_with; verify all insertions retrievable; count nodes shared by common-prefix words)", "play": "insert {\"apple\",\"app\",\"application\",\"apply\"}; search for \"app\" and \"apply\"; list all words with prefix \"appl\" — observe the shared prefix subtree", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "priority_queue", "label": "priority queue", "kind": "concept", "tier": 5, "defines": "an abstract data type that always returns the element with the highest (or lowest) priority; typically implemented with a heap; the building block of Dijkstra, Prim, and event-driven simulation", "prereqs": ["heap"], "verifier": "python", "lab": "python (use heapq; implement a job scheduler that always runs the highest-priority pending job; verify output order)", "play": "schedule five jobs with priorities [3,1,4,1,5]; dequeue them all; verify arrival order is 5,4,3,1,1 — always the current maximum", "color": {"background": "#e3f2fd", "border": "#1565c0"}, "font": {"size": 13}}, {"id": "compiler_symbol_table", "label": "compiler symbol table", "kind": "application", "tier": 0, "defines": "variable names map to types and addresses — hash_table for O(1) lookup in the common case; balanced_bst for ordered iteration during code generation", "prereqs": ["hash_table", "binary_search_tree"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "operating_system_scheduler", "label": "operating system scheduler", "kind": "application", "tier": 0, "defines": "the run queue is a multi-level priority_queue; timer interrupts enqueue tasks; the scheduler dequeues the highest-priority runnable task at each context switch", "prereqs": ["priority_queue", "queue"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "social_network_graph", "label": "social network graph", "kind": "application", "tier": 0, "defines": "users are vertices, relationships are edges; graph adjacency lists + hash_tables for O(1) user lookup power every friend-of-a-friend query and community detection algorithm", "prereqs": ["graph", "hash_table"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "database_indexing", "label": "database indexing", "kind": "application", "tier": 0, "defines": "B-trees (generalized balanced_bst optimized for disk blocks) and hash indexes underlie every SQL WHERE clause; the tree enables range queries; the hash enables equality", "prereqs": ["balanced_bst", "hash_table"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}, {"id": "autocomplete", "label": "autocomplete", "kind": "application", "tier": 0, "defines": "trie stores the dictionary; every keystroke traverses one edge; the subtree below the current prefix enumerates all completions — O(m + |results|) total work", "prereqs": ["trie"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fff3e0", "border": "#ef6c00"}, "font": {"size": 13}}], "edges": [{"from": "memory_cell", "to": "array"}, {"from": "memory_cell", "to": "linked_list"}, {"from": "memory_cell", "to": "binary_tree"}, {"from": "memory_cell", "to": "graph"}, {"from": "pointer", "to": "linked_list"}, {"from": "pointer", "to": "binary_tree"}, {"from": "pointer", "to": "graph"}, {"from": "pointer", "to": "trie"}, {"from": "comparison", "to": "binary_search_tree"}, {"from": "comparison", "to": "heap"}, {"from": "key", "to": "binary_search_tree"}, {"from": "key", "to": "hash_table"}, {"from": "key", "to": "trie"}, {"from": "array", "to": "hash_table"}, {"from": "linked_list", "to": "stack"}, {"from": "linked_list", "to": "queue"}, {"from": "queue", "to": "operating_system_scheduler"}, {"from": "binary_tree", "to": "binary_search_tree"}, {"from": "binary_tree", "to": "heap"}, {"from": "binary_search_tree", "to": "balanced_bst"}, {"from": "binary_search_tree", "to": "compiler_symbol_table"}, {"from": "heap", "to": "priority_queue"}, {"from": "hash_table", "to": "compiler_symbol_table"}, {"from": "hash_table", "to": "social_network_graph"}, {"from": "hash_table", "to": "database_indexing"}, {"from": "graph", "to": "social_network_graph"}, {"from": "balanced_bst", "to": "database_indexing"}, {"from": "trie", "to": "autocomplete"}, {"from": "priority_queue", "to": "operating_system_scheduler"}]};
+const DOMAIN_KEY = "graph";
+
+// ── index ──────────────────────────────────────────────────────────────────
+const nodeIndex = {};
+RAW.nodes.forEach(n => nodeIndex[n.id] = n);
+
+const prereqOf  = {};  // id → ids that are direct prerequisites OF id
+const dependsOn = {};  // id → ids that id feeds into
+RAW.nodes.forEach(n => { prereqOf[n.id] = []; dependsOn[n.id] = []; });
+RAW.edges.forEach(e => {
+  prereqOf[e.to].push(e.from);
+  dependsOn[e.from].push(e.to);
+});
+
+// ── BFS longest-path levels (fixes application nodes at wrong tier) ─────────
+const bfsLevels = (() => {
+  const levels = {};
+  const successors = {};
+  RAW.nodes.forEach(n => { levels[n.id] = -1; successors[n.id] = []; });
+  RAW.edges.forEach(e => successors[e.from].push(e.to));
+  const sources = RAW.nodes.filter(n => !RAW.edges.some(e => e.to === n.id));
+  const queue = sources.map(n => n.id);
+  queue.forEach(n => levels[n] = 0);
+  let i = 0;
+  while (i < queue.length) {
+    const cur = queue[i++];
+    for (const succ of successors[cur]) {
+      const nl = levels[cur] + 1;
+      if (levels[succ] < nl) { levels[succ] = nl; queue.push(succ); }
+    }
+  }
+  return levels;
+})();
+
+// ── graph algorithms ────────────────────────────────────────────────────────
+function getAncestors(targetId) {
+  const visited = new Set();
+  const queue = [targetId];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const p of prereqOf[cur])
+      if (!visited.has(p)) { visited.add(p); queue.push(p); }
+  }
+  return visited;
+}
+
+function topoSort(nodeSet) {
+  const inDeg = {};
+  nodeSet.forEach(n => inDeg[n] = 0);
+  nodeSet.forEach(n => { for (const p of prereqOf[n]) if (nodeSet.has(p)) inDeg[n]++; });
+  const reach = {};
+  nodeSet.forEach(n => {
+    let r = 0;
+    nodeSet.forEach(m => { if (m !== n && getAncestors(m).has(n)) r++; });
+    reach[n] = r;
+  });
+  const heap = [];
+  nodeSet.forEach(n => { if (inDeg[n] === 0) heap.push(n); });
+  heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+  const result = [];
+  while (heap.length) {
+    const node = heap.shift();
+    result.push(node);
+    for (const succ of dependsOn[node]) {
+      if (!nodeSet.has(succ)) continue;
+      if (--inDeg[succ] === 0) {
+        heap.push(succ);
+        heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+      }
+    }
+  }
+  return result;
+}
+
+// ── vis.js network ──────────────────────────────────────────────────────────
+const container = document.getElementById('graph-container');
+const visNodes = new vis.DataSet(RAW.nodes.map(n => ({
+  id: n.id,
+  label: n.label.replace(/ /g, '\n'),
+  level: bfsLevels[n.id] !== undefined ? bfsLevels[n.id] : n.tier,
+  color: n.color,
+  font: n.font,
+  title: `<b>${n.label}</b> [${n.kind}]<br>${n.defines || ''}`,
+  shape: n.kind === 'concept' ? 'ellipse' : 'box',
+})));
+const visEdges = new vis.DataSet(RAW.edges.map((e, i) => ({
+  id: i, from: e.from, to: e.to,
+  arrows: 'to', color: {color: '#c8ccd4'}, width: 1,
+})));
+const network = new vis.Network(container, {nodes: visNodes, edges: visEdges}, {
+  layout: { hierarchical: {
+    enabled: true, direction: 'UD',
+    sortMethod: 'directed', levelSeparation: 85, nodeSpacing: 130,
+  } },
+  physics: { enabled: false },
+  interaction: { hover: true, tooltipDelay: 150 },
+  edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical' } },
+});
+
+// Sort nodes at the same BFS level alphabetically and pull disconnected
+// nodes into the main grid instead of letting vis.js exile them to the side.
+network.once('afterDrawing', function() {
+  const pos = network.getPositions();
+  const connected = new Set();
+  RAW.edges.forEach(e => { connected.add(e.from); connected.add(e.to); });
+  const disconnected = RAW.nodes.filter(n => !connected.has(n.id)).map(n => n.id);
+
+  if (disconnected.length > 0) {
+    // Find the Y of level-0 nodes and the rightmost X of connected level-0 nodes
+    const level0Y = Object.entries(pos)
+      .filter(([id]) => bfsLevels[id] === 0 && connected.has(id))
+      .map(([, p]) => p.y);
+    const targetY = level0Y.length ? level0Y[0] : 0;
+    const level0Xs = Object.entries(pos)
+      .filter(([id]) => bfsLevels[id] === 0 && connected.has(id))
+      .map(([, p]) => p.x);
+    const maxX = level0Xs.length ? Math.max(...level0Xs) : 0;
+    const spacing = 130;
+
+    // Place disconnected nodes to the left of connected level-0 nodes
+    const sortedDisc = [...disconnected].sort();
+    const minConnX = level0Xs.length ? Math.min(...level0Xs) : 0;
+    sortedDisc.forEach((id, i) => {
+      network.moveNode(id, minConnX - (sortedDisc.length - i) * spacing, targetY);
+    });
+  }
+
+  // Re-sort all nodes at the same Y level alphabetically
+  const posAfter = network.getPositions();
+  const byY = {};
+  Object.entries(posAfter).forEach(([id, p]) => {
+    const key = Math.round(p.y);
+    if (!byY[key]) byY[key] = [];
+    byY[key].push({id, x: p.x, y: p.y});
+  });
+  Object.values(byY).forEach(group => {
+    if (group.length < 2) return;
+    const sorted = [...group].sort((a, b) => a.id.localeCompare(b.id));
+    const xs = group.map(n => n.x).sort((a, b) => a - b);
+    sorted.forEach((node, i) => network.moveNode(node.id, xs[i], node.y));
+  });
+});
+
+const C_PATH   = {background: '#fff9c4', border: '#f9a825'};
+const C_TARGET = {background: '#ffe082', border: '#e65100'};
+
+function resetColors() {
+  visNodes.update(RAW.nodes.map(n => ({id: n.id, color: n.color})));
+  visEdges.update(RAW.edges.map((e, i) => ({id: i, color: {color: '#c8ccd4'}, width: 1})));
+}
+
+// ── explanation panel ───────────────────────────────────────────────────────
+function renderExplanation(node) {
+  const kclass = node.kind;
+  const prereqChips = (node.prereqs || []).map(p =>
+    `<span class="prereq-chip" onclick="selectNode('${p}')">${p.replace(/_/g,' ')}</span>`
+  ).join('');
+  const metaItems = [
+    node.verifier ? `<span class="meta-item"><b>Verifier:</b> ${node.verifier}</span>` : '',
+    node.lab      ? `<span class="meta-item"><b>Lab:</b> ${node.lab}</span>` : '',
+  ].filter(Boolean).join('');
+  const playHtml = node.play
+    ? `<div class="section-label">Try it</div><div class="play-hint">${node.play}</div>`
+    : '';
+
+  document.getElementById('explain-panel').innerHTML = `
+    <div class="node-title">
+      <h2>${node.label}</h2>
+      <span class="badge ${kclass}">${kclass}</span>
+      <span class="tier-tag">BFS level ${bfsLevels[node.id] ?? node.tier}</span>
+    </div>
+    ${node.defines ? `<div class="defines">${node.defines}</div>` : ''}
+    ${prereqChips ? `<div class="section-label">Prerequisites</div><div class="prereq-list">${prereqChips}</div>` : ''}
+    ${metaItems ? `<div class="meta-row">${metaItems}</div>` : ''}
+    ${playHtml}
+  `;
+}
+
+// ── learning path sidebar ───────────────────────────────────────────────────
+function renderPathSidebar(orderedPath, targetId) {
+  const stepsEl = document.getElementById('path-steps');
+  const countEl = document.getElementById('path-count');
+  countEl.textContent = orderedPath.length
+    ? `${orderedPath.length} step${orderedPath.length !== 1 ? 's' : ''} to learn first`
+    : 'Root concept — no prerequisites';
+
+  const target = nodeIndex[targetId];
+  const kc = k => `${k.charAt(0).toUpperCase() + k.slice(1)}`;
+
+  stepsEl.innerHTML = orderedPath.map((n, i) => {
+    const nd = nodeIndex[n];
+    return `<div class="step-item" onclick="selectNode('${n}')">
+      <span class="step-num">${i + 1}.</span>
+      <div>
+        <div class="step-label">${nd.label}
+          <span class="step-kind ${nd.kind}-k">${nd.kind}</span>
+        </div>
+        ${nd.defines ? `<div class="step-def">${nd.defines}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('') + `<div class="step-item target">
+    <span class="step-num">▶</span>
+    <div>
+      <div class="step-label">${target.label}
+        <span class="step-kind ${target.kind}-k">${target.kind}</span>
+      </div>
+      ${target.defines ? `<div class="step-def">${target.defines}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+// ── notes (localStorage) ────────────────────────────────────────────────────
+let currentNodeId = null;
+
+function noteKey(nodeId) { return `concept_notes_${DOMAIN_KEY}_${nodeId}`; }
+
+function loadNote(nodeId) {
+  return localStorage.getItem(noteKey(nodeId)) || '';
+}
+
+function saveNote(nodeId, text) {
+  if (text.trim()) localStorage.setItem(noteKey(nodeId), text);
+  else localStorage.removeItem(noteKey(nodeId));
+  renderNotesList();
+}
+
+function renderNotesList() {
+  const container = document.getElementById('notes-with-entries');
+  const entries = RAW.nodes
+    .filter(n => localStorage.getItem(noteKey(n.id)))
+    .map(n => ({id: n.id, label: n.label, preview: localStorage.getItem(noteKey(n.id)).slice(0, 60)}));
+  if (!entries.length) { container.innerHTML = ''; return; }
+  container.innerHTML = entries.map(e =>
+    `<div class="note-entry" onclick="selectNode('${e.id}')">
+      <div class="note-node">${e.label}</div>
+      <div class="note-preview">${e.preview}</div>
+    </div>`
+  ).join('');
+}
+
+function switchNotes(nodeId) {
+  if (currentNodeId !== null) {
+    saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+  }
+  currentNodeId = nodeId;
+  document.getElementById('notes-textarea').value = loadNote(nodeId);
+  document.getElementById('notes-node-label').textContent =
+    nodeIndex[nodeId]?.label || nodeId;
+}
+
+function clearNote() {
+  document.getElementById('notes-textarea').value = '';
+  if (currentNodeId) saveNote(currentNodeId, '');
+}
+
+function exportNotes() {
+  const notes = {};
+  RAW.nodes.forEach(n => {
+    const v = localStorage.getItem(noteKey(n.id));
+    if (v) notes[n.id] = v;
+  });
+  const blob = new Blob([JSON.stringify(notes, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${DOMAIN_KEY}_notes.json`;
+  a.click();
+}
+
+document.getElementById('notes-textarea').addEventListener('input', () => {
+  if (currentNodeId) saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+});
+
+// ── unified node select ─────────────────────────────────────────────────────
+function selectNode(nodeId) {
+  if (!nodeIndex[nodeId]) return;
+  network.selectNodes([nodeId]);
+  handleSelect(nodeId);
+}
+
+function handleSelect(targetId) {
+  const node = nodeIndex[targetId];
+
+  renderExplanation(node);
+  switchNotes(targetId);
+
+  const ancestors = getAncestors(targetId);
+  const pathSet = new Set([...ancestors]);
+  const orderedPath = topoSort(pathSet);
+
+  renderPathSidebar(orderedPath, targetId);
+
+  resetColors();
+  visNodes.update(orderedPath.map(n => ({id: n, color: C_PATH})));
+  visNodes.update([{id: targetId, color: C_TARGET}]);
+  visEdges.update(RAW.edges.map((e, i) => {
+    const inPath = pathSet.has(e.from) && (pathSet.has(e.to) || e.to === targetId);
+    return {id: i, color: {color: inPath ? '#f9a825' : '#c8ccd4'}, width: inPath ? 2 : 1};
+  }));
+}
+
+network.on('click', params => {
+  if (params.nodes.length) handleSelect(params.nodes[0]);
+});
+
+// initialise notes list on load
+renderNotesList();
+
+// When viewed directly (not in an iframe), inject a back link next to the
+// "Learning Path" heading so it doesn't look like a title-bar element.
+if (window.parent === window) {
+  var h1 = document.querySelector('#path-header h1');
+  if (h1) {
+    var backLink = document.createElement('a');
+    backLink.href = '../../';
+    backLink.textContent = '← App';
+    backLink.style.cssText = [
+      'font-size:10px','color:#2563eb','font-family:system-ui,sans-serif',
+      'text-decoration:none','font-weight:400','letter-spacing:normal',
+      'text-transform:none','white-space:nowrap','flex-shrink:0'
+    ].join(';');
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:baseline;gap:8px;';
+    h1.parentNode.insertBefore(row, h1);
+    row.appendChild(h1);
+    row.appendChild(backLink);
+  }
+}
+</script>
+</body>
+</html>

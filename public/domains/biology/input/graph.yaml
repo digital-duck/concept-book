@@ -1,0 +1,177 @@
+domain: biology
+primitives:
+  cell:
+    symbol: ☰ (the unit)
+    defines: 'first radical — the smallest unit of life; bounded by a membrane, contains hereditary information, carries out metabolism; not reducible to chemistry within biology'
+    tier: 0
+  molecule:
+    symbol: ∘ (brick)
+    defines: 'first radical — chemical building block the cell assembles and disassembles; proteins, lipids, carbohydrates, nucleic acids are all members; reducible to chemistry but not to cell-level concepts'
+    tier: 0
+  hereditary_information:
+    symbol: DNA (sequence)
+    defines: 'second radical — the digital blueprint encoded in nucleotide sequence; cannot be derived from cell structure or molecular identity alone; the Leibniz principle of biology — it is copied, transcribed, and mutated but never re-derived from scratch'
+    tier: 0
+  energy:
+    symbol: ATP (currency)
+    defines: 'second radical — the capacity to do work inside a cell; captured from sunlight or food and stored as ATP; thermodynamics sets the floor but biology is the level of analysis'
+    tier: 0
+first_radical_primitives:
+- cell
+- molecule
+concepts:
+  membrane:
+    composed_of:
+    - cell
+    - molecule
+    defines: 'phospholipid bilayer that bounds the cell — selectively permeable; defines inside vs. outside; the cell''s sovereignty is its membrane'
+    verifier: 'structural'
+    lab: 'graph_lib.verify_character_lego (membrane = phospholipid pieces, machine-checked)'
+    play: 'list three things that cross a membrane freely (O₂, CO₂, H₂O) and three that need a transporter (glucose, Na⁺, large proteins)'
+    tier: 1
+  metabolism:
+    composed_of:
+    - cell
+    - molecule
+    - energy
+    defines: 'the complete set of chemical reactions in a cell — catabolism (break down to harvest energy) and anabolism (build up spending energy); life is a metabolic steady state'
+    verifier: 'python'
+    lab: 'python (simulate metabolic flux with stoichiometric matrices; verify mass balance)'
+    play: 'write glucose + O₂ → CO₂ + H₂O and count atoms on both sides; same ledger as chemistry''s conservation_of_atoms'
+    tier: 2
+  transcription:
+    composed_of:
+    - hereditary_information
+    - molecule
+    defines: 'copying a DNA sequence into an RNA sequence — the first step of gene expression; the template strand is read 3''→5'', the mRNA grows 5''→3'''
+    verifier: 'python'
+    lab: 'python (implement complement_strand(); verify mRNA matches template complement)'
+    play: '''transcribe ATGCGT → UACGCA; the A↔U and G↔C substitution rule is the entire operation'''
+    tier: 2
+  translation:
+    composed_of:
+    - transcription
+    - molecule
+    defines: 'decoding mRNA codons into an amino-acid sequence at the ribosome — the genetic code maps 64 codons to 20 amino acids plus stop signals'
+    verifier: 'python'
+    lab: 'python (implement codon_table lookup; translate a short mRNA; verify against known protein)'
+    play: '''translate AUG-UUU-GCG-UAA → Met-Phe-Ala-Stop; try a one-base mutation and observe the downstream change'''
+    tier: 3
+  gene_expression:
+    composed_of:
+    - transcription
+    - translation
+    defines: 'the two-step flow DNA → RNA → protein — the central dogma of molecular biology; regulation at every step is what makes a liver cell different from a neuron despite sharing the same genome'
+    verifier: 'python'
+    lab: 'python (end-to-end DNA→protein pipeline; unit-test with known sequence fragments)'
+    play: 'look up the sequence of human insulin; confirm the chain of translation matches the mature protein sequence after signal peptide removal'
+    tier: 4
+  cell_division:
+    composed_of:
+    - cell
+    - hereditary_information
+    defines: 'mitosis (somatic duplication) and meiosis (gamete formation with recombination) — how one cell becomes two while preserving or shuffling the genome; the source of all growth and sexual diversity'
+    verifier: 'python'
+    lab: 'python (simulate chromosome duplication; verify daughter cells each receive a full copy)'
+    play: 'count the chromosomes: human somatic = 46, gametes = 23; verify 23 + 23 = 46 at fertilization — the simplest ledger in genetics'
+    tier: 2
+  natural_selection:
+    composed_of:
+    - hereditary_information
+    - cell_division
+    defines: 'heritable variation + differential reproduction → allele frequency change across generations; not a force — a filtering process on the variation cell_division and mutation produce'
+    verifier: 'python'
+    lab: 'python (Wright-Fisher model; simulate allele frequency drift vs. selection for N generations)'
+    play: 'start a population with allele frequency 0.1 for a beneficial variant (s = 0.05); plot frequency over 200 generations and watch it approach 1'
+    tier: 3
+  mutation:
+    composed_of:
+    - hereditary_information
+    - cell_division
+    defines: 'heritable change in the DNA sequence — point substitution, insertion, deletion, duplication; the raw material natural_selection filters; most are neutral or deleterious, rare ones are the engine of adaptation'
+    verifier: 'python'
+    lab: 'python (implement point_mutate(); verify Hamming distance = 1 from parent sequence)'
+    play: 'randomly mutate a 10-base sequence 1000 times; plot the distribution of distances from the original — most mutations are small'
+    tier: 3
+  homeostasis:
+    composed_of:
+    - metabolism
+    - cell
+    defines: 'the maintenance of a stable internal environment (temperature, pH, ion concentrations) via negative feedback loops — deviation triggers a corrective response; life is controlled disequilibrium'
+    verifier: 'python'
+    lab: 'python (implement a proportional feedback controller; show set-point tracking under perturbation)'
+    play: 'model blood glucose regulation — eating raises glucose, insulin lowers it; show the system returns to ~5 mM after a meal'
+    tier: 3
+  tissue:
+    composed_of:
+    - cell
+    - cell_division
+    defines: 'a population of similar, coordinated cells performing a shared function — muscle, nerve, epithelium, connective; the first level of multicellular organization above the cell'
+    verifier: 'structural'
+    lab: 'graph_lib.verify_character_lego (tissue is made of cells — composition check)'
+    tier: 2
+  organ:
+    composed_of:
+    - tissue
+    defines: 'multiple tissue types working together toward a physiological function — the heart (cardiac muscle + connective + epithelium), the kidney, the leaf'
+    verifier: 'structural'
+    lab: 'graph_lib.verify_character_lego (organ is composed of tissues)'
+    tier: 3
+  organism:
+    composed_of:
+    - organ
+    - homeostasis
+    defines: 'an integrated, self-maintaining living system — the level at which natural selection acts most directly; contains all the layers below'
+    verifier: 'structural'
+    lab: 'graph_lib.verify_character_lego (organism composition hierarchy)'
+    tier: 4
+  evolution:
+    composed_of:
+    - natural_selection
+    - mutation
+    - hereditary_information
+    defines: 'change in allele frequencies across generations — the unifying theory of biology; natural selection + mutation + drift + gene flow over geological time produces all observed diversity'
+    verifier: 'python'
+    lab: 'python (extended Wright-Fisher with mutation rate μ; measure substitution rate vs. s)'
+    play: 'add a mutation rate μ = 1e-4 to your Wright-Fisher simulation; observe mutation-selection balance at equilibrium frequency μ/s'
+    tier: 4
+  ecology:
+    composed_of:
+    - organism
+    - evolution
+    defines: 'the interactions among organisms and their abiotic environment — predator-prey, competition, symbiosis, nutrient cycling; the field in which evolution plays out across species and landscapes'
+    verifier: 'python'
+    lab: 'python (Lotka-Volterra ODE; integrate and plot predator-prey oscillations)'
+    play: 'integrate dx/dt = αx − βxy, dy/dt = δxy − γy with exact rational parameters; confirm periodic orbits in phase space'
+    tier: 5
+applications:
+  genetic_engineering:
+    needs:
+    - gene_expression
+    - mutation
+    domain: 'biotechnology'
+    defines: 'deliberate editing of an organism''s genome (CRISPR, recombinant DNA) to alter gene expression or introduce new traits; central dogma in reverse — design the sequence to design the protein'
+  vaccine_design:
+    needs:
+    - natural_selection
+    - gene_expression
+    domain: 'medicine / immunology'
+    defines: 'presenting an antigen (fragment of pathogen protein) to prime adaptive immunity without disease — exploits gene_expression and the immune cell''s ability to remember'
+  drug_target_identification:
+    needs:
+    - metabolism
+    - gene_expression
+    domain: 'pharmacology'
+    defines: 'finding proteins whose inhibition disrupts pathogen or cancer metabolism while sparing host cells — metabolic network analysis at the molecular level'
+  population_genetics:
+    needs:
+    - evolution
+    - natural_selection
+    domain: 'epidemiology / anthropology'
+    defines: 'quantifying allele frequency change in real populations — underpins disease risk prediction, forensic DNA, and our understanding of human migration'
+  synthetic_biology:
+    needs:
+    - gene_expression
+    - metabolism
+    domain: 'bioengineering'
+    defines: 'designing novel genetic circuits and metabolic pathways (e.g. microbes that produce insulin, biofuels, or plastics) — engineering with the same primitives evolution uses'

@@ -10,13 +10,34 @@
     "concepts": 25,
     "applications": 7,
     "tags": [
-      "math",
-      "university"
+      "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "linear_combination",
+        "file": "output/intro.en/html/book_linear_combination.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "linear_combination",
+        "label": "Linear Combination",
+        "file": "output/intro.en/html/concept_linear_combination.html"
+      },
+      {
+        "name": "scalar_multiplication",
+        "label": "Scalar Multiplication",
+        "file": "output/intro.en/html/concept_scalar_multiplication.html"
+      },
+      {
+        "name": "vector_addition",
+        "label": "Vector Addition",
+        "file": "output/intro.en/html/concept_vector_addition.html"
+      }
+    ],
+    "default_level": "college"
   },
   {
     "id": "geometry",
@@ -129,7 +150,8 @@
         "label": "Similarity",
         "file": "output/core.en/html/concept_similarity.html"
       }
-    ]
+    ],
+    "default_level": "core"
   },
   {
     "id": "mechanics",
@@ -142,13 +164,13 @@
     "concepts": 19,
     "applications": 5,
     "tags": [
-      "science",
-      "university"
+      "science"
     ],
     "has_navigator": true,
     "has_book": false,
     "books": [],
-    "generated_concepts": []
+    "generated_concepts": [],
+    "default_level": "college"
   },
   {
     "id": "chemistry_elements",
@@ -161,13 +183,13 @@
     "concepts": 14,
     "applications": 5,
     "tags": [
-      "science",
-      "university"
+      "science"
     ],
     "has_navigator": true,
     "has_book": false,
     "books": [],
-    "generated_concepts": []
+    "generated_concepts": [],
+    "default_level": "core"
   },
   {
     "id": "chinese_characters",
@@ -180,8 +202,7 @@
     "concepts": 16,
     "applications": 5,
     "tags": [
-      "language",
-      "stem"
+      "language"
     ],
     "has_navigator": true,
     "has_book": true,
@@ -189,9 +210,57 @@
       {
         "target": "林",
         "file": "output/intro.en/html/book_林.html"
+      },
+      {
+        "target": "vocabulary_compounds",
+        "file": "output/intro.en/html/book_vocabulary_compounds.html"
+      },
+      {
+        "target": "cultural_etymology",
+        "file": "output/intro.en/html/book_cultural_etymology.html"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "cultural_etymology",
+        "label": "Cultural Etymology",
+        "file": "output/intro.en/html/concept_cultural_etymology.html"
+      },
+      {
+        "name": "vocabulary_compounds",
+        "label": "Vocabulary Compounds",
+        "file": "output/intro.en/html/concept_vocabulary_compounds.html"
+      },
+      {
+        "name": "女",
+        "label": "女",
+        "file": "output/intro.en/html/concept_女.html"
+      },
+      {
+        "name": "好",
+        "label": "好",
+        "file": "output/intro.en/html/concept_好.html"
+      },
+      {
+        "name": "子",
+        "label": "子",
+        "file": "output/intro.en/html/concept_子.html"
+      },
+      {
+        "name": "字",
+        "label": "字",
+        "file": "output/intro.en/html/concept_字.html"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.en/html/concept_宀.html"
+      },
+      {
+        "name": "安",
+        "label": "安",
+        "file": "output/intro.en/html/concept_安.html"
+      },
       {
         "name": "木",
         "label": "木",
@@ -202,7 +271,8 @@
         "label": "林",
         "file": "output/intro.en/html/concept_林.html"
       }
-    ]
+    ],
+    "default_level": "intro"
   },
   {
     "id": "english_morphology",
@@ -215,8 +285,7 @@
     "concepts": 31,
     "applications": 5,
     "tags": [
-      "language",
-      "stem"
+      "language"
     ],
     "has_navigator": true,
     "has_book": true,
@@ -252,7 +321,8 @@
         "label": "Stem",
         "file": "output/intro.en/html/concept_stem.html"
       }
-    ]
+    ],
+    "default_level": "intro"
   },
   {
     "id": "python_science",
@@ -271,7 +341,8 @@
     "has_navigator": true,
     "has_book": false,
     "books": [],
-    "generated_concepts": []
+    "generated_concepts": [],
+    "default_level": "college"
   },
   {
     "id": "sage_learning",
@@ -290,7 +361,8 @@
     "has_navigator": true,
     "has_book": false,
     "books": [],
-    "generated_concepts": []
+    "generated_concepts": [],
+    "default_level": "research"
   },
   {
     "id": "lean_proving",
@@ -309,7 +381,8 @@
     "has_navigator": true,
     "has_book": false,
     "books": [],
-    "generated_concepts": []
+    "generated_concepts": [],
+    "default_level": "research"
   },
   {
     "id": "music_theory",
@@ -327,6 +400,102 @@
     "has_navigator": true,
     "has_book": false,
     "books": [],
-    "generated_concepts": []
+    "generated_concepts": [],
+    "default_level": "core"
+  },
+  {
+    "id": "biology",
+    "name": "Biology",
+    "description": "From cells and genes to ecosystems and evolution.",
+    "capstone": null,
+    "nodes": 23,
+    "edges": 39,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "college"
+  },
+  {
+    "id": "cs_algorithms",
+    "name": "Algorithms",
+    "description": "From sorting and searching to graph algorithms and complexity.",
+    "capstone": null,
+    "nodes": 23,
+    "edges": 37,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "college"
+  },
+  {
+    "id": "cs_data_structures",
+    "name": "Data Structures",
+    "description": "From arrays and linked lists to trees and hash tables.",
+    "capstone": null,
+    "nodes": 21,
+    "edges": 29,
+    "primitives": 4,
+    "concepts": 12,
+    "applications": 5,
+    "tags": [
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "college"
+  },
+  {
+    "id": "medicine",
+    "name": "Medicine",
+    "description": "From anatomy and physiology to diagnosis and treatment.",
+    "capstone": null,
+    "nodes": 20,
+    "edges": 38,
+    "primitives": 4,
+    "concepts": 11,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "research"
+  },
+  {
+    "id": "sql",
+    "name": "SQL",
+    "description": "From tables and queries to joins, subqueries, and transactions.",
+    "capstone": null,
+    "nodes": 23,
+    "edges": 48,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "core"
   }
 ]

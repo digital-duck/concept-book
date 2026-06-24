@@ -25,7 +25,7 @@ No test runner is wired up; `playwright` is in devDependencies but has no npm te
 
 ## Architecture
 
-**Content pipeline:** `spl/build_concept_book.spl` is the concept-book generation workflow (forked from SPL.py recipe 74). It uses `@level` (intro/core/college/research) instead of `@style`. Supporting files: `spl/level_profiles.py` (level definitions), `spl/tools.py` (SPL tool functions), `spl/graph_lib.py` (graph algorithms). The `*_graph.yaml` inputs and `*_graph.html` navigators are synced from SPL.py by `scripts/sync_from_spl.sh`.
+**Content pipeline:** `spl/build_concept_book.spl` is the concept-book generation workflow (forked from SPL.py recipe 74). It uses `@level` (intro/core/college/research) instead of `@style`. Supporting files: `spl/level_profiles.py` (level definitions), `spl/tools.py` (SPL tool functions), `spl/graph_lib.py` (graph algorithms). The `*_graph.yaml` inputs are synced from SPL.py by `scripts/sync_from_spl.sh`, which then generates `graph.html` navigators locally via `scripts/concept_graph.py` (ported from SPL.py — graph algorithms, vis.js HTML renderer, CLI for stats/visualize/export/compose).
 
 **Domain directory layout:**
 ```

@@ -286,11 +286,38 @@ const network = new vis.Network(container, {nodes: visNodes, edges: visEdges}, {
   edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical' } },
 });
 
-// Sort nodes at the same BFS level alphabetically (left-to-right by name)
+// Sort nodes at the same BFS level alphabetically and pull disconnected
+// nodes into the main grid instead of letting vis.js exile them to the side.
 network.once('afterDrawing', function() {
   const pos = network.getPositions();
+  const connected = new Set();
+  RAW.edges.forEach(e => { connected.add(e.from); connected.add(e.to); });
+  const disconnected = RAW.nodes.filter(n => !connected.has(n.id)).map(n => n.id);
+
+  if (disconnected.length > 0) {
+    // Find the Y of level-0 nodes and the rightmost X of connected level-0 nodes
+    const level0Y = Object.entries(pos)
+      .filter(([id]) => bfsLevels[id] === 0 && connected.has(id))
+      .map(([, p]) => p.y);
+    const targetY = level0Y.length ? level0Y[0] : 0;
+    const level0Xs = Object.entries(pos)
+      .filter(([id]) => bfsLevels[id] === 0 && connected.has(id))
+      .map(([, p]) => p.x);
+    const maxX = level0Xs.length ? Math.max(...level0Xs) : 0;
+    const spacing = 130;
+
+    // Place disconnected nodes to the left of connected level-0 nodes
+    const sortedDisc = [...disconnected].sort();
+    const minConnX = level0Xs.length ? Math.min(...level0Xs) : 0;
+    sortedDisc.forEach((id, i) => {
+      network.moveNode(id, minConnX - (sortedDisc.length - i) * spacing, targetY);
+    });
+  }
+
+  // Re-sort all nodes at the same Y level alphabetically
+  const posAfter = network.getPositions();
   const byY = {};
-  Object.entries(pos).forEach(([id, p]) => {
+  Object.entries(posAfter).forEach(([id, p]) => {
     const key = Math.round(p.y);
     if (!byY[key]) byY[key] = [];
     byY[key].push({id, x: p.x, y: p.y});

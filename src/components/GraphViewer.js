@@ -180,6 +180,10 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
              font-family:system-ui,sans-serif">
       <option value="">Select target concept…</option>
     </select>
+    <label style="display:flex;align-items:center;gap:5px;font-size:11px;
+                  color:#666;margin-bottom:6px;font-family:system-ui,sans-serif;cursor:pointer">
+      <input type="checkbox" id="cb-skip-cache"> Skip cache
+    </label>
     <button id="cb-gen-btn" disabled
       style="width:100%;padding:6px 10px;background:#2563eb;color:#fff;
              border:none;border-radius:5px;font-size:12px;cursor:pointer;
@@ -202,6 +206,7 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
   pathHeader.insertAdjacentElement('afterend', div)
 
   const sel = div.querySelector('#cb-target-sel')
+  const skipCacheChk = div.querySelector('#cb-skip-cache')
   const btn = div.querySelector('#cb-gen-btn')
   const log = div.querySelector('#cb-gen-log')
   const copyBtn = div.querySelector('#cb-gen-copy')
@@ -241,7 +246,8 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
     copyBtn.style.display = 'block'
     log.textContent = `▶ target: ${target}\n`
 
-    const url = `/api/generate?domain=${encodeURIComponent(domainId)}&target=${encodeURIComponent(target)}&level=${encodeURIComponent(level)}&language=${encodeURIComponent(lang)}`
+    const skipCache = skipCacheChk.checked
+    const url = `/api/generate?domain=${encodeURIComponent(domainId)}&target=${encodeURIComponent(target)}&level=${encodeURIComponent(level)}&language=${encodeURIComponent(lang)}${skipCache ? '&skip_cache=true' : ''}`
     const es = new win.EventSource(url)
 
     es.addEventListener('log', e => {

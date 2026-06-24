@@ -198,26 +198,36 @@ def concept_label(concept: str) -> str:
 
 @spl_tool
 def write_concept_html(concept: str, section: str, domain_yaml: str, output_dir: str) -> str:
-    """Write a standalone HTML page for one concept to output_dir/concept_{concept}.html."""
+    """Write a concept page with sidebar listing sibling concepts."""
     if not output_dir:
         return ""
+    cache = _domain(domain_yaml)
+    order: list[str] = cache["order"]
     domain_id = re.sub(r'(_graph)?\.(ya?ml|json|py)$', '', domain_yaml)
     domain_title = _esc(domain_id.replace('_', ' ').title())
     label = concept.replace('_', ' ').title()
-    # Normalize first H2 heading: LLM may write ## concept_id; replace with ## Concept Label
     section = re.sub(
         r'^##\s+' + re.escape(concept) + r'[ \t]*$',
         f'## {label}',
         section, count=1, flags=re.MULTILINE,
     )
     back_url = f'../../../../#/domain/{domain_id}'
+
+    toc_items = []
+    for c in order:
+        c_label = _esc(c.replace('_', ' ').title())
+        cls = ' class="toc-target"' if c == concept else ''
+        toc_items.append(f'<li{cls}><a href="concept_{c}.html">{c_label}</a></li>')
+    toc_html = '<ol>\n' + '\n'.join(toc_items) + '\n</ol>'
+
     html = _render(
-        _CONCEPT_PAGE_TEMPLATE,
+        _BOOK_INDEX_TEMPLATE,
         lang_attr=' lang="en"',
-        concept_title=_esc(label),
         domain_title=domain_title,
+        target_title=_esc(label),
         back_url=back_url,
-        body=_md_to_html(section),
+        toc=toc_html,
+        sections=f'<section>\n{_md_to_html(section)}\n</section>',
     )
     out = Path(output_dir) / f"concept_{concept}.html"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -227,7 +237,7 @@ def write_concept_html(concept: str, section: str, domain_yaml: str, output_dir:
 
 @spl_tool
 def build_book_index(domain_yaml: str, target: str, language: str, output_dir: str, payoff: str) -> str:
-    """Build book_{target}.html — a TOC index linking to individual concept pages."""
+    """Build book_{target}.html — single-page book with all concepts inline."""
     if not output_dir:
         return ""
     cache = _domain(domain_yaml)
@@ -237,11 +247,25 @@ def build_book_index(domain_yaml: str, target: str, language: str, output_dir: s
     lang_attr = f' lang="{language}"' if language and language != 'en' else ' lang="en"'
 
     toc_items = []
+    sections_html = []
+    out_dir = Path(output_dir)
     for concept in order:
         label = _esc(concept.replace('_', ' ').title())
+        slug = re.sub(r'\W+', '-', concept.lower()).strip('-')
         cls = ' class="toc-target"' if concept == target else ''
-        toc_items.append(f'<li{cls}><a href="concept_{concept}.html">{label}</a></li>')
+        toc_items.append(f'<li{cls}><a href="#{slug}">{label}</a></li>')
+        concept_file = out_dir / f"concept_{concept}.html"
+        if concept_file.exists():
+            raw = concept_file.read_text(encoding="utf-8")
+            m = re.search(r'<main>(.*?)</main>', raw, re.DOTALL)
+            body = m.group(1).strip() if m else ''
+        else:
+            body = f'<h2>{label}</h2><p>(content not generated)</p>'
+        sections_html.append(f'<section id="{slug}">\n{body}\n</section>')
+
+    toc_items.append('<li class="toc-target"><a href="#payoff">Payoff</a></li>')
     toc_html = '<ol>\n' + '\n'.join(toc_items) + '\n</ol>'
+    sections_html.append(f'<section id="payoff">\n{_md_to_html(payoff)}\n</section>')
 
     domain_id = re.sub(r'(_graph)?\.(ya?ml|json|py)$', '', domain_yaml)
     back_url = f'../../../../#/domain/{domain_id}'
@@ -252,9 +276,9 @@ def build_book_index(domain_yaml: str, target: str, language: str, output_dir: s
         target_title=_esc(target.replace('_', ' ').title()),
         back_url=back_url,
         toc=toc_html,
-        payoff=_md_to_html(payoff),
+        sections='\n'.join(sections_html),
     )
-    out = Path(output_dir) / f"book_{target}.html"
+    out = out_dir / f"book_{target}.html"
     out.write_text(html, encoding="utf-8")
     return str(out)
 
@@ -273,20 +297,67 @@ def _inline_md(text: str) -> str:
     return text
 
 
+def _parse_table_row(line: str) -> list[str]:
+    """Split a `| a | b | c |` line into cell strings."""
+    line = line.strip()
+    if line.startswith('|'):
+        line = line[1:]
+    if line.endswith('|'):
+        line = line[:-1]
+    return [c.strip() for c in line.split('|')]
+
+
+def _is_table_separator(line: str) -> bool:
+    """Check if line is a `|---|---|` separator row."""
+    return bool(re.match(r'^\s*\|?[\s:]*-{2,}[\s:]*(\|[\s:]*-{2,}[\s:]*)*\|?\s*$', line))
+
+
+def _render_table(rows: list[str]) -> str:
+    """Convert collected markdown table lines into an HTML table."""
+    if len(rows) < 2:
+        return '\n'.join(rows)
+    header = _parse_table_row(rows[0])
+    body_start = 2 if (len(rows) > 1 and _is_table_separator(rows[1])) else 1
+    html = '<table>\n<thead><tr>'
+    for cell in header:
+        html += f'<th>{_inline_md(cell)}</th>'
+    html += '</tr></thead>\n<tbody>\n'
+    for row_line in rows[body_start:]:
+        if _is_table_separator(row_line):
+            continue
+        cells = _parse_table_row(row_line)
+        html += '<tr>'
+        for cell in cells:
+            html += f'<td>{_inline_md(cell)}</td>'
+        html += '</tr>\n'
+    html += '</tbody>\n</table>'
+    return html
+
+
 def _md_to_html(md: str) -> str:
     """Minimal Markdown → HTML.  Preserves $...$ and $$...$$ for MathJax."""
     lines = md.split('\n')
     out: list[str] = []
     in_code = False
-    in_dmath = False   # inside a multi-line $$ ... $$ block
+    in_dmath = False
     code_buf: list[str] = []
     math_buf: list[str] = []
     para_buf: list[str] = []
+    table_buf: list[str] = []
 
     def flush_para() -> None:
         if para_buf:
             out.append(f'<p>{" ".join(para_buf)}</p>')
             para_buf.clear()
+
+    def flush_table() -> None:
+        if table_buf:
+            out.append(_render_table(table_buf))
+            table_buf.clear()
+
+    def _is_table_line(ln: str) -> bool:
+        s = ln.strip()
+        return s.startswith('|') and s.endswith('|') and s.count('|') >= 2
 
     for line in lines:
         # ── fenced code blocks ────────────────────────────────────────────────
@@ -297,6 +368,7 @@ def _md_to_html(md: str) -> str:
                 in_code = False
             else:
                 flush_para()
+                flush_table()
                 in_code = True
             continue
         if in_code:
@@ -304,27 +376,33 @@ def _md_to_html(md: str) -> str:
             continue
 
         # ── display math ($$ ... $$) ──────────────────────────────────────────
-        # A line that is *only* $$ (possibly with whitespace) is a block delimiter.
-        # A line like $$...$$ (content on same line) is a self-closing block.
         if re.match(r'^\s*\$\$', line):
             stripped = line.strip()
-            # Self-contained: $$ ... $$ on one line (content between the delimiters)
             if stripped != '$$' and stripped.endswith('$$') and len(stripped) > 4:
                 flush_para()
+                flush_table()
                 out.append(line)
                 continue
-            # Toggle multi-line block
             if in_dmath:
                 out.append('$$\n' + '\n'.join(math_buf) + '\n$$')
                 math_buf.clear()
                 in_dmath = False
             else:
                 flush_para()
+                flush_table()
                 in_dmath = True
             continue
         if in_dmath:
             math_buf.append(line)
             continue
+
+        # ── tables ────────────────────────────────────────────────────────────
+        if _is_table_line(line) or (table_buf and _is_table_separator(line)):
+            flush_para()
+            table_buf.append(line)
+            continue
+        else:
+            flush_table()
 
         # ── headings ──────────────────────────────────────────────────────────
         m = re.match(r'^(#{1,6})\s+(.+)$', line)
@@ -357,6 +435,7 @@ def _md_to_html(md: str) -> str:
         para_buf.append(_inline_md(line))
 
     flush_para()
+    flush_table()
     return '\n'.join(out)
 
 
@@ -368,6 +447,10 @@ h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
 h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
 p{margin-bottom:16px;font-size:1rem}
 li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
 pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
     padding:16px 20px;overflow-x:auto;margin:16px 0}
 code{font-family:Menlo,Consolas,monospace;font-size:.87em}
@@ -384,34 +467,6 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>"""
-
-_CONCEPT_PAGE_TEMPLATE = """\
-<!DOCTYPE html>
-<html{lang_attr}>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{concept_title} | {domain_title}</title>
-""" + _MATHJAX_HEAD + """
-<style>
-""" + _SHARED_CSS + """
-.page{max-width:780px;margin:0 auto;padding:40px 32px}
-header{margin-bottom:32px}
-section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
-section:first-of-type{border-top:none;padding-top:0}
-</style>
-</head>
-<body>
-<div class="page">
-  <header>
-    <a href="{back_url}" class="back">← {domain_title}</a>
-  </header>
-  <main>
-    {body}
-  </main>
-</div>
-</body>
-</html>"""
 
 _BOOK_INDEX_TEMPLATE = """\
 <!DOCTYPE html>
@@ -441,6 +496,7 @@ h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:4px}
 .subtitle{color:#666;margin-bottom:48px;font-size:1rem;font-style:italic;font-family:system-ui,sans-serif}
 section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
 section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
 @media(max-width:768px){.page{grid-template-columns:1fr}
 nav.toc{position:relative;height:auto}}
 </style>
@@ -455,9 +511,7 @@ nav.toc{position:relative;height:auto}}
   <main>
     <h1 class="book-title">Concept Book: {target_title}</h1>
     <p class="subtitle">{domain_title} &middot; Generated by SPL</p>
-    <section>
-      {payoff}
-    </section>
+    {sections}
   </main>
 </div>
 </body>

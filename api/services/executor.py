@@ -15,7 +15,7 @@ _REPO_ROOT = Path(__file__).parent.parent.parent
 _SPL_DIR = _REPO_ROOT / "spl"
 
 
-async def stream_generate(domain_id: str, target: str, level: str = "intro", language: str = "en"):
+async def stream_generate(domain_id: str, target: str, level: str = "intro", language: str = "en", skip_cache: bool = False):
     spl_dir: Path = settings.spl_dir
     output_dir = settings.public_domains / domain_id / "output" / f"{level}.{language}" / "html"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -29,6 +29,7 @@ async def stream_generate(domain_id: str, target: str, level: str = "intro", lan
         "--param", f"lvl={level}",
         "--param", f"language={language}",
         "--param", f"output_dir={output_dir}",
+        "--param", f"skip_cache={'yes' if skip_cache else 'no'}",
     ]
 
     yield {"event": "started", "data": json.dumps({"domain": domain_id, "target": target})}
