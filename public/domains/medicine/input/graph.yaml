@@ -55,8 +55,8 @@ concepts:
       redness, heat, swelling, pain, loss of function; the body's first responder; both
       protective and pathological when chronic
     verifier: python
-    lab: python (simulate cytokine cascade: model TNF-α, IL-6 dynamics with ODEs; verify
-      resolution when pathogen load = 0)
+    lab: "python (simulate cytokine cascade: model TNF-α, IL-6 dynamics with ODEs;\
+      \ verify resolution when pathogen load = 0)"
     play: model the fever response — pathogen → pyrogens → hypothalamus set-point rise →
       fever; confirm negative feedback drives temperature back after pathogen clearance
     tier: 2
@@ -84,8 +84,8 @@ concepts:
       the probabilistic inference step; Bayes' theorem in practice; prior = prevalence,
       likelihood = test sensitivity/specificity
     verifier: python
-    lab: python (implement Bayesian update: P(disease|test) = P(test|disease)P(disease)/P(test);
-      compute post-test probability for a given sensitivity and specificity)
+    lab: "python (implement Bayesian update: P(disease|test) = P(test|disease)P(disease)/P(test);\
+      \ compute post-test probability for a given sensitivity and specificity)"
     play: disease prevalence 1%, test sensitivity 95%, specificity 90% — compute P(disease | positive test);
       the answer (~8.7%) surprises most clinicians
     tier: 3
@@ -97,8 +97,8 @@ concepts:
       (ADME); described by compartmental ODE models; Cmax, Tmax, half-life, AUC are all
       derived from these equations
     verifier: python
-    lab: python (one-compartment model: dC/dt = -k_el * C; solve analytically and numerically;
-      compare half-life t₁/₂ = ln(2)/k_el)
+    lab: "python (one-compartment model: dC/dt = -k_el * C; solve analytically and numerically;\
+      \ compare half-life t₁/₂ = ln(2)/k_el)"
     play: give an IV bolus of dose D; integrate C(t) = D/Vd * exp(-k_el * t); mark the
       time when concentration falls to MIC (minimum inhibitory concentration)
     tier: 3
@@ -123,8 +123,8 @@ concepts:
       route are chosen to move the patient's state toward physiology baseline while minimizing
       harm; therapeutic window = the dose range between efficacy and toxicity
     verifier: python
-    lab: python (PK/PD simulation: dosing regimen → C(t) → effect E(t); optimize regimen to
-      keep C within therapeutic window)
+    lab: "python (PK/PD simulation: dosing regimen → C(t) → effect E(t); optimize regimen to\
+      \ keep C within therapeutic window)"
     play: compute a twice-daily dosing regimen for an antibiotic with half-life 8 h; verify
       trough concentration stays above MIC and peak stays below toxic threshold
     tier: 4
@@ -151,8 +151,8 @@ concepts:
       the original evidence-based intervention
     verifier: structural
     lab: graph_lib.verify_character_lego (surgery depends on anatomy map + diagnosis indication)
-    play: for appendectomy: locate the appendix (anatomy); confirm appendicitis (diagnosis);
-      list the tissue layers traversed (anatomy applied sequentially)
+    play: "for appendectomy: locate the appendix (anatomy); confirm appendicitis (diagnosis);\
+      \ list the tissue layers traversed (anatomy applied sequentially)"
     tier: 4
   clinical_trial:
     composed_of:
