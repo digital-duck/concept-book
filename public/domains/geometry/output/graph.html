@@ -104,11 +104,17 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
   display:flex;flex-direction:column;
   overflow:hidden;
 }
-#notes-header{padding:10px 12px 8px;border-bottom:1px solid #e0e0d8;flex-shrink:0}
+#notes-header{
+  padding:10px 12px 8px;
+  border-bottom:1px solid #e0e0d8;
+  flex-shrink:0;
+}
 #notes-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
 #notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em;margin:0}
 #notes-node-label{font-size:11px;color:#999;margin-top:2px}
-.nb-btn{font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid #ddd;background:#f0f0ea;cursor:pointer;color:#777;font-family:system-ui,sans-serif}
+.nb-btn{font-size:10px;padding:2px 7px;border-radius:3px;
+  border:1px solid #ddd;background:#f0f0ea;cursor:pointer;color:#777;
+  font-family:system-ui,sans-serif}
 .nb-btn:hover{background:#e0e0d8;color:#444}
 #notes-textarea{
   flex:0 0 auto;height:100px;border:none;resize:none;
@@ -117,8 +123,7 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
   outline:none;
 }
 #notes-with-entries{
-  border-top:1px solid #e8e8e0;flex:1;min-height:0;
-  overflow-y:auto;
+  border-top:1px solid #e8e8e0;flex:1;min-height:0;overflow-y:auto;
 }
 .note-entry{
   padding:6px 12px;cursor:pointer;
@@ -173,7 +178,6 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
     <div id="notes-node-label">no node selected</div>
   </div>
   <textarea id="notes-textarea" placeholder="Type notes here&#10;(auto-saved per node)"></textarea>
-  
   <div id="notes-with-entries"></div>
 </aside>
 

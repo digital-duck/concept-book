@@ -1,0 +1,279 @@
+domain: quantum_physics
+primitives:
+  quantum_state:
+    symbol: "|ψ⟩"
+    defines: first radical — the complete description of a quantum system; a vector
+      in Hilbert space encoding everything knowable about the system; not a classical
+      position or momentum but their superposition
+    tier: 0
+  planck_constant:
+    symbol: ℏ = h/2π
+    defines: first radical — the quantum of action; the irreducible scale below which
+      classical mechanics fails; appears in every quantization condition and sets
+      the size of the quantum world
+    tier: 0
+  observable:
+    symbol: Ô (Hermitian operator)
+    defines: second radical — a physical quantity that can be measured; represented
+      by a Hermitian operator whose eigenvalues are the only possible measurement
+      outcomes; position, momentum, and energy are all observables
+    tier: 0
+  probability_amplitude:
+    symbol: ψ(x) ∈ ℂ
+    defines: second radical — the complex number assigned to each configuration;
+      Born's rule says probability = |amplitude|²; the imaginary part is not a
+      technicality — it is what makes interference happen
+    tier: 0
+first_radical_primitives:
+- quantum_state
+- planck_constant
+concepts:
+  wave_function:
+    composed_of:
+    - quantum_state
+    - probability_amplitude
+    defines: ψ(x,t) — the position-space projection of the quantum state; a complex-valued
+      function over space whose squared modulus is the probability density; normalised
+      so that ∫|ψ|² dx = 1 over all space
+    verifier: sympy
+    lab: sympy (normalize ψ=N·exp(-x²/2); verify ∫|ψ|² dx = 1 symbolically)
+    play: normalize ψ(x) = exp(-x²/2) over the real line; sympy gives N = π^(-1/4)
+    tier: 1
+  superposition:
+    composed_of:
+    - quantum_state
+    - probability_amplitude
+    defines: "|ψ⟩ = α|0⟩ + β|1⟩ — a system simultaneously in multiple states until\
+      \ measured; linearity of the Hilbert space is the postulate; the two terms\
+      \ interfere — add amplitudes, not probabilities"
+    verifier: python
+    lab: python (represent qubits as numpy arrays; verify |α|² + |β|² = 1)
+    play: build |+⟩ = (|0⟩+|1⟩)/√2; sample 1000 measurements and confirm ~50% in each
+      outcome
+    tier: 1
+  commutator:
+    composed_of:
+    - observable
+    defines: "[Â,B̂] = ÂB̂ − B̂Â — the order of applying operators matters; a non-zero
+      commutator means the two observables cannot both be sharp at once; the bracket
+      [x̂,p̂] = iℏ is the single algebraic seed of quantum mechanics"
+    verifier: sympy
+    lab: sympy (compute [x, d/dx] acting on a polynomial; confirm the result equals
+      the identity)
+    play: let Â = x (multiply by x) and B̂ = d/dx; compute ÂB̂f − B̂Âf on f=x²;
+      show the result is f, so [x,d/dx] = 1
+    tier: 2
+  measurement:
+    composed_of:
+    - observable
+    - superposition
+    defines: collapse of |ψ⟩ onto an eigenstate of Ô — the only outcomes are eigenvalues,
+      each with probability |⟨eigenstate|ψ⟩|²; the act is irreversible; Born's
+      rule is the single link between the formalism and experiment
+    verifier: python
+    lab: python (simulate projective measurement on a qubit; verify Born-rule frequencies
+      over 10000 trials)
+    play: prepare |+⟩ and measure in Z; repeat 1000 times and confirm empirical probability
+      → 1/2 as trials grow
+    tier: 2
+  uncertainty_principle:
+    composed_of:
+    - commutator
+    - measurement
+    - planck_constant
+    defines: ΔxΔp ≥ ℏ/2 — precision in position and momentum are in permanent tradeoff;
+      a direct algebraic consequence of [x̂,p̂]=iℏ, not a statement about disturbing
+      the system with a measuring device
+    verifier: sympy
+    lab: sympy (compute Δx and Δp for a Gaussian; verify ΔxΔp = ℏ/2 at the minimum)
+    play: for ψ(x) = Gaussian of width σ, show σ_x = σ and σ_p = ℏ/(2σ); product
+      is exactly ℏ/2
+    tier: 3
+  schrodinger_equation:
+    composed_of:
+    - wave_function
+    - observable
+    - planck_constant
+    defines: iℏ ∂|ψ⟩/∂t = Ĥ|ψ⟩ — the deterministic equation governing how quantum
+      states evolve in time; Ĥ is the energy observable; linear and first-order in
+      t, so knowing |ψ⟩ at one moment fixes it forever (absent measurement)
+    verifier: sympy
+    lab: sympy (verify ψ=φ(x)·exp(-iEt/ℏ) satisfies iℏ∂ψ/∂t = Eψ when Hφ = Eφ)
+    play: substitute ψ(x,t) = A·exp(ikx-iωt) into iℏ∂ψ/∂t = -(ℏ²/2m)∂²ψ/∂x²;
+      recover the dispersion relation ℏω = ℏ²k²/2m
+    tier: 3
+  energy_quantization:
+    composed_of:
+    - schrodinger_equation
+    - observable
+    defines: eigenvalues of Ĥ are discrete in a bound system — particle in a box
+      gives Eₙ = n²π²ℏ²/(2mL²); quantization is a boundary-condition consequence,
+      not an extra postulate; the quantum number n labels the rungs of the ladder
+    verifier: sympy
+    lab: sympy (solve the infinite-square-well eigenvalue equation; confirm Eₙ ∝ n²)
+    play: compute E₁, E₂, E₃ for an electron in a 1 nm box; verify E₂ = 4E₁ and
+      E₃ = 9E₁ exactly
+    tier: 4
+  spin:
+    composed_of:
+    - quantum_state
+    - observable
+    - planck_constant
+    defines: intrinsic angular momentum with eigenvalues ±ℏ/2 — no classical spinning
+      ball analogy; spin-½ is the simplest non-trivial two-state system and the
+      physical realization of the qubit; every electron, proton, and neutron carries it
+    verifier: python
+    lab: python (represent spin with 2×2 Pauli matrices; verify [Sx,Sy] = iℏSz)
+    play: compute Sx·Sy − Sy·Sx for the Pauli matrices and confirm the result is
+      (iℏ/2)·Sz
+    tier: 4
+  quantum_harmonic_oscillator:
+    composed_of:
+    - energy_quantization
+    - schrodinger_equation
+    defines: Eₙ = ℏω(n+½) — equally spaced energy levels; the universal model near
+      any potential minimum; zero-point energy ℏω/2 is real and measurable; ladder
+      operators â⁺ and â step between levels
+    verifier: sympy
+    lab: sympy (use [â,â⁺]=1 to show Ĥ|n⟩ = ℏω(n+½)|n⟩ algebraically)
+    play: compute the first 5 energy levels for ω=1; confirm equal spacing and non-zero
+      ground-state energy
+    tier: 5
+  entanglement:
+    composed_of:
+    - superposition
+    - measurement
+    defines: a two-particle state |ψ⟩ that cannot be written as |ψ_A⟩⊗|ψ_B⟩ — measuring
+      particle A instantly fixes particle B's outcome regardless of separation; not
+      a signal — correlations cannot transmit information faster than light
+    verifier: python
+    lab: python (build Bell state (|00⟩+|11⟩)/√2; verify CHSH inequality violation)
+    play: sample the Bell state 1000 times in Z⊗Z and Z⊗X bases; confirm perfect
+      correlation in the first and zero correlation in the second
+    tier: 4
+  quantum_tunneling:
+    composed_of:
+    - wave_function
+    - energy_quantization
+    defines: non-zero transmission probability through a classically forbidden barrier
+      (E < V); the wave function is exponentially decaying inside, not zero; the
+      mechanism behind alpha decay, nuclear fusion in stars, and tunnel diodes
+    verifier: sympy
+    lab: sympy (compute transmission coefficient T for a rectangular barrier; verify
+      T→1 as barrier height V→0)
+    play: compute T for an electron with E=1 eV tunneling through a 0.5 nm barrier
+      of height 2 eV; express as a decimal
+    tier: 4
+  hydrogen_atom:
+    composed_of:
+    - energy_quantization
+    - spin
+    defines: Eₙ = −13.6 eV/n² — discrete levels from quantizing the Coulomb potential;
+      the spectrum lines of every star; the first quantitative triumph of wave mechanics;
+      the 1s orbital is the lowest wave function, a decaying exponential in r
+    verifier: sympy
+    lab: sympy (verify E₁ = -13.6 eV from the Bohr formula and radial Schrödinger
+      equation)
+    play: compute the wavelength of the n=3→2 Balmer transition from ΔE = 13.6(1/4−1/9)
+      eV; compare with the observed 656 nm
+    tier: 5
+  decoherence:
+    composed_of:
+    - entanglement
+    - measurement
+    defines: a quantum system entangling with its environment leaks superposition into
+      inaccessible degrees of freedom — the off-diagonal elements of the density
+      matrix decay; the quantum-to-classical transition is decoherence, not wave-function
+      collapse
+    verifier: python
+    lab: python (evolve a qubit under a Lindblad dephasing channel; watch |ρ₀₁|
+      decay exponentially)
+    play: start with |+⟩ (coherence = 0.5); apply dephasing at rate γ; show |ρ₀₁|
+      = 0.5·exp(-γt) and plot the decay curve
+    tier: 5
+  perturbation_theory:
+    composed_of:
+    - schrodinger_equation
+    - energy_quantization
+    defines: if Ĥ = Ĥ₀ + εV̂ with ε small, expand eigenstates and eigenvalues in
+      powers of ε; first-order energy correction is ⟨n|V̂|n⟩ — the systematic bridge
+      from exactly-solvable toy models to real atoms, molecules, and nuclei
+    verifier: sympy
+    lab: sympy (compute first-order energy correction to particle-in-a-box with a
+      linear perturbation εx)
+    play: add V = αx to the SHO; show the first-order shift ⟨n|x|n⟩ = 0 by parity
+      — the second-order term is needed
+    tier: 6
+  many_body_states:
+    composed_of:
+    - perturbation_theory
+    - spin
+    - entanglement
+    defines: the Hilbert space of N quantum particles is the tensor product of N single-particle
+      spaces — dimension 2ᴺ for qubits; fermions antisymmetrize (Pauli exclusion
+      principle), bosons symmetrize; the exponential wall that classical computers
+      cannot scale and quantum computers exploit
+    verifier: python
+    lab: python (build 3-qubit state space as tensor product; verify dimension = 8;
+      construct an antisymmetric two-electron state)
+    play: show that describing 50 qubits exactly requires 2⁵⁰ ≈ 10¹⁵ complex numbers
+      — the exponential wall in one arithmetic step
+    tier: 7
+  path_integral:
+    composed_of:
+    - schrodinger_equation
+    - planck_constant
+    - quantum_harmonic_oscillator
+    defines: the amplitude ⟨x_f|e^{−iĤT/ℏ}|x_i⟩ equals ∫Dx exp(iS[x]/ℏ) — a
+      sum over all paths weighted by exp(i × classical action / ℏ); stationary phase
+      at ℏ→0 recovers Newton's path; Feynman's third complete formulation of quantum
+      mechanics
+    verifier: sympy
+    lab: sympy (compute free-particle propagator K(x,t;x₀) via Gaussian path integral;
+      verify the known closed form)
+    play: for the free particle, confirm that the stationary (straight-line) path
+      dominates as ℏ→0 by expanding S around the classical trajectory
+    tier: 8
+applications:
+  quantum_computing:
+    needs:
+    - entanglement
+    - superposition
+    - many_body_states
+    domain: computer science / information theory
+    defines: computation by unitary evolution of entangled qubits — Shor's algorithm
+      factors integers in polynomial time; Grover's searches N items in √N steps;
+      both exploit the 2ᴺ Hilbert space that classical memory cannot hold
+  mri_and_nmr:
+    needs:
+    - spin
+    - energy_quantization
+    domain: medicine / analytical chemistry
+    defines: nuclear spins precess in magnetic fields at resonance frequencies proportional
+      to the local chemical environment; every NMR spectrum and every MRI scan is
+      a measurement of spin energy levels in a controlled magnetic field
+  laser_physics:
+    needs:
+    - energy_quantization
+    - quantum_harmonic_oscillator
+    domain: optics / photonics
+    defines: stimulated emission between discrete energy levels amplifies a photon
+      coherently — the L in LASER; population inversion is a non-equilibrium use
+      of energy_quantization; every laser pointer is quantum mechanics in your hand
+  semiconductor_devices:
+    needs:
+    - energy_quantization
+    - quantum_tunneling
+    domain: electronics / materials science
+    defines: band gaps are forbidden energy ranges from quantizing electrons in periodic
+      crystal potentials; quantum_tunneling powers flash memory and tunnel diodes;
+      the transistor that runs every computer is quantum mechanics at the nanometer
+      scale
+  quantum_cryptography:
+    needs:
+    - entanglement
+    - measurement
+    domain: information security
+    defines: BB84 uses measurement disturbance (any eavesdrop disturbs |ψ⟩) and
+      E91 uses entanglement correlations to guarantee eavesdropping detection; security
+      is a theorem from quantum mechanics, not a computational hardness assumption

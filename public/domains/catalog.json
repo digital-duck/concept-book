@@ -154,6 +154,25 @@
     "default_level": "core"
   },
   {
+    "id": "calculus",
+    "name": "Calculus",
+    "description": "From limits and continuity to derivatives, integrals, series, and differential equations.",
+    "capstone": "fundamental_theorem",
+    "nodes": 23,
+    "edges": 38,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "college"
+  },
+  {
     "id": "mechanics",
     "name": "Classical Mechanics",
     "description": "From Newton's laws to Lagrangian dynamics.",
@@ -738,5 +757,43 @@
       "url": "https://openstax.org/details/books/college-physics-2e",
       "attribution": "Access for free at openstax.org."
     }
+  },
+  {
+    "id": "quantum_physics",
+    "name": "Quantum Physics",
+    "description": "From wave functions and superposition to entanglement, tunneling, and path integrals.",
+    "capstone": "path_integral",
+    "nodes": 25,
+    "edges": 47,
+    "primitives": 4,
+    "concepts": 16,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "college"
+  },
+  {
+    "id": "molecular_biology",
+    "name": "Molecular Biology",
+    "description": "From nucleotides and amino acids to gene regulation, CRISPR, and single-cell sequencing.",
+    "capstone": null,
+    "nodes": 25,
+    "edges": 46,
+    "primitives": 4,
+    "concepts": 16,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "default_level": "college"
   }
 ]

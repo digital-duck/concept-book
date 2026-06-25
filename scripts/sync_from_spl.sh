@@ -11,6 +11,7 @@ GRAPH_TOOL="$REPO_ROOT/scripts/concept_graph.py"
 
 declare -A LEVEL_MAP=(
   [biology]=college
+  [calculus]=college
   [chemistry_elements]=core
   [chinese_characters]=intro
   [cs_algorithms]=college
@@ -21,8 +22,10 @@ declare -A LEVEL_MAP=(
   [linalg]=college
   [mechanics]=college
   [medicine]=research
+  [molecular_biology]=college
   [music_theory]=core
   [python_science]=college
+  [quantum_physics]=college
   [sage_learning]=research
   [sql]=core
 )
