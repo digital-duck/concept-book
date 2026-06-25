@@ -339,9 +339,44 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "random_sampling",
+        "file": "output/college.en/html/book_random_sampling.html"
+      },
+      {
+        "target": "symbolic_computation",
+        "file": "output/college.en/html/book_symbolic_computation.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "array",
+        "label": "Array",
+        "file": "output/college.en/html/concept_array.html"
+      },
+      {
+        "name": "random_sampling",
+        "label": "Random Sampling",
+        "file": "output/college.en/html/concept_random_sampling.html"
+      },
+      {
+        "name": "randomness",
+        "label": "Randomness",
+        "file": "output/college.en/html/concept_randomness.html"
+      },
+      {
+        "name": "symbol",
+        "label": "Symbol",
+        "file": "output/college.en/html/concept_symbol.html"
+      },
+      {
+        "name": "symbolic_computation",
+        "label": "Symbolic Computation",
+        "file": "output/college.en/html/concept_symbolic_computation.html"
+      }
+    ],
     "default_level": "college"
   },
   {
@@ -359,9 +394,30 @@
       "cs"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "algebraic_numbers",
+        "file": "output/research.en/html/book_algebraic_numbers.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "algebraic_numbers",
+        "label": "Algebraic Numbers",
+        "file": "output/research.en/html/concept_algebraic_numbers.html"
+      },
+      {
+        "name": "exact_rational",
+        "label": "Exact Rational",
+        "file": "output/research.en/html/concept_exact_rational.html"
+      },
+      {
+        "name": "parent_structure",
+        "label": "Parent Structure",
+        "file": "output/research.en/html/concept_parent_structure.html"
+      }
+    ],
     "default_level": "research"
   },
   {
@@ -379,9 +435,30 @@
       "cs"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "function_types",
+        "file": "output/research.en/html/book_function_types.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "function_types",
+        "label": "Function Types",
+        "file": "output/research.en/html/concept_function_types.html"
+      },
+      {
+        "name": "term",
+        "label": "Term",
+        "file": "output/research.en/html/concept_term.html"
+      },
+      {
+        "name": "type",
+        "label": "Type",
+        "file": "output/research.en/html/concept_type.html"
+      }
+    ],
     "default_level": "research"
   },
   {

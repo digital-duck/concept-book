@@ -104,31 +104,21 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
   display:flex;flex-direction:column;
   overflow:hidden;
 }
-#notes-header{
-  padding:12px 12px 8px;
-  border-bottom:1px solid #e0e0d8;
-  flex-shrink:0;
-}
-#notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em}
+#notes-header{padding:10px 12px 8px;border-bottom:1px solid #e0e0d8;flex-shrink:0}
+#notes-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+#notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em;margin:0}
 #notes-node-label{font-size:11px;color:#999;margin-top:2px}
+.nb-btn{font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid #ddd;background:#f0f0ea;cursor:pointer;color:#777;font-family:system-ui,sans-serif}
+.nb-btn:hover{background:#e0e0d8;color:#444}
 #notes-textarea{
-  flex:1;border:none;resize:none;
+  flex:0 0 auto;height:100px;border:none;resize:none;
   padding:12px;font-size:12px;line-height:1.6;
   font-family:inherit;background:#fafaf8;color:#333;
   outline:none;
 }
-#notes-actions{
-  padding:8px 10px;border-top:1px solid #e8e8e0;flex-shrink:0;
-  display:flex;gap:6px;align-items:center;
-}
-#notes-actions button{
-  font-size:11px;padding:4px 10px;border-radius:4px;
-  border:1px solid #ccc;background:#fff;cursor:pointer;color:#444;
-}
-#notes-actions button:hover{background:#f0f0e8}
 #notes-with-entries{
-  border-top:1px solid #e8e8e0;flex-shrink:0;
-  max-height:35vh;overflow-y:auto;
+  border-top:1px solid #e8e8e0;flex:1;min-height:0;
+  overflow-y:auto;
 }
 .note-entry{
   padding:6px 12px;cursor:pointer;
@@ -173,14 +163,17 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
 <!-- RIGHT: notes sidebar -->
 <aside id="notes-sidebar">
   <div id="notes-header">
-    <h2>Notes</h2>
+    <div id="notes-header-top">
+      <h2>Notes</h2>
+      <div>
+        <button class="nb-btn" id="nb-clear-btn" onclick="clearNote()">Clear</button>
+        <button class="nb-btn" onclick="exportNotes()">Export</button>
+      </div>
+    </div>
     <div id="notes-node-label">no node selected</div>
   </div>
   <textarea id="notes-textarea" placeholder="Type notes here&#10;(auto-saved per node)"></textarea>
-  <div id="notes-actions">
-    <button onclick="exportNotes()">Export JSON</button>
-    <button onclick="clearNote()">Clear</button>
-  </div>
+  
   <div id="notes-with-entries"></div>
 </aside>
 
@@ -447,8 +440,11 @@ function switchNotes(nodeId) {
 }
 
 function clearNote() {
+  if (!currentNodeId) return;
   document.getElementById('notes-textarea').value = '';
-  if (currentNodeId) saveNote(currentNodeId, '');
+  saveNote(currentNodeId, '');
+  const btn = document.getElementById('nb-clear-btn');
+  if (btn) { btn.textContent = 'Cleared!'; setTimeout(() => { btn.textContent = 'Clear'; }, 1000); }
 }
 
 function exportNotes() {

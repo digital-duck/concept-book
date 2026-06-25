@@ -1,13 +1,13 @@
-# Textbook Ingestion Pipeline — digi-duck-press
+# Textbook Ingestion Pipeline — concept-book-press
 
 ## Status
 
-**Phase 1 complete.** The ingestion pipeline is implemented and tested in [digi-duck-press](~/projects/digital-duck/digi-duck-press). Two chapters of OpenStax College Physics 2e have been ingested, extracted, validated, and published to ConceptBook.
+**Phase 1 complete.** The ingestion pipeline is implemented and tested in [concept-book-press](~/projects/digital-duck/concept-book-press). Two chapters of OpenStax College Physics 2e have been ingested, extracted, validated, and published to ConceptBook.
 
 ## Architecture: Two Repos
 
 ```
-digi-duck-press (authoring)          concept-book (consumption)
+concept-book-press (authoring)          concept-book (consumption)
 ┌──────────────────────────┐         ┌──────────────────────────┐
 │  Ingest → Extract → Edit │ ──────► │  Serve → Navigate → Read │
 │                          │  graph  │                          │
@@ -17,7 +17,7 @@ digi-duck-press (authoring)          concept-book (consumption)
 └──────────────────────────┘         └──────────────────────────┘
 ```
 
-**digi-duck-press** (`~/projects/digital-duck/digi-duck-press`) owns the content creation pipeline:
+**concept-book-press** (`~/projects/digital-duck/concept-book-press`) owns the content creation pipeline:
 - Textbook ingestion (PDF parsing via pymupdf, HTML via beautifulsoup4)
 - Concept graph extraction (two-pass LLM via Claude CLI)
 - Graph validation (acyclic, reducible, connected — via networkx)
@@ -35,7 +35,7 @@ digi-duck-press (authoring)          concept-book (consumption)
 ### Usage
 
 ```bash
-cd ~/projects/digital-duck/digi-duck-press
+cd ~/projects/digital-duck/concept-book-press
 conda activate spl123
 
 # List chapters in a PDF
@@ -49,7 +49,7 @@ python -B -m pipeline.cli pipeline --source pdf --pdf input/college-physics-2e.p
 #   graph.yaml   — concept graph extracted by LLM
 ```
 
-See [digi-duck-press/docs/openstax/readme.md](~/projects/digital-duck/digi-duck-press/docs/openstax/readme.md) for the full guide.
+See [concept-book-press/docs/openstax/readme.md](~/projects/digital-duck/concept-book-press/docs/openstax/readme.md) for the full guide.
 
 ### Stage 1: Ingest
 

@@ -290,8 +290,126 @@ def _esc(text: str) -> str:
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
 
+# ── LaTeX sanitizer ──────────────────────────────────────────────────────────
+
+_KNOWN_LATEX_CMDS: frozenset[str] = frozenset({
+    # Greek lowercase
+    'alpha','beta','gamma','delta','epsilon','varepsilon','zeta','eta',
+    'theta','vartheta','iota','kappa','lambda','mu','nu','xi','pi',
+    'varpi','rho','varrho','sigma','varsigma','tau','upsilon','phi',
+    'varphi','chi','psi','omega',
+    # Greek uppercase
+    'Gamma','Delta','Theta','Lambda','Xi','Pi','Sigma','Upsilon',
+    'Phi','Psi','Omega',
+    # Math functions
+    'sin','cos','tan','cot','sec','csc','arcsin','arccos','arctan',
+    'sinh','cosh','tanh','coth','log','ln','lg','exp','arg','det',
+    'dim','gcd','hom','ker','lim','liminf','limsup','max','min',
+    'inf','sup','Pr','deg','lcm','tr','mod','pmod','bmod',
+    # Structural
+    'frac','dfrac','tfrac','cfrac','binom','dbinom','tbinom',
+    'sqrt','over','atop','choose','underset','overset','stackrel',
+    'substack','phantom','hphantom','vphantom','smash',
+    # Large operators
+    'sum','prod','coprod','int','oint','iint','iiint',
+    'bigcap','bigcup','bigsqcup','bigvee','bigwedge',
+    'bigoplus','bigotimes','bigodot','biguplus',
+    # Binary operators
+    'pm','mp','times','div','cdot','ast','star','circ','bullet',
+    'cap','cup','sqcap','sqcup','vee','wedge','oplus','ominus',
+    'otimes','oslash','odot','dagger','ddagger','amalg','setminus',
+    'wr','triangleleft','triangleright',
+    # Relations
+    'leq','le','geq','ge','neq','ne','equiv','sim','simeq',
+    'approx','cong','asymp','doteq','prec','succ','preceq','succeq',
+    'subset','supset','subseteq','supseteq','sqsubseteq','sqsupseteq',
+    'in','notin','ni','propto','vdash','dashv','models','perp',
+    'mid','parallel','bowtie','smile','frown',
+    'leqq','geqq','thicksim','thickapprox','backsim','backsimeq',
+    'subseteqq','supseteqq','Subset','Supset',
+    'triangleq','approxeq','eqslantless','eqslantgtr',
+    'lesssim','gtrsim','lessgtr','gtrless',
+    'preccurlyeq','succcurlyeq','precsim','succsim',
+    'between','varpropto','Vdash','vDash','bumpeq','Bumpeq',
+    # Arrows
+    'to','gets','leftarrow','rightarrow','leftrightarrow',
+    'Leftarrow','Rightarrow','Leftrightarrow','iff','implies',
+    'longleftarrow','longrightarrow','longleftrightarrow',
+    'Longleftarrow','Longrightarrow','Longleftrightarrow',
+    'nearrow','searrow','swarrow','nwarrow',
+    'uparrow','downarrow','updownarrow',
+    'Uparrow','Downarrow','Updownarrow',
+    'mapsto','longmapsto','hookleftarrow','hookrightarrow',
+    'leftharpoonup','leftharpoondown','rightharpoonup','rightharpoondown',
+    'rightleftharpoons','leftrightharpoons','leadsto',
+    'twoheadleftarrow','twoheadrightarrow',
+    'Lleftarrow','Rrightarrow','multimap',
+    'curvearrowleft','curvearrowright',
+    'lookarrowleft','looparrowleft','looparrowright',
+    'upharpoonleft','upharpoonright','restriction',
+    # Negations
+    'nless','ngtr','nleq','ngeq','nprec','nsucc','npreceq','nsucceq',
+    'subsetneq','supsetneq','nmid','nparallel','nvdash','ncong','nsim',
+    'ntriangleleft','ntriangleright','ntrianglelefteq','ntrianglerighteq',
+    'not','notin',
+    # Delimiters / brackets
+    'langle','rangle','lfloor','rfloor','lceil','rceil',
+    'lvert','rvert','lVert','rVert','lbrace','rbrace',
+    'left','right','middle',
+    'big','Big','bigg','Bigg',
+    'bigl','bigr','Bigl','Bigr','biggl','biggr','Biggl','Biggr',
+    # Symbols
+    'infty','partial','nabla','forall','exists','nexists',
+    'emptyset','varnothing','wp','Re','Im','aleph','beth','gimel',
+    'ell','hbar','hslash','imath','jmath',
+    'top','bot','vdots','cdots','ldots','ddots',
+    'dots','dotsb','dotsc','dotsi','dotsm','dotso',
+    'prime','backprime','flat','natural','sharp',
+    'angle','measuredangle','sphericalangle',
+    'triangle','triangledown','square','lozenge',
+    'therefore','because','checkmark',
+    'clubsuit','diamondsuit','heartsuit','spadesuit',
+    # Accents
+    'hat','widehat','check','tilde','widetilde','acute','grave',
+    'dot','ddot','dddot','ddddot','breve','bar','vec','mathring',
+    'overline','underline','overbrace','underbrace',
+    'overrightarrow','overleftarrow','overleftrightarrow',
+    'wideoverline',
+    # Font / style
+    'mathbf','mathbb','mathcal','mathfrak','mathit','mathrm',
+    'mathsf','mathtt','mathop','mathbin','mathrel','mathpunct',
+    'text','textrm','textit','textbf','textsf','texttt',
+    'boldsymbol','pmb','operatorname','DeclareMathOperator',
+    'displaystyle','textstyle','scriptstyle','scriptscriptstyle',
+    'limits','nolimits','displaylimits',
+    # Spacing
+    'quad','qquad','enspace','thinspace','medspace','thickspace',
+    'negthinspace','negmedspace','negthickspace',
+    # Misc
+    'tag','label','ref','eqref','boxed','fbox',
+    'color','textcolor','colorbox',
+    # Environments
+    'begin','end',
+})
+
+
+def _sanitize_math_expr(expr: str) -> str:
+    """Replace unknown \\cmd tokens in a LaTeX math expression with \\operatorname{cmd}.
+
+    Prevents MathJax from rendering hallucinated commands in red.
+    """
+    def _fix(m: re.Match) -> str:
+        cmd = m.group(1)
+        if not cmd.isalpha() or cmd in _KNOWN_LATEX_CMDS:
+            return m.group(0)
+        return r'\operatorname{' + cmd + '}'
+    return re.sub(r'\\([A-Za-z]+)', _fix, expr)
+
+
 def _inline_md(text: str) -> str:
-    """Bold, italic, backtick-code.  Leaves $ LaTeX delimiters untouched."""
+    """Bold, italic, backtick-code.  Sanitizes $...$ LaTeX spans for MathJax."""
+    # Sanitize inline math before any other substitution touches the delimiters
+    text = re.sub(r'\$(.+?)\$', lambda m: '$' + _sanitize_math_expr(m.group(1)) + '$', text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
     text = re.sub(r'`([^`]+)`', lambda m: f'<code>{_esc(m.group(1))}</code>', text)
@@ -382,10 +500,13 @@ def _md_to_html(md: str) -> str:
             if stripped != '$$' and stripped.endswith('$$') and len(stripped) > 4:
                 flush_para()
                 flush_table()
-                out.append(line)
+                # single-line $$...$$ — sanitize the inner expression
+                inner = stripped[2:-2]
+                out.append('$$' + _sanitize_math_expr(inner) + '$$')
                 continue
             if in_dmath:
-                out.append('$$\n' + '\n'.join(math_buf) + '\n$$')
+                sanitized = [_sanitize_math_expr(ln) for ln in math_buf]
+                out.append('$$\n' + '\n'.join(sanitized) + '\n$$')
                 math_buf.clear()
                 in_dmath = False
             else:
