@@ -257,6 +257,16 @@
       {
         "target": "gradient_descent",
         "file": "output/college.en/html/book_gradient_descent.html"
+      },
+      {
+        "target": "physics_kinematics",
+        "file": "output/college.en/gemma4/html/book_physics_kinematics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "gradient_descent",
+        "file": "output/college.en/gemma4/html/book_gradient_descent.html",
+        "model": "gemma4"
       }
     ],
     "generated_concepts": [
@@ -266,9 +276,21 @@
         "file": "output/college.en/html/concept_continuity.html"
       },
       {
+        "name": "continuity",
+        "label": "Continuity",
+        "file": "output/college.en/gemma4/html/concept_continuity.html",
+        "model": "gemma4"
+      },
+      {
         "name": "definite_integral",
         "label": "Definite Integral",
         "file": "output/college.en/html/concept_definite_integral.html"
+      },
+      {
+        "name": "definite_integral",
+        "label": "Definite Integral",
+        "file": "output/college.en/gemma4/html/concept_definite_integral.html",
+        "model": "gemma4"
       },
       {
         "name": "derivative",
@@ -276,9 +298,21 @@
         "file": "output/college.en/html/concept_derivative.html"
       },
       {
+        "name": "derivative",
+        "label": "Derivative",
+        "file": "output/college.en/gemma4/html/concept_derivative.html",
+        "model": "gemma4"
+      },
+      {
         "name": "differential_equation",
         "label": "Differential Equation",
         "file": "output/college.en/html/concept_differential_equation.html"
+      },
+      {
+        "name": "differential_equation",
+        "label": "Differential Equation",
+        "file": "output/college.en/gemma4/html/concept_differential_equation.html",
+        "model": "gemma4"
       },
       {
         "name": "function",
@@ -286,9 +320,21 @@
         "file": "output/college.en/html/concept_function.html"
       },
       {
+        "name": "function",
+        "label": "Function",
+        "file": "output/college.en/gemma4/html/concept_function.html",
+        "model": "gemma4"
+      },
+      {
         "name": "gradient",
         "label": "Gradient",
         "file": "output/college.en/html/concept_gradient.html"
+      },
+      {
+        "name": "gradient",
+        "label": "Gradient",
+        "file": "output/college.en/gemma4/html/concept_gradient.html",
+        "model": "gemma4"
       },
       {
         "name": "gradient_descent",
@@ -296,9 +342,21 @@
         "file": "output/college.en/html/concept_gradient_descent.html"
       },
       {
+        "name": "gradient_descent",
+        "label": "Gradient Descent",
+        "file": "output/college.en/gemma4/html/concept_gradient_descent.html",
+        "model": "gemma4"
+      },
+      {
         "name": "infinity",
         "label": "Infinity",
         "file": "output/college.en/html/concept_infinity.html"
+      },
+      {
+        "name": "infinity",
+        "label": "Infinity",
+        "file": "output/college.en/gemma4/html/concept_infinity.html",
+        "model": "gemma4"
       },
       {
         "name": "limit",
@@ -306,9 +364,21 @@
         "file": "output/college.en/html/concept_limit.html"
       },
       {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/college.en/gemma4/html/concept_limit.html",
+        "model": "gemma4"
+      },
+      {
         "name": "optimization",
         "label": "Optimization",
         "file": "output/college.en/html/concept_optimization.html"
+      },
+      {
+        "name": "optimization",
+        "label": "Optimization",
+        "file": "output/college.en/gemma4/html/concept_optimization.html",
+        "model": "gemma4"
       },
       {
         "name": "partial_derivative",
@@ -316,9 +386,21 @@
         "file": "output/college.en/html/concept_partial_derivative.html"
       },
       {
+        "name": "partial_derivative",
+        "label": "Partial Derivative",
+        "file": "output/college.en/gemma4/html/concept_partial_derivative.html",
+        "model": "gemma4"
+      },
+      {
         "name": "physics_kinematics",
         "label": "Physics Kinematics",
         "file": "output/college.en/html/concept_physics_kinematics.html"
+      },
+      {
+        "name": "physics_kinematics",
+        "label": "Physics Kinematics",
+        "file": "output/college.en/gemma4/html/concept_physics_kinematics.html",
+        "model": "gemma4"
       },
       {
         "name": "real_number",
@@ -326,9 +408,21 @@
         "file": "output/college.en/html/concept_real_number.html"
       },
       {
+        "name": "real_number",
+        "label": "Real Number",
+        "file": "output/college.en/gemma4/html/concept_real_number.html",
+        "model": "gemma4"
+      },
+      {
         "name": "riemann_sum",
         "label": "Riemann Sum",
         "file": "output/college.en/html/concept_riemann_sum.html"
+      },
+      {
+        "name": "riemann_sum",
+        "label": "Riemann Sum",
+        "file": "output/college.en/gemma4/html/concept_riemann_sum.html",
+        "model": "gemma4"
       }
     ],
     "default_level": "college"
@@ -356,6 +450,16 @@
       {
         "target": "robotics",
         "file": "output/college.en/html/book_robotics.html"
+      },
+      {
+        "target": "orbital_mechanics",
+        "file": "output/college.en/gemma4/html/book_orbital_mechanics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "robotics",
+        "file": "output/college.en/gemma4/html/book_robotics.html",
+        "model": "gemma4"
       }
     ],
     "generated_concepts": [
@@ -365,9 +469,21 @@
         "file": "output/college.en/html/concept_angular_momentum.html"
       },
       {
+        "name": "angular_momentum",
+        "label": "Angular Momentum",
+        "file": "output/college.en/gemma4/html/concept_angular_momentum.html",
+        "model": "gemma4"
+      },
+      {
         "name": "configuration_space",
         "label": "Configuration Space",
         "file": "output/college.en/html/concept_configuration_space.html"
+      },
+      {
+        "name": "configuration_space",
+        "label": "Configuration Space",
+        "file": "output/college.en/gemma4/html/concept_configuration_space.html",
+        "model": "gemma4"
       },
       {
         "name": "constraints",
@@ -375,9 +491,21 @@
         "file": "output/college.en/html/concept_constraints.html"
       },
       {
+        "name": "constraints",
+        "label": "Constraints",
+        "file": "output/college.en/gemma4/html/concept_constraints.html",
+        "model": "gemma4"
+      },
+      {
         "name": "energy_conservation",
         "label": "Energy Conservation",
         "file": "output/college.en/html/concept_energy_conservation.html"
+      },
+      {
+        "name": "energy_conservation",
+        "label": "Energy Conservation",
+        "file": "output/college.en/gemma4/html/concept_energy_conservation.html",
+        "model": "gemma4"
       },
       {
         "name": "euler_lagrange_equations",
@@ -385,9 +513,21 @@
         "file": "output/college.en/html/concept_euler_lagrange_equations.html"
       },
       {
+        "name": "euler_lagrange_equations",
+        "label": "Euler Lagrange Equations",
+        "file": "output/college.en/gemma4/html/concept_euler_lagrange_equations.html",
+        "model": "gemma4"
+      },
+      {
         "name": "force",
         "label": "Force",
         "file": "output/college.en/html/concept_force.html"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/gemma4/html/concept_force.html",
+        "model": "gemma4"
       },
       {
         "name": "generalized_coordinates",
@@ -395,9 +535,21 @@
         "file": "output/college.en/html/concept_generalized_coordinates.html"
       },
       {
+        "name": "generalized_coordinates",
+        "label": "Generalized Coordinates",
+        "file": "output/college.en/gemma4/html/concept_generalized_coordinates.html",
+        "model": "gemma4"
+      },
+      {
         "name": "kinetic_energy",
         "label": "Kinetic Energy",
         "file": "output/college.en/html/concept_kinetic_energy.html"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/gemma4/html/concept_kinetic_energy.html",
+        "model": "gemma4"
       },
       {
         "name": "lagrangian",
@@ -405,9 +557,21 @@
         "file": "output/college.en/html/concept_lagrangian.html"
       },
       {
+        "name": "lagrangian",
+        "label": "Lagrangian",
+        "file": "output/college.en/gemma4/html/concept_lagrangian.html",
+        "model": "gemma4"
+      },
+      {
         "name": "least_action",
         "label": "Least Action",
         "file": "output/college.en/html/concept_least_action.html"
+      },
+      {
+        "name": "least_action",
+        "label": "Least Action",
+        "file": "output/college.en/gemma4/html/concept_least_action.html",
+        "model": "gemma4"
       },
       {
         "name": "mass",
@@ -415,9 +579,21 @@
         "file": "output/college.en/html/concept_mass.html"
       },
       {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/gemma4/html/concept_mass.html",
+        "model": "gemma4"
+      },
+      {
         "name": "momentum",
         "label": "Momentum",
         "file": "output/college.en/html/concept_momentum.html"
+      },
+      {
+        "name": "momentum",
+        "label": "Momentum",
+        "file": "output/college.en/gemma4/html/concept_momentum.html",
+        "model": "gemma4"
       },
       {
         "name": "orbital_mechanics",
@@ -425,9 +601,21 @@
         "file": "output/college.en/html/concept_orbital_mechanics.html"
       },
       {
+        "name": "orbital_mechanics",
+        "label": "Orbital Mechanics",
+        "file": "output/college.en/gemma4/html/concept_orbital_mechanics.html",
+        "model": "gemma4"
+      },
+      {
         "name": "position",
         "label": "Position",
         "file": "output/college.en/html/concept_position.html"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/college.en/gemma4/html/concept_position.html",
+        "model": "gemma4"
       },
       {
         "name": "potential_energy",
@@ -435,9 +623,21 @@
         "file": "output/college.en/html/concept_potential_energy.html"
       },
       {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/gemma4/html/concept_potential_energy.html",
+        "model": "gemma4"
+      },
+      {
         "name": "robotics",
         "label": "Robotics",
         "file": "output/college.en/html/concept_robotics.html"
+      },
+      {
+        "name": "robotics",
+        "label": "Robotics",
+        "file": "output/college.en/gemma4/html/concept_robotics.html",
+        "model": "gemma4"
       },
       {
         "name": "time",
@@ -445,14 +645,32 @@
         "file": "output/college.en/html/concept_time.html"
       },
       {
+        "name": "time",
+        "label": "Time",
+        "file": "output/college.en/gemma4/html/concept_time.html",
+        "model": "gemma4"
+      },
+      {
         "name": "velocity",
         "label": "Velocity",
         "file": "output/college.en/html/concept_velocity.html"
       },
       {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/gemma4/html/concept_velocity.html",
+        "model": "gemma4"
+      },
+      {
         "name": "work",
         "label": "Work",
         "file": "output/college.en/html/concept_work.html"
+      },
+      {
+        "name": "work",
+        "label": "Work",
+        "file": "output/college.en/gemma4/html/concept_work.html",
+        "model": "gemma4"
       }
     ],
     "default_level": "college"
@@ -471,9 +689,153 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "reading_chemical_formulas",
+        "file": "output/core.en/gemma4/html/book_reading_chemical_formulas.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "balancing_equations",
+        "file": "output/core.en/gemma4/html/book_balancing_equations.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "balancing_equations",
+        "label": "Balancing Equations",
+        "file": "output/core.en/gemma4/html/concept_balancing_equations.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "C",
+        "label": "C",
+        "file": "output/core.en/gemma4/html/concept_C.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CH4",
+        "label": "Ch4",
+        "file": "output/core.en/gemma4/html/concept_CH4.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Cl",
+        "label": "Cl",
+        "file": "output/core.en/gemma4/html/concept_Cl.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CO2",
+        "label": "Co2",
+        "file": "output/core.en/gemma4/html/concept_CO2.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "conservation_of_atoms",
+        "label": "Conservation Of Atoms",
+        "file": "output/core.en/gemma4/html/concept_conservation_of_atoms.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "covalent_bonding",
+        "label": "Covalent Bonding",
+        "file": "output/core.en/gemma4/html/concept_covalent_bonding.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Fe",
+        "label": "Fe",
+        "file": "output/core.en/gemma4/html/concept_Fe.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Fe2O3",
+        "label": "Fe2O3",
+        "file": "output/core.en/gemma4/html/concept_Fe2O3.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "H",
+        "label": "H",
+        "file": "output/core.en/gemma4/html/concept_H.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "H2",
+        "label": "H2",
+        "file": "output/core.en/gemma4/html/concept_H2.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "H2O",
+        "label": "H2O",
+        "file": "output/core.en/gemma4/html/concept_H2O.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "ionic_bonding",
+        "label": "Ionic Bonding",
+        "file": "output/core.en/gemma4/html/concept_ionic_bonding.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "N",
+        "label": "N",
+        "file": "output/core.en/gemma4/html/concept_N.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Na",
+        "label": "Na",
+        "file": "output/core.en/gemma4/html/concept_Na.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "NaCl",
+        "label": "Nacl",
+        "file": "output/core.en/gemma4/html/concept_NaCl.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "NH3",
+        "label": "Nh3",
+        "file": "output/core.en/gemma4/html/concept_NH3.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "O",
+        "label": "O",
+        "file": "output/core.en/gemma4/html/concept_O.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "O2",
+        "label": "O2",
+        "file": "output/core.en/gemma4/html/concept_O2.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "reading_chemical_formulas",
+        "label": "Reading Chemical Formulas",
+        "file": "output/core.en/gemma4/html/concept_reading_chemical_formulas.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "stoichiometry",
+        "label": "Stoichiometry",
+        "file": "output/core.en/gemma4/html/concept_stoichiometry.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "valence_electron",
+        "label": "Valence Electron",
+        "file": "output/core.en/gemma4/html/concept_valence_electron.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "core"
   },
   {
@@ -658,6 +1020,16 @@
         "target": "academic_vocabulary",
         "file": "output/intro.en/sonnet/html/book_academic_vocabulary.html",
         "model": "sonnet"
+      },
+      {
+        "target": "decoding_unseen_words",
+        "file": "output/intro.en/gemma3/html/book_decoding_unseen_words.html",
+        "model": "gemma3"
+      },
+      {
+        "target": "academic_vocabulary",
+        "file": "output/intro.en/gemma3/html/book_academic_vocabulary.html",
+        "model": "gemma3"
       }
     ],
     "generated_concepts": [
@@ -679,6 +1051,12 @@
         "model": "sonnet"
       },
       {
+        "name": "-able",
+        "label": "-Able",
+        "file": "output/intro.en/gemma3/html/concept_-able.html",
+        "model": "gemma3"
+      },
+      {
         "name": "-ion",
         "label": "-Ion",
         "file": "output/intro.en/html/concept_-ion.html"
@@ -694,6 +1072,12 @@
         "label": "-Ion",
         "file": "output/intro.en/sonnet/html/concept_-ion.html",
         "model": "sonnet"
+      },
+      {
+        "name": "-ion",
+        "label": "-Ion",
+        "file": "output/intro.en/gemma3/html/concept_-ion.html",
+        "model": "gemma3"
       },
       {
         "name": "-or",
@@ -713,6 +1097,12 @@
         "model": "sonnet"
       },
       {
+        "name": "-or",
+        "label": "-Or",
+        "file": "output/intro.en/gemma3/html/concept_-or.html",
+        "model": "gemma3"
+      },
+      {
         "name": "academic_vocabulary",
         "label": "Academic Vocabulary",
         "file": "output/intro.en/html/concept_academic_vocabulary.html"
@@ -728,6 +1118,12 @@
         "label": "Academic Vocabulary",
         "file": "output/intro.en/sonnet/html/concept_academic_vocabulary.html",
         "model": "sonnet"
+      },
+      {
+        "name": "academic_vocabulary",
+        "label": "Academic Vocabulary",
+        "file": "output/intro.en/gemma3/html/concept_academic_vocabulary.html",
+        "model": "gemma3"
       },
       {
         "name": "allomorphy",
@@ -747,6 +1143,12 @@
         "model": "sonnet"
       },
       {
+        "name": "allomorphy",
+        "label": "Allomorphy",
+        "file": "output/intro.en/gemma3/html/concept_allomorphy.html",
+        "model": "gemma3"
+      },
+      {
         "name": "con-",
         "label": "Con-",
         "file": "output/intro.en/html/concept_con-.html"
@@ -762,6 +1164,12 @@
         "label": "Con-",
         "file": "output/intro.en/sonnet/html/concept_con-.html",
         "model": "sonnet"
+      },
+      {
+        "name": "con-",
+        "label": "Con-",
+        "file": "output/intro.en/gemma3/html/concept_con-.html",
+        "model": "gemma3"
       },
       {
         "name": "construct",
@@ -781,6 +1189,12 @@
         "model": "sonnet"
       },
       {
+        "name": "construct",
+        "label": "Construct",
+        "file": "output/intro.en/gemma3/html/concept_construct.html",
+        "model": "gemma3"
+      },
+      {
         "name": "construction",
         "label": "Construction",
         "file": "output/intro.en/html/concept_construction.html"
@@ -796,6 +1210,12 @@
         "label": "Construction",
         "file": "output/intro.en/sonnet/html/concept_construction.html",
         "model": "sonnet"
+      },
+      {
+        "name": "construction",
+        "label": "Construction",
+        "file": "output/intro.en/gemma3/html/concept_construction.html",
+        "model": "gemma3"
       },
       {
         "name": "decoding_unseen_words",
@@ -815,6 +1235,12 @@
         "model": "sonnet"
       },
       {
+        "name": "decoding_unseen_words",
+        "label": "Decoding Unseen Words",
+        "file": "output/intro.en/gemma3/html/concept_decoding_unseen_words.html",
+        "model": "gemma3"
+      },
+      {
         "name": "dict",
         "label": "Dict",
         "file": "output/intro.en/html/concept_dict.html"
@@ -830,6 +1256,12 @@
         "label": "Dict",
         "file": "output/intro.en/sonnet/html/concept_dict.html",
         "model": "sonnet"
+      },
+      {
+        "name": "dict",
+        "label": "Dict",
+        "file": "output/intro.en/gemma3/html/concept_dict.html",
+        "model": "gemma3"
       },
       {
         "name": "import",
@@ -849,6 +1281,12 @@
         "model": "sonnet"
       },
       {
+        "name": "import",
+        "label": "Import",
+        "file": "output/intro.en/gemma3/html/concept_import.html",
+        "model": "gemma3"
+      },
+      {
         "name": "in-",
         "label": "In-",
         "file": "output/intro.en/html/concept_in-.html"
@@ -864,6 +1302,12 @@
         "label": "In-",
         "file": "output/intro.en/sonnet/html/concept_in-.html",
         "model": "sonnet"
+      },
+      {
+        "name": "in-",
+        "label": "In-",
+        "file": "output/intro.en/gemma3/html/concept_in-.html",
+        "model": "gemma3"
       },
       {
         "name": "inspect",
@@ -883,6 +1327,12 @@
         "model": "sonnet"
       },
       {
+        "name": "inspect",
+        "label": "Inspect",
+        "file": "output/intro.en/gemma3/html/concept_inspect.html",
+        "model": "gemma3"
+      },
+      {
         "name": "inspection",
         "label": "Inspection",
         "file": "output/intro.en/html/concept_inspection.html"
@@ -898,6 +1348,12 @@
         "label": "Inspection",
         "file": "output/intro.en/sonnet/html/concept_inspection.html",
         "model": "sonnet"
+      },
+      {
+        "name": "inspection",
+        "label": "Inspection",
+        "file": "output/intro.en/gemma3/html/concept_inspection.html",
+        "model": "gemma3"
       },
       {
         "name": "inspector",
@@ -917,6 +1373,12 @@
         "model": "sonnet"
       },
       {
+        "name": "inspector",
+        "label": "Inspector",
+        "file": "output/intro.en/gemma3/html/concept_inspector.html",
+        "model": "gemma3"
+      },
+      {
         "name": "ject",
         "label": "Ject",
         "file": "output/intro.en/html/concept_ject.html"
@@ -932,6 +1394,12 @@
         "label": "Ject",
         "file": "output/intro.en/sonnet/html/concept_ject.html",
         "model": "sonnet"
+      },
+      {
+        "name": "ject",
+        "label": "Ject",
+        "file": "output/intro.en/gemma3/html/concept_ject.html",
+        "model": "gemma3"
       },
       {
         "name": "morphological_decoding_principle",
@@ -951,6 +1419,12 @@
         "model": "sonnet"
       },
       {
+        "name": "morphological_decoding_principle",
+        "label": "Morphological Decoding Principle",
+        "file": "output/intro.en/gemma3/html/concept_morphological_decoding_principle.html",
+        "model": "gemma3"
+      },
+      {
         "name": "port",
         "label": "Port",
         "file": "output/intro.en/html/concept_port.html"
@@ -966,6 +1440,12 @@
         "label": "Port",
         "file": "output/intro.en/sonnet/html/concept_port.html",
         "model": "sonnet"
+      },
+      {
+        "name": "port",
+        "label": "Port",
+        "file": "output/intro.en/gemma3/html/concept_port.html",
+        "model": "gemma3"
       },
       {
         "name": "portable",
@@ -985,6 +1465,12 @@
         "model": "sonnet"
       },
       {
+        "name": "portable",
+        "label": "Portable",
+        "file": "output/intro.en/gemma3/html/concept_portable.html",
+        "model": "gemma3"
+      },
+      {
         "name": "pre-",
         "label": "Pre-",
         "file": "output/intro.en/html/concept_pre-.html"
@@ -1000,6 +1486,12 @@
         "label": "Pre-",
         "file": "output/intro.en/sonnet/html/concept_pre-.html",
         "model": "sonnet"
+      },
+      {
+        "name": "pre-",
+        "label": "Pre-",
+        "file": "output/intro.en/gemma3/html/concept_pre-.html",
+        "model": "gemma3"
       },
       {
         "name": "predict",
@@ -1019,6 +1511,12 @@
         "model": "sonnet"
       },
       {
+        "name": "predict",
+        "label": "Predict",
+        "file": "output/intro.en/gemma3/html/concept_predict.html",
+        "model": "gemma3"
+      },
+      {
         "name": "prediction",
         "label": "Prediction",
         "file": "output/intro.en/html/concept_prediction.html"
@@ -1034,6 +1532,12 @@
         "label": "Prediction",
         "file": "output/intro.en/sonnet/html/concept_prediction.html",
         "model": "sonnet"
+      },
+      {
+        "name": "prediction",
+        "label": "Prediction",
+        "file": "output/intro.en/gemma3/html/concept_prediction.html",
+        "model": "gemma3"
       },
       {
         "name": "prefix",
@@ -1053,6 +1557,12 @@
         "model": "sonnet"
       },
       {
+        "name": "prefix",
+        "label": "Prefix",
+        "file": "output/intro.en/gemma3/html/concept_prefix.html",
+        "model": "gemma3"
+      },
+      {
         "name": "prefix_root_composition",
         "label": "Prefix Root Composition",
         "file": "output/intro.en/html/concept_prefix_root_composition.html"
@@ -1068,6 +1578,12 @@
         "label": "Prefix Root Composition",
         "file": "output/intro.en/sonnet/html/concept_prefix_root_composition.html",
         "model": "sonnet"
+      },
+      {
+        "name": "prefix_root_composition",
+        "label": "Prefix Root Composition",
+        "file": "output/intro.en/gemma3/html/concept_prefix_root_composition.html",
+        "model": "gemma3"
       },
       {
         "name": "re-",
@@ -1087,6 +1603,12 @@
         "model": "sonnet"
       },
       {
+        "name": "re-",
+        "label": "Re-",
+        "file": "output/intro.en/gemma3/html/concept_re-.html",
+        "model": "gemma3"
+      },
+      {
         "name": "reject",
         "label": "Reject",
         "file": "output/intro.en/html/concept_reject.html"
@@ -1102,6 +1624,12 @@
         "label": "Reject",
         "file": "output/intro.en/sonnet/html/concept_reject.html",
         "model": "sonnet"
+      },
+      {
+        "name": "reject",
+        "label": "Reject",
+        "file": "output/intro.en/gemma3/html/concept_reject.html",
+        "model": "gemma3"
       },
       {
         "name": "rejection",
@@ -1121,6 +1649,12 @@
         "model": "sonnet"
       },
       {
+        "name": "rejection",
+        "label": "Rejection",
+        "file": "output/intro.en/gemma3/html/concept_rejection.html",
+        "model": "gemma3"
+      },
+      {
         "name": "spect",
         "label": "Spect",
         "file": "output/intro.en/html/concept_spect.html"
@@ -1136,6 +1670,12 @@
         "label": "Spect",
         "file": "output/intro.en/sonnet/html/concept_spect.html",
         "model": "sonnet"
+      },
+      {
+        "name": "spect",
+        "label": "Spect",
+        "file": "output/intro.en/gemma3/html/concept_spect.html",
+        "model": "gemma3"
       },
       {
         "name": "stem",
@@ -1155,6 +1695,12 @@
         "model": "sonnet"
       },
       {
+        "name": "stem",
+        "label": "Stem",
+        "file": "output/intro.en/gemma3/html/concept_stem.html",
+        "model": "gemma3"
+      },
+      {
         "name": "struct",
         "label": "Struct",
         "file": "output/intro.en/html/concept_struct.html"
@@ -1170,6 +1716,12 @@
         "label": "Struct",
         "file": "output/intro.en/sonnet/html/concept_struct.html",
         "model": "sonnet"
+      },
+      {
+        "name": "struct",
+        "label": "Struct",
+        "file": "output/intro.en/gemma3/html/concept_struct.html",
+        "model": "gemma3"
       },
       {
         "name": "suffix",
@@ -1189,6 +1741,12 @@
         "model": "sonnet"
       },
       {
+        "name": "suffix",
+        "label": "Suffix",
+        "file": "output/intro.en/gemma3/html/concept_suffix.html",
+        "model": "gemma3"
+      },
+      {
         "name": "suffix_derivation",
         "label": "Suffix Derivation",
         "file": "output/intro.en/html/concept_suffix_derivation.html"
@@ -1204,6 +1762,12 @@
         "label": "Suffix Derivation",
         "file": "output/intro.en/sonnet/html/concept_suffix_derivation.html",
         "model": "sonnet"
+      },
+      {
+        "name": "suffix_derivation",
+        "label": "Suffix Derivation",
+        "file": "output/intro.en/gemma3/html/concept_suffix_derivation.html",
+        "model": "gemma3"
       },
       {
         "name": "trans-",
@@ -1223,6 +1787,12 @@
         "model": "sonnet"
       },
       {
+        "name": "trans-",
+        "label": "Trans-",
+        "file": "output/intro.en/gemma3/html/concept_trans-.html",
+        "model": "gemma3"
+      },
+      {
         "name": "transport",
         "label": "Transport",
         "file": "output/intro.en/html/concept_transport.html"
@@ -1240,6 +1810,12 @@
         "model": "sonnet"
       },
       {
+        "name": "transport",
+        "label": "Transport",
+        "file": "output/intro.en/gemma3/html/concept_transport.html",
+        "model": "gemma3"
+      },
+      {
         "name": "transportable",
         "label": "Transportable",
         "file": "output/intro.en/html/concept_transportable.html"
@@ -1255,6 +1831,12 @@
         "label": "Transportable",
         "file": "output/intro.en/sonnet/html/concept_transportable.html",
         "model": "sonnet"
+      },
+      {
+        "name": "transportable",
+        "label": "Transportable",
+        "file": "output/intro.en/gemma3/html/concept_transportable.html",
+        "model": "gemma3"
       }
     ],
     "default_level": "intro"
@@ -1417,13 +1999,119 @@
       {
         "target": "function_types",
         "file": "output/research.en/html/book_function_types.html"
+      },
+      {
+        "target": "verified_mathematics",
+        "file": "output/research.en/gemma4/html/book_verified_mathematics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "ai_mathematics",
+        "file": "output/research.en/gemma4/html/book_ai_mathematics.html",
+        "model": "gemma4"
       }
     ],
     "generated_concepts": [
       {
+        "name": "ai_assisted_proving",
+        "label": "Ai Assisted Proving",
+        "file": "output/research.en/gemma4/html/concept_ai_assisted_proving.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "ai_mathematics",
+        "label": "Ai Mathematics",
+        "file": "output/research.en/gemma4/html/concept_ai_mathematics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "automation_tactics",
+        "label": "Automation Tactics",
+        "file": "output/research.en/gemma4/html/concept_automation_tactics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "core_tactics",
+        "label": "Core Tactics",
+        "file": "output/research.en/gemma4/html/concept_core_tactics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "curry_howard",
+        "label": "Curry Howard",
+        "file": "output/research.en/gemma4/html/concept_curry_howard.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "equality_rfl",
+        "label": "Equality Rfl",
+        "file": "output/research.en/gemma4/html/concept_equality_rfl.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "formalization_gap",
+        "label": "Formalization Gap",
+        "file": "output/research.en/gemma4/html/concept_formalization_gap.html",
+        "model": "gemma4"
+      },
+      {
         "name": "function_types",
         "label": "Function Types",
         "file": "output/research.en/html/concept_function_types.html"
+      },
+      {
+        "name": "function_types",
+        "label": "Function Types",
+        "file": "output/research.en/gemma4/html/concept_function_types.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "inductive_types",
+        "label": "Inductive Types",
+        "file": "output/research.en/gemma4/html/concept_inductive_types.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mathlib",
+        "label": "Mathlib",
+        "file": "output/research.en/gemma4/html/concept_mathlib.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "proof",
+        "label": "Proof",
+        "file": "output/research.en/gemma4/html/concept_proof.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "proof_search",
+        "label": "Proof Search",
+        "file": "output/research.en/gemma4/html/concept_proof_search.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "proposition",
+        "label": "Proposition",
+        "file": "output/research.en/gemma4/html/concept_proposition.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "rewriting_simp",
+        "label": "Rewriting Simp",
+        "file": "output/research.en/gemma4/html/concept_rewriting_simp.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "sorry_first_workflow",
+        "label": "Sorry First Workflow",
+        "file": "output/research.en/gemma4/html/concept_sorry_first_workflow.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "tactic_mode",
+        "label": "Tactic Mode",
+        "file": "output/research.en/gemma4/html/concept_tactic_mode.html",
+        "model": "gemma4"
       },
       {
         "name": "term",
@@ -1431,9 +2119,39 @@
         "file": "output/research.en/html/concept_term.html"
       },
       {
+        "name": "term",
+        "label": "Term",
+        "file": "output/research.en/gemma4/html/concept_term.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "theorem_statements",
+        "label": "Theorem Statements",
+        "file": "output/research.en/gemma4/html/concept_theorem_statements.html",
+        "model": "gemma4"
+      },
+      {
         "name": "type",
         "label": "Type",
         "file": "output/research.en/html/concept_type.html"
+      },
+      {
+        "name": "type",
+        "label": "Type",
+        "file": "output/research.en/gemma4/html/concept_type.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "typeclasses_structures",
+        "label": "Typeclasses Structures",
+        "file": "output/research.en/gemma4/html/concept_typeclasses_structures.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "verified_mathematics",
+        "label": "Verified Mathematics",
+        "file": "output/research.en/gemma4/html/concept_verified_mathematics.html",
+        "model": "gemma4"
       }
     ],
     "default_level": "research"
@@ -1452,9 +2170,159 @@
       "arts"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "play_from_chord_charts",
+        "file": "output/core.en/gemma4/html/book_play_from_chord_charts.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "transposition_arithmetic",
+        "file": "output/core.en/gemma4/html/book_transposition_arithmetic.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "beat",
+        "label": "Beat",
+        "file": "output/core.en/gemma4/html/concept_beat.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "chord_construction",
+        "label": "Chord Construction",
+        "file": "output/core.en/gemma4/html/concept_chord_construction.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dominant_seventh",
+        "label": "Dominant Seventh",
+        "file": "output/core.en/gemma4/html/concept_dominant_seventh.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "eighth_note",
+        "label": "Eighth Note",
+        "file": "output/core.en/gemma4/html/concept_eighth_note.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "four_chord_loop",
+        "label": "Four Chord Loop",
+        "file": "output/core.en/gemma4/html/concept_four_chord_loop.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "halving",
+        "label": "Halving",
+        "file": "output/core.en/gemma4/html/concept_halving.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "interval_stacking",
+        "label": "Interval Stacking",
+        "file": "output/core.en/gemma4/html/concept_interval_stacking.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "major_scale",
+        "label": "Major Scale",
+        "file": "output/core.en/gemma4/html/concept_major_scale.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "major_third",
+        "label": "Major Third",
+        "file": "output/core.en/gemma4/html/concept_major_third.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "major_triad",
+        "label": "Major Triad",
+        "file": "output/core.en/gemma4/html/concept_major_triad.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "measure",
+        "label": "Measure",
+        "file": "output/core.en/gemma4/html/concept_measure.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "melody",
+        "label": "Melody",
+        "file": "output/core.en/gemma4/html/concept_melody.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "middle_c",
+        "label": "Middle C",
+        "file": "output/core.en/gemma4/html/concept_middle_c.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "minor_third",
+        "label": "Minor Third",
+        "file": "output/core.en/gemma4/html/concept_minor_third.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "minor_triad",
+        "label": "Minor Triad",
+        "file": "output/core.en/gemma4/html/concept_minor_triad.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "octave",
+        "label": "Octave",
+        "file": "output/core.en/gemma4/html/concept_octave.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "perfect_fifth",
+        "label": "Perfect Fifth",
+        "file": "output/core.en/gemma4/html/concept_perfect_fifth.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "perfect_fourth",
+        "label": "Perfect Fourth",
+        "file": "output/core.en/gemma4/html/concept_perfect_fourth.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "play_from_chord_charts",
+        "label": "Play From Chord Charts",
+        "file": "output/core.en/gemma4/html/concept_play_from_chord_charts.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "rhythm_grouping",
+        "label": "Rhythm Grouping",
+        "file": "output/core.en/gemma4/html/concept_rhythm_grouping.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "semitone",
+        "label": "Semitone",
+        "file": "output/core.en/gemma4/html/concept_semitone.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transposition_arithmetic",
+        "label": "Transposition Arithmetic",
+        "file": "output/core.en/gemma4/html/concept_transposition_arithmetic.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "whole_tone",
+        "label": "Whole Tone",
+        "file": "output/core.en/gemma4/html/concept_whole_tone.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "core"
   },
   {
@@ -1471,9 +2339,87 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "genetic_engineering",
+        "file": "output/college.en/gemma4/html/book_genetic_engineering.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "vaccine_design",
+        "file": "output/college.en/gemma4/html/book_vaccine_design.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "cell",
+        "label": "Cell",
+        "file": "output/college.en/gemma4/html/concept_cell.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "cell_division",
+        "label": "Cell Division",
+        "file": "output/college.en/gemma4/html/concept_cell_division.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "gene_expression",
+        "label": "Gene Expression",
+        "file": "output/college.en/gemma4/html/concept_gene_expression.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "genetic_engineering",
+        "label": "Genetic Engineering",
+        "file": "output/college.en/gemma4/html/concept_genetic_engineering.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "hereditary_information",
+        "label": "Hereditary Information",
+        "file": "output/college.en/gemma4/html/concept_hereditary_information.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "molecule",
+        "label": "Molecule",
+        "file": "output/college.en/gemma4/html/concept_molecule.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mutation",
+        "label": "Mutation",
+        "file": "output/college.en/gemma4/html/concept_mutation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "natural_selection",
+        "label": "Natural Selection",
+        "file": "output/college.en/gemma4/html/concept_natural_selection.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transcription",
+        "label": "Transcription",
+        "file": "output/college.en/gemma4/html/concept_transcription.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "translation",
+        "label": "Translation",
+        "file": "output/college.en/gemma4/html/concept_translation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "vaccine_design",
+        "label": "Vaccine Design",
+        "file": "output/college.en/gemma4/html/concept_vaccine_design.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "college"
   },
   {
@@ -1490,9 +2436,81 @@
       "cs"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "route_planning",
+        "file": "output/college.en/gemma4/html/book_route_planning.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "search_engine_ranking",
+        "file": "output/college.en/gemma4/html/book_search_engine_ranking.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "bfs",
+        "label": "Bfs",
+        "file": "output/college.en/gemma4/html/concept_bfs.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "comparison",
+        "label": "Comparison",
+        "file": "output/college.en/gemma4/html/concept_comparison.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dijkstra",
+        "label": "Dijkstra",
+        "file": "output/college.en/gemma4/html/concept_dijkstra.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dynamic_programming",
+        "label": "Dynamic Programming",
+        "file": "output/college.en/gemma4/html/concept_dynamic_programming.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dynamic_programming_on_graphs",
+        "label": "Dynamic Programming On Graphs",
+        "file": "output/college.en/gemma4/html/concept_dynamic_programming_on_graphs.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "greedy",
+        "label": "Greedy",
+        "file": "output/college.en/gemma4/html/concept_greedy.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "memory_access",
+        "label": "Memory Access",
+        "file": "output/college.en/gemma4/html/concept_memory_access.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "recursion",
+        "label": "Recursion",
+        "file": "output/college.en/gemma4/html/concept_recursion.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "route_planning",
+        "label": "Route Planning",
+        "file": "output/college.en/gemma4/html/concept_route_planning.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "search_engine_ranking",
+        "label": "Search Engine Ranking",
+        "file": "output/college.en/gemma4/html/concept_search_engine_ranking.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "college"
   },
   {
@@ -1509,9 +2527,105 @@
       "cs"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "compiler_symbol_table",
+        "file": "output/college.en/gemma4/html/book_compiler_symbol_table.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "operating_system_scheduler",
+        "file": "output/college.en/gemma4/html/book_operating_system_scheduler.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "array",
+        "label": "Array",
+        "file": "output/college.en/gemma4/html/concept_array.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "binary_search_tree",
+        "label": "Binary Search Tree",
+        "file": "output/college.en/gemma4/html/concept_binary_search_tree.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "binary_tree",
+        "label": "Binary Tree",
+        "file": "output/college.en/gemma4/html/concept_binary_tree.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "comparison",
+        "label": "Comparison",
+        "file": "output/college.en/gemma4/html/concept_comparison.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "compiler_symbol_table",
+        "label": "Compiler Symbol Table",
+        "file": "output/college.en/gemma4/html/concept_compiler_symbol_table.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "hash_table",
+        "label": "Hash Table",
+        "file": "output/college.en/gemma4/html/concept_hash_table.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "heap",
+        "label": "Heap",
+        "file": "output/college.en/gemma4/html/concept_heap.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "key",
+        "label": "Key",
+        "file": "output/college.en/gemma4/html/concept_key.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "linked_list",
+        "label": "Linked List",
+        "file": "output/college.en/gemma4/html/concept_linked_list.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "memory_cell",
+        "label": "Memory Cell",
+        "file": "output/college.en/gemma4/html/concept_memory_cell.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "operating_system_scheduler",
+        "label": "Operating System Scheduler",
+        "file": "output/college.en/gemma4/html/concept_operating_system_scheduler.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pointer",
+        "label": "Pointer",
+        "file": "output/college.en/gemma4/html/concept_pointer.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "priority_queue",
+        "label": "Priority Queue",
+        "file": "output/college.en/gemma4/html/concept_priority_queue.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "queue",
+        "label": "Queue",
+        "file": "output/college.en/gemma4/html/concept_queue.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "college"
   },
   {
@@ -1528,9 +2642,99 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "precision_medicine",
+        "file": "output/research.en/gemma4/html/book_precision_medicine.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "public_health",
+        "file": "output/research.en/gemma4/html/book_public_health.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "anatomy",
+        "label": "Anatomy",
+        "file": "output/research.en/gemma4/html/concept_anatomy.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "diagnosis",
+        "label": "Diagnosis",
+        "file": "output/research.en/gemma4/html/concept_diagnosis.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "epidemiology",
+        "label": "Epidemiology",
+        "file": "output/research.en/gemma4/html/concept_epidemiology.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "immune_response",
+        "label": "Immune Response",
+        "file": "output/research.en/gemma4/html/concept_immune_response.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pathogen",
+        "label": "Pathogen",
+        "file": "output/research.en/gemma4/html/concept_pathogen.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pharmacodynamics",
+        "label": "Pharmacodynamics",
+        "file": "output/research.en/gemma4/html/concept_pharmacodynamics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pharmacokinetics",
+        "label": "Pharmacokinetics",
+        "file": "output/research.en/gemma4/html/concept_pharmacokinetics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "physiology",
+        "label": "Physiology",
+        "file": "output/research.en/gemma4/html/concept_physiology.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "precision_medicine",
+        "label": "Precision Medicine",
+        "file": "output/research.en/gemma4/html/concept_precision_medicine.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "public_health",
+        "label": "Public Health",
+        "file": "output/research.en/gemma4/html/concept_public_health.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "receptor",
+        "label": "Receptor",
+        "file": "output/research.en/gemma4/html/concept_receptor.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "sign",
+        "label": "Sign",
+        "file": "output/research.en/gemma4/html/concept_sign.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "symptom",
+        "label": "Symptom",
+        "file": "output/research.en/gemma4/html/concept_symptom.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "research"
   },
   {
@@ -1668,6 +2872,11 @@
       {
         "target": "accuracy",
         "file": "output/core.en/html/book_accuracy.html"
+      },
+      {
+        "target": "approximation",
+        "file": "output/core.en/gemma4/html/book_approximation.html",
+        "model": "gemma4"
       }
     ],
     "generated_concepts": [
@@ -1682,9 +2891,21 @@
         "file": "output/core.en/html/concept_approximation.html"
       },
       {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/core.en/gemma4/html/concept_approximation.html",
+        "model": "gemma4"
+      },
+      {
         "name": "fundamental_units",
         "label": "Fundamental Units",
         "file": "output/core.en/html/concept_fundamental_units.html"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/core.en/gemma4/html/concept_measurement.html",
+        "model": "gemma4"
       },
       {
         "name": "order_of_magnitude",
@@ -1692,9 +2913,21 @@
         "file": "output/core.en/html/concept_order_of_magnitude.html"
       },
       {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/core.en/gemma4/html/concept_order_of_magnitude.html",
+        "model": "gemma4"
+      },
+      {
         "name": "physical_quantity",
         "label": "Physical Quantity",
         "file": "output/core.en/html/concept_physical_quantity.html"
+      },
+      {
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/core.en/gemma4/html/concept_physical_quantity.html",
+        "model": "gemma4"
       },
       {
         "name": "precision",
@@ -1725,6 +2958,12 @@
         "name": "units",
         "label": "Units",
         "file": "output/core.en/html/concept_units.html"
+      },
+      {
+        "name": "units",
+        "label": "Units",
+        "file": "output/core.en/gemma4/html/concept_units.html",
+        "model": "gemma4"
       }
     ],
     "default_level": "core",
@@ -1761,38 +3000,29 @@
       {
         "target": "stopping_distance",
         "file": "output/core.en/html/book_stopping_distance.html"
+      },
+      {
+        "target": "graphical_analysis_of_motion",
+        "file": "output/core.en/gemma4/html/book_graphical_analysis_of_motion.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "problem_solving_kinematics",
+        "file": "output/core.en/gemma4/html/book_problem_solving_kinematics.html",
+        "model": "gemma4"
       }
     ],
     "generated_concepts": [
       {
-        "name": "coordinate_system",
-        "label": "Coordinate System",
-        "file": "output/core.en/html/concept_coordinate_system.html"
+        "name": "average_acceleration",
+        "label": "Average Acceleration",
+        "file": "output/core.en/html/concept_average_acceleration.html"
       },
       {
-        "name": "position",
-        "label": "Position",
-        "file": "output/core.en/html/concept_position.html"
-      },
-      {
-        "name": "time",
-        "label": "Time",
-        "file": "output/core.en/html/concept_time.html"
-      },
-      {
-        "name": "vector",
-        "label": "Vector",
-        "file": "output/core.en/html/concept_vector.html"
-      },
-      {
-        "name": "displacement",
-        "label": "Displacement",
-        "file": "output/core.en/html/concept_displacement.html"
-      },
-      {
-        "name": "elapsed_time",
-        "label": "Elapsed Time",
-        "file": "output/core.en/html/concept_elapsed_time.html"
+        "name": "average_acceleration",
+        "label": "Average Acceleration",
+        "file": "output/core.en/gemma4/html/concept_average_acceleration.html",
+        "model": "gemma4"
       },
       {
         "name": "average_velocity",
@@ -1800,19 +3030,10 @@
         "file": "output/core.en/html/concept_average_velocity.html"
       },
       {
-        "name": "average_acceleration",
-        "label": "Average Acceleration",
-        "file": "output/core.en/html/concept_average_acceleration.html"
-      },
-      {
-        "name": "instantaneous_velocity",
-        "label": "Instantaneous Velocity",
-        "file": "output/core.en/html/concept_instantaneous_velocity.html"
-      },
-      {
-        "name": "instantaneous_acceleration",
-        "label": "Instantaneous Acceleration",
-        "file": "output/core.en/html/concept_instantaneous_acceleration.html"
+        "name": "average_velocity",
+        "label": "Average Velocity",
+        "file": "output/core.en/gemma4/html/concept_average_velocity.html",
+        "model": "gemma4"
       },
       {
         "name": "constant_acceleration",
@@ -1820,9 +3041,52 @@
         "file": "output/core.en/html/concept_constant_acceleration.html"
       },
       {
+        "name": "coordinate_system",
+        "label": "Coordinate System",
+        "file": "output/core.en/html/concept_coordinate_system.html"
+      },
+      {
         "name": "deceleration",
         "label": "Deceleration",
         "file": "output/core.en/html/concept_deceleration.html"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/core.en/html/concept_displacement.html"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/core.en/gemma4/html/concept_displacement.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "elapsed_time",
+        "label": "Elapsed Time",
+        "file": "output/core.en/html/concept_elapsed_time.html"
+      },
+      {
+        "name": "elapsed_time",
+        "label": "Elapsed Time",
+        "file": "output/core.en/gemma4/html/concept_elapsed_time.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "graphical_analysis_of_motion",
+        "label": "Graphical Analysis Of Motion",
+        "file": "output/core.en/gemma4/html/concept_graphical_analysis_of_motion.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "instantaneous_acceleration",
+        "label": "Instantaneous Acceleration",
+        "file": "output/core.en/html/concept_instantaneous_acceleration.html"
+      },
+      {
+        "name": "instantaneous_velocity",
+        "label": "Instantaneous Velocity",
+        "file": "output/core.en/html/concept_instantaneous_velocity.html"
       },
       {
         "name": "kinematic_equations",
@@ -1830,9 +3094,54 @@
         "file": "output/core.en/html/concept_kinematic_equations.html"
       },
       {
+        "name": "kinematic_equations_constant_acceleration",
+        "label": "Kinematic Equations Constant Acceleration",
+        "file": "output/core.en/gemma4/html/concept_kinematic_equations_constant_acceleration.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/core.en/html/concept_position.html"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/core.en/gemma4/html/concept_position.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "problem_solving_kinematics",
+        "label": "Problem Solving Kinematics",
+        "file": "output/core.en/gemma4/html/concept_problem_solving_kinematics.html",
+        "model": "gemma4"
+      },
+      {
         "name": "stopping_distance",
         "label": "Stopping Distance",
         "file": "output/core.en/html/concept_stopping_distance.html"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/core.en/html/concept_time.html"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/core.en/gemma4/html/concept_time.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/core.en/html/concept_vector.html"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/core.en/gemma4/html/concept_vector.html",
+        "model": "gemma4"
       }
     ],
     "default_level": "core",
@@ -1858,9 +3167,111 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "quantum_computing",
+        "file": "output/college.en/gemma4/html/book_quantum_computing.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "mri_and_nmr",
+        "file": "output/college.en/gemma4/html/book_mri_and_nmr.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "energy_quantization",
+        "label": "Energy Quantization",
+        "file": "output/college.en/gemma4/html/concept_energy_quantization.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "entanglement",
+        "label": "Entanglement",
+        "file": "output/college.en/gemma4/html/concept_entanglement.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "many_body_states",
+        "label": "Many Body States",
+        "file": "output/college.en/gemma4/html/concept_many_body_states.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/college.en/gemma4/html/concept_measurement.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mri_and_nmr",
+        "label": "Mri And Nmr",
+        "file": "output/college.en/gemma4/html/concept_mri_and_nmr.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "observable",
+        "label": "Observable",
+        "file": "output/college.en/gemma4/html/concept_observable.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "perturbation_theory",
+        "label": "Perturbation Theory",
+        "file": "output/college.en/gemma4/html/concept_perturbation_theory.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "planck_constant",
+        "label": "Planck Constant",
+        "file": "output/college.en/gemma4/html/concept_planck_constant.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "probability_amplitude",
+        "label": "Probability Amplitude",
+        "file": "output/college.en/gemma4/html/concept_probability_amplitude.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "quantum_computing",
+        "label": "Quantum Computing",
+        "file": "output/college.en/gemma4/html/concept_quantum_computing.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "quantum_state",
+        "label": "Quantum State",
+        "file": "output/college.en/gemma4/html/concept_quantum_state.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "schrodinger_equation",
+        "label": "Schrodinger Equation",
+        "file": "output/college.en/gemma4/html/concept_schrodinger_equation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "spin",
+        "label": "Spin",
+        "file": "output/college.en/gemma4/html/concept_spin.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "superposition",
+        "label": "Superposition",
+        "file": "output/college.en/gemma4/html/concept_superposition.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "wave_function",
+        "label": "Wave Function",
+        "file": "output/college.en/gemma4/html/concept_wave_function.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "college"
   },
   {
@@ -1877,9 +3288,99 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "mRNA_vaccines",
+        "file": "output/college.en/gemma4/html/book_mRNA_vaccines.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "CRISPR_gene_editing",
+        "file": "output/college.en/gemma4/html/book_CRISPR_gene_editing.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amino_acid",
+        "label": "Amino Acid",
+        "file": "output/college.en/gemma4/html/concept_amino_acid.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "cell_membrane",
+        "label": "Cell Membrane",
+        "file": "output/college.en/gemma4/html/concept_cell_membrane.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CRISPR_Cas9",
+        "label": "Crispr Cas9",
+        "file": "output/college.en/gemma4/html/concept_CRISPR_Cas9.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CRISPR_gene_editing",
+        "label": "Crispr Gene Editing",
+        "file": "output/college.en/gemma4/html/concept_CRISPR_gene_editing.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "DNA_double_helix",
+        "label": "Dna Double Helix",
+        "file": "output/college.en/gemma4/html/concept_DNA_double_helix.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "DNA_replication",
+        "label": "Dna Replication",
+        "file": "output/college.en/gemma4/html/concept_DNA_replication.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "enzyme",
+        "label": "Enzyme",
+        "file": "output/college.en/gemma4/html/concept_enzyme.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "gene_regulation",
+        "label": "Gene Regulation",
+        "file": "output/college.en/gemma4/html/concept_gene_regulation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mRNA_vaccines",
+        "label": "Mrna Vaccines",
+        "file": "output/college.en/gemma4/html/concept_mRNA_vaccines.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "nucleotide",
+        "label": "Nucleotide",
+        "file": "output/college.en/gemma4/html/concept_nucleotide.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "phospholipid",
+        "label": "Phospholipid",
+        "file": "output/college.en/gemma4/html/concept_phospholipid.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transcription",
+        "label": "Transcription",
+        "file": "output/college.en/gemma4/html/concept_transcription.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "translation",
+        "label": "Translation",
+        "file": "output/college.en/gemma4/html/concept_translation.html",
+        "model": "gemma4"
+      }
+    ],
     "default_level": "college"
   }
 ]

@@ -1,136 +1,137 @@
-domain: college_physics_ch1
-source:
-  title: "College Physics 2e"
-  authors: "OpenStax"
-  license: "CC BY 4.0"
-  url: "https://openstax.org/details/books/college-physics-2e"
-  attribution: "Access for free at openstax.org."
-  chapter: 1
-  chapter_title: "Introduction: The Nature of Science and Physics"
+domain: college_physics_2e_ch1
 primitives:
   physics:
     defines: The science concerned with describing the interactions of energy, matter, space, and time,
-      and the fundamental mechanisms underlying every phenomenon.
+      especially the fundamental mechanisms underlying every phenomenon.
     tier: 0
-  scientific_method:
-    defines: A systematic process of observation, hypothesis formation, experimentation, and analysis
-      used to investigate and understand natural phenomena.
+  observation:
+    defines: The act of noticing and recording phenomena in the natural world, treated as the foundational
+      empirical act of science.
     tier: 0
-  physical_quantity:
-    defines: A characteristic or property of an object that can be measured or calculated from other measurements.
-    tier: 0
-  units:
-    defines: Standardized values used for expressing and comparing measurements of physical quantities.
+  measurement:
+    defines: The quantitative determination of a physical property, either by direct procedure or by calculation
+      from other measurements.
     tier: 0
 concepts:
-  model:
-    defines: A representation of something that is often too difficult or impossible to display directly,
-      justified by experimental proof but only accurate under limited situations.
+  scientific_method:
+    defines: A structured process of inquiry beginning with observation and question, proceeding through
+      hypothesis formation and experimental testing, and concluding with analysis and conclusion.
     composed_of:
-    - scientific_method
+    - observation
     tier: 1
-  theory:
-    defines: A testable explanation for patterns in nature supported by scientific evidence and verified
-      multiple times by various groups of researchers.
+  scientific_model:
+    defines: A representation of something too difficult or impossible to display directly, justified
+      by experimental evidence but accurate only under limited conditions.
     composed_of:
-    - scientific_method
+    - observation
     tier: 1
   scientific_law:
-    defines: A concise description, often expressible as a mathematical equation, of a generalized pattern
-      in nature supported by scientific evidence and repeated experiments.
+    defines: A concise description, often expressed as a mathematical equation, of a generalized pattern
+      in nature supported by repeated experiments and observations.
     composed_of:
-    - scientific_method
+    - observation
+    - measurement
     tier: 1
   classical_physics:
-    defines: Physics developed from the Renaissance to the end of the 19th century, valid when matter
-      moves below about 1% of the speed of light, objects are larger than microscopic, and gravitational
-      fields are weak.
+    defines: Physics developed from the Renaissance through the 19th century, providing accurate descriptions
+      of macroscopic systems moving well below the speed of light in weak gravitational fields.
     composed_of:
     - physics
     tier: 1
-  modern_physics:
-    defines: Physics consisting of relativity and quantum mechanics, dealing with objects moving at high
-      speeds, experiencing strong gravitational fields, or smaller than can be seen with a microscope.
+  physical_quantity:
+    defines: A characteristic or property of an object that can be measured directly or calculated from
+      other measurements.
     composed_of:
-    - physics
-    tier: 1
-  fundamental_units:
-    defines: Units that can only be defined in terms of the procedure used to measure them — length, mass,
-      time, and electric current.
-    composed_of:
-    - units
-    - physical_quantity
+    - measurement
     tier: 1
   accuracy:
-    defines: The degree to which a measured value agrees with the correct value for that measurement.
+    defines: The degree to which a measured value agrees with the accepted correct value for that measurement.
     composed_of:
-    - physical_quantity
+    - measurement
     tier: 1
   precision:
-    defines: The degree to which repeated measurements agree with each other, reflecting the spread of
-      measured values.
+    defines: The degree to which repeated measurements made under the same conditions agree with one another.
     composed_of:
-    - physical_quantity
-    tier: 1
-  uncertainty:
-    defines: A quantitative measure of how much measured values deviate from a standard or expected value,
-      expressed as a plus-or-minus amount.
-    composed_of:
-    - physical_quantity
-    tier: 1
-  conversion_factor:
-    defines: A ratio expressing how many of one unit are equal to another unit, used to convert measurements
-      between unit systems.
-    composed_of:
-    - units
+    - measurement
     tier: 1
   order_of_magnitude:
-    defines: The scale of a value expressed as a power of 10, used as a ballpark estimate for comparing
-      the sizes of quantities.
+    defines: The scale of a value expressed as the nearest power of 10, used to compare quantities that
+      differ by large factors.
+    composed_of:
+    - measurement
+    tier: 1
+  scientific_theory:
+    defines: A testable, broadly applicable explanation for patterns in nature that is supported by scientific
+      evidence and verified multiple times by various groups of researchers.
+    composed_of:
+    - scientific_method
+    - scientific_model
+    tier: 2
+  modern_physics:
+    defines: The branch of physics encompassing relativity and quantum mechanics, which describe objects
+      moving near the speed of light or phenomena at microscopic scales.
+    composed_of:
+    - classical_physics
+    tier: 2
+  units:
+    defines: Standardized values used to express and compare measurements of physical quantities.
     composed_of:
     - physical_quantity
-    tier: 1
-  si_units:
-    defines: The international system of units (Système International) based on the metric system, using
-      the meter, kilogram, second, and ampere as fundamental units.
-    composed_of:
-    - fundamental_units
     tier: 2
-  derived_units:
-    defines: Units that can be expressed as algebraic combinations of the fundamental units of length,
-      mass, time, and current.
+  uncertainty:
+    defines: A quantitative estimate, expressed as ±δA, of how much a measured value may deviate from
+      the true or expected value.
     composed_of:
-    - fundamental_units
-    tier: 2
-  unit_conversion:
-    defines: The process of changing a value expressed in one type of unit to another using conversion
-      factors that are ratios relating equal quantities in different units.
-    composed_of:
-    - conversion_factor
-    tier: 2
-  percent_uncertainty:
-    defines: The ratio of the uncertainty of a measurement to the measured value, expressed as a percentage.
-    composed_of:
-    - uncertainty
+    - accuracy
+    - precision
     tier: 2
   significant_figures:
-    defines: The digits in a measured value that express the precision of the measuring tool, where the
-      last digit written is the first digit with some uncertainty.
+    defines: The digits in a measured value that convey its precision, with defined rules for counting
+      them and for limiting precision in calculated results.
     composed_of:
     - precision
-    - uncertainty
     tier: 2
+  fundamental_units:
+    defines: 'Units defined solely by the procedure used to measure them; this text uses four: meter (length),
+      kilogram (mass), second (time), and ampere (electric current).'
+    composed_of:
+    - units
+    tier: 3
+  unit_conversion:
+    defines: The process of expressing a measured value in a different unit by multiplying by a conversion
+      factor chosen so the original unit cancels and the desired unit remains.
+    composed_of:
+    - units
+    tier: 3
+  percent_uncertainty:
+    defines: The ratio of the uncertainty of a measurement to the measured value multiplied by 100%, giving
+      a relative measure of measurement reliability.
+    composed_of:
+    - uncertainty
+    tier: 3
+  derived_units:
+    defines: Units formed by algebraic combinations of fundamental units, such as speed expressed as meters
+      per second.
+    composed_of:
+    - fundamental_units
+    tier: 4
+  si_units:
+    defines: The internationally agreed-upon metric system of units, built on fundamental units and organized
+      by powers of 10, used as the standard in science.
+    composed_of:
+    - fundamental_units
+    tier: 4
   metric_prefixes:
-    defines: Standard prefixes denoting powers of 10 used in the metric system to express quantities over
-      vast ranges without inventing new units.
+    defines: Standard symbols (such as kilo-, milli-, nano-) that denote specific powers of 10 relative
+      to a base SI unit, enabling the same unit to span vast ranges of magnitude.
     composed_of:
     - si_units
-    tier: 3
+    tier: 5
 applications:
   approximation:
-    defines: An estimated value based on prior experience, reasoning, and known quantities, used to make
-      reasonable guesstimates when exact values are unavailable.
+    defines: An estimated value for an unknown quantity derived by applying known measurements, unit reasoning,
+      and order-of-magnitude thinking when exact values are unavailable.
     needs:
     - order_of_magnitude
-    - significant_figures
+    - units
     tier: 3

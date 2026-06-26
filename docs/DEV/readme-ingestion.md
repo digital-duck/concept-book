@@ -4,6 +4,8 @@
 
 **Phase 1 complete.** The ingestion pipeline is implemented and tested in [concept-book-press](~/projects/digital-duck/concept-book-press). Two chapters of OpenStax College Physics 2e have been ingested, extracted, validated, and published to ConceptBook.
 
+**Re-ingest needed (Path-B quality gate).** Pass 1 now captures `section_ids` per concept and emits `concept_sources.yaml` (the `concept-name → chunks.yaml-section` mapping required for `spl3 compare`). Chapters 1 and 2 must be re-ingested to produce this file. See [Re-ingesting existing chapters](#re-ingesting-existing-chapters) below.
+
 ## Architecture: Two Repos
 
 ```
@@ -63,10 +65,13 @@ Parses a PDF textbook chapter into structured chunks using TOC bookmarks.
 
 Two-pass LLM extraction via Claude CLI (`claude --print --model sonnet`):
 
-- **Pass 1** — Identify concepts: `{id, label, defines, kind}` for each concept
+- **Pass 1** — Identify concepts: `{id, label, defines, kind, section_ids}` for each concept.
+  Section headers in the prompt now include `[id=<section_id>]` so the LLM can attribute each concept to the section(s) where it is taught.
 - **Pass 2** — Map prerequisites: assign `composed_of`/`needs` and compute tiers
 
-Output: `graph.yaml` in ConceptBook format (primitives/concepts/applications).
+Output:
+- `graph.yaml` — concept graph in ConceptBook format (primitives/concepts/applications)
+- `concept_sources.yaml` — `concept_id → {label, sections: [{id, title}]}` mapping (prerequisite for the Path-B quality gate)
 
 ### Stage 3: Validate
 
@@ -84,7 +89,8 @@ DOMAIN=college_physics_ch1
 DEST=~/projects/digital-duck/concept-book/public/domains/$DOMAIN
 
 mkdir -p $DEST/input $DEST/output
-cp output/college-physics-2e/ch1/graph.yaml $DEST/input/graph.yaml
+cp output/college-physics-2e/ch1/graph.yaml         $DEST/input/graph.yaml
+cp output/college-physics-2e/ch1/concept_sources.yaml $DEST/input/concept_sources.yaml
 
 # Generate vis.js navigator
 python ~/projects/digital-duck/concept-book/scripts/concept_graph.py \
@@ -93,6 +99,62 @@ python ~/projects/digital-duck/concept-book/scripts/concept_graph.py \
 ```
 
 Then add the domain to `catalog.json` and generate concept books via the ConceptBook UI or SPL CLI.
+
+---
+
+## Re-ingesting existing chapters
+
+Chapters 1 and 2 were ingested before `concept_sources.yaml` was introduced. `chunks.yaml` was not persisted in the original run, so a full re-ingest (PDF parse + LLM extract) is required.
+
+```bash
+conda activate spl123
+
+cd ~/projects/digital-duck/concept-book-press
+
+python -B -m pipeline.cli pipeline \
+  --source pdf --pdf input/college-physics-2e.pdf --chapter 1,2 --check-yaml
+
+python -B -m pipeline.cli pipeline \
+  --source pdf --pdf input/college-physics-2e.pdf --chapter 3-5 --check-yaml
+```
+
+Output lands in `output/college-physics-2e/ch{N}/`:
+- `chunks.yaml` — structured sections (now persisted)
+- `graph.yaml` — updated concept graph (may differ slightly due to LLM non-determinism)
+- `concept_sources.yaml` — concept → section mapping (new)
+
+Validation runs automatically as Step 3 of the pipeline. After it completes, publish both chapters:
+
+```bash
+cd ~/projects/digital-duck/concept-book-press
+
+# Chapter 1
+DEST=~/projects/digital-duck/concept-book/public/domains/college_physics_ch1
+cp output/college-physics-2e/ch1/graph.yaml           $DEST/input/graph.yaml
+cp output/college-physics-2e/ch1/concept_sources.yaml $DEST/input/concept_sources.yaml
+python ~/projects/digital-duck/concept-book/scripts/concept_graph.py \
+  --domain $DEST/input/graph.yaml \
+  visualize --format html --output $DEST/output/graph.html
+
+# Chapter 2
+DEST=~/projects/digital-duck/concept-book/public/domains/college_physics_ch2
+cp output/college-physics-2e/ch2/graph.yaml           $DEST/input/graph.yaml
+cp output/college-physics-2e/ch2/concept_sources.yaml $DEST/input/concept_sources.yaml
+python ~/projects/digital-duck/concept-book/scripts/concept_graph.py \
+  --domain $DEST/input/graph.yaml \
+  visualize --format html --output $DEST/output/graph.html
+```
+
+Generate contents:
+
+```bash
+cd ~/projects/digital-duck/concept-book
+
+python scripts/batch_generate.py  --language en --skip-cache --llm ollama:gemma4 \
+    --domain college_physics_ch1 \
+    --domain college_physics_ch2
+
+```
 
 ## Results So Far
 

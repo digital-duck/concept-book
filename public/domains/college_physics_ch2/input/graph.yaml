@@ -1,139 +1,143 @@
-domain: college_physics_ch2
-source:
-  title: "College Physics 2e"
-  authors: "OpenStax"
-  license: "CC BY 4.0"
-  url: "https://openstax.org/details/books/college-physics-2e"
-  attribution: "Access for free at openstax.org."
-  chapter: 2
-  chapter_title: "Kinematics"
+domain: college_physics_2e_ch2
 primitives:
+  reference_frame:
+    defines: A coordinate backdrop relative to which the position of an object is described, often taken
+      as the Earth or a moving vehicle.
+    tier: 0
   position:
-    defines: The location of an object at a particular time, specified relative to a convenient reference
+    defines: The location of an object at a particular time, specified relative to a chosen reference
       frame.
     tier: 0
-  reference_frame:
-    defines: A framework relative to which an object's position and motion are described.
-    tier: 0
   time:
-    defines: The interval over which change occurs, measured in seconds, serving as the independent variable
-      in kinematics.
-    tier: 0
-  scalar:
-    defines: A quantity that has magnitude but no direction.
+    defines: The interval over which change occurs, measured in seconds (SI) and calibrated against a
+      standard.
     tier: 0
   vector:
-    defines: A quantity that has both magnitude and direction.
+    defines: A quantity that has both magnitude and direction, represented graphically by an arrow whose
+      length is proportional to magnitude.
     tier: 0
-  coordinate_system:
-    defines: A one-dimensional axis within a reference frame that assigns positive and negative signs
-      to indicate direction.
+  scalar:
+    defines: A quantity that has magnitude only, with no associated direction.
     tier: 0
 concepts:
+  coordinate_system:
+    defines: A one-dimensional number line embedded in a reference frame that assigns positive and negative
+      signs to the two possible directions of motion.
+    composed_of:
+    - reference_frame
+    - vector
+    tier: 1
   displacement:
-    defines: The change in position, calculated as final minus initial position, with both magnitude and
-      direction.
+    defines: The change in position of an object, Δx = x_f − x_i, which is a vector quantity carrying
+      both magnitude and direction.
     composed_of:
     - position
     - vector
-    - coordinate_system
     tier: 1
   elapsed_time:
-    defines: The difference between ending and beginning time of a motion.
+    defines: The difference between the ending and beginning times of a motion, Δt = t_f − t_0, measured
+      in seconds.
     composed_of:
     - time
     tier: 1
   distance:
-    defines: The magnitude of displacement between two positions, a scalar quantity with no direction.
+    defines: The magnitude of the displacement between two positions; a scalar with no directional sign.
     composed_of:
     - displacement
     - scalar
     tier: 2
   distance_traveled:
-    defines: The total length of path traveled, which can exceed the magnitude of displacement.
+    defines: The total length of the path taken between two positions, which can exceed the magnitude
+      of displacement when the path is not straight.
     composed_of:
     - displacement
     - scalar
     tier: 2
   average_velocity:
-    defines: Displacement divided by elapsed time, a vector with the same direction as displacement.
+    defines: Displacement divided by elapsed time, v̄ = Δx/Δt; a vector quantity whose SI unit is m/s.
     composed_of:
     - displacement
     - elapsed_time
     tier: 2
   instantaneous_velocity:
-    defines: Velocity at a specific instant, the limit of average velocity over an infinitesimally small
-      time interval.
+    defines: The velocity of an object at a specific instant in time, obtained as the limiting value of
+      average velocity over an infinitesimally small time interval.
     composed_of:
     - average_velocity
     tier: 3
   average_speed:
-    defines: Total distance traveled divided by elapsed time, a scalar not simply equal to the magnitude
-      of average velocity.
+    defines: The total distance traveled divided by elapsed time; a scalar that can exceed the magnitude
+      of average velocity for non-straight paths.
     composed_of:
     - distance_traveled
     - elapsed_time
     tier: 3
   average_acceleration:
-    defines: The change in velocity divided by the change in time.
+    defines: The rate of change of velocity, ā = Δv/Δt; a vector whose SI unit is m/s².
     composed_of:
     - average_velocity
     - elapsed_time
     tier: 3
   instantaneous_speed:
-    defines: The magnitude of instantaneous velocity at a given moment, a scalar.
+    defines: The magnitude of the instantaneous velocity at a given moment; a scalar quantity with no
+      direction.
     composed_of:
     - instantaneous_velocity
     - scalar
     tier: 4
   instantaneous_acceleration:
-    defines: Acceleration at a specific instant, found via velocity change over an infinitesimally small
-      time interval.
+    defines: The acceleration of an object at a specific instant in time, obtained as the limiting value
+      of average acceleration over an infinitesimally small interval.
     composed_of:
     - average_acceleration
     tier: 4
   deceleration:
-    defines: Acceleration directed opposite to velocity, resulting in decreased speed.
-    composed_of:
-    - instantaneous_acceleration
-    - instantaneous_velocity
-    tier: 5
-  constant_acceleration:
-    defines: The condition where acceleration does not change over time, making average and instantaneous
-      acceleration equal.
+    defines: Acceleration whose direction is opposite to the direction of velocity, always resulting in
+      a decrease in speed.
     composed_of:
     - average_acceleration
-    - instantaneous_acceleration
-    tier: 5
-  kinematic_equations:
-    defines: Four equations relating position, velocity, acceleration, and time under constant acceleration.
+    - average_velocity
+    tier: 4
+  kinematic_equations_constant_acceleration:
+    defines: The four algebraic equations (v = v₀ + at; x = x₀ + v̄t; x = x₀ + v₀t + ½at²; v² = v₀² +
+      2aΔx) that relate displacement, velocity, acceleration, and time under the assumption that acceleration
+      is constant.
     composed_of:
-    - constant_acceleration
     - displacement
-    - instantaneous_velocity
-    tier: 6
-  free_fall:
-    defines: Motion resulting from gravitational force only, with negligible air resistance and friction.
-    composed_of:
-    - constant_acceleration
-    tier: 6
+    - elapsed_time
+    - average_velocity
+    - average_acceleration
+    tier: 4
   acceleration_due_to_gravity:
-    defines: The constant downward acceleration near Earth's surface, averaging 9.80 m/s².
+    defines: The constant downward acceleration experienced by freely falling objects near Earth's surface,
+      g ≈ 9.80 m/s², independent of the object's mass when air resistance is negligible.
     composed_of:
-    - free_fall
-    tier: 7
+    - average_acceleration
+    tier: 4
+  free_fall:
+    defines: The idealized state of motion in which an object accelerates solely under gravity with no
+      air resistance or friction, allowing kinematic equations to be applied with a = −g.
+    composed_of:
+    - kinematic_equations_constant_acceleration
+    - acceleration_due_to_gravity
+    tier: 5
 applications:
   graphical_analysis_of_motion:
-    defines: Determining velocity from position-vs-time graph slopes and acceleration from velocity-vs-time
-      graph slopes.
+    defines: The technique of extracting velocity from the slope of a position–time graph and acceleration
+      from the slope of a velocity–time graph to describe and predict one-dimensional motion.
     needs:
-    - instantaneous_velocity
-    - instantaneous_acceleration
+    - average_velocity
+    - average_acceleration
+    tier: 4
+  problem_solving_kinematics:
+    defines: A six-step systematic approach—identify principles, list knowns, identify unknowns, select
+      equations, substitute with units, and verify reasonableness—applied to one-dimensional motion problems.
+    needs:
+    - kinematic_equations_constant_acceleration
     tier: 5
-  stopping_distance:
-    defines: Distance traveled before coming to rest, calculated using kinematic equations with reaction
-      time.
+  falling_objects_calculation:
+    defines: The application of constant-acceleration kinematic equations with a = ±g to compute position,
+      velocity, and time for objects in free fall near Earth's surface.
     needs:
-    - kinematic_equations
-    - deceleration
-    tier: 7
+    - free_fall
+    tier: 6

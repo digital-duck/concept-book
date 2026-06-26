@@ -191,4 +191,32 @@ python scripts/batch_generate.py --domain linalg --llm ollama:gemma4
 SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
 python scripts/batch_generate.py --domain sage_learning --llm ollama:gemma4
 
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain cs_data_structures --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain cs_algorithms --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain quantum_physics --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain chemistry_elements --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain biology --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain molecular_biology --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain medicine --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain lean_proving --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain music_theory --llm ollama:gemma4
+
+
 ```

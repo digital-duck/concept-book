@@ -222,16 +222,24 @@ Add `/{model}/` segment to output path. Update `build_concept_book.spl`,
 `scripts/sync_from_spl.sh`, catalog schema (`model` field on book entries), and
 frontend model selector. Default: `gemma3`.
 
+[WEN] done
+
 ### Phase 3 — Auto-revision loop in `build_concept_book.spl`
 Add a `@step compare_and_revise` that runs `spl3 compare`, checks ΔK, and loops
 revision up to `SPL_MAX_REVISIONS` times before emitting the draft to the human
 review queue.
 
+[WEN] Postpone! because it depends on availability of original chunk produced by `concept-book-press` pipeline and the `concept-name → chunks.yaml-section` mapping
+
 ### Phase 4 — Human review UI
 Surface ΔK scores, revision history, and compare verdicts in the Concept Books sidebar.
 Allow reviewer to approve, reject, or trigger another revision pass.
+
+[WEN] Postpone!
 
 ### Phase 5 — Open-source knowledge graph library
 Systematic ingestion of open-source textbooks via `concept-book-press`, published as a
 standalone open-source dataset. The concept-graphs, not the generated text, are the
 primary shareable artifact.
+
+[WEN] Postpone!
