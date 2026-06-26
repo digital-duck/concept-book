@@ -2,19 +2,26 @@ domain: cs_algorithms
 primitives:
   comparison:
     symbol: '≤ (decision oracle)'
-    defines: 'first radical — a binary predicate that decides the relative order of two elements; every comparison-based algorithm''s only interaction with the data; the information-theoretic floor — sorting by comparison requires Ω(n log n) comparisons in the worst case'
+    defines: first radical — a binary predicate that decides the relative order of two elements;
+      every comparison-based algorithm's only interaction with the data; the information-theoretic
+      floor — sorting by comparison requires Ω(n log n) comparisons in the worst case
     tier: 0
   swap:
     symbol: '↔ (exchange)'
-    defines: 'first radical — exchange the positions of two elements in place; with comparison, the two primitives that power the entire comparison-sort family'
+    defines: first radical — exchange the positions of two elements in place; with comparison,
+      the two primitives that power the entire comparison-sort family
     tier: 0
   memory_access:
     symbol: M[i] (random read/write)
-    defines: 'second radical — read or write the value at a given address in O(1); enables random-access arrays and the index arithmetic that non-comparison algorithms (radix, hash) exploit to break the Ω(n log n) barrier'
+    defines: second radical — read or write the value at a given address in O(1); enables
+      random-access arrays and the index arithmetic that non-comparison algorithms (radix, hash)
+      exploit to break the Ω(n log n) barrier
     tier: 0
   recursion:
     symbol: T(n) = aT(n/b) + f(n)
-    defines: 'second radical — a function that solves a problem by solving strictly smaller instances of itself and combining results; the structural pattern shared by divide-and-conquer, dynamic programming, and tree algorithms; not derivable from comparison or swap alone'
+    defines: second radical — a function that solves a problem by solving strictly smaller
+      instances of itself and combining results; the structural pattern shared by divide-and-conquer,
+      dynamic programming, and tree algorithms; not derivable from comparison or swap alone
     tier: 0
 first_radical_primitives:
 - comparison
@@ -24,155 +31,219 @@ concepts:
     composed_of:
     - comparison
     - swap
-    defines: 'repeatedly scan the array, swapping adjacent elements that are out of order; the largest unsorted element bubbles to its correct position each pass; O(n²) — the didactic sort that makes the primitives visible'
-    verifier: 'sympy'
-    lab: 'python (implement bubble_sort; verify sorted invariant after each pass; count exact comparisons and swaps; compare with sympy combinatorial bound n(n-1)/2)'
-    play: 'sort [5,3,1,4,2] by hand; count comparisons and swaps; verify the sorted suffix grows by one element after each full pass'
+    defines: repeatedly scan the array, swapping adjacent elements that are out of order;
+      the largest unsorted element bubbles to its correct position each pass; O(n²) — the
+      didactic sort that makes the primitives visible
+    verifier: sympy
+    lab: python (implement bubble_sort; verify sorted invariant after each pass; count exact
+      comparisons and swaps; compare with sympy combinatorial bound n(n-1)/2)
+    play: sort [5,3,1,4,2] by hand; count comparisons and swaps; verify the sorted suffix
+      grows by one element after each full pass
     tier: 1
   selection_sort:
     composed_of:
     - comparison
     - swap
-    defines: 'find the minimum of the unsorted prefix, swap it to the front; O(n²) comparisons, O(n) swaps — fewer swaps than bubble_sort; the algorithm that minimizes write operations'
-    verifier: 'python'
-    lab: 'python (implement selection_sort; count swaps separately from comparisons; verify O(n) swap count on any input of length n)'
-    play: 'sort [5,3,1,4,2]; count that exactly 4 swaps occur regardless of the input order — that O(n) swap bound is the structure selection_sort exploits'
+    defines: find the minimum of the unsorted prefix, swap it to the front; O(n²) comparisons,
+      O(n) swaps — fewer swaps than bubble_sort; the algorithm that minimizes write operations
+    verifier: python
+    lab: python (implement selection_sort; count swaps separately from comparisons; verify
+      O(n) swap count on any input of length n)
+    play: sort [5,3,1,4,2]; count that exactly 4 swaps occur regardless of the input order —
+      that O(n) swap bound is the structure selection_sort exploits
     tier: 1
   insertion_sort:
     composed_of:
     - comparison
     - swap
-    defines: 'maintain a sorted prefix; for each new element, shift sorted elements right until the correct position is found and insert; O(n²) worst case, O(n) on nearly sorted input; the algorithm that outperforms merge_sort in practice for small n'
-    verifier: 'python'
-    lab: 'python (implement insertion_sort; measure pass count on random vs. sorted vs. reverse-sorted input; show adaptive behavior on nearly sorted data)'
-    play: 'sort [1,2,3,4,5] (already sorted) and count comparisons; then sort [5,4,3,2,1] and count again — the ratio reveals insertion_sort''s adaptive strength'
+    defines: maintain a sorted prefix; for each new element, shift sorted elements right until
+      the correct position is found and insert; O(n²) worst case, O(n) on nearly sorted input;
+      the algorithm that outperforms merge_sort in practice for small n
+    verifier: python
+    lab: python (implement insertion_sort; measure pass count on random vs. sorted vs. reverse-sorted
+      input; show adaptive behavior on nearly sorted data)
+    play: sort [1,2,3,4,5] (already sorted) and count comparisons; then sort [5,4,3,2,1]
+      and count again — the ratio reveals insertion_sort's adaptive strength
     tier: 1
   merge_sort:
     composed_of:
     - comparison
     - recursion
-    defines: 'divide the array in half, recursively sort each half, merge the two sorted halves; T(n) = 2T(n/2) + O(n) → O(n log n) by the Master theorem; stable, cache-unfriendly; the algorithm that first achieves the information-theoretic optimum'
-    verifier: 'sympy'
-    lab: 'python + sympy (implement merge_sort; use sympy to verify the Master theorem recurrence T(n) = 2T(n/2) + cn solves to Θ(n log n); time on n = 2^k for k = 8..20)'
-    play: 'merge [1,3,5] and [2,4,6]; count comparisons (at most 5 = 3+3−1); verify the merge step is O(n) — then see how this telescopes to O(n log n) over log n levels'
+    defines: divide the array in half, recursively sort each half, merge the two sorted halves;
+      T(n) = 2T(n/2) + O(n) → O(n log n) by the Master theorem; stable, cache-unfriendly;
+      the algorithm that first achieves the information-theoretic optimum
+    verifier: sympy
+    lab: python + sympy (implement merge_sort; use sympy to verify the Master theorem recurrence
+      T(n) = 2T(n/2) + cn solves to Θ(n log n); time on n = 2^k for k = 8..20)
+    play: merge [1,3,5] and [2,4,6]; count comparisons (at most 5 = 3+3−1); verify the
+      merge step is O(n) — then see how this telescopes to O(n log n) over log n levels
     tier: 2
   quicksort:
     composed_of:
     - comparison
     - swap
     - recursion
-    defines: 'choose a pivot, partition into elements ≤ and > pivot, recurse on each part; O(n log n) expected, O(n²) worst case (sorted input with bad pivot choice); in-place, cache-friendly — the fastest sort in practice for random data'
-    verifier: 'python'
-    lab: 'python (implement quicksort with random pivot; time on random vs. sorted input; compare against merge_sort; demonstrate O(n²) with sorted input and fixed-first pivot)'
-    play: 'sort [3,6,8,10,1,2,1] with pivot = first element; trace the partition step; count swaps; then repeat with pivot = median-of-three and compare partition quality'
+    defines: choose a pivot, partition into elements ≤ and > pivot, recurse on each part;
+      O(n log n) expected, O(n²) worst case (sorted input with bad pivot choice); in-place,
+      cache-friendly — the fastest sort in practice for random data
+    verifier: python
+    lab: python (implement quicksort with random pivot; time on random vs. sorted input;
+      compare against merge_sort; demonstrate O(n²) with sorted input and fixed-first pivot)
+    play: sort [3,6,8,10,1,2,1] with pivot = first element; trace the partition step;
+      count swaps; then repeat with pivot = median-of-three and compare partition quality
     tier: 2
   binary_search:
     composed_of:
     - comparison
     - memory_access
-    defines: 'on a sorted array, compare the target with the midpoint; recurse on the left or right half; T(n) = T(n/2) + O(1) → O(log n); the algorithm that makes sorted arrays useful — halves the search space with each comparison'
-    verifier: 'sympy'
-    lab: 'python + sympy (implement binary_search; verify T(n) = T(n/2) + 1 solves to ⌈log₂n⌉ using sympy.rsolve; compare iteration count with math.log2(n))'
-    play: 'search for 7 in [1,3,5,7,9,11,13,15]; trace the midpoints; verify you reach the answer in ≤ ⌈log₂ 8⌉ = 3 comparisons'
+    defines: on a sorted array, compare the target with the midpoint; recurse on the left
+      or right half; T(n) = T(n/2) + O(1) → O(log n); the algorithm that makes sorted arrays
+      useful — halves the search space with each comparison
+    verifier: sympy
+    lab: python + sympy (implement binary_search; verify T(n) = T(n/2) + 1 solves to ⌈log₂n⌉
+      using sympy.rsolve; compare iteration count with math.log2(n))
+    play: search for 7 in [1,3,5,7,9,11,13,15]; trace the midpoints; verify you reach the
+      answer in ≤ ⌈log₂ 8⌉ = 3 comparisons
     tier: 2
   divide_and_conquer:
     composed_of:
     - recursion
     - comparison
-    defines: 'the algorithmic pattern — split the problem, solve subproblems independently, combine; merge_sort and quicksort are instances; analyzed by the Master theorem T(n) = aT(n/b) + f(n) → O(n^log_b(a)) when f(n) = O(n^(log_b(a)−ε))'
-    verifier: 'sympy'
-    lab: 'sympy (use sympy.rsolve to solve T(n) = 2T(n/2) + n, T(n) = T(n/2) + 1, T(n) = 4T(n/2) + n; verify the three Master theorem cases)'
-    play: 'solve T(n) = 2T(n/2) + n with sympy.rsolve; confirm the closed form is Θ(n log n); then try a = 4, b = 2 and watch it become Θ(n²)'
+    defines: the algorithmic pattern — split the problem, solve subproblems independently,
+      combine; merge_sort and quicksort are instances; analyzed by the Master theorem
+      T(n) = aT(n/b) + f(n) → O(n^log_b(a)) when f(n) = O(n^(log_b(a)−ε))
+    verifier: sympy
+    lab: sympy (use sympy.rsolve to solve T(n) = 2T(n/2) + n, T(n) = T(n/2) + 1, T(n) = 4T(n/2) + n;
+      verify the three Master theorem cases)
+    play: solve T(n) = 2T(n/2) + n with sympy.rsolve; confirm the closed form is Θ(n log n);
+      then try a = 4, b = 2 and watch it become Θ(n²)
     tier: 3
   dynamic_programming:
     composed_of:
     - recursion
     - memory_access
-    defines: 'solve a problem by breaking it into overlapping subproblems, storing each result (memoization / tabulation) so it is computed at most once; converts exponential recursion into polynomial time; the signature property is optimal substructure + overlapping subproblems'
-    verifier: 'python'
-    lab: 'python (implement fibonacci memoized vs. naive; time both for n = 30..50; verify memoized stays O(n) while naive exceeds 10⁸ calls)'
-    play: 'compute LCS of "ABCBDAB" and "BDCAB"; fill the DP table by hand for the first 3 rows; confirm the table satisfies the recurrence LCS[i][j] = LCS[i-1][j-1]+1 if match, else max(LCS[i-1][j], LCS[i][j-1])'
+    defines: solve a problem by breaking it into overlapping subproblems, storing each result
+      (memoization / tabulation) so it is computed at most once; converts exponential recursion
+      into polynomial time; the signature property is optimal substructure + overlapping subproblems
+    verifier: python
+    lab: python (implement fibonacci memoized vs. naive; time both for n = 30..50; verify
+      memoized stays O(n) while naive exceeds 10⁸ calls)
+    play: compute LCS of "ABCBDAB" and "BDCAB"; fill the DP table by hand for the first
+      3 rows; confirm the table satisfies the recurrence LCS[i][j] = LCS[i-1][j-1]+1 if match,
+      else max(LCS[i-1][j], LCS[i][j-1])
     tier: 3
   greedy:
     composed_of:
     - comparison
-    defines: 'make the locally optimal choice at each step, never revising; correct when the problem has the greedy-choice property; Huffman coding, activity selection, and Dijkstra on non-negative weights are correct; general optimization is not'
-    verifier: 'python'
-    lab: 'python (implement activity selection; compare greedy (earliest-finish) vs. brute-force on n ≤ 20; verify greedy is always optimal via exhaustive check)'
-    play: 'schedule activities [(1,4),(3,5),(0,6),(5,7),(3,9),(5,9),(6,10),(8,11),(8,12),(2,14),(12,16)]; greedy by finish time gives {1,4,5,8,10} (5 activities) — verify it is maximal'
+    defines: make the locally optimal choice at each step, never revising; correct when the
+      problem has the greedy-choice property; Huffman coding, activity selection, and
+      Dijkstra on non-negative weights are correct; general optimization is not
+    verifier: python
+    lab: python (implement activity selection; compare greedy (earliest-finish) vs. brute-force
+      on n ≤ 20; verify greedy is always optimal via exhaustive check)
+    play: schedule activities [(1,4),(3,5),(0,6),(5,7),(3,9),(5,9),(6,10),(8,11),(8,12),(2,14),(12,16)];
+      greedy by finish time gives {1,4,5,8,10} (5 activities) — verify it is maximal
     tier: 3
   bfs:
     composed_of:
     - comparison
     - memory_access
-    defines: 'breadth-first search — explore a graph level by level using a queue; discovers vertices in non-decreasing order of distance from the source; O(V + E); computes shortest paths in unweighted graphs'
-    verifier: 'python'
-    lab: 'python (implement BFS with deque; verify that discovery order is non-decreasing distance; reconstruct shortest path via parent pointers)'
-    play: 'run BFS on a 5×5 grid graph from corner (0,0) to corner (4,4); verify all cells at distance d are discovered before any cell at distance d+1'
+    defines: breadth-first search — explore a graph level by level using a queue; discovers
+      vertices in non-decreasing order of distance from the source; O(V + E); computes shortest
+      paths in unweighted graphs
+    verifier: python
+    lab: python (implement BFS with deque; verify that discovery order is non-decreasing distance;
+      reconstruct shortest path via parent pointers)
+    play: run BFS on a 5×5 grid graph from corner (0,0) to corner (4,4); verify all cells
+      at distance d are discovered before any cell at distance d+1
     tier: 3
   dfs:
     composed_of:
     - recursion
     - memory_access
-    defines: 'depth-first search — explore as far as possible along each branch before backtracking; uses implicit call stack (recursive) or explicit stack; O(V + E); discovers components, topological order, and cycles'
-    verifier: 'python'
-    lab: 'python (implement DFS; detect cycles via back-edge detection; compute topological sort of a DAG; verify output is a valid topological order)'
-    play: 'run DFS on the dependency graph for tasks {A→B, A→C, B→D, C→D}; extract a topological order; verify D comes after both B and C'
+    defines: depth-first search — explore as far as possible along each branch before backtracking;
+      uses implicit call stack (recursive) or explicit stack; O(V + E); discovers components,
+      topological order, and cycles
+    verifier: python
+    lab: python (implement DFS; detect cycles via back-edge detection; compute topological sort
+      of a DAG; verify output is a valid topological order)
+    play: run DFS on the dependency graph for tasks {A→B, A→C, B→D, C→D}; extract a topological
+      order; verify D comes after both B and C
     tier: 3
   dijkstra:
     composed_of:
     - bfs
     - greedy
-    defines: 'single-source shortest paths on a graph with non-negative edge weights; uses a priority_queue (min-heap) to greedily relax edges in order of current distance; O((V+E) log V) with a binary heap; the workhorse of every routing table'
-    verifier: 'python'
-    lab: 'python (implement Dijkstra with heapq; verify shortest distances match bellman_ford on 100 random non-negative-weight graphs; time both on V = 1000, E = 5000)'
-    play: 'shortest path from A to D in the weighted graph A→B(4), A→C(2), B→D(5), C→B(1), C→D(8); trace the heap operations; verify the shortest path is A→C→B→D with cost 8'
+    defines: single-source shortest paths on a graph with non-negative edge weights; uses a
+      priority_queue (min-heap) to greedily relax edges in order of current distance; O((V+E) log V)
+      with a binary heap; the workhorse of every routing table
+    verifier: python
+    lab: python (implement Dijkstra with heapq; verify shortest distances match bellman_ford
+      on 100 random non-negative-weight graphs; time both on V = 1000, E = 5000)
+    play: shortest path from A to D in the weighted graph A→B(4), A→C(2), B→D(5), C→B(1), C→D(8);
+      trace the heap operations; verify the shortest path is A→C→B→D with cost 8
     tier: 4
   dynamic_programming_on_graphs:
     composed_of:
     - dynamic_programming
     - bfs
-    defines: 'shortest-path algorithms on graphs with negative weights (Bellman-Ford) or all-pairs (Floyd-Warshall); Bellman-Ford relaxes all edges V−1 times; Floyd-Warshall is a DP over intermediate vertices; both O(V²E) and O(V³) respectively'
-    verifier: 'python'
-    lab: 'python (implement Bellman-Ford; verify it finds negative cycles and correct distances on 50 random signed-weight graphs; compare with Dijkstra on non-negative cases)'
-    play: 'add a negative edge C→A(−5) to the Dijkstra example above; run Bellman-Ford; verify it detects the negative cycle A→C→A and reports "no finite shortest path"'
+    defines: shortest-path algorithms on graphs with negative weights (Bellman-Ford) or all-pairs
+      (Floyd-Warshall); Bellman-Ford relaxes all edges V−1 times; Floyd-Warshall is a DP over
+      intermediate vertices; both O(V²E) and O(V³) respectively
+    verifier: python
+    lab: python (implement Bellman-Ford; verify it finds negative cycles and correct distances
+      on 50 random signed-weight graphs; compare with Dijkstra on non-negative cases)
+    play: add a negative edge C→A(−5) to the Dijkstra example above; run Bellman-Ford; verify
+      it detects the negative cycle A→C→A and reports "no finite shortest path"
     tier: 5
   sorting_lower_bound:
     composed_of:
     - comparison
     - divide_and_conquer
-    defines: 'any comparison-based sort requires Ω(n log n) comparisons in the worst case — proved by the decision-tree argument: a sort of n elements must distinguish n! orderings; a binary decision tree of depth d has ≤ 2^d leaves; depth ≥ log₂(n!) ∈ Ω(n log n)'
-    verifier: 'sympy'
-    lab: 'sympy (compute log2(factorial(n)) for n=10..20; verify it matches n*log2(n)*0.43..; confirm Stirling approx log(n!) ≈ n log n − n)'
-    play: 'compute math.log2(math.factorial(10)) ≈ 21.8; compare with 10*math.log2(10) ≈ 33.2; the gap shows Stirling''s tightness and why merge_sort''s 10 log₂ 10 ≈ 33 comparisons is nearly optimal'
+    defines: "any comparison-based sort requires Ω(n log n) comparisons in the worst case —
+      proved by the decision-tree argument: a sort of n elements must distinguish n! orderings;
+      a binary decision tree of depth d has ≤ 2^d leaves; depth ≥ log₂(n!) ∈ Ω(n log n)"
+    verifier: sympy
+    lab: sympy (compute log2(factorial(n)) for n=10..20; verify it matches n*log2(n)*0.43..;
+      confirm Stirling approx log(n!) ≈ n log n − n)
+    play: compute math.log2(math.factorial(10)) ≈ 21.8; compare with 10*math.log2(10) ≈ 33.2;
+      the gap shows Stirling's tightness and why merge_sort's 10 log₂ 10 ≈ 33 comparisons
+      is nearly optimal
     tier: 4
 applications:
   route_planning:
     needs:
     - dijkstra
     - dynamic_programming_on_graphs
-    domain: 'navigation / logistics'
-    defines: 'GPS routing and logistics optimization reduce to shortest-path on road networks; Dijkstra for single-query, Floyd-Warshall / DP for precomputed all-pairs tables in dense transit networks'
+    domain: navigation / logistics
+    defines: GPS routing and logistics optimization reduce to shortest-path on road networks;
+      Dijkstra for single-query, Floyd-Warshall / DP for precomputed all-pairs tables in
+      dense transit networks
   search_engine_ranking:
     needs:
     - dynamic_programming
     - greedy
-    domain: 'information retrieval / web search'
-    defines: 'TF-IDF scoring and PageRank are iterative computation (DP-like fixed-point); query-time result selection uses greedy top-k extraction via a heap'
+    domain: information retrieval / web search
+    defines: TF-IDF scoring and PageRank are iterative computation (DP-like fixed-point);
+      query-time result selection uses greedy top-k extraction via a heap
   compiler_optimization:
     needs:
     - dfs
     - dynamic_programming
-    domain: 'compilers / program analysis'
-    defines: 'dead code elimination and constant folding use DFS on the control-flow graph; register allocation and instruction scheduling are DP/graph-coloring problems'
+    domain: compilers / program analysis
+    defines: dead code elimination and constant folding use DFS on the control-flow graph;
+      register allocation and instruction scheduling are DP/graph-coloring problems
   genomic_sequence_alignment:
     needs:
     - dynamic_programming
-    domain: 'bioinformatics'
-    defines: 'Smith-Waterman and Needleman-Wunsch are DP algorithms on the edit-distance matrix; align DNA/protein sequences to find mutations — biological significance maps directly to dynamic_programming''s optimal substructure'
+    domain: bioinformatics
+    defines: Smith-Waterman and Needleman-Wunsch are DP algorithms on the edit-distance matrix;
+      align DNA/protein sequences to find mutations — biological significance maps directly
+      to dynamic_programming's optimal substructure
   compression:
     needs:
     - greedy
     - dynamic_programming
-    domain: 'data compression / storage'
-    defines: 'Huffman coding (greedy, provably optimal prefix-free code) and LZ77/LZ78 (DP over match-length) underlie gzip, zstd, and most codec stacks'
+    domain: data compression / storage
+    defines: Huffman coding (greedy, provably optimal prefix-free code) and LZ77/LZ78 (DP over
+      match-length) underlie gzip, zstd, and most codec stacks

@@ -78,7 +78,8 @@ WORKFLOW build_concept_book
         @output_html TEXT DEFAULT "",
         @output_dir TEXT DEFAULT "",
         @log_dir TEXT DEFAULT 'spl/logs',
-        @skip_cache TEXT DEFAULT 'no'
+        @skip_cache TEXT DEFAULT 'no',
+        @llm TEXT DEFAULT 'claude_cli:claude-sonnet-4-6'
     OUTPUT:
         @textbook TEXT
 DO
@@ -122,7 +123,7 @@ DO
             WHEN = "yes" THEN
                 @section := "miss"
             ELSE
-                CALL cache_get(@concept) INTO @section
+                CALL cache_get(@concept, "v1", f'{{"language":"{@language}","llm":"{@llm}"}}') INTO @section
         END
         CALL concept_label(@concept) INTO @_label
         EVALUATE @section
@@ -150,7 +151,7 @@ DO
                         LOGGING "Content verified" LEVEL INFO
                 END
 
-                CALL cache_put(@concept, @section) INTO @cache_key
+                CALL cache_put(@concept, @section, "", "v1", f'{{"language":"{@language}","llm":"{@llm}"}}') INTO @cache_key
                 LOGGING f"Stored verified section — cache key {@cache_key}" LEVEL INFO
             ELSE
                 LOGGING f"cache HIT for {@concept} — reusing verified section (0 LLM calls)" LEVEL INFO

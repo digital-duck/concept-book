@@ -30,6 +30,7 @@ async def stream_generate(domain_id: str, target: str, level: str = "intro", lan
         "--param", f"language={language}",
         "--param", f"output_dir={output_dir}",
         "--param", f"skip_cache={'yes' if skip_cache else 'no'}",
+        "--param", f"llm={settings.llm}",
     ]
 
     yield {"event": "started", "data": json.dumps({"domain": domain_id, "target": target})}

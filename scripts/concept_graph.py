@@ -192,11 +192,11 @@ def productivity_order(graph: nx.DiGraph, weight: float = 1.0) -> list[str]:
 # ---------------------------------------------------------------------------
 
 _KIND_STYLE = {
-    "primitive": "fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20",
-    "concept": "fill:#e3f2fd,stroke:#1565c0,color:#0d47a1",
-    "application": "fill:#fff3e0,stroke:#ef6c00,color:#e65100",
+    "primitive": "fill:#fffde7,stroke:#795548,color:#4e342e",   # 🌱 seed — warm yellow/brown
+    "concept":   "fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20",   # 🍃 leaf — green
+    "application":"fill:#fce4ec,stroke:#c62828,color:#b71c1c",  # 🌸 flower — light red
 }
-_KIND_FILL = {"primitive": "#e8f5e9", "concept": "#e3f2fd", "application": "#fff3e0"}
+_KIND_FILL = {"primitive": "#fffde7", "concept": "#e8f5e9", "application": "#fce4ec"}
 
 
 def _to_mermaid(graph: nx.DiGraph) -> str:
@@ -261,9 +261,9 @@ def _to_html(graph: nx.DiGraph, domain_name: str = "") -> str:
         kind = attrs.get("kind", "concept")
         tier = attrs.get("tier", 0)
         color_map = {
-            "primitive":   {"background": "#e8f5e9", "border": "#2e7d32"},
-            "concept":     {"background": "#e3f2fd", "border": "#1565c0"},
-            "application": {"background": "#fff3e0", "border": "#ef6c00"},
+            "primitive":   {"background": "#fffde7", "border": "#795548"},  # 🌱 seed
+            "concept":     {"background": "#e8f5e9", "border": "#2e7d32"},  # 🍃 leaf
+            "application": {"background": "#fce4ec", "border": "#c62828"},  # 🌸 flower
         }
         color = color_map.get(kind, color_map["concept"])
         prereqs = attrs.get("composed_of") or attrs.get("needs") or []

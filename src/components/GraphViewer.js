@@ -44,7 +44,7 @@ export function GraphViewer(domain, { level = 'intro', lang = 'en' } = {}) {
       if (books.length > 0 || genConcepts.length > 0) {
         _injectConceptBooksSection(win, frame.contentDocument, domainId, books, genConcepts, level, lang)
       }
-      _injectGenerateSection(win, frame.contentDocument, domainId, capstone, level, lang)
+      _injectGenerateSection(win, frame.contentDocument, domainId, capstone, level, lang, books)
     } catch (_) { /* cross-origin safety */ }
   })
 
@@ -166,7 +166,7 @@ function _injectConceptBooksSection(win, doc, domainId, books, genConcepts, leve
 
 // ── Generate Book section ─────────────────────────────────────────────────────
 
-function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
+function _injectGenerateSection(win, doc, domainId, capstone, level, lang, books = []) {
   const sidebar = doc.querySelector('#path-sidebar')
   const pathHeader = doc.querySelector('#path-header')
   if (!sidebar || !pathHeader || doc.querySelector('#cb-gen')) return
@@ -188,12 +188,21 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
                   color:#666;margin-bottom:6px;font-family:system-ui,sans-serif;cursor:pointer">
       <input type="checkbox" id="cb-skip-cache"> Skip cache
     </label>
-    <button id="cb-gen-btn" disabled
-      style="width:100%;padding:6px 10px;background:#2563eb;color:#fff;
-             border:none;border-radius:5px;font-size:12px;cursor:pointer;
-             font-family:system-ui,sans-serif">
-      Generate
-    </button>
+    <div style="display:flex;gap:6px">
+      <button id="cb-gen-btn" disabled
+        style="flex:1;padding:6px 10px;background:#2563eb;color:#fff;
+               border:none;border-radius:5px;font-size:12px;cursor:pointer;
+               font-family:system-ui,sans-serif">
+        Generate
+      </button>
+      <button id="cb-pdf-btn" disabled
+        style="flex:1;padding:6px 10px;background:#16a34a;color:#fff;
+               border:none;border-radius:5px;font-size:12px;cursor:pointer;
+               font-family:system-ui,sans-serif">
+        PDF
+      </button>
+    </div>
+    <div id="cb-pdf-result" style="display:none;gap:6px;margin-top:6px"></div>
     <div style="position:relative">
       <pre id="cb-gen-log"
         style="display:none;margin-top:8px;font-size:10px;line-height:1.5;
@@ -212,6 +221,8 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
   const sel = div.querySelector('#cb-target-sel')
   const skipCacheChk = div.querySelector('#cb-skip-cache')
   const btn = div.querySelector('#cb-gen-btn')
+  const pdfBtn = div.querySelector('#cb-pdf-btn')
+  const pdfResult = div.querySelector('#cb-pdf-result')
   const log = div.querySelector('#cb-gen-log')
   const copyBtn = div.querySelector('#cb-gen-copy')
 
@@ -235,9 +246,63 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang) {
     sel.appendChild(opt)
   })
 
-  if (sel.value) btn.disabled = false
+  if (sel.value) { btn.disabled = false; pdfBtn.disabled = false }
 
-  sel.addEventListener('change', () => { btn.disabled = !sel.value })
+  sel.addEventListener('change', () => {
+    btn.disabled = !sel.value
+    pdfBtn.disabled = !sel.value
+    pdfBtn.textContent = 'PDF'
+    pdfBtn.style.background = '#16a34a'
+    pdfResult.style.display = 'none'
+    pdfResult.innerHTML = ''
+  })
+
+  pdfBtn.addEventListener('click', async () => {
+    const target = sel.value
+    if (!target) return
+
+    pdfBtn.disabled = true
+    pdfBtn.textContent = 'Generating…'
+    pdfBtn.style.background = '#ea580c'
+
+    try {
+      const url = `/api/pdf?domain=${encodeURIComponent(domainId)}&target=${encodeURIComponent(target)}&level=${encodeURIComponent(level)}&language=${encodeURIComponent(lang)}`
+      const res = await fetch(url)
+      const data = await res.json()
+
+      if (!res.ok) throw new Error(data.detail || 'PDF generation failed')
+
+      const base = import.meta.env.BASE_URL
+      const pdfUrl = `${base}domains/${domainId}/${data.file}`
+
+      pdfBtn.textContent = 'PDF ✓'
+      pdfBtn.disabled = false
+      pdfResult.innerHTML = `
+        <a href="${pdfUrl}" download
+           style="flex:1;padding:6px 10px;background:#16a34a;color:#fff;border:none;
+                  border-radius:5px;font-size:12px;cursor:pointer;text-align:center;
+                  text-decoration:none;font-family:system-ui,sans-serif">
+          ⬇ Download
+        </a>
+        <a href="${pdfUrl}" target="_blank"
+           style="flex:1;padding:6px 10px;background:#0369a1;color:#fff;border:none;
+                  border-radius:5px;font-size:12px;cursor:pointer;text-align:center;
+                  text-decoration:none;font-family:system-ui,sans-serif">
+          ↗ Open
+        </a>
+      `
+      pdfResult.style.display = 'flex'
+    } catch (err) {
+      pdfBtn.textContent = 'Error'
+      pdfBtn.style.background = '#dc2626'
+      pdfBtn.title = err.message
+      setTimeout(() => {
+        pdfBtn.textContent = 'PDF'
+        pdfBtn.style.background = '#16a34a'
+        pdfBtn.disabled = false
+      }, 3000)
+    }
+  })
 
   btn.addEventListener('click', () => {
     const target = sel.value

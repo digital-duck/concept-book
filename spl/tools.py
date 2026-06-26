@@ -271,6 +271,20 @@ def concept_label(concept: str) -> str:
     return concept.replace('_', ' ').title()
 
 
+# 🌱 primitive  🍃 concept  🌸 application
+_KIND_EMOJI: dict[str, str] = {"primitive": "🌱", "concept": "🍃", "application": "🌸"}
+
+
+def _node_kind(concept: str, domain_yaml: str) -> str:
+    """Return 'primitive', 'concept', or 'application' for a node ID."""
+    data = _domain(domain_yaml)["data"]
+    if concept in (data.get("primitives") or {}):
+        return "primitive"
+    if concept in (data.get("applications") or {}):
+        return "application"
+    return "concept"
+
+
 @spl_tool
 def write_concept_html(concept: str, section: str, domain_yaml: str, output_dir: str, language: str = "en") -> str:
     """Write a concept page with sidebar listing sibling concepts."""
@@ -293,14 +307,18 @@ def write_concept_html(concept: str, section: str, domain_yaml: str, output_dir:
     for c in order:
         c_label = _esc(c.replace('_', ' ').title())
         cls = ' class="toc-target"' if c == concept else ''
-        toc_items.append(f'<li{cls}><a href="concept_{c}.html">{c_label}</a></li>')
+        emoji = _KIND_EMOJI[_node_kind(c, domain_yaml)]
+        toc_items.append(f'<li{cls}><a href="concept_{c}.html">{emoji} {c_label}</a></li>')
     toc_html = '<ol>\n' + '\n'.join(toc_items) + '\n</ol>'
+
+    emoji = _KIND_EMOJI[_node_kind(concept, domain_yaml)]
+    section = re.sub(r'^(##\s+)', rf'\1{emoji} ', section, count=1, flags=re.MULTILINE)
 
     html = _render(
         _BOOK_INDEX_TEMPLATE,
         lang_attr=lang_attr,
         domain_title=domain_title,
-        target_title=_esc(label),
+        target_title=f'{emoji} {_esc(label)}',
         back_url=back_url,
         toc=toc_html,
         sections=f'<section>\n{_md_to_html(section)}\n</section>',
@@ -329,7 +347,8 @@ def build_book_index(domain_yaml: str, target: str, language: str, output_dir: s
         label = _esc(concept.replace('_', ' ').title())
         slug = re.sub(r'\W+', '-', concept.lower()).strip('-')
         cls = ' class="toc-target"' if concept == target else ''
-        toc_items.append(f'<li{cls}><a href="#{slug}">{label}</a></li>')
+        emoji = _KIND_EMOJI[_node_kind(concept, domain_yaml)]
+        toc_items.append(f'<li{cls}><a href="#{slug}">{emoji} {label}</a></li>')
         concept_file = out_dir / f"concept_{concept}.html"
         if concept_file.exists():
             raw = concept_file.read_text(encoding="utf-8")
@@ -339,9 +358,10 @@ def build_book_index(domain_yaml: str, target: str, language: str, output_dir: s
             body = f'<h2>{label}</h2><p>(content not generated)</p>'
         sections_html.append(f'<section id="{slug}">\n{body}\n</section>')
 
-    toc_items.append('<li class="toc-target"><a href="#payoff">Payoff</a></li>')
+    toc_items.append('<li class="toc-target"><a href="#payoff">🎯 Payoff</a></li>')
     toc_html = '<ol>\n' + '\n'.join(toc_items) + '\n</ol>'
-    sections_html.append(f'<section id="payoff">\n{_md_to_html(payoff)}\n</section>')
+    payoff_decorated = re.sub(r'^(##\s+Payoff)', r'\1 🎯', payoff, count=1, flags=re.MULTILINE)
+    sections_html.append(f'<section id="payoff">\n{_md_to_html(payoff_decorated)}\n</section>')
 
     domain_id = re.sub(r'(_graph)?\.(ya?ml|json|py)$', '', domain_yaml)
     back_url = f'../../../../#/domain/{domain_id}'
@@ -677,20 +697,24 @@ _BOOK_INDEX_TEMPLATE = """\
 """ + _SHARED_CSS + """
 .page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
 nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
-        background:#1e3a5f;color:#e8f0fe;padding:24px 16px}
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px;
+        display:flex;flex-direction:column}
 nav.toc .back{color:#a8c8f0;margin-bottom:20px}
 nav.toc .back:hover{color:#fff}
 nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
            color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
-nav.toc ol{list-style:decimal inside;padding:0}
+nav.toc ol{list-style:decimal inside;padding:0;flex:1}
 nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
 nav.toc a{color:#a8c8f0;text-decoration:none}
 nav.toc a:hover{color:#fff}
 nav.toc li.toc-target{font-weight:700}
 nav.toc li.toc-target a{color:#fff}
+nav.toc .spl-credit{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);
+                    font-size:11px;color:#90b4e8;font-family:system-ui,sans-serif}
+nav.toc .spl-credit a{color:#a8c8f0;text-decoration:none}
+nav.toc .spl-credit a:hover{color:#fff;text-decoration:underline}
 main{padding:48px 64px;max-width:860px}
-h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:4px}
-.subtitle{color:#666;margin-bottom:48px;font-size:1rem;font-style:italic;font-family:system-ui,sans-serif}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:32px}
 section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
 section:first-of-type{border-top:none;padding-top:0}
 html{scroll-behavior:smooth}
@@ -704,10 +728,10 @@ nav.toc{position:relative;height:auto}}
     <a href="{back_url}" class="back">← {domain_title}</a>
     <h2>Contents</h2>
     {toc}
+    <div class="spl-credit">Generated by <a href="https://github.com/digital-duck/SPL.py" target="_blank">SPL</a></div>
   </nav>
   <main>
     <h1 class="book-title">{target_title}</h1>
-    <p class="subtitle">{domain_title} &middot; Generated by SPL</p>
     {sections}
   </main>
 </div>

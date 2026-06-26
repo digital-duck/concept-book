@@ -2,19 +2,25 @@ domain: sql
 primitives:
   relation:
     symbol: R (named table)
-    defines: 'first radical — a named, unordered set of tuples sharing the same schema; the fundamental data object in relational theory; reducibility stops here within SQL (set theory explains why a bag of tuples works, but that lives below the floor)'
+    defines: first radical — a named, unordered set of tuples sharing the same schema;
+      the fundamental data object in relational theory; reducibility stops here within SQL
+      (set theory explains why a bag of tuples works, but that lives below the floor)
     tier: 0
   tuple:
     symbol: t (row / record)
-    defines: 'first radical — a single, ordered list of attribute values conforming to the relation''s schema; the atomic unit of stored data; a relation is a set of tuples'
+    defines: first radical — a single, ordered list of attribute values conforming to the
+      relation's schema; the atomic unit of stored data; a relation is a set of tuples
     tier: 0
   attribute:
     symbol: A (column / field)
-    defines: 'second radical — a named, typed slot in a tuple; the part of the schema that gives each column its name and domain; joins and projections operate on attributes'
+    defines: second radical — a named, typed slot in a tuple; the part of the schema that
+      gives each column its name and domain; joins and projections operate on attributes
     tier: 0
   domain:
     symbol: D (data type)
-    defines: 'second radical — the set of permissible values for an attribute (INTEGER, TEXT, DATE, BOOLEAN, ...); enforces integrity at the cell level; not reducible to tuple or attribute concepts — it is the type system for relational data'
+    defines: second radical — the set of permissible values for an attribute (INTEGER, TEXT,
+      DATE, BOOLEAN, ...); enforces integrity at the cell level; not reducible to tuple or
+      attribute concepts — it is the type system for relational data
     tier: 0
 first_radical_primitives:
 - relation
@@ -25,132 +31,195 @@ concepts:
     - relation
     - attribute
     - domain
-    defines: 'the structural definition of a relation — the ordered list of (attribute, domain) pairs; the contract every stored tuple must satisfy; CREATE TABLE IS the schema in SQL'
-    verifier: 'python'
-    lab: 'python (define a schema as a dict {col: type}; validate a tuple against it; verify type mismatches are caught)'
-    play: '''define schema {"name": str, "age": int, "email": str}; try inserting ("Alice", "thirty", "a@b.com") and verify the type check fails'''
+    defines: the structural definition of a relation — the ordered list of (attribute, domain)
+      pairs; the contract every stored tuple must satisfy; CREATE TABLE IS the schema in SQL
+    verifier: python
+    lab: "python (define a schema as a dict {col: type}; validate a tuple against it;
+      verify type mismatches are caught)"
+    play: 'define schema {"name": str, "age": int, "email": str}; try inserting ("Alice", "thirty",
+      "a@b.com") and verify the type check fails'
     tier: 1
   projection:
     composed_of:
     - relation
     - attribute
-    defines: 'SELECT A₁, A₂, ... FROM R — extract a subset of columns from every tuple; reduces the width of the relation; the "column filter"; the most frequent clause in any SQL query'
-    verifier: 'python'
-    lab: 'python (implement project(relation, cols); verify output has exactly the requested columns in order; check that duplicate tuples collapse when DISTINCT is applied)'
-    play: '''project employees onto (name, salary); verify the result has 2 columns regardless of how many columns employees has; add DISTINCT and count how deduplication changes row count'''
+    defines: SELECT A₁, A₂, ... FROM R — extract a subset of columns from every tuple;
+      reduces the width of the relation; the "column filter"; the most frequent clause
+      in any SQL query
+    verifier: python
+    lab: python (implement project(relation, cols); verify output has exactly the requested
+      columns in order; check that duplicate tuples collapse when DISTINCT is applied)
+    play: 'project employees onto (name, salary); verify the result has 2 columns regardless
+      of how many columns employees has; add DISTINCT and count how deduplication changes row count'
     tier: 1
   selection:
     composed_of:
     - relation
     - tuple
-    defines: 'SELECT * FROM R WHERE predicate — keep only tuples satisfying a predicate; the "row filter"; reduces the cardinality of the relation; the predicate can reference any attribute or literal'
-    verifier: 'python'
-    lab: 'python (implement select(relation, predicate_fn); verify output is a subset of input tuples; test with =, <, >, LIKE-style matching)'
-    play: 'select employees WHERE salary > 70000; count result rows; verify every returned tuple satisfies the predicate and no qualifying tuple is missing'
+    defines: SELECT * FROM R WHERE predicate — keep only tuples satisfying a predicate;
+      the "row filter"; reduces the cardinality of the relation; the predicate can reference
+      any attribute or literal
+    verifier: python
+    lab: python (implement select(relation, predicate_fn); verify output is a subset of
+      input tuples; test with =, <, >, LIKE-style matching)
+    play: select employees WHERE salary > 70000; count result rows; verify every returned
+      tuple satisfies the predicate and no qualifying tuple is missing
     tier: 1
   rename:
     composed_of:
     - relation
     - attribute
-    defines: 'AS alias — rename a relation or attribute in the query context; resolves ambiguity in self-joins and makes output schemas readable; no data is moved'
-    verifier: 'python'
-    lab: 'python (implement rename(relation, new_name); verify schema reflects new attribute names)'
+    defines: AS alias — rename a relation or attribute in the query context; resolves
+      ambiguity in self-joins and makes output schemas readable; no data is moved
+    verifier: python
+    lab: python (implement rename(relation, new_name); verify schema reflects new attribute names)
     tier: 1
   cartesian_product:
     composed_of:
     - relation
     - tuple
-    defines: 'R × S — combine every tuple of R with every tuple of S; produces |R|×|S| tuples with |R.cols|+|S.cols| attributes; the brute-force combinator from which all joins derive; rarely useful alone but the semantic foundation of JOIN'
-    verifier: 'python'
-    lab: 'python (implement cross_product(R, S); verify output cardinality = |R|*|S|; verify column count = |R.cols|+|S.cols|)'
-    play: 'cross-product a 3-row and 4-row table; verify 12 rows in the result; count redundant combinations — that combinatorial explosion is WHY we add a WHERE predicate'
+    defines: R × S — combine every tuple of R with every tuple of S; produces |R|×|S| tuples
+      with |R.cols|+|S.cols| attributes; the brute-force combinator from which all joins derive;
+      rarely useful alone but the semantic foundation of JOIN
+    verifier: python
+    lab: python (implement cross_product(R, S); verify output cardinality = |R|*|S|;
+      verify column count = |R.cols|+|S.cols|)
+    play: cross-product a 3-row and 4-row table; verify 12 rows in the result; count
+      redundant combinations — that combinatorial explosion is WHY we add a WHERE predicate
     tier: 2
   join:
     composed_of:
     - cartesian_product
     - selection
     - projection
-    defines: 'combine tuples from two relations that satisfy a join condition — INNER JOIN is cartesian_product followed by selection on the join predicate; LEFT/RIGHT/FULL OUTER preserve non-matching rows; the most powerful and most expensive SQL operation'
-    verifier: 'python'
-    lab: 'python (implement nested-loop join; verify output matches cartesian_product followed by selection; compare with hash join performance on large tables)'
-    play: 'join employees (id, name, dept_id) with departments (dept_id, dept_name) ON employees.dept_id = departments.dept_id; verify every result row has matching dept_id values; test that LEFT JOIN preserves employees with no department'
+    defines: combine tuples from two relations that satisfy a join condition — INNER JOIN
+      is cartesian_product followed by selection on the join predicate; LEFT/RIGHT/FULL OUTER
+      preserve non-matching rows; the most powerful and most expensive SQL operation
+    verifier: python
+    lab: python (implement nested-loop join; verify output matches cartesian_product followed
+      by selection; compare with hash join performance on large tables)
+    play: join employees (id, name, dept_id) with departments (dept_id, dept_name) ON
+      employees.dept_id = departments.dept_id; verify every result row has matching dept_id
+      values; test that LEFT JOIN preserves employees with no department
     tier: 3
   aggregate:
     composed_of:
     - relation
     - tuple
-    defines: 'GROUP BY + aggregate functions (COUNT, SUM, AVG, MIN, MAX) — partition tuples into groups by group-key values, then reduce each group to one output tuple; the mechanism for summary statistics; HAVING filters after aggregation (WHERE filters before)'
-    verifier: 'python'
-    lab: 'python (implement group_by(relation, key_cols, agg_fns); verify output has one row per distinct key combination; test COUNT(*), SUM, AVG on a numeric column)'
-    play: 'compute average salary by department; verify COUNT(*) per group sums to total rows; add HAVING AVG(salary) > 60000 and verify the filter applies to group-level values'
+    defines: GROUP BY + aggregate functions (COUNT, SUM, AVG, MIN, MAX) — partition tuples
+      into groups by group-key values, then reduce each group to one output tuple;
+      the mechanism for summary statistics; HAVING filters after aggregation (WHERE filters before)
+    verifier: python
+    lab: python (implement group_by(relation, key_cols, agg_fns); verify output has one row
+      per distinct key combination; test COUNT(*), SUM, AVG on a numeric column)
+    play: compute average salary by department; verify COUNT(*) per group sums to total rows;
+      add HAVING AVG(salary) > 60000 and verify the filter applies to group-level values
     tier: 3
   subquery:
     composed_of:
     - selection
     - projection
     - aggregate
-    defines: 'a complete SELECT statement nested inside another query — in WHERE (correlated or uncorrelated), FROM (derived table), or SELECT (scalar subquery); composability is the hallmark of relational algebra made concrete'
-    verifier: 'python'
-    lab: 'python (implement a correlated subquery evaluator; verify it produces the same result as the equivalent join; compare performance — correlated subqueries re-execute once per outer row)'
-    play: '''SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees); implement as a Python subquery and as a join with the precomputed average; verify identical results'''
+    defines: a complete SELECT statement nested inside another query — in WHERE (correlated
+      or uncorrelated), FROM (derived table), or SELECT (scalar subquery); composability
+      is the hallmark of relational algebra made concrete
+    verifier: python
+    lab: python (implement a correlated subquery evaluator; verify it produces the same result
+      as the equivalent join; compare performance — correlated subqueries re-execute once per
+      outer row)
+    play: 'SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);
+      implement as a Python subquery and as a join with the precomputed average; verify identical results'
     tier: 4
   index:
     composed_of:
     - relation
     - attribute
     - domain
-    defines: 'an auxiliary data structure (B-tree or hash) on one or more attributes that enables the query engine to skip a full table scan for selection and join predicates; CREATE INDEX trades write overhead and storage for O(log n) or O(1) lookup; the single biggest practical performance lever'
-    verifier: 'python'
-    lab: 'python (implement a simple B-tree index on a list of (key, row_id) pairs; compare scan vs. index lookup time for n = 10⁴, 10⁵, 10⁶; plot log-linear vs. linear scaling)'
-    play: 'create an index on employees.salary; time SELECT * WHERE salary = 75000 with and without the index on 10⁶ rows; measure the speedup factor'
+    defines: an auxiliary data structure (B-tree or hash) on one or more attributes that
+      enables the query engine to skip a full table scan for selection and join predicates;
+      CREATE INDEX trades write overhead and storage for O(log n) or O(1) lookup;
+      the single biggest practical performance lever
+    verifier: python
+    lab: python (implement a simple B-tree index on a list of (key, row_id) pairs; compare
+      scan vs. index lookup time for n = 10⁴, 10⁵, 10⁶; plot log-linear vs. linear scaling)
+    play: create an index on employees.salary; time SELECT * WHERE salary = 75000 with and
+      without the index on 10⁶ rows; measure the speedup factor
     tier: 3
   transaction:
     composed_of:
     - relation
     - tuple
-    defines: 'a sequence of SQL statements treated as a single atomic unit — either all commit (COMMIT) or all roll back (ROLLBACK); guaranteed to satisfy ACID (Atomicity, Consistency, Isolation, Durability); the mechanism that makes concurrent multi-statement updates safe'
-    verifier: 'python'
-    lab: 'python (implement a simple two-phase commit simulation; inject a failure mid-transaction and verify rollback restores original state; verify isolation by interleaving two transactions)'
-    play: 'transfer $100 from account A to account B — debit A, credit B; simulate a crash after the debit; verify rollback prevents A losing $100 with no corresponding credit to B'
+    defines: a sequence of SQL statements treated as a single atomic unit — either all commit
+      (COMMIT) or all roll back (ROLLBACK); guaranteed to satisfy ACID (Atomicity, Consistency,
+      Isolation, Durability); the mechanism that makes concurrent multi-statement updates safe
+    verifier: python
+    lab: python (implement a simple two-phase commit simulation; inject a failure mid-transaction
+      and verify rollback restores original state; verify isolation by interleaving two transactions)
+    play: transfer $100 from account A to account B — debit A, credit B; simulate a crash
+      after the debit; verify rollback prevents A losing $100 with no corresponding credit to B
     tier: 4
   normalization:
     composed_of:
     - relation
     - attribute
     - schema
-    defines: 'the decomposition of a relation into smaller relations to eliminate redundancy and update anomalies — 1NF (atomic values), 2NF (no partial dependencies), 3NF (no transitive dependencies), BCNF (every determinant is a key); the formal theory of "what belongs in which table"'
-    verifier: 'python'
-    lab: 'python (given a relation and functional dependencies, compute closure of a key; identify 2NF/3NF violations; implement a BCNF decomposition algorithm and verify lossless join and dependency preservation)'
-    play: '''normalize Orders(order_id, product_id, product_name, customer_id, customer_city); identify that product_name depends on product_id (not the full key) and customer_city depends on customer_id; decompose to 3NF and verify no redundancy remains'''
+    defines: the decomposition of a relation into smaller relations to eliminate redundancy
+      and update anomalies — 1NF (atomic values), 2NF (no partial dependencies), 3NF (no
+      transitive dependencies), BCNF (every determinant is a key); the formal theory of
+      "what belongs in which table"
+    verifier: python
+    lab: python (given a relation and functional dependencies, compute closure of a key;
+      identify 2NF/3NF violations; implement a BCNF decomposition algorithm and verify
+      lossless join and dependency preservation)
+    play: 'normalize Orders(order_id, product_id, product_name, customer_id, customer_city);
+      identify that product_name depends on product_id (not the full key) and customer_city
+      depends on customer_id; decompose to 3NF and verify no redundancy remains'
     tier: 4
   view:
     composed_of:
     - projection
     - selection
     - join
-    defines: 'a named, stored SELECT query that appears to users as a relation — virtual table; provides abstraction (hide complex joins), access control (expose only needed columns), and logical independence (schema changes behind the view need not break applications)'
-    verifier: 'python'
-    lab: 'python (implement a View class wrapping a query function; verify it re-executes on each access like a virtual table; test that filtering a view is equivalent to adding the filter to the underlying query)'
-    play: 'create a view high_earners AS SELECT name, salary FROM employees WHERE salary > 80000; query it like a table; verify the underlying employees table is unchanged; count rows in the view vs. the full table'
+    defines: a named, stored SELECT query that appears to users as a relation — virtual table;
+      provides abstraction (hide complex joins), access control (expose only needed columns),
+      and logical independence (schema changes behind the view need not break applications)
+    verifier: python
+    lab: python (implement a View class wrapping a query function; verify it re-executes on
+      each access like a virtual table; test that filtering a view is equivalent to adding
+      the filter to the underlying query)
+    play: create a view high_earners AS SELECT name, salary FROM employees WHERE salary > 80000;
+      query it like a table; verify the underlying employees table is unchanged; count rows
+      in the view vs. the full table
     tier: 4
   window_function:
     composed_of:
     - aggregate
     - join
-    defines: 'compute an aggregate over a sliding "window" of related rows without collapsing them — PARTITION BY + ORDER BY + frame clause; enables running totals, rankings, moving averages; unlike GROUP BY, the individual tuple is preserved in the output'
-    verifier: 'python'
-    lab: 'python (implement RANK() OVER (PARTITION BY dept ORDER BY salary DESC); verify rank values within each partition; compare with equivalent self-join / correlated subquery formulation)'
-    play: 'compute each employee''s salary rank within their department; verify the highest-paid in each department gets rank 1; test DENSE_RANK vs. RANK for tied salaries'
+    defines: compute an aggregate over a sliding "window" of related rows without collapsing
+      them — PARTITION BY + ORDER BY + frame clause; enables running totals, rankings, moving
+      averages; unlike GROUP BY, the individual tuple is preserved in the output
+    verifier: python
+    lab: python (implement RANK() OVER (PARTITION BY dept ORDER BY salary DESC);
+      verify rank values within each partition; compare with equivalent self-join / correlated
+      subquery formulation)
+    play: compute each employee's salary rank within their department; verify the highest-paid
+      in each department gets rank 1; test DENSE_RANK vs. RANK for tied salaries
     tier: 5
   query_plan:
     composed_of:
     - join
     - selection
     - index
-    defines: 'the sequence of relational operators the query optimizer chooses to execute a SQL statement — join order, index usage, sort vs. hash aggregation; EXPLAIN reveals it; the optimizer''s job is to find the lowest-cost plan among the (n-1)! join orderings for n tables'
-    verifier: 'python'
-    lab: 'python (implement a cost-model estimator: estimate rows after selection using selectivity; estimate join cost as nested-loop vs. hash-join; choose the cheaper plan)'
-    play: 'for a 3-table join, enumerate all 6 join orderings; assign random row counts and join selectivities; verify the cost model picks the ordering with the smallest intermediate result'
+    defines: the sequence of relational operators the query optimizer chooses to execute a SQL
+      statement — join order, index usage, sort vs. hash aggregation; EXPLAIN reveals it;
+      the optimizer's job is to find the lowest-cost plan among the (n-1)! join orderings
+      for n tables
+    verifier: python
+    lab: "python (implement a cost-model estimator: estimate rows after selection using
+      selectivity; estimate join cost as nested-loop vs. hash-join; choose the cheaper plan)"
+    play: for a 3-table join, enumerate all 6 join orderings; assign random row counts and
+      join selectivities; verify the cost model picks the ordering with the smallest
+      intermediate result
     tier: 5
 applications:
   analytics_dashboards:
@@ -158,31 +227,41 @@ applications:
     - aggregate
     - window_function
     - view
-    domain: 'business intelligence / reporting'
-    defines: 'summary metrics (revenue by quarter, user retention by cohort) are GROUP BY + aggregate queries; trends are window_function moving averages; dashboards query views that pre-join the star schema'
+    domain: business intelligence / reporting
+    defines: summary metrics (revenue by quarter, user retention by cohort) are GROUP BY +
+      aggregate queries; trends are window_function moving averages; dashboards query views
+      that pre-join the star schema
   web_application_backend:
     needs:
     - join
     - transaction
     - index
-    domain: 'web services / APIs'
-    defines: 'every user profile page is a join (user + settings + preferences); every checkout is a transaction (debit inventory, create order, charge payment); every search is an indexed selection'
+    domain: web services / APIs
+    defines: every user profile page is a join (user + settings + preferences); every checkout
+      is a transaction (debit inventory, create order, charge payment); every search is an
+      indexed selection
   data_warehouse:
     needs:
     - normalization
     - aggregate
     - query_plan
-    domain: 'data engineering / OLAP'
-    defines: 'normalized OLTP data is denormalized into star schemas for analytics; columnar storage and vectorized aggregate execution make GROUP BY on billions of rows feasible; the query planner chooses among parallel scan strategies'
+    domain: data engineering / OLAP
+    defines: normalized OLTP data is denormalized into star schemas for analytics;
+      columnar storage and vectorized aggregate execution make GROUP BY on billions of rows
+      feasible; the query planner chooses among parallel scan strategies
   full_text_search:
     needs:
     - index
     - selection
-    domain: 'document retrieval / search'
-    defines: 'an inverted index (token → list of row ids) is a specialized index that supports LIKE / text-match predicates in O(|results|) rather than O(n); the foundation of every search box backed by a database'
+    domain: document retrieval / search
+    defines: an inverted index (token → list of row ids) is a specialized index that supports
+      LIKE / text-match predicates in O(|results|) rather than O(n); the foundation of every
+      search box backed by a database
   event_sourcing:
     needs:
     - transaction
     - subquery
-    domain: 'distributed systems / audit logs'
-    defines: 'every state change is appended as an immutable tuple (event log); current state is a subquery that aggregates the log; transactions guarantee no event is lost or duplicated; the pattern that makes undo/replay possible at the system level'
+    domain: distributed systems / audit logs
+    defines: every state change is appended as an immutable tuple (event log); current state
+      is a subquery that aggregates the log; transactions guarantee no event is lost or duplicated;
+      the pattern that makes undo/replay possible at the system level

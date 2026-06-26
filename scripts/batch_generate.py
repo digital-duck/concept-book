@@ -111,6 +111,7 @@ def _run_spl3(
         "--param", f"language={language}",
         "--param", f"output_dir={output_dir}",
         "--param", f"skip_cache={'yes' if skip_cache else 'no'}",
+        "--param", f"llm={llm}",
     ]
 
     result = subprocess.run(cmd, cwd=str(spl_dir))
