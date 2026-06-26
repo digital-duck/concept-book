@@ -1,3 +1,5 @@
+> **Archived 2026-06-25.** Original implementation scratchpad from 2026-06-13. Design decisions and principles have been absorbed into [`docs/DEV/readme-design.md`](readme-design.md), which is now the single source of truth.
+
 # concept-book — Web App Implementation Plan
 
 > Started 2026-06-13.  

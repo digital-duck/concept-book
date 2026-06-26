@@ -122,11 +122,17 @@ The attribution is displayed in ConceptBook's domain page header.
 
 | Source | License | Subjects | Format | Priority |
 |--------|---------|----------|--------|----------|
-| OpenStax | CC BY 4.0 | 50+ textbooks (physics, bio, chem, econ, etc.) | PDF | High |
-| MIT OCW | CC BY-NC-SA | 2500+ courses | PDF/HTML | High |
-| Open Textbook Library | Various CC | 1000+ textbooks | PDF/HTML | Medium |
-| CK-12 | CC BY-NC | K-12 STEM | HTML | Medium |
-| NCERT (India) | Govt/open | K-12 all subjects | PDF | Medium |
+| [OpenStax](https://openstax.org) | CC BY 4.0 | 50+ textbooks (physics, bio, chem, econ, etc.) | PDF | High |
+| [MIT OCW](https://ocw.mit.edu) | CC BY-NC-SA | 2500+ courses | PDF/HTML | High |
+| [Open Textbook Library](https://open.umn.edu/opentextbooks) | Various CC | 1000+ textbooks | PDF/HTML | Medium |
+| [CK-12](https://www.ck12.org) | CC BY-NC | K-12 STEM | HTML | Medium |
+| [NCERT (India)](https://ncert.nic.in) | Govt/open | K-12 all subjects | PDF | Medium |
+
+**Discovery tool** (aggregator — links to original sources, does not host content directly):
+
+| Tool | Coverage | Use |
+|------|----------|-----|
+| [OER Commons](https://www.oercommons.org/hubs/open-textbooks) | K-12 + university, cross-subject, indexes OpenStax / MIT OCW / MERLOT and hundreds more | Search and filter by subject, grade level, and license before pulling from the original source; license varies per item — filter for CC BY or CC BY-SA before ingesting |
 
 ## Next Steps
 

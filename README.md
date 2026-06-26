@@ -6,6 +6,10 @@ Pick a domain, click any concept node, see the exact learning path, and generate
 
 ---
 
+> **Design details** — level profiles, language input, output directory layout, API events: [`docs/DEV/readme-design.md`](docs/DEV/readme-design.md)
+
+---
+
 ## Architecture
 
 ```

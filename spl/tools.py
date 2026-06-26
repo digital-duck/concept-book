@@ -129,6 +129,81 @@ def get_level_guide(level: str) -> str:
     return lp.level_instruction(level)  # type: ignore[attr-defined]
 
 
+# ── Answer-on-demand (personalised learning path) ────────────────────────────
+
+def _ensure_domain(domain_yaml: str) -> dict:
+    """Load, validate, and cache a domain graph without computing a teaching order.
+
+    Used by answer_on_demand tools so they don't depend on setup_domain being
+    called first. If setup_domain was already called the richer cache entry is
+    reused as-is.
+    """
+    if domain_yaml not in _DOMAIN_CACHE:
+        gl = _cb_module("graph_lib")
+        data = gl.load_domain(domain_yaml)  # type: ignore[attr-defined]
+        graph = gl.build(data)  # type: ignore[attr-defined]
+        primitives = list(data.get("primitives", {}).keys())
+        if not gl.acyclic(graph):  # type: ignore[attr-defined]
+            raise ValueError(f"Domain graph '{domain_yaml}' has cycles — fix the YAML before generating")
+        if not gl.reducible(graph, primitives):  # type: ignore[attr-defined]
+            raise ValueError(f"Domain graph '{domain_yaml}' has concepts that don't reduce to primitives")
+        _DOMAIN_CACHE[domain_yaml] = {
+            "gl": gl, "data": data, "graph": graph,
+            "primitives": primitives,
+            "order": [], "target": None, "apps": [],
+        }
+    return _DOMAIN_CACHE[domain_yaml]
+
+
+@spl_tool
+def concept_names_list(domain_yaml: str) -> str:
+    """Return all learnable node names (primitives + concepts) as a newline-separated list.
+
+    Loads and validates the domain if not already cached; safe to call before setup_domain.
+    """
+    cache = _ensure_domain(domain_yaml)
+    data = cache["data"]
+    names = (
+        list(data.get("primitives", {}).keys()) +
+        list(data.get("concepts", {}).keys())
+    )
+    return "\n".join(names)
+
+
+@spl_tool
+def in_graph(domain_yaml: str, target: str) -> str:
+    """Return 'yes' if target is a node in the domain graph, '' otherwise.
+
+    Returns '' (falsy) on miss so ASSERT in_graph(...) OTHERWISE ... works correctly.
+    """
+    cache = _ensure_domain(domain_yaml)
+    return "yes" if target in cache["graph"] else ""
+
+
+@spl_tool
+def setup_answer_path(domain_yaml: str, target: str, learner_state_json: str = "[]") -> str:
+    """Compute the personalised learning gap for target given the learner's known concepts.
+
+    learner_state_json: JSON array of concept IDs the learner already knows (e.g. '["vector_addition"]').
+    Stores the prerequisite sequence (excluding target itself) under cache['answer_order'].
+    Returns the gap length as a string integer.
+    """
+    import json
+    cache = _ensure_domain(domain_yaml)
+    gl = cache["gl"]
+    graph = cache["graph"]
+    known: set[str] = set(json.loads(learner_state_json)) if learner_state_json and learner_state_json != "[]" else set()
+    path = gl.learning_path(graph, target, known)  # type: ignore[attr-defined]
+    cache["answer_order"] = [c for c in path if c != target]
+    return str(len(cache["answer_order"]))
+
+
+@spl_tool
+def answer_path_item(domain_yaml: str, index: str) -> str:
+    """Return the concept at position index in the personalised learning gap."""
+    return _domain(domain_yaml)["answer_order"][int(index)]
+
+
 # ── File utilities ───────────────────────────────────────────────────────────
 
 @spl_tool
