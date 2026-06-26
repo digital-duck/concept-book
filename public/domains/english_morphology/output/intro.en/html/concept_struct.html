@@ -101,13 +101,13 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="struct">🍃 Struct</h2>
 <p>Imagine you are describing a video game character: they have a name, a health value, and an inventory that holds weapons. If we just used separate variables—like <code>char_name</code>, <code>char_health</code>, etc.—it would be easy to accidentally mix up which piece of data belongs to which character! A $\text{struct}$ (short for structure) solves this by allowing you to bundle related pieces of data together into a single, cohesive unit.</p>
-<p>Picture this: Instead of treating the name, health, and inventory as three separate things floating in your program, you create one custom container—a blueprint—called <code>Character</code>. This new type is designed specifically to hold all those attributes (we call these attributes <strong>fields</strong>). Now, when you create a character instance, you know that <em>everything</em> related to that character lives neatly inside the <code>Character</code> structure.</p>
+<p>Picture this: Instead of treating the name, health, and inventory as three separate things floating in your program, you create one custom container—a blueprint—called <code>Character</code>. This new type is designed specifically to hold all those attributes (we call these attributes <strong>fields</strong>). Now, when you create a character instance, you know that *everything* related to that character lives neatly inside the <code>Character</code> structure.</p>
 <p>The simple rule is this: Use a $\text{struct}$ whenever you have multiple variables that naturally belong together as one logical entity. It allows us to manage complexity by grouping related data under a single name. For example, we might define it like this (using pseudocode):</p>
 $$ \text{struct } \text{Point} \{ $$
 $$\quad \text{int } x; \quad (\text{The horizontal position})$$
 $$\quad \text{int } y; \quad (\text{The vertical position})$$
 $$\} $$
-<p>This blueprint means that any variable of type $\text{Point}$ <em>must</em> contain both an $x$ and a $y$. Try it yourself by thinking about coordinates on a map. If you know the latitude ($\text{lat}$)</p>
+<p>This blueprint means that any variable of type $\text{Point}$ *must* contain both an $x$ and a $y$. Try it yourself by thinking about coordinates on a map. If you know the latitude ($\text{lat}$)</p>
 </section>
   </main>
 </div>

@@ -79,14 +79,14 @@ nav.toc{position:relative;height:auto}}
 <h1 class="book-title">🌱 Physical Quantity</h1>
     <section>
 <h2 id="physical-quantity">🌱 Physical Quantity</h2>
-<p>When a doctor says your temperature is $38.5$, you immediately ask: <em>Celsius or Fahrenheit?</em> The number alone is meaningless — it only becomes information when paired with a unit. That pairing is exactly what physicists call a <strong>physical quantity</strong>.</p>
-<p><strong>Definition.</strong> A <em>physical quantity</em> is an ordered pair</p>
+<p>When a doctor says your temperature is $38.5$, you immediately ask: *Celsius or Fahrenheit?* The number alone is meaningless — it only becomes information when paired with a unit. That pairing is exactly what physicists call a <strong>physical quantity</strong>.</p>
+<p><strong>Definition.</strong> A *physical quantity* is an ordered pair</p>
 $$Q = \{n,\ [Q]\}$$
-<p>where $n \in \mathbb{R}$ is the <em>numerical value</em> and $[Q]$ is the <em>unit</em> (or <em>dimension</em>). Two physical quantities are equal if and only if they share the same dimension and their numerical values agree after unit conversion. Formally, length, mass, time, electric current, temperature, amount of substance, and luminous intensity are the seven <em>base quantities</em> of the International System (SI); all others are derived from these by multiplication and division.</p>
+<p>where $n \in \mathbb{R}$ is the *numerical value* and $[Q]$ is the *unit* (or *dimension*). Two physical quantities are equal if and only if they share the same dimension and their numerical values agree after unit conversion. Formally, length, mass, time, electric current, temperature, amount of substance, and luminous intensity are the seven *base quantities* of the International System (SI); all others are derived from these by multiplication and division.</p>
 <p><strong>Worked example.</strong> A car travels $d = 90\ \text{km}$ in $t = 1.5\ \text{h}$. Its average speed is</p>
 $$v = \frac{d}{t} = \frac{90\ \text{km}}{1.5\ \text{h}} = 60\ \frac{\text{km}}{\text{h}}.$$
-<p>Speed is a <em>derived</em> quantity whose dimension is $[v] = \frac{[L]}{[T]}$, length divided by time. Converting to SI base units: $60\ \text{km h}^{-1} = \frac{60 \times 10^{3}\ \text{m}}{3600\ \text{s}} \approx 16.7\ \text{m s}^{-1}$.</p>
-<p><strong>Why this structure matters.</strong> Every valid physical equation must be <em>dimensionally homogeneous</em>: each additive term must carry the same dimension. This is not a convention — it follows from the requirement that physical laws hold regardless of the unit system chosen. Checking dimensional consistency is therefore a fast, algebra-free way to detect errors before any numerical work begins.</p>
+<p>Speed is a *derived* quantity whose dimension is $[v] = \frac{[L]}{[T]}$, length divided by time. Converting to SI base units: $60\ \text{km h}^{-1} = \frac{60 \times 10^{3}\ \text{m}}{3600\ \text{s}} \approx 16.7\ \text{m s}^{-1}$.</p>
+<p><strong>Why this structure matters.</strong> Every valid physical equation must be *dimensionally homogeneous*: each additive term must carry the same dimension. This is not a convention — it follows from the requirement that physical laws hold regardless of the unit system chosen. Checking dimensional consistency is therefore a fast, algebra-free way to detect errors before any numerical work begins.</p>
 <p><strong>Practice problem.</strong> The kinetic energy of a body is $E_k = \tfrac{1}{2}mv^2$. Verify that $[E_k] = \text{kg}\cdot\text{m}^2\cdot\text{s}^{-2}$, and confirm this is equivalent to the SI unit of energy, the joule ($1\ \text{J} = 1\ \text{kg}\cdot\text{m}^2\cdot\text{s}^{-2}$).</p>
 </section>
 </section>
@@ -95,10 +95,10 @@ $$v = \frac{d}{t} = \frac{90\ \text{km}}{1.5\ \text{h}} = 60\ \frac{\text{km}}{\
     <section>
 <h2 id="precision">🍃 Precision</h2>
 <p>A surgeon doesn't just aim for the right organ — they aim for the exact spot. A weather model doesn't just predict "rain" — it predicts 14.2 mm by 3 p.m. In mathematics, <strong>precision</strong> captures this same idea: how close your approximations or measurements cluster around each other, independent of whether they're close to the truth.</p>
-<p><strong>Definition.</strong> Let $\hat{x}_1, \hat{x}_2, \ldots, \hat{x}_n$ be repeated estimates of some quantity. Precision measures the <em>spread</em> of these estimates, commonly quantified by the sample standard deviation:</p>
+<p><strong>Definition.</strong> Let $\hat{x}_1, \hat{x}_2, \ldots, \hat{x}_n$ be repeated estimates of some quantity. Precision measures the *spread* of these estimates, commonly quantified by the sample standard deviation:</p>
 $$s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(\hat{x}_i - \bar{x})^2}$$
 <p>where $\bar{x} = \frac{1}{n}\sum_{i=1}^n \hat{x}_i$ is their mean. High precision corresponds to small $s$; low precision to large $s$.</p>
-<p><strong>Worked example.</strong> A lab measures a rod of true length $10.00$ cm three times, obtaining $\{9.97,\ 9.96,\ 9.98\}$ cm. Their mean is $\bar{x} = 9.97$ cm and their standard deviation is approximately $s \approx 0.01$ cm — very small, so the measurements are <em>highly precise</em>. Notice the estimates are consistently about $0.03$ cm below the true value; that systematic shift is <strong>bias</strong>, not imprecision. Precision and accuracy are distinct.</p>
+<p><strong>Worked example.</strong> A lab measures a rod of true length $10.00$ cm three times, obtaining $\{9.97,\ 9.96,\ 9.98\}$ cm. Their mean is $\bar{x} = 9.97$ cm and their standard deviation is approximately $s \approx 0.01$ cm — very small, so the measurements are *highly precise*. Notice the estimates are consistently about $0.03$ cm below the true value; that systematic shift is <strong>bias</strong>, not imprecision. Precision and accuracy are distinct.</p>
 <p><strong>Why it's true.</strong> Precision depends only on the internal consistency of a measurement process. Random noise in instruments causes scatter; if that noise is small and symmetric, repeated measurements cluster tightly. The variance $s^2$ accumulates squared deviations, so even one outlier inflates it sharply — making the standard deviation a sensitive detector of inconsistency.</p>
 <p><strong>Practice problem.</strong> A sensor reports temperatures $\{22.1,\ 22.0,\ 21.9,\ 22.2,\ 22.0\}°C$. Compute $\bar{x}$ and $s$. If the true temperature is $25.0°C$, is this sensor precise? Is it accurate? Explain the difference in one sentence.</p>
 </section>
@@ -107,10 +107,10 @@ $$s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(\hat{x}_i - \bar{x})^2}$$
 <h1 class="book-title">🍃 Uncertainty</h1>
     <section>
 <h2 id="uncertainty">🍃 Uncertainty</h2>
-<p>When a weather app says there is a 70% chance of rain tomorrow, it is not admitting ignorance — it is <em>quantifying</em> ignorance. That number encodes everything the model knows and everything it does not. Uncertainty is not the absence of knowledge; it is knowledge about the limits of knowledge.</p>
+<p>When a weather app says there is a 70% chance of rain tomorrow, it is not admitting ignorance — it is *quantifying* ignorance. That number encodes everything the model knows and everything it does not. Uncertainty is not the absence of knowledge; it is knowledge about the limits of knowledge.</p>
 <p><strong>Definition.</strong> Given a discrete random variable $X$ taking values in $\{x_1, x_2, \ldots, x_n\}$ with probability mass function $p(x_i) = P(X = x_i)$, the <strong>Shannon entropy</strong> measures the uncertainty of $X$:</p>
 $$H(X) = -\sum_{i=1}^{n} p(x_i) \log_2 p(x_i)$$
-<p>$H(X)$ is measured in <em>bits</em>. A larger value means more uncertainty; knowing the outcome gives you more information.</p>
+<p>$H(X)$ is measured in *bits*. A larger value means more uncertainty; knowing the outcome gives you more information.</p>
 <p><strong>Worked example.</strong> Suppose you flip a fair coin: $P(\text{heads}) = P(\text{tails}) = \tfrac{1}{2}$. Then</p>
 $$H(X) = -\tfrac{1}{2}\log_2\tfrac{1}{2} - \tfrac{1}{2}\log_2\tfrac{1}{2} = -2\left(\tfrac{1}{2}\cdot(-1)\right) = 1 \text{ bit}.$$
 <p>Now suppose the coin is biased: $P(\text{heads}) = 0.9$, $P(\text{tails}) = 0.1$. Then</p>
@@ -124,12 +124,12 @@ $$H(X) = -0.9\log_2 0.9 - 0.1\log_2 0.1 \approx 0.137 + 0.332 = 0.469 \text{ bit
 <h1 class="book-title">🍃 Order Of Magnitude</h1>
     <section>
 <h2 id="order-of-magnitude">🍃 Order Of Magnitude</h2>
-<p>How far is the Sun from Earth? About 150 million kilometers. How wide is a hydrogen atom? About 0.0000000001 meters. These two numbers differ by so many zeros that comparing them directly feels meaningless — yet scientists work with both comfortably every day. The secret is <em>order of magnitude</em>: a way of measuring scale in powers of ten.</p>
-<p><strong>Definition.</strong> The <em>order of magnitude</em> of a positive real number $x$ is the integer $n$ such that</p>
+<p>How far is the Sun from Earth? About 150 million kilometers. How wide is a hydrogen atom? About 0.0000000001 meters. These two numbers differ by so many zeros that comparing them directly feels meaningless — yet scientists work with both comfortably every day. The secret is *order of magnitude*: a way of measuring scale in powers of ten.</p>
+<p><strong>Definition.</strong> The *order of magnitude* of a positive real number $x$ is the integer $n$ such that</p>
 $$10^{n - \tfrac{1}{2}} \leq x < 10^{n + \tfrac{1}{2}},$$
 <p>or equivalently, $n = \lfloor \log_{10} x + 0.5 \rfloor$. Informally, $n$ is the exponent when $x$ is written in scientific notation and the leading coefficient is rounded to the nearest power of ten.</p>
 <p><strong>Worked example.</strong> Consider $x = 4{,}700$. Write it in scientific notation: $4.7 \times 10^3$. Since $4.7 \approx 10^{0.67}$, we get $\log_{10}(4700) \approx 3.67$. Rounding to the nearest integer gives $n = 4$. So $4{,}700$ is of order of magnitude $10^4$ — the same order as $50{,}000$ but one order below $100{,}000$. Contrast: $500$ has $\log_{10}(500) \approx 2.70$, so it rounds to $n = 3$, one full order of magnitude smaller.</p>
-<p><strong>Why it works.</strong> The logarithm converts multiplication into addition: $\log_{10}(10^a \cdot 10^b) = a + b$. This means ratios become differences, and a difference of $1$ in the exponent corresponds to a factor of $10$ in the original quantity. Grouping numbers by their rounded exponent therefore clusters values that are "within a factor of $\sim\!3$" of each other — a natural notion of <em>same scale</em>.</p>
+<p><strong>Why it works.</strong> The logarithm converts multiplication into addition: $\log_{10}(10^a \cdot 10^b) = a + b$. This means ratios become differences, and a difference of $1$ in the exponent corresponds to a factor of $10$ in the original quantity. Grouping numbers by their rounded exponent therefore clusters values that are "within a factor of $\sim\!3$" of each other — a natural notion of *same scale*.</p>
 <p><strong>Practice problem.</strong> The speed of light is approximately $3 \times 10^8\ \text{m/s}$, and the speed of sound in air is approximately $340\ \text{m/s}$. By how many orders of magnitude is light faster than sound?</p>
 </section>
 </section>
@@ -138,16 +138,16 @@ $$10^{n - \tfrac{1}{2}} \leq x < 10^{n + \tfrac{1}{2}},$$
     <section>
 <h2 id="significant-figures">🍃 Significant Figures</h2>
 <p>A pharmacist measures a dose as 2.4 mg, not 2.400000 mg. That restraint is not laziness — it is honesty about measurement precision. <strong>Significant figures</strong> (sig figs) encode exactly how much information a number actually carries.</p>
-<p><strong>Definition.</strong> The significant figures of a measured or computed number are all digits that are <em>known with certainty</em> plus one final digit that is estimated. The count $n$ of significant figures follows four rules:</p>
+<p><strong>Definition.</strong> The significant figures of a measured or computed number are all digits that are *known with certainty* plus one final digit that is estimated. The count $n$ of significant figures follows four rules:</p>
 <li>All non-zero digits are significant.</li>
 <li>Zeros between non-zero digits are significant ($1.003$ has 4 sig figs).</li>
-<li>Leading zeros are <em>not</em> significant ($0.0047$ has 2 sig figs).</li>
-<li>Trailing zeros <em>after</em> a decimal point are significant ($3.50$ has 3 sig figs).</li>
+<li>Leading zeros are *not* significant ($0.0047$ has 2 sig figs).</li>
+<li>Trailing zeros *after* a decimal point are significant ($3.50$ has 3 sig figs).</li>
 <p><strong>Worked example.</strong> Suppose you measure a table's length as $\ell = 1.836\ \text{m}$ and its width as $w = 0.72\ \text{m}$. The area is</p>
 $$A = \ell \times w = 1.836 \times 0.72 = 1.32192\ \text{m}^2.$$
-<p>Your calculator happily returns six digits, but $w$ was only known to 2 sig figs. The product can be no more precise than the <em>least precise</em> factor, so you round to</p>
+<p>Your calculator happily returns six digits, but $w$ was only known to 2 sig figs. The product can be no more precise than the *least precise* factor, so you round to</p>
 $$A \approx 1.3\ \text{m}^2.$$
-<p>For addition and subtraction, the rule shifts to <em>decimal places</em>: the result keeps only as many decimal places as the least precise addend.</p>
+<p>For addition and subtraction, the rule shifts to *decimal places*: the result keeps only as many decimal places as the least precise addend.</p>
 <p><strong>Why it's true.</strong> Error propagates. If $w$ has an uncertainty of $\pm 0.005\ \text{m}$ (half the last digit), multiplying by $\ell \approx 1.836$ gives an uncertainty of roughly $\pm 0.009\ \text{m}^2$, which already obscures the third digit of $A$. Reporting more digits than the uncertainty allows is mathematically misleading.</p>
 <p><strong>Practice problem.</strong> A chemist reports a reaction yield of $0.08340\ \text{g}$.</p>
 <p>(a) How many significant figures does this measurement contain? (b) Three such yields are summed: $0.08340 + 0.1200 + 0.0074\ \text{g}$. State the result to the correct number of decimal places.</p>
@@ -158,11 +158,11 @@ $$A \approx 1.3\ \text{m}^2.$$
     <section>
 <h2 id="approximation">🌸 Approximation</h2>
 <p>When a GPS app estimates your arrival time as "23 minutes," it isn't computing the exact path of every photon reflecting off road signs. It is deliberately trading precision for speed, accepting a small error in exchange for an answer you can act on. This trade-off is the essence of <strong>approximation</strong> — and it sits at the heart of nearly every computational and analytical technique in modern mathematics.</p>
-<p><strong>Definition.</strong> Given a quantity $x$ and an estimate $\hat{x}$, the <em>absolute error</em> is $|x - \hat{x}|$ and the <em>relative error</em> is $\dfrac{|x - \hat{x}|}{|x|}$ (assuming $x \neq 0$). We say $\hat{x}$ <em>approximates</em> $x$ to $k$ decimal places if $|x - \hat{x}| < 0.5 \times 10^{-k}$.</p>
+<p><strong>Definition.</strong> Given a quantity $x$ and an estimate $\hat{x}$, the *absolute error* is $|x - \hat{x}|$ and the *relative error* is $\dfrac{|x - \hat{x}|}{|x|}$ (assuming $x \neq 0$). We say $\hat{x}$ *approximates* $x$ to $k$ decimal places if $|x - \hat{x}| < 0.5 \times 10^{-k}$.</p>
 <p><strong>Worked example.</strong> Consider $\sqrt{2} \approx 1.414$. The true value begins $1.41421356\ldots$, so</p>
 $$|{\sqrt{2} - 1.414}| = |1.41421\ldots - 1.414| \approx 0.00021.$$
 <p>Since $0.00021 < 0.5 \times 10^{-2} = 0.005$, the estimate is accurate to <strong>2 decimal places</strong>. The relative error is $\dfrac{0.00021}{1.41421} \approx 0.015\%$ — tiny enough for most engineering contexts.</p>
-<p><strong>Why this works.</strong> The decimal expansion of $\sqrt{2}$ is infinite and non-repeating, so we can never write it exactly with finitely many digits. Truncating or rounding the expansion at position $k$ introduces an error bounded by $5 \times 10^{-(k+1)}$, which shrinks geometrically with each additional digit. This geometric decay guarantees that more digits always yield a closer estimate — a fact formalized in the theory of <em>Cauchy sequences</em>.</p>
+<p><strong>Why this works.</strong> The decimal expansion of $\sqrt{2}$ is infinite and non-repeating, so we can never write it exactly with finitely many digits. Truncating or rounding the expansion at position $k$ introduces an error bounded by $5 \times 10^{-(k+1)}$, which shrinks geometrically with each additional digit. This geometric decay guarantees that more digits always yield a closer estimate — a fact formalized in the theory of *Cauchy sequences*.</p>
 <p><strong>Practice problem.</strong> The number $\pi \approx 3.14159265\ldots$. The approximation $\tfrac{22}{7} \approx 3.142857\ldots$ is classical.</p>
 <li>Compute the absolute and relative errors of $\tfrac{22}{7}$ as an approximation of $\pi$.</li>
 <li>How many decimal places of accuracy does $\tfrac{22}{7}$ achieve?</li>
@@ -170,11 +170,11 @@ $$|{\sqrt{2} - 1.414}| = |1.41421\ldots - 1.414| \approx 0.00021.$$
 </section>
 <section id="payoff">
 <h2 id="payoff">Payoff</h2>
-<p>A bridge does not need to be infinitely rigid — it needs to be <em>rigid enough</em>. A weather forecast does not need to be perfect — it needs to be <em>close enough to be useful</em>. Approximation is how mathematics meets the physical world: it transforms problems that are unsolvable in closed form into problems that are solvable in practice.</p>
+<p>A bridge does not need to be infinitely rigid — it needs to be *rigid enough*. A weather forecast does not need to be perfect — it needs to be *close enough to be useful*. Approximation is how mathematics meets the physical world: it transforms problems that are unsolvable in closed form into problems that are solvable in practice.</p>
 <p><strong>Definition.</strong> An approximation of a quantity $x$ is a value $\hat{x}$ such that the error $|x - \hat{x}|$ is bounded by some acceptable tolerance $\varepsilon > 0$. We write $\hat{x} \approx x$ when the context makes $\varepsilon$ clear.</p>
 <p><strong>Worked example.</strong> Consider $\sqrt{2}$, which has no finite decimal expansion. The sequence $1,\ 1.4,\ 1.41,\ 1.414,\ldots$ approximates $\sqrt{2}$ with errors $0.414\ldots,\ 0.014\ldots,\ 0.004\ldots,\ 0.0004\ldots$ Each step multiplies the error by roughly $\tfrac{1}{10}$. After $n$ decimal places the error satisfies $|x - \hat{x}| < 10^{-n}$, so we can hit any tolerance in finitely many steps.</p>
-<p><strong>Why it's true.</strong> The real numbers are <em>complete</em>: every Cauchy sequence — one where terms eventually cluster arbitrarily close together — converges to a real limit. Approximation works because the thing we are approaching actually exists. Without completeness, limits would be promises with no destination.</p>
-<p>Approximation is the hinge that connects every major idea in this book to the world outside it. Limits are approximations made rigorous. Derivatives measure how well a linear function approximates a curve. Integrals aggregate infinitely many approximating slices. Fourier series approximate arbitrary signals with sines and cosines. Each application domain adds one more answer to the question: <em>what shape should the approximation take?</em></p>
+<p><strong>Why it's true.</strong> The real numbers are *complete*: every Cauchy sequence — one where terms eventually cluster arbitrarily close together — converges to a real limit. Approximation works because the thing we are approaching actually exists. Without completeness, limits would be promises with no destination.</p>
+<p>Approximation is the hinge that connects every major idea in this book to the world outside it. Limits are approximations made rigorous. Derivatives measure how well a linear function approximates a curve. Integrals aggregate infinitely many approximating slices. Fourier series approximate arbitrary signals with sines and cosines. Each application domain adds one more answer to the question: *what shape should the approximation take?*</p>
 <p><strong>Practice problem.</strong> The function $e^x$ satisfies $e^x \approx 1 + x + \tfrac{x^2}{2}$ near $x = 0$. Estimate the error at $x = 0.1$ and determine how many terms of the Taylor series are needed to achieve $\varepsilon < 10^{-6}$.</p>
 <p>Pick one application that surprised you here and follow it one level deeper — that is where the real mathematics begins.</p>
 </section>

@@ -23,6 +23,11 @@ Usage examples:
 
     # Override level and LLM
     python scripts/batch_generate.py --level college --llm claude_cli:claude-opus-4-8
+
+    # Language accepts ISO codes or friendly names (case-insensitive)
+    python scripts/batch_generate.py --language chinese
+    python scripts/batch_generate.py --language French
+    python scripts/batch_generate.py --language zh
 """
 import json
 import subprocess
@@ -36,6 +41,51 @@ REPO_ROOT = Path(__file__).parent.parent
 SPL_WORKFLOW = REPO_ROOT / "spl"
 DOMAINS_DIR = REPO_ROOT / "public" / "domains"
 CATALOG_PATH = DOMAINS_DIR / "catalog.json"
+
+# Maps friendly language names and aliases → ISO 639-1 codes (case-insensitive lookup).
+_LANG_MAP: dict[str, str] = {
+    "english":    "en",
+    "chinese":    "zh",
+    "mandarin":   "zh",
+    "french":     "fr",
+    "spanish":    "es",
+    "german":     "de",
+    "japanese":   "ja",
+    "korean":     "ko",
+    "portuguese": "pt",
+    "italian":    "it",
+    "russian":    "ru",
+    "arabic":     "ar",
+    "hindi":      "hi",
+}
+
+
+def _resolve_lang(raw: str) -> str:
+    """Accept ISO code or friendly name, return ISO 639-1 code."""
+    key = raw.strip().lower()
+    if key in _LANG_MAP:
+        return _LANG_MAP[key]
+    # Already an ISO code (2-3 chars) or unknown — pass through as-is
+    return key
+
+
+# Maps spl3 llm strings → short model names used as folder segments.
+# For ollama:{name}, the name is used directly if not listed here.
+_LLM_TO_MODEL: dict[str, str] = {
+    "ollama:gemma3":                    "gemma3",
+    "ollama:gemma4":                    "gemma4",
+    "claude_cli:claude-sonnet-4-6":     "sonnet",
+    "claude_cli:claude-haiku-4-5-20251001": "haiku",
+    "claude_cli:claude-opus-4-8":       "opus",
+}
+
+
+def _llm_to_model(llm: str) -> str:
+    if llm in _LLM_TO_MODEL:
+        return _LLM_TO_MODEL[llm]
+    if llm.startswith("ollama:"):
+        return llm[len("ollama:"):]
+    return llm.replace(":", "_").replace("-", "_")
 
 
 def _load_catalog() -> list[dict]:
@@ -56,11 +106,14 @@ def _get_application_ids(domain_id: str) -> list[str]:
     return list(apps.keys())
 
 
-def _already_generated(catalog_entry: dict, target: str) -> bool:
-    return any(b["target"] == target for b in catalog_entry.get("books", []))
+def _already_generated(catalog_entry: dict, target: str, model: str) -> bool:
+    return any(
+        b["target"] == target and b.get("model") == model
+        for b in catalog_entry.get("books", [])
+    )
 
 
-def _mark_generated(domain_id: str, target: str, level: str, language: str) -> None:
+def _mark_generated(domain_id: str, target: str, level: str, language: str, model: str) -> None:
     """Update catalog.json after a successful generation."""
     catalog = _load_catalog()
     variant = f"{level}.{language}"
@@ -68,22 +121,23 @@ def _mark_generated(domain_id: str, target: str, level: str, language: str) -> N
         if d["id"] != domain_id:
             continue
         books: list[dict] = d.setdefault("books", [])
-        book_file = f"output/{variant}/html/book_{target}.html"
-        if not any(b["target"] == target for b in books):
-            books.append({"target": target, "file": book_file})
+        book_file = f"output/{variant}/{model}/html/book_{target}.html"
+        if not any(b["target"] == target and b.get("model") == model for b in books):
+            books.append({"target": target, "file": book_file, "model": model})
         d["has_book"] = True
-        html_dir = DOMAINS_DIR / domain_id / "output" / variant / "html"
-        d["generated_concepts"] = sorted(
-            [
-                {
-                    "name": p.stem[len("concept_"):],
-                    "label": p.stem[len("concept_"):].replace("_", " ").title(),
-                    "file": f"output/{variant}/html/{p.name}",
-                }
-                for p in html_dir.glob("concept_*.html")
-            ],
-            key=lambda c: c["label"],
-        )
+        html_dir = DOMAINS_DIR / domain_id / "output" / variant / model / "html"
+        new_concepts = [
+            {
+                "name": p.stem[len("concept_"):],
+                "label": p.stem[len("concept_"):].replace("_", " ").title(),
+                "file": f"output/{variant}/{model}/html/{p.name}",
+                "model": model,
+            }
+            for p in html_dir.glob("concept_*.html")
+        ]
+        # Preserve legacy entries (no model field) and entries from other models
+        other = [c for c in d.get("generated_concepts", []) if c.get("model") != model]
+        d["generated_concepts"] = sorted(other + new_concepts, key=lambda c: c["label"])
         break
     _save_catalog(catalog)
 
@@ -93,12 +147,13 @@ def _run_spl3(
     target: str,
     level: str,
     language: str,
+    model: str,
     spl_dir: Path,
     llm: str,
     skip_cache: bool,
 ) -> bool:
     """Run spl3 synchronously, streaming output. Returns True on success."""
-    output_dir = DOMAINS_DIR / domain_id / "output" / f"{level}.{language}" / "html"
+    output_dir = DOMAINS_DIR / domain_id / "output" / f"{level}.{language}" / model / "html"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     cmd = [
@@ -144,7 +199,7 @@ def _run_spl3(
 @click.option("--skip-cache", is_flag=True, help="Pass skip_cache=yes to spl3.")
 @click.option(
     "--skip-existing", is_flag=True,
-    help="Skip targets already present in catalog.json books list.",
+    help="Skip targets already present in catalog.json books list for this model.",
 )
 @click.option("--dry-run", is_flag=True, help="Print planned jobs without running them.")
 @click.option(
@@ -167,6 +222,9 @@ def main(
     if spl_dir is None:
         spl_dir = Path.home() / "projects" / "digital-duck" / "SPL.py"
 
+    model = _llm_to_model(llm)
+    language = _resolve_lang(language)
+
     catalog = _load_catalog()
     domain_map = {d["id"]: d for d in catalog}
 
@@ -186,8 +244,8 @@ def main(
             continue
         selected = app_ids[:n_targets]
         for target in selected:
-            if skip_existing and _already_generated(entry, target):
-                click.echo(f"[skip] {did}/{target}: already in catalog")
+            if skip_existing and _already_generated(entry, target, model):
+                click.echo(f"[skip] {did}/{target} ({model}): already in catalog")
                 continue
             jobs.append((did, target, eff_level))
 
@@ -195,7 +253,7 @@ def main(
         click.echo("No jobs to run.")
         return
 
-    click.echo(f"\n{'DRY RUN — ' if dry_run else ''}Planned {len(jobs)} generation job(s):\n")
+    click.echo(f"\n{'DRY RUN — ' if dry_run else ''}Planned {len(jobs)} generation job(s)  [model={model}]:\n")
     for did, target, eff_level in jobs:
         click.echo(f"  {did:30s}  target={target:35s}  level={eff_level}")
     click.echo()
@@ -206,14 +264,14 @@ def main(
     succeeded, failed = 0, 0
     for did, target, eff_level in jobs:
         click.echo(f"{'='*70}")
-        click.echo(f"GENERATING  domain={did}  target={target}  level={eff_level}  lang={language}")
+        click.echo(f"GENERATING  domain={did}  target={target}  level={eff_level}  lang={language}  model={model}")
         click.echo(f"{'='*70}")
 
-        ok = _run_spl3(did, target, eff_level, language, spl_dir, llm, skip_cache)
+        ok = _run_spl3(did, target, eff_level, language, model, spl_dir, llm, skip_cache)
 
         if ok:
-            _mark_generated(did, target, eff_level, language)
-            click.echo(f"[ok] {did}/{target} — catalog updated")
+            _mark_generated(did, target, eff_level, language, model)
+            click.echo(f"[ok] {did}/{target} ({model}) — catalog updated")
             succeeded += 1
         else:
             click.echo(f"[FAIL] {did}/{target}", err=True)

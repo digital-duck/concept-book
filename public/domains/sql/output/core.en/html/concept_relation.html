@@ -82,13 +82,13 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="relation">Relation</h2>
 <p>Think about how a grade book works. Each student is paired with a score: Alice gets 92, Bob gets 78, Carol gets 85. This pairing — who is connected to what — is exactly the idea behind a <strong>relation</strong>.</p>
-<p><strong>Definition.</strong> Given two sets $A$ and $B$, a <em>relation</em> $R$ from $A$ to $B$ is any subset of the Cartesian product $A \times B$. We write $a \mathrel{R} b$ (read: "$a$ is related to $b$") to mean $(a, b) \in R$. When $A = B$, we call $R$ a relation <em>on</em> $A$.</p>
+<p><strong>Definition.</strong> Given two sets $A$ and $B$, a *relation* $R$ from $A$ to $B$ is any subset of the Cartesian product $A \times B$. We write $a \mathrel{R} b$ (read: "$a$ is related to $b$") to mean $(a, b) \in R$. When $A = B$, we call $R$ a relation *on* $A$.</p>
 <p><strong>Worked Example.</strong> Let $A = \{1, 2, 3\}$ and define the relation $R$ on $A$ by</p>
 $$R = \{(a, b) \in A \times A \mid a \leq b\}.$$
 <p>Listing the pairs explicitly:</p>
 $$R = \{(1,1),\,(1,2),\,(1,3),\,(2,2),\,(2,3),\,(3,3)\}.$$
-<p>We have $1 \mathrel{R} 3$ because $1 \leq 3$, but $3 \not\mathrel{R} 1$ because $3 \leq 1$ is false. The relation captures <em>direction</em>: being related is not automatically mutual.</p>
-<p><strong>Why this works.</strong> Because $R \subseteq A \times A$, membership is unambiguous — an ordered pair either belongs to $R$ or it does not. There is no vagueness. Every property we care about (symmetry, transitivity, reflexivity) becomes a precise statement about which pairs are or are not in the set. For instance, $R$ is <em>reflexive</em> exactly when $(a, a) \in R$ for every $a \in A$ — a condition you can verify element by element.</p>
+<p>We have $1 \mathrel{R} 3$ because $1 \leq 3$, but $3 \not\mathrel{R} 1$ because $3 \leq 1$ is false. The relation captures *direction*: being related is not automatically mutual.</p>
+<p><strong>Why this works.</strong> Because $R \subseteq A \times A$, membership is unambiguous — an ordered pair either belongs to $R$ or it does not. There is no vagueness. Every property we care about (symmetry, transitivity, reflexivity) becomes a precise statement about which pairs are or are not in the set. For instance, $R$ is *reflexive* exactly when $(a, a) \in R$ for every $a \in A$ — a condition you can verify element by element.</p>
 <p><strong>Practice Problem.</strong> Let $A = \{2, 3, 4, 6\}$ and define $R$ by $a \mathrel{R} b$ if and only if $a$ divides $b$.</p>
 <li>List all pairs in $R$.</li>
 <li>Is $(4, 6) \in R$? Justify your answer.</li>

@@ -74,14 +74,14 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="fundamental-units">🍃 Fundamental Units</h2>
 <p>When you buy carpet, the salesperson quotes a price per <strong>square meter</strong>. When you check your car's fuel efficiency, you see <strong>kilometers per liter</strong>. These composite quantities feel different from a raw length or a raw time — and that intuition points to something deep: there exists a small set of irreducible building blocks from which every other measurable quantity is constructed.</p>
-<p><strong>Definition.</strong> A <em>fundamental unit</em> (or <em>base unit</em>) is a unit of measurement that is defined independently, not derived from any combination of other units. In the International System (SI), there are exactly seven:</p>
+<p><strong>Definition.</strong> A *fundamental unit* (or *base unit*) is a unit of measurement that is defined independently, not derived from any combination of other units. In the International System (SI), there are exactly seven:</p>
 $$\text{meter (m)},\quad \text{kilogram (kg)},\quad \text{second (s)},\quad \text{ampere (A)},\quad \text{kelvin (K)},\quad \text{mole (mol)},\quad \text{candela (cd)}$$
-<p>Every other physical quantity — <em>derived units</em> — is expressed as a product of powers of these seven:</p>
+<p>Every other physical quantity — *derived units* — is expressed as a product of powers of these seven:</p>
 $$[Q] = \mathrm{m}^{a}\,\mathrm{kg}^{b}\,\mathrm{s}^{c}\,\mathrm{A}^{d}\,\mathrm{K}^{e}\,\mathrm{mol}^{f}\,\mathrm{cd}^{g}, \qquad a,b,\ldots,g \in \mathbb{Z}.$$
 <p><strong>Worked example.</strong> What is the unit of force? Newton's second law states $F = ma$. Mass has dimension $\mathrm{kg}$ and acceleration has dimension $\mathrm{m\,s^{-2}}$, so:</p>
 $$[F] = \mathrm{kg} \cdot \mathrm{m\,s^{-2}} = \mathrm{kg\,m\,s^{-2}} =: \mathrm{N}.$$
 <p>The newton is not fundamental — it collapses into three base units with specific exponents $(b=1,\,a=1,\,c=-2)$.</p>
-<p><strong>Why it's true.</strong> Dimensional analysis is essentially linear algebra over the integers. Each physical quantity is a vector in $\mathbb{Z}^{7}$, and the seven fundamental units form a <strong>basis</strong> for that space. Because they are linearly independent over $\mathbb{Z}$, every derived quantity has a <em>unique</em> dimensional signature — which is why a dimensional check can catch errors in any formula.</p>
+<p><strong>Why it's true.</strong> Dimensional analysis is essentially linear algebra over the integers. Each physical quantity is a vector in $\mathbb{Z}^{7}$, and the seven fundamental units form a <strong>basis</strong> for that space. Because they are linearly independent over $\mathbb{Z}$, every derived quantity has a *unique* dimensional signature — which is why a dimensional check can catch errors in any formula.</p>
 <p><strong>Practice problem.</strong> Express the SI unit of pressure (force per area) entirely in fundamental units. What is the exponent of $\mathrm{s}$?</p>
 </section>
   </main>

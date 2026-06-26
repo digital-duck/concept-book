@@ -176,6 +176,10 @@ SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
 python scripts/batch_generate.py --domain english_morphology --llm ollama:gemma4
 
 SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain english_morphology --llm claude_cli:claude-sonnet-4-6
+
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
 python scripts/batch_generate.py --domain calculus --llm ollama:gemma4
 
 SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \

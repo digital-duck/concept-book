@@ -82,14 +82,14 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="projection">Projection</h2>
 <p>Imagine you're standing outside on a sunny afternoon. Your shadow on the ground is not you — it's a flattened version of you, cast in one direction. That shadow is a <strong>projection</strong>: the "shadow" of one object onto another space. This idea turns out to be one of the most powerful tools in linear algebra.</p>
-<p><strong>Definition.</strong> The <em>projection</em> of a vector $\mathbf{b}$ onto a vector $\mathbf{a}$ is the vector in the direction of $\mathbf{a}$ that is "closest" to $\mathbf{b}$. Formally,</p>
+<p><strong>Definition.</strong> The *projection* of a vector $\mathbf{b}$ onto a vector $\mathbf{a}$ is the vector in the direction of $\mathbf{a}$ that is "closest" to $\mathbf{b}$. Formally,</p>
 $$\text{proj}_{\mathbf{a}} \mathbf{b} = \frac{\mathbf{b} \cdot \mathbf{a}}{\mathbf{a} \cdot \mathbf{a}} \, \mathbf{a}.$$
-<p>The scalar $\hat{c} = \dfrac{\mathbf{b} \cdot \mathbf{a}}{\mathbf{a} \cdot \mathbf{a}}$ is called the <em>scalar projection coefficient</em>; it tells you how much of $\mathbf{b}$ "lives in" the direction of $\mathbf{a}$.</p>
+<p>The scalar $\hat{c} = \dfrac{\mathbf{b} \cdot \mathbf{a}}{\mathbf{a} \cdot \mathbf{a}}$ is called the *scalar projection coefficient*; it tells you how much of $\mathbf{b}$ "lives in" the direction of $\mathbf{a}$.</p>
 <p><strong>Worked example.</strong> Let $\mathbf{a} = \begin{pmatrix}2\\1\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}3\\4\end{pmatrix}$. Compute:</p>
 $$\mathbf{b} \cdot \mathbf{a} = 3(2) + 4(1) = 10, \qquad \mathbf{a} \cdot \mathbf{a} = 4 + 1 = 5.$$
 <p>So $\hat{c} = \tfrac{10}{5} = 2$, and</p>
 $$\text{proj}_{\mathbf{a}} \mathbf{b} = 2\begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}4\\2\end{pmatrix}.$$
-<p><strong>Why it's true.</strong> The key insight is <em>orthogonality</em>: the error $\mathbf{e} = \mathbf{b} - \text{proj}_{\mathbf{a}}\mathbf{b}$ must be perpendicular to $\mathbf{a}$. Setting $\mathbf{e} \cdot \mathbf{a} = 0$ and solving for $\hat{c}$ yields exactly the formula above. Minimizing distance is equivalent to requiring this right angle — a geometric fact with algebraic teeth.</p>
+<p><strong>Why it's true.</strong> The key insight is *orthogonality*: the error $\mathbf{e} = \mathbf{b} - \text{proj}_{\mathbf{a}}\mathbf{b}$ must be perpendicular to $\mathbf{a}$. Setting $\mathbf{e} \cdot \mathbf{a} = 0$ and solving for $\hat{c}$ yields exactly the formula above. Minimizing distance is equivalent to requiring this right angle — a geometric fact with algebraic teeth.</p>
 <p><strong>Practice problem.</strong> Let $\mathbf{a} = \begin{pmatrix}1\\2\\2\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}6\\0\\3\end{pmatrix}$. Find $\text{proj}_{\mathbf{a}}\mathbf{b}$ and verify that $\mathbf{b} - \text{proj}_{\mathbf{a}}\mathbf{b}$ is orthogonal to $\mathbf{a}$.</p>
 </section>
   </main>

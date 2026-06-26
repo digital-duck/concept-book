@@ -82,13 +82,13 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="selection">Selection</h2>
 <p>You walk into an ice cream shop with ten flavors and want to choose three scoops for your bowl. You don't care about order — chocolate-vanilla-strawberry is the same as strawberry-chocolate-vanilla. How many distinct bowls are possible? This everyday puzzle is the heart of <strong>selection</strong>.</p>
-<p><strong>Definition.</strong> A <em>selection</em> (or <em>combination</em>) of $r$ items from a set of $n$ distinct items, where order does not matter, is counted by the <em>binomial coefficient</em>:</p>
+<p><strong>Definition.</strong> A *selection* (or *combination*) of $r$ items from a set of $n$ distinct items, where order does not matter, is counted by the *binomial coefficient*:</p>
 $$\binom{n}{r} = \frac{n!}{r!\,(n-r)!}$$
 <p>Read $\binom{n}{r}$ as "$n$ choose $r$." The formula counts how many ways to pick an unordered subset of size $r$ from $n$ objects.</p>
 <p><strong>Worked Example.</strong> Back to the ice cream shop with $n = 10$ flavors and $r = 3$ scoops:</p>
 $$\binom{10}{3} = \frac{10!}{3!\cdot 7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = \frac{720}{6} = 120$$
 <p>There are exactly 120 distinct bowls. Notice the numerator counts ordered triples ($10 \times 9 \times 8 = 720$), and dividing by $3! = 6$ removes the overcounting caused by the $3! = 6$ orderings of any single set of three flavors.</p>
-<p><strong>Why it's true.</strong> Start by counting <em>ordered</em> selections: the first scoop has $n$ choices, the second $n-1$, the third $n-2$, giving $n(n-1)(n-2) = \dfrac{n!}{(n-r)!}$ ordered lists. Every unordered set of $r$ items appears exactly $r!$ times among those lists (once per permutation of the same items). Dividing removes all duplicates:</p>
+<p><strong>Why it's true.</strong> Start by counting *ordered* selections: the first scoop has $n$ choices, the second $n-1$, the third $n-2$, giving $n(n-1)(n-2) = \dfrac{n!}{(n-r)!}$ ordered lists. Every unordered set of $r$ items appears exactly $r!$ times among those lists (once per permutation of the same items). Dividing removes all duplicates:</p>
 $$\binom{n}{r} = \frac{n!}{r!\,(n-r)!}$$
 <p><strong>Practice Problem.</strong> A committee of 4 people is to be chosen from 9 candidates. How many committees are possible? Compute $\binom{9}{4}$ and verify your answer is 126.</p>
 </section>

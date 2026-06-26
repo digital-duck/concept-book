@@ -82,13 +82,13 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="cartesian-product">Cartesian Product</h2>
 <p>A restaurant offers 3 types of bread and 4 types of filling. How many distinct sandwiches can you make? You instinctively multiply: $3 \times 4 = 12$. This counting argument is exactly the Cartesian product — a way to systematically pair every element of one set with every element of another.</p>
-<p><strong>Definition.</strong> Given sets $A$ and $B$, their <em>Cartesian product</em> is</p>
+<p><strong>Definition.</strong> Given sets $A$ and $B$, their *Cartesian product* is</p>
 $$A \times B = \{\,(a, b) \mid a \in A \text{ and } b \in B\,\}.$$
-<p>Each element of $A \times B$ is an <em>ordered pair</em> $(a, b)$. Order matters: $(a, b) \neq (b, a)$ in general, even when $A = B$.</p>
+<p>Each element of $A \times B$ is an *ordered pair* $(a, b)$. Order matters: $(a, b) \neq (b, a)$ in general, even when $A = B$.</p>
 <p><strong>Worked Example.</strong> Let $A = \{1, 2\}$ and $B = \{\alpha, \beta, \gamma\}$. Then</p>
 $$A \times B = \{(1,\alpha),\,(1,\beta),\,(1,\gamma),\,(2,\alpha),\,(2,\beta),\,(2,\gamma)\}.$$
-<p>This gives $|A \times B| = 2 \times 3 = 6$ ordered pairs. Notice that $B \times A$ produces the same six <em>combinations</em> but as reversed pairs $(\alpha, 1)$, $(\alpha, 2)$, etc. — a distinct set.</p>
-<p><strong>Why it's true.</strong> For each of the $|A|$ choices of $a$, there are exactly $|B|$ independent choices of $b$, so the total count is $|A| \cdot |B|$. More formally, this follows from the <em>multiplication principle</em>: independent sequential choices multiply. The Cartesian product makes this combinatorial reasoning precise by listing every outcome explicitly as a set.</p>
+<p>This gives $|A \times B| = 2 \times 3 = 6$ ordered pairs. Notice that $B \times A$ produces the same six *combinations* but as reversed pairs $(\alpha, 1)$, $(\alpha, 2)$, etc. — a distinct set.</p>
+<p><strong>Why it's true.</strong> For each of the $|A|$ choices of $a$, there are exactly $|B|$ independent choices of $b$, so the total count is $|A| \cdot |B|$. More formally, this follows from the *multiplication principle*: independent sequential choices multiply. The Cartesian product makes this combinatorial reasoning precise by listing every outcome explicitly as a set.</p>
 <p>This construction extends naturally: $A \times B \times C$ is the set of ordered triples, and in general $A_1 \times \cdots \times A_n$ gives $n$-tuples. The familiar coordinate plane $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$ is the canonical infinite example.</p>
 <p><strong>Practice Problem.</strong> Let $A = \{a, b, c\}$ and $B = \{0, 1\}$. List all elements of $A \times B$ and verify that $|A \times B| = |A| \cdot |B|$. Then determine whether $A \times B = B \times A$ and justify your answer.</p>
 </section>

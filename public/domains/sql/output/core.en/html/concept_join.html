@@ -81,11 +81,11 @@ nav.toc{position:relative;height:auto}}
     <h1 class="book-title">Join</h1>
     <section>
 <h2 id="join">Join</h2>
-<p>When you need to schedule a meeting that works for two people, you naturally look for the <em>earliest</em> time slot that fits <em>both</em> calendars. That intuition—finding the smallest thing that "covers" two given things—is exactly what a <strong>join</strong> formalizes in mathematics.</p>
-<p><strong>Definition.</strong> Let $(P, \leq)$ be a partially ordered set. The <em>join</em> of two elements $a, b \in P$, written $a \vee b$, is the <em>least upper bound</em> of $\{a, b\}$: the element $u \in P$ such that</p>
+<p>When you need to schedule a meeting that works for two people, you naturally look for the *earliest* time slot that fits *both* calendars. That intuition—finding the smallest thing that "covers" two given things—is exactly what a <strong>join</strong> formalizes in mathematics.</p>
+<p><strong>Definition.</strong> Let $(P, \leq)$ be a partially ordered set. The *join* of two elements $a, b \in P$, written $a \vee b$, is the *least upper bound* of $\{a, b\}$: the element $u \in P$ such that</p>
 $$a \leq u, \quad b \leq u, \quad \text{and} \quad \forall v \in P,\ (a \leq v \text{ and } b \leq v) \implies u \leq v.$$
-<p>A partially ordered set in which every pair of elements has a join (and a <em>meet</em>) is called a <strong>lattice</strong>.</p>
-<p><strong>Worked example.</strong> Take $P = \mathcal{P}(\{1,2,3\})$, the power set of $\{1,2,3\}$, ordered by set inclusion $\subseteq$. Let $A = \{1,2\}$ and $B = \{2,3\}$. Which sets contain both $A$ and $B$ as subsets? Any superset of $A \cup B = \{1,2,3\}$, but the <em>smallest</em> one is $\{1,2,3\}$ itself. So</p>
+<p>A partially ordered set in which every pair of elements has a join (and a *meet*) is called a <strong>lattice</strong>.</p>
+<p><strong>Worked example.</strong> Take $P = \mathcal{P}(\{1,2,3\})$, the power set of $\{1,2,3\}$, ordered by set inclusion $\subseteq$. Let $A = \{1,2\}$ and $B = \{2,3\}$. Which sets contain both $A$ and $B$ as subsets? Any superset of $A \cup B = \{1,2,3\}$, but the *smallest* one is $\{1,2,3\}$ itself. So</p>
 $$A \vee B = \{1,2,3\}.$$
 <p>Here join coincides with union—a pattern that holds in every power-set lattice.</p>
 <p><strong>Why it's true.</strong> Uniqueness of the join follows directly from antisymmetry: if $u$ and $u'$ both satisfy the definition, then $u \leq u'$ and $u' \leq u$, forcing $u = u'$. Existence, however, is not guaranteed in every poset—it must be assumed or proved case by case.</p>

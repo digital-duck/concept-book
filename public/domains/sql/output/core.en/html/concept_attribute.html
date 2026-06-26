@@ -82,9 +82,9 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="attribute">Attribute</h2>
 <p>When a librarian catalogs a book, she records its title, author, number of pages, and genre. Each of these recorded facts is an <strong>attribute</strong> — a named property that can take a value for any object in a collection. Attributes are so ubiquitous that they quietly underpin databases, logic, machine learning, and formal concept analysis. Learning to reason about them precisely is one of the first steps toward structured knowledge.</p>
-<p><strong>Definition.</strong> Let $O$ be a set of <em>objects</em> and $A$ a set of <em>attribute names</em>. An <em>attribute</em> $a \in A$ is a function</p>
+<p><strong>Definition.</strong> Let $O$ be a set of *objects* and $A$ a set of *attribute names*. An *attribute* $a \in A$ is a function</p>
 $$a : O \to V_a$$
-<p>where $V_a$ is the <em>value domain</em> of $a$. When $V_a = \{0, 1\}$ (or equivalently $\{\text{false}, \text{true}\}$), the attribute is called <em>Boolean</em> (or <em>binary</em>).</p>
+<p>where $V_a$ is the *value domain* of $a$. When $V_a = \{0, 1\}$ (or equivalently $\{\text{false}, \text{true}\}$), the attribute is called *Boolean* (or *binary*).</p>
 <p><strong>Worked example.</strong> Consider three fruits: $O = \{\text{apple}, \text{lemon}, \text{grape}\}$ and two Boolean attributes, $\text{sweet}$ and $\text{yellow}$:</p>
 <table>
 <thead><tr><th>Object</th><th>sweet</th><th>yellow</th></tr></thead>
@@ -94,8 +94,8 @@ $$a : O \to V_a$$
 <tr><td>grape</td><td>1</td><td>0</td></tr>
 </tbody>
 </table>
-<p>Here $\text{yellow}(\text{lemon}) = 1$ and $\text{sweet}(\text{lemon}) = 0$. The pair $(O, A)$ together with an assignment table like this is called a <em>formal context</em>, written $\mathbb{K} = (O, A, I)$ where $I \subseteq O \times A$ records which objects possess which attributes.</p>
-<p><strong>Why this matters.</strong> Because an attribute is a function, two objects sharing the same attribute value form a well-defined subset of $O$. Specifically, the <em>extension</em> of attribute $a$ at value $v$ is</p>
+<p>Here $\text{yellow}(\text{lemon}) = 1$ and $\text{sweet}(\text{lemon}) = 0$. The pair $(O, A)$ together with an assignment table like this is called a *formal context*, written $\mathbb{K} = (O, A, I)$ where $I \subseteq O \times A$ records which objects possess which attributes.</p>
+<p><strong>Why this matters.</strong> Because an attribute is a function, two objects sharing the same attribute value form a well-defined subset of $O$. Specifically, the *extension* of attribute $a$ at value $v$ is</p>
 $$\text{ext}(a, v) = \{o \in O \mid a(o) = v\}.$$
 <p>This set-theoretic view lets us combine attributes via intersection ($\cap$) and union ($\cup$), enabling queries, classifications, and concept lattices — all grounded in ordinary set algebra.</p>
 <p><strong>Practice problem.</strong> Let $O = \{1, 2, 3, 4, 5, 6\}$ be the first six positive integers, and define $\text{even}(n) = 1$ iff $2 \mid n$, and $\text{gt3}(n) = 1$ iff $n > 3$. Write out $\text{ext}(\text{even}, 1)$ and $\text{ext}(\text{gt3}, 1)$, then compute their intersection. Which objects are both even and greater than three?</p>

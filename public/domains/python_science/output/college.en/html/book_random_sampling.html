@@ -76,9 +76,9 @@ nav.toc{position:relative;height:auto}}
 <h1 class="book-title">Array</h1>
     <section>
 <h2 id="array">Array</h2>
-<p><strong>Definition.</strong> An <em>array</em> is a finite, ordered collection of elements drawn from a set $S$, stored in contiguous memory locations and indexed by a set of integers. A one-dimensional array $A$ of length $n$ is formally a function</p>
+<p><strong>Definition.</strong> An *array* is a finite, ordered collection of elements drawn from a set $S$, stored in contiguous memory locations and indexed by a set of integers. A one-dimensional array $A$ of length $n$ is formally a function</p>
 $$A : \{0, 1, \ldots, n-1\} \to S,$$
-<p>where $A[i]$ denotes the element at index $i$. The <em>size</em> of $A$ is $n$, and the <em>element type</em> is the type of every $s \in S$. Multi-dimensional arrays generalize this: a matrix $M \in S^{m \times n}$ is indexed by pairs $(i, j)$ with $0 \le i < m$ and $0 \le j < n$.</p>
+<p>where $A[i]$ denotes the element at index $i$. The *size* of $A$ is $n$, and the *element type* is the type of every $s \in S$. Multi-dimensional arrays generalize this: a matrix $M \in S^{m \times n}$ is indexed by pairs $(i, j)$ with $0 \le i < m$ and $0 \le j < n$.</p>
 <p><strong>Memory layout.</strong> In row-major order (used by C and Python/NumPy), the element $A[i][j]$ of an $m \times n$ array is stored at byte offset</p>
 $$\text{offset}(i,j) = (i \cdot n + j) \cdot w,$$
 <p>where $w$ is the width in bytes of one element. This formula makes row traversal cache-friendly and column traversal potentially expensive—a distinction with significant performance consequences.</p>
@@ -87,7 +87,7 @@ $$\text{offset}(i,j) = (i \cdot n + j) \cdot w,$$
 <li>$A[3]$ is at address $1000 + 3 \cdot 4 = 1012$.</li>
 <li>The sum $\sum_{i=0}^{4} A[i] = 3+7+2+9+4 = 25$ is computed in $\Theta(n)$ time by a single linear scan.</li>
 <p><strong>Key theorem (random-access guarantee).</strong> For any valid index $i$, the element $A[i]$ can be read or written in $O(1)$ time. This follows directly from the offset formula: the address is computed arithmetically without any traversal.</p>
-<p><em>Proof sketch.</em> Address computation requires one multiplication and one addition—two operations independent of $n$—followed by a single memory dereference. Hence the time is constant regardless of $n$. $\blacksquare$</p>
+<p>*Proof sketch.* Address computation requires one multiplication and one addition—two operations independent of $n$—followed by a single memory dereference. Hence the time is constant regardless of $n$. $\blacksquare$</p>
 <p>This $O(1)$ random access distinguishes arrays from linked lists, which require $O(n)$ traversal to reach an arbitrary element.</p>
 <p><strong>Lab exercise.</strong> Given an integer array $A$ of length $n$, write a function that rotates $A$ left by $k$ positions in place using $O(1)$ auxiliary space. Verify your solution on $A = [1,2,3,4,5]$ with $k=2$, expecting $[3,4,5,1,2]$. Analyze the time complexity of your approach.</p>
 </section>
@@ -96,9 +96,9 @@ $$\text{offset}(i,j) = (i \cdot n + j) \cdot w,$$
 <h1 class="book-title">Randomness</h1>
     <section>
 <h2 id="randomness">Randomness</h2>
-<p><strong>Definition.</strong> A <em>random experiment</em> is any process whose outcome cannot be predicted with certainty before it occurs, even when all prior conditions are fixed. Formally, a <em>probability space</em> is a triple $(\Omega, \mathcal{F}, P)$, where $\Omega$ is the <em>sample space</em> (the set of all possible outcomes), $\mathcal{F}$ is a $\sigma$-algebra of <em>events</em> (measurable subsets of $\Omega$), and $P : \mathcal{F} \to [0,1]$ is a <em>probability measure</em> satisfying (i) $P(\Omega) = 1$, (ii) $P(\emptyset) = 0$, and (iii) countable additivity: for pairwise disjoint events $A_1, A_2, \ldots$,</p>
+<p><strong>Definition.</strong> A *random experiment* is any process whose outcome cannot be predicted with certainty before it occurs, even when all prior conditions are fixed. Formally, a *probability space* is a triple $(\Omega, \mathcal{F}, P)$, where $\Omega$ is the *sample space* (the set of all possible outcomes), $\mathcal{F}$ is a $\sigma$-algebra of *events* (measurable subsets of $\Omega$), and $P : \mathcal{F} \to [0,1]$ is a *probability measure* satisfying (i) $P(\Omega) = 1$, (ii) $P(\emptyset) = 0$, and (iii) countable additivity: for pairwise disjoint events $A_1, A_2, \ldots$,</p>
 $$P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i).$$
-<p>A <em>random variable</em> $X : \Omega \to \mathbb{R}$ is a measurable function that assigns a numerical value to each outcome.</p>
+<p>A *random variable* $X : \Omega \to \mathbb{R}$ is a measurable function that assigns a numerical value to each outcome.</p>
 <p><strong>Worked Example.</strong> Roll a fair six-sided die. Here $\Omega = \{1, 2, 3, 4, 5, 6\}$, $\mathcal{F} = 2^{\Omega}$ (the power set), and $P(\{\omega\}) = \frac{1}{6}$ for each $\omega \in \Omega$. Define $X(\omega) = \omega$. The probability of rolling an even number is</p>
 $$P(X \in \{2,4,6\}) = P(\{2\}) + P(\{4\}) + P(\{6\}) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{1}{2}.$$
 <p>The expected value of $X$ is</p>
@@ -114,14 +114,14 @@ $$P\!\left(\left|\frac{1}{n}\sum_{i=1}^{n} X_i - \mu\right| > \varepsilon\right)
 <h1 class="book-title">Random Sampling</h1>
     <section>
 <h2 id="random-sampling">Random Sampling</h2>
-<p><strong>Definition.</strong> Given a finite population $\mathcal{U} = \{u_1, u_2, \ldots, u_N\}$ of size $N$, a <em>simple random sample</em> of size $n \leq N$ is a subset $S \subseteq \mathcal{U}$ selected such that every possible subset of size $n$ is equally likely. The probability of selecting any particular subset is</p>
+<p><strong>Definition.</strong> Given a finite population $\mathcal{U} = \{u_1, u_2, \ldots, u_N\}$ of size $N$, a *simple random sample* of size $n \leq N$ is a subset $S \subseteq \mathcal{U}$ selected such that every possible subset of size $n$ is equally likely. The probability of selecting any particular subset is</p>
 $$P(S) = \frac{1}{\binom{N}{n}}.$$
-<p>In <em>sampling with replacement</em>, each draw is independent and the population is not altered between draws; in <em>sampling without replacement</em> (the more common setting in surveys), each selected unit is removed before the next draw. The estimator of the population mean $\mu = \frac{1}{N}\sum_{i=1}^{N} u_i$ from a sample $\{x_1, \ldots, x_n\}$ is the sample mean $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$.</p>
+<p>In *sampling with replacement*, each draw is independent and the population is not altered between draws; in *sampling without replacement* (the more common setting in surveys), each selected unit is removed before the next draw. The estimator of the population mean $\mu = \frac{1}{N}\sum_{i=1}^{N} u_i$ from a sample $\{x_1, \ldots, x_n\}$ is the sample mean $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$.</p>
 <p><strong>Worked Example.</strong> Suppose a class has $N = 6$ students with exam scores $\{55, 62, 70, 78, 85, 91\}$, so the population mean is $\mu = 441/6 = 73.5$. Draw a simple random sample without replacement of size $n = 3$. There are $\binom{6}{3} = 20$ equally likely samples. If the draw yields $\{62, 78, 85\}$, the estimate is $\bar{x} = 225/3 = 75$. Across all 20 possible samples, the average of $\bar{x}$ equals $\mu = 73.5$, confirming unbiasedness.</p>
 <p><strong>Key Theorem (Unbiasedness and Variance of $\bar{x}$).</strong> Under simple random sampling without replacement,</p>
 $$\mathbb{E}[\bar{x}] = \mu, \qquad \operatorname{Var}(\bar{x}) = \frac{\sigma^2}{n}\left(1 - \frac{n}{N}\right),$$
-<p>where $\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(u_i - \mu)^2$ is the population variance. The factor $\left(1 - \frac{n}{N}\right)$ is the <em>finite population correction</em> (FPC); it approaches 1 as $N \to \infty$, recovering the familiar $\operatorname{Var}(\bar{x}) = \sigma^2/n$ for large populations. The proof uses indicator variables $I_i \in \{0,1\}$ denoting whether unit $i$ is selected, with $\mathbb{E}[I_i] = n/N$ and $\operatorname{Cov}(I_i, I_j) = -\frac{n(N-n)}{N^2(N-1)}$ for $i \neq j$, from which both results follow by linearity of expectation.</p>
-<p><strong>Lab Exercise.</strong> Using Python's <code>random.sample</code>, draw 1,000 independent samples of size $n = 30$ from a population of $N = 200$ values drawn from $\mathcal{N}(50, 100)$. For each sample compute $\bar{x}$. Plot the histogram of sample means and verify empirically that $\operatorname{Var}(\bar{x}) \approx \frac{\sigma^2}{n}\!\left(1 - \frac{n}{N}\right)$. Compare the result to sampling <em>with</em> replacement and explain the role of the FPC.</p>
+<p>where $\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(u_i - \mu)^2$ is the population variance. The factor $\left(1 - \frac{n}{N}\right)$ is the *finite population correction* (FPC); it approaches 1 as $N \to \infty$, recovering the familiar $\operatorname{Var}(\bar{x}) = \sigma^2/n$ for large populations. The proof uses indicator variables $I_i \in \{0,1\}$ denoting whether unit $i$ is selected, with $\mathbb{E}[I_i] = n/N$ and $\operatorname{Cov}(I_i, I_j) = -\frac{n(N-n)}{N^2(N-1)}$ for $i \neq j$, from which both results follow by linearity of expectation.</p>
+<p><strong>Lab Exercise.</strong> Using Python's <code>random.sample</code>, draw 1,000 independent samples of size $n = 30$ from a population of $N = 200$ values drawn from $\mathcal{N}(50, 100)$. For each sample compute $\bar{x}$. Plot the histogram of sample means and verify empirically that $\operatorname{Var}(\bar{x}) \approx \frac{\sigma^2}{n}\!\left(1 - \frac{n}{N}\right)$. Compare the result to sampling *with* replacement and explain the role of the FPC.</p>
 </section>
 </section>
 <section id="payoff">

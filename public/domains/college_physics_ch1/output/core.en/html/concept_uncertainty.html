@@ -76,10 +76,10 @@ nav.toc{position:relative;height:auto}}
     <h1 class="book-title">🍃 Uncertainty</h1>
     <section>
 <h2 id="uncertainty">🍃 Uncertainty</h2>
-<p>When a weather app says there is a 70% chance of rain tomorrow, it is not admitting ignorance — it is <em>quantifying</em> ignorance. That number encodes everything the model knows and everything it does not. Uncertainty is not the absence of knowledge; it is knowledge about the limits of knowledge.</p>
+<p>When a weather app says there is a 70% chance of rain tomorrow, it is not admitting ignorance — it is *quantifying* ignorance. That number encodes everything the model knows and everything it does not. Uncertainty is not the absence of knowledge; it is knowledge about the limits of knowledge.</p>
 <p><strong>Definition.</strong> Given a discrete random variable $X$ taking values in $\{x_1, x_2, \ldots, x_n\}$ with probability mass function $p(x_i) = P(X = x_i)$, the <strong>Shannon entropy</strong> measures the uncertainty of $X$:</p>
 $$H(X) = -\sum_{i=1}^{n} p(x_i) \log_2 p(x_i)$$
-<p>$H(X)$ is measured in <em>bits</em>. A larger value means more uncertainty; knowing the outcome gives you more information.</p>
+<p>$H(X)$ is measured in *bits*. A larger value means more uncertainty; knowing the outcome gives you more information.</p>
 <p><strong>Worked example.</strong> Suppose you flip a fair coin: $P(\text{heads}) = P(\text{tails}) = \tfrac{1}{2}$. Then</p>
 $$H(X) = -\tfrac{1}{2}\log_2\tfrac{1}{2} - \tfrac{1}{2}\log_2\tfrac{1}{2} = -2\left(\tfrac{1}{2}\cdot(-1)\right) = 1 \text{ bit}.$$
 <p>Now suppose the coin is biased: $P(\text{heads}) = 0.9$, $P(\text{tails}) = 0.1$. Then</p>

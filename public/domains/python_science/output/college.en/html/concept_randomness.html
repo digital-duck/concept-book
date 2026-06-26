@@ -79,9 +79,9 @@ nav.toc{position:relative;height:auto}}
     <h1 class="book-title">Randomness</h1>
     <section>
 <h2 id="randomness">Randomness</h2>
-<p><strong>Definition.</strong> A <em>random experiment</em> is any process whose outcome cannot be predicted with certainty before it occurs, even when all prior conditions are fixed. Formally, a <em>probability space</em> is a triple $(\Omega, \mathcal{F}, P)$, where $\Omega$ is the <em>sample space</em> (the set of all possible outcomes), $\mathcal{F}$ is a $\sigma$-algebra of <em>events</em> (measurable subsets of $\Omega$), and $P : \mathcal{F} \to [0,1]$ is a <em>probability measure</em> satisfying (i) $P(\Omega) = 1$, (ii) $P(\emptyset) = 0$, and (iii) countable additivity: for pairwise disjoint events $A_1, A_2, \ldots$,</p>
+<p><strong>Definition.</strong> A *random experiment* is any process whose outcome cannot be predicted with certainty before it occurs, even when all prior conditions are fixed. Formally, a *probability space* is a triple $(\Omega, \mathcal{F}, P)$, where $\Omega$ is the *sample space* (the set of all possible outcomes), $\mathcal{F}$ is a $\sigma$-algebra of *events* (measurable subsets of $\Omega$), and $P : \mathcal{F} \to [0,1]$ is a *probability measure* satisfying (i) $P(\Omega) = 1$, (ii) $P(\emptyset) = 0$, and (iii) countable additivity: for pairwise disjoint events $A_1, A_2, \ldots$,</p>
 $$P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i).$$
-<p>A <em>random variable</em> $X : \Omega \to \mathbb{R}$ is a measurable function that assigns a numerical value to each outcome.</p>
+<p>A *random variable* $X : \Omega \to \mathbb{R}$ is a measurable function that assigns a numerical value to each outcome.</p>
 <p><strong>Worked Example.</strong> Roll a fair six-sided die. Here $\Omega = \{1, 2, 3, 4, 5, 6\}$, $\mathcal{F} = 2^{\Omega}$ (the power set), and $P(\{\omega\}) = \frac{1}{6}$ for each $\omega \in \Omega$. Define $X(\omega) = \omega$. The probability of rolling an even number is</p>
 $$P(X \in \{2,4,6\}) = P(\{2\}) + P(\{4\}) + P(\{6\}) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{1}{2}.$$
 <p>The expected value of $X$ is</p>

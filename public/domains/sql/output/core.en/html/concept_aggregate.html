@@ -82,15 +82,15 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="aggregate">Aggregate</h2>
 <p>Every morning, a city traffic dashboard collapses millions of GPS pings into a single number: average commute time. That act of collapsing many values into one is aggregation — and it sits at the foundation of probability, statistics, and algorithm analysis.</p>
-<p><strong>Definition.</strong> Given a sequence of values $x_1, x_2, \ldots, x_n$ from some set $S$ and a binary operation $\oplus : S \times S \to S$ that is associative, the <em>aggregate</em> of the sequence under $\oplus$ is</p>
+<p><strong>Definition.</strong> Given a sequence of values $x_1, x_2, \ldots, x_n$ from some set $S$ and a binary operation $\oplus : S \times S \to S$ that is associative, the *aggregate* of the sequence under $\oplus$ is</p>
 $$\bigoplus_{i=1}^{n} x_i \;=\; x_1 \oplus x_2 \oplus \cdots \oplus x_n.$$
 <p>Common aggregates include the sum ($\oplus = +$), product ($\oplus = \times$), maximum, minimum, and logical conjunction. When $\oplus$ is also commutative and has an identity element $e$, the aggregate extends naturally to multisets and empty sequences (returning $e$).</p>
-<p><strong>Worked example.</strong> Let $x_1 = 3,\; x_2 = 7,\; x_3 = 2,\; x_4 = 5$. The <em>sum aggregate</em> is</p>
+<p><strong>Worked example.</strong> Let $x_1 = 3,\; x_2 = 7,\; x_3 = 2,\; x_4 = 5$. The *sum aggregate* is</p>
 $$\sum_{i=1}^{4} x_i = 3 + 7 + 2 + 5 = 17,$$
-<p>while the <em>max aggregate</em> is $\max(3, 7, 2, 5) = 7$. Notice they answer different questions: sum measures total, max identifies the peak.</p>
+<p>while the *max aggregate* is $\max(3, 7, 2, 5) = 7$. Notice they answer different questions: sum measures total, max identifies the peak.</p>
 <p><strong>Why associativity matters.</strong> Associativity guarantees that the order of parenthesization does not change the result:</p>
 $$(x_1 \oplus x_2) \oplus x_3 = x_1 \oplus (x_2 \oplus x_3).$$
-<p>This makes aggregates <em>parallelizable</em> — you can split the sequence into chunks, aggregate each chunk independently, then aggregate the chunk results. Without associativity, splitting the computation would yield different answers depending on the split boundary.</p>
+<p>This makes aggregates *parallelizable* — you can split the sequence into chunks, aggregate each chunk independently, then aggregate the chunk results. Without associativity, splitting the computation would yield different answers depending on the split boundary.</p>
 <p><strong>Practice problem.</strong> For $x_1 = 2,\; x_2 = 4,\; x_3 = 8,\; x_4 = 16$, compute:</p>
 <li>$\prod_{i=1}^{4} x_i$</li>
 <li>$\min\bigl(x_1, x_2, x_3, x_4\bigr)$</li>

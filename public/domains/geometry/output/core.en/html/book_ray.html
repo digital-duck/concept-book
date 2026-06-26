@@ -73,13 +73,13 @@ nav.toc{position:relative;height:auto}}
 $$
 \mathcal{R}(P,\,\mathbf{d}) \;=\; \{\, P + t\,\mathbf{d} \;\mid\; t \geq 0 \,\}.
 $$
-<p>Choosing $t = 0$ returns the <strong>endpoint</strong> $P$; as $t \to \infty$ the ray extends without bound. Crucially, $\mathcal{R}(P, \mathbf{d}) = \mathcal{R}(P, \lambda\mathbf{d})$ for any $\lambda > 0$, so only the <em>direction class</em> $[\mathbf{d}]$ — not the magnitude — carries geometric content.</p>
+<p>Choosing $t = 0$ returns the <strong>endpoint</strong> $P$; as $t \to \infty$ the ray extends without bound. Crucially, $\mathcal{R}(P, \mathbf{d}) = \mathcal{R}(P, \lambda\mathbf{d})$ for any $\lambda > 0$, so only the *direction class* $[\mathbf{d}]$ — not the magnitude — carries geometric content.</p>
 <p><strong>Worked Example.</strong> In $\mathbb{R}^2$, let $P = (1,\,2)$ and $\mathbf{d} = (3,\,-1)$. A point $Q$ lies on $\mathcal{R}(P,\mathbf{d})$ if and only if $Q = (1+3t,\;2-t)$ for some $t \geq 0$. The ray crosses the $x$-axis when $2 - t = 0$, giving $t^{<em>} = 2$ and crossing point $Q^{</em>} = (7,\,0)$. This <strong>ray–hyperplane intersection</strong> — solve the parametric equation, check $t^{*} \geq 0$ — is the core subroutine underlying rendering pipelines, collision detection, and linear-programming pivots alike.</p>
-<p><strong>Key Theorem (Cone Decomposition).</strong> A set $C \subseteq \mathbb{R}^n$ is a <em>convex cone</em> if and only if it is a union of rays through the origin:</p>
+<p><strong>Key Theorem (Cone Decomposition).</strong> A set $C \subseteq \mathbb{R}^n$ is a *convex cone* if and only if it is a union of rays through the origin:</p>
 $$
 C = \bigcup_{\mathbf{v} \in C} \mathcal{R}(\mathbf{0},\,\mathbf{v}).
 $$
-<p><em>Proof sketch.</em> ($\Rightarrow$) For any $\mathbf{v} \in C$ and $t > 0$, the conic property gives $t\mathbf{v} \in C$, so $\mathcal{R}(\mathbf{0},\mathbf{v}) \subset C$. ($\Leftarrow$) Any union of rays through the origin is closed under positive scaling; convexity follows from forming conic combinations of two such rays. $\square$</p>
+<p>*Proof sketch.* ($\Rightarrow$) For any $\mathbf{v} \in C$ and $t > 0$, the conic property gives $t\mathbf{v} \in C$, so $\mathcal{R}(\mathbf{0},\mathbf{v}) \subset C$. ($\Leftarrow$) Any union of rays through the origin is closed under positive scaling; convexity follows from forming conic combinations of two such rays. $\square$</p>
 <p>This theorem is the bridge from elementary geometry to Farkas's lemma, dual cones, and the optimality conditions of linear programming — all developed in the chapters ahead.</p>
 <p><strong>Lab Cell (SymPy).</strong></p>
 <pre><code>from sympy import symbols, Matrix, solve

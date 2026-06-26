@@ -81,13 +81,13 @@ nav.toc{position:relative;height:auto}}
     <h1 class="book-title">Window Function</h1>
     <section>
 <h2 id="window-function">Window Function</h2>
-<p><strong>Hook.</strong> Imagine shazam-identifying a song from a 5-second clip. The app cannot analyze an infinite signal — it must isolate a short, well-behaved excerpt. The mathematical tool that does this cleanly is the <em>window function</em>.</p>
-<p><strong>Definition.</strong> A <em>window function</em> is a function $w : \mathbb{R} \to [0,1]$ with <em>compact support</em> — meaning $w(t) = 0$ outside some finite interval $[a, b]$. When you multiply a signal $f(t)$ by $w(t)$, the product $g(t) = f(t)\, w(t)$ retains only the portion of $f$ inside the window. Formally, if $\text{supp}(w) = [a,b]$, then</p>
+<p><strong>Hook.</strong> Imagine shazam-identifying a song from a 5-second clip. The app cannot analyze an infinite signal — it must isolate a short, well-behaved excerpt. The mathematical tool that does this cleanly is the *window function*.</p>
+<p><strong>Definition.</strong> A *window function* is a function $w : \mathbb{R} \to [0,1]$ with *compact support* — meaning $w(t) = 0$ outside some finite interval $[a, b]$. When you multiply a signal $f(t)$ by $w(t)$, the product $g(t) = f(t)\, w(t)$ retains only the portion of $f$ inside the window. Formally, if $\text{supp}(w) = [a,b]$, then</p>
 $$g(t) = f(t)\, w(t) = 0 \quad \text{for all } t \notin [a, b].$$
-<p><strong>Worked example.</strong> The simplest window is the <em>rectangular window</em> on $[0, T]$:</p>
+<p><strong>Worked example.</strong> The simplest window is the *rectangular window* on $[0, T]$:</p>
 $$w_{\text{rect}}(t) = \begin{cases} 1 & 0 \le t \le T \\ 0 & \text{otherwise.} \end{cases}$$
 <p>Applying it to a cosine $f(t) = \cos(2\pi \nu t)$ gives a finite-duration tone $g(t) = \cos(2\pi \nu t)\cdot w_{\text{rect}}(t)$, which is now integrable and amenable to Fourier analysis.</p>
-<p><strong>Why it matters.</strong> The Fourier transform $\hat{f}(\xi) = \int_{-\infty}^{\infty} f(t)\,e^{-2\pi i \xi t}\,dt$ requires $f \in L^1(\mathbb{R})$. A persistent sinusoid is not in $L^1$, but $g = f\cdot w$ is, because compact support guarantees $\int |g|\,dt \le \|f\|_\infty \cdot (b-a) < \infty$. Windowing is therefore the bridge from idealized infinite signals to computable, finite transforms. Different window shapes (Hann, Hamming, Blackman) trade off <em>frequency resolution</em> against <em>spectral leakage</em>, a subtle property studied via the window's own Fourier transform $\hat{w}$.</p>
+<p><strong>Why it matters.</strong> The Fourier transform $\hat{f}(\xi) = \int_{-\infty}^{\infty} f(t)\,e^{-2\pi i \xi t}\,dt$ requires $f \in L^1(\mathbb{R})$. A persistent sinusoid is not in $L^1$, but $g = f\cdot w$ is, because compact support guarantees $\int |g|\,dt \le \|f\|_\infty \cdot (b-a) < \infty$. Windowing is therefore the bridge from idealized infinite signals to computable, finite transforms. Different window shapes (Hann, Hamming, Blackman) trade off *frequency resolution* against *spectral leakage*, a subtle property studied via the window's own Fourier transform $\hat{w}$.</p>
 <p><strong>Practice.</strong> Let $w(t) = \max(0,\, 1 - |t|)$ (the triangular, or Bartlett, window). Identify its support, sketch its graph, and verify that $\int_{-\infty}^{\infty} w(t)\,dt = 1$.</p>
 </section>
   </main>

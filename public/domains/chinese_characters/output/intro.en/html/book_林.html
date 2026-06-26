@@ -75,15 +75,15 @@ nav.toc{position:relative;height:auto}}
 <h1 class="book-title">🌱 木</h1>
     <section>
 <h2 id="木">🌱 木</h2>
-<p><strong>Definition.</strong> 木 (<em>mù</em>, "tree; wood") is a <strong>pictographic character</strong> (象形字, <em>xiàngxíngzì</em>) and Kangxi radical 75. Its oracle-bone form depicts a standing tree: a vertical stroke (干, trunk) bisected by a horizontal stroke (branches above, roots below). Formally, 木 is classified as a <strong>primitive radical</strong> — a graphemic atom that carries independent semantic content and composes productively with other elements to generate derived characters. As a left-hand component it is written 木 (4 strokes: 横 → 竖 → 撇 → 捺); stroke count and order are invariant across all derived forms.</p>
+<p><strong>Definition.</strong> 木 (*mù*, "tree; wood") is a <strong>pictographic character</strong> (象形字, *xiàngxíngzì*) and Kangxi radical 75. Its oracle-bone form depicts a standing tree: a vertical stroke (干, trunk) bisected by a horizontal stroke (branches above, roots below). Formally, 木 is classified as a <strong>primitive radical</strong> — a graphemic atom that carries independent semantic content and composes productively with other elements to generate derived characters. As a left-hand component it is written 木 (4 strokes: 横 → 竖 → 撇 → 捺); stroke count and order are invariant across all derived forms.</p>
 <hr>
 <p><strong>Worked Example — Compositional Derivation.</strong> Consider the derivation chain:</p>
 $$\text{木} \operatorname{xrightarrow}{+\text{木}} \text{林} \operatorname{xrightarrow}{+\text{木}} \text{森}$$
-<li>林 (<em>lín</em>, "grove") doubles 木, encoding multiplicity $n = 2$.  </li>
-<li>森 (<em>sēn</em>, "dense forest") triples 木, encoding $n = 3$.</li>
-<p>The spatial arrangement also carries meaning. Placing 木 with a horizontal mark <strong>below</strong> the midpoint yields 本 (<em>běn</em>, "root; origin"), while a mark <strong>above</strong> yields 末 (<em>mò</em>, "tip; end"). Letting $y = 0$ denote the trunk midpoint, the mark positions satisfy $y_{\text{本}} < 0 < y_{\text{末}}$: a topological encoding of position along the vertical axis that directly maps to the semantic opposition <em>origin</em> vs. <em>periphery</em>.</p>
+<li>林 (*lín*, "grove") doubles 木, encoding multiplicity $n = 2$.  </li>
+<li>森 (*sēn*, "dense forest") triples 木, encoding $n = 3$.</li>
+<p>The spatial arrangement also carries meaning. Placing 木 with a horizontal mark <strong>below</strong> the midpoint yields 本 (*běn*, "root; origin"), while a mark <strong>above</strong> yields 末 (*mò*, "tip; end"). Letting $y = 0$ denote the trunk midpoint, the mark positions satisfy $y_{\text{本}} < 0 < y_{\text{末}}$: a topological encoding of position along the vertical axis that directly maps to the semantic opposition *origin* vs. *periphery*.</p>
 <hr>
-<p><strong>Key Theorem (Radical Compositionality).</strong> Let $\mathcal{R}$ be the set of Kangxi radicals and $\mathcal{C}$ the set of Chinese characters. Every character $c \in \mathcal{C}$ admits a unique <strong>radical decomposition</strong> $c = r \oplus s$, where $r \in \mathcal{R}$ is the classifying radical and $s$ is a phonetic or semantic complement. For 木-family characters, $r = \text{木}$ and $s$ shifts the semantic field within the domain of trees, wood, and plant material (e.g., 桌 <em>table</em>, 梯 <em>ladder</em>, 橙 <em>orange tree</em>). The radical therefore acts as a <strong>type classifier</strong>: knowing $r = \text{木}$ constrains the denotation to the arboreal semantic domain before the complement $s$ is read.</p>
+<p><strong>Key Theorem (Radical Compositionality).</strong> Let $\mathcal{R}$ be the set of Kangxi radicals and $\mathcal{C}$ the set of Chinese characters. Every character $c \in \mathcal{C}$ admits a unique <strong>radical decomposition</strong> $c = r \oplus s$, where $r \in \mathcal{R}$ is the classifying radical and $s$ is a phonetic or semantic complement. For 木-family characters, $r = \text{木}$ and $s$ shifts the semantic field within the domain of trees, wood, and plant material (e.g., 桌 *table*, 梯 *ladder*, 橙 *orange tree*). The radical therefore acts as a <strong>type classifier</strong>: knowing $r = \text{木}$ constrains the denotation to the arboreal semantic domain before the complement $s$ is read.</p>
 <hr>
 <p><strong>Lab Cell.</strong></p>
 <pre><code>from sympy import symbols, FiniteSet
@@ -109,16 +109,16 @@ for char, (r, s) in family.items():
 <h1 class="book-title">🍃 林</h1>
     <section>
 <h2 id="林">🍃 林</h2>
-<p><strong>Definition (Character Composition).</strong> The logograph 林 (<em>lín</em>) denotes a <em>grove</em> or <em>forest</em> and belongs to the class of <strong>ideographic compounds</strong> (会意字, <em>huìyì zì</em>). Let $\mathcal{C}$ denote the set of Chinese characters and let $\oplus$ denote the horizontal juxtaposition operator on $\mathcal{C}$. Then</p>
+<p><strong>Definition (Character Composition).</strong> The logograph 林 (*lín*) denotes a *grove* or *forest* and belongs to the class of <strong>ideographic compounds</strong> (会意字, *huìyì zì*). Let $\mathcal{C}$ denote the set of Chinese characters and let $\oplus$ denote the horizontal juxtaposition operator on $\mathcal{C}$. Then</p>
 $$林 = 木 \oplus 木,$$
-<p>where 木 (<em>mù</em>, "tree") is the base radical with stroke count $s(木) = 4$. The juxtaposition operator satisfies the <strong>stroke-count additivity rule</strong>:</p>
+<p>where 木 (*mù*, "tree") is the base radical with stroke count $s(木) = 4$. The juxtaposition operator satisfies the <strong>stroke-count additivity rule</strong>:</p>
 $$s(\alpha \oplus \beta) = s(\alpha) + s(\beta), \qquad \alpha, \beta \in \mathcal{C}.$$
-<p>Hence $s(林) = 4 + 4 = 8$. Semantically, placing two identical elements side by side signals <em>collective density</em> in the domain denoted by the base element — a phenomenon termed the <strong>Reduplication Principle</strong>.</p>
+<p>Hence $s(林) = 4 + 4 = 8$. Semantically, placing two identical elements side by side signals *collective density* in the domain denoted by the base element — a phenomenon termed the <strong>Reduplication Principle</strong>.</p>
 <p><strong>Worked Example.</strong> Decompose 林 into its component tree:</p>
 $$林 \;\longrightarrow\; \underbrace{木}_{\text{left}} \;\Big|\; \underbrace{木}_{\text{right}} \;\longrightarrow\; \{\text{横, 竖, 撇, 捺}\} \times 2.$$
 <p>Each 木 resolves into four primitive strokes: one horizontal (横), one vertical (竖), one left-falling (撇), and one right-falling (捺). The compositional depth of 林 is therefore $d = 2$, meaning two layers separate 林 from its irreducible strokes. In the HSK proficiency framework, 木 appears at Level 1 and 林 at Level 3, consistent with the depth increase.</p>
-<p><strong>Theorem (Semantic Chain by Reduplication).</strong> <em>Let $\alpha \in \mathcal{C}$ denote an atomic object of type $T$. Define $\alpha^{(k)}$ as the $k$-fold horizontal reduplication written as a single recognized character. Then the sequence $\alpha^{(1)}, \alpha^{(2)}, \alpha^{(3)}$ forms a monotone chain ordered by collective intensity.</em></p>
-<p><strong>Corollary.</strong> For $\alpha = $ 木: $\;\;木 \operatorname{xrightarrow}{k=2} 林 \operatorname{xrightarrow}{k=3} 森$ (<em>sēn</em>, dense forest), with stroke counts $4, 8, 12$ — an arithmetic progression with common difference $s(木) = 4$.</p>
+<p><strong>Theorem (Semantic Chain by Reduplication).</strong> *Let $\alpha \in \mathcal{C}$ denote an atomic object of type $T$. Define $\alpha^{(k)}$ as the $k$-fold horizontal reduplication written as a single recognized character. Then the sequence $\alpha^{(1)}, \alpha^{(2)}, \alpha^{(3)}$ forms a monotone chain ordered by collective intensity.</em></p>
+<p><strong>Corollary.</strong> For $\alpha = $ 木: $\;\;木 \operatorname{xrightarrow}{k=2} 林 \operatorname{xrightarrow}{k=3} 森$ (*sēn*, dense forest), with stroke counts $4, 8, 12$ — an arithmetic progression with common difference $s(木) = 4$.</p>
 <p><strong>Lab Cell (SymPy).</strong></p>
 <pre><code>from sympy import symbols, Eq, solve, Integer
 
@@ -140,7 +140,7 @@ print(f"n = {solution} → 林")           # [2]</code></pre>
 <section id="payoff">
 <h2 id="payoff">Payoff</h2>
 <p>Think about the moment you first learned that two words could combine into one new idea — like "rain" and "coat" becoming "raincoat." Something clicks: language builds on itself. That same click is waiting for you inside 林.</p>
-<p><strong>Picture this.</strong> You already know 木 (<em>mù</em>) — one tree, standing alone. Now place a second 木 right beside it. You get 林 (<em>lín</em>): a grove, a forest, a gathering of trees. The meaning did not just add; it multiplied. One tree is a fact. Two trees together become a <em>place</em>.</p>
+<p><strong>Picture this.</strong> You already know 木 (*mù*) — one tree, standing alone. Now place a second 木 right beside it. You get 林 (*lín*): a grove, a forest, a gathering of trees. The meaning did not just add; it multiplied. One tree is a fact. Two trees together become a *place*.</p>
 <p><strong>The simple rule.</strong> In Chinese character logic, doubling a root signals plurality or intensification:</p>
 $$\text{木} + \text{木} = \text{林} \quad (\text{grove})$$
 <p>And the pattern keeps going — triple 木 gives you 森 (<em>sēn</em>), a dense, ancient forest. A single symbol carries an entire ecosystem of meaning, compressed into strokes you can write in seconds.</p>

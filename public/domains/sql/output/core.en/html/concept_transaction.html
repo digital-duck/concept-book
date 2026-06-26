@@ -82,7 +82,7 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="transaction">Transaction</h2>
 <p>Every time you transfer money between bank accounts, you expect two things to happen together: the source account decreases and the destination account increases. If the system crashes halfway through, you don't want one to happen without the other. This everyday expectation is formalized by the concept of a <strong>transaction</strong>.</p>
-<p><strong>Definition.</strong> A <em>transaction</em> is a finite sequence of operations $T = \langle o_1, o_2, \ldots, o_n \rangle$ executed on a shared data store, satisfying the <strong>ACID</strong> properties:</p>
+<p><strong>Definition.</strong> A *transaction* is a finite sequence of operations $T = \langle o_1, o_2, \ldots, o_n \rangle$ executed on a shared data store, satisfying the <strong>ACID</strong> properties:</p>
 <li><strong>Atomicity</strong> — either all operations commit, or none do.</li>
 <li><strong>Consistency</strong> — $T$ maps a valid database state to another valid database state.</li>
 <li><strong>Isolation</strong> — concurrent transactions behave as if they were executed serially.</li>

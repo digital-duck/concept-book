@@ -158,7 +158,7 @@ DO
         END
 
         CALL elapsed_secs(@t_section_start) INTO @section_elapsed
-        LOGGING f"[timing] {@concept}: {@section_elapsed}s" LEVEL INFO
+        LOGGING f"[timing] {@concept}: {@section_elapsed}s\n" LEVEL INFO
 
         @textbook := @textbook + "\n\n---\n\n" + @section
         EVALUATE @output_dir
@@ -178,12 +178,12 @@ DO
     GENERATE write_payoff(@target, @apps, @style_guide) INTO @capstone
 
     CALL elapsed_secs(@t_payoff_start) INTO @payoff_elapsed
-    LOGGING f"[timing] payoff: {@payoff_elapsed}s" LEVEL INFO
+    LOGGING f"[timing] payoff: {@payoff_elapsed}s\n" LEVEL INFO
 
     @textbook := @textbook + "\n\n---\n\n" + @capstone
 
     CALL elapsed_secs(@t_workflow_start) INTO @total_elapsed
-    LOGGING f"[timing] workflow total: {@total_elapsed}s for {@order_len} sections + payoff" LEVEL INFO
+    LOGGING f"[timing] workflow total: {@total_elapsed}s for {@order_len} sections + payoff\n" LEVEL INFO
 
     LOGGING f"Concept-book complete — domain: {@domain_yaml}  level: {@lvl}" LEVEL INFO
     CALL write_file(@log_file, f"## Run complete\n\ntotal: {@total_elapsed}s\n", "a") INTO @_

@@ -39,14 +39,14 @@ section:first-of-type{border-top:none;padding-top:0}
   </header>
   <main>
     <h2 id="ray">Ray</h2>
-<p><strong>Definition.</strong> A <em>ray</em> is a subset of a line that begins at a fixed point and extends infinitely in one direction. Formally, given two distinct points $A$ and $B$ in $\mathbb{R}^n$, the ray with <em>endpoint</em> (or <em>origin</em>) $A$ passing through $B$ is defined as</p>
+<p><strong>Definition.</strong> A *ray* is a subset of a line that begins at a fixed point and extends infinitely in one direction. Formally, given two distinct points $A$ and $B$ in $\mathbb{R}^n$, the ray with *endpoint* (or *origin*) $A$ passing through $B$ is defined as</p>
 $$\overrightarrow{AB} = \{ A + t\,(B - A) \mid t \in [0, +\infty) \}.$$
 <p>The point $A$ belongs to the ray; no point "behind" $A$ (i.e., corresponding to $t < 0$) does. The ray is thus a half-line closed at $A$. In the plane $\mathbb{R}^2$, a ray is often specified by its endpoint and a direction vector $\mathbf{d} \neq \mathbf{0}$:</p>
 $$r(t) = P + t\,\mathbf{d}, \qquad t \geq 0.$$
 <p><strong>Worked Example.</strong> Let $P = (1, 2)$ and $\mathbf{d} = (3, -1)$ in $\mathbb{R}^2$. Find the point on the ray at parameter $t = 2$, and determine whether $Q = (7, 0)$ lies on the ray.</p>
-<p><em>Point at $t = 2$:</em></p>
+<p>*Point at $t = 2$:</em></p>
 $$r(2) = (1,2) + 2\,(3,-1) = (1 + 6,\; 2 - 2) = (7, 0).$$
-<p><em>Membership check for $Q = (7,0)$:</em> Solve $P + t\,\mathbf{d} = Q$:</p>
+<p>*Membership check for $Q = (7,0)$:</em> Solve $P + t\,\mathbf{d} = Q$:</p>
 $$t = \frac{7 - 1}{3} = 2, \qquad t = \frac{0 - 2}{-1} = 2.$$
 <p>Both components yield $t = 2 \geq 0$, so $Q \in \overrightarrow{AB}$. $\square$</p>
 <p><strong>Key Theorem (Ray–Ray Intersection).</strong> Two rays $r_1(t) = P + t\,\mathbf{d}_1$ and $r_2(s) = Q + s\,\mathbf{d}_2$ in $\mathbb{R}^2$ intersect if and only if there exist $t \geq 0$ and $s \geq 0$ satisfying</p>

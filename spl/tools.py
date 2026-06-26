@@ -501,13 +501,48 @@ def _sanitize_math_expr(expr: str) -> str:
     return re.sub(r'\\([A-Za-z]+)', _fix, expr)
 
 
+# ── Optional: mistune for robust Markdown → HTML ─────────────────────────────
+# mistune tokenises $...$ as a math span *before* inline emphasis rules, so
+# * characters inside LaTeX are architecturally safe (no stash-and-restore needed).
+# Install with: pip install mistune
+# Falls back to the regex parser below when not available.
+try:
+    import mistune as _mistune_mod
+    from mistune.plugins.math import math as _mistune_math
+
+    class _CBRenderer(_mistune_mod.HTMLRenderer):
+        """HTMLRenderer that keeps $...$ delimiters for MathJax and sanitizes LaTeX."""
+        def inline_math(self, text: str) -> str:
+            return '$' + _sanitize_math_expr(text) + '$'
+
+        def block_math(self, text: str) -> str:
+            return '$$\n' + text.strip() + '\n$$\n'
+
+    _mistune_md = _mistune_mod.create_markdown(
+        renderer=_CBRenderer(),
+        plugins=[_mistune_math, 'table', 'strikethrough'],
+    )
+    _MISTUNE_AVAILABLE = True
+except ImportError:
+    _mistune_md = None
+    _MISTUNE_AVAILABLE = False
+# ─────────────────────────────────────────────────────────────────────────────
+
+
 def _inline_md(text: str) -> str:
-    """Bold, italic, backtick-code.  Sanitizes $...$ LaTeX spans for MathJax."""
-    # Sanitize inline math before any other substitution touches the delimiters
-    text = re.sub(r'\$(.+?)\$', lambda m: '$' + _sanitize_math_expr(m.group(1)) + '$', text)
+    """Bold, italic, backtick-code.  Protects $...$ LaTeX spans from markup."""
+    # Stash $...$ spans so * inside them isn't converted to <em>
+    stash: dict[str, str] = {}
+    def _stash_math(m: re.Match) -> str:
+        key = f'\x00M{len(stash)}\x00'
+        stash[key] = '$' + _sanitize_math_expr(m.group(1)) + '$'
+        return key
+    text = re.sub(r'\$(.+?)\$', _stash_math, text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
     text = re.sub(r'`([^`]+)`', lambda m: f'<code>{_esc(m.group(1))}</code>', text)
+    for key, val in stash.items():
+        text = text.replace(key, val)
     return text
 
 
@@ -549,7 +584,14 @@ def _render_table(rows: list[str]) -> str:
 
 
 def _md_to_html(md: str) -> str:
-    """Minimal Markdown → HTML.  Preserves $...$ and $$...$$ for MathJax."""
+    """Markdown → HTML.  Uses mistune when available; falls back to regex parser."""
+    if _MISTUNE_AVAILABLE and _mistune_md is not None:
+        return (_mistune_md(md) or '').strip()
+    return _md_to_html_regex(md)
+
+
+def _md_to_html_regex(md: str) -> str:
+    """Regex-based Markdown → HTML fallback.  Preserves $...$ and $$...$$ for MathJax."""
     lines = md.split('\n')
     out: list[str] = []
     in_code = False

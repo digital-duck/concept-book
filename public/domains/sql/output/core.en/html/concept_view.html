@@ -81,16 +81,16 @@ nav.toc{position:relative;height:auto}}
     <h1 class="book-title">View</h1>
     <section>
 <h2 id="view">View</h2>
-<p>When you learn that the Earth rotates rather than the Sun orbiting it, nothing in the sky changes — only your <em>frame of reference</em> does. The same shift happens constantly in linear algebra: the same object looks entirely different depending on which <strong>view</strong> you adopt.</p>
-<p><strong>Definition.</strong> A <em>view</em> of a matrix equation $A\mathbf{x} = \mathbf{b}$ is a consistent interpretation that fixes <em>what plays the role of the basic unit</em>. The two canonical views are:</p>
+<p>When you learn that the Earth rotates rather than the Sun orbiting it, nothing in the sky changes — only your *frame of reference* does. The same shift happens constantly in linear algebra: the same object looks entirely different depending on which <strong>view</strong> you adopt.</p>
+<p><strong>Definition.</strong> A *view* of a matrix equation $A\mathbf{x} = \mathbf{b}$ is a consistent interpretation that fixes *what plays the role of the basic unit*. The two canonical views are:</p>
 <li><strong>Row view</strong>: each row $\mathbf{a}_i^\top$ of $A$ defines a hyperplane $\mathbf{a}_i^\top \mathbf{x} = b_i$; the solution is their intersection.</li>
-<li><strong>Column view</strong>: $A\mathbf{x}$ is a <em>linear combination</em> of the columns of $A$, with the entries of $\mathbf{x}$ as coefficients.</li>
+<li><strong>Column view</strong>: $A\mathbf{x}$ is a *linear combination* of the columns of $A$, with the entries of $\mathbf{x}$ as coefficients.</li>
 <p><strong>Worked example.</strong> Let $A = \begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix}$, $\mathbf{x} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$.</p>
-<p><em>Row view</em>: the product checks that $(1)(2)+(2)(1)=4$ and $(3)(2)+(1)(1)=7$, so $A\mathbf{x} = \begin{pmatrix}4\\7\end{pmatrix}$.</p>
-<p><em>Column view</em>: $A\mathbf{x} = 2\begin{pmatrix}1\\3\end{pmatrix} + 1\begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}2\\6\end{pmatrix}+\begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}4\\7\end{pmatrix}$.</p>
+<p>*Row view*: the product checks that $(1)(2)+(2)(1)=4$ and $(3)(2)+(1)(1)=7$, so $A\mathbf{x} = \begin{pmatrix}4\\7\end{pmatrix}$.</p>
+<p>*Column view*: $A\mathbf{x} = 2\begin{pmatrix}1\\3\end{pmatrix} + 1\begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}2\\6\end{pmatrix}+\begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}4\\7\end{pmatrix}$.</p>
 <p>Same answer — completely different story.</p>
-<p><strong>Why it matters.</strong> The column view reveals that $A\mathbf{x} = \mathbf{b}$ is solvable <em>if and only if</em> $\mathbf{b}$ lies in the <strong>column space</strong> $\mathcal{C}(A)$, the span of $A$'s columns. This geometric picture is the foundation for understanding rank, null space, and least-squares. The row view, by contrast, is natural for Gaussian elimination, where you're intersecting constraints one equation at a time.</p>
-<p>Choosing the right view does not change the mathematics; it changes what you <em>see</em>, and therefore what you can prove.</p>
+<p><strong>Why it matters.</strong> The column view reveals that $A\mathbf{x} = \mathbf{b}$ is solvable *if and only if* $\mathbf{b}$ lies in the <strong>column space</strong> $\mathcal{C}(A)$, the span of $A$'s columns. This geometric picture is the foundation for understanding rank, null space, and least-squares. The row view, by contrast, is natural for Gaussian elimination, where you're intersecting constraints one equation at a time.</p>
+<p>Choosing the right view does not change the mathematics; it changes what you *see*, and therefore what you can prove.</p>
 <p><strong>Practice.</strong> For $A = \begin{pmatrix}2 & -1\\4 & 0\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}3\\8\end{pmatrix}$, express $\mathbf{b}$ as a linear combination of the columns of $A$, then verify the same result using the row view.</p>
 </section>
   </main>

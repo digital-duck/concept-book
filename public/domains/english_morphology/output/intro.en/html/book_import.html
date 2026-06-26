@@ -71,16 +71,16 @@ nav.toc{position:relative;height:auto}}
     <section>
       <h2 id="payoff">Payoff</h2>
 <h3 id="definition">Definition</h3>
-<p>The word <em>import</em> — from Latin <em>importāre</em>, "to carry in" — is the lexical culmination of every morphological principle developed in this book. Formally, let $\Sigma^<em>$ denote the set of all strings over an alphabet, and let $M$ be the morpheme lexicon equipped with a concatenation operation $\oplus$. A morphological construction is a well-formed element of the free monoid $(\mathcal{M}, \oplus, \varepsilon)$, where $\mathcal{M} \subseteq \Sigma^</em>$ is the set of licensed morpheme sequences. <em>Import</em> is the image of the composition</p>
+<p>The word *import* — from Latin *importāre*, "to carry in" — is the lexical culmination of every morphological principle developed in this book. Formally, let $\Sigma^*$ denote the set of all strings over an alphabet, and let $M$ be the morpheme lexicon equipped with a concatenation operation $\oplus$. A morphological construction is a well-formed element of the free monoid $(\mathcal{M}, \oplus, \varepsilon)$, where $\mathcal{M} \subseteq \Sigma^*$ is the set of licensed morpheme sequences. *Import* is the image of the composition</p>
 $$\text{import} = \textit{im-} \oplus \textit{port},$$
 <p>where $\textit{im-}$ is the nasal-assimilated allomorph of the prefix $\textit{in-}$ (direction: into), and $\textit{port}$ is the Latin root for "carry." Every analytic tool introduced previously — allomorphy, prefixation, root identity, and derivational productivity — converges on this single lexical node.</p>
 <h3 id="worked-example">Worked Example</h3>
 <p>Consider the morphological family rooted at $\textit{port}$:</p>
-<p>| Construction | Decomposition | Gloss | |---|---|---| | <em>export</em> | $\textit{ex-} \oplus \textit{port}$ | carry out | | <em>transport</em> | $\textit{trans-} \oplus \textit{port}$ | carry across | | <em>portable</em> | $\textit{port} \oplus \textit{-able}$ | able to be carried | | <strong>import</strong> | $\textit{im-} \oplus \textit{port}$ | carry into |</p>
+<p>| Construction | Decomposition | Gloss | |---|---|---| | *export* | $\textit{ex-} \oplus \textit{port}$ | carry out | | *transport* | $\textit{trans-} \oplus \textit{port}$ | carry across | | *portable* | $\textit{port} \oplus \textit{-able}$ | able to be carried | | <strong>import</strong> | $\textit{im-} \oplus \textit{port}$ | carry into |</p>
 <p>The prefix $\textit{in-}$ surfaces as $\textit{im-}$ before the bilabial $[p]$, illustrating place-assimilation: $\phi(\textit{in-}, \textit{port}) = \textit{im-}$. The Morphological Decoding Principle then predicts the meaning compositionally, requiring no lexical lookup beyond the two constituents.</p>
 <h3 id="key-theorem">Key Theorem</h3>
 <p><strong>Theorem (Root Productivity).</strong> Let $R$ be a root morpheme and $P$ the set of licensed directional prefixes. Then the number of distinct words derivable from $R$ is bounded below by $|P|$, and each derivative is semantically transparent under the composition semantics of $M$. For the root $\textit{port}$, $|P| \geq 6$ (in-, ex-, trans-, re-, sup-, com-), confirming high productivity.</p>
-<p><em>Proof sketch.</em> Each $p_i \oplus R$ is a distinct string; semantic compositionality follows from the free-monoid interpretation of $\oplus$ and the assumption that morpheme meanings are independent tensors in a semantic space $\mathbb{R}^d$.</p>
+<p>*Proof sketch.* Each $p_i \oplus R$ is a distinct string; semantic compositionality follows from the free-monoid interpretation of $\oplus$ and the assumption that morpheme meanings are independent tensors in a semantic space $\mathbb{R}^d$.</p>
 <h3 id="lab-cell">Lab Cell</h3>
 <pre><code>from sympy import symbols, Function
 

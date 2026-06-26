@@ -77,16 +77,16 @@ nav.toc{position:relative;height:auto}}
     <section>
 <h2 id="significant-figures">🍃 Significant Figures</h2>
 <p>A pharmacist measures a dose as 2.4 mg, not 2.400000 mg. That restraint is not laziness — it is honesty about measurement precision. <strong>Significant figures</strong> (sig figs) encode exactly how much information a number actually carries.</p>
-<p><strong>Definition.</strong> The significant figures of a measured or computed number are all digits that are <em>known with certainty</em> plus one final digit that is estimated. The count $n$ of significant figures follows four rules:</p>
+<p><strong>Definition.</strong> The significant figures of a measured or computed number are all digits that are *known with certainty* plus one final digit that is estimated. The count $n$ of significant figures follows four rules:</p>
 <li>All non-zero digits are significant.</li>
 <li>Zeros between non-zero digits are significant ($1.003$ has 4 sig figs).</li>
-<li>Leading zeros are <em>not</em> significant ($0.0047$ has 2 sig figs).</li>
-<li>Trailing zeros <em>after</em> a decimal point are significant ($3.50$ has 3 sig figs).</li>
+<li>Leading zeros are *not* significant ($0.0047$ has 2 sig figs).</li>
+<li>Trailing zeros *after* a decimal point are significant ($3.50$ has 3 sig figs).</li>
 <p><strong>Worked example.</strong> Suppose you measure a table's length as $\ell = 1.836\ \text{m}$ and its width as $w = 0.72\ \text{m}$. The area is</p>
 $$A = \ell \times w = 1.836 \times 0.72 = 1.32192\ \text{m}^2.$$
-<p>Your calculator happily returns six digits, but $w$ was only known to 2 sig figs. The product can be no more precise than the <em>least precise</em> factor, so you round to</p>
+<p>Your calculator happily returns six digits, but $w$ was only known to 2 sig figs. The product can be no more precise than the *least precise* factor, so you round to</p>
 $$A \approx 1.3\ \text{m}^2.$$
-<p>For addition and subtraction, the rule shifts to <em>decimal places</em>: the result keeps only as many decimal places as the least precise addend.</p>
+<p>For addition and subtraction, the rule shifts to *decimal places*: the result keeps only as many decimal places as the least precise addend.</p>
 <p><strong>Why it's true.</strong> Error propagates. If $w$ has an uncertainty of $\pm 0.005\ \text{m}$ (half the last digit), multiplying by $\ell \approx 1.836$ gives an uncertainty of roughly $\pm 0.009\ \text{m}^2$, which already obscures the third digit of $A$. Reporting more digits than the uncertainty allows is mathematically misleading.</p>
 <p><strong>Practice problem.</strong> A chemist reports a reaction yield of $0.08340\ \text{g}$.</p>
 <p>(a) How many significant figures does this measurement contain? (b) Three such yields are summed: $0.08340 + 0.1200 + 0.0074\ \text{g}$. State the result to the correct number of decimal places.</p>

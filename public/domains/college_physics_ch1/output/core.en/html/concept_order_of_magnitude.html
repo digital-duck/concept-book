@@ -76,12 +76,12 @@ nav.toc{position:relative;height:auto}}
     <h1 class="book-title">🍃 Order Of Magnitude</h1>
     <section>
 <h2 id="order-of-magnitude">🍃 Order Of Magnitude</h2>
-<p>How far is the Sun from Earth? About 150 million kilometers. How wide is a hydrogen atom? About 0.0000000001 meters. These two numbers differ by so many zeros that comparing them directly feels meaningless — yet scientists work with both comfortably every day. The secret is <em>order of magnitude</em>: a way of measuring scale in powers of ten.</p>
-<p><strong>Definition.</strong> The <em>order of magnitude</em> of a positive real number $x$ is the integer $n$ such that</p>
+<p>How far is the Sun from Earth? About 150 million kilometers. How wide is a hydrogen atom? About 0.0000000001 meters. These two numbers differ by so many zeros that comparing them directly feels meaningless — yet scientists work with both comfortably every day. The secret is *order of magnitude*: a way of measuring scale in powers of ten.</p>
+<p><strong>Definition.</strong> The *order of magnitude* of a positive real number $x$ is the integer $n$ such that</p>
 $$10^{n - \tfrac{1}{2}} \leq x < 10^{n + \tfrac{1}{2}},$$
 <p>or equivalently, $n = \lfloor \log_{10} x + 0.5 \rfloor$. Informally, $n$ is the exponent when $x$ is written in scientific notation and the leading coefficient is rounded to the nearest power of ten.</p>
 <p><strong>Worked example.</strong> Consider $x = 4{,}700$. Write it in scientific notation: $4.7 \times 10^3$. Since $4.7 \approx 10^{0.67}$, we get $\log_{10}(4700) \approx 3.67$. Rounding to the nearest integer gives $n = 4$. So $4{,}700$ is of order of magnitude $10^4$ — the same order as $50{,}000$ but one order below $100{,}000$. Contrast: $500$ has $\log_{10}(500) \approx 2.70$, so it rounds to $n = 3$, one full order of magnitude smaller.</p>
-<p><strong>Why it works.</strong> The logarithm converts multiplication into addition: $\log_{10}(10^a \cdot 10^b) = a + b$. This means ratios become differences, and a difference of $1$ in the exponent corresponds to a factor of $10$ in the original quantity. Grouping numbers by their rounded exponent therefore clusters values that are "within a factor of $\sim\!3$" of each other — a natural notion of <em>same scale</em>.</p>
+<p><strong>Why it works.</strong> The logarithm converts multiplication into addition: $\log_{10}(10^a \cdot 10^b) = a + b$. This means ratios become differences, and a difference of $1$ in the exponent corresponds to a factor of $10$ in the original quantity. Grouping numbers by their rounded exponent therefore clusters values that are "within a factor of $\sim\!3$" of each other — a natural notion of *same scale*.</p>
 <p><strong>Practice problem.</strong> The speed of light is approximately $3 \times 10^8\ \text{m/s}$, and the speed of sound in air is approximately $340\ \text{m/s}$. By how many orders of magnitude is light faster than sound?</p>
 </section>
   </main>
