@@ -164,5 +164,27 @@ python scripts/batch_generate.py --domain chinese_characters --language zh --ski
 ### --llm ollama:gemma3 geometry
 
 ```bash
-python scripts/batch_generate.py --domain geometry 
+SPL_WHILE_MAX_ITER=30 python scripts/batch_generate.py --domain geometry --llm ollama:gemma3
+```
+
+
+### --llm ollama:gemma4 english_morphology
+see `~/projects/digital-duck/SPL.py/example.env` for global env variable settings
+
+```bash
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain english_morphology --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain calculus --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain mechanics --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain linalg --llm ollama:gemma4
+
+SPL_WHILE_MAX_ITER=50 SPL_MAX_LLM_CALLS=50 \
+python scripts/batch_generate.py --domain sage_learning --llm ollama:gemma4
+
 ```

@@ -31,13 +31,13 @@ ALL_DOMAINS=(
   chinese_characters
   english_morphology
   chemistry_elements
-  cs_algorithms
   cs_data_structures
+  cs_algorithms
   sql
+  calculus
   sage_learning
   python_science
   linalg
-  calculus
   mechanics
   quantum_physics
   music_theory

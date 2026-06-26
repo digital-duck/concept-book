@@ -124,107 +124,112 @@
       {
         "name": "angle",
         "label": "Angle",
-        "file": "output/core.zh/html/concept_angle.html"
+        "file": "output/core.en/html/concept_angle.html"
       },
       {
         "name": "angle_measure",
         "label": "Angle Measure",
-        "file": "output/core.zh/html/concept_angle_measure.html"
+        "file": "output/core.en/html/concept_angle_measure.html"
       },
       {
         "name": "architecture_construction",
         "label": "Architecture Construction",
-        "file": "output/core.zh/html/concept_architecture_construction.html"
+        "file": "output/core.en/html/concept_architecture_construction.html"
       },
       {
         "name": "area",
         "label": "Area",
-        "file": "output/core.zh/html/concept_area.html"
+        "file": "output/core.en/html/concept_area.html"
       },
       {
         "name": "circle",
         "label": "Circle",
-        "file": "output/core.zh/html/concept_circle.html"
+        "file": "output/core.en/html/concept_circle.html"
       },
       {
         "name": "congruence",
         "label": "Congruence",
-        "file": "output/core.zh/html/concept_congruence.html"
+        "file": "output/core.en/html/concept_congruence.html"
       },
       {
         "name": "coordinate_plane",
         "label": "Coordinate Plane",
-        "file": "output/core.zh/html/concept_coordinate_plane.html"
+        "file": "output/core.en/html/concept_coordinate_plane.html"
       },
       {
         "name": "distance",
         "label": "Distance",
-        "file": "output/core.zh/html/concept_distance.html"
+        "file": "output/core.en/html/concept_distance.html"
       },
       {
         "name": "distance_formula",
         "label": "Distance Formula",
-        "file": "output/core.zh/html/concept_distance_formula.html"
+        "file": "output/core.en/html/concept_distance_formula.html"
       },
       {
         "name": "line",
         "label": "Line",
-        "file": "output/core.zh/html/concept_line.html"
+        "file": "output/core.en/html/concept_line.html"
       },
       {
         "name": "line_segment",
         "label": "Line Segment",
-        "file": "output/core.zh/html/concept_line_segment.html"
+        "file": "output/core.en/html/concept_line_segment.html"
       },
       {
         "name": "navigation_surveying",
         "label": "Navigation Surveying",
-        "file": "output/core.zh/html/concept_navigation_surveying.html"
+        "file": "output/core.en/html/concept_navigation_surveying.html"
       },
       {
         "name": "point",
         "label": "Point",
-        "file": "output/core.zh/html/concept_point.html"
+        "file": "output/core.en/html/concept_point.html"
       },
       {
         "name": "polygon",
         "label": "Polygon",
-        "file": "output/core.zh/html/concept_polygon.html"
+        "file": "output/core.en/html/concept_polygon.html"
       },
       {
         "name": "pythagorean_theorem",
         "label": "Pythagorean Theorem",
-        "file": "output/core.zh/html/concept_pythagorean_theorem.html"
+        "file": "output/core.en/html/concept_pythagorean_theorem.html"
+      },
+      {
+        "name": "ray",
+        "label": "Ray",
+        "file": "output/core.en/html/concept_ray.html"
       },
       {
         "name": "rigid_motion",
         "label": "Rigid Motion",
-        "file": "output/core.zh/html/concept_rigid_motion.html"
+        "file": "output/core.en/html/concept_rigid_motion.html"
       },
       {
         "name": "similarity",
         "label": "Similarity",
-        "file": "output/core.zh/html/concept_similarity.html"
+        "file": "output/core.en/html/concept_similarity.html"
       },
       {
         "name": "triangle",
         "label": "Triangle",
-        "file": "output/core.zh/html/concept_triangle.html"
+        "file": "output/core.en/html/concept_triangle.html"
       },
       {
         "name": "triangle_congruence_criteria",
         "label": "Triangle Congruence Criteria",
-        "file": "output/core.zh/html/concept_triangle_congruence_criteria.html"
+        "file": "output/core.en/html/concept_triangle_congruence_criteria.html"
       },
       {
         "name": "triangle_similarity_criteria",
         "label": "Triangle Similarity Criteria",
-        "file": "output/core.zh/html/concept_triangle_similarity_criteria.html"
+        "file": "output/core.en/html/concept_triangle_similarity_criteria.html"
       },
       {
         "name": "trigonometric_ratios",
         "label": "Trigonometric Ratios",
-        "file": "output/core.zh/html/concept_trigonometric_ratios.html"
+        "file": "output/core.en/html/concept_trigonometric_ratios.html"
       }
     ],
     "default_level": "core"
@@ -520,9 +525,67 @@
       {
         "target": "import",
         "file": "output/intro.en/html/book_import.html"
+      },
+      {
+        "target": "decoding_unseen_words",
+        "file": "output/intro.en/html/book_decoding_unseen_words.html"
+      },
+      {
+        "target": "academic_vocabulary",
+        "file": "output/intro.en/html/book_academic_vocabulary.html"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "-able",
+        "label": "-Able",
+        "file": "output/intro.en/html/concept_-able.html"
+      },
+      {
+        "name": "-ion",
+        "label": "-Ion",
+        "file": "output/intro.en/html/concept_-ion.html"
+      },
+      {
+        "name": "-or",
+        "label": "-Or",
+        "file": "output/intro.en/html/concept_-or.html"
+      },
+      {
+        "name": "academic_vocabulary",
+        "label": "Academic Vocabulary",
+        "file": "output/intro.en/html/concept_academic_vocabulary.html"
+      },
+      {
+        "name": "allomorphy",
+        "label": "Allomorphy",
+        "file": "output/intro.en/html/concept_allomorphy.html"
+      },
+      {
+        "name": "con-",
+        "label": "Con-",
+        "file": "output/intro.en/html/concept_con-.html"
+      },
+      {
+        "name": "construct",
+        "label": "Construct",
+        "file": "output/intro.en/html/concept_construct.html"
+      },
+      {
+        "name": "construction",
+        "label": "Construction",
+        "file": "output/intro.en/html/concept_construction.html"
+      },
+      {
+        "name": "decoding_unseen_words",
+        "label": "Decoding Unseen Words",
+        "file": "output/intro.en/html/concept_decoding_unseen_words.html"
+      },
+      {
+        "name": "dict",
+        "label": "Dict",
+        "file": "output/intro.en/html/concept_dict.html"
+      },
       {
         "name": "import",
         "label": "Import",
@@ -534,9 +597,54 @@
         "file": "output/intro.en/html/concept_in-.html"
       },
       {
+        "name": "inspect",
+        "label": "Inspect",
+        "file": "output/intro.en/html/concept_inspect.html"
+      },
+      {
+        "name": "inspection",
+        "label": "Inspection",
+        "file": "output/intro.en/html/concept_inspection.html"
+      },
+      {
+        "name": "inspector",
+        "label": "Inspector",
+        "file": "output/intro.en/html/concept_inspector.html"
+      },
+      {
+        "name": "ject",
+        "label": "Ject",
+        "file": "output/intro.en/html/concept_ject.html"
+      },
+      {
+        "name": "morphological_decoding_principle",
+        "label": "Morphological Decoding Principle",
+        "file": "output/intro.en/html/concept_morphological_decoding_principle.html"
+      },
+      {
         "name": "port",
         "label": "Port",
         "file": "output/intro.en/html/concept_port.html"
+      },
+      {
+        "name": "portable",
+        "label": "Portable",
+        "file": "output/intro.en/html/concept_portable.html"
+      },
+      {
+        "name": "pre-",
+        "label": "Pre-",
+        "file": "output/intro.en/html/concept_pre-.html"
+      },
+      {
+        "name": "predict",
+        "label": "Predict",
+        "file": "output/intro.en/html/concept_predict.html"
+      },
+      {
+        "name": "prediction",
+        "label": "Prediction",
+        "file": "output/intro.en/html/concept_prediction.html"
       },
       {
         "name": "prefix",
@@ -544,9 +652,64 @@
         "file": "output/intro.en/html/concept_prefix.html"
       },
       {
+        "name": "prefix_root_composition",
+        "label": "Prefix Root Composition",
+        "file": "output/intro.en/html/concept_prefix_root_composition.html"
+      },
+      {
+        "name": "re-",
+        "label": "Re-",
+        "file": "output/intro.en/html/concept_re-.html"
+      },
+      {
+        "name": "reject",
+        "label": "Reject",
+        "file": "output/intro.en/html/concept_reject.html"
+      },
+      {
+        "name": "rejection",
+        "label": "Rejection",
+        "file": "output/intro.en/html/concept_rejection.html"
+      },
+      {
+        "name": "spect",
+        "label": "Spect",
+        "file": "output/intro.en/html/concept_spect.html"
+      },
+      {
         "name": "stem",
         "label": "Stem",
         "file": "output/intro.en/html/concept_stem.html"
+      },
+      {
+        "name": "struct",
+        "label": "Struct",
+        "file": "output/intro.en/html/concept_struct.html"
+      },
+      {
+        "name": "suffix",
+        "label": "Suffix",
+        "file": "output/intro.en/html/concept_suffix.html"
+      },
+      {
+        "name": "suffix_derivation",
+        "label": "Suffix Derivation",
+        "file": "output/intro.en/html/concept_suffix_derivation.html"
+      },
+      {
+        "name": "trans-",
+        "label": "Trans-",
+        "file": "output/intro.en/html/concept_trans-.html"
+      },
+      {
+        "name": "transport",
+        "label": "Transport",
+        "file": "output/intro.en/html/concept_transport.html"
+      },
+      {
+        "name": "transportable",
+        "label": "Transportable",
+        "file": "output/intro.en/html/concept_transportable.html"
       }
     ],
     "default_level": "intro"
