@@ -158,4 +158,11 @@ Batch complete: 1 succeeded, 0 failed.
 ```bash
 python scripts/batch_generate.py --domain chinese_characters --language en --skip-cache
 python scripts/batch_generate.py --domain chinese_characters --language zh --skip-cache
+
+```
+
+### --llm ollama:gemma3 geometry
+
+```bash
+python scripts/batch_generate.py --domain geometry 
 ```

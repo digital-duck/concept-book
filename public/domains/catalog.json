@@ -110,73 +110,121 @@
       {
         "target": "circle",
         "file": "output/core.en/html/book_circle.html"
+      },
+      {
+        "target": "architecture_construction",
+        "file": "output/core.en/html/book_architecture_construction.html"
+      },
+      {
+        "target": "navigation_surveying",
+        "file": "output/core.en/html/book_navigation_surveying.html"
       }
     ],
     "generated_concepts": [
       {
         "name": "angle",
         "label": "Angle",
-        "file": "output/core.en/html/concept_angle.html"
+        "file": "output/core.zh/html/concept_angle.html"
       },
       {
         "name": "angle_measure",
         "label": "Angle Measure",
-        "file": "output/core.en/html/concept_angle_measure.html"
+        "file": "output/core.zh/html/concept_angle_measure.html"
+      },
+      {
+        "name": "architecture_construction",
+        "label": "Architecture Construction",
+        "file": "output/core.zh/html/concept_architecture_construction.html"
       },
       {
         "name": "area",
         "label": "Area",
-        "file": "output/core.en/html/concept_area.html"
+        "file": "output/core.zh/html/concept_area.html"
       },
       {
         "name": "circle",
         "label": "Circle",
-        "file": "output/core.en/html/concept_circle.html"
+        "file": "output/core.zh/html/concept_circle.html"
+      },
+      {
+        "name": "congruence",
+        "label": "Congruence",
+        "file": "output/core.zh/html/concept_congruence.html"
       },
       {
         "name": "coordinate_plane",
         "label": "Coordinate Plane",
-        "file": "output/core.en/html/concept_coordinate_plane.html"
+        "file": "output/core.zh/html/concept_coordinate_plane.html"
       },
       {
         "name": "distance",
         "label": "Distance",
-        "file": "output/core.en/html/concept_distance.html"
+        "file": "output/core.zh/html/concept_distance.html"
+      },
+      {
+        "name": "distance_formula",
+        "label": "Distance Formula",
+        "file": "output/core.zh/html/concept_distance_formula.html"
       },
       {
         "name": "line",
         "label": "Line",
-        "file": "output/core.en/html/concept_line.html"
+        "file": "output/core.zh/html/concept_line.html"
       },
       {
         "name": "line_segment",
         "label": "Line Segment",
-        "file": "output/core.en/html/concept_line_segment.html"
+        "file": "output/core.zh/html/concept_line_segment.html"
+      },
+      {
+        "name": "navigation_surveying",
+        "label": "Navigation Surveying",
+        "file": "output/core.zh/html/concept_navigation_surveying.html"
       },
       {
         "name": "point",
         "label": "Point",
-        "file": "output/core.en/html/concept_point.html"
+        "file": "output/core.zh/html/concept_point.html"
       },
       {
         "name": "polygon",
         "label": "Polygon",
-        "file": "output/core.en/html/concept_polygon.html"
+        "file": "output/core.zh/html/concept_polygon.html"
       },
       {
-        "name": "ray",
-        "label": "Ray",
-        "file": "output/core.en/html/concept_ray.html"
+        "name": "pythagorean_theorem",
+        "label": "Pythagorean Theorem",
+        "file": "output/core.zh/html/concept_pythagorean_theorem.html"
       },
       {
         "name": "rigid_motion",
         "label": "Rigid Motion",
-        "file": "output/core.en/html/concept_rigid_motion.html"
+        "file": "output/core.zh/html/concept_rigid_motion.html"
       },
       {
         "name": "similarity",
         "label": "Similarity",
-        "file": "output/core.en/html/concept_similarity.html"
+        "file": "output/core.zh/html/concept_similarity.html"
+      },
+      {
+        "name": "triangle",
+        "label": "Triangle",
+        "file": "output/core.zh/html/concept_triangle.html"
+      },
+      {
+        "name": "triangle_congruence_criteria",
+        "label": "Triangle Congruence Criteria",
+        "file": "output/core.zh/html/concept_triangle_congruence_criteria.html"
+      },
+      {
+        "name": "triangle_similarity_criteria",
+        "label": "Triangle Similarity Criteria",
+        "file": "output/core.zh/html/concept_triangle_similarity_criteria.html"
+      },
+      {
+        "name": "trigonometric_ratios",
+        "label": "Trigonometric Ratios",
+        "file": "output/core.zh/html/concept_trigonometric_ratios.html"
       }
     ],
     "default_level": "core"
@@ -357,6 +405,11 @@
     ],
     "generated_concepts": [
       {
+        "name": "vocabulary_compounds",
+        "label": "Vocabulary Compounds",
+        "file": "output/intro.zh/html/concept_vocabulary_compounds.html"
+      },
+      {
         "name": "人",
         "label": "人",
         "file": "output/intro.zh/html/concept_人.html"
@@ -372,6 +425,11 @@
         "file": "output/intro.zh/html/concept_众.html"
       },
       {
+        "name": "口",
+        "label": "口",
+        "file": "output/intro.zh/html/concept_口.html"
+      },
+      {
         "name": "女",
         "label": "女",
         "file": "output/intro.zh/html/concept_女.html"
@@ -385,6 +443,46 @@
         "name": "子",
         "label": "子",
         "file": "output/intro.zh/html/concept_子.html"
+      },
+      {
+        "name": "字",
+        "label": "字",
+        "file": "output/intro.zh/html/concept_字.html"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.zh/html/concept_宀.html"
+      },
+      {
+        "name": "日",
+        "label": "日",
+        "file": "output/intro.zh/html/concept_日.html"
+      },
+      {
+        "name": "月",
+        "label": "月",
+        "file": "output/intro.zh/html/concept_月.html"
+      },
+      {
+        "name": "木",
+        "label": "木",
+        "file": "output/intro.zh/html/concept_木.html"
+      },
+      {
+        "name": "林",
+        "label": "林",
+        "file": "output/intro.zh/html/concept_林.html"
+      },
+      {
+        "name": "水",
+        "label": "水",
+        "file": "output/intro.zh/html/concept_水.html"
+      },
+      {
+        "name": "马",
+        "label": "马",
+        "file": "output/intro.zh/html/concept_马.html"
       }
     ],
     "default_level": "intro",
