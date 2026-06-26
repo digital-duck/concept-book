@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Line | Geometry</title>
+<title>Line — Geometry</title>
 <script>
 MathJax = {
   tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
@@ -19,6 +19,10 @@ h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
 h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
 p{margin-bottom:16px;font-size:1rem}
 li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
 pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
     padding:16px 20px;overflow-x:auto;margin:16px 0}
 code{font-family:Menlo,Consolas,monospace;font-size:.87em}
@@ -26,57 +30,71 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 .back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
       color:#2563eb;text-decoration:none;margin-bottom:24px}
 .back:hover{text-decoration:underline}
-.page{max-width:780px;margin:0 auto;padding:40px 32px}
-header{margin-bottom:32px}
-section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:4px}
+.subtitle{color:#666;margin-bottom:48px;font-size:1rem;font-style:italic;font-family:system-ui,sans-serif}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
 section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
 </style>
 </head>
 <body>
 <div class="page">
-  <header>
-    <a href="../../#/domain/geometry" class="back">← Geometry</a>
-  </header>
+  <nav class="toc">
+    <a href="../../../../#/domain/geometry" class="back">← Geometry</a>
+    <h2>Contents</h2>
+    <ol>
+<li><a href="concept_angle.html">Angle</a></li>
+<li><a href="concept_distance.html">Distance</a></li>
+<li><a href="concept_angle_measure.html">Angle Measure</a></li>
+<li class="toc-target"><a href="concept_line.html">Line</a></li>
+<li><a href="concept_point.html">Point</a></li>
+<li><a href="concept_line_segment.html">Line Segment</a></li>
+<li><a href="concept_polygon.html">Polygon</a></li>
+<li><a href="concept_rigid_motion.html">Rigid Motion</a></li>
+<li><a href="concept_congruence.html">Congruence</a></li>
+<li><a href="concept_triangle.html">Triangle</a></li>
+<li><a href="concept_area.html">Area</a></li>
+<li><a href="concept_triangle_congruence_criteria.html">Triangle Congruence Criteria</a></li>
+<li><a href="concept_pythagorean_theorem.html">Pythagorean Theorem</a></li>
+<li><a href="concept_similarity.html">Similarity</a></li>
+<li><a href="concept_architecture_construction.html">Architecture Construction</a></li>
+</ol>
+  </nav>
   <main>
-    <h2 id="line">Line</h2>
-<p><strong>Definition.</strong> A <em>line</em> in the Euclidean plane $\mathbb{R}^2$ is a one-dimensional affine subspace. Formally, given a point $P_0 = (x_0, y_0)$ and a nonzero direction vector $\mathbf{d} = (d_1, d_2)$, the line $\ell$ is the set</p>
-$$\ell = \bigl\{(x_0 + t\,d_1,\; y_0 + t\,d_2) : t \in \mathbb{R}\bigr\}.$$
-<p>This is the <strong>parametric form</strong>. Eliminating $t$ by solving the first component for $t$ and substituting into the second yields the equivalent <strong>implicit (Cartesian) form</strong></p>
-$$ax + by = c, \qquad (a,b) \neq (0,0),$$
-<p>where $a = d_2$, $b = -d_1$, and $c = d_2 x_0 - d_1 y_0$. The implicit form is often more convenient for checking whether a given point lies on the line: substitute the coordinates and verify the equality.</p>
-<hr>
-<p><strong>Worked Example.</strong> Find the equation of the line passing through $A = (1, 3)$ and $B = (4, 9)$.</p>
-<p><em>Direction vector:</em> $\mathbf{d} = B - A = (3, 6)$, so we may take $(d_1, d_2) = (1, 2)$.</p>
-<p><em>Parametric form</em> anchored at $A$:</p>
-$$(x, y) = (1 + t,\; 3 + 2t), \quad t \in \mathbb{R}.$$
-<p><em>Implicit form:</em> $a = 2$, $b = -1$, $c = 2(1) - 1(3) = -1$, giving $2x - y = -1$, or equivalently $y = 2x + 1$.</p>
-<p>Verification: $y(4) = 2(4) + 1 = 9$ ✓.</p>
-<hr>
-<p><strong>Key Theorem (Unique Line Through Two Points).</strong> <em>For any two distinct points $P, Q \in \mathbb{R}^2$, there exists exactly one line containing both.</em></p>
-<p><em>Proof sketch.</em> Existence: take $\mathbf{d} = Q - P$ and use the parametric form above. Uniqueness: if two lines $\ell_1, \ell_2$ both contain $P$ and $Q$, their direction vectors are both parallel to $Q - P$, hence they share a point and a direction, so $\ell_1 = \ell_2$. $\square$</p>
-<hr>
-<p><strong>Lab Cell (SymPy)</strong></p>
-<pre><code>from sympy import symbols, solve, Rational
-
-x, y = symbols('x y')
-
-# Two points
-x0, y0 = 1, 3
-x1, y1 = 4, 9
-
-# Direction vector components
-d1, d2 = x1 - x0, y1 - y0          # (3, 6), simplified to (1, 2)
-
-# Implicit form: a*x + b*y = c
-a, b = d2, -d1
-c = d2 * x0 - d1 * y0
-
-implicit_eq = a*x + b*y - c
-print(f"{a}*x + ({b})*y = {c}")     # 6*x + (-3)*y = -3, i.e. 2x - y = -1
-
-# Solve for x given y = 7
-sol = solve(implicit_eq.subs(y, 7), x)
-print(f"x when y=7: {sol[0]}")      # x = 3</code></pre>
+    <h1 class="book-title">Line</h1>
+    <p class="subtitle">Geometry &middot; Generated by SPL</p>
+    <section>
+<h2 id="line">Line</h2>
+<p>想象一条笔直的公路，向两端无限延伸，没有起点，也没有终点。这就是几何中<strong>直线</strong>的直觉来源——它是空间中最基本的对象之一。</p>
+<p><strong>定义。</strong> 在欧几里得几何中，直线是由两个不同的点唯一确定的一维对象，沿两个方向无限延伸。给定平面上两点 $A(x_1, y_1)$ 和 $B(x_2, y_2)$（其中 $A \neq B$），通过它们的直线可以用参数方程表示：</p>
+$$\mathbf{r}(t) = (1-t)\,\mathbf{A} + t\,\mathbf{B}, \quad t \in \mathbb{R}$$
+<p>当 $x_1 \neq x_2$ 时，直线也可以写成斜截式 $y = mx + b$，其中斜率 $m = \dfrac{y_2 - y_1}{x_2 - x_1}$。</p>
+<p><strong>例题。</strong> 求过点 $P(1, 2)$ 和 $Q(4, 8)$ 的直线方程。</p>
+<p>先算斜率：</p>
+$$m = \frac{8 - 2}{4 - 1} = \frac{6}{3} = 2$$
+<p>代入点斜式 $y - y_1 = m(x - x_1)$：</p>
+$$y - 2 = 2(x - 1) \implies y = 2x$$
+<p>验证：当 $x = 4$ 时，$y = 8$，与 $Q$ 吻合。✓</p>
+<p><strong>为什么两点确定一条直线？</strong> 这是欧几里得第一公设的内容。直觉上，如果存在两条不同的直线都经过 $A$ 和 $B$，则它们之间的区域会产生"弯曲"，与直线的定义矛盾。在公理化体系中，这一性质被直接假定为基础真理——所有后续定理都建立在它之上。</p>
+<p>直线的概念延伸至高维空间：在 $\mathbb{R}^n$ 中，过点 $\mathbf{p}$、方向为 $\mathbf{d} \neq \mathbf{0}$ 的直线为 $\{\mathbf{p} + t\,\mathbf{d} \mid t \in \mathbb{R}\}$。无论维度如何变化，"由一点和一个方向唯一确定"这一本质不变。</p>
+<p><strong>练习。</strong> 直线 $\ell$ 过点 $(−1, 5)$ 且斜率为 $-3$。求 $\ell$ 与 $x$ 轴的交点坐标。</p>
+</section>
   </main>
 </div>
 </body>

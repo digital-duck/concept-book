@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angle | Geometry</title>
+<title>Angle — Geometry</title>
 <script>
 MathJax = {
   tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
@@ -19,6 +19,10 @@ h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
 h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
 p{margin-bottom:16px;font-size:1rem}
 li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
 pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
     padding:16px 20px;overflow-x:auto;margin:16px 0}
 code{font-family:Menlo,Consolas,monospace;font-size:.87em}
@@ -26,42 +30,67 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 .back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
       color:#2563eb;text-decoration:none;margin-bottom:24px}
 .back:hover{text-decoration:underline}
-.page{max-width:780px;margin:0 auto;padding:40px 32px}
-header{margin-bottom:32px}
-section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:4px}
+.subtitle{color:#666;margin-bottom:48px;font-size:1rem;font-style:italic;font-family:system-ui,sans-serif}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
 section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
 </style>
 </head>
 <body>
 <div class="page">
-  <header>
-    <a href="../../#/domain/geometry" class="back">← Geometry</a>
-  </header>
+  <nav class="toc">
+    <a href="../../../../#/domain/geometry" class="back">← Geometry</a>
+    <h2>Contents</h2>
+    <ol>
+<li class="toc-target"><a href="concept_angle.html">Angle</a></li>
+<li><a href="concept_distance.html">Distance</a></li>
+<li><a href="concept_angle_measure.html">Angle Measure</a></li>
+<li><a href="concept_line.html">Line</a></li>
+<li><a href="concept_point.html">Point</a></li>
+<li><a href="concept_line_segment.html">Line Segment</a></li>
+<li><a href="concept_polygon.html">Polygon</a></li>
+<li><a href="concept_rigid_motion.html">Rigid Motion</a></li>
+<li><a href="concept_congruence.html">Congruence</a></li>
+<li><a href="concept_triangle.html">Triangle</a></li>
+<li><a href="concept_area.html">Area</a></li>
+<li><a href="concept_triangle_congruence_criteria.html">Triangle Congruence Criteria</a></li>
+<li><a href="concept_pythagorean_theorem.html">Pythagorean Theorem</a></li>
+<li><a href="concept_similarity.html">Similarity</a></li>
+<li><a href="concept_architecture_construction.html">Architecture Construction</a></li>
+</ol>
+  </nav>
   <main>
-    <h2 id="angle">Angle</h2>
-<p><strong>Definition.</strong> Let $\mathbf{u}$ and $\mathbf{v}$ be two nonzero vectors in $\mathbb{R}^n$. The <em>angle</em> $\theta$ between them is the unique value in $[0, \pi]$ satisfying</p>
-$$\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|},$$
-<p>where $\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{n} u_i v_i$ is the Euclidean inner product and $\|\mathbf{u}\| = \sqrt{\mathbf{u} \cdot \mathbf{u}}$ is the Euclidean norm. This definition extends the familiar geometric notion of angle to arbitrary finite dimensions.</p>
-<p><strong>Worked Example.</strong> Let $\mathbf{u} = (1, 2, 2)$ and $\mathbf{v} = (4, 0, -3)$ in $\mathbb{R}^3$. Compute:</p>
-$$\mathbf{u} \cdot \mathbf{v} = (1)(4) + (2)(0) + (2)(-3) = 4 + 0 - 6 = -2,$$
-$$\|\mathbf{u}\| = \sqrt{1 + 4 + 4} = 3, \qquad \|\mathbf{v}\| = \sqrt{16 + 0 + 9} = 5.$$
-<p>Therefore,</p>
-$$\cos\theta = \frac{-2}{3 \cdot 5} = -\frac{2}{15}, \qquad \theta = \arccos\!\left(-\tfrac{2}{15}\right) \approx 97.7°.$$
-<p>Since $\cos\theta < 0$, the vectors form an obtuse angle, which is geometrically consistent with $\mathbf{v}$ having a component directly opposing $\mathbf{u}$.</p>
-<p><strong>Key Theorem (Cauchy–Schwarz Inequality).</strong> For all $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$,</p>
-$$|\mathbf{u} \cdot \mathbf{v}| \leq \|\mathbf{u}\|\,\|\mathbf{v}\|,$$
-<p>with equality if and only if $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent. This inequality guarantees that the ratio $\dfrac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|}$ always lies in $[-1, 1]$, making the definition of $\theta$ via $\arccos$ well-posed in any dimension.</p>
-<p><em>Proof sketch.</em> Consider $f(t) = \|\mathbf{u} + t\mathbf{v}\|^2 \geq 0$ for all $t \in \mathbb{R}$. Expanding yields a quadratic in $t$ whose discriminant must be non-positive, giving $(\mathbf{u} \cdot \mathbf{v})^2 \leq \|\mathbf{u}\|^2\|\mathbf{v}\|^2$. $\square$</p>
-<p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>import sympy as sp
-
-u = sp.Matrix([1, 2, 2])
-v = sp.Matrix([4, 0, -3])
-
-cos_theta = u.dot(v) / (u.norm() * v.norm())
-theta = sp.acos(cos_theta)
-print(sp.simplify(theta))          # exact form
-print(float(theta.evalf()) * 180 / float(sp.pi))  # degrees</code></pre>
+    <h1 class="book-title">Angle</h1>
+    <p class="subtitle">Geometry &middot; Generated by SPL</p>
+    <section>
+<h2 id="angle">Angle</h2>
+<p>每当你打开一扇门，门与门框之间就形成了一个张开的程度——这就是角。从时钟的指针到篮球的投篮弧线，角无处不在，它是几何学最基本的度量之一。</p>
+<p><strong>定义。</strong> 两条共享同一端点的射线所构成的图形称为<strong>角</strong>（angle）。共享的端点称为<strong>顶点</strong>（vertex），两条射线称为角的<strong>边</strong>（sides）。若射线 $\overrightarrow{OA}$ 与 $\overrightarrow{OB}$ 共享顶点 $O$，则所成的角记作 $\angle AOB$。角的大小度量一条边旋转到另一条边所经过的量，常用<strong>度</strong>（degree）或<strong>弧度</strong>（radian）表示：</p>
+$$360° = 2\pi \text{ rad}, \quad 1° = \frac{\pi}{180} \text{ rad}$$
+<p>按大小分类：锐角满足 $0° < \theta < 90°$，直角 $\theta = 90°$，钝角 $90° < \theta < 180°$，平角 $\theta = 180°$。</p>
+<p><strong>例题。</strong> 时钟在 3:00 时，时针指向 3，分针指向 12。钟面共 12 格，每格对应 $\frac{360°}{12} = 30°$。时针与分针相差 3 格，因此所成角为：</p>
+$$\theta = 3 \times 30° = 90°$$
+<p>这是一个直角。</p>
+<p><strong>为什么弧度制成立？</strong> 在半径为 $r$ 的圆中，弧度定义为弧长与半径之比：$\theta = \frac{s}{r}$。当弧长恰好等于半径时，$\theta = 1$ rad。绕整圆一周的弧长为 $2\pi r$，所以完整旋转对应 $\frac{2\pi r}{r} = 2\pi$ rad。这不是人为约定，而是圆的几何性质的自然结果——弧度制直接将角与弧长联系起来，使得微积分中的公式（如 $\frac{d}{d\theta}\sin\theta = \cos\theta$）不需要额外的转换系数。</p>
+<p><strong>练习。</strong> 将 $\theta = 150°$ 转换为弧度，并判断它属于哪一类角。</p>
+</section>
   </main>
 </div>
 </body>

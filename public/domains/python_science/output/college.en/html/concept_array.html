@@ -61,7 +61,13 @@ nav.toc{position:relative;height:auto}}
     <ol>
 <li class="toc-target"><a href="concept_array.html">Array</a></li>
 <li><a href="concept_randomness.html">Randomness</a></li>
+<li><a href="concept_tabular_data.html">Tabular Data</a></li>
 <li><a href="concept_random_sampling.html">Random Sampling</a></li>
+<li><a href="concept_descriptive_statistics.html">Descriptive Statistics</a></li>
+<li><a href="concept_vectorization.html">Vectorization</a></li>
+<li><a href="concept_hypothesis_testing.html">Hypothesis Testing</a></li>
+<li><a href="concept_visualization.html">Visualization</a></li>
+<li><a href="concept_climate_data_analysis.html">Climate Data Analysis</a></li>
 </ol>
   </nav>
   <main>
@@ -80,7 +86,7 @@ $$\text{offset}(i,j) = (i \cdot n + j) \cdot w,$$
 <li>$A[3]$ is at address $1000 + 3 \cdot 4 = 1012$.</li>
 <li>The sum $\sum_{i=0}^{4} A[i] = 3+7+2+9+4 = 25$ is computed in $\Theta(n)$ time by a single linear scan.</li>
 <p><strong>Key theorem (random-access guarantee).</strong> For any valid index $i$, the element $A[i]$ can be read or written in $O(1)$ time. This follows directly from the offset formula: the address is computed arithmetically without any traversal.</p>
-<p><em>Proof sketch.</em> Address computation requires one multiplication and one addition—two operations independent of $n$—followed by a single memory dereference. Hence the time is constant regardless of $n$. $\blacksquare$</p>
+<p><em>Proof sketch.</em> Address computation requires one multiplication and one addition—two operations independent of $n$—followed by a single memory dereference. Hence the time is constant regardless of $n$. $\operatorname{blacksquare}$</p>
 <p>This $O(1)$ random access distinguishes arrays from linked lists, which require $O(n)$ traversal to reach an arbitrary element.</p>
 <p><strong>Lab exercise.</strong> Given an integer array $A$ of length $n$, write a function that rotates $A$ left by $k$ positions in place using $O(1)$ auxiliary space. Verify your solution on $A = [1,2,3,4,5]$ with $k=2$, expecting $[3,4,5,1,2]$. Analyze the time complexity of your approach.</p>
 </section>

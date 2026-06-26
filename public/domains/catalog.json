@@ -18,23 +18,51 @@
       {
         "target": "linear_combination",
         "file": "output/intro.en/html/book_linear_combination.html"
+      },
+      {
+        "target": "normal_modes",
+        "file": "output/college.en/html/book_normal_modes.html"
+      },
+      {
+        "target": "stability_analysis",
+        "file": "output/college.en/html/book_stability_analysis.html"
       }
     ],
     "generated_concepts": [
       {
+        "name": "eigenpair",
+        "label": "Eigenpair",
+        "file": "output/college.en/html/concept_eigenpair.html"
+      },
+      {
         "name": "linear_combination",
         "label": "Linear Combination",
-        "file": "output/intro.en/html/concept_linear_combination.html"
+        "file": "output/college.en/html/concept_linear_combination.html"
+      },
+      {
+        "name": "linear_map",
+        "label": "Linear Map",
+        "file": "output/college.en/html/concept_linear_map.html"
+      },
+      {
+        "name": "normal_modes",
+        "label": "Normal Modes",
+        "file": "output/college.en/html/concept_normal_modes.html"
       },
       {
         "name": "scalar_multiplication",
         "label": "Scalar Multiplication",
-        "file": "output/intro.en/html/concept_scalar_multiplication.html"
+        "file": "output/college.en/html/concept_scalar_multiplication.html"
+      },
+      {
+        "name": "stability_analysis",
+        "label": "Stability Analysis",
+        "file": "output/college.en/html/concept_stability_analysis.html"
       },
       {
         "name": "vector_addition",
         "label": "Vector Addition",
-        "file": "output/intro.en/html/concept_vector_addition.html"
+        "file": "output/college.en/html/concept_vector_addition.html"
       }
     ],
     "default_level": "college"
@@ -167,9 +195,89 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "physics_kinematics",
+        "file": "output/college.en/html/book_physics_kinematics.html"
+      },
+      {
+        "target": "gradient_descent",
+        "file": "output/college.en/html/book_gradient_descent.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "continuity",
+        "label": "Continuity",
+        "file": "output/college.en/html/concept_continuity.html"
+      },
+      {
+        "name": "definite_integral",
+        "label": "Definite Integral",
+        "file": "output/college.en/html/concept_definite_integral.html"
+      },
+      {
+        "name": "derivative",
+        "label": "Derivative",
+        "file": "output/college.en/html/concept_derivative.html"
+      },
+      {
+        "name": "differential_equation",
+        "label": "Differential Equation",
+        "file": "output/college.en/html/concept_differential_equation.html"
+      },
+      {
+        "name": "function",
+        "label": "Function",
+        "file": "output/college.en/html/concept_function.html"
+      },
+      {
+        "name": "gradient",
+        "label": "Gradient",
+        "file": "output/college.en/html/concept_gradient.html"
+      },
+      {
+        "name": "gradient_descent",
+        "label": "Gradient Descent",
+        "file": "output/college.en/html/concept_gradient_descent.html"
+      },
+      {
+        "name": "infinity",
+        "label": "Infinity",
+        "file": "output/college.en/html/concept_infinity.html"
+      },
+      {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/college.en/html/concept_limit.html"
+      },
+      {
+        "name": "optimization",
+        "label": "Optimization",
+        "file": "output/college.en/html/concept_optimization.html"
+      },
+      {
+        "name": "partial_derivative",
+        "label": "Partial Derivative",
+        "file": "output/college.en/html/concept_partial_derivative.html"
+      },
+      {
+        "name": "physics_kinematics",
+        "label": "Physics Kinematics",
+        "file": "output/college.en/html/concept_physics_kinematics.html"
+      },
+      {
+        "name": "real_number",
+        "label": "Real Number",
+        "file": "output/college.en/html/concept_real_number.html"
+      },
+      {
+        "name": "riemann_sum",
+        "label": "Riemann Sum",
+        "file": "output/college.en/html/concept_riemann_sum.html"
+      }
+    ],
     "default_level": "college"
   },
   {
