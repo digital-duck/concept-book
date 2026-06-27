@@ -40,7 +40,7 @@ export function About(container) {
 
     <h2>Open source</h2>
     <p>
-      concept-book is open source under the MIT licence.
+      concept-book is open source under the Apache 2.0 license.
       Source and contribution guide at
       <a href="https://github.com/digital-duck/concept-book" target="_blank" rel="noopener">github.com/digital-duck/concept-book</a>.
     </p>

@@ -146,7 +146,8 @@ Batch complete: 2 succeeded, 0 failed.
 
 ### Path B: college_physics_ch1 (2026-06-26)
 ```bash
-./scripts/test_gen.sh college_physics_ch1
+cd ~/projects/digital-duck/concept-book-press
+python -B -m pipeline.cli pipeline --source pdf --pdf input/college-physics-2e.pdf --chapter 6-10 --check-yaml
 ```
 ```
 LLM calls: 8  Latency: 146406ms

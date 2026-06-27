@@ -31,9 +31,6 @@ export async function Home(container) {
     if (activeLevel !== 'all') filtered = filtered.filter(d => d.default_level === activeLevel)
 
     main.innerHTML = `
-      <div class="cb-home__hero">
-        <p class="cb-home__subtitle">${t('home.subtitle')}</p>
-      </div>
       <div class="cb-home__filters">
         <span class="cb-filter-group">
           <span class="cb-filter-label">Subject</span>

@@ -22,10 +22,17 @@ const ADAPTERS = {
       { value: 'anthropic/claude-opus-4-8', label: 'Claude Opus 4.8' },
       { value: 'google/gemini-2.5-pro', label: 'Gemini 2.5 Pro' },
       { value: 'google/gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
+      { value: 'google/gemini-3.5-flash', label: 'Gemini 3.5 Flash' },
       { value: 'openai/gpt-4.1', label: 'GPT-4.1' },
+      { value: 'openai/gpt-5.4-mini', label: 'GPT 5.4 Mini' },
       { value: 'openai/o3-mini', label: 'o3-mini' },
       { value: 'deepseek/deepseek-r1', label: 'DeepSeek R1' },
       { value: 'meta-llama/llama-4-maverick', label: 'Llama 4 Maverick' },
+      { value: 'z-ai/glm-5.2', label: 'GLM 5.2' },
+      { value: 'qwen/qwen3.5-35b-a3b', label: 'Qwen 3.5 35B' },
+      { value: 'qwen/qwen3.6-35b-a3b', label: 'Qwen 3.6 35B' },
+      { value: 'nvidia/nemotron-3-ultra-550b-a55b:free', label: 'Nemotron 3 Ultra 550B' },
+      { value: 'moonshotai/kimi-k2.6', label: 'Kimi 2.6' },
     ],
   },
   ollama: {
@@ -81,7 +88,7 @@ export async function Settings(container) {
   main.innerHTML = `
     <h2>Settings</h2>
     <section class="cb-settings__section">
-      <div class="cb-settings__section-title">LLM</div>
+      <div class="cb-settings__section-title">SPL Adapter and Model Configuration</div>
       <div class="cb-settings__pair">
         <div class="cb-settings__field">
           <label class="cb-settings__label">Adapter</label>
@@ -103,7 +110,7 @@ export async function Settings(container) {
       <div class="cb-settings__current" id="cb-current-llm"></div>
     </section>
     <section class="cb-settings__section">
-      <div class="cb-settings__section-title">Compare Cache</div>
+      <div class="cb-settings__section-title">AI Semantic Compare Cache</div>
       <div class="cb-settings__pair">
         <div class="cb-settings__field">
           <label class="cb-settings__label">TTL (hours)</label>
