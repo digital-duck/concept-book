@@ -1,8 +1,7 @@
 import { t } from '../i18n.js'
-import { navigate } from '../router.js'
 import { LanguagePicker } from './LanguagePicker.js'
 
-export function Header({ showBack = false, domainName = '' } = {}) {
+export function Header({ domainName = '' } = {}) {
   const el = document.createElement('header')
   el.className = 'cb-header'
 
@@ -14,6 +13,18 @@ export function Header({ showBack = false, domainName = '' } = {}) {
   logo.href = '#/'
   logo.textContent = t('app.title')
   topRow.appendChild(logo)
+
+  if (domainName) {
+    const sep = document.createElement('span')
+    sep.className = 'cb-header__sep'
+    sep.textContent = '›'
+    topRow.appendChild(sep)
+
+    const dn = document.createElement('span')
+    dn.className = 'cb-header__domain'
+    dn.textContent = domainName
+    topRow.appendChild(dn)
+  }
 
   const spacer = document.createElement('span')
   spacer.className = 'cb-header__spacer'
@@ -27,28 +38,6 @@ export function Header({ showBack = false, domainName = '' } = {}) {
   topRow.appendChild(nav)
 
   el.appendChild(topRow)
-
-  if (showBack || domainName) {
-    const subRow = document.createElement('div')
-    subRow.className = 'cb-header__sub'
-
-    if (showBack) {
-      const back = document.createElement('button')
-      back.className = 'cb-btn-ghost cb-header__back'
-      back.textContent = t('domain.back')
-      back.addEventListener('click', () => navigate('/'))
-      subRow.appendChild(back)
-    }
-
-    if (domainName) {
-      const dn = document.createElement('span')
-      dn.className = 'cb-header__domain'
-      dn.textContent = domainName
-      subRow.appendChild(dn)
-    }
-
-    el.appendChild(subRow)
-  }
 
   return el
 }

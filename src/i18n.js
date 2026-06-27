@@ -9,7 +9,7 @@ const translations = {
     'home.filter.level': 'Level',
     'card.nodes': 'nodes',
     'card.edges': 'edges',
-    'card.explore': 'Explore graph',
+    'card.explore': 'Explore Concept-Graph',
     'card.read': 'Read book',
     'domain.back': '← Back',
     'domain.openFullscreen': 'Open fullscreen',

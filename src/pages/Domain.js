@@ -15,7 +15,7 @@ export async function Domain(container, { id }) {
     domain = catalog.find(d => d.id === id) ?? domain
   } catch (_) {}
 
-  container.appendChild(Header({ showBack: true, domainName: domain.name }))
+  container.appendChild(Header({ domainName: domain.name }))
 
   if (domain.source) {
     const attr = document.createElement('div')

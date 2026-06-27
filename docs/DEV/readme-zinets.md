@@ -181,8 +181,18 @@ corresponding concept book from ConceptBook.
 
 1. **Scope**: all 6,000+ active characters, or start with a curated subset (e.g.,
    HSK 1–3 via `set_id IN ('300', '100', '10')`) for the first prototype run?
+[WEN] absolutely, I categorize characters according to HSK sets
+
 2. **Applications tier**: some characters are compound words or idiomatic — map to
    `applications:` rather than `concepts:`?
+
+[WEN] application tier will have 2 character and 4 character phrases which are most idiomatic 
+
 3. **`zn_zi_part` coverage**: characters with no decomposition row but that aren't
    truly elemental need a fallback rule (treat as primitive? skip?).
+
+[WEN] we will have to revisit such edge cases, those 400+ elemental characters include 214 KangXi radicals, others are semantically important, some aren't even standalone characters, I consider them the gap from traditional dictionaries
+
 4. **zinets_vis integration**: iframe embed, sidebar panel, or deep link?
+
+[WEN] zinets_vis is based on vue.js, you will know how to integrate when the time comes.

@@ -873,6 +873,16 @@
       {
         "target": "好",
         "file": "output/intro.zh/html/book_好.html"
+      },
+      {
+        "target": "众",
+        "file": "output/intro.en/gemma4/html/book_众.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "众",
+        "file": "output/intro.en/sonnet/html/book_众.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -887,14 +897,50 @@
         "file": "output/intro.zh/html/concept_人.html"
       },
       {
+        "name": "人",
+        "label": "人",
+        "file": "output/intro.en/gemma4/html/concept_人.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "人",
+        "label": "人",
+        "file": "output/intro.en/sonnet/html/concept_人.html",
+        "model": "sonnet"
+      },
+      {
         "name": "从",
         "label": "从",
         "file": "output/intro.zh/html/concept_从.html"
       },
       {
+        "name": "从",
+        "label": "从",
+        "file": "output/intro.en/gemma4/html/concept_从.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "从",
+        "label": "从",
+        "file": "output/intro.en/sonnet/html/concept_从.html",
+        "model": "sonnet"
+      },
+      {
         "name": "众",
         "label": "众",
         "file": "output/intro.zh/html/concept_众.html"
+      },
+      {
+        "name": "众",
+        "label": "众",
+        "file": "output/intro.en/gemma4/html/concept_众.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "众",
+        "label": "众",
+        "file": "output/intro.en/sonnet/html/concept_众.html",
+        "model": "sonnet"
       },
       {
         "name": "口",
@@ -1030,6 +1076,21 @@
         "target": "academic_vocabulary",
         "file": "output/intro.en/gemma3/html/book_academic_vocabulary.html",
         "model": "gemma3"
+      },
+      {
+        "target": "-ion",
+        "file": "output/intro.en/gemma4/html/book_-ion.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "-ion",
+        "file": "output/intro.en/gemma3/html/book_-ion.html",
+        "model": "gemma3"
+      },
+      {
+        "target": "-ion",
+        "file": "output/intro.en/sonnet/html/book_-ion.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -1047,14 +1108,14 @@
       {
         "name": "-able",
         "label": "-Able",
-        "file": "output/intro.en/sonnet/html/concept_-able.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_-able.html",
+        "model": "gemma3"
       },
       {
         "name": "-able",
         "label": "-Able",
-        "file": "output/intro.en/gemma3/html/concept_-able.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_-able.html",
+        "model": "sonnet"
       },
       {
         "name": "-ion",
@@ -1070,14 +1131,14 @@
       {
         "name": "-ion",
         "label": "-Ion",
-        "file": "output/intro.en/sonnet/html/concept_-ion.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_-ion.html",
+        "model": "gemma3"
       },
       {
         "name": "-ion",
         "label": "-Ion",
-        "file": "output/intro.en/gemma3/html/concept_-ion.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_-ion.html",
+        "model": "sonnet"
       },
       {
         "name": "-or",
@@ -1093,14 +1154,14 @@
       {
         "name": "-or",
         "label": "-Or",
-        "file": "output/intro.en/sonnet/html/concept_-or.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_-or.html",
+        "model": "gemma3"
       },
       {
         "name": "-or",
         "label": "-Or",
-        "file": "output/intro.en/gemma3/html/concept_-or.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_-or.html",
+        "model": "sonnet"
       },
       {
         "name": "academic_vocabulary",
@@ -1116,14 +1177,14 @@
       {
         "name": "academic_vocabulary",
         "label": "Academic Vocabulary",
-        "file": "output/intro.en/sonnet/html/concept_academic_vocabulary.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_academic_vocabulary.html",
+        "model": "gemma3"
       },
       {
         "name": "academic_vocabulary",
         "label": "Academic Vocabulary",
-        "file": "output/intro.en/gemma3/html/concept_academic_vocabulary.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_academic_vocabulary.html",
+        "model": "sonnet"
       },
       {
         "name": "allomorphy",
@@ -1139,14 +1200,14 @@
       {
         "name": "allomorphy",
         "label": "Allomorphy",
-        "file": "output/intro.en/sonnet/html/concept_allomorphy.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_allomorphy.html",
+        "model": "gemma3"
       },
       {
         "name": "allomorphy",
         "label": "Allomorphy",
-        "file": "output/intro.en/gemma3/html/concept_allomorphy.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_allomorphy.html",
+        "model": "sonnet"
       },
       {
         "name": "con-",
@@ -1162,14 +1223,14 @@
       {
         "name": "con-",
         "label": "Con-",
-        "file": "output/intro.en/sonnet/html/concept_con-.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_con-.html",
+        "model": "gemma3"
       },
       {
         "name": "con-",
         "label": "Con-",
-        "file": "output/intro.en/gemma3/html/concept_con-.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_con-.html",
+        "model": "sonnet"
       },
       {
         "name": "construct",
@@ -1185,14 +1246,14 @@
       {
         "name": "construct",
         "label": "Construct",
-        "file": "output/intro.en/sonnet/html/concept_construct.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_construct.html",
+        "model": "gemma3"
       },
       {
         "name": "construct",
         "label": "Construct",
-        "file": "output/intro.en/gemma3/html/concept_construct.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_construct.html",
+        "model": "sonnet"
       },
       {
         "name": "construction",
@@ -1208,14 +1269,14 @@
       {
         "name": "construction",
         "label": "Construction",
-        "file": "output/intro.en/sonnet/html/concept_construction.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_construction.html",
+        "model": "gemma3"
       },
       {
         "name": "construction",
         "label": "Construction",
-        "file": "output/intro.en/gemma3/html/concept_construction.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_construction.html",
+        "model": "sonnet"
       },
       {
         "name": "decoding_unseen_words",
@@ -1231,14 +1292,14 @@
       {
         "name": "decoding_unseen_words",
         "label": "Decoding Unseen Words",
-        "file": "output/intro.en/sonnet/html/concept_decoding_unseen_words.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_decoding_unseen_words.html",
+        "model": "gemma3"
       },
       {
         "name": "decoding_unseen_words",
         "label": "Decoding Unseen Words",
-        "file": "output/intro.en/gemma3/html/concept_decoding_unseen_words.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_decoding_unseen_words.html",
+        "model": "sonnet"
       },
       {
         "name": "dict",
@@ -1254,14 +1315,14 @@
       {
         "name": "dict",
         "label": "Dict",
-        "file": "output/intro.en/sonnet/html/concept_dict.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_dict.html",
+        "model": "gemma3"
       },
       {
         "name": "dict",
         "label": "Dict",
-        "file": "output/intro.en/gemma3/html/concept_dict.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_dict.html",
+        "model": "sonnet"
       },
       {
         "name": "import",
@@ -1277,14 +1338,14 @@
       {
         "name": "import",
         "label": "Import",
-        "file": "output/intro.en/sonnet/html/concept_import.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_import.html",
+        "model": "gemma3"
       },
       {
         "name": "import",
         "label": "Import",
-        "file": "output/intro.en/gemma3/html/concept_import.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_import.html",
+        "model": "sonnet"
       },
       {
         "name": "in-",
@@ -1300,14 +1361,14 @@
       {
         "name": "in-",
         "label": "In-",
-        "file": "output/intro.en/sonnet/html/concept_in-.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_in-.html",
+        "model": "gemma3"
       },
       {
         "name": "in-",
         "label": "In-",
-        "file": "output/intro.en/gemma3/html/concept_in-.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_in-.html",
+        "model": "sonnet"
       },
       {
         "name": "inspect",
@@ -1323,14 +1384,14 @@
       {
         "name": "inspect",
         "label": "Inspect",
-        "file": "output/intro.en/sonnet/html/concept_inspect.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_inspect.html",
+        "model": "gemma3"
       },
       {
         "name": "inspect",
         "label": "Inspect",
-        "file": "output/intro.en/gemma3/html/concept_inspect.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_inspect.html",
+        "model": "sonnet"
       },
       {
         "name": "inspection",
@@ -1346,14 +1407,14 @@
       {
         "name": "inspection",
         "label": "Inspection",
-        "file": "output/intro.en/sonnet/html/concept_inspection.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_inspection.html",
+        "model": "gemma3"
       },
       {
         "name": "inspection",
         "label": "Inspection",
-        "file": "output/intro.en/gemma3/html/concept_inspection.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_inspection.html",
+        "model": "sonnet"
       },
       {
         "name": "inspector",
@@ -1369,14 +1430,14 @@
       {
         "name": "inspector",
         "label": "Inspector",
-        "file": "output/intro.en/sonnet/html/concept_inspector.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_inspector.html",
+        "model": "gemma3"
       },
       {
         "name": "inspector",
         "label": "Inspector",
-        "file": "output/intro.en/gemma3/html/concept_inspector.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_inspector.html",
+        "model": "sonnet"
       },
       {
         "name": "ject",
@@ -1392,14 +1453,14 @@
       {
         "name": "ject",
         "label": "Ject",
-        "file": "output/intro.en/sonnet/html/concept_ject.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_ject.html",
+        "model": "gemma3"
       },
       {
         "name": "ject",
         "label": "Ject",
-        "file": "output/intro.en/gemma3/html/concept_ject.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_ject.html",
+        "model": "sonnet"
       },
       {
         "name": "morphological_decoding_principle",
@@ -1415,14 +1476,14 @@
       {
         "name": "morphological_decoding_principle",
         "label": "Morphological Decoding Principle",
-        "file": "output/intro.en/sonnet/html/concept_morphological_decoding_principle.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_morphological_decoding_principle.html",
+        "model": "gemma3"
       },
       {
         "name": "morphological_decoding_principle",
         "label": "Morphological Decoding Principle",
-        "file": "output/intro.en/gemma3/html/concept_morphological_decoding_principle.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_morphological_decoding_principle.html",
+        "model": "sonnet"
       },
       {
         "name": "port",
@@ -1438,14 +1499,14 @@
       {
         "name": "port",
         "label": "Port",
-        "file": "output/intro.en/sonnet/html/concept_port.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_port.html",
+        "model": "gemma3"
       },
       {
         "name": "port",
         "label": "Port",
-        "file": "output/intro.en/gemma3/html/concept_port.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_port.html",
+        "model": "sonnet"
       },
       {
         "name": "portable",
@@ -1461,14 +1522,14 @@
       {
         "name": "portable",
         "label": "Portable",
-        "file": "output/intro.en/sonnet/html/concept_portable.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_portable.html",
+        "model": "gemma3"
       },
       {
         "name": "portable",
         "label": "Portable",
-        "file": "output/intro.en/gemma3/html/concept_portable.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_portable.html",
+        "model": "sonnet"
       },
       {
         "name": "pre-",
@@ -1484,14 +1545,14 @@
       {
         "name": "pre-",
         "label": "Pre-",
-        "file": "output/intro.en/sonnet/html/concept_pre-.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_pre-.html",
+        "model": "gemma3"
       },
       {
         "name": "pre-",
         "label": "Pre-",
-        "file": "output/intro.en/gemma3/html/concept_pre-.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_pre-.html",
+        "model": "sonnet"
       },
       {
         "name": "predict",
@@ -1507,14 +1568,14 @@
       {
         "name": "predict",
         "label": "Predict",
-        "file": "output/intro.en/sonnet/html/concept_predict.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_predict.html",
+        "model": "gemma3"
       },
       {
         "name": "predict",
         "label": "Predict",
-        "file": "output/intro.en/gemma3/html/concept_predict.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_predict.html",
+        "model": "sonnet"
       },
       {
         "name": "prediction",
@@ -1530,14 +1591,14 @@
       {
         "name": "prediction",
         "label": "Prediction",
-        "file": "output/intro.en/sonnet/html/concept_prediction.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_prediction.html",
+        "model": "gemma3"
       },
       {
         "name": "prediction",
         "label": "Prediction",
-        "file": "output/intro.en/gemma3/html/concept_prediction.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_prediction.html",
+        "model": "sonnet"
       },
       {
         "name": "prefix",
@@ -1553,14 +1614,14 @@
       {
         "name": "prefix",
         "label": "Prefix",
-        "file": "output/intro.en/sonnet/html/concept_prefix.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_prefix.html",
+        "model": "gemma3"
       },
       {
         "name": "prefix",
         "label": "Prefix",
-        "file": "output/intro.en/gemma3/html/concept_prefix.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_prefix.html",
+        "model": "sonnet"
       },
       {
         "name": "prefix_root_composition",
@@ -1576,14 +1637,14 @@
       {
         "name": "prefix_root_composition",
         "label": "Prefix Root Composition",
-        "file": "output/intro.en/sonnet/html/concept_prefix_root_composition.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_prefix_root_composition.html",
+        "model": "gemma3"
       },
       {
         "name": "prefix_root_composition",
         "label": "Prefix Root Composition",
-        "file": "output/intro.en/gemma3/html/concept_prefix_root_composition.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_prefix_root_composition.html",
+        "model": "sonnet"
       },
       {
         "name": "re-",
@@ -1599,14 +1660,14 @@
       {
         "name": "re-",
         "label": "Re-",
-        "file": "output/intro.en/sonnet/html/concept_re-.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_re-.html",
+        "model": "gemma3"
       },
       {
         "name": "re-",
         "label": "Re-",
-        "file": "output/intro.en/gemma3/html/concept_re-.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_re-.html",
+        "model": "sonnet"
       },
       {
         "name": "reject",
@@ -1622,14 +1683,14 @@
       {
         "name": "reject",
         "label": "Reject",
-        "file": "output/intro.en/sonnet/html/concept_reject.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_reject.html",
+        "model": "gemma3"
       },
       {
         "name": "reject",
         "label": "Reject",
-        "file": "output/intro.en/gemma3/html/concept_reject.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_reject.html",
+        "model": "sonnet"
       },
       {
         "name": "rejection",
@@ -1645,14 +1706,14 @@
       {
         "name": "rejection",
         "label": "Rejection",
-        "file": "output/intro.en/sonnet/html/concept_rejection.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_rejection.html",
+        "model": "gemma3"
       },
       {
         "name": "rejection",
         "label": "Rejection",
-        "file": "output/intro.en/gemma3/html/concept_rejection.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_rejection.html",
+        "model": "sonnet"
       },
       {
         "name": "spect",
@@ -1668,14 +1729,14 @@
       {
         "name": "spect",
         "label": "Spect",
-        "file": "output/intro.en/sonnet/html/concept_spect.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_spect.html",
+        "model": "gemma3"
       },
       {
         "name": "spect",
         "label": "Spect",
-        "file": "output/intro.en/gemma3/html/concept_spect.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_spect.html",
+        "model": "sonnet"
       },
       {
         "name": "stem",
@@ -1691,14 +1752,14 @@
       {
         "name": "stem",
         "label": "Stem",
-        "file": "output/intro.en/sonnet/html/concept_stem.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_stem.html",
+        "model": "gemma3"
       },
       {
         "name": "stem",
         "label": "Stem",
-        "file": "output/intro.en/gemma3/html/concept_stem.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_stem.html",
+        "model": "sonnet"
       },
       {
         "name": "struct",
@@ -1714,14 +1775,14 @@
       {
         "name": "struct",
         "label": "Struct",
-        "file": "output/intro.en/sonnet/html/concept_struct.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_struct.html",
+        "model": "gemma3"
       },
       {
         "name": "struct",
         "label": "Struct",
-        "file": "output/intro.en/gemma3/html/concept_struct.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_struct.html",
+        "model": "sonnet"
       },
       {
         "name": "suffix",
@@ -1737,14 +1798,14 @@
       {
         "name": "suffix",
         "label": "Suffix",
-        "file": "output/intro.en/sonnet/html/concept_suffix.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_suffix.html",
+        "model": "gemma3"
       },
       {
         "name": "suffix",
         "label": "Suffix",
-        "file": "output/intro.en/gemma3/html/concept_suffix.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_suffix.html",
+        "model": "sonnet"
       },
       {
         "name": "suffix_derivation",
@@ -1760,14 +1821,14 @@
       {
         "name": "suffix_derivation",
         "label": "Suffix Derivation",
-        "file": "output/intro.en/sonnet/html/concept_suffix_derivation.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_suffix_derivation.html",
+        "model": "gemma3"
       },
       {
         "name": "suffix_derivation",
         "label": "Suffix Derivation",
-        "file": "output/intro.en/gemma3/html/concept_suffix_derivation.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_suffix_derivation.html",
+        "model": "sonnet"
       },
       {
         "name": "trans-",
@@ -1783,14 +1844,14 @@
       {
         "name": "trans-",
         "label": "Trans-",
-        "file": "output/intro.en/sonnet/html/concept_trans-.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_trans-.html",
+        "model": "gemma3"
       },
       {
         "name": "trans-",
         "label": "Trans-",
-        "file": "output/intro.en/gemma3/html/concept_trans-.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_trans-.html",
+        "model": "sonnet"
       },
       {
         "name": "transport",
@@ -1806,14 +1867,14 @@
       {
         "name": "transport",
         "label": "Transport",
-        "file": "output/intro.en/sonnet/html/concept_transport.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_transport.html",
+        "model": "gemma3"
       },
       {
         "name": "transport",
         "label": "Transport",
-        "file": "output/intro.en/gemma3/html/concept_transport.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_transport.html",
+        "model": "sonnet"
       },
       {
         "name": "transportable",
@@ -1829,14 +1890,14 @@
       {
         "name": "transportable",
         "label": "Transportable",
-        "file": "output/intro.en/sonnet/html/concept_transportable.html",
-        "model": "sonnet"
+        "file": "output/intro.en/gemma3/html/concept_transportable.html",
+        "model": "gemma3"
       },
       {
         "name": "transportable",
         "label": "Transportable",
-        "file": "output/intro.en/gemma3/html/concept_transportable.html",
-        "model": "gemma3"
+        "file": "output/intro.en/sonnet/html/concept_transportable.html",
+        "model": "sonnet"
       }
     ],
     "default_level": "intro"

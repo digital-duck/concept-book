@@ -7,13 +7,14 @@
 
 -- ── Prompt templates ────────────────────────────────────────────────────────
 
-CREATE FUNCTION write_section(concept TEXT, label TEXT, context TEXT, style_guide TEXT, language TEXT)
+CREATE FUNCTION write_section(concept TEXT, label TEXT, context TEXT, style_guide TEXT, language TEXT, domain TEXT)
 RETURN TEXT
 AS $$
 You are an expert author writing a concept-book section.
 
 {style_guide}
 
+Domain: {domain}
 Write a self-contained section for the concept: {concept}
 Surrounding context: {context}
 
@@ -26,7 +27,7 @@ Mathematical notation and LaTeX remain in their standard form regardless of lang
 Output only the section text. No preamble, no metadata.
 $$;
 
-CREATE FUNCTION refine_section(section TEXT, feedback TEXT, style_guide TEXT)
+CREATE FUNCTION refine_section(section TEXT, feedback TEXT, style_guide TEXT, domain TEXT, language TEXT)
 RETURN TEXT
 AS $$
 You are an expert author. Revise the section below based on the feedback
@@ -34,6 +35,9 @@ provided. Keep all correct content; fix only what is flagged. Maintain the
 style described below throughout the revision.
 
 {style_guide}
+
+Domain: {domain}
+Write the narrative in language: {language}  (ISO 639-1 code, e.g. "en", "zh", "fr", "es").
 
 SECTION:
 {section}
@@ -44,25 +48,28 @@ FEEDBACK:
 Output the revised section only. No preamble. No commentary.
 $$;
 
-CREATE FUNCTION write_payoff(target TEXT, applications TEXT, style_guide TEXT)
+CREATE FUNCTION write_payoff(target_label TEXT, applications TEXT, style_guide TEXT, domain TEXT, language TEXT)
 RETURN TEXT
 AS $$
 You are an expert author writing the capstone of a concept-book.
 
 {style_guide}
 
-The textbook culminates in the concept: {target}
+Domain: {domain}
+The textbook culminates in the concept: {target_label}
 Applications this concept unlocks: {applications}
 
 Write a "Payoff" section that:
-1. Explains what {target} achieves and why it is the natural endpoint.
+1. Explains what {target_label} achieves and why it is the natural endpoint.
 2. Shows how it connects to each listed application domain.
 3. Ends with an invitation to explore one application in depth.
 
 Begin with: ## Payoff
 
 Follow the length and structure in the STYLE GUIDE above.
-Use LaTeX for mathematics and notation. Output only the section. No preamble.
+Use LaTeX for mathematics and notation.
+Write the narrative in language: {language}  (ISO 639-1 code, e.g. "en", "zh", "fr", "es").
+Output only the section. No preamble.
 $$;
 
 -- ── Main workflow ────────────────────────────────────────────────────────────
@@ -101,6 +108,7 @@ DO
 
     -- 1. Load domain, validate graph structure, compute teaching order
     CALL setup_domain(@domain_yaml, @target, @payoff_weight) INTO @_
+    CALL get_domain_name(@domain_yaml) INTO @domain_name
     CALL get_level_guide(@lvl) INTO @style_guide
     CALL order_length(@domain_yaml) INTO @order_len
     CALL order_bullets(@domain_yaml) INTO @_order_bullets
@@ -123,21 +131,21 @@ DO
             WHEN = "yes" THEN
                 @section := "miss"
             ELSE
-                CALL cache_get(@concept, "v1", '{"language":"' + @language + '","llm":"' + @llm + '"}') INTO @section
+                CALL cache_get(@concept, "v1", '{"language":"' + @language + '","llm":"' + @llm + '","domain":"' + @domain_name + '","lvl":"' + @lvl + '"}') INTO @section
         END
         CALL concept_label(@concept) INTO @_label
         EVALUATE @section
             WHEN = "miss" THEN
                 LOGGING f"cache MISS for {@concept} — generating with the LLM" LEVEL INFO
 
-                GENERATE write_section(@concept, @_label, @concept, @style_guide, @language) INTO @section
+                GENERATE write_section(@concept, @_label, @concept, @style_guide, @language, @domain_name) INTO @section
 
                 -- Primitive budget check
                 CALL count_new_primitives(@section, @domain_yaml) INTO @_prim_count
                 CALL needs_primitive_refinement(@_prim_count, @primitive_budget) INTO @_refine
                 EVALUATE @_refine
                     WHEN = "yes" THEN
-                        GENERATE refine_section(@section, "introduce at most one new primitive per section", @style_guide) INTO @section
+                        GENERATE refine_section(@section, "introduce at most one new primitive per section", @style_guide, @domain_name, @language) INTO @section
                     ELSE
                         LOGGING "Primitive budget OK" LEVEL INFO
                 END
@@ -146,12 +154,12 @@ DO
                 CALL verify_section(@section, @domain_yaml) INTO @check
                 EVALUATE @check
                     WHEN contains("fail") THEN
-                        GENERATE refine_section(@section, @check, @style_guide) INTO @section
+                        GENERATE refine_section(@section, @check, @style_guide, @domain_name, @language) INTO @section
                     ELSE
                         LOGGING "Content verified" LEVEL INFO
                 END
 
-                CALL cache_put(@concept, @section, "", "v1", '{"language":"' + @language + '","llm":"' + @llm + '"}') INTO @cache_key
+                CALL cache_put(@concept, @section, "", "v1", '{"language":"' + @language + '","llm":"' + @llm + '","domain":"' + @domain_name + '","lvl":"' + @lvl + '"}') INTO @cache_key
                 LOGGING f"Stored verified section — cache key {@cache_key}" LEVEL INFO
             ELSE
                 LOGGING f"cache HIT for {@concept} — reusing verified section (0 LLM calls)" LEVEL INFO
@@ -173,9 +181,10 @@ DO
 
     -- 3. Capstone: tie target to its payoff applications
     CALL apps_list(@domain_yaml) INTO @apps
+    CALL concept_label(@target) INTO @_target_label
     CALL now_float() INTO @t_payoff_start
 
-    GENERATE write_payoff(@target, @apps, @style_guide) INTO @capstone
+    GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language) INTO @capstone
 
     CALL elapsed_secs(@t_payoff_start) INTO @payoff_elapsed
     LOGGING f"[timing] payoff: {@payoff_elapsed}s\n" LEVEL INFO

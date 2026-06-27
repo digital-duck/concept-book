@@ -99,8 +99,16 @@ def order_bullets(domain_yaml: str) -> str:
 
 @spl_tool
 def apps_list(domain_yaml: str) -> str:
-    """Return applications of the target concept as a comma-separated string."""
-    return ", ".join(_domain(domain_yaml)["apps"])
+    """Return applications of the target concept as human-readable labels (comma-separated)."""
+    return ", ".join(a.replace("_", " ").title() for a in _domain(domain_yaml)["apps"])
+
+
+@spl_tool
+def get_domain_name(domain_yaml: str) -> str:
+    """Return the human-readable domain name (e.g. 'English Morphology')."""
+    data = _domain(domain_yaml)["data"]
+    domain_id = data.get("domain", "")
+    return domain_id.replace("_", " ").title()
 
 
 # ── Content checks ────────────────────────────────────────────────────────────

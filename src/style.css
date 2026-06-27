@@ -73,25 +73,22 @@ button { cursor: pointer; font-family: inherit; }
   padding: 0 20px;
 }
 
-.cb-header__sub {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px 8px;
-  font-size: 0.88rem;
-}
-
 .cb-header__logo {
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--color-text);
+  color: var(--color-accent);
   text-decoration: none;
   white-space: nowrap;
 }
 .cb-header__logo:hover { color: var(--color-accent); text-decoration: none; }
+
+.cb-header__sep {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  line-height: 1;
+  flex-shrink: 0;
+}
 
 .cb-header__domain {
   font-size: 0.88rem;
@@ -481,24 +478,130 @@ button { cursor: pointer; font-family: inherit; }
 }
 .cb-error { color: #dc2626; }
 
-/* ── Language picker ── */
+/* ── Language picker (header select) ── */
 .cb-lang-picker {
-  display: flex;
-  gap: 4px;
-}
-.cb-lang-btn {
-  padding: 3px 8px;
+  padding: 4px 8px;
   border: 1px solid var(--color-border);
   border-radius: 4px;
   background: transparent;
-  color: var(--color-muted);
-  font-size: 0.78rem;
-  font-weight: 600;
-  transition: background 0.15s, color 0.15s;
+  color: var(--color-text);
+  font-size: 0.82rem;
+  font-family: inherit;
+  cursor: pointer;
 }
-.cb-lang-btn:hover,
-.cb-lang-btn.active {
-  background: var(--color-accent);
+.cb-lang-picker:hover {
   border-color: var(--color-accent);
-  color: #fff;
+  color: var(--color-accent);
+}
+
+/* ── Level filter dropdown ── */
+.cb-level-select {
+  padding: 5px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.cb-level-select:hover,
+.cb-level-select:focus {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  outline: none;
+}
+
+/* ── Book availability indicator on cards ── */
+.cb-book-indicator {
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  min-width: 28px;
+  user-select: none;
+}
+
+/* ── Filter right group ── */
+.cb-filter-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* ── BookPage compare layout ── */
+.cb-book-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cb-book-page__single {
+  flex: 1;
+  overflow: hidden;
+}
+
+.cb-book-page__single iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.cb-book-page__compare {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.cb-book-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+.cb-book-pane + .cb-book-pane {
+  border-left: 2px solid #e0e3e8;
+}
+
+.cb-book-pane__controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #f0f2f5;
+  border-bottom: 1px solid #e0e3e8;
+  flex-shrink: 0;
+}
+
+.cb-book-pane__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}
+
+.cb-book-pane__select {
+  padding: 3px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.78rem;
+  font-family: inherit;
+  color: #374151;
+  cursor: pointer;
+}
+
+.cb-book-pane__frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  display: block;
 }

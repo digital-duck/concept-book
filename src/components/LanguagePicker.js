@@ -1,20 +1,35 @@
-import { getLocale } from '../i18n.js'
+import { getLocale, setLocale } from '../i18n.js'
 
-const LANG_LABELS = {
-  en: 'EN', zh: '中', es: 'ES', fr: 'FR', de: 'DE',
-  ja: '日', ko: '한', pt: 'PT', ar: 'ع', hi: 'हि',
-}
+const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'zh', label: '中文 (Chinese)' },
+  { code: 'es', label: 'Español (Spanish)' },
+  { code: 'fr', label: 'Français (French)' },
+  { code: 'de', label: 'Deutsch (German)' },
+  { code: 'ja', label: '日本語 (Japanese)' },
+  { code: 'ko', label: '한국어 (Korean)' },
+  { code: 'pt', label: 'Português (Portuguese)' },
+  { code: 'ar', label: 'العربية (Arabic)' },
+  { code: 'hi', label: 'हिन्दी (Hindi)' },
+]
+
+export { LANGUAGES }
 
 export function LanguagePicker() {
-  const el = document.createElement('div')
-  el.className = 'cb-lang-picker'
+  const sel = document.createElement('select')
+  sel.className = 'cb-lang-picker'
+  sel.title = 'Content language'
 
-  function render() {
-    const code = getLocale()
-    const label = LANG_LABELS[code] || code.toUpperCase()
-    el.innerHTML = `<span class="cb-lang-btn active" title="${code}">${label}</span>`
-  }
+  const current = getLocale()
+  LANGUAGES.forEach(({ code, label }) => {
+    const opt = document.createElement('option')
+    opt.value = code
+    opt.textContent = label
+    if (code === current) opt.selected = true
+    sel.appendChild(opt)
+  })
 
-  render()
-  return el
+  sel.addEventListener('change', () => setLocale(sel.value))
+
+  return sel
 }

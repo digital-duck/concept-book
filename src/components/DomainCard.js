@@ -20,17 +20,11 @@ export function DomainCard(domain) {
       <button class="cb-btn cb-btn--primary js-explore" ${!domain.has_navigator ? 'disabled' : ''}>
         ${t('card.explore')}
       </button>
-      <button class="cb-btn js-read" ${!domain.has_book ? 'disabled' : ''}>
-        ${t('card.read')}
-      </button>
+      <span class="cb-book-indicator" title="${domain.has_book ? 'Book available' : ''}">${domain.has_book ? '📖' : ''}</span>
     </div>
   `
 
   el.querySelector('.js-explore').addEventListener('click', () => {
-    navigate(`/domain/${domain.id}`)
-  })
-
-  el.querySelector('.js-read').addEventListener('click', () => {
     navigate(`/domain/${domain.id}`)
   })
 

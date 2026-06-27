@@ -42,13 +42,14 @@ export async function Home(container) {
             `<button class="cb-filter-btn ${activeTag === t_ ? 'active' : ''}" data-tag="${t_}">${t_}</button>`
           ).join('')}
         </span>
-        <span class="cb-filter-sep"></span>
-        <span class="cb-filter-group">
+        <span class="cb-filter-right">
           <span class="cb-filter-label">Level</span>
-          <button class="cb-filter-btn ${activeLevel === 'all' ? 'active' : ''}" data-level="all">All</button>
-          ${allLevels.map(l =>
-            `<button class="cb-filter-btn ${activeLevel === l ? 'active' : ''}" data-level="${l}">${l}</button>`
-          ).join('')}
+          <select class="cb-level-select" id="cb-level-filter">
+            <option value="all" ${activeLevel === 'all' ? 'selected' : ''}>All</option>
+            ${allLevels.map(l =>
+              `<option value="${l}" ${activeLevel === l ? 'selected' : ''}>${l.charAt(0).toUpperCase() + l.slice(1)}</option>`
+            ).join('')}
+          </select>
         </span>
       </div>
       <div class="cb-card-grid"></div>
@@ -60,8 +61,8 @@ export async function Home(container) {
     main.querySelectorAll('.cb-filter-btn[data-tag]').forEach(btn => {
       btn.addEventListener('click', () => { activeTag = btn.dataset.tag; render() })
     })
-    main.querySelectorAll('.cb-filter-btn[data-level]').forEach(btn => {
-      btn.addEventListener('click', () => { activeLevel = btn.dataset.level; render() })
+    main.querySelector('#cb-level-filter').addEventListener('change', e => {
+      activeLevel = e.target.value; render()
     })
   }
 
