@@ -215,6 +215,12 @@ def answer_path_item(domain_yaml: str, index: str) -> str:
 # ── File utilities ───────────────────────────────────────────────────────────
 
 @spl_tool
+def read_text_file(path: str) -> str:
+    """Read a text file and return its full content."""
+    return Path(path).read_text(encoding='utf-8')
+
+
+@spl_tool
 def dir_of_file(path: str) -> str:
     """Return the parent directory of a file path (creates it if needed)."""
     p = Path(path).parent

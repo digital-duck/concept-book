@@ -218,6 +218,24 @@ GET /api/domains            → list of catalog entries
 GET /api/domains/{id}/status → single domain entry
 ```
 
+```
+GET /api/compare?domain=&concept=&level_a=&lang_a=&model_a=&level_b=&lang_b=&model_b=&skip_cache=
+```
+
+Streams an AI pedagogical comparison of two concept sections as Server-Sent Events:
+
+| Event | Payload |
+|---|---|
+| `compare_started` | `{domain, concept, model_a, model_b}` |
+| `log` | `{message}` — each `spl3` stdout line |
+| `compare_done` | `{comparison, from_cache}` — markdown comparison text |
+| `compare_error` | `{message}` — file-not-found or non-zero exit |
+
+Results are cached in `/tmp/cb_compare_{sha256[:16]}.md`. The cache key is built
+from both pane specs **sorted** (commutative), so `(A=gemma3, B=gemma4)` and
+`(A=gemma4, B=gemma3)` share the same cache entry. `skip_cache=1` forces a
+fresh `spl3` run and overwrites the cache.
+
 ---
 
 ## Syncing domain content from SPL.py
@@ -423,6 +441,111 @@ from it closer to the EAAI-27 deadline. No dual submission (EAAI policy).
 
 Current draft: `spl4ed-paper-v0.5.md`. Review feedback in `review-feedback/`.
 Build pipeline: `build_md2tex.sh` → `polish_tex.py` → `build_tex2pdf.sh` (xelatex + Noto Sans CJK SC for inline Chinese).
+
+---
+
+## BookPage — Compare Mode (2026-06-26)
+
+The **BookPage** (3rd page, `src/pages/BookPage.js`) is the concept-content
+display layer. A "Compare" checkbox in the left sidebar activates a side-by-side
+review workflow that gained several interconnected features over two days.
+
+### Layout evolution
+
+| State | Layout |
+|---|---|
+| Normal | Left sidebar + single content iframe |
+| Compare checked | Left sidebar + PANE A (left iframe) \| PANE B (right iframe) |
+| Compare ▶ clicked | Left sidebar + **top section** (PANE A \| PANE B) + drag handle + **PANE C** (AI comparison) |
+
+The top/bottom split is **draggable** — a `row-resize` handle separates the
+frame row from PANE C, clamped to 20–80 % of the wrapper height. Default: 60/40.
+
+**Iframe drag fix** — when the cursor moves into an iframe during a drag, the
+iframe's browsing context swallows `mousemove`/`mouseup` from `document`. Fix:
+on `mousedown` a transparent `position:fixed; inset:0; z-index:9999` overlay div
+is appended to `document.body`, intercepting all pointer events until `mouseup`.
+
+### Pane controls
+
+Each pane (A and B) has an independent **control row** (model / level / language
+picker). Changing any picker immediately reloads that pane. The Compare button in
+the sidebar is enabled only when **both** panes have resolved to real content
+(not a placeholder) — tracked via `paneAHasContent` / `paneBHasContent` flags
+updated in `_checkExists` callbacks.
+
+### Sidebar robustness
+
+`populateTocSidebar` previously returned early (before clearing the sidebar)
+when the left frame had no `nav.toc` (e.g. placeholder content). This left the
+sidebar permanently in its "Loading…" initial state. Fix: the sidebar is always
+cleared and Compare controls are always rendered first; the TOC section is
+rendered only if `nav.toc` is found, and silently omitted otherwise.
+
+### Compare controls row
+
+When the Compare checkbox is checked the sidebar shows a single row:
+
+```
+[☐ ↻ fresh]  [Compare ▶]
+```
+
+- **↻ fresh** — "Skip cache" checkbox (default unchecked). When checked the
+  next Compare click ignores any cached result and runs a fresh `spl3` call.
+  State is kept in the `skipCache` closure variable; toggling it does not
+  re-render the sidebar.
+- **Compare ▶** — triggers the PANE C split and fires `/api/compare` via SSE.
+  Disabled (greyed) until both panes have content.
+
+### PANE C — AI comparison
+
+`spl/compare_concepts.spl` performs the comparison. The SPL function
+`compare_sections(section_a, section_b, context)` is a **general-purpose
+semantic diff** — the `context` string tells the LLM what dimension to evaluate:
+
+```
+Domain: English Morphology
+Concept: -ion
+Section A — model: gemma3, level: intro, language: en
+Section B — model: sonnet, level: intro, language: en
+```
+
+Output headings: **Pedagogical Approach / Strengths / Audience Fit / Verdict**
+(300–450 words). Cross-language pairs additionally assess translation quality.
+
+The PANE C header strip displays:
+
+- `PANE C — Comparison` label
+- Model + level/language for each pane
+- Green **"cached"** pill badge when the result came from `/tmp` cache
+- Right-aligned **elapsed time** in seconds (wall clock from EventSource open
+  to `compare_done`) — gives the user feedback on how long the `spl3` call took
+
+### spl3 compare as a reusable primitive
+
+`compare_concepts.spl` and `/api/compare` are domain-agnostic. Known use-cases:
+
+| Use-case | Axis being compared |
+|---|---|
+| ConceptBook review | Model quality (gemma3 vs sonnet) |
+| ConceptBook review | Level depth (intro vs college) |
+| ConceptBook review | Language / translation (en vs zh) |
+| NDD roundtrip experiment | Pipeline fidelity (original vs decoded) |
+
+More axes in future: student submission vs reference, two textbook chapters on
+same topic, A/B prompt rewrite testing.
+
+### SPL pipeline fixes (build_concept_book.spl)
+
+Applied alongside the Compare feature:
+
+| Fix | Why |
+|---|---|
+| `Domain: {domain}` injected into every `GENERATE` prompt | Without it, Sonnet explained the chemistry ion `−` instead of the English morphology suffix `-ion` |
+| Cache key extended to `{language, llm, domain, lvl}` | Missing `domain`+`lvl` caused cross-domain / cross-level cache pollution |
+| `refine_section` gains `domain` + `language` params | Refinement pass was undoing domain grounding added in the write pass |
+| `write_payoff` gains `language` param | Non-English payoff sections were not getting language directive |
+| `decodeURIComponent()` on iframe `location.href` | `frame.contentWindow.location.href` URL-encodes paths; Chinese filenames appeared as `%E4%BC%97` in error messages |
 
 ---
 

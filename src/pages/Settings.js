@@ -63,6 +63,15 @@ async function populateModels(adapterSel, modelSel) {
   }
 }
 
+function ttlHint(hours) {
+  if (hours === 0) return 'never expires'
+  if (hours < 1) return `${Math.round(hours * 60)} min`
+  if (hours === 1) return '1 hour'
+  if (hours < 24) return `${hours} hours`
+  const days = hours / 24
+  return Number.isInteger(days) ? `${days} day${days > 1 ? 's' : ''}` : `${hours} hours`
+}
+
 export async function Settings(container) {
   container.innerHTML = ''
   container.appendChild(Header())
@@ -93,9 +102,28 @@ export async function Settings(container) {
       </div>
       <div class="cb-settings__current" id="cb-current-llm"></div>
     </section>
+    <section class="cb-settings__section">
+      <div class="cb-settings__section-title">Compare Cache</div>
+      <div class="cb-settings__pair">
+        <div class="cb-settings__field">
+          <label class="cb-settings__label">TTL (hours)</label>
+          <input id="cb-cache-ttl" type="number" min="0" step="1" value="24"
+            class="cb-settings__select" style="width:100px"
+            title="How long a cached comparison result is reused. 0 = never expire.">
+        </div>
+        <div class="cb-settings__field" style="align-self:flex-end;padding-bottom:4px">
+          <span id="cb-cache-ttl-hint" style="font-size:0.82rem;color:#6b7280"></span>
+        </div>
+      </div>
+      <div class="cb-settings__row" style="margin-top:16px">
+        <button id="cb-cache-save" class="cb-btn">Save</button>
+        <span id="cb-cache-status" class="cb-settings__status"></span>
+      </div>
+    </section>
   `
   container.appendChild(main)
 
+  // ── LLM section ────────────────────────────────────────────────────────────
   const adapterSel = main.querySelector('#cb-adapter')
   const modelSel = main.querySelector('#cb-model')
   const saveBtn = main.querySelector('#cb-settings-save')
@@ -105,10 +133,24 @@ export async function Settings(container) {
   adapterSel.addEventListener('change', () => populateModels(adapterSel, modelSel))
   await populateModels(adapterSel, modelSel)
 
+  // ── Compare Cache section ──────────────────────────────────────────────────
+  const ttlInput = main.querySelector('#cb-cache-ttl')
+  const ttlHintEl = main.querySelector('#cb-cache-ttl-hint')
+  const cacheSaveBtn = main.querySelector('#cb-cache-save')
+  const cacheStatus = main.querySelector('#cb-cache-status')
+
+  ttlInput.addEventListener('input', () => {
+    const h = Number(ttlInput.value)
+    ttlHintEl.textContent = isNaN(h) || h < 0 ? '' : ttlHint(h)
+  })
+
+  // ── Load current settings ──────────────────────────────────────────────────
   try {
     const res = await fetch('/api/settings')
     if (res.ok) {
       const data = await res.json()
+
+      // LLM
       currentLlm.textContent = `Current: ${data.llm}`
       const [adapter, ...modelParts] = data.llm.split(':')
       const model = modelParts.join(':')
@@ -119,12 +161,18 @@ export async function Settings(container) {
           modelSel.value = model
         }
       }
+
+      // Compare Cache TTL — server stores seconds, UI shows hours
+      const hours = Math.round(data.compare_cache_ttl / 3600)
+      ttlInput.value = hours
+      ttlHintEl.textContent = ttlHint(hours)
     }
   } catch (_) {
     status.textContent = 'API not reachable — run the backend to change settings'
     status.style.color = '#dc2626'
   }
 
+  // ── Save LLM ───────────────────────────────────────────────────────────────
   saveBtn.addEventListener('click', async () => {
     const llm = `${adapterSel.value}:${modelSel.value}`
     try {
@@ -146,5 +194,36 @@ export async function Settings(container) {
       status.style.color = '#dc2626'
     }
     setTimeout(() => { status.textContent = '' }, 3000)
+  })
+
+  // ── Save Compare Cache TTL ─────────────────────────────────────────────────
+  cacheSaveBtn.addEventListener('click', async () => {
+    const hours = Number(ttlInput.value)
+    if (isNaN(hours) || hours < 0) {
+      cacheStatus.textContent = 'Enter a valid number ≥ 0'
+      cacheStatus.style.color = '#dc2626'
+      setTimeout(() => { cacheStatus.textContent = '' }, 3000)
+      return
+    }
+    const seconds = Math.round(hours * 3600)
+    try {
+      const res = await fetch('/api/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ compare_cache_ttl: seconds }),
+      })
+      if (res.ok) {
+        ttlHintEl.textContent = ttlHint(hours)
+        cacheStatus.textContent = 'Saved'
+        cacheStatus.style.color = '#16a34a'
+      } else {
+        cacheStatus.textContent = 'Save failed'
+        cacheStatus.style.color = '#dc2626'
+      }
+    } catch (_) {
+      cacheStatus.textContent = 'API not reachable'
+      cacheStatus.style.color = '#dc2626'
+    }
+    setTimeout(() => { cacheStatus.textContent = '' }, 3000)
   })
 }

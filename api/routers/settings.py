@@ -10,21 +10,26 @@ router = APIRouter()
 
 class SettingsResponse(BaseModel):
     llm: str
+    compare_cache_ttl: int
 
 
 class SettingsUpdate(BaseModel):
-    llm: str
+    llm: str | None = None
+    compare_cache_ttl: int | None = None
 
 
 @router.get("/api/settings")
 async def get_settings() -> SettingsResponse:
-    return SettingsResponse(llm=settings.llm)
+    return SettingsResponse(llm=settings.llm, compare_cache_ttl=settings.compare_cache_ttl)
 
 
 @router.put("/api/settings")
 async def update_settings(body: SettingsUpdate) -> SettingsResponse:
-    settings.llm = body.llm
-    return SettingsResponse(llm=settings.llm)
+    if body.llm is not None:
+        settings.llm = body.llm
+    if body.compare_cache_ttl is not None:
+        settings.compare_cache_ttl = max(0, body.compare_cache_ttl)
+    return SettingsResponse(llm=settings.llm, compare_cache_ttl=settings.compare_cache_ttl)
 
 
 @router.get("/api/settings/ollama-models")
