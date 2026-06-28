@@ -497,6 +497,10 @@ export function BookPage(container, params) {
         onCompareActivate: () => {},
         onConceptClick: href => {
           if (!href) return
+          if (href.startsWith('#')) {
+            try { frame.contentDocument?.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }) } catch (_) {}
+            return
+          }
           currentFile = currentFile.replace(/[^/]+\.html$/, href)
           reload()
         },
@@ -613,6 +617,10 @@ export function BookPage(container, params) {
         },
         onConceptClick: href => {
           if (!href) return
+          if (href.startsWith('#')) {
+            try { leftFrame.contentDocument?.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }) } catch (_) {}
+            return
+          }
           currentFile = currentFile.replace(/[^/]+\.html$/, href)
           reloadLeft()
           reloadRight()
