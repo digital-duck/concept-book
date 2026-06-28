@@ -54,9 +54,7 @@ export function GraphViewer(domain, { level = 'intro', lang = 'en' } = {}) {
       // ── 4. Inject sidebar sections ──
       // Insert Concept Books first (lands after path-header), then Generate
       // (lands between path-header and Concept Books, putting it on top).
-      if (books.length > 0 || genConcepts.length > 0) {
-        _injectConceptBooksSection(win, frame.contentDocument, domainId, books, genConcepts, level, lang)
-      }
+      _injectConceptBooksSection(win, frame.contentDocument, domainId, books, genConcepts, level, lang)
       _injectGenerateSection(win, frame.contentDocument, domainId, capstone, level, lang, books)
     } catch (_) { /* cross-origin safety */ }
   })

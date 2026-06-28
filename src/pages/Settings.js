@@ -110,6 +110,27 @@ export async function Settings(container) {
       <div class="cb-settings__current" id="cb-current-llm"></div>
     </section>
     <section class="cb-settings__section">
+      <div class="cb-settings__section-title">SPL Execution Limits</div>
+      <div class="cb-settings__pair">
+        <div class="cb-settings__field">
+          <label class="cb-settings__label">While Max Iterations</label>
+          <input id="cb-while-max-iter" type="number" min="1" step="1" value="50"
+            class="cb-settings__select" style="width:100px"
+            title="SPL_WHILE_MAX_ITER — max loop iterations before abort (default 15).">
+        </div>
+        <div class="cb-settings__field">
+          <label class="cb-settings__label">Max LLM Calls</label>
+          <input id="cb-max-llm-calls" type="number" min="1" step="1" value="50"
+            class="cb-settings__select" style="width:100px"
+            title="SPL_MAX_LLM_CALLS — max LLM GENERATE calls per workflow run.">
+        </div>
+      </div>
+      <div class="cb-settings__row" style="margin-top:16px">
+        <button id="cb-spl-limits-save" class="cb-btn">Save</button>
+        <span id="cb-spl-limits-status" class="cb-settings__status"></span>
+      </div>
+    </section>
+    <section class="cb-settings__section">
       <div class="cb-settings__section-title">AI Semantic Compare Cache</div>
       <div class="cb-settings__pair">
         <div class="cb-settings__field">
@@ -140,6 +161,12 @@ export async function Settings(container) {
   adapterSel.addEventListener('change', () => populateModels(adapterSel, modelSel))
   await populateModels(adapterSel, modelSel)
 
+  // ── SPL Limits section ─────────────────────────────────────────────────────
+  const whileMaxIterInput = main.querySelector('#cb-while-max-iter')
+  const maxLlmCallsInput = main.querySelector('#cb-max-llm-calls')
+  const splLimitsSaveBtn = main.querySelector('#cb-spl-limits-save')
+  const splLimitsStatus = main.querySelector('#cb-spl-limits-status')
+
   // ── Compare Cache section ──────────────────────────────────────────────────
   const ttlInput = main.querySelector('#cb-cache-ttl')
   const ttlHintEl = main.querySelector('#cb-cache-ttl-hint')
@@ -168,6 +195,10 @@ export async function Settings(container) {
           modelSel.value = model
         }
       }
+
+      // SPL limits
+      if (data.spl_while_max_iter) whileMaxIterInput.value = data.spl_while_max_iter
+      if (data.spl_max_llm_calls) maxLlmCallsInput.value = data.spl_max_llm_calls
 
       // Compare Cache TTL — server stores seconds, UI shows hours
       const hours = Math.round(data.compare_cache_ttl / 3600)
@@ -201,6 +232,36 @@ export async function Settings(container) {
       status.style.color = '#dc2626'
     }
     setTimeout(() => { status.textContent = '' }, 3000)
+  })
+
+  // ── Save SPL Limits ────────────────────────────────────────────────────────
+  splLimitsSaveBtn.addEventListener('click', async () => {
+    const whileMaxIter = Number(whileMaxIterInput.value)
+    const maxLlmCalls = Number(maxLlmCallsInput.value)
+    if (!Number.isInteger(whileMaxIter) || whileMaxIter < 1 || !Number.isInteger(maxLlmCalls) || maxLlmCalls < 1) {
+      splLimitsStatus.textContent = 'Enter valid integers ≥ 1'
+      splLimitsStatus.style.color = '#dc2626'
+      setTimeout(() => { splLimitsStatus.textContent = '' }, 3000)
+      return
+    }
+    try {
+      const res = await fetch('/api/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ spl_while_max_iter: whileMaxIter, spl_max_llm_calls: maxLlmCalls }),
+      })
+      if (res.ok) {
+        splLimitsStatus.textContent = 'Saved'
+        splLimitsStatus.style.color = '#16a34a'
+      } else {
+        splLimitsStatus.textContent = 'Save failed'
+        splLimitsStatus.style.color = '#dc2626'
+      }
+    } catch (_) {
+      splLimitsStatus.textContent = 'API not reachable'
+      splLimitsStatus.style.color = '#dc2626'
+    }
+    setTimeout(() => { splLimitsStatus.textContent = '' }, 3000)
   })
 
   // ── Save Compare Cache TTL ─────────────────────────────────────────────────

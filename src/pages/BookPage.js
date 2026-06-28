@@ -17,6 +17,12 @@ function parseLevelLang(file) {
   return m ? { level: m[1], lang: m[2] } : { level: 'college', lang: 'en' }
 }
 
+function parseModel(file) {
+  // Matches output/{level}.{lang}/{model}/html/ — returns model name or ''
+  const m = file.match(/output\/[^/]+\/([^/]+)\/html\//)
+  return m ? m[1] : ''
+}
+
 function conceptFilename(file) {
   return file.replace(/^.*\//, '')
 }
@@ -427,7 +433,7 @@ export function BookPage(container, params) {
   // The top section reference so we can update its flex-basis on drag
   let topSectionEl = null
 
-  const p1 = { level: parsed.level, lang: parsed.lang, model: '' }
+  const p1 = { level: parsed.level, lang: parsed.lang, model: parseModel(initialFile) }
   const p2 = { level: parsed.level, lang: parsed.lang, model: '' }
 
   function cancelCompare() {
