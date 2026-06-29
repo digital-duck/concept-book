@@ -147,8 +147,14 @@ Batch complete: 2 succeeded, 0 failed.
 ### Path B: college_physics_ch1 (2026-06-26)
 ```bash
 cd ~/projects/digital-duck/concept-book-press
-python -B -m pipeline.cli pipeline --source pdf --pdf input/college-physics-2e.pdf --chapter 6-10 --check-yaml
+python -B -m pipeline.cli pipeline --source pdf --pdf input/college-physics-2e.pdf --chapter 6-15 --check-yaml
+
+python -B -m pipeline.cli pipeline --source pdf --pdf input/college-physics-2e.pdf --chapter 16-25 --timeout 900
+python -B -m pipeline.cli pipeline --source pdf --pdf input/college-physics-2e.pdf --chapter 26-34 --timeout 900
+python -B -m pipeline.cli pipeline --source pdf --pdf input/college-physics-2e.pdf --chapter 31-34 --timeout 900
 ```
+
+
 ```
 LLM calls: 8  Latency: 146406ms
 [ok] college_physics_ch1/approximation — catalog updated
