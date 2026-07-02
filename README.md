@@ -52,7 +52,7 @@ npm run dev
 conda activate spl123
 pip install -r requirements-api.txt
 bash scripts/start-api.sh
-# API running at http://localhost:8000
+# API running at http://localhost:8200
 ```
 
 **Terminal 2 — frontend:**
@@ -63,7 +63,7 @@ npm run dev
 # open http://localhost:5174/concept-book/
 ```
 
-Vite proxies `/api` → `localhost:8000` automatically in dev mode.
+Vite proxies `/api` → `localhost:8200` automatically in dev mode.
 
 ---
 
@@ -149,7 +149,7 @@ concept-book/
 │   └── start-api.sh            ← start uvicorn (run inside spl123)
 ├── docs/DEV/readme-plan.md     ← full implementation plan and phase roadmap
 ├── requirements-api.txt        ← fastapi, uvicorn, sse-starlette, pydantic-settings
-├── vite.config.js              ← base: /concept-book/, proxy: /api → :8000
+├── vite.config.js              ← base: /concept-book/, proxy: /api → :8200
 └── package.json
 ```
 

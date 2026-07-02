@@ -11,8 +11,8 @@ npm run dev          # http://localhost:5174/concept-book/
 # Full stack (book generation requires spl123 conda env)
 conda activate spl123
 pip install -r requirements-api.txt
-bash scripts/start-api.sh          # uvicorn on :8000, in a separate terminal
-npm run dev                         # Vite proxies /api → localhost:8000
+bash scripts/start-api.sh          # uvicorn on :8200, in a separate terminal
+npm run dev                         # Vite proxies /api → localhost:8200
 
 # Sync domain content from SPL.py after regenerating graphs
 bash scripts/sync_from_spl.sh

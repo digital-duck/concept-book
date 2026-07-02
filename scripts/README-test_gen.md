@@ -9,7 +9,7 @@ cd ~/projects/digital-duck/concept-book/
 
 The backend API must be running for the UI Generate/PDF buttons:
 ```bash
-bash scripts/start-api.sh   # uvicorn on :8000
+bash scripts/start-api.sh   # uvicorn on :8200
 npm run dev                 # Vite on :5174 (separate terminal)
 ```
 

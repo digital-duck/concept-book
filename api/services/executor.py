@@ -3,7 +3,7 @@
 Run the backend inside the spl123 conda env so that `spl3` is on PATH:
     conda activate spl123
     pip install -r requirements-api.txt
-    uvicorn api.app:app --port 8000 --reload
+    uvicorn api.app:app --port 8200 --reload
 """
 import asyncio
 import json
