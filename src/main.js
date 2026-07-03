@@ -12,6 +12,7 @@ register('/', () => Home(app))
 register('/about', () => About(app))
 register('/settings', () => Settings(app))
 register('/domain/:id', (params) => Domain(app, params))
+register('/graph', () => Domain(app, {}))
 register('/book', (params) => BookPage(app, params))
 
 start()

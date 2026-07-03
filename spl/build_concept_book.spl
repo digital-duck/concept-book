@@ -20,10 +20,13 @@ Surrounding context: {context}
 
 Begin the section with a level-2 Markdown heading: ## {label}
 
-Follow the structure and length specified in the STYLE GUIDE above exactly.
-Use LaTeX for all mathematics and notation.
-Write the narrative in language: {language}  (ISO 639-1 code, e.g. "en", "zh", "fr", "es").
-Mathematical notation and LaTeX remain in their standard form regardless of language.
+Follow the structure and length specified in the STYLE GUIDE above. The
+STRUCTURE labels there (e.g. "Picture this", "Worked example") describe what
+each part should contain — they are English labels for your reference only,
+not text to copy verbatim. Write every word of the output, including any
+structural headers, entirely in {language}.
+Use LaTeX for all mathematics and notation; mathematical notation and LaTeX
+remain in their standard form regardless of language.
 Output only the section text. No preamble, no metadata.
 $$;
 
@@ -37,7 +40,9 @@ style described below throughout the revision.
 {style_guide}
 
 Domain: {domain}
-Write the narrative in language: {language}  (ISO 639-1 code, e.g. "en", "zh", "fr", "es").
+The STRUCTURE labels in the STYLE GUIDE above are English labels for
+reference only, not text to copy verbatim. Write every word of the revision,
+including any structural headers, entirely in {language}.
 
 SECTION:
 {section}
@@ -66,9 +71,11 @@ Write a "Payoff" section that:
 
 Begin with: ## Payoff
 
-Follow the length and structure in the STYLE GUIDE above.
+Follow the length and structure in the STYLE GUIDE above; any English
+structure labels there describe the content only, not text to copy verbatim.
 Use LaTeX for mathematics and notation.
-Write the narrative in language: {language}  (ISO 639-1 code, e.g. "en", "zh", "fr", "es").
+Write every word of the output, including any structural headers, entirely
+in {language}.
 Output only the section. No preamble.
 $$;
 
@@ -110,6 +117,7 @@ DO
     CALL setup_domain(@domain_yaml, @target, @payoff_weight) INTO @_
     CALL get_domain_name(@domain_yaml) INTO @domain_name
     CALL get_level_guide(@lvl) INTO @style_guide
+    CALL language_name(@language) INTO @language_label
     CALL order_length(@domain_yaml) INTO @order_len
     CALL order_bullets(@domain_yaml) INTO @_order_bullets
 
@@ -138,14 +146,14 @@ DO
             WHEN = "miss" THEN
                 LOGGING f"cache MISS for {@concept} — generating with the LLM" LEVEL INFO
 
-                GENERATE write_section(@concept, @_label, @concept, @style_guide, @language, @domain_name) INTO @section
+                GENERATE write_section(@concept, @_label, @concept, @style_guide, @language_label, @domain_name) INTO @section
 
                 -- Primitive budget check
                 CALL count_new_primitives(@section, @domain_yaml) INTO @_prim_count
                 CALL needs_primitive_refinement(@_prim_count, @primitive_budget) INTO @_refine
                 EVALUATE @_refine
                     WHEN = "yes" THEN
-                        GENERATE refine_section(@section, "introduce at most one new primitive per section", @style_guide, @domain_name, @language) INTO @section
+                        GENERATE refine_section(@section, "introduce at most one new primitive per section", @style_guide, @domain_name, @language_label) INTO @section
                     ELSE
                         LOGGING "Primitive budget OK" LEVEL INFO
                 END
@@ -154,7 +162,7 @@ DO
                 CALL verify_section(@section, @domain_yaml) INTO @check
                 EVALUATE @check
                     WHEN contains("fail") THEN
-                        GENERATE refine_section(@section, @check, @style_guide, @domain_name, @language) INTO @section
+                        GENERATE refine_section(@section, @check, @style_guide, @domain_name, @language_label) INTO @section
                     ELSE
                         LOGGING "Content verified" LEVEL INFO
                 END
@@ -184,7 +192,7 @@ DO
     CALL concept_label(@target) INTO @_target_label
     CALL now_float() INTO @t_payoff_start
 
-    GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language) INTO @capstone
+    GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language_label) INTO @capstone
 
     CALL elapsed_secs(@t_payoff_start) INTO @payoff_elapsed
     LOGGING f"[timing] payoff: {@payoff_elapsed}s\n" LEVEL INFO
@@ -220,7 +228,7 @@ EXCEPTION
         LOGGING "WARNING: concept generation interrupted — producing partial book with completed sections" LEVEL WARN
         CALL apps_list(@domain_yaml) INTO @apps
         CALL concept_label(@target) INTO @_target_label
-        GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language) INTO @capstone
+        GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language_label) INTO @capstone
         @textbook := @textbook + "\n\n---\n\n" + @capstone
         EVALUATE @output_dir
             WHEN != "" THEN

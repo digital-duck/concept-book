@@ -13,6 +13,26 @@ const _LANGUAGES = [
 
 const _LEVELS = ['intro', 'core', 'college', 'research']
 
+// Builds a { conceptName: fullUrl } map from catalog generated_concepts —
+// their `file` paths may include a model subfolder (e.g. .../gemma4/html/...),
+// which the graph page's own base-path guess can't reconstruct. Prefers the
+// model-less (default) entry when one exists; otherwise keeps the first found.
+function _buildConceptUrlMap(domainId, genConcepts) {
+  const chosen = {}
+  ;(genConcepts || []).forEach(c => {
+    if (!c.name || !c.file) return
+    const existing = chosen[c.name]
+    if (!existing || (existing.model && !c.model)) {
+      chosen[c.name] = { file: c.file, model: c.model }
+    }
+  })
+  const map = {}
+  Object.keys(chosen).forEach(name => {
+    map[name] = `${import.meta.env.BASE_URL}domains/${domainId}/${chosen[name].file}`
+  })
+  return map
+}
+
 export function GraphViewer(domain, { level = 'intro', lang = 'en' } = {}) {
   const { id: domainId, books = [], generated_concepts: genConcepts = [], capstone } = domain
 
@@ -31,6 +51,8 @@ export function GraphViewer(domain, { level = 'intro', lang = 'en' } = {}) {
       if (!win) return
 
       win.eval('window.__cb_RAW = RAW; window.__cb_nodeIndex = nodeIndex')
+      win.__cb_CONCEPTS_BASE = `${import.meta.env.BASE_URL}domains/${domainId}/output/${level}.${lang}/html/`
+      win.__cb_CONCEPT_URLS = _buildConceptUrlMap(domainId, genConcepts)
 
       // ── 1. Broadcast concept list to parent ──
       const concepts = (win.__cb_RAW?.nodes || []).map(n => ({
@@ -309,8 +331,8 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang, books
     </select>
     <select id="cb-model-sel" style="${_SEL_FULL}">
       <option value="gemma3">gemma3 — local (Ollama)</option>
-      <option value="gemma4" selected>gemma4 — local, default (Ollama)</option>
-      <option value="sonnet">sonnet — premium (Claude API)</option>
+      <option value="gemma4">gemma4 — local (Ollama)</option>
+      <option value="sonnet" selected>sonnet — premium, default (Claude API)</option>
       <option value="haiku">haiku — fast, premium (Claude API)</option>
       <option value="opus">opus — best quality (Claude API)</option>
     </select>
@@ -373,22 +395,29 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang, books
     })
   })
 
-  // Populate target concepts sorted alphabetically
+  // Populate target concepts sorted alphabetically. Restores the last target
+  // the user picked in this domain (survives the post-generate page reload
+  // below) instead of always resetting to the capstone.
+  const _targetKey = `cb_gen_target_${domainId}`
   const sorted = (win.__cb_RAW?.nodes || [])
     .filter(n => n.kind !== 'primitive')
     .sort((a, b) => a.label.localeCompare(b.label))
+
+  const savedTarget = sessionStorage.getItem(_targetKey)
+  const initialTarget = (savedTarget && sorted.some(c => c.id === savedTarget)) ? savedTarget : capstone
 
   sorted.forEach(c => {
     const opt = doc.createElement('option')
     opt.value = c.id
     opt.textContent = c.label
-    if (c.id === capstone) opt.selected = true
+    if (c.id === initialTarget) opt.selected = true
     sel.appendChild(opt)
   })
 
   if (sel.value) { btn.disabled = false; pdfBtn.disabled = false }
 
   sel.addEventListener('change', () => {
+    if (sel.value) sessionStorage.setItem(_targetKey, sel.value)
     btn.disabled = !sel.value
     pdfBtn.disabled = !sel.value
     pdfBtn.textContent = 'PDF'
@@ -445,6 +474,7 @@ function _injectGenerateSection(win, doc, domainId, capstone, level, lang, books
   btn.addEventListener('click', () => {
     const target = sel.value
     if (!target) return
+    sessionStorage.setItem(_targetKey, target)
     const model = modelSel.value
     const lvl = levelSel.value
     const lng = langSel.value

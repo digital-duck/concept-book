@@ -138,6 +138,10 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:
 .primitive-k{background:#e8f5e9;color:#2e7d32}
 .concept-k{background:#e3f2fd;color:#1565c0}
 .application-k{background:#fff3e0;color:#ef6c00}
+/* ── concept detail panel ── */
+#concept-detail{margin-top:14px;border-top:1px solid #e8e8e0;padding-top:10px;}
+#concept-iframe{width:100%;height:500px;border:1px solid #e0e0d8;border-radius:4px;margin-top:6px;display:block;}
+.concept-not-found{color:#e57373;font-size:12px;padding:6px 0;font-style:italic;}
 </style>
 </head>
 <body>
@@ -333,7 +337,8 @@ function renderExplanation(node) {
     ? `<div class="section-label">Try it</div><div class="play-hint">${node.play}</div>`
     : '';
 
-  document.getElementById('explain-panel').innerHTML = `
+  const panel = document.getElementById('explain-panel');
+  panel.innerHTML = `
     <div class="node-title">
       <h2>${node.label}</h2>
       <span class="badge ${kclass}">${kclass}</span>
@@ -344,6 +349,42 @@ function renderExplanation(node) {
     ${metaItems ? `<div class="meta-row">${metaItems}</div>` : ''}
     ${playHtml}
   `;
+
+  // ── concept HTML detail ──
+  const conceptsBase = window.__cb_CONCEPTS_BASE;
+  const conceptUrls = window.__cb_CONCEPT_URLS || {};
+  const mappedUrl = conceptUrls[node.id];
+  if (mappedUrl || conceptsBase) {
+    const conceptUrl = mappedUrl || (conceptsBase + 'concept_' + encodeURIComponent(node.id) + '.html');
+    const detail = document.createElement('div');
+    detail.id = 'concept-detail';
+    detail.innerHTML = '<div class="section-label">Concept Detail</div><div class="concept-loading" style="color:#aaa;font-size:12px;padding:6px 0">Loading…</div>';
+    panel.appendChild(detail);
+    fetch(conceptUrl)
+      .then(r => {
+        if (!r.ok) throw new Error('not found');
+        return r.text();
+      })
+      .then(html => {
+        const slot = detail.querySelector('.concept-loading');
+        if (!slot) return;
+        // Vite dev server returns the SPA index.html (200) for missing static files.
+        // Verify we got a real concept page by checking for a known marker.
+        if (html.includes('spl-credit') || html.includes('Powered by')) {
+          const iframe = document.createElement('iframe');
+          iframe.id = 'concept-iframe';
+          iframe.src = conceptUrl;
+          slot.replaceWith(iframe);
+        } else {
+          slot.className = 'concept-not-found';
+          slot.textContent = 'Content not found — generate it first.';
+        }
+      })
+      .catch(() => {
+        const slot = detail.querySelector('.concept-loading');
+        if (slot) { slot.className = 'concept-not-found'; slot.textContent = 'Content not found — generate it first.'; }
+      });
+  }
 }
 
 // ── learning path sidebar ───────────────────────────────────────────────────

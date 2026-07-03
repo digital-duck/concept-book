@@ -30,11 +30,31 @@ export function Header({ domainName = '' } = {}) {
   spacer.className = 'cb-header__spacer'
   topRow.appendChild(spacer)
 
-  topRow.appendChild(LanguagePicker())
-
   const nav = document.createElement('nav')
   nav.className = 'cb-header__nav'
-  nav.innerHTML = `<a href="#/settings">${t('nav.settings')}</a> <a href="#/about">${t('nav.about')}</a>`
+
+  const graphLink = document.createElement('a')
+  graphLink.href = '#/graph'
+  graphLink.textContent = t('nav.graph')
+  nav.appendChild(graphLink)
+
+  const contentLink = document.createElement('a')
+  contentLink.href = '#/book'
+  contentLink.textContent = t('nav.content')
+  nav.appendChild(contentLink)
+
+  const settingsLink = document.createElement('a')
+  settingsLink.href = '#/settings'
+  settingsLink.textContent = t('nav.settings')
+  nav.appendChild(settingsLink)
+
+  nav.appendChild(LanguagePicker())
+
+  const aboutLink = document.createElement('a')
+  aboutLink.href = '#/about'
+  aboutLink.textContent = t('nav.about')
+  nav.appendChild(aboutLink)
+
   topRow.appendChild(nav)
 
   el.appendChild(topRow)

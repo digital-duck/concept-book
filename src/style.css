@@ -336,8 +336,20 @@ button { cursor: pointer; font-family: inherit; }
 
 .cb-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .cb-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .cb-card-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Domain card ── */
@@ -421,6 +433,34 @@ button { cursor: pointer; font-family: inherit; }
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.cb-domain-picker-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: #f0f4f8;
+  border-bottom: 1px solid #d1d5db;
+  flex-shrink: 0;
+}
+
+.cb-domain-picker-bar__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  font-family: system-ui, sans-serif;
+}
+
+.cb-domain-picker-bar__select {
+  padding: 3px 8px;
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-family: system-ui, sans-serif;
+  color: #1e3a5f;
+  background: #fff;
+  cursor: pointer;
 }
 
 .cb-graph-viewer {
@@ -538,6 +578,66 @@ button { cursor: pointer; font-family: inherit; }
   flex-direction: column;
   overflow: hidden;
   background: #fff;
+}
+
+.cb-book-nav {
+  width: 260px;
+  flex-shrink: 0;
+  background: #1e3a5f;
+  color: #e8f0fe;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  padding: 14px 12px;
+  font-family: system-ui, sans-serif;
+}
+
+.cb-book-nav__title {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #90b4e8;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cb-book-nav__label {
+  font-size: 10px;
+  color: #90b4e8;
+  margin-bottom: 3px;
+}
+
+.cb-book-nav__select {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 11px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+  background: #fff;
+  color: #2a2a2a;
+  margin-bottom: 8px;
+  font-family: system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+.cb-book-nav__open {
+  width: 100%;
+  margin-top: 2px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: system-ui, sans-serif;
+}
+
+.cb-book-nav__open:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .cb-book-page__single {
