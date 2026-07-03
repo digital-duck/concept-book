@@ -272,9 +272,20 @@
         "target": "gradient_descent",
         "file": "output/college.en/sonnet/html/book_gradient_descent.html",
         "model": "sonnet"
+      },
+      {
+        "target": "fundamental_theorem",
+        "file": "output/college.en/sonnet/html/book_fundamental_theorem.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "antiderivative",
+        "label": "Antiderivative",
+        "file": "output/college.en/sonnet/html/concept_antiderivative.html",
+        "model": "sonnet"
+      },
       {
         "name": "continuity",
         "label": "Continuity",
@@ -302,6 +313,12 @@
         "label": "Definite Integral",
         "file": "output/college.en/gemma4/html/concept_definite_integral.html",
         "model": "gemma4"
+      },
+      {
+        "name": "definite_integral",
+        "label": "Definite Integral",
+        "file": "output/college.en/sonnet/html/concept_definite_integral.html",
+        "model": "sonnet"
       },
       {
         "name": "derivative",
@@ -349,6 +366,12 @@
         "model": "sonnet"
       },
       {
+        "name": "fundamental_theorem",
+        "label": "Fundamental Theorem",
+        "file": "output/college.en/sonnet/html/concept_fundamental_theorem.html",
+        "model": "sonnet"
+      },
+      {
         "name": "gradient",
         "label": "Gradient",
         "file": "output/college.en/html/concept_gradient.html"
@@ -392,6 +415,12 @@
         "label": "Infinity",
         "file": "output/college.en/gemma4/html/concept_infinity.html",
         "model": "gemma4"
+      },
+      {
+        "name": "infinity",
+        "label": "Infinity",
+        "file": "output/college.en/sonnet/html/concept_infinity.html",
+        "model": "sonnet"
       },
       {
         "name": "limit",
@@ -467,6 +496,12 @@
         "model": "gemma4"
       },
       {
+        "name": "real_number",
+        "label": "Real Number",
+        "file": "output/college.en/sonnet/html/concept_real_number.html",
+        "model": "sonnet"
+      },
+      {
         "name": "riemann_sum",
         "label": "Riemann Sum",
         "file": "output/college.en/html/concept_riemann_sum.html"
@@ -476,6 +511,12 @@
         "label": "Riemann Sum",
         "file": "output/college.en/gemma4/html/concept_riemann_sum.html",
         "model": "gemma4"
+      },
+      {
+        "name": "riemann_sum",
+        "label": "Riemann Sum",
+        "file": "output/college.en/sonnet/html/concept_riemann_sum.html",
+        "model": "sonnet"
       }
     ],
     "default_level": "college"
@@ -518,9 +559,20 @@
         "target": "orbital_mechanics",
         "file": "output/college.en/sonnet/html/book_orbital_mechanics.html",
         "model": "sonnet"
+      },
+      {
+        "target": "normal_modes",
+        "file": "output/college.en/sonnet/html/book_normal_modes.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "acceleration",
+        "label": "Acceleration",
+        "file": "output/college.en/sonnet/html/concept_acceleration.html",
+        "model": "sonnet"
+      },
       {
         "name": "angular_momentum",
         "label": "Angular Momentum",
@@ -550,6 +602,12 @@
         "model": "gemma4"
       },
       {
+        "name": "configuration_space",
+        "label": "Configuration Space",
+        "file": "output/college.en/sonnet/html/concept_configuration_space.html",
+        "model": "sonnet"
+      },
+      {
         "name": "constraints",
         "label": "Constraints",
         "file": "output/college.en/html/concept_constraints.html"
@@ -559,6 +617,12 @@
         "label": "Constraints",
         "file": "output/college.en/gemma4/html/concept_constraints.html",
         "model": "gemma4"
+      },
+      {
+        "name": "constraints",
+        "label": "Constraints",
+        "file": "output/college.en/sonnet/html/concept_constraints.html",
+        "model": "sonnet"
       },
       {
         "name": "energy_conservation",
@@ -589,6 +653,12 @@
         "model": "gemma4"
       },
       {
+        "name": "euler_lagrange_equations",
+        "label": "Euler Lagrange Equations",
+        "file": "output/college.en/sonnet/html/concept_euler_lagrange_equations.html",
+        "model": "sonnet"
+      },
+      {
         "name": "force",
         "label": "Force",
         "file": "output/college.en/html/concept_force.html"
@@ -615,6 +685,18 @@
         "label": "Generalized Coordinates",
         "file": "output/college.en/gemma4/html/concept_generalized_coordinates.html",
         "model": "gemma4"
+      },
+      {
+        "name": "generalized_coordinates",
+        "label": "Generalized Coordinates",
+        "file": "output/college.en/sonnet/html/concept_generalized_coordinates.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "harmonic_oscillator",
+        "label": "Harmonic Oscillator",
+        "file": "output/college.en/sonnet/html/concept_harmonic_oscillator.html",
+        "model": "sonnet"
       },
       {
         "name": "kinetic_energy",
@@ -645,6 +727,12 @@
         "model": "gemma4"
       },
       {
+        "name": "lagrangian",
+        "label": "Lagrangian",
+        "file": "output/college.en/sonnet/html/concept_lagrangian.html",
+        "model": "sonnet"
+      },
+      {
         "name": "least_action",
         "label": "Least Action",
         "file": "output/college.en/html/concept_least_action.html"
@@ -654,6 +742,12 @@
         "label": "Least Action",
         "file": "output/college.en/gemma4/html/concept_least_action.html",
         "model": "gemma4"
+      },
+      {
+        "name": "least_action",
+        "label": "Least Action",
+        "file": "output/college.en/sonnet/html/concept_least_action.html",
+        "model": "sonnet"
       },
       {
         "name": "mass",
@@ -687,6 +781,18 @@
         "name": "momentum",
         "label": "Momentum",
         "file": "output/college.en/sonnet/html/concept_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_second_law",
+        "label": "Newtons Second Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_second_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "normal_modes",
+        "label": "Normal Modes",
+        "file": "output/college.en/sonnet/html/concept_normal_modes.html",
         "model": "sonnet"
       },
       {
@@ -1013,9 +1119,32 @@
         "target": "众",
         "file": "output/intro.en/sonnet/html/book_众.html",
         "model": "sonnet"
+      },
+      {
+        "target": "phono_semantic_principle",
+        "file": "output/intro.en/sonnet/html/book_phono_semantic_principle.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "phonetic_borrowing",
+        "label": "Phonetic Borrowing",
+        "file": "output/intro.en/sonnet/html/concept_phonetic_borrowing.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phono_semantic_principle",
+        "label": "Phono Semantic Principle",
+        "file": "output/intro.en/sonnet/html/concept_phono_semantic_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "semantic_composition",
+        "label": "Semantic Composition",
+        "file": "output/intro.en/sonnet/html/concept_semantic_composition.html",
+        "model": "sonnet"
+      },
       {
         "name": "vocabulary_compounds",
         "label": "Vocabulary Compounds",
@@ -1056,6 +1185,12 @@
         "model": "sonnet"
       },
       {
+        "name": "休",
+        "label": "休",
+        "file": "output/intro.en/sonnet/html/concept_休.html",
+        "model": "sonnet"
+      },
+      {
         "name": "众",
         "label": "众",
         "file": "output/intro.zh/html/concept_众.html"
@@ -1078,9 +1213,27 @@
         "file": "output/intro.zh/html/concept_口.html"
       },
       {
+        "name": "口",
+        "label": "口",
+        "file": "output/intro.en/sonnet/html/concept_口.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "吗",
+        "label": "吗",
+        "file": "output/intro.en/sonnet/html/concept_吗.html",
+        "model": "sonnet"
+      },
+      {
         "name": "女",
         "label": "女",
         "file": "output/intro.zh/html/concept_女.html"
+      },
+      {
+        "name": "女",
+        "label": "女",
+        "file": "output/intro.en/sonnet/html/concept_女.html",
+        "model": "sonnet"
       },
       {
         "name": "好",
@@ -1088,9 +1241,27 @@
         "file": "output/intro.zh/html/concept_好.html"
       },
       {
+        "name": "好",
+        "label": "好",
+        "file": "output/intro.en/sonnet/html/concept_好.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "妈",
+        "label": "妈",
+        "file": "output/intro.en/sonnet/html/concept_妈.html",
+        "model": "sonnet"
+      },
+      {
         "name": "子",
         "label": "子",
         "file": "output/intro.zh/html/concept_子.html"
+      },
+      {
+        "name": "子",
+        "label": "子",
+        "file": "output/intro.en/sonnet/html/concept_子.html",
+        "model": "sonnet"
       },
       {
         "name": "字",
@@ -1098,9 +1269,27 @@
         "file": "output/intro.zh/html/concept_字.html"
       },
       {
+        "name": "字",
+        "label": "字",
+        "file": "output/intro.en/sonnet/html/concept_字.html",
+        "model": "sonnet"
+      },
+      {
         "name": "宀",
         "label": "宀",
         "file": "output/intro.zh/html/concept_宀.html"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.en/sonnet/html/concept_宀.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "安",
+        "label": "安",
+        "file": "output/intro.en/sonnet/html/concept_安.html",
+        "model": "sonnet"
       },
       {
         "name": "日",
@@ -1108,9 +1297,27 @@
         "file": "output/intro.zh/html/concept_日.html"
       },
       {
+        "name": "日",
+        "label": "日",
+        "file": "output/intro.en/sonnet/html/concept_日.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "明",
+        "label": "明",
+        "file": "output/intro.en/sonnet/html/concept_明.html",
+        "model": "sonnet"
+      },
+      {
         "name": "月",
         "label": "月",
         "file": "output/intro.zh/html/concept_月.html"
+      },
+      {
+        "name": "月",
+        "label": "月",
+        "file": "output/intro.en/sonnet/html/concept_月.html",
+        "model": "sonnet"
       },
       {
         "name": "木",
@@ -1118,9 +1325,27 @@
         "file": "output/intro.zh/html/concept_木.html"
       },
       {
+        "name": "木",
+        "label": "木",
+        "file": "output/intro.en/sonnet/html/concept_木.html",
+        "model": "sonnet"
+      },
+      {
         "name": "林",
         "label": "林",
         "file": "output/intro.zh/html/concept_林.html"
+      },
+      {
+        "name": "林",
+        "label": "林",
+        "file": "output/intro.en/sonnet/html/concept_林.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "森",
+        "label": "森",
+        "file": "output/intro.en/sonnet/html/concept_森.html",
+        "model": "sonnet"
       },
       {
         "name": "水",
@@ -1128,9 +1353,27 @@
         "file": "output/intro.zh/html/concept_水.html"
       },
       {
+        "name": "水",
+        "label": "水",
+        "file": "output/intro.en/sonnet/html/concept_水.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "沐",
+        "label": "沐",
+        "file": "output/intro.en/sonnet/html/concept_沐.html",
+        "model": "sonnet"
+      },
+      {
         "name": "马",
         "label": "马",
         "file": "output/intro.zh/html/concept_马.html"
+      },
+      {
+        "name": "马",
+        "label": "马",
+        "file": "output/intro.en/sonnet/html/concept_马.html",
+        "model": "sonnet"
       }
     ],
     "default_level": "intro",
@@ -1220,6 +1463,11 @@
       {
         "target": "-ion",
         "file": "output/intro.en/sonnet/html/book_-ion.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "morphological_decoding_principle",
+        "file": "output/intro.en/sonnet/html/book_morphological_decoding_principle.html",
         "model": "sonnet"
       }
     ],
@@ -2642,6 +2890,11 @@
       {
         "target": "compiler_optimization",
         "file": "output/college.en/sonnet/html/book_compiler_optimization.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "dynamic_programming",
+        "file": "output/college.en/sonnet/html/book_dynamic_programming.html",
         "model": "sonnet"
       }
     ],
