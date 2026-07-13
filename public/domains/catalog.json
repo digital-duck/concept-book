@@ -3356,6 +3356,11 @@
         "target": "approximation",
         "file": "output/core.en/gemma4/html/book_approximation.html",
         "model": "gemma4"
+      },
+      {
+        "target": "uncertainty",
+        "file": "output/core.en/sonnet/html/book_uncertainty.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -3363,6 +3368,12 @@
         "name": "accuracy",
         "label": "Accuracy",
         "file": "output/core.en/html/concept_accuracy.html"
+      },
+      {
+        "name": "accuracy",
+        "label": "Accuracy",
+        "file": "output/core.en/sonnet/html/concept_accuracy.html",
+        "model": "sonnet"
       },
       {
         "name": "approximation",
@@ -3385,6 +3396,12 @@
         "label": "Measurement",
         "file": "output/core.en/gemma4/html/concept_measurement.html",
         "model": "gemma4"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/core.en/sonnet/html/concept_measurement.html",
+        "model": "sonnet"
       },
       {
         "name": "order_of_magnitude",
@@ -3414,6 +3431,12 @@
         "file": "output/core.en/html/concept_precision.html"
       },
       {
+        "name": "precision",
+        "label": "Precision",
+        "file": "output/core.en/sonnet/html/concept_precision.html",
+        "model": "sonnet"
+      },
+      {
         "name": "scientific_law",
         "label": "Scientific Law",
         "file": "output/core.en/html/concept_scientific_law.html"
@@ -3432,6 +3455,12 @@
         "name": "uncertainty",
         "label": "Uncertainty",
         "file": "output/core.en/html/concept_uncertainty.html"
+      },
+      {
+        "name": "uncertainty",
+        "label": "Uncertainty",
+        "file": "output/core.en/sonnet/html/concept_uncertainty.html",
+        "model": "sonnet"
       },
       {
         "name": "units",
