@@ -1,0 +1,119 @@
+domain: college_physics_2e_ch18
+sources:
+  electric_charge:
+    label: Electric Charge
+    sections:
+    - id: ch18_s18_1
+      title: '18.1 Static Electricity and Charge: Conservation of Charge'
+  electron:
+    label: Electron
+    sections:
+    - id: ch18_s18_1
+      title: '18.1 Static Electricity and Charge: Conservation of Charge'
+  proton:
+    label: Proton
+    sections:
+    - id: ch18_s18_1
+      title: '18.1 Static Electricity and Charge: Conservation of Charge'
+  conservation_of_charge:
+    label: Conservation of Charge
+    sections:
+    - id: ch18_s18_1
+      title: '18.1 Static Electricity and Charge: Conservation of Charge'
+  conductor:
+    label: Conductor
+    sections:
+    - id: ch18_s18_2
+      title: 18.2 Conductors and Insulators
+    - id: ch18_s18_7
+      title: 18.7 Conductors and Electric Fields in Static Equilibrium
+  insulator:
+    label: Insulator
+    sections:
+    - id: ch18_s18_2
+      title: 18.2 Conductors and Insulators
+  ion:
+    label: Ion
+    sections:
+    - id: ch18_s18_2
+      title: 18.2 Conductors and Insulators
+  polarization:
+    label: Polarization
+    sections:
+    - id: ch18_s18_2
+      title: 18.2 Conductors and Insulators
+  charging_by_contact:
+    label: Charging by Contact
+    sections:
+    - id: ch18_s18_2
+      title: 18.2 Conductors and Insulators
+  charging_by_induction:
+    label: Charging by Induction
+    sections:
+    - id: ch18_s18_2
+      title: 18.2 Conductors and Insulators
+  grounding:
+    label: Grounding
+    sections:
+    - id: ch18_s18_2
+      title: 18.2 Conductors and Insulators
+  coulombs_law:
+    label: Coulomb's Law
+    sections:
+    - id: ch18_s18_3
+      title: 18.3 Coulomb’s Law
+  electric_field:
+    label: Electric Field
+    sections:
+    - id: ch18_s18_4
+      title: '18.4 Electric Field: Concept of a Field Revisited'
+  electric_field_lines:
+    label: Electric Field Lines
+    sections:
+    - id: ch18_s18_5
+      title: '18.5 Electric Field Lines: Multiple Charges'
+  superposition_of_electric_fields:
+    label: Superposition of Electric Fields
+    sections:
+    - id: ch18_s18_5
+      title: '18.5 Electric Field Lines: Multiple Charges'
+  electrostatic_equilibrium:
+    label: Electrostatic Equilibrium
+    sections:
+    - id: ch18_s18_7
+      title: 18.7 Conductors and Electric Fields in Static Equilibrium
+  dipole:
+    label: Dipole
+    sections:
+    - id: ch18_s18_6
+      title: 18.6 Electric Forces in Biology
+  screening:
+    label: Electrostatic Screening
+    sections:
+    - id: ch18_s18_6
+      title: 18.6 Electric Forces in Biology
+  faraday_cage:
+    label: Faraday Cage
+    sections:
+    - id: ch18_s18_7
+      title: 18.7 Conductors and Electric Fields in Static Equilibrium
+  lightning_rod:
+    label: Lightning Rod
+    sections:
+    - id: ch18_s18_7
+      title: 18.7 Conductors and Electric Fields in Static Equilibrium
+  van_de_graaff_generator:
+    label: Van de Graaff Generator
+    sections:
+    - id: ch18_s18_8
+      title: 18.8 Applications of Electrostatics
+  xerography:
+    label: Xerography
+    sections:
+    - id: ch18_s18_8
+      title: 18.8 Applications of Electrostatics
+  electrostatic_precipitator:
+    label: Electrostatic Precipitator
+    sections:
+    - id: ch18_s18_8
+      title: 18.8 Applications of Electrostatics

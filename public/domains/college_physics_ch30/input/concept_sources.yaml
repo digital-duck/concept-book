@@ -1,0 +1,242 @@
+domain: college_physics_2e_ch30
+sources:
+  atom:
+    label: Atom
+    sections:
+    - id: ch30_s30_1
+      title: 30.1 Discovery of the Atom
+  electric_charge:
+    label: Electric Charge
+    sections: []
+  coulomb_force:
+    label: Coulomb Force
+    sections: []
+  photon:
+    label: Photon
+    sections: []
+  de_broglie_wavelength:
+    label: de Broglie Wavelength
+    sections: []
+  planck_constant:
+    label: Planck's Constant
+    sections: []
+  electromagnetic_radiation:
+    label: Electromagnetic Radiation
+    sections: []
+  classical_angular_momentum:
+    label: Classical Angular Momentum
+    sections: []
+  electron:
+    label: Electron
+    sections:
+    - id: ch30_s30_2
+      title: '30.2 Discovery of the Parts of the Atom: Electrons and Nuclei'
+  charge_to_mass_ratio:
+    label: Charge-to-Mass Ratio
+    sections:
+    - id: ch30_s30_2
+      title: '30.2 Discovery of the Parts of the Atom: Electrons and Nuclei'
+  electron_charge:
+    label: Electron Charge
+    sections:
+    - id: ch30_s30_2
+      title: '30.2 Discovery of the Parts of the Atom: Electrons and Nuclei'
+  atomic_nucleus:
+    label: Atomic Nucleus
+    sections:
+    - id: ch30_s30_2
+      title: '30.2 Discovery of the Parts of the Atom: Electrons and Nuclei'
+  planetary_model:
+    label: Planetary Model of the Atom
+    sections:
+    - id: ch30_s30_2
+      title: '30.2 Discovery of the Parts of the Atom: Electrons and Nuclei'
+  atomic_spectra:
+    label: Atomic Spectra
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+  rydberg_formula:
+    label: Rydberg Formula
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+  bohr_model:
+    label: Bohr Model of the Hydrogen Atom
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+  quantized_orbits:
+    label: Quantized Electron Orbits
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+    - id: ch30_s30_6
+      title: 30.6 The Wave Nature of Matter Causes Quantization
+  bohr_radius:
+    label: Bohr Radius
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+  energy_level_diagram:
+    label: Energy-Level Diagram
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+  hydrogen_like_atom:
+    label: Hydrogen-Like Atom
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+  orbital_energies:
+    label: Orbital Energies of Hydrogen-Like Atoms
+    sections:
+    - id: ch30_s30_3
+      title: 30.3 Bohr’s Theory of the Hydrogen Atom
+  bremsstrahlung:
+    label: Bremsstrahlung Radiation
+    sections:
+    - id: ch30_s30_4
+      title: '30.4 X Rays: Atomic Origins and Applications'
+  characteristic_x_rays:
+    label: Characteristic X Rays
+    sections:
+    - id: ch30_s30_4
+      title: '30.4 X Rays: Atomic Origins and Applications'
+  atomic_excitation:
+    label: Atomic Excitation
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  atomic_de_excitation:
+    label: Atomic De-Excitation
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  fluorescence:
+    label: Fluorescence
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  metastable_state:
+    label: Metastable State
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  phosphorescence:
+    label: Phosphorescence
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  stimulated_emission:
+    label: Stimulated Emission
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  population_inversion:
+    label: Population Inversion
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  laser:
+    label: Laser
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  wave_nature_quantization:
+    label: Wave Nature Causes Quantization
+    sections:
+    - id: ch30_s30_6
+      title: 30.6 The Wave Nature of Matter Causes Quantization
+  probability_cloud:
+    label: Probability Cloud
+    sections:
+    - id: ch30_s30_6
+      title: 30.6 The Wave Nature of Matter Causes Quantization
+  zeeman_effect:
+    label: Zeeman Effect
+    sections:
+    - id: ch30_s30_7
+      title: 30.7 Patterns in Spectra Reveal More Quantization
+  orbital_magnetic_field:
+    label: Orbital Magnetic Field
+    sections:
+    - id: ch30_s30_7
+      title: 30.7 Patterns in Spectra Reveal More Quantization
+  space_quantization:
+    label: Space Quantization
+    sections:
+    - id: ch30_s30_7
+      title: 30.7 Patterns in Spectra Reveal More Quantization
+  intrinsic_spin:
+    label: Intrinsic Spin
+    sections:
+    - id: ch30_s30_7
+      title: 30.7 Patterns in Spectra Reveal More Quantization
+    - id: ch30_s30_8
+      title: 30.8 Quantum Numbers and Rules
+  fine_structure:
+    label: Fine Structure
+    sections:
+    - id: ch30_s30_7
+      title: 30.7 Patterns in Spectra Reveal More Quantization
+  principal_quantum_number:
+    label: Principal Quantum Number
+    sections:
+    - id: ch30_s30_8
+      title: 30.8 Quantum Numbers and Rules
+  angular_momentum_quantum_number:
+    label: Angular Momentum Quantum Number
+    sections:
+    - id: ch30_s30_8
+      title: 30.8 Quantum Numbers and Rules
+  magnetic_quantum_number:
+    label: Magnetic Quantum Number
+    sections:
+    - id: ch30_s30_8
+      title: 30.8 Quantum Numbers and Rules
+  spin_quantum_number:
+    label: Spin Quantum Number
+    sections:
+    - id: ch30_s30_8
+      title: 30.8 Quantum Numbers and Rules
+  pauli_exclusion_principle:
+    label: Pauli Exclusion Principle
+    sections:
+    - id: ch30_s30_9
+      title: 30.9 The Pauli Exclusion Principle
+  electron_shells:
+    label: Electron Shells and Subshells
+    sections:
+    - id: ch30_s30_9
+      title: 30.9 The Pauli Exclusion Principle
+  electron_configuration:
+    label: Electron Configuration
+    sections:
+    - id: ch30_s30_9
+      title: 30.9 The Pauli Exclusion Principle
+  millikan_oil_drop_experiment:
+    label: Millikan Oil Drop Experiment
+    sections:
+    - id: ch30_s30_2
+      title: '30.2 Discovery of the Parts of the Atom: Electrons and Nuclei'
+  x_ray_diffraction:
+    label: X-Ray Diffraction and Crystallography
+    sections:
+    - id: ch30_s30_4
+      title: '30.4 X Rays: Atomic Origins and Applications'
+  ct_scanner:
+    label: CT Scanner
+    sections:
+    - id: ch30_s30_4
+      title: '30.4 X Rays: Atomic Origins and Applications'
+  holography:
+    label: Holography
+    sections:
+    - id: ch30_s30_5
+      title: 30.5 Applications of Atomic Excitations and De-Excitations
+  periodic_table:
+    label: Periodic Table Structure
+    sections:
+    - id: ch30_s30_9
+      title: 30.9 The Pauli Exclusion Principle

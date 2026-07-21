@@ -1,0 +1,200 @@
+domain: college_physics_2e_ch24
+primitives:
+  electric_field:
+    defines: A vector quantity representing electric force per unit charge, with field lines originating
+      on positive charges and terminating on negative charges.
+    tier: 0
+  magnetic_field:
+    defines: A vector quantity that exerts force on moving charges, with continuous field lines having
+      no beginning or end and no magnetic monopoles.
+    tier: 0
+  electric_charge:
+    defines: The fundamental source of electric fields; positive and negative charges whose separation
+      and motion drive electromagnetic phenomena.
+    tier: 0
+  permittivity_of_free_space:
+    defines: The fundamental constant ε₀ relating electric field strength to the force between charges
+      in a vacuum.
+    tier: 0
+  permeability_of_free_space:
+    defines: The fundamental constant μ₀ relating magnetic field strength to the force between currents
+      in a vacuum.
+    tier: 0
+  faradays_law:
+    defines: A changing magnetic field induces an electromotive force and hence an electric field, with
+      direction opposing the change (Lenz's law).
+    tier: 0
+  amperes_law:
+    defines: Moving charges (currents) generate magnetic fields around them.
+    tier: 0
+  gauss_law_electricity:
+    defines: Electric field lines originate on positive charges and terminate on negative charges, quantified
+      by the permittivity of free space.
+    tier: 0
+  gauss_law_magnetism:
+    defines: Magnetic field lines are continuous with no beginning or end, reflecting the absence of magnetic
+      monopoles.
+    tier: 0
+  wave_frequency_wavelength:
+    defines: Frequency is the number of complete cycles per second (Hz) and wavelength is the distance
+      between successive peaks; they are inversely related at a fixed propagation speed.
+    tier: 0
+concepts:
+  changing_electric_field_creates_magnetic_field:
+    defines: 'Maxwell''s key addition to Ampere''s law: a time-varying electric field generates a magnetic
+      field, making the theory symmetric with Faraday''s law.'
+    composed_of:
+    - electric_field
+    - magnetic_field
+    - amperes_law
+    tier: 1
+  speed_of_light:
+    defines: The propagation speed of electromagnetic waves in a vacuum, c ≈ 3×10⁸ m/s, derived from the
+      constants ε₀ and μ₀ via c = 1/√(μ₀ε₀).
+    composed_of:
+    - permittivity_of_free_space
+    - permeability_of_free_space
+    tier: 1
+  maxwells_equations:
+    defines: A complete, symmetric set of four equations unifying Gauss's law for electricity, Gauss's
+      law for magnetism, Faraday's law, and an extended Ampere's law that includes changing electric fields
+      as a source of magnetic fields.
+    composed_of:
+    - gauss_law_electricity
+    - gauss_law_magnetism
+    - faradays_law
+    - amperes_law
+    - changing_electric_field_creates_magnetic_field
+    tier: 2
+  wave_equation_em:
+    defines: For all electromagnetic waves the propagation speed equals frequency times wavelength (c
+      = fλ), so higher frequency implies shorter wavelength.
+    composed_of:
+    - speed_of_light
+    - wave_frequency_wavelength
+    tier: 2
+  electromagnetic_wave:
+    defines: Oscillating, mutually perpendicular electric and magnetic fields that propagate through space
+      at the speed of light, requiring no medium.
+    composed_of:
+    - maxwells_equations
+    - speed_of_light
+    tier: 3
+  em_wave_production:
+    defines: Electromagnetic waves are generated whenever charges oscillate or accelerate; the wave frequency
+      equals the frequency of charge oscillation.
+    composed_of:
+    - electromagnetic_wave
+    - electric_charge
+    tier: 4
+  transverse_em_wave:
+    defines: In an electromagnetic wave the electric and magnetic fields are perpendicular to each other
+      and to the direction of propagation, making it a transverse wave.
+    composed_of:
+    - electromagnetic_wave
+    tier: 4
+  e_b_field_ratio:
+    defines: 'In any electromagnetic wave traveling in a vacuum the ratio of electric to magnetic field
+      strength equals the speed of light: E/B = c.'
+    composed_of:
+    - electromagnetic_wave
+    - speed_of_light
+    tier: 4
+  electromagnetic_spectrum:
+    defines: The full continuum of electromagnetic radiation ordered by frequency and wavelength, ranging
+      from extremely low-frequency radio waves through microwaves, infrared, visible light, ultraviolet,
+      X-rays, and gamma rays.
+    composed_of:
+    - electromagnetic_wave
+    - wave_equation_em
+    tier: 4
+  wave_energy_amplitude:
+    defines: The energy carried by a wave is proportional to the square of its amplitude; for EM waves
+      this means energy scales with E₀² or B₀².
+    composed_of:
+    - electromagnetic_wave
+    tier: 4
+  em_wave_intensity:
+    defines: The average power per unit area carried by an EM wave, given by I_avg = (cε₀/2)E₀², where
+      E₀ is the peak electric field strength.
+    composed_of:
+    - wave_energy_amplitude
+    - speed_of_light
+    - permittivity_of_free_space
+    tier: 5
+applications:
+  radio_waves:
+    defines: The lowest-frequency band of the electromagnetic spectrum, produced by currents in wires
+      and circuits, spanning from a few Hz to about 1 GHz and used for AM/FM radio, TV, and communications.
+    needs:
+    - electromagnetic_spectrum
+    tier: 5
+  microwaves:
+    defines: Electromagnetic waves with wavelengths from about 1 mm to 1 m (frequencies ~1–300 GHz) produced
+      by macroscopic circuits or thermal agitation, used in communications, radar, and heating.
+    needs:
+    - electromagnetic_spectrum
+    tier: 5
+  infrared_radiation:
+    defines: Electromagnetic radiation just below visible red light in frequency, primarily produced by
+      thermal agitation and molecular vibrations, perceived as radiant heat.
+    needs:
+    - electromagnetic_spectrum
+    tier: 5
+  visible_light:
+    defines: The narrow band of the electromagnetic spectrum (roughly 400–750 nm) detectable by the human
+      eye, produced by electronic transitions in atoms and molecules.
+    needs:
+    - electromagnetic_spectrum
+    tier: 5
+  ultraviolet_radiation:
+    defines: Electromagnetic radiation with wavelengths from about 10 to 400 nm, above visible violet
+      in frequency, produced by electronic transitions and capable of ionizing biological molecules.
+    needs:
+    - electromagnetic_spectrum
+    tier: 5
+  x_rays:
+    defines: Very high-frequency electromagnetic radiation (wavelengths below ~10 nm) generated by inner-shell
+      electron transitions or deceleration of fast electrons in matter, used for imaging and cancer therapy.
+    needs:
+    - electromagnetic_spectrum
+    tier: 5
+  gamma_rays:
+    defines: The highest-frequency electromagnetic radiation, emitted by atomic nuclei during radioactive
+      decay or induced nuclear processes, with properties identical to X-rays of the same frequency.
+    needs:
+    - electromagnetic_spectrum
+    tier: 5
+  amplitude_modulation:
+    defines: A method of encoding audio information on a radio carrier wave by varying the carrier's amplitude
+      while keeping its frequency constant.
+    needs:
+    - radio_waves
+    tier: 6
+  frequency_modulation:
+    defines: A method of encoding audio information on a radio carrier wave by varying the carrier's frequency
+      while keeping its amplitude constant, making it more resistant to noise than AM.
+    needs:
+    - radio_waves
+    - wave_frequency_wavelength
+    tier: 6
+  radar:
+    defines: An application of microwaves in which timed echoes of transmitted pulses are used to determine
+      the distance, shape, or speed of remote objects.
+    needs:
+    - microwaves
+    tier: 6
+  dielectric_heating:
+    defines: A heating mechanism in which polar molecules in food absorb microwave energy by continuously
+      reorienting in the oscillating electric field, converting electromagnetic energy to thermal energy.
+    needs:
+    - microwaves
+    - electric_field
+    tier: 6
+  greenhouse_effect:
+    defines: The process by which atmospheric CO₂ and H₂O absorb infrared radiation emitted by Earth's
+      surface and re-radiate it back, raising the surface temperature above what it would be in their
+      absence.
+    needs:
+    - infrared_radiation
+    tier: 6

@@ -1,0 +1,147 @@
+domain: college_physics_2e_ch4
+primitives:
+  force:
+    defines: A push or pull on an object that has both magnitude and direction, making it a vector quantity.
+    tier: 0
+  velocity:
+    defines: The speed and direction of an object's motion, treated as a known quantity from prior kinematics
+      study.
+    tier: 0
+  acceleration:
+    defines: The rate at which an object's velocity changes over time, including changes in magnitude
+      or direction.
+    tier: 0
+  mass:
+    defines: The quantity of matter in an object, measured in kilograms, which does not vary with location.
+    tier: 0
+  gravitational_acceleration:
+    defines: The constant acceleration g (≈9.8 m/s²) experienced by all objects in free fall near Earth's
+      surface, independent of mass.
+    tier: 0
+  dynamics:
+    defines: The branch of physics that studies how forces cause objects and systems to move.
+    tier: 0
+concepts:
+  free_body_diagram:
+    defines: A sketch showing all external forces acting on a body, with the body represented as a single
+      point and forces as vectors.
+    composed_of:
+    - force
+    - dynamics
+    tier: 1
+  inertia:
+    defines: The tendency of an object to remain at rest or to remain in motion at constant velocity,
+      measured by its mass.
+    composed_of:
+    - mass
+    - velocity
+    tier: 1
+  newtons_first_law:
+    defines: A body at rest remains at rest, or if in motion remains in motion at constant velocity, unless
+      acted on by a net external force.
+    composed_of:
+    - inertia
+    - force
+    tier: 2
+  system_of_interest:
+    defines: The defined boundary around an object or collection of objects under analysis, used to distinguish
+      external from internal forces.
+    composed_of:
+    - force
+    - dynamics
+    tier: 1
+  net_external_force:
+    defines: The vector sum of all forces acting on a system from outside its defined boundary, which
+      is the only force that causes acceleration.
+    composed_of:
+    - force
+    - system_of_interest
+    tier: 2
+  newtons_second_law:
+    defines: The acceleration of a system is directly proportional to and in the same direction as the
+      net external force, and inversely proportional to its mass (F = ma).
+    composed_of:
+    - net_external_force
+    - mass
+    - acceleration
+    tier: 3
+  weight:
+    defines: The gravitational force on an object of mass m, given by W = mg, which varies with location
+      depending on the local gravitational acceleration.
+    composed_of:
+    - mass
+    - gravitational_acceleration
+    tier: 1
+  free_fall:
+    defines: Motion in which the only force acting on an object is gravity, causing it to accelerate at
+      g regardless of mass.
+    composed_of:
+    - weight
+    - gravitational_acceleration
+    tier: 2
+  newtons_third_law:
+    defines: Whenever one body exerts a force on a second body, the first body experiences a force equal
+      in magnitude and opposite in direction.
+    composed_of:
+    - force
+    tier: 1
+  friction:
+    defines: A force that opposes relative motion between surfaces that are in contact, always acting
+      parallel to and against the direction of motion.
+    composed_of:
+    - force
+    tier: 1
+  normal_force:
+    defines: The contact force a surface exerts on an object perpendicular to the surface, supporting
+      the object against forces pressing into the surface.
+    composed_of:
+    - force
+    tier: 1
+  tension:
+    defines: The pulling force transmitted along the length of a flexible connector such as a rope or
+      cable, always directed parallel to the connector.
+    composed_of:
+    - force
+    tier: 1
+  thrust:
+    defines: A reaction force that propels a body forward in response to expelling mass backward, as in
+      rockets or jet propulsion.
+    composed_of:
+    - newtons_third_law
+    tier: 2
+  inertial_frame_of_reference:
+    defines: A non-accelerating coordinate system in which all forces are real and Newton's laws hold
+      in their standard form.
+    composed_of:
+    - newtons_first_law
+    - acceleration
+    tier: 3
+  weight_components_on_incline:
+    defines: The resolution of gravitational force into a component parallel to an inclined surface (mg
+      sin θ) and one perpendicular to it (mg cos θ).
+    composed_of:
+    - weight
+    - normal_force
+    tier: 2
+applications:
+  four_basic_forces:
+    defines: The four fundamental forces in nature — gravitational, electromagnetic, weak nuclear, and
+      strong nuclear — from which all other observed forces arise.
+    needs:
+    - force
+    tier: 1
+  force_field:
+    defines: A region surrounding an object that creates a force, characterized by the source object independently
+      of any test particle placed in it.
+    needs:
+    - force
+    tier: 1
+  newton_problem_solving_strategy:
+    defines: A systematic four-step procedure — sketch, identify system and draw free-body diagram, apply
+      Newton's second law, check reasonableness — for solving force and motion problems.
+    needs:
+    - free_body_diagram
+    - newtons_first_law
+    - newtons_second_law
+    - newtons_third_law
+    tier: 4

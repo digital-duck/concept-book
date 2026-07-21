@@ -1,0 +1,291 @@
+domain: college_physics_2e_ch16
+primitives:
+  displacement:
+    defines: The distance and direction an object has moved from its equilibrium position.
+    tier: 0
+  force:
+    defines: A push or pull on an object, described by Newton's laws of motion.
+    tier: 0
+  mass:
+    defines: A measure of the amount of matter in an object, affecting its resistance to acceleration.
+    tier: 0
+  energy:
+    defines: The capacity to do work, existing in kinetic, potential, and other forms.
+    tier: 0
+  equilibrium:
+    defines: The position at which the net force on an object is zero.
+    tier: 0
+  velocity:
+    defines: The rate of change of displacement with respect to time, including direction.
+    tier: 0
+  acceleration:
+    defines: The rate of change of velocity with respect to time.
+    tier: 0
+concepts:
+  restoring_force:
+    defines: A force that acts in the direction opposite to displacement from equilibrium, driving an
+      object back toward its equilibrium position.
+    composed_of:
+    - force
+    - displacement
+    - equilibrium
+    tier: 1
+  periodic_motion:
+    defines: Motion that repeats itself at regular time intervals.
+    composed_of:
+    - displacement
+    tier: 1
+  wave:
+    defines: A disturbance that propagates from its source, carrying energy without transporting matter.
+    composed_of:
+    - energy
+    - displacement
+    tier: 1
+  hookes_law:
+    defines: The restoring force is directly proportional to displacement from equilibrium, expressed
+      as F = -kx, where k is the force constant.
+    composed_of:
+    - restoring_force
+    tier: 2
+  period:
+    defines: The time required to complete one full oscillation cycle, measured in seconds.
+    composed_of:
+    - periodic_motion
+    tier: 2
+  frequency:
+    defines: The number of oscillations per unit time, related to period by f = 1/T, measured in hertz.
+    composed_of:
+    - periodic_motion
+    tier: 2
+  amplitude:
+    defines: The maximum displacement from the equilibrium position during an oscillation.
+    composed_of:
+    - periodic_motion
+    - equilibrium
+    tier: 2
+  wavelength:
+    defines: The distance between adjacent identical parts of a wave, measured parallel to the direction
+      of propagation.
+    composed_of:
+    - wave
+    tier: 2
+  transverse_wave:
+    defines: A wave in which the disturbance is perpendicular to the direction of propagation.
+    composed_of:
+    - wave
+    tier: 2
+  longitudinal_wave:
+    defines: A wave in which the disturbance is parallel to the direction of propagation.
+    composed_of:
+    - wave
+    tier: 2
+  superposition:
+    defines: The phenomenon in which two or more waves combine at the same point by adding their individual
+      disturbances.
+    composed_of:
+    - wave
+    tier: 2
+  force_constant:
+    defines: The constant k in Hooke's law that measures the stiffness or rigidity of a system, in units
+      of newtons per meter.
+    composed_of:
+    - hookes_law
+    tier: 3
+  simple_harmonic_motion:
+    defines: Oscillatory motion in which the net restoring force is described by Hooke's law, producing
+      sinusoidal displacement as a function of time.
+    composed_of:
+    - periodic_motion
+    - hookes_law
+    tier: 3
+  wave_velocity:
+    defines: The speed at which a wave disturbance propagates, related to wavelength and frequency by
+      v_w = f*lambda.
+    composed_of:
+    - wavelength
+    - frequency
+    tier: 3
+  constructive_interference:
+    defines: Superposition of waves that are in phase, resulting in a combined wave with greater amplitude.
+    composed_of:
+    - superposition
+    - amplitude
+    tier: 3
+  destructive_interference:
+    defines: Superposition of waves that are exactly out of phase, resulting in reduced or zero amplitude.
+    composed_of:
+    - superposition
+    - amplitude
+    tier: 3
+  standing_wave:
+    defines: A wave pattern formed by the superposition of two waves traveling in opposite directions,
+      producing nodes and antinodes at fixed positions.
+    composed_of:
+    - superposition
+    tier: 3
+  beat_frequency:
+    defines: The frequency of amplitude fluctuations produced by superposition of two waves with slightly
+      different frequencies, equal to |f1 - f2|.
+    composed_of:
+    - superposition
+    - frequency
+    tier: 3
+  wave_intensity:
+    defines: Power per unit area carried by a wave, proportional to the square of its amplitude, measured
+      in watts per square meter.
+    composed_of:
+    - wave
+    - amplitude
+    tier: 3
+  elastic_potential_energy:
+    defines: Energy stored in the deformation of a system that obeys Hooke's law, given by PE_el = (1/2)kx^2.
+    composed_of:
+    - energy
+    - force_constant
+    tier: 4
+  shm_period_frequency:
+    defines: For a simple harmonic oscillator, the period T = 2*pi*sqrt(m/k) and frequency f = (1/2*pi)*sqrt(k/m),
+      both independent of amplitude.
+    composed_of:
+    - simple_harmonic_motion
+    - period
+    - frequency
+    - mass
+    - force_constant
+    tier: 4
+  shm_equations_of_motion:
+    defines: The displacement x(t) = X*cos(2*pi*t/T), velocity v(t) = -v_max*sin(2*pi*t/T), and acceleration
+      a = -(k/m)*x for simple harmonic motion.
+    composed_of:
+    - simple_harmonic_motion
+    - amplitude
+    - velocity
+    - acceleration
+    tier: 4
+  simple_pendulum:
+    defines: A mass suspended from a light string that undergoes simple harmonic motion for small angles,
+      with period T = 2*pi*sqrt(L/g) independent of mass.
+    composed_of:
+    - simple_harmonic_motion
+    - period
+    tier: 4
+  uniform_circular_motion_shm:
+    defines: The projection of uniform circular motion onto a diameter produces simple harmonic motion,
+      linking angular velocity omega to SHM period.
+    composed_of:
+    - simple_harmonic_motion
+    - period
+    tier: 4
+  damped_harmonic_motion:
+    defines: Oscillatory motion in which non-conservative forces such as friction remove energy from the
+      system, causing amplitude to decrease over time.
+    composed_of:
+    - simple_harmonic_motion
+    - energy
+    - amplitude
+    tier: 4
+  natural_frequency:
+    defines: The frequency at which a system oscillates when not subject to a driving or damping force.
+    composed_of:
+    - frequency
+    - simple_harmonic_motion
+    tier: 4
+  nodes_and_antinodes:
+    defines: Nodes are points of zero displacement in a standing wave; antinodes are points of maximum
+      displacement.
+    composed_of:
+    - standing_wave
+    - amplitude
+    tier: 4
+  fundamental_frequency_and_harmonics:
+    defines: The lowest resonant frequency of a standing wave system is the fundamental; overtones or
+      harmonics are integer multiples of the fundamental.
+    composed_of:
+    - standing_wave
+    - frequency
+    tier: 4
+  energy_in_shm:
+    defines: In undamped SHM, total mechanical energy is conserved as it oscillates between kinetic energy
+      (1/2)mv^2 and elastic potential energy (1/2)kx^2.
+    composed_of:
+    - simple_harmonic_motion
+    - elastic_potential_energy
+    - mass
+    - velocity
+    tier: 5
+  critical_damping:
+    defines: The damping condition in which a system returns to equilibrium as quickly as possible without
+      oscillating past it.
+    composed_of:
+    - damped_harmonic_motion
+    tier: 5
+  underdamping:
+    defines: A damping condition where the system oscillates through equilibrium with gradually decreasing
+      amplitude before coming to rest.
+    composed_of:
+    - damped_harmonic_motion
+    tier: 5
+  overdamping:
+    defines: A damping condition where the system returns to equilibrium without oscillating but more
+      slowly than a critically damped system.
+    composed_of:
+    - damped_harmonic_motion
+    tier: 5
+  forced_oscillation:
+    defines: Oscillation driven by a periodic external force applied at a particular frequency, which
+      may differ from the system's natural frequency.
+    composed_of:
+    - natural_frequency
+    - damped_harmonic_motion
+    tier: 5
+  maximum_velocity_shm:
+    defines: The maximum speed of a simple harmonic oscillator is v_max = sqrt(k/m)*X, occurring as the
+      object passes through equilibrium.
+    composed_of:
+    - energy_in_shm
+    - amplitude
+    tier: 6
+  resonance:
+    defines: The phenomenon in which a system driven at its natural frequency responds with maximum amplitude
+      oscillations.
+    composed_of:
+    - forced_oscillation
+    tier: 6
+applications:
+  medical_ultrasound:
+    defines: Application of high-frequency oscillations to produce ultrasound waves used for noninvasive
+      medical imaging.
+    needs:
+    - frequency
+    - wave_intensity
+    - longitudinal_wave
+    tier: 4
+  earthquake_wave_detection:
+    defines: Application of wave propagation speeds and interference patterns to locate earthquake epicenters
+      and study geological structures.
+    needs:
+    - wave_velocity
+    - transverse_wave
+    - longitudinal_wave
+    - superposition
+    tier: 4
+  pendulum_clock:
+    defines: Application of the simple pendulum's constant period to keep accurate time by adjusting pendulum
+      length.
+    needs:
+    - simple_pendulum
+    tier: 5
+  car_suspension:
+    defines: Application of damped harmonic motion where shock absorbers provide critical damping to prevent
+      prolonged oscillation after hitting a bump.
+    needs:
+    - critical_damping
+    - force_constant
+    tier: 6
+  musical_instrument_resonance:
+    defines: Application of standing waves and harmonics on strings and in tubes to produce musical tones
+      at specific frequencies.
+    needs:
+    - fundamental_frequency_and_harmonics
+    - resonance
+    tier: 7

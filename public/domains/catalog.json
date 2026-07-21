@@ -3322,13 +3322,13 @@
   },
   {
     "id": "college_physics_ch1",
-    "name": "Physics Ch1: Nature of Science",
-    "description": "From scientific method to units, measurement, and approximation.",
+    "name": "Physics Ch1: Introduction: The Nature of Science and Physics",
+    "description": "OpenStax College Physics 2e, Chapter 1: Introduction: The Nature of Science and Physics.",
     "capstone": "approximation",
-    "nodes": 22,
-    "edges": 21,
-    "primitives": 4,
-    "concepts": 17,
+    "nodes": 23,
+    "edges": 24,
+    "primitives": 3,
+    "concepts": 19,
     "applications": 1,
     "tags": [
       "science"
@@ -3492,13 +3492,13 @@
   {
     "id": "college_physics_ch2",
     "name": "Physics Ch2: Kinematics",
-    "description": "From position and time to velocity, acceleration, and free-fall.",
-    "capstone": "stopping_distance",
+    "description": "OpenStax College Physics 2e, Chapter 2: Kinematics.",
+    "capstone": "graphical_analysis_of_motion",
     "nodes": 23,
-    "edges": 31,
-    "primitives": 6,
+    "edges": 32,
+    "primitives": 5,
     "concepts": 15,
-    "applications": 2,
+    "applications": 3,
     "tags": [
       "science"
     ],
@@ -4018,5 +4018,654 @@
       }
     ],
     "default_level": "intro"
+  },
+  {
+    "id": "college_physics_ch3",
+    "name": "Physics Ch3: Two-Dimensional Kinematics",
+    "description": "OpenStax College Physics 2e, Chapter 3: Two-Dimensional Kinematics.",
+    "capstone": "river_crossing_relative_velocity",
+    "nodes": 28,
+    "edges": 36,
+    "primitives": 10,
+    "concepts": 16,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "river_crossing_relative_velocity",
+        "file": "output/college.en/sonnet/html/book_river_crossing_relative_velocity.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "analytical_vector_addition",
+        "label": "Analytical Vector Addition",
+        "file": "output/college.en/sonnet/html/concept_analytical_vector_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "reference_frame",
+        "label": "Reference Frame",
+        "file": "output/college.en/sonnet/html/concept_reference_frame.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "relative_velocity",
+        "label": "Relative Velocity",
+        "file": "output/college.en/sonnet/html/concept_relative_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resolving_vectors_into_components",
+        "label": "Resolving Vectors Into Components",
+        "file": "output/college.en/sonnet/html/concept_resolving_vectors_into_components.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resultant_vector",
+        "label": "Resultant Vector",
+        "file": "output/college.en/sonnet/html/concept_resultant_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "river_crossing_relative_velocity",
+        "label": "River Crossing Relative Velocity",
+        "file": "output/college.en/sonnet/html/concept_river_crossing_relative_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "trigonometric_functions",
+        "label": "Trigonometric Functions",
+        "file": "output/college.en/sonnet/html/concept_trigonometric_functions.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/college.en/sonnet/html/concept_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector_components",
+        "label": "Vector Components",
+        "file": "output/college.en/sonnet/html/concept_vector_components.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity_addition",
+        "label": "Velocity Addition",
+        "file": "output/college.en/sonnet/html/concept_velocity_addition.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch4",
+    "name": "Physics Ch4: Dynamics: Force and Newton's Laws of Motion",
+    "description": "OpenStax College Physics 2e, Chapter 4: Dynamics: Force and Newton's Laws of Motion.",
+    "capstone": "four_basic_forces",
+    "nodes": 24,
+    "edges": 32,
+    "primitives": 6,
+    "concepts": 15,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch5",
+    "name": "Physics Ch5: Further Applications of Newton's Laws: Friction, Drag, and Elasticity",
+    "description": "OpenStax College Physics 2e, Chapter 5: Further Applications of Newton's Laws: Friction, Drag, and Elasticity.",
+    "capstone": "joint_lubrication",
+    "nodes": 27,
+    "edges": 29,
+    "primitives": 9,
+    "concepts": 14,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch6",
+    "name": "Physics Ch6: Uniform Circular Motion and Gravitation",
+    "description": "OpenStax College Physics 2e, Chapter 6: Uniform Circular Motion and Gravitation.",
+    "capstone": "tides",
+    "nodes": 35,
+    "edges": 46,
+    "primitives": 9,
+    "concepts": 21,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch7",
+    "name": "Physics Ch7: Work, Energy, and Energy Resources",
+    "description": "OpenStax College Physics 2e, Chapter 7: Work, Energy, and Energy Resources.",
+    "capstone": "useful_work_in_humans",
+    "nodes": 29,
+    "edges": 36,
+    "primitives": 6,
+    "concepts": 16,
+    "applications": 7,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch8",
+    "name": "Physics Ch8: Linear Momentum and Collisions",
+    "description": "OpenStax College Physics 2e, Chapter 8: Linear Momentum and Collisions.",
+    "capstone": "recoil",
+    "nodes": 20,
+    "edges": 25,
+    "primitives": 5,
+    "concepts": 13,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch9",
+    "name": "Physics Ch9: Statics and Torque",
+    "description": "OpenStax College Physics 2e, Chapter 9: Statics and Torque.",
+    "capstone": "free_body_diagram",
+    "nodes": 29,
+    "edges": 44,
+    "primitives": 6,
+    "concepts": 19,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch10",
+    "name": "Physics Ch10: Rotational Motion and Angular Momentum",
+    "description": "OpenStax College Physics 2e, Chapter 10: Rotational Motion and Angular Momentum.",
+    "capstone": "rolling_without_slipping",
+    "nodes": 25,
+    "edges": 33,
+    "primitives": 9,
+    "concepts": 13,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch11",
+    "name": "Physics Ch11: Fluid Statics",
+    "description": "OpenStax College Physics 2e, Chapter 11: Fluid Statics.",
+    "capstone": "hydraulic_system",
+    "nodes": 26,
+    "edges": 34,
+    "primitives": 5,
+    "concepts": 16,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch12",
+    "name": "Physics Ch12: Fluid Dynamics and Its Biological and Medical Applications",
+    "description": "OpenStax College Physics 2e, Chapter 12: Fluid Dynamics and Its Biological and Medical Applications.",
+    "capstone": "entrainment",
+    "nodes": 36,
+    "edges": 48,
+    "primitives": 8,
+    "concepts": 23,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch13",
+    "name": "Physics Ch13: Temperature, Kinetic Theory, and the Gas Laws",
+    "description": "OpenStax College Physics 2e, Chapter 13: Temperature, Kinetic Theory, and the Gas Laws.",
+    "capstone": "thermometer",
+    "nodes": 41,
+    "edges": 55,
+    "primitives": 5,
+    "concepts": 32,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch14",
+    "name": "Physics Ch14: Heat and Heat Transfer Methods",
+    "description": "OpenStax College Physics 2e, Chapter 14: Heat and Heat Transfer Methods.",
+    "capstone": "wind_chill",
+    "nodes": 27,
+    "edges": 28,
+    "primitives": 5,
+    "concepts": 18,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch15",
+    "name": "Physics Ch15: Thermodynamics",
+    "description": "OpenStax College Physics 2e, Chapter 15: Thermodynamics.",
+    "capstone": "human_metabolism",
+    "nodes": 35,
+    "edges": 53,
+    "primitives": 7,
+    "concepts": 24,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch16",
+    "name": "Physics Ch16: Oscillatory Motion and Waves",
+    "description": "OpenStax College Physics 2e, Chapter 16: Oscillatory Motion and Waves.",
+    "capstone": "medical_ultrasound",
+    "nodes": 47,
+    "edges": 77,
+    "primitives": 7,
+    "concepts": 35,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch17",
+    "name": "Physics Ch17: Physics of Hearing",
+    "description": "OpenStax College Physics 2e, Chapter 17: Physics of Hearing.",
+    "capstone": "noise_cancellation",
+    "nodes": 38,
+    "edges": 52,
+    "primitives": 9,
+    "concepts": 24,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch18",
+    "name": "Physics Ch18: Electric Charge and Electric Field",
+    "description": "OpenStax College Physics 2e, Chapter 18: Electric Charge and Electric Field.",
+    "capstone": "faraday_cage",
+    "nodes": 23,
+    "edges": 33,
+    "primitives": 3,
+    "concepts": 15,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch19",
+    "name": "Physics Ch19: Electric Potential and Electric Field",
+    "description": "OpenStax College Physics 2e, Chapter 19: Electric Potential and Electric Field.",
+    "capstone": "defibrillator",
+    "nodes": 30,
+    "edges": 33,
+    "primitives": 7,
+    "concepts": 22,
+    "applications": 1,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch20",
+    "name": "Physics Ch20: Electric Current, Resistance, and Ohm's Law",
+    "description": "OpenStax College Physics 2e, Chapter 20: Electric Current, Resistance, and Ohm's Law.",
+    "capstone": "thermal_hazard",
+    "nodes": 36,
+    "edges": 48,
+    "primitives": 6,
+    "concepts": 25,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch21",
+    "name": "Physics Ch21: Circuits and DC Instruments",
+    "description": "OpenStax College Physics 2e, Chapter 21: Circuits and DC Instruments.",
+    "capstone": "voltmeter",
+    "nodes": 33,
+    "edges": 49,
+    "primitives": 8,
+    "concepts": 20,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch22",
+    "name": "Physics Ch22: Magnetism",
+    "description": "OpenStax College Physics 2e, Chapter 22: Magnetism.",
+    "capstone": "velocity_selector",
+    "nodes": 42,
+    "edges": 61,
+    "primitives": 5,
+    "concepts": 27,
+    "applications": 10,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch23",
+    "name": "Physics Ch23: Electromagnetic Induction, AC Circuits, and Electrical Technologies",
+    "description": "OpenStax College Physics 2e, Chapter 23: Electromagnetic Induction, AC Circuits, and Electrical Technologies.",
+    "capstone": "transformer",
+    "nodes": 27,
+    "edges": 37,
+    "primitives": 5,
+    "concepts": 19,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch24",
+    "name": "Physics Ch24: Electromagnetic Waves",
+    "description": "OpenStax College Physics 2e, Chapter 24: Electromagnetic Waves.",
+    "capstone": "radio_waves",
+    "nodes": 33,
+    "edges": 39,
+    "primitives": 10,
+    "concepts": 11,
+    "applications": 12,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch25",
+    "name": "Physics Ch25: Geometric Optics",
+    "description": "OpenStax College Physics 2e, Chapter 25: Geometric Optics.",
+    "capstone": "rainbow",
+    "nodes": 37,
+    "edges": 59,
+    "primitives": 3,
+    "concepts": 25,
+    "applications": 9,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch26",
+    "name": "Physics Ch26: Vision and Optical Instruments",
+    "description": "OpenStax College Physics 2e, Chapter 26: Vision and Optical Instruments.",
+    "capstone": "vision_correction_spectacles",
+    "nodes": 37,
+    "edges": 52,
+    "primitives": 7,
+    "concepts": 23,
+    "applications": 7,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch27",
+    "name": "Physics Ch27: Wave Optics",
+    "description": "OpenStax College Physics 2e, Chapter 27: Wave Optics.",
+    "capstone": "non_reflective_coatings",
+    "nodes": 36,
+    "edges": 55,
+    "primitives": 7,
+    "concepts": 24,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch28",
+    "name": "Physics Ch28: Special Relativity",
+    "description": "OpenStax College Physics 2e, Chapter 28: Special Relativity.",
+    "capstone": "michelson_morley_experiment",
+    "nodes": 26,
+    "edges": 32,
+    "primitives": 6,
+    "concepts": 16,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch29",
+    "name": "Physics Ch29: Quantum Physics",
+    "description": "OpenStax College Physics 2e, Chapter 29: Quantum Physics.",
+    "capstone": "x_ray_production",
+    "nodes": 25,
+    "edges": 34,
+    "primitives": 6,
+    "concepts": 17,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch30",
+    "name": "Physics Ch30: Atomic Physics",
+    "description": "OpenStax College Physics 2e, Chapter 30: Atomic Physics.",
+    "capstone": "x_ray_diffraction",
+    "nodes": 50,
+    "edges": 61,
+    "primitives": 8,
+    "concepts": 37,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch31",
+    "name": "Physics Ch31: Radioactivity and Nuclear Physics",
+    "description": "OpenStax College Physics 2e, Chapter 31: Radioactivity and Nuclear Physics.",
+    "capstone": "geiger_tube",
+    "nodes": 56,
+    "edges": 81,
+    "primitives": 12,
+    "concepts": 39,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch32",
+    "name": "Physics Ch32: Medical Applications of Nuclear Physics",
+    "description": "OpenStax College Physics 2e, Chapter 32: Medical Applications of Nuclear Physics.",
+    "capstone": "fission_bomb",
+    "nodes": 35,
+    "edges": 41,
+    "primitives": 7,
+    "concepts": 23,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch33",
+    "name": "Physics Ch33: Particle Physics",
+    "description": "OpenStax College Physics 2e, Chapter 33: Particle Physics.",
+    "capstone": "particle_accelerator",
+    "nodes": 40,
+    "edges": 64,
+    "primitives": 7,
+    "concepts": 30,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
+  },
+  {
+    "id": "college_physics_ch34",
+    "name": "Physics Ch34: Frontiers of Physics",
+    "description": "OpenStax College Physics 2e, Chapter 34: Frontiers of Physics.",
+    "capstone": "quasar",
+    "nodes": 46,
+    "edges": 53,
+    "primitives": 9,
+    "concepts": 35,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": []
   }
 ]

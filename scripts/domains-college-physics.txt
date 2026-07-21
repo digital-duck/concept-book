@@ -1,0 +1,38 @@
+# OpenStax College Physics 2e — domains synced via sync_from_press.py
+# ch1/ch2 already have generated books; ch3-34 are graph-only until this
+# batch runs. One domain id per line, '#' starts a comment.
+
+# college_physics_ch1   # already generated
+# college_physics_ch2   # already generated
+college_physics_ch3
+college_physics_ch4
+college_physics_ch5
+college_physics_ch6
+college_physics_ch7
+college_physics_ch8
+college_physics_ch9
+college_physics_ch10
+college_physics_ch11
+college_physics_ch12
+college_physics_ch13
+college_physics_ch14
+college_physics_ch15
+college_physics_ch16
+college_physics_ch17
+college_physics_ch18
+college_physics_ch19
+college_physics_ch20
+college_physics_ch21
+college_physics_ch22
+college_physics_ch23
+college_physics_ch24
+college_physics_ch25
+college_physics_ch26
+college_physics_ch27
+college_physics_ch28
+college_physics_ch29
+college_physics_ch30
+college_physics_ch31
+college_physics_ch32
+college_physics_ch33
+college_physics_ch34

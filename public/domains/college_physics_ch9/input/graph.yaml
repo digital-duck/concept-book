@@ -1,0 +1,183 @@
+domain: college_physics_2e_ch9
+primitives:
+  force:
+    defines: A push or pull that acts on a system, characterized by magnitude, direction, and point of
+      application.
+    tier: 0
+  net_external_force:
+    defines: The vector sum of all external forces acting on a system.
+    tier: 0
+  weight:
+    defines: The gravitational force acting on an object, equal to mass times the acceleration due to
+      gravity.
+    tier: 0
+  normal_force:
+    defines: A contact force perpendicular to the surface that supports an object.
+    tier: 0
+  angular_velocity:
+    defines: The rate of change of angular position of a rotating body, treated as a given quantity in
+      this chapter.
+    tier: 0
+  mass:
+    defines: The quantity of matter in an object, used as a given property throughout the chapter.
+    tier: 0
+concepts:
+  pivot_point:
+    defines: The chosen reference point about which torques are calculated; any point may be selected,
+      but the choice affects computed torque values.
+    composed_of:
+    - force
+    tier: 1
+  center_of_gravity:
+    defines: The single point where the total weight of a body is assumed to be concentrated for the purpose
+      of calculating torques.
+    composed_of:
+    - weight
+    - mass
+    tier: 1
+  mechanical_advantage:
+    defines: The ratio of the output force to the input force for a simple machine, indicating how much
+      the machine multiplies the applied force.
+    composed_of:
+    - force
+    tier: 1
+  perpendicular_lever_arm:
+    defines: The shortest distance from the pivot point to the line along which the force acts, used to
+      simplify torque calculations.
+    composed_of:
+    - pivot_point
+    - force
+    tier: 2
+  fulcrum:
+    defines: The fixed pivot point of a lever about which the bar rotates.
+    composed_of:
+    - pivot_point
+    tier: 2
+  simple_machine:
+    defines: A device that multiplies or redirects an applied force, often trading force magnitude for
+      distance, with mechanical advantage determined by lever-arm ratios.
+    composed_of:
+    - force
+    - mechanical_advantage
+    tier: 2
+  torque:
+    defines: The rotational effectiveness of a force, defined as the product of the force magnitude, the
+      distance from the pivot point, and the sine of the angle between the force and the lever arm vector.
+    composed_of:
+    - force
+    - perpendicular_lever_arm
+    tier: 3
+  lever:
+    defines: A rigid bar that rotates about a fixed fulcrum and transmits force, with mechanical advantage
+      equal to the ratio of input to output lever arms.
+    composed_of:
+    - simple_machine
+    - fulcrum
+    - perpendicular_lever_arm
+    tier: 3
+  pulley:
+    defines: A simple machine consisting of a wheel and rope that changes the direction of a force and,
+      in compound arrangements, multiplies it.
+    composed_of:
+    - simple_machine
+    tier: 3
+  inclined_plane:
+    defines: A flat surface set at an angle to the horizontal that reduces the input force needed to raise
+      a load by increasing the distance over which the force is applied.
+    composed_of:
+    - simple_machine
+    tier: 3
+  equilibrium:
+    defines: A state of a system in which there is no linear or rotational acceleration, requiring both
+      net external force and net external torque to be zero.
+    composed_of:
+    - net_external_force
+    - torque
+    tier: 4
+  static_equilibrium:
+    defines: A state of equilibrium in which the system is motionless and both the net external force
+      and net external torque are zero.
+    composed_of:
+    - equilibrium
+    tier: 5
+  dynamic_equilibrium:
+    defines: A state of equilibrium in which the system moves at constant velocity while the net external
+      force and net external torque remain zero.
+    composed_of:
+    - equilibrium
+    tier: 5
+  first_condition_equilibrium:
+    defines: The requirement that the net external force on a system must be zero in every direction for
+      equilibrium to be achieved.
+    composed_of:
+    - net_external_force
+    - equilibrium
+    tier: 5
+  second_condition_equilibrium:
+    defines: The requirement that the net external torque on a system about any pivot point must be zero
+      for equilibrium to be achieved.
+    composed_of:
+    - torque
+    - equilibrium
+    - pivot_point
+    tier: 5
+  stable_equilibrium:
+    defines: An equilibrium state in which a displaced system experiences a restoring net force or torque
+      directed opposite to the displacement.
+    composed_of:
+    - equilibrium
+    - center_of_gravity
+    tier: 5
+  unstable_equilibrium:
+    defines: An equilibrium state in which a displaced system experiences a net force or torque in the
+      same direction as the displacement, causing it to accelerate away.
+    composed_of:
+    - equilibrium
+    - center_of_gravity
+    tier: 5
+  neutral_equilibrium:
+    defines: An equilibrium state in which the system remains in equilibrium regardless of small displacements
+      from its original position.
+    composed_of:
+    - equilibrium
+    tier: 5
+  base_of_support:
+    defines: The area beneath a body bounded by its contact points with the ground, which must contain
+      the vertical projection of the center of gravity for stable equilibrium.
+    composed_of:
+    - center_of_gravity
+    - stable_equilibrium
+    tier: 6
+applications:
+  free_body_diagram:
+    defines: A diagram isolating a system and representing all external forces acting on it with labeled
+      arrows, used as a problem-solving tool in static equilibrium analysis.
+    needs:
+    - force
+    - equilibrium
+    tier: 5
+  statics:
+    defines: The branch of mechanics that studies forces acting on systems in equilibrium, where both
+      linear and rotational accelerations are zero.
+    needs:
+    - first_condition_equilibrium
+    - second_condition_equilibrium
+    tier: 6
+  posture_back_strain:
+    defines: The application of static equilibrium principles to show how misalignment of the body's center
+      of gravity over the hip pivot creates large torques that back muscles must counteract.
+    needs:
+    - center_of_gravity
+    - torque
+    - static_equilibrium
+    - pivot_point
+    tier: 6
+  muscles_joints_statics:
+    defines: The application of torque and equilibrium analysis to biological lever systems in the body,
+      explaining why internal muscle forces are much larger than external limb forces.
+    needs:
+    - torque
+    - equilibrium
+    - lever
+    - statics
+    tier: 7

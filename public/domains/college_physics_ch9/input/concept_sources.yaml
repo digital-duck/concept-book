@@ -1,0 +1,141 @@
+domain: college_physics_2e_ch9
+sources:
+  force:
+    label: Force
+    sections: []
+  net_external_force:
+    label: Net External Force
+    sections: []
+  weight:
+    label: Weight
+    sections: []
+  normal_force:
+    label: Normal Force
+    sections: []
+  angular_velocity:
+    label: Angular Velocity
+    sections: []
+  mass:
+    label: Mass
+    sections: []
+  center_of_gravity:
+    label: Center of Gravity
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Stability
+    - id: ch09_s9_4
+      title: 9.4 Applications of Statics, Including Problem-Solving Strategies
+  equilibrium:
+    label: Equilibrium
+    sections:
+    - id: ch09_s9_1
+      title: 9.1 The First Condition for Equilibrium
+    - id: ch09_s9_2
+      title: 9.2 The Second Condition for Equilibrium
+  static_equilibrium:
+    label: Static Equilibrium
+    sections:
+    - id: ch09_s9_1
+      title: 9.1 The First Condition for Equilibrium
+  dynamic_equilibrium:
+    label: Dynamic Equilibrium
+    sections:
+    - id: ch09_s9_1
+      title: 9.1 The First Condition for Equilibrium
+  first_condition_equilibrium:
+    label: First Condition for Equilibrium
+    sections:
+    - id: ch09_s9_1
+      title: 9.1 The First Condition for Equilibrium
+  torque:
+    label: Torque
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 The Second Condition for Equilibrium
+  perpendicular_lever_arm:
+    label: Perpendicular Lever Arm
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 The Second Condition for Equilibrium
+  second_condition_equilibrium:
+    label: Second Condition for Equilibrium
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 The Second Condition for Equilibrium
+  pivot_point:
+    label: Pivot Point
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 The Second Condition for Equilibrium
+  stable_equilibrium:
+    label: Stable Equilibrium
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Stability
+  unstable_equilibrium:
+    label: Unstable Equilibrium
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Stability
+  neutral_equilibrium:
+    label: Neutral Equilibrium
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Stability
+  base_of_support:
+    label: Base of Support
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Stability
+  mechanical_advantage:
+    label: Mechanical Advantage
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Simple Machines
+  simple_machine:
+    label: Simple Machine
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Simple Machines
+  lever:
+    label: Lever
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Simple Machines
+  fulcrum:
+    label: Fulcrum
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Simple Machines
+  pulley:
+    label: Pulley
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Simple Machines
+  inclined_plane:
+    label: Inclined Plane
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Simple Machines
+  statics:
+    label: Statics
+    sections:
+    - id: ch09_s9_1
+      title: 9.1 The First Condition for Equilibrium
+    - id: ch09_s9_4
+      title: 9.4 Applications of Statics, Including Problem-Solving Strategies
+  free_body_diagram:
+    label: Free Body Diagram
+    sections:
+    - id: ch09_s9_4
+      title: 9.4 Applications of Statics, Including Problem-Solving Strategies
+  muscles_joints_statics:
+    label: Forces in Muscles and Joints
+    sections:
+    - id: ch09_s9_6
+      title: 9.6 Forces and Torques in Muscles and Joints
+  posture_back_strain:
+    label: Posture and Back Strain
+    sections:
+    - id: ch09_s9_6
+      title: 9.6 Forces and Torques in Muscles and Joints

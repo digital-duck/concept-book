@@ -1,0 +1,248 @@
+domain: college_physics_2e_ch13
+primitives:
+  pressure:
+    defines: Force per unit area exerted on a surface, assumed from mechanics.
+    tier: 0
+  kinetic_energy:
+    defines: Energy an object possesses due to its motion, assumed from mechanics.
+    tier: 0
+  volume:
+    defines: The three-dimensional space occupied by a substance or enclosed within a container.
+    tier: 0
+  mass:
+    defines: A measure of the amount of matter in an object, assumed from mechanics.
+    tier: 0
+  density:
+    defines: Mass per unit volume of a substance.
+    tier: 0
+concepts:
+  temperature:
+    defines: The quantity measured by a thermometer, operationally defined and related to the average
+      kinetic energy of atoms and molecules.
+    composed_of:
+    - kinetic_energy
+    tier: 1
+  mole:
+    defines: The amount of a substance that contains as many atoms or molecules as there are atoms in
+      exactly 12 grams of carbon-12.
+    composed_of:
+    - mass
+    tier: 1
+  temperature_scales:
+    defines: Well-defined measurement scales for temperature—Celsius, Fahrenheit, and Kelvin—using reproducible
+      reference points and interconversion equations.
+    composed_of:
+    - temperature
+    tier: 2
+  absolute_zero:
+    defines: The lowest possible temperature (0 K or −273.15 °C) at which molecular motion reaches its
+      minimum energy.
+    composed_of:
+    - temperature
+    tier: 2
+  thermal_equilibrium:
+    defines: The condition in which two systems in thermal contact have the same temperature and no net
+      heat flows between them.
+    composed_of:
+    - temperature
+    tier: 2
+  thermal_expansion:
+    defines: The change in size or volume of a given mass of material resulting from a change in temperature.
+    composed_of:
+    - temperature
+    - volume
+    tier: 2
+  boltzmann_constant:
+    defines: The physical constant k = 1.38 × 10⁻²³ J/K that relates the average kinetic energy of particles
+      in a gas to the absolute temperature.
+    composed_of:
+    - kinetic_energy
+    - temperature
+    tier: 2
+  phase_change:
+    defines: A transition of matter among its solid, liquid, and gas phases, driven by changes in temperature
+      and pressure.
+    composed_of:
+    - temperature
+    - pressure
+    tier: 2
+  avogadros_number:
+    defines: The number of atoms or molecules in one mole, N₀ = 6.02 × 10²³ particles/mol.
+    composed_of:
+    - mole
+    tier: 2
+  zeroth_law_of_thermodynamics:
+    defines: If system A is in thermal equilibrium with system B, and B is in thermal equilibrium with
+      system C, then A is also in thermal equilibrium with C.
+    composed_of:
+    - thermal_equilibrium
+    tier: 3
+  linear_thermal_expansion:
+    defines: The change in length ΔL = αL₀ΔT, where α is the coefficient of linear expansion that depends
+      on the material.
+    composed_of:
+    - thermal_expansion
+    tier: 3
+  thermal_stress:
+    defines: Stress created when thermal expansion or contraction is constrained, related to the bulk
+      modulus and fractional volume change.
+    composed_of:
+    - thermal_expansion
+    - pressure
+    tier: 3
+  ideal_gas_law:
+    defines: The equation of state PV = NkT (or PV = nRT) relating pressure, volume, number of particles,
+      and absolute temperature for an ideal gas.
+    composed_of:
+    - pressure
+    - volume
+    - temperature
+    - boltzmann_constant
+    tier: 3
+  universal_gas_constant:
+    defines: The constant R = N₀k = 8.314 J/(mol·K) used in the molar form of the ideal gas law PV = nRT.
+    composed_of:
+    - avogadros_number
+    - boltzmann_constant
+    tier: 3
+  phase_diagram:
+    defines: A pressure-versus-temperature graph showing regions where each phase exists and the boundaries
+      where phases coexist.
+    composed_of:
+    - phase_change
+    tier: 3
+  vapor:
+    defines: A gas that exists at a temperature below its boiling temperature at the prevailing pressure.
+    composed_of:
+    - phase_change
+    tier: 3
+  volume_thermal_expansion:
+    defines: The change in volume ΔV = βV₀ΔT, where β is the coefficient of volume expansion and β ≈ 3α.
+    composed_of:
+    - linear_thermal_expansion
+    tier: 4
+  kinetic_theory_of_gases:
+    defines: The model that explains macroscopic gas properties (pressure, temperature) in terms of the
+      continuous random motion and collisions of atoms and molecules.
+    composed_of:
+    - ideal_gas_law
+    - kinetic_energy
+    - mass
+    tier: 4
+  pv_diagram:
+    defines: A graph of pressure versus volume showing isotherms that follow hyperbolic curves for ideal
+      gases and deviate near phase transitions.
+    composed_of:
+    - ideal_gas_law
+    - phase_change
+    tier: 4
+  critical_point:
+    defines: The critical temperature and pressure above which a distinct liquid phase cannot exist and
+      the substance forms a supercritical fluid.
+    composed_of:
+    - phase_diagram
+    tier: 4
+  triple_point:
+    defines: The unique pressure and temperature at which the solid, liquid, and gas phases of a substance
+      coexist in equilibrium.
+    composed_of:
+    - phase_diagram
+    tier: 4
+  vapor_pressure:
+    defines: The pressure at which a gas coexists in equilibrium with its solid or liquid phase, increasing
+      with temperature.
+    composed_of:
+    - vapor
+    - pressure
+    tier: 4
+  partial_pressure:
+    defines: The pressure a gas would create if it alone occupied the total available volume in a mixture
+      of gases.
+    composed_of:
+    - pressure
+    - ideal_gas_law
+    tier: 4
+  saturation_vapor_density:
+    defines: The maximum density of water vapor that air can hold at a given temperature, corresponding
+      to 100% relative humidity.
+    composed_of:
+    - vapor
+    - density
+    tier: 4
+  thermal_energy:
+    defines: The average translational kinetic energy of a molecule, equal to (3/2)kT, providing a molecular
+      interpretation of temperature.
+    composed_of:
+    - kinetic_theory_of_gases
+    tier: 5
+  rms_speed:
+    defines: The square root of the average of the squared molecular speeds, given by v_rms = √(3kT/m),
+      characterizing typical molecular speed in a gas.
+    composed_of:
+    - kinetic_theory_of_gases
+    tier: 5
+  maxwell_boltzmann_distribution:
+    defines: The statistical distribution of molecular speeds in an ideal gas, which broadens and shifts
+      to higher speeds at higher temperatures.
+    composed_of:
+    - kinetic_theory_of_gases
+    tier: 5
+  sublimation:
+    defines: The phase change directly from solid to gas without passing through the liquid phase, occurring
+      below the triple-point pressure.
+    composed_of:
+    - phase_change
+    - triple_point
+    tier: 5
+  daltons_law:
+    defines: The total pressure of a gas mixture equals the sum of the partial pressures of each component
+      gas.
+    composed_of:
+    - partial_pressure
+    tier: 5
+  relative_humidity:
+    defines: The ratio of the actual vapor density (or partial pressure) of water in air to the saturation
+      vapor density (or vapor pressure) at that temperature, expressed as a percentage.
+    composed_of:
+    - partial_pressure
+    - saturation_vapor_density
+    tier: 5
+  boiling:
+    defines: The process in which a liquid vaporizes throughout its volume when its vapor pressure equals
+      the surrounding atmospheric pressure.
+    composed_of:
+    - vapor_pressure
+    - pressure
+    tier: 5
+  dew_point:
+    defines: The temperature at which air reaches 100% relative humidity and water vapor begins to condense.
+    composed_of:
+    - relative_humidity
+    tier: 6
+applications:
+  thermometer:
+    defines: A device that measures temperature by exploiting a physical property—such as thermal expansion—that
+      varies reproducibly with temperature.
+    needs:
+    - temperature
+    - thermal_expansion
+    tier: 3
+  expansion_joints:
+    defines: Gaps engineered into structures such as bridges and railroad tracks to accommodate dimensional
+      changes from thermal expansion without buckling.
+    needs:
+    - linear_thermal_expansion
+    - thermal_stress
+    tier: 4
+  pressure_cooker:
+    defines: A sealed cooking vessel that raises the boiling point of water by increasing pressure, thereby
+      cooking food faster.
+    needs:
+    - boiling
+    tier: 6
+  freeze_drying:
+    defines: A preservation process that removes water from materials by lowering pressure so that ice
+      sublimates directly to vapor.
+    needs:
+    - sublimation
+    tier: 6

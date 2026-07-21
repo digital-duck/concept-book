@@ -1,0 +1,169 @@
+domain: college_physics_2e_ch3
+primitives:
+  scalar:
+    defines: A quantity that has magnitude but no direction, such as distance or speed.
+    tier: 0
+  vector:
+    defines: A quantity that has both magnitude and direction, represented by an arrow whose length is
+      proportional to its magnitude.
+    tier: 0
+  displacement:
+    defines: A vector quantity representing the change in position from one point to another.
+    tier: 0
+  velocity:
+    defines: Speed in a given direction; a vector quantity with both magnitude and direction.
+    tier: 0
+  acceleration:
+    defines: The rate of change of velocity; a vector quantity assumed known from prior one-dimensional
+      study.
+    tier: 0
+  acceleration_due_to_gravity:
+    defines: The constant downward acceleration (approximately 9.8 m/s²) experienced by objects near Earth's
+      surface, acting only in the vertical direction.
+    tier: 0
+  pythagorean_theorem:
+    defines: The mathematical relationship c² = a² + b² relating the two legs and hypotenuse of a right
+      triangle, used without derivation to find vector magnitudes.
+    tier: 0
+  trigonometric_functions:
+    defines: The sine, cosine, and tangent ratios that relate angles to side lengths in a right triangle,
+      assumed known and applied to vectors.
+    tier: 0
+  one_dimensional_kinematics:
+    defines: Equations of motion for constant acceleration along a single axis, reviewed as prior knowledge
+      and extended to each axis independently in 2D.
+    tier: 0
+  reference_frame:
+    defines: A coordinate system relative to which the position and motion of objects are described.
+    tier: 0
+concepts:
+  two_dimensional_kinematics:
+    defines: The study of motion in a plane by describing it with horizontal and vertical vector components
+      that together give the straight-line path.
+    composed_of:
+    - vector
+    - displacement
+    tier: 1
+  vector_components:
+    defines: The perpendicular (x and y) parts into which a two-dimensional vector is decomposed, each
+      acting independently along its own axis.
+    composed_of:
+    - vector
+    tier: 1
+  resultant_vector:
+    defines: The single vector that is the sum of two or more vectors, representing the net effect of
+      all combined vectors.
+    composed_of:
+    - vector
+    tier: 1
+  scalar_multiplication_of_vectors:
+    defines: Multiplying a vector by a scalar changes its magnitude by that factor; a negative scalar
+      also reverses the vector's direction.
+    composed_of:
+    - vector
+    - scalar
+    tier: 1
+  independence_of_perpendicular_motions:
+    defines: The principle that horizontal and vertical components of two-dimensional motion do not affect
+      each other; motion along one axis has no influence on motion along the perpendicular axis.
+    composed_of:
+    - two_dimensional_kinematics
+    - vector_components
+    tier: 2
+  graphical_vector_addition:
+    defines: The head-to-tail method of adding vectors by drawing each to scale and direction, with the
+      resultant drawn from the tail of the first to the head of the last.
+    composed_of:
+    - vector
+    - resultant_vector
+    tier: 2
+  vector_subtraction:
+    defines: The operation of subtracting a vector by adding its negative—a vector of equal magnitude
+      pointing in the opposite direction.
+    composed_of:
+    - vector
+    - scalar_multiplication_of_vectors
+    tier: 2
+  resolving_vectors_into_components:
+    defines: Decomposing a vector of known magnitude and direction into its perpendicular x- and y-components
+      using Ax = A cosθ and Ay = A sinθ.
+    composed_of:
+    - vector_components
+    - trigonometric_functions
+    tier: 2
+  relative_velocity:
+    defines: The velocity of an object as observed from a particular reference frame, obtained by vector
+      addition of the object's velocity relative to a medium and the medium's velocity relative to the
+      observer.
+    composed_of:
+    - velocity
+    - reference_frame
+    - resultant_vector
+    tier: 2
+  analytical_vector_addition:
+    defines: Adding vectors by summing their corresponding perpendicular components, then using the Pythagorean
+      theorem and inverse tangent to find the resultant's magnitude and direction.
+    composed_of:
+    - resolving_vectors_into_components
+    - resultant_vector
+    tier: 3
+  classical_relativity:
+    defines: The study of how different observers in relative motion measure the same phenomenon, valid
+      for speeds much less than the speed of light (below ~3000 km/s).
+    composed_of:
+    - relative_velocity
+    - reference_frame
+    tier: 3
+  projectile_motion:
+    defines: Two-dimensional motion of an object subject only to gravitational acceleration, analyzed
+      as independent constant-velocity horizontal motion and free-fall vertical motion.
+    composed_of:
+    - independence_of_perpendicular_motions
+    - one_dimensional_kinematics
+    - acceleration_due_to_gravity
+    - vector_components
+    tier: 3
+  velocity_addition:
+    defines: The process of combining velocities from different reference frames using vector addition
+      of components to find the resultant velocity relative to a chosen observer.
+    composed_of:
+    - relative_velocity
+    - analytical_vector_addition
+    tier: 4
+  trajectory:
+    defines: The parabolic path a projectile follows through the air, formed by combining constant horizontal
+      velocity with uniformly accelerated vertical motion.
+    composed_of:
+    - projectile_motion
+    tier: 4
+  projectile_range:
+    defines: The horizontal distance traveled by a projectile on level ground, given by R = v₀² sin(2θ₀)
+      / g, maximized at a launch angle of 45°.
+    composed_of:
+    - projectile_motion
+    - trigonometric_functions
+    tier: 4
+  projectile_maximum_height:
+    defines: The peak altitude reached by a projectile, determined solely by its initial vertical velocity
+      component via H = v₀y² / (2g).
+    composed_of:
+    - projectile_motion
+    tier: 4
+applications:
+  river_crossing_relative_velocity:
+    defines: A real-world scenario in which a boat or swimmer crossing a flowing river illustrates how
+      the velocity relative to the ground equals the vector sum of the vessel's velocity relative to the
+      water and the current's velocity relative to the ground.
+    needs:
+    - relative_velocity
+    - velocity_addition
+    tier: 5
+  projectile_motion_applications:
+    defines: Real-world scenarios—including fireworks shells, volcanic ejecta, and sports projectiles—in
+      which the range, maximum height, and impact velocity are predicted by resolving launch velocity
+      into independent horizontal and vertical components.
+    needs:
+    - trajectory
+    - projectile_range
+    - projectile_maximum_height
+    tier: 5

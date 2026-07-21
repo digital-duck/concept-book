@@ -1,0 +1,149 @@
+domain: college_physics_2e_ch18
+primitives:
+  electric_charge:
+    defines: A physical property of matter that causes it to experience a force near other charged matter,
+      existing in two types (positive and negative) with a fundamental unit of 1.60 × 10⁻¹⁹ C.
+    tier: 0
+  electron:
+    defines: The subatomic particle that carries the fundamental unit of negative charge.
+    tier: 0
+  proton:
+    defines: The subatomic particle in the atomic nucleus that carries the fundamental unit of positive
+      charge, equal in magnitude to the electron's charge.
+    tier: 0
+concepts:
+  conservation_of_charge:
+    defines: Total charge is constant in any process; whenever charge is created or destroyed, equal amounts
+      of positive and negative charge are involved.
+    composed_of:
+    - electric_charge
+    tier: 1
+  conductor:
+    defines: A material with free charges that allows electric charge to move relatively freely through
+      it.
+    composed_of:
+    - electric_charge
+    - electron
+    tier: 1
+  insulator:
+    defines: A material that holds charges securely within its atomic structure, not allowing them to
+      move freely.
+    composed_of:
+    - electric_charge
+    tier: 1
+  ion:
+    defines: An atom or molecule with a nonzero net charge due to having unequal numbers of electrons
+      and protons.
+    composed_of:
+    - electric_charge
+    - electron
+    - proton
+    tier: 1
+  polarization:
+    defines: The separation of positive and negative charges within a neutral object, induced by a nearby
+      charged object or inherent molecular asymmetry.
+    composed_of:
+    - electric_charge
+    tier: 1
+  coulombs_law:
+    defines: The electrostatic force between two point charges is F = kq₁q₂/r², where k = 8.99 × 10⁹ N·m²/C²,
+      directed along the line joining the charges.
+    composed_of:
+    - electric_charge
+    tier: 1
+  dipole:
+    defines: A configuration of two centers of equal and opposite charge separated by a distance, as found
+      in polar molecules like water.
+    composed_of:
+    - electric_charge
+    tier: 1
+  charging_by_contact:
+    defines: The process of transferring electric charge to a neutral object by directly touching it with
+      a charged object, giving it the same sign charge.
+    composed_of:
+    - electric_charge
+    - conductor
+    tier: 2
+  charging_by_induction:
+    defines: The process of charging a neutral object without direct contact by using a nearby charge
+      to redistribute charges, producing an opposite sign charge.
+    composed_of:
+    - polarization
+    - conductor
+    tier: 2
+  grounding:
+    defines: Connecting a conductor to the Earth through a conducting path, allowing charge to flow freely
+      to or from Earth's large reservoir.
+    composed_of:
+    - conductor
+    tier: 2
+  electric_field:
+    defines: The electric force per unit charge at a point in space, defined as E = F/q, depending only
+      on the source charge and distance, with units of N/C.
+    composed_of:
+    - coulombs_law
+    tier: 2
+  screening:
+    defines: The reduction of electrostatic force between charges due to intervening polar molecules or
+      ions that terminate field lines, effectively making the Coulomb force short-range.
+    composed_of:
+    - coulombs_law
+    - dipole
+    tier: 2
+  electric_field_lines:
+    defines: Visual representations of the electric field where line direction indicates field direction
+      and line density indicates field strength, beginning on positive charges and ending on negative
+      charges.
+    composed_of:
+    - electric_field
+    tier: 3
+  superposition_of_electric_fields:
+    defines: The total electric field created by multiple charges is the vector sum of the individual
+      fields created by each charge.
+    composed_of:
+    - electric_field
+    tier: 3
+  electrostatic_equilibrium:
+    defines: The steady state of a conductor in which all free charges have stopped moving, the electric
+      field inside is zero, and field lines are perpendicular to the surface.
+    composed_of:
+    - conductor
+    - electric_field
+    tier: 3
+applications:
+  faraday_cage:
+    defines: A metal enclosure that shields its interior from external electric fields by confining all
+      charge to its outer surface, producing zero field inside.
+    needs:
+    - electrostatic_equilibrium
+    tier: 4
+  lightning_rod:
+    defines: A sharply pointed conductor mounted on a building that continuously bleeds away induced charge,
+      preventing destructive lightning strikes.
+    needs:
+    - electrostatic_equilibrium
+    - charging_by_induction
+    tier: 4
+  van_de_graaff_generator:
+    defines: A device using a moving insulating belt, pointed and smooth conductors to accumulate large
+      static charges on a hollow sphere, producing high voltages for research.
+    needs:
+    - conductor
+    - insulator
+    - charging_by_contact
+    tier: 3
+  xerography:
+    defines: A dry electrostatic copying process that uses a photoconducting drum to form a charge image,
+      attracts oppositely charged toner, and transfers it to paper.
+    needs:
+    - conductor
+    - insulator
+    - electric_field
+    tier: 3
+  electrostatic_precipitator:
+    defines: An air-cleaning device that places excess charge on airborne particles and then passes them
+      through an oppositely charged grid to remove them from the airstream.
+    needs:
+    - charging_by_contact
+    - electric_field
+    tier: 3

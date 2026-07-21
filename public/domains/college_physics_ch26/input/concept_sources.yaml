@@ -1,0 +1,187 @@
+domain: college_physics_2e_ch26
+sources:
+  refractive_index:
+    label: Refractive Index
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+  thin_lens_equation:
+    label: Thin Lens Equation
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+  focal_length:
+    label: Focal Length
+    sections: []
+  wavelength:
+    label: Wavelength
+    sections:
+    - id: ch26_s26_3
+      title: 26.3 Color and Color Vision
+  magnification:
+    label: Magnification
+    sections: []
+  convex_lens:
+    label: Convex Lens
+    sections: []
+  concave_lens:
+    label: Concave Lens
+    sections: []
+  lens_power:
+    label: Lens Power (Diopters)
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  eye_as_optical_system:
+    label: Eye as Optical System
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+  accommodation:
+    label: Accommodation
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+  near_point:
+    label: Near Point
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  far_point:
+    label: Far Point
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  myopia:
+    label: Myopia (Nearsightedness)
+    sections:
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  hyperopia:
+    label: Hyperopia (Farsightedness)
+    sections:
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  presbyopia:
+    label: Presbyopia
+    sections:
+    - id: ch26_s26_1
+      title: 26.1 Physics of the Eye
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  astigmatism:
+    label: Astigmatism
+    sections:
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  vision_correction_spectacles:
+    label: Vision Correction with Spectacles
+    sections:
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  laser_vision_correction:
+    label: Laser Vision Correction (LASIK)
+    sections:
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  contact_lenses:
+    label: Contact Lenses
+    sections:
+    - id: ch26_s26_2
+      title: 26.2 Vision Correction
+  rods_and_cones:
+    label: Rods and Cones
+    sections:
+    - id: ch26_s26_3
+      title: 26.3 Color and Color Vision
+  simplified_color_vision_theory:
+    label: Simplified Theory of Color Vision
+    sections:
+    - id: ch26_s26_3
+      title: 26.3 Color and Color Vision
+  color_constancy:
+    label: Color Constancy
+    sections:
+    - id: ch26_s26_3
+      title: 26.3 Color and Color Vision
+  retinex_theory:
+    label: Retinex Theory of Color Vision
+    sections:
+    - id: ch26_s26_3
+      title: 26.3 Color and Color Vision
+  compound_microscope:
+    label: Compound Microscope
+    sections:
+    - id: ch26_s26_4
+      title: 26.4 Microscopes
+  overall_magnification:
+    label: Overall Magnification
+    sections:
+    - id: ch26_s26_4
+      title: 26.4 Microscopes
+  numerical_aperture:
+    label: Numerical Aperture
+    sections:
+    - id: ch26_s26_4
+      title: 26.4 Microscopes
+  f_number:
+    label: f-Number
+    sections:
+    - id: ch26_s26_4
+      title: 26.4 Microscopes
+  telescope:
+    label: Telescope
+    sections:
+    - id: ch26_s26_5
+      title: 26.5 Telescopes
+  angular_magnification:
+    label: Angular Magnification
+    sections:
+    - id: ch26_s26_5
+      title: 26.5 Telescopes
+  reflecting_telescope:
+    label: Reflecting Telescope
+    sections:
+    - id: ch26_s26_5
+      title: 26.5 Telescopes
+  aberration:
+    label: Aberration
+    sections:
+    - id: ch26_s26_6
+      title: 26.6 Aberrations
+  chromatic_aberration:
+    label: Chromatic Aberration
+    sections:
+    - id: ch26_s26_6
+      title: 26.6 Aberrations
+  spherical_aberration:
+    label: Spherical Aberration
+    sections:
+    - id: ch26_s26_6
+      title: 26.6 Aberrations
+  coma:
+    label: Coma
+    sections:
+    - id: ch26_s26_6
+      title: 26.6 Aberrations
+  adaptive_optics:
+    label: Adaptive Optics
+    sections:
+    - id: ch26_s26_5
+      title: 26.5 Telescopes
+  electron_microscope:
+    label: Electron Microscope
+    sections:
+    - id: ch26_s26_4
+      title: 26.4 Microscopes
+  immersion_lens:
+    label: Immersion Lens
+    sections:
+    - id: ch26_s26_4
+      title: 26.4 Microscopes

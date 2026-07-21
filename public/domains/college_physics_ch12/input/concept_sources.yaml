@@ -1,0 +1,170 @@
+domain: college_physics_2e_ch12
+sources:
+  pressure:
+    label: Pressure
+    sections: []
+  fluid_density:
+    label: Fluid Density
+    sections: []
+  velocity:
+    label: Velocity
+    sections: []
+  cross_sectional_area:
+    label: Cross-Sectional Area
+    sections: []
+  conservation_of_energy:
+    label: Conservation of Energy
+    sections: []
+  kinetic_energy:
+    label: Kinetic Energy
+    sections: []
+  gravitational_potential_energy:
+    label: Gravitational Potential Energy
+    sections: []
+  force:
+    label: Force
+    sections: []
+  flow_rate:
+    label: Flow Rate
+    sections:
+    - id: ch12_s12_1
+      title: 12.1 Flow Rate and Its Relation to Velocity
+  incompressible_fluid:
+    label: Incompressible Fluid
+    sections:
+    - id: ch12_s12_1
+      title: 12.1 Flow Rate and Its Relation to Velocity
+  equation_of_continuity:
+    label: Equation of Continuity
+    sections:
+    - id: ch12_s12_1
+      title: 12.1 Flow Rate and Its Relation to Velocity
+  bernoullis_equation:
+    label: Bernoulli's Equation
+    sections:
+    - id: ch12_s12_2
+      title: 12.2 Bernoulli’s Equation
+  bernoullis_principle:
+    label: Bernoulli's Principle
+    sections:
+    - id: ch12_s12_2
+      title: 12.2 Bernoulli’s Equation
+  torricellis_theorem:
+    label: Torricelli's Theorem
+    sections:
+    - id: ch12_s12_3
+      title: 12.3 The Most General Applications of Bernoulli’s Equation
+  power_in_fluid_flow:
+    label: Power in Fluid Flow
+    sections:
+    - id: ch12_s12_3
+      title: 12.3 The Most General Applications of Bernoulli’s Equation
+  viscosity:
+    label: Viscosity
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Viscosity and Laminar Flow; Poiseuille’s Law
+  laminar_flow:
+    label: Laminar Flow
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Viscosity and Laminar Flow; Poiseuille’s Law
+  turbulent_flow:
+    label: Turbulent Flow
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Viscosity and Laminar Flow; Poiseuille’s Law
+    - id: ch12_s12_5
+      title: 12.5 The Onset of Turbulence
+  streamlines:
+    label: Streamlines
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Viscosity and Laminar Flow; Poiseuille’s Law
+  flow_resistance:
+    label: Flow Resistance
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Viscosity and Laminar Flow; Poiseuille’s Law
+  poiseuilles_law:
+    label: Poiseuille's Law
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Viscosity and Laminar Flow; Poiseuille’s Law
+  reynolds_number:
+    label: Reynolds Number
+    sections:
+    - id: ch12_s12_5
+      title: 12.5 The Onset of Turbulence
+    - id: ch12_s12_6
+      title: 12.6 Motion of an Object in a Viscous Fluid
+  viscous_drag:
+    label: Viscous Drag
+    sections:
+    - id: ch12_s12_6
+      title: 12.6 Motion of an Object in a Viscous Fluid
+  terminal_speed:
+    label: Terminal Speed
+    sections:
+    - id: ch12_s12_6
+      title: 12.6 Motion of an Object in a Viscous Fluid
+  diffusion:
+    label: Diffusion
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'
+  diffusion_constant:
+    label: Diffusion Constant
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'
+  semipermeable_membrane:
+    label: Semipermeable Membrane
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'
+  osmosis:
+    label: Osmosis
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'
+  osmotic_pressure:
+    label: Osmotic Pressure
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'
+  dialysis:
+    label: Dialysis
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'
+  active_transport:
+    label: Active Transport
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'
+  entrainment:
+    label: Entrainment
+    sections:
+    - id: ch12_s12_2
+      title: 12.2 Bernoulli’s Equation
+  aerodynamic_lift:
+    label: Aerodynamic Lift
+    sections:
+    - id: ch12_s12_2
+      title: 12.2 Bernoulli’s Equation
+  pitot_tube:
+    label: Pitot Tube
+    sections:
+    - id: ch12_s12_2
+      title: 12.2 Bernoulli’s Equation
+  blood_flow_regulation:
+    label: Blood Flow Regulation
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Viscosity and Laminar Flow; Poiseuille’s Law
+  reverse_osmosis:
+    label: Reverse Osmosis
+    sections:
+    - id: ch12_s12_7
+      title: '12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes'

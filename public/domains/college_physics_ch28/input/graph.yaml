@@ -1,0 +1,156 @@
+domain: college_physics_2e_ch28
+primitives:
+  speed_of_light:
+    defines: The constant speed c = 3.00 × 10⁸ m/s at which light travels in a vacuum, serving as the
+      universal speed limit for any particle with mass.
+    tier: 0
+  inertial_reference_frame:
+    defines: A reference frame in which a body at rest remains at rest and a body in motion moves at constant
+      speed in a straight line unless acted on by an outside force.
+    tier: 0
+  rest_mass:
+    defines: The mass of an object as measured by an observer at rest relative to the object.
+    tier: 0
+  classical_velocity_addition:
+    defines: The method of adding velocities as simple vectors, where u = v + u’, valid only at speeds
+      much less than c.
+    tier: 0
+  classical_momentum:
+    defines: The product of mass and velocity, p = mv, valid as an approximation at low speeds.
+    tier: 0
+  classical_kinetic_energy:
+    defines: The energy of motion given by KE = ½mv², valid as an approximation at speeds much less than
+      c.
+    tier: 0
+concepts:
+  first_postulate:
+    defines: The laws of physics are the same and can be stated in their simplest form in all inertial
+      frames of reference.
+    composed_of:
+    - inertial_reference_frame
+    tier: 1
+  second_postulate:
+    defines: The speed of light c is a constant, independent of the relative motion of the source.
+    composed_of:
+    - speed_of_light
+    tier: 1
+  proper_time:
+    defines: The time interval Δt₀ measured by an observer at rest relative to the event being observed.
+    composed_of:
+    - inertial_reference_frame
+    tier: 1
+  proper_length:
+    defines: The distance L₀ between two points measured by an observer who is at rest relative to both
+      points.
+    composed_of:
+    - inertial_reference_frame
+    tier: 1
+  rest_energy:
+    defines: The energy an object possesses due to its mass when at rest, given by E₀ = mc², showing that
+      mass is a form of energy.
+    composed_of:
+    - rest_mass
+    - speed_of_light
+    tier: 1
+  lorentz_factor:
+    defines: The relativistic factor γ = 1/√(1 − v²/c²) that quantifies the magnitude of relativistic
+      effects at a given velocity.
+    composed_of:
+    - second_postulate
+    tier: 2
+  simultaneity:
+    defines: Two events are simultaneous if an observer measures them as occurring at the same time; simultaneity
+      is not absolute and depends on the observer's frame of reference.
+    composed_of:
+    - first_postulate
+    - second_postulate
+    tier: 2
+  relativistic_velocity_addition:
+    defines: The correct formula for combining velocities at relativistic speeds, u = (v + u’)/(1 + vu’/c²),
+      ensuring the result never exceeds c.
+    composed_of:
+    - classical_velocity_addition
+    - second_postulate
+    tier: 2
+  mass_energy_equivalence:
+    defines: The principle that mass can be converted into energy and vice versa, as expressed by E =
+      mc², making mass a form of stored energy.
+    composed_of:
+    - rest_energy
+    tier: 2
+  time_dilation:
+    defines: The phenomenon whereby time passes slower for an observer moving relative to another observer,
+      described by Δt = γΔt₀.
+    composed_of:
+    - lorentz_factor
+    - proper_time
+    tier: 3
+  length_contraction:
+    defines: The shortening of the measured length of an object moving relative to the observer’s frame,
+      given by L = L₀/γ.
+    composed_of:
+    - lorentz_factor
+    - proper_length
+    tier: 3
+  relativistic_momentum:
+    defines: Momentum of an object moving at relativistic speed, defined as p = γmu, which approaches
+      infinity as v approaches c.
+    composed_of:
+    - lorentz_factor
+    - classical_momentum
+    - rest_mass
+    tier: 3
+  total_energy:
+    defines: The total energy of an object defined as E = γmc², encompassing both rest energy and kinetic
+      energy.
+    composed_of:
+    - lorentz_factor
+    - rest_energy
+    tier: 3
+  relativistic_doppler_effect:
+    defines: The shift in observed wavelength of electromagnetic radiation due to relative motion between
+      source and observer, with red shift for recession and blue shift for approach.
+    composed_of:
+    - time_dilation
+    tier: 4
+  relativistic_kinetic_energy:
+    defines: The kinetic energy of a relativistic object, KE = (γ − 1)mc², which reduces to ½mv² at low
+      speeds and approaches infinity as v approaches c.
+    composed_of:
+    - total_energy
+    - rest_energy
+    - classical_kinetic_energy
+    tier: 4
+  energy_momentum_relation:
+    defines: The relativistic relationship E² = (pc)² + (mc²)² connecting total energy, momentum, and
+      rest mass, implying massless particles carry momentum equal to E/c.
+    composed_of:
+    - total_energy
+    - relativistic_momentum
+    tier: 4
+applications:
+  michelson_morley_experiment:
+    defines: The 1887 experiment that demonstrated the speed of light in a vacuum is independent of the
+      motion of the Earth, providing key evidence for the second postulate.
+    needs:
+    - second_postulate
+    tier: 2
+  twin_paradox:
+    defines: A thought experiment illustrating that a twin traveling at relativistic speed ages less than
+      the Earth-bound twin, resolved by noting the traveling twin undergoes acceleration.
+    needs:
+    - time_dilation
+    tier: 4
+  muon_lifetime:
+    defines: Experimental verification of time dilation and length contraction using cosmic ray muons,
+      whose observed half-life increases with velocity exactly as predicted by γ.
+    needs:
+    - time_dilation
+    - length_contraction
+    tier: 4
+  gps_relativistic_corrections:
+    defines: Global Positioning System satellites require relativistic time dilation corrections to maintain
+      accurate position communication, failing within minutes without them.
+    needs:
+    - time_dilation
+    tier: 4
