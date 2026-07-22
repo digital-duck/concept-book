@@ -137,6 +137,71 @@ def get_level_guide(level: str) -> str:
     return lp.level_instruction(level)  # type: ignore[attr-defined]
 
 
+@spl_tool
+def fetch_arxiv_papers(query: str, max_results: str = "3") -> str:
+    """Fetch real, recent arXiv papers for a concept — grounding for the
+    research-level "Current Research Directions" section so the LLM cites
+    actual work instead of inventing citations (Claude CLI has no live web
+    access in this pipeline). Sorted by submittedDate (newest first), since
+    "current trends" calls for recency over pure topical relevance.
+
+    Returns a numbered plain-text block (title, authors, date, arxiv id/link,
+    trimmed abstract) ready to interpolate into a prompt, or "" on any
+    failure (no results, network error, malformed response) — a research
+    section should still generate without citations rather than fail the
+    whole book over a transient network hiccup.
+    """
+    import urllib.parse
+    import urllib.request
+    import xml.etree.ElementTree as ET
+
+    try:
+        n = max(1, min(int(max_results), 10))
+    except ValueError:
+        n = 3
+
+    params = urllib.parse.urlencode({
+        "search_query": f'all:"{query}"',
+        "start": "0",
+        "max_results": str(n),
+        "sortBy": "submittedDate",
+        "sortOrder": "descending",
+    })
+    url = f"https://export.arxiv.org/api/query?{params}"
+
+    try:
+        with urllib.request.urlopen(url, timeout=10) as resp:
+            raw = resp.read()
+    except Exception:
+        return ""
+
+    try:
+        ns = {"atom": "http://www.w3.org/2005/Atom"}
+        root = ET.fromstring(raw)
+        entries = root.findall("atom:entry", ns)
+    except ET.ParseError:
+        return ""
+
+    if not entries:
+        return ""
+
+    lines = []
+    for i, entry in enumerate(entries, start=1):
+        title = (entry.findtext("atom:title", default="", namespaces=ns) or "").strip().replace("\n", " ")
+        published = (entry.findtext("atom:published", default="", namespaces=ns) or "")[:10]
+        link = entry.findtext("atom:id", default="", namespaces=ns) or ""
+        authors = [
+            (a.findtext("atom:name", default="", namespaces=ns) or "").strip()
+            for a in entry.findall("atom:author", ns)
+        ]
+        author_str = authors[0] + (" et al." if len(authors) > 1 else "") if authors else "unknown authors"
+        summary = (entry.findtext("atom:summary", default="", namespaces=ns) or "").strip().replace("\n", " ")
+        snippet = summary[:200] + ("…" if len(summary) > 200 else "")
+        lines.append(f'{i}. "{title}" ({author_str}, {published}) — {link}\n   {snippet}')
+
+    return "\n".join(lines)
+
+
 # ── Language ──────────────────────────────────────────────────────────────────
 
 _LANGUAGE_NAMES: dict[str, str] = {

@@ -25,6 +25,7 @@ Usage:
 """
 import json
 import logging
+import re
 import subprocess
 import sys
 import time
@@ -97,11 +98,24 @@ def _save_progress(path: Path, progress: dict) -> None:
     path.write_text(json.dumps(progress, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def _run_spl3(domain_id: str, target: str, level: str, language: str, model: str,
-              llm: str, skip_cache: bool) -> tuple[bool, str | None]:
-    """Run spl3, streaming output live while also capturing it for rate-limit detection.
+# Once spl3 starts dumping a Python traceback, nothing useful follows in that
+# subprocess's output — it's on its way out. Suppressing from here to EOF
+# keeps a rate-limit (or any other crash) from spamming 60+ lines of stack
+# frames to the console; the raw lines are still captured in full_output and,
+# when --log-file is given, logged at DEBUG so nothing is actually lost.
+_TRACEBACK_START = "Traceback (most recent call last):"
 
-    Returns (ok, error) — error is 'RATE_LIMITED' when the batch should stop.
+# Claude CLI's own message, e.g. "Claude CLI limit reached: You've hit your
+# session limit · resets 11am (America/New_York)" — surfaced in the summary
+# instead of the exception's stack frames.
+_RATE_LIMIT_DETAIL_RE = re.compile(r"Claude CLI limit reached:\s*(.+)")
+
+
+def _run_spl3(domain_id: str, target: str, level: str, language: str, model: str,
+              llm: str, skip_cache: bool, log: logging.Logger) -> tuple[bool, str | None]:
+    """Run spl3, streaming output live (minus tracebacks) while capturing it in full.
+
+    Returns (ok, error). error is "RATE_LIMITED: <detail>" when the batch should stop.
     """
     output_dir = DOMAINS_DIR / domain_id / "output" / f"{level}.{language}" / model / "html"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -123,14 +137,22 @@ def _run_spl3(domain_id: str, target: str, level: str, language: str, model: str
                              stderr=subprocess.STDOUT, text=True)
     assert proc.stdout is not None
     lines: list[str] = []
+    suppressing = False
     for line in proc.stdout:
-        print(f"       {line.rstrip()}")
         lines.append(line)
+        if not suppressing and line.rstrip() == _TRACEBACK_START:
+            suppressing = True
+            print("       [traceback suppressed — pass --log-file to capture it]")
+        if suppressing:
+            log.debug(f"       {line.rstrip()}")
+        else:
+            print(f"       {line.rstrip()}")
     proc.wait()
     full_output = "".join(lines)
 
     if any(marker in full_output for marker in _RATE_LIMIT_MARKERS):
-        return False, "RATE_LIMITED"
+        m = _RATE_LIMIT_DETAIL_RE.search(full_output)
+        return False, f"RATE_LIMITED: {m.group(1).strip()}" if m else "RATE_LIMITED"
     if proc.returncode != 0:
         return False, f"spl3 exited {proc.returncode}"
 
@@ -156,10 +178,16 @@ def _run_spl3(domain_id: str, target: str, level: str, language: str, model: str
 def main(domains_file: Path, model: str, level: str, language: str, skip_cache: bool,
          force: bool, limit: int | None, progress_file: Path, log_file: Path | None) -> None:
     """Batch-generate concept books, one capstone target per domain."""
-    handlers: list[logging.Handler] = [logging.StreamHandler()]
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    handlers: list[logging.Handler] = [console]
     if log_file:
-        handlers.append(logging.FileHandler(log_file))
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s",
+        # DEBUG here (not INFO) so suppressed traceback lines land in the
+        # file even though the console handler above filters them out.
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setLevel(logging.DEBUG)
+        handlers.append(file_handler)
+    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s",
                          datefmt="%H:%M:%S", handlers=handlers)
     log = logging.getLogger("batch_gen_domains")
 
@@ -202,7 +230,7 @@ def main(domains_file: Path, model: str, level: str, language: str, skip_cache: 
 
         log.info(f"Queue  {domain_id}  target={target}")
         t0 = time.time()
-        success, err = _run_spl3(domain_id, target, level, language, model_dir, llm, skip_cache)
+        success, err = _run_spl3(domain_id, target, level, language, model_dir, llm, skip_cache, log)
         elapsed = time.time() - t0
 
         if success:
@@ -210,8 +238,10 @@ def main(domains_file: Path, model: str, level: str, language: str, skip_cache: 
             log.info(f"       ✓ done ({elapsed:.0f}s)")
             progress[key] = "done"
             ok += 1
-        elif err == "RATE_LIMITED":
-            log.error("       ✗ Claude CLI session/rate limit reached — stopping batch early.")
+        elif err and err.startswith("RATE_LIMITED"):
+            detail = err.split(":", 1)[1].strip() if ":" in err else None
+            log.error(f"       ✗ Claude CLI session/rate limit reached{f' — {detail}' if detail else ''} "
+                      "— stopping batch early.")
             log.error(f"       {domain_id} was NOT marked done — re-run later to pick up here and beyond.")
             _save_progress(progress_file, progress)
             log.info("")

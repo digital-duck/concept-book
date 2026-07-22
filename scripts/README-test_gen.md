@@ -52,6 +52,66 @@ python scripts/batch_generate.py [OPTIONS]
 | `--dry-run` | off | Print planned jobs without running |
 | `--stop-on-error` | off | Abort batch on first failure |
 
+### `scripts/batch_gen_domains.py` — file-driven batch runs, one book per domain
+
+For generating a whole list of domains unattended (e.g. all 34 OpenStax
+College Physics chapters synced via `sync_from_press.py`). Reads a plain-text
+domain list instead of repeated `--domain` flags, picks each domain's
+capstone target automatically (first application node, else the
+highest-tier concept — same rule `sync_from_press.py` uses), and is safe to
+interrupt and re-run: a progress file tracks what's already `done`, and it
+stops the whole batch (instead of burning through the rest of the list) the
+moment it sees a Claude CLI session/rate-limit signature.
+
+```bash
+python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt [OPTIONS]
+```
+
+Domain list format — one id per line, `#` starts a comment, blank lines ignored:
+```
+# OpenStax College Physics 2e
+college_physics_ch3
+college_physics_ch4
+# college_physics_ch5   # temporarily excluded
+```
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--domains-file` / `-f` | — | Required. Path to the domain list `.txt` |
+| `--model` | `sonnet` | Shorthand (`sonnet`/`haiku`/`opus`/`gemma3`/`gemma4`) or a raw spl3 `--llm` string |
+| `--level` | `college` | `intro / core / college / research` |
+| `--language` / `-l` | `en` | ISO code or friendly name |
+| `--skip-cache` | off | Bypass spl3 LLM cache |
+| `--force` | off | Regenerate even if the book already exists on disk |
+| `--limit` | all | Only process the first N domains — use for a test run before a full unattended pass |
+| `--progress-file` | `scripts/batch_gen_domains_progress.json` | Resume tracking, keyed `domain\|model\|level\|lang` |
+| `--log-file` | none | Also write output to this file (in addition to stdout) |
+
+**Test one domain first, then run the full list:**
+```bash
+conda activate spl123
+
+# Test — 1 domain, current defaults (sonnet / college / en)
+python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt --limit 1
+
+# Full run (resumable — re-running skips anything already marked done)
+python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt \
+    --log-file scripts/batch_gen_domains.log
+```
+
+Expect ~6–7 min per domain with Sonnet (dozens of LLM calls each) — a 31-domain
+run will likely hit a Claude CLI rate limit partway through and stop; just
+re-run the same command once the limit resets.
+
+**Later passes** (different model/level/language — e.g. down-scoping to high
+school): rerun against the same domains file with different flags; each
+`(domain, model, level, lang)` combination gets its own progress-file key and
+output directory, so passes don't collide:
+```bash
+python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt \
+    --model gemma4 --level core --language zh
+```
+
 ---
 
 ## Cache behaviour
@@ -133,6 +193,27 @@ Then hard-refresh the browser (`Ctrl+Shift+R`).
 ---
 
 ## Completed runs
+
+### College Physics ch3-34 synced from concept-book-press (2026-07-21)
+```bash
+python scripts/sync_from_press.py --book college-physics-2e --prefix college_physics_ch
+```
+Registered 32 new catalog entries (`has_book: false`, graph-only) for ch3-34;
+ch1/ch2 already had generated books and were refreshed in place without
+touching their `books`/`generated_concepts`.
+
+Test run of `batch_gen_domains.py` (sonnet / college / en), 1 domain:
+```bash
+python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt --limit 1
+```
+```
+Queue  college_physics_ch3  target=river_crossing_relative_velocity
+       LLM calls: 22  Latency: 339248ms
+       ✓ done (339s)
+Batch complete — 1 generated, 0 skipped, 0 failed.
+```
+Full ch3-34 run (sonnet/college/en) still pending — resumable via the same
+command without `--limit`.
 
 ### Path A: sql (2026-06-26)
 ```bash

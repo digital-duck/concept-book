@@ -3361,6 +3361,11 @@
         "target": "uncertainty",
         "file": "output/core.en/sonnet/html/book_uncertainty.html",
         "model": "sonnet"
+      },
+      {
+        "target": "approximation",
+        "file": "output/college.en/sonnet/html/book_approximation.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -3368,12 +3373,6 @@
         "name": "accuracy",
         "label": "Accuracy",
         "file": "output/core.en/html/concept_accuracy.html"
-      },
-      {
-        "name": "accuracy",
-        "label": "Accuracy",
-        "file": "output/core.en/sonnet/html/concept_accuracy.html",
-        "model": "sonnet"
       },
       {
         "name": "approximation",
@@ -3385,6 +3384,12 @@
         "label": "Approximation",
         "file": "output/core.en/gemma4/html/concept_approximation.html",
         "model": "gemma4"
+      },
+      {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/research.en/sonnet/html/concept_approximation.html",
+        "model": "sonnet"
       },
       {
         "name": "fundamental_units",
@@ -3400,7 +3405,7 @@
       {
         "name": "measurement",
         "label": "Measurement",
-        "file": "output/core.en/sonnet/html/concept_measurement.html",
+        "file": "output/research.en/sonnet/html/concept_measurement.html",
         "model": "sonnet"
       },
       {
@@ -3415,6 +3420,12 @@
         "model": "gemma4"
       },
       {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/research.en/sonnet/html/concept_order_of_magnitude.html",
+        "model": "sonnet"
+      },
+      {
         "name": "physical_quantity",
         "label": "Physical Quantity",
         "file": "output/core.en/html/concept_physical_quantity.html"
@@ -3426,15 +3437,15 @@
         "model": "gemma4"
       },
       {
-        "name": "precision",
-        "label": "Precision",
-        "file": "output/core.en/html/concept_precision.html"
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/research.en/sonnet/html/concept_physical_quantity.html",
+        "model": "sonnet"
       },
       {
         "name": "precision",
         "label": "Precision",
-        "file": "output/core.en/sonnet/html/concept_precision.html",
-        "model": "sonnet"
+        "file": "output/core.en/html/concept_precision.html"
       },
       {
         "name": "scientific_law",
@@ -3457,12 +3468,6 @@
         "file": "output/core.en/html/concept_uncertainty.html"
       },
       {
-        "name": "uncertainty",
-        "label": "Uncertainty",
-        "file": "output/core.en/sonnet/html/concept_uncertainty.html",
-        "model": "sonnet"
-      },
-      {
         "name": "units",
         "label": "Units",
         "file": "output/core.en/html/concept_units.html"
@@ -3472,6 +3477,12 @@
         "label": "Units",
         "file": "output/core.en/gemma4/html/concept_units.html",
         "model": "gemma4"
+      },
+      {
+        "name": "units",
+        "label": "Units",
+        "file": "output/research.en/sonnet/html/concept_units.html",
+        "model": "sonnet"
       }
     ],
     "default_level": "core",
@@ -3518,6 +3529,11 @@
         "target": "problem_solving_kinematics",
         "file": "output/core.en/gemma4/html/book_problem_solving_kinematics.html",
         "model": "gemma4"
+      },
+      {
+        "target": "graphical_analysis_of_motion",
+        "file": "output/college.en/sonnet/html/book_graphical_analysis_of_motion.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -3533,6 +3549,12 @@
         "model": "gemma4"
       },
       {
+        "name": "average_acceleration",
+        "label": "Average Acceleration",
+        "file": "output/college.en/sonnet/html/concept_average_acceleration.html",
+        "model": "sonnet"
+      },
+      {
         "name": "average_velocity",
         "label": "Average Velocity",
         "file": "output/core.en/html/concept_average_velocity.html"
@@ -3542,6 +3564,12 @@
         "label": "Average Velocity",
         "file": "output/core.en/gemma4/html/concept_average_velocity.html",
         "model": "gemma4"
+      },
+      {
+        "name": "average_velocity",
+        "label": "Average Velocity",
+        "file": "output/college.en/sonnet/html/concept_average_velocity.html",
+        "model": "sonnet"
       },
       {
         "name": "constant_acceleration",
@@ -3570,6 +3598,12 @@
         "model": "gemma4"
       },
       {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
         "name": "elapsed_time",
         "label": "Elapsed Time",
         "file": "output/core.en/html/concept_elapsed_time.html"
@@ -3581,10 +3615,22 @@
         "model": "gemma4"
       },
       {
+        "name": "elapsed_time",
+        "label": "Elapsed Time",
+        "file": "output/college.en/sonnet/html/concept_elapsed_time.html",
+        "model": "sonnet"
+      },
+      {
         "name": "graphical_analysis_of_motion",
         "label": "Graphical Analysis Of Motion",
         "file": "output/core.en/gemma4/html/concept_graphical_analysis_of_motion.html",
         "model": "gemma4"
+      },
+      {
+        "name": "graphical_analysis_of_motion",
+        "label": "Graphical Analysis Of Motion",
+        "file": "output/college.en/sonnet/html/concept_graphical_analysis_of_motion.html",
+        "model": "sonnet"
       },
       {
         "name": "instantaneous_acceleration",
@@ -3619,6 +3665,12 @@
         "model": "gemma4"
       },
       {
+        "name": "position",
+        "label": "Position",
+        "file": "output/college.en/sonnet/html/concept_position.html",
+        "model": "sonnet"
+      },
+      {
         "name": "problem_solving_kinematics",
         "label": "Problem Solving Kinematics",
         "file": "output/core.en/gemma4/html/concept_problem_solving_kinematics.html",
@@ -3641,6 +3693,12 @@
         "model": "gemma4"
       },
       {
+        "name": "time",
+        "label": "Time",
+        "file": "output/college.en/sonnet/html/concept_time.html",
+        "model": "sonnet"
+      },
+      {
         "name": "vector",
         "label": "Vector",
         "file": "output/core.en/html/concept_vector.html"
@@ -3650,6 +3708,12 @@
         "label": "Vector",
         "file": "output/core.en/gemma4/html/concept_vector.html",
         "model": "gemma4"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/college.en/sonnet/html/concept_vector.html",
+        "model": "sonnet"
       }
     ],
     "default_level": "core",
@@ -4124,9 +4188,28 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "four_basic_forces",
+        "file": "output/college.en/sonnet/html/book_four_basic_forces.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "four_basic_forces",
+        "label": "Four Basic Forces",
+        "file": "output/college.en/sonnet/html/concept_four_basic_forces.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch5",
@@ -4160,9 +4243,52 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "tides",
+        "file": "output/college.en/sonnet/html/book_tides.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "center_of_mass",
+        "label": "Center Of Mass",
+        "file": "output/college.en/sonnet/html/concept_center_of_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gravitational_constant",
+        "label": "Gravitational Constant",
+        "file": "output/college.en/sonnet/html/concept_gravitational_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_law_of_gravitation",
+        "label": "Newtons Law Of Gravitation",
+        "file": "output/college.en/sonnet/html/concept_newtons_law_of_gravitation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radius_of_curvature",
+        "label": "Radius Of Curvature",
+        "file": "output/college.en/sonnet/html/concept_radius_of_curvature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "tides",
+        "label": "Tides",
+        "file": "output/college.en/sonnet/html/concept_tides.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch7",
@@ -4178,9 +4304,40 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "useful_work_in_humans",
+        "file": "output/college.en/sonnet/html/book_useful_work_in_humans.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "useful_work_in_humans",
+        "label": "Useful Work In Humans",
+        "file": "output/college.en/sonnet/html/concept_useful_work_in_humans.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "work",
+        "label": "Work",
+        "file": "output/college.en/sonnet/html/concept_work.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch8",
@@ -4196,9 +4353,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "recoil",
+        "file": "output/college.en/sonnet/html/book_recoil.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conservation_of_momentum",
+        "label": "Conservation Of Momentum",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "isolated_system",
+        "label": "Isolated System",
+        "file": "output/college.en/sonnet/html/concept_isolated_system.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_momentum",
+        "label": "Linear Momentum",
+        "file": "output/college.en/sonnet/html/concept_linear_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "net_external_force",
+        "label": "Net External Force",
+        "file": "output/college.en/sonnet/html/concept_net_external_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "recoil",
+        "label": "Recoil",
+        "file": "output/college.en/sonnet/html/concept_recoil.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch9",
@@ -4214,9 +4420,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "free_body_diagram",
+        "file": "output/college.en/sonnet/html/book_free_body_diagram.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "equilibrium",
+        "label": "Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "free_body_diagram",
+        "label": "Free Body Diagram",
+        "file": "output/college.en/sonnet/html/concept_free_body_diagram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "net_external_force",
+        "label": "Net External Force",
+        "file": "output/college.en/sonnet/html/concept_net_external_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "perpendicular_lever_arm",
+        "label": "Perpendicular Lever Arm",
+        "file": "output/college.en/sonnet/html/concept_perpendicular_lever_arm.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pivot_point",
+        "label": "Pivot Point",
+        "file": "output/college.en/sonnet/html/concept_pivot_point.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "torque",
+        "label": "Torque",
+        "file": "output/college.en/sonnet/html/concept_torque.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch10",
@@ -4232,9 +4487,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "rolling_without_slipping",
+        "file": "output/college.en/sonnet/html/book_rolling_without_slipping.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "angular_velocity",
+        "label": "Angular Velocity",
+        "file": "output/college.en/sonnet/html/concept_angular_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_velocity",
+        "label": "Linear Velocity",
+        "file": "output/college.en/sonnet/html/concept_linear_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "moment_of_inertia",
+        "label": "Moment Of Inertia",
+        "file": "output/college.en/sonnet/html/concept_moment_of_inertia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rolling_without_slipping",
+        "label": "Rolling Without Slipping",
+        "file": "output/college.en/sonnet/html/concept_rolling_without_slipping.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rotational_kinetic_energy",
+        "label": "Rotational Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_rotational_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "translational_kinetic_energy",
+        "label": "Translational Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_translational_kinetic_energy.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch11",
@@ -4250,9 +4554,52 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "hydraulic_system",
+        "file": "output/college.en/sonnet/html/book_hydraulic_system.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "area",
+        "label": "Area",
+        "file": "output/college.en/sonnet/html/concept_area.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fluid",
+        "label": "Fluid",
+        "file": "output/college.en/sonnet/html/concept_fluid.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hydraulic_system",
+        "label": "Hydraulic System",
+        "file": "output/college.en/sonnet/html/concept_hydraulic_system.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pascals_principle",
+        "label": "Pascals Principle",
+        "file": "output/college.en/sonnet/html/concept_pascals_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch12",
@@ -4268,9 +4615,70 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "entrainment",
+        "file": "output/college.en/sonnet/html/book_entrainment.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "bernoullis_equation",
+        "label": "Bernoullis Equation",
+        "file": "output/college.en/sonnet/html/concept_bernoullis_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "bernoullis_principle",
+        "label": "Bernoullis Principle",
+        "file": "output/college.en/sonnet/html/concept_bernoullis_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_energy",
+        "label": "Conservation Of Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "entrainment",
+        "label": "Entrainment",
+        "file": "output/college.en/sonnet/html/concept_entrainment.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fluid_density",
+        "label": "Fluid Density",
+        "file": "output/college.en/sonnet/html/concept_fluid_density.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gravitational_potential_energy",
+        "label": "Gravitational Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_gravitational_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "incompressible_fluid",
+        "label": "Incompressible Fluid",
+        "file": "output/college.en/sonnet/html/concept_incompressible_fluid.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch13",
@@ -4286,9 +4694,46 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "thermometer",
+        "file": "output/college.en/sonnet/html/book_thermometer.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "temperature",
+        "label": "Temperature",
+        "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermal_expansion",
+        "label": "Thermal Expansion",
+        "file": "output/college.en/sonnet/html/concept_thermal_expansion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermometer",
+        "label": "Thermometer",
+        "file": "output/college.en/sonnet/html/concept_thermometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "volume",
+        "label": "Volume",
+        "file": "output/college.en/sonnet/html/concept_volume.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch14",
@@ -4304,9 +4749,52 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "wind_chill",
+        "file": "output/college.en/sonnet/html/book_wind_chill.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conduction",
+        "label": "Conduction",
+        "file": "output/college.en/sonnet/html/concept_conduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "convection",
+        "label": "Convection",
+        "file": "output/college.en/sonnet/html/concept_convection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "heat",
+        "label": "Heat",
+        "file": "output/college.en/sonnet/html/concept_heat.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "temperature",
+        "label": "Temperature",
+        "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wind_chill",
+        "label": "Wind Chill",
+        "file": "output/college.en/sonnet/html/concept_wind_chill.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch15",
@@ -4322,9 +4810,82 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "human_metabolism",
+        "file": "output/college.en/sonnet/html/book_human_metabolism.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conservation_of_energy",
+        "label": "Conservation Of Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "first_law_of_thermodynamics",
+        "label": "First Law Of Thermodynamics",
+        "file": "output/college.en/sonnet/html/concept_first_law_of_thermodynamics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "heat_transfer",
+        "label": "Heat Transfer",
+        "file": "output/college.en/sonnet/html/concept_heat_transfer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "human_metabolism",
+        "label": "Human Metabolism",
+        "file": "output/college.en/sonnet/html/concept_human_metabolism.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "internal_energy",
+        "label": "Internal Energy",
+        "file": "output/college.en/sonnet/html/concept_internal_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "temperature",
+        "label": "Temperature",
+        "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermodynamic_work",
+        "label": "Thermodynamic Work",
+        "file": "output/college.en/sonnet/html/concept_thermodynamic_work.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "volume",
+        "label": "Volume",
+        "file": "output/college.en/sonnet/html/concept_volume.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch16",
@@ -4340,9 +4901,76 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "medical_ultrasound",
+        "file": "output/college.en/sonnet/html/book_medical_ultrasound.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amplitude",
+        "label": "Amplitude",
+        "file": "output/college.en/sonnet/html/concept_amplitude.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy",
+        "label": "Energy",
+        "file": "output/college.en/sonnet/html/concept_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "equilibrium",
+        "label": "Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "frequency",
+        "label": "Frequency",
+        "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "longitudinal_wave",
+        "label": "Longitudinal Wave",
+        "file": "output/college.en/sonnet/html/concept_longitudinal_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "medical_ultrasound",
+        "label": "Medical Ultrasound",
+        "file": "output/college.en/sonnet/html/concept_medical_ultrasound.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "periodic_motion",
+        "label": "Periodic Motion",
+        "file": "output/college.en/sonnet/html/concept_periodic_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave",
+        "label": "Wave",
+        "file": "output/college.en/sonnet/html/concept_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave_intensity",
+        "label": "Wave Intensity",
+        "file": "output/college.en/sonnet/html/concept_wave_intensity.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch17",
@@ -4358,9 +4986,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "noise_cancellation",
+        "file": "output/college.en/sonnet/html/book_noise_cancellation.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amplitude",
+        "label": "Amplitude",
+        "file": "output/college.en/sonnet/html/concept_amplitude.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "interference",
+        "label": "Interference",
+        "file": "output/college.en/sonnet/html/concept_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "noise_cancellation",
+        "label": "Noise Cancellation",
+        "file": "output/college.en/sonnet/html/concept_noise_cancellation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "simple_harmonic_motion",
+        "label": "Simple Harmonic Motion",
+        "file": "output/college.en/sonnet/html/concept_simple_harmonic_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "sound",
+        "label": "Sound",
+        "file": "output/college.en/sonnet/html/concept_sound.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave",
+        "label": "Wave",
+        "file": "output/college.en/sonnet/html/concept_wave.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch18",
@@ -4376,9 +5053,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "faraday_cage",
+        "file": "output/college.en/sonnet/html/book_faraday_cage.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conductor",
+        "label": "Conductor",
+        "file": "output/college.en/sonnet/html/concept_conductor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulombs_law",
+        "label": "Coulombs Law",
+        "file": "output/college.en/sonnet/html/concept_coulombs_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_field",
+        "label": "Electric Field",
+        "file": "output/college.en/sonnet/html/concept_electric_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electron",
+        "label": "Electron",
+        "file": "output/college.en/sonnet/html/concept_electron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electrostatic_equilibrium",
+        "label": "Electrostatic Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_electrostatic_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "faraday_cage",
+        "label": "Faraday Cage",
+        "file": "output/college.en/sonnet/html/concept_faraday_cage.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch19",
@@ -4394,9 +5120,76 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "defibrillator",
+        "file": "output/college.en/sonnet/html/book_defibrillator.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "capacitance",
+        "label": "Capacitance",
+        "file": "output/college.en/sonnet/html/concept_capacitance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "capacitor",
+        "label": "Capacitor",
+        "file": "output/college.en/sonnet/html/concept_capacitor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulomb_force",
+        "label": "Coulomb Force",
+        "file": "output/college.en/sonnet/html/concept_coulomb_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "defibrillator",
+        "label": "Defibrillator",
+        "file": "output/college.en/sonnet/html/concept_defibrillator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_potential",
+        "label": "Electric Potential",
+        "file": "output/college.en/sonnet/html/concept_electric_potential.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_potential_energy",
+        "label": "Electric Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_electric_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy_stored_in_capacitors",
+        "label": "Energy Stored In Capacitors",
+        "file": "output/college.en/sonnet/html/concept_energy_stored_in_capacitors.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_difference",
+        "label": "Potential Difference",
+        "file": "output/college.en/sonnet/html/concept_potential_difference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_potential_energy.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch20",
@@ -4412,9 +5205,46 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "thermal_hazard",
+        "file": "output/college.en/sonnet/html/book_thermal_hazard.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_current",
+        "label": "Electric Current",
+        "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_power",
+        "label": "Electric Power",
+        "file": "output/college.en/sonnet/html/concept_electric_power.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_difference",
+        "label": "Potential Difference",
+        "file": "output/college.en/sonnet/html/concept_potential_difference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermal_hazard",
+        "label": "Thermal Hazard",
+        "file": "output/college.en/sonnet/html/concept_thermal_hazard.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch21",
@@ -4430,9 +5260,52 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "voltmeter",
+        "file": "output/college.en/sonnet/html/book_voltmeter.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_current",
+        "label": "Electric Current",
+        "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "galvanometer",
+        "label": "Galvanometer",
+        "file": "output/college.en/sonnet/html/concept_galvanometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ohms_law",
+        "label": "Ohms Law",
+        "file": "output/college.en/sonnet/html/concept_ohms_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resistance",
+        "label": "Resistance",
+        "file": "output/college.en/sonnet/html/concept_resistance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "voltage",
+        "label": "Voltage",
+        "file": "output/college.en/sonnet/html/concept_voltage.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "voltmeter",
+        "label": "Voltmeter",
+        "file": "output/college.en/sonnet/html/concept_voltmeter.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch22",
@@ -4448,9 +5321,52 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "velocity_selector",
+        "file": "output/college.en/sonnet/html/book_velocity_selector.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_field",
+        "label": "Electric Field",
+        "file": "output/college.en/sonnet/html/concept_electric_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lorentz_force",
+        "label": "Lorentz Force",
+        "file": "output/college.en/sonnet/html/concept_lorentz_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field",
+        "label": "Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity_selector",
+        "label": "Velocity Selector",
+        "file": "output/college.en/sonnet/html/concept_velocity_selector.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch23",
@@ -4466,9 +5382,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "transformer",
+        "file": "output/college.en/sonnet/html/book_transformer.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_current",
+        "label": "Electric Current",
+        "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_induction",
+        "label": "Electromagnetic Induction",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_induction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "faradays_law",
+        "label": "Faradays Law",
+        "file": "output/college.en/sonnet/html/concept_faradays_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field",
+        "label": "Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_flux",
+        "label": "Magnetic Flux",
+        "file": "output/college.en/sonnet/html/concept_magnetic_flux.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mutual_inductance",
+        "label": "Mutual Inductance",
+        "file": "output/college.en/sonnet/html/concept_mutual_inductance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "transformer",
+        "label": "Transformer",
+        "file": "output/college.en/sonnet/html/concept_transformer.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch24",
@@ -4484,9 +5449,106 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "radio_waves",
+        "file": "output/college.en/sonnet/html/book_radio_waves.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amperes_law",
+        "label": "Amperes Law",
+        "file": "output/college.en/sonnet/html/concept_amperes_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "changing_electric_field_creates_magnetic_field",
+        "label": "Changing Electric Field Creates Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_changing_electric_field_creates_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_field",
+        "label": "Electric Field",
+        "file": "output/college.en/sonnet/html/concept_electric_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_spectrum",
+        "label": "Electromagnetic Spectrum",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_spectrum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_wave",
+        "label": "Electromagnetic Wave",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "faradays_law",
+        "label": "Faradays Law",
+        "file": "output/college.en/sonnet/html/concept_faradays_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gauss_law_electricity",
+        "label": "Gauss Law Electricity",
+        "file": "output/college.en/sonnet/html/concept_gauss_law_electricity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gauss_law_magnetism",
+        "label": "Gauss Law Magnetism",
+        "file": "output/college.en/sonnet/html/concept_gauss_law_magnetism.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field",
+        "label": "Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "maxwells_equations",
+        "label": "Maxwells Equations",
+        "file": "output/college.en/sonnet/html/concept_maxwells_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "permeability_of_free_space",
+        "label": "Permeability Of Free Space",
+        "file": "output/college.en/sonnet/html/concept_permeability_of_free_space.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "permittivity_of_free_space",
+        "label": "Permittivity Of Free Space",
+        "file": "output/college.en/sonnet/html/concept_permittivity_of_free_space.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "speed_of_light",
+        "label": "Speed Of Light",
+        "file": "output/college.en/sonnet/html/concept_speed_of_light.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave_equation_em",
+        "label": "Wave Equation Em",
+        "file": "output/college.en/sonnet/html/concept_wave_equation_em.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave_frequency_wavelength",
+        "label": "Wave Frequency Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wave_frequency_wavelength.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch25",
@@ -4502,9 +5564,70 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "rainbow",
+        "file": "output/college.en/sonnet/html/book_rainbow.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "dispersion",
+        "label": "Dispersion",
+        "file": "output/college.en/sonnet/html/concept_dispersion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "geometric_optics",
+        "label": "Geometric Optics",
+        "file": "output/college.en/sonnet/html/concept_geometric_optics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "index_of_refraction",
+        "label": "Index Of Refraction",
+        "file": "output/college.en/sonnet/html/concept_index_of_refraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "law_of_reflection",
+        "label": "Law Of Reflection",
+        "file": "output/college.en/sonnet/html/concept_law_of_reflection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "light_ray",
+        "label": "Light Ray",
+        "file": "output/college.en/sonnet/html/concept_light_ray.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rainbow",
+        "label": "Rainbow",
+        "file": "output/college.en/sonnet/html/concept_rainbow.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "refraction",
+        "label": "Refraction",
+        "file": "output/college.en/sonnet/html/concept_refraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "speed_of_light_vacuum",
+        "label": "Speed Of Light Vacuum",
+        "file": "output/college.en/sonnet/html/concept_speed_of_light_vacuum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch26",
@@ -4520,9 +5643,88 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "vision_correction_spectacles",
+        "file": "output/college.en/sonnet/html/book_vision_correction_spectacles.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "accommodation",
+        "label": "Accommodation",
+        "file": "output/college.en/sonnet/html/concept_accommodation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "concave_lens",
+        "label": "Concave Lens",
+        "file": "output/college.en/sonnet/html/concept_concave_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "convex_lens",
+        "label": "Convex Lens",
+        "file": "output/college.en/sonnet/html/concept_convex_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "eye_as_optical_system",
+        "label": "Eye As Optical System",
+        "file": "output/college.en/sonnet/html/concept_eye_as_optical_system.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "far_point",
+        "label": "Far Point",
+        "file": "output/college.en/sonnet/html/concept_far_point.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "focal_length",
+        "label": "Focal Length",
+        "file": "output/college.en/sonnet/html/concept_focal_length.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hyperopia",
+        "label": "Hyperopia",
+        "file": "output/college.en/sonnet/html/concept_hyperopia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lens_power",
+        "label": "Lens Power",
+        "file": "output/college.en/sonnet/html/concept_lens_power.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "myopia",
+        "label": "Myopia",
+        "file": "output/college.en/sonnet/html/concept_myopia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "near_point",
+        "label": "Near Point",
+        "file": "output/college.en/sonnet/html/concept_near_point.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thin_lens_equation",
+        "label": "Thin Lens Equation",
+        "file": "output/college.en/sonnet/html/concept_thin_lens_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vision_correction_spectacles",
+        "label": "Vision Correction Spectacles",
+        "file": "output/college.en/sonnet/html/concept_vision_correction_spectacles.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch27",
@@ -4538,9 +5740,76 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "non_reflective_coatings",
+        "file": "output/college.en/sonnet/html/book_non_reflective_coatings.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "constructive_interference",
+        "label": "Constructive Interference",
+        "file": "output/college.en/sonnet/html/concept_constructive_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "destructive_interference",
+        "label": "Destructive Interference",
+        "file": "output/college.en/sonnet/html/concept_destructive_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_wave",
+        "label": "Electromagnetic Wave",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "index_of_refraction",
+        "label": "Index Of Refraction",
+        "file": "output/college.en/sonnet/html/concept_index_of_refraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "interference",
+        "label": "Interference",
+        "file": "output/college.en/sonnet/html/concept_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "non_reflective_coatings",
+        "label": "Non Reflective Coatings",
+        "file": "output/college.en/sonnet/html/concept_non_reflective_coatings.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phase_change_on_reflection",
+        "label": "Phase Change On Reflection",
+        "file": "output/college.en/sonnet/html/concept_phase_change_on_reflection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thin_film_interference",
+        "label": "Thin Film Interference",
+        "file": "output/college.en/sonnet/html/concept_thin_film_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength_in_medium",
+        "label": "Wavelength In Medium",
+        "file": "output/college.en/sonnet/html/concept_wavelength_in_medium.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch28",
@@ -4556,9 +5825,34 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "michelson_morley_experiment",
+        "file": "output/college.en/sonnet/html/book_michelson_morley_experiment.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "michelson_morley_experiment",
+        "label": "Michelson Morley Experiment",
+        "file": "output/college.en/sonnet/html/concept_michelson_morley_experiment.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "second_postulate",
+        "label": "Second Postulate",
+        "file": "output/college.en/sonnet/html/concept_second_postulate.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "speed_of_light",
+        "label": "Speed Of Light",
+        "file": "output/college.en/sonnet/html/concept_speed_of_light.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch29",
@@ -4574,9 +5868,76 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "x_ray_production",
+        "file": "output/college.en/sonnet/html/book_x_ray_production.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electromagnetic_radiation",
+        "label": "Electromagnetic Radiation",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electron",
+        "label": "Electron",
+        "file": "output/college.en/sonnet/html/concept_electron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy",
+        "label": "Energy",
+        "file": "output/college.en/sonnet/html/concept_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "frequency",
+        "label": "Frequency",
+        "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "photon",
+        "label": "Photon",
+        "file": "output/college.en/sonnet/html/concept_photon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "photon_energy",
+        "label": "Photon Energy",
+        "file": "output/college.en/sonnet/html/concept_photon_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "planck_constant",
+        "label": "Planck Constant",
+        "file": "output/college.en/sonnet/html/concept_planck_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quantization",
+        "label": "Quantization",
+        "file": "output/college.en/sonnet/html/concept_quantization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "x_ray_production",
+        "label": "X Ray Production",
+        "file": "output/college.en/sonnet/html/concept_x_ray_production.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch30",
@@ -4592,9 +5953,34 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "x_ray_diffraction",
+        "file": "output/college.en/sonnet/html/book_x_ray_diffraction.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "atom",
+        "label": "Atom",
+        "file": "output/college.en/sonnet/html/concept_atom.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_radiation",
+        "label": "Electromagnetic Radiation",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "x_ray_diffraction",
+        "label": "X Ray Diffraction",
+        "file": "output/college.en/sonnet/html/concept_x_ray_diffraction.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch31",
@@ -4610,9 +5996,64 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "geiger_tube",
+        "file": "output/college.en/sonnet/html/book_geiger_tube.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "geiger_tube",
+        "label": "Geiger Tube",
+        "file": "output/college.en/sonnet/html/concept_geiger_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ionization",
+        "label": "Ionization",
+        "file": "output/college.en/sonnet/html/concept_ionization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ionizing_radiation",
+        "label": "Ionizing Radiation",
+        "file": "output/college.en/sonnet/html/concept_ionizing_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass_energy_equivalence",
+        "label": "Mass Energy Equivalence",
+        "file": "output/college.en/sonnet/html/concept_mass_energy_equivalence.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_radiation",
+        "label": "Nuclear Radiation",
+        "file": "output/college.en/sonnet/html/concept_nuclear_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nucleus",
+        "label": "Nucleus",
+        "file": "output/college.en/sonnet/html/concept_nucleus.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radiation_detector",
+        "label": "Radiation Detector",
+        "file": "output/college.en/sonnet/html/concept_radiation_detector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radioactivity",
+        "label": "Radioactivity",
+        "file": "output/college.en/sonnet/html/concept_radioactivity.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch32",
@@ -4628,9 +6069,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "fission_bomb",
+        "file": "output/college.en/sonnet/html/book_fission_bomb.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "binding_energy_per_nucleon",
+        "label": "Binding Energy Per Nucleon",
+        "file": "output/college.en/sonnet/html/concept_binding_energy_per_nucleon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "chain_reaction",
+        "label": "Chain Reaction",
+        "file": "output/college.en/sonnet/html/concept_chain_reaction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulomb_repulsion",
+        "label": "Coulomb Repulsion",
+        "file": "output/college.en/sonnet/html/concept_coulomb_repulsion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "critical_mass",
+        "label": "Critical Mass",
+        "file": "output/college.en/sonnet/html/concept_critical_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fission_bomb",
+        "label": "Fission Bomb",
+        "file": "output/college.en/sonnet/html/concept_fission_bomb.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_fission",
+        "label": "Nuclear Fission",
+        "file": "output/college.en/sonnet/html/concept_nuclear_fission.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_force",
+        "label": "Nuclear Force",
+        "file": "output/college.en/sonnet/html/concept_nuclear_force.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch33",
@@ -4646,9 +6136,58 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "particle_accelerator",
+        "file": "output/college.en/sonnet/html/book_particle_accelerator.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "colliding_beams",
+        "label": "Colliding Beams",
+        "file": "output/college.en/sonnet/html/concept_colliding_beams.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_mass_energy",
+        "label": "Conservation Of Mass Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_mass_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_momentum",
+        "label": "Conservation Of Momentum",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "cyclotron",
+        "label": "Cyclotron",
+        "file": "output/college.en/sonnet/html/concept_cyclotron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_force",
+        "label": "Electromagnetic Force",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "particle_accelerator",
+        "label": "Particle Accelerator",
+        "file": "output/college.en/sonnet/html/concept_particle_accelerator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "synchrotron",
+        "label": "Synchrotron",
+        "file": "output/college.en/sonnet/html/concept_synchrotron.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
     "id": "college_physics_ch34",
@@ -4664,8 +6203,57 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "quasar",
+        "file": "output/college.en/sonnet/html/book_quasar.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "black_hole",
+        "label": "Black Hole",
+        "file": "output/college.en/sonnet/html/concept_black_hole.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "equivalence_principle",
+        "label": "Equivalence Principle",
+        "file": "output/college.en/sonnet/html/concept_equivalence_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "escape_velocity",
+        "label": "Escape Velocity",
+        "file": "output/college.en/sonnet/html/concept_escape_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "galaxy",
+        "label": "Galaxy",
+        "file": "output/college.en/sonnet/html/concept_galaxy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "general_relativity",
+        "label": "General Relativity",
+        "file": "output/college.en/sonnet/html/concept_general_relativity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quasar",
+        "label": "Quasar",
+        "file": "output/college.en/sonnet/html/concept_quasar.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "special_relativity",
+        "label": "Special Relativity",
+        "file": "output/college.en/sonnet/html/concept_special_relativity.html",
+        "model": "sonnet"
+      }
+    ]
   }
 ]

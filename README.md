@@ -99,10 +99,21 @@ The generated `concept_book.html` is written to `public/domains/{id}/concept_boo
 
 ## Deployment (GitHub Pages)
 
+Live at **[digital-duck.github.io/concept-book](https://digital-duck.github.io/concept-book/)** — read-only, static, no backend required. Every concept graph and every already-generated concept book is baked into the build, so anyone with the link can browse without running the API.
+
 ```bash
-npm run build       # outputs to dist/
-npm run deploy      # builds + pushes dist/ to gh-pages branch
+npm run deploy      # vite build && gh-pages -d dist --no-history --dotfiles
+
+# URL = https://digital-duck.github.io/concept-book/
 ```
+
+`--no-history` squashes each deploy to a single commit on `gh-pages` instead of accumulating history — worth keeping as `public/domains` grows, since an unbounded history is what causes `gh-pages`' cleanup step to blow past the OS argument-length limit on a later deploy. `--dotfiles` makes sure `public/.nojekyll` (present so GitHub Pages doesn't run content through Jekyll) actually gets published.
+
+**Current static content** (53 domains as of 2026-07-21):
+- 22 domains have at least one fully generated concept book (multiple language/model variants where noted)
+- 31 domains — including the 32 newly-ingested OpenStax College Physics chapters (ch3–ch34) — are graph-only for now: the concept graph is browsable, but book generation is still pending (see [`scripts/README-test_gen.md`](scripts/README-test_gen.md))
+- Languages generated so far: English, Chinese — more (`--language`) planned per `scripts/batch_gen_domains.py`
+- Models generated so far: Claude Sonnet, Gemma3, Gemma4 — for side-by-side quality comparison
 
 > The backend API is a local tool and is not deployed to GitHub Pages. The static graph navigators and any pre-generated concept books are included in the build.
 

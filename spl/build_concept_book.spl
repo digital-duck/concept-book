@@ -79,6 +79,46 @@ in {language}.
 Output only the section. No preamble.
 $$;
 
+-- Research-level capstone: adds a "Current Research Directions" subsection
+-- grounded in real, recently-fetched arXiv papers (see fetch_arxiv_papers in
+-- tools.py) instead of reusing write_payoff's generic "Payoff" instructions,
+-- which don't fit theorem-proof style or citation of live literature.
+CREATE FUNCTION write_payoff_research(target_label TEXT, applications TEXT, style_guide TEXT, domain TEXT, language TEXT, arxiv_papers TEXT)
+RETURN TEXT
+AS $$
+You are an expert researcher writing the capstone of a graduate-level concept-book.
+
+{style_guide}
+
+Domain: {domain}
+The textbook culminates in the concept: {target_label}
+Applications this concept unlocks: {applications}
+
+Recent arXiv papers related to {target_label} (real, fetched just now — cite
+ONLY these; do not invent additional papers, authors, or arXiv IDs):
+{arxiv_papers}
+
+Write a "Payoff" section that:
+1. States the theorem/result that {target_label} culminates in, with proof
+   or proof sketch per the STYLE GUIDE.
+2. Shows how it connects to each listed application domain.
+3. Ends with a "Current Research Directions" subsection: briefly summarize
+   what each cited paper above investigates and how it extends or relates to
+   {target_label}, giving the reader a few concrete current research
+   threads to follow. If no papers are listed above, omit this subsection
+   entirely rather than inventing citations.
+
+Begin with: ## Payoff
+
+Follow the length and structure in the STYLE GUIDE above for the main
+section; the "Current Research Directions" subsection is additional to that
+structure, not a replacement for it. Use LaTeX for mathematics and notation.
+Write every word of the output, including any structural headers, entirely
+in {language} — except paper titles and author names, which stay in their
+original (usually English) form since they are citations, not prose.
+Output only the section. No preamble.
+$$;
+
 -- ── Main workflow ────────────────────────────────────────────────────────────
 
 WORKFLOW build_concept_book
@@ -192,7 +232,13 @@ DO
     CALL concept_label(@target) INTO @_target_label
     CALL now_float() INTO @t_payoff_start
 
-    GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language_label) INTO @capstone
+    EVALUATE @lvl
+        WHEN = "research" THEN
+            CALL fetch_arxiv_papers(@_target_label, "3") INTO @_arxiv_papers
+            GENERATE write_payoff_research(@_target_label, @apps, @style_guide, @domain_name, @language_label, @_arxiv_papers) INTO @capstone
+        ELSE
+            GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language_label) INTO @capstone
+    END
 
     CALL elapsed_secs(@t_payoff_start) INTO @payoff_elapsed
     LOGGING f"[timing] payoff: {@payoff_elapsed}s\n" LEVEL INFO
@@ -228,7 +274,13 @@ EXCEPTION
         LOGGING "WARNING: concept generation interrupted — producing partial book with completed sections" LEVEL WARN
         CALL apps_list(@domain_yaml) INTO @apps
         CALL concept_label(@target) INTO @_target_label
-        GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language_label) INTO @capstone
+        EVALUATE @lvl
+            WHEN = "research" THEN
+                CALL fetch_arxiv_papers(@_target_label, "3") INTO @_arxiv_papers
+                GENERATE write_payoff_research(@_target_label, @apps, @style_guide, @domain_name, @language_label, @_arxiv_papers) INTO @capstone
+            ELSE
+                GENERATE write_payoff(@_target_label, @apps, @style_guide, @domain_name, @language_label) INTO @capstone
+        END
         @textbook := @textbook + "\n\n---\n\n" + @capstone
         EVALUATE @output_dir
             WHEN != "" THEN
