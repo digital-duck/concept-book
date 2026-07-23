@@ -1,0 +1,218 @@
+domain: college_physics_2e_ch12
+primitives:
+  pressure:
+    defines: Force per unit area exerted by a fluid, with units of energy per unit volume.
+    tier: 0
+  fluid_density:
+    defines: Mass per unit volume of a fluid, determining its inertial and gravitational behavior.
+    tier: 0
+  velocity:
+    defines: The speed and direction of motion of a fluid element or object.
+    tier: 0
+  cross_sectional_area:
+    defines: The area of a surface perpendicular to the direction of fluid flow through a conduit.
+    tier: 0
+  conservation_of_energy:
+    defines: The principle that total energy in a closed system remains constant, providing the basis
+      for Bernoulli's equation.
+    tier: 0
+  kinetic_energy:
+    defines: Energy of motion, equal to one-half mass times velocity squared.
+    tier: 0
+  gravitational_potential_energy:
+    defines: Energy stored due to an object's height in a gravitational field.
+    tier: 0
+  force:
+    defines: A push or pull that can cause acceleration, including net forces from pressure differences.
+    tier: 0
+concepts:
+  flow_rate:
+    defines: The volume of fluid passing a point per unit time, Q = V/t, related to velocity by Q = Av.
+    composed_of:
+    - velocity
+    - cross_sectional_area
+    tier: 1
+  incompressible_fluid:
+    defines: A fluid whose density remains constant regardless of pressure changes, such that the same
+      volume flows past any point in a given time.
+    composed_of:
+    - fluid_density
+    tier: 1
+  equation_of_continuity:
+    defines: For an incompressible fluid, the flow rate is constant along a pipe, so A₁v₁ = A₂v₂, meaning
+      speed increases where cross-sectional area decreases.
+    composed_of:
+    - flow_rate
+    - incompressible_fluid
+    tier: 2
+  bernoullis_equation:
+    defines: 'A statement of conservation of energy for an incompressible frictionless fluid: P + ½ρv²
+      + ρgh = constant along a streamline.'
+    composed_of:
+    - pressure
+    - kinetic_energy
+    - gravitational_potential_energy
+    - conservation_of_energy
+    - incompressible_fluid
+    tier: 2
+  bernoullis_principle:
+    defines: 'Bernoulli''s equation applied at constant depth, showing that pressure decreases where fluid
+      speed increases: P₁ + ½ρv₁² = P₂ + ½ρv₂².'
+    composed_of:
+    - bernoullis_equation
+    tier: 3
+  torricellis_theorem:
+    defines: The speed of fluid flowing from an opening at depth h below the surface equals √(2gh), as
+      if the fluid had fallen that distance freely.
+    composed_of:
+    - bernoullis_equation
+    tier: 3
+  power_in_fluid_flow:
+    defines: The rate of energy transfer in a fluid, obtained by multiplying each term in Bernoulli's
+      equation by the flow rate Q, giving contributions from pressure, kinetic energy, and gravitational
+      potential energy.
+    composed_of:
+    - bernoullis_equation
+    - flow_rate
+    tier: 3
+  viscosity:
+    defines: A measure of internal friction in a fluid, defined by F = ηvA/L, where η is the coefficient
+      of viscosity relating shear force to velocity gradient.
+    composed_of:
+    - force
+    - velocity
+    tier: 1
+  laminar_flow:
+    defines: Smooth fluid flow in parallel layers that do not mix, characterized by streamlines that remain
+      distinct.
+    composed_of:
+    - viscosity
+    tier: 2
+  turbulent_flow:
+    defines: Irregular fluid flow characterized by eddies and swirls that mix fluid layers, caused by
+      obstructions or high speeds.
+    composed_of:
+    - viscosity
+    tier: 2
+  streamlines:
+    defines: Paths followed by small volumes of fluid, which are smooth and continuous in laminar flow
+      but break up in turbulent flow.
+    composed_of:
+    - laminar_flow
+    - turbulent_flow
+    tier: 3
+  flow_resistance:
+    defines: The opposition to fluid flow in a conduit, relating pressure difference to flow rate by Q
+      = (P₂ − P₁)/R.
+    composed_of:
+    - pressure
+    - flow_rate
+    tier: 2
+  poiseuilles_law:
+    defines: 'The law governing laminar flow through a tube: Q = (P₂ − P₁)πr⁴/(8ηl), where resistance
+      R = 8ηl/(πr⁴) depends on viscosity, length, and the fourth power of radius.'
+    composed_of:
+    - laminar_flow
+    - flow_resistance
+    tier: 3
+  reynolds_number:
+    defines: A dimensionless quantity NR = 2ρvr/η that predicts whether flow is laminar (below ~2000)
+      or turbulent (above ~3000).
+    composed_of:
+    - fluid_density
+    - velocity
+    - viscosity
+    tier: 2
+  viscous_drag:
+    defines: A velocity-dependent resistance force exerted on an object moving through a viscous fluid,
+      given by Stokes' law Fs = 6πrηv for a small sphere in laminar flow.
+    composed_of:
+    - viscosity
+    - laminar_flow
+    tier: 3
+  terminal_speed:
+    defines: The constant speed reached when viscous drag and buoyant force balance gravitational force
+      on a falling object, so its acceleration becomes zero.
+    composed_of:
+    - viscous_drag
+    - force
+    tier: 4
+  diffusion:
+    defines: 'The movement of substances due to random thermal molecular motion, where the average distance
+      traveled is proportional to the square root of time: x_rms = √(2Dt).'
+    composed_of:
+    - velocity
+    tier: 1
+  diffusion_constant:
+    defines: A coefficient D characterizing how rapidly a particular molecule diffuses through a specific
+      medium, depending on molecular mass and temperature.
+    composed_of:
+    - diffusion
+    tier: 2
+  semipermeable_membrane:
+    defines: A thin barrier that selectively allows certain molecules to pass through based on size or
+      chemical properties.
+    composed_of:
+    - diffusion
+    tier: 2
+  osmosis:
+    defines: The transport of water through a semipermeable membrane from a region of high water concentration
+      to a region of low water concentration.
+    composed_of:
+    - diffusion
+    - semipermeable_membrane
+    tier: 3
+  osmotic_pressure:
+    defines: The back pressure sufficient to halt osmosis across a semipermeable membrane, which can be
+      substantial depending on the concentration difference.
+    composed_of:
+    - osmosis
+    - pressure
+    tier: 4
+  dialysis:
+    defines: The transport of any molecule other than water through a semipermeable membrane from a region
+      of high concentration to one of low concentration.
+    composed_of:
+    - diffusion
+    - semipermeable_membrane
+    tier: 3
+  active_transport:
+    defines: A process in which a living membrane expends energy to move substances across it, even against
+      concentration gradients.
+    composed_of:
+    - diffusion
+    - semipermeable_membrane
+    - conservation_of_energy
+    tier: 3
+applications:
+  entrainment:
+    defines: The process of using reduced pressure in a high-velocity fluid stream to draw other fluids
+      into the flow, applied in devices like Bunsen burners and atomizers.
+    needs:
+    - bernoullis_principle
+    tier: 4
+  aerodynamic_lift:
+    defines: The net upward force on a wing created by faster airflow over the longer upper surface reducing
+      pressure relative to the lower surface, as described by Bernoulli's principle.
+    needs:
+    - bernoullis_principle
+    tier: 4
+  pitot_tube:
+    defines: A velocity-measuring device that uses Bernoulli's principle to relate the pressure difference
+      between a dead spot and a flowing region to fluid speed.
+    needs:
+    - bernoullis_principle
+    tier: 4
+  blood_flow_regulation:
+    defines: The cardiovascular system's control of blood flow by varying vessel radii, exploiting Poiseuille's
+      law's fourth-power dependence on radius to achieve large changes in flow with small changes in vessel
+      size.
+    needs:
+    - poiseuilles_law
+    tier: 4
+  reverse_osmosis:
+    defines: A process in which sufficient back pressure reverses osmosis, used in applications such as
+      desalination by forcing water through a membrane that blocks salt.
+    needs:
+    - osmotic_pressure
+    tier: 5

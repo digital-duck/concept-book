@@ -1,0 +1,176 @@
+domain: college_physics_2e_ch20
+sources:
+  electric_charge:
+    label: Electric Charge
+    sections: []
+  electric_field:
+    label: Electric Field
+    sections: []
+  potential_difference:
+    label: Potential Difference (Voltage)
+    sections: []
+  coulomb_force:
+    label: Coulomb Force
+    sections:
+    - id: ch20_s20_7
+      title: 20.7 Nerve Conduction–Electrocardiograms
+  diffusion:
+    label: Diffusion
+    sections:
+    - id: ch20_s20_7
+      title: 20.7 Nerve Conduction–Electrocardiograms
+  electric_current:
+    label: Electric Current
+    sections:
+    - id: ch20_s20_1
+      title: 20.1 Current
+  ampere:
+    label: Ampere
+    sections:
+    - id: ch20_s20_1
+      title: 20.1 Current
+  conventional_current:
+    label: Conventional Current Direction
+    sections:
+    - id: ch20_s20_1
+      title: 20.1 Current
+  drift_velocity:
+    label: Drift Velocity
+    sections:
+    - id: ch20_s20_1
+      title: 20.1 Current
+  free_charges:
+    label: Free Charges (Free Electrons)
+    sections:
+    - id: ch20_s20_1
+      title: 20.1 Current
+  ohms_law:
+    label: Ohm's Law
+    sections:
+    - id: ch20_s20_2
+      title: '20.2 Ohm’s Law: Resistance and Simple Circuits'
+  resistance:
+    label: Resistance
+    sections:
+    - id: ch20_s20_2
+      title: '20.2 Ohm’s Law: Resistance and Simple Circuits'
+  ohmic_material:
+    label: Ohmic Material
+    sections:
+    - id: ch20_s20_2
+      title: '20.2 Ohm’s Law: Resistance and Simple Circuits'
+  simple_circuit:
+    label: Simple Circuit
+    sections:
+    - id: ch20_s20_2
+      title: '20.2 Ohm’s Law: Resistance and Simple Circuits'
+  voltage_drop:
+    label: Voltage Drop
+    sections:
+    - id: ch20_s20_2
+      title: '20.2 Ohm’s Law: Resistance and Simple Circuits'
+  resistivity:
+    label: Resistivity
+    sections:
+    - id: ch20_s20_3
+      title: 20.3 Resistance and Resistivity
+  material_classification:
+    label: Conductors, Semiconductors, and Insulators
+    sections:
+    - id: ch20_s20_3
+      title: 20.3 Resistance and Resistivity
+  temperature_coefficient_of_resistivity:
+    label: Temperature Coefficient of Resistivity
+    sections:
+    - id: ch20_s20_3
+      title: 20.3 Resistance and Resistivity
+  temperature_dependence_of_resistance:
+    label: Temperature Dependence of Resistance
+    sections:
+    - id: ch20_s20_3
+      title: 20.3 Resistance and Resistivity
+  electric_power:
+    label: Electric Power
+    sections:
+    - id: ch20_s20_4
+      title: 20.4 Electric Power and Energy
+  electrical_energy:
+    label: Electrical Energy
+    sections:
+    - id: ch20_s20_4
+      title: 20.4 Electric Power and Energy
+  kilowatt_hour:
+    label: Kilowatt-Hour
+    sections:
+    - id: ch20_s20_4
+      title: 20.4 Electric Power and Energy
+  direct_current:
+    label: Direct Current (DC)
+    sections:
+    - id: ch20_s20_5
+      title: 20.5 Alternating Current versus Direct Current
+  alternating_current:
+    label: Alternating Current (AC)
+    sections:
+    - id: ch20_s20_5
+      title: 20.5 Alternating Current versus Direct Current
+  rms_values:
+    label: RMS Voltage and Current
+    sections:
+    - id: ch20_s20_5
+      title: 20.5 Alternating Current versus Direct Current
+  average_ac_power:
+    label: Average AC Power
+    sections:
+    - id: ch20_s20_5
+      title: 20.5 Alternating Current versus Direct Current
+  short_circuit:
+    label: Short Circuit
+    sections:
+    - id: ch20_s20_6
+      title: 20.6 Electric Hazards and the Human Body
+  thermal_hazard:
+    label: Thermal Hazard
+    sections:
+    - id: ch20_s20_6
+      title: 20.6 Electric Hazards and the Human Body
+  shock_hazard:
+    label: Shock Hazard
+    sections:
+    - id: ch20_s20_6
+      title: 20.6 Electric Hazards and the Human Body
+  fuses_and_circuit_breakers:
+    label: Fuses and Circuit Breakers
+    sections:
+    - id: ch20_s20_6
+      title: 20.6 Electric Hazards and the Human Body
+  high_voltage_power_transmission:
+    label: High-Voltage AC Power Transmission
+    sections:
+    - id: ch20_s20_5
+      title: 20.5 Alternating Current versus Direct Current
+  resting_membrane_potential:
+    label: Resting Membrane Potential
+    sections:
+    - id: ch20_s20_7
+      title: 20.7 Nerve Conduction–Electrocardiograms
+  action_potential:
+    label: Action Potential
+    sections:
+    - id: ch20_s20_7
+      title: 20.7 Nerve Conduction–Electrocardiograms
+  nerve_impulse_propagation:
+    label: Nerve Impulse Propagation
+    sections:
+    - id: ch20_s20_7
+      title: 20.7 Nerve Conduction–Electrocardiograms
+  myelin_sheath:
+    label: Myelin Sheath
+    sections:
+    - id: ch20_s20_7
+      title: 20.7 Nerve Conduction–Electrocardiograms
+  electrocardiogram:
+    label: Electrocardiogram (ECG)
+    sections:
+    - id: ch20_s20_7
+      title: 20.7 Nerve Conduction–Electrocardiograms

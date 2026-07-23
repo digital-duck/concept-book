@@ -1,0 +1,172 @@
+domain: college_physics_2e_ch15
+sources:
+  temperature:
+    label: Temperature
+    sections: []
+  pressure:
+    label: Pressure
+    sections: []
+  volume:
+    label: Volume
+    sections: []
+  conservation_of_energy:
+    label: Conservation of Energy
+    sections: []
+  kinetic_energy:
+    label: Kinetic Energy
+    sections: []
+  potential_energy:
+    label: Potential Energy
+    sections: []
+  ideal_gas_law:
+    label: Ideal Gas Law
+    sections: []
+  internal_energy:
+    label: Internal Energy
+    sections:
+    - id: ch15_s15_1
+      title: 15.1 The First Law of Thermodynamics
+  heat_transfer:
+    label: Heat Transfer
+    sections:
+    - id: ch15_s15_1
+      title: 15.1 The First Law of Thermodynamics
+  thermodynamic_work:
+    label: Thermodynamic Work
+    sections:
+    - id: ch15_s15_1
+      title: 15.1 The First Law of Thermodynamics
+  first_law_of_thermodynamics:
+    label: First Law of Thermodynamics
+    sections:
+    - id: ch15_s15_1
+      title: 15.1 The First Law of Thermodynamics
+  pv_diagram:
+    label: PV Diagram
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+  isobaric_process:
+    label: Isobaric Process
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+  isochoric_process:
+    label: Isochoric Process
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+  isothermal_process:
+    label: Isothermal Process
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+  adiabatic_process:
+    label: Adiabatic Process
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+  reversible_process:
+    label: Reversible Process
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+  irreversible_process:
+    label: Irreversible Process
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+    - id: ch15_s15_3
+      title: '15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency'
+  cyclical_process:
+    label: Cyclical Process
+    sections:
+    - id: ch15_s15_3
+      title: '15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency'
+  heat_engine:
+    label: Heat Engine
+    sections:
+    - id: ch15_s15_2
+      title: 15.2 The First Law of Thermodynamics and Some Simple Processes
+    - id: ch15_s15_3
+      title: '15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency'
+  second_law_of_thermodynamics:
+    label: Second Law of Thermodynamics
+    sections:
+    - id: ch15_s15_3
+      title: '15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency'
+  thermodynamic_efficiency:
+    label: Thermodynamic Efficiency
+    sections:
+    - id: ch15_s15_3
+      title: '15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency'
+  carnot_cycle:
+    label: Carnot Cycle
+    sections:
+    - id: ch15_s15_4
+      title: '15.4 Carnot’s Perfect Heat Engine: The Second Law of Thermodynamics Restated'
+  carnot_efficiency:
+    label: Carnot Efficiency
+    sections:
+    - id: ch15_s15_4
+      title: '15.4 Carnot’s Perfect Heat Engine: The Second Law of Thermodynamics Restated'
+  heat_pump:
+    label: Heat Pump
+    sections:
+    - id: ch15_s15_5
+      title: '15.5 Applications of Thermodynamics: Heat Pumps and Refrigerators'
+  coefficient_of_performance:
+    label: Coefficient of Performance
+    sections:
+    - id: ch15_s15_5
+      title: '15.5 Applications of Thermodynamics: Heat Pumps and Refrigerators'
+  refrigerator:
+    label: Refrigerator and Air Conditioner
+    sections:
+    - id: ch15_s15_5
+      title: '15.5 Applications of Thermodynamics: Heat Pumps and Refrigerators'
+  entropy:
+    label: Entropy
+    sections:
+    - id: ch15_s15_6
+      title: '15.6 Entropy and the Second Law of Thermodynamics: Disorder and the Unavailability of Energy'
+  macrostate:
+    label: Macrostate
+    sections:
+    - id: ch15_s15_7
+      title: '15.7 Statistical Interpretation of Entropy and the Second Law of Thermodynamics: The Underlying
+        Explanation'
+  microstate:
+    label: Microstate
+    sections:
+    - id: ch15_s15_7
+      title: '15.7 Statistical Interpretation of Entropy and the Second Law of Thermodynamics: The Underlying
+        Explanation'
+  boltzmann_entropy:
+    label: Boltzmann Entropy Formula
+    sections:
+    - id: ch15_s15_7
+      title: '15.7 Statistical Interpretation of Entropy and the Second Law of Thermodynamics: The Underlying
+        Explanation'
+  human_metabolism:
+    label: Human Metabolism
+    sections:
+    - id: ch15_s15_1
+      title: 15.1 The First Law of Thermodynamics
+  otto_cycle:
+    label: Otto Cycle
+    sections:
+    - id: ch15_s15_3
+      title: '15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency'
+  power_station_efficiency:
+    label: Power Station Efficiency
+    sections:
+    - id: ch15_s15_3
+      title: '15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency'
+    - id: ch15_s15_4
+      title: '15.4 Carnot’s Perfect Heat Engine: The Second Law of Thermodynamics Restated'
+  heat_death_of_universe:
+    label: Heat Death of the Universe
+    sections:
+    - id: ch15_s15_6
+      title: '15.6 Entropy and the Second Law of Thermodynamics: Disorder and the Unavailability of Energy'

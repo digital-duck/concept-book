@@ -1,0 +1,181 @@
+domain: college_physics_2e_ch6
+sources:
+  linear_displacement:
+    label: Linear Displacement
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  linear_velocity:
+    label: Linear Velocity
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  acceleration:
+    label: Acceleration
+    sections:
+    - id: ch06_s6_2
+      title: 6.2 Centripetal Acceleration
+  newtons_second_law:
+    label: Newton's Second Law
+    sections:
+    - id: ch06_s6_3
+      title: 6.3 Centripetal Force
+  newtons_first_law:
+    label: Newton's First Law (Inertia)
+    sections:
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'
+  friction_force:
+    label: Friction Force
+    sections:
+    - id: ch06_s6_3
+      title: 6.3 Centripetal Force
+  normal_force:
+    label: Normal Force
+    sections:
+    - id: ch06_s6_3
+      title: 6.3 Centripetal Force
+  mass:
+    label: Mass
+    sections: []
+  radius_of_curvature:
+    label: Radius of Curvature
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  arc_length:
+    label: Arc Length
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  rotation_angle:
+    label: Rotation Angle
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  radian:
+    label: Radian
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  uniform_circular_motion:
+    label: Uniform Circular Motion
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+    - id: ch06_s6_2
+      title: 6.2 Centripetal Acceleration
+  angular_velocity:
+    label: Angular Velocity
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  tangential_speed:
+    label: Tangential Speed
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 Rotation Angle and Angular Velocity
+  centripetal_acceleration:
+    label: Centripetal Acceleration
+    sections:
+    - id: ch06_s6_2
+      title: 6.2 Centripetal Acceleration
+  centripetal_force:
+    label: Centripetal Force
+    sections:
+    - id: ch06_s6_3
+      title: 6.3 Centripetal Force
+  inertial_frame_of_reference:
+    label: Inertial Frame of Reference
+    sections:
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'
+  non_inertial_frame_of_reference:
+    label: Non-inertial Frame of Reference
+    sections:
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'
+  fictitious_force:
+    label: Fictitious Force
+    sections:
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'
+  centrifugal_force:
+    label: Centrifugal Force
+    sections:
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'
+  coriolis_force:
+    label: Coriolis Force
+    sections:
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'
+  gravitational_constant:
+    label: Gravitational Constant (G)
+    sections:
+    - id: ch06_s6_5
+      title: 6.5 Newton’s Universal Law of Gravitation
+  newtons_law_of_gravitation:
+    label: Newton's Universal Law of Gravitation
+    sections:
+    - id: ch06_s6_5
+      title: 6.5 Newton’s Universal Law of Gravitation
+  center_of_mass:
+    label: Center of Mass
+    sections:
+    - id: ch06_s6_5
+      title: 6.5 Newton’s Universal Law of Gravitation
+  acceleration_due_to_gravity:
+    label: Acceleration Due to Gravity (g)
+    sections:
+    - id: ch06_s6_5
+      title: 6.5 Newton’s Universal Law of Gravitation
+  weightlessness:
+    label: Weightlessness and Microgravity
+    sections:
+    - id: ch06_s6_5
+      title: 6.5 Newton’s Universal Law of Gravitation
+  keplers_first_law:
+    label: Kepler's First Law
+    sections:
+    - id: ch06_s6_6
+      title: '6.6 Satellites and Kepler’s Laws: An Argument for Simplicity'
+  keplers_second_law:
+    label: Kepler's Second Law
+    sections:
+    - id: ch06_s6_6
+      title: '6.6 Satellites and Kepler’s Laws: An Argument for Simplicity'
+  keplers_third_law:
+    label: Kepler's Third Law
+    sections:
+    - id: ch06_s6_6
+      title: '6.6 Satellites and Kepler’s Laws: An Argument for Simplicity'
+  ideal_banking:
+    label: Ideal Banking
+    sections:
+    - id: ch06_s6_3
+      title: 6.3 Centripetal Force
+  centrifuge:
+    label: Centrifuge
+    sections:
+    - id: ch06_s6_2
+      title: 6.2 Centripetal Acceleration
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'
+  tides:
+    label: Ocean Tides
+    sections:
+    - id: ch06_s6_5
+      title: 6.5 Newton’s Universal Law of Gravitation
+  satellite_orbits:
+    label: Satellite Orbits
+    sections:
+    - id: ch06_s6_5
+      title: 6.5 Newton’s Universal Law of Gravitation
+    - id: ch06_s6_6
+      title: '6.6 Satellites and Kepler’s Laws: An Argument for Simplicity'
+  coriolis_weather_patterns:
+    label: Coriolis Effect on Weather
+    sections:
+    - id: ch06_s6_4
+      title: '6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force'

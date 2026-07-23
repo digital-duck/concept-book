@@ -1,0 +1,210 @@
+domain: college_physics_2e_ch33
+sources:
+  heisenberg_uncertainty_principle:
+    label: Heisenberg Uncertainty Principle
+    sections:
+    - id: ch33_s33_1
+      title: 33.1 The Yukawa Particle and the Heisenberg Uncertainty Principle Revisited
+  conservation_of_mass_energy:
+    label: Conservation of Mass-Energy
+    sections: []
+  conservation_of_momentum:
+    label: Conservation of Momentum
+    sections: []
+  conservation_of_charge:
+    label: Conservation of Charge
+    sections: []
+  pauli_exclusion_principle:
+    label: Pauli Exclusion Principle
+    sections: []
+  intrinsic_spin:
+    label: Intrinsic Spin
+    sections: []
+  electromagnetic_force:
+    label: Electromagnetic Force
+    sections:
+    - id: ch33_s33_2
+      title: 33.2 The Four Basic Forces
+  carrier_particle:
+    label: Carrier Particle
+    sections:
+    - id: ch33_s33_1
+      title: 33.1 The Yukawa Particle and the Heisenberg Uncertainty Principle Revisited
+    - id: ch33_s33_2
+      title: 33.2 The Four Basic Forces
+  virtual_particle:
+    label: Virtual Particle
+    sections:
+    - id: ch33_s33_1
+      title: 33.1 The Yukawa Particle and the Heisenberg Uncertainty Principle Revisited
+  pion:
+    label: Pion
+    sections:
+    - id: ch33_s33_1
+      title: 33.1 The Yukawa Particle and the Heisenberg Uncertainty Principle Revisited
+    - id: ch33_s33_2
+      title: 33.2 The Four Basic Forces
+  four_basic_forces:
+    label: Four Basic Forces
+    sections:
+    - id: ch33_s33_2
+      title: 33.2 The Four Basic Forces
+  feynman_diagram:
+    label: Feynman Diagram
+    sections:
+    - id: ch33_s33_2
+      title: 33.2 The Four Basic Forces
+  quantum_electrodynamics:
+    label: Quantum Electrodynamics (QED)
+    sections:
+    - id: ch33_s33_2
+      title: 33.2 The Four Basic Forces
+  cyclotron:
+    label: Cyclotron
+    sections:
+    - id: ch33_s33_3
+      title: 33.3 Accelerators Create Matter from Energy
+  synchrotron:
+    label: Synchrotron
+    sections:
+    - id: ch33_s33_3
+      title: 33.3 Accelerators Create Matter from Energy
+  synchrotron_radiation:
+    label: Synchrotron Radiation
+    sections:
+    - id: ch33_s33_3
+      title: 33.3 Accelerators Create Matter from Energy
+  colliding_beams:
+    label: Colliding Beams
+    sections:
+    - id: ch33_s33_3
+      title: 33.3 Accelerators Create Matter from Energy
+  antimatter:
+    label: Antimatter
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+  hadron:
+    label: Hadron
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  lepton:
+    label: Lepton
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+  baryon:
+    label: Baryon
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  meson:
+    label: Meson
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  boson:
+    label: Boson
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+  fermion:
+    label: Fermion
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+  baryon_number_conservation:
+    label: Conservation of Baryon Number
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+  lepton_family_number:
+    label: Lepton Family Number
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+  strangeness:
+    label: Strangeness
+    sections:
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  quark:
+    label: Quark
+    sections:
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  quark_flavor:
+    label: Quark Flavor
+    sections:
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  quark_color:
+    label: Quark Color
+    sections:
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  quark_confinement:
+    label: Quark Confinement
+    sections:
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+  gluon:
+    label: Gluon
+    sections:
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+    - id: ch33_s33_6
+      title: '33.6 GUTs: The Unification of Forces'
+  quantum_chromodynamics:
+    label: Quantum Chromodynamics (QCD)
+    sections:
+    - id: ch33_s33_5
+      title: '33.5 Quarks: Is That All There Is?'
+    - id: ch33_s33_6
+      title: '33.6 GUTs: The Unification of Forces'
+  electroweak_theory:
+    label: Electroweak Theory
+    sections:
+    - id: ch33_s33_6
+      title: '33.6 GUTs: The Unification of Forces'
+  standard_model:
+    label: Standard Model
+    sections:
+    - id: ch33_s33_6
+      title: '33.6 GUTs: The Unification of Forces'
+  grand_unified_theory:
+    label: Grand Unified Theory (GUT)
+    sections:
+    - id: ch33_s33_6
+      title: '33.6 GUTs: The Unification of Forces'
+  higgs_boson:
+    label: Higgs Boson
+    sections:
+    - id: ch33_s33_6
+      title: '33.6 GUTs: The Unification of Forces'
+  particle_accelerator:
+    label: Particle Accelerator
+    sections:
+    - id: ch33_s33_3
+      title: 33.3 Accelerators Create Matter from Energy
+  cosmic_ray_experiments:
+    label: Cosmic Ray Experiments
+    sections:
+    - id: ch33_s33_1
+      title: 33.1 The Yukawa Particle and the Heisenberg Uncertainty Principle Revisited
+    - id: ch33_s33_4
+      title: 33.4 Particles, Patterns, and Conservation Laws
+  proton_decay_detection:
+    label: Proton Decay Detection
+    sections:
+    - id: ch33_s33_6
+      title: '33.6 GUTs: The Unification of Forces'

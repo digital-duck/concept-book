@@ -1,0 +1,6501 @@
+[
+  {
+    "id": "linalg",
+    "name": "Linear Algebra",
+    "description": "From vector addition to the spectral theorem.",
+    "capstone": "spectral_theorem",
+    "nodes": 37,
+    "edges": 43,
+    "primitives": 5,
+    "concepts": 25,
+    "applications": 7,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "linear_combination",
+        "file": "output/intro.en/html/book_linear_combination.html"
+      },
+      {
+        "target": "normal_modes",
+        "file": "output/college.en/html/book_normal_modes.html"
+      },
+      {
+        "target": "stability_analysis",
+        "file": "output/college.en/html/book_stability_analysis.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "eigenpair",
+        "label": "Eigenpair",
+        "file": "output/college.en/html/concept_eigenpair.html"
+      },
+      {
+        "name": "linear_combination",
+        "label": "Linear Combination",
+        "file": "output/college.en/html/concept_linear_combination.html"
+      },
+      {
+        "name": "linear_map",
+        "label": "Linear Map",
+        "file": "output/college.en/html/concept_linear_map.html"
+      },
+      {
+        "name": "normal_modes",
+        "label": "Normal Modes",
+        "file": "output/college.en/html/concept_normal_modes.html"
+      },
+      {
+        "name": "scalar_multiplication",
+        "label": "Scalar Multiplication",
+        "file": "output/college.en/html/concept_scalar_multiplication.html"
+      },
+      {
+        "name": "stability_analysis",
+        "label": "Stability Analysis",
+        "file": "output/college.en/html/concept_stability_analysis.html"
+      },
+      {
+        "name": "vector_addition",
+        "label": "Vector Addition",
+        "file": "output/college.en/html/concept_vector_addition.html"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "geometry",
+    "name": "Geometry",
+    "description": "From points and lines to theorems of Euclidean space.",
+    "capstone": null,
+    "nodes": 29,
+    "edges": 37,
+    "primitives": 5,
+    "concepts": 19,
+    "applications": 5,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "area",
+        "file": "output/core.en/html/book_area.html"
+      },
+      {
+        "target": "similarity",
+        "file": "output/core.en/html/book_similarity.html"
+      },
+      {
+        "target": "line_segment",
+        "file": "output/core.en/html/book_line_segment.html"
+      },
+      {
+        "target": "ray",
+        "file": "output/core.en/html/book_ray.html"
+      },
+      {
+        "target": "coordinate_plane",
+        "file": "output/core.en/html/book_coordinate_plane.html"
+      },
+      {
+        "target": "polygon",
+        "file": "output/core.en/html/book_polygon.html"
+      },
+      {
+        "target": "circle",
+        "file": "output/core.en/html/book_circle.html"
+      },
+      {
+        "target": "architecture_construction",
+        "file": "output/core.en/html/book_architecture_construction.html"
+      },
+      {
+        "target": "navigation_surveying",
+        "file": "output/core.en/html/book_navigation_surveying.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "angle",
+        "label": "Angle",
+        "file": "output/core.en/html/concept_angle.html"
+      },
+      {
+        "name": "angle_measure",
+        "label": "Angle Measure",
+        "file": "output/core.en/html/concept_angle_measure.html"
+      },
+      {
+        "name": "architecture_construction",
+        "label": "Architecture Construction",
+        "file": "output/core.en/html/concept_architecture_construction.html"
+      },
+      {
+        "name": "area",
+        "label": "Area",
+        "file": "output/core.en/html/concept_area.html"
+      },
+      {
+        "name": "circle",
+        "label": "Circle",
+        "file": "output/core.en/html/concept_circle.html"
+      },
+      {
+        "name": "congruence",
+        "label": "Congruence",
+        "file": "output/core.en/html/concept_congruence.html"
+      },
+      {
+        "name": "coordinate_plane",
+        "label": "Coordinate Plane",
+        "file": "output/core.en/html/concept_coordinate_plane.html"
+      },
+      {
+        "name": "distance",
+        "label": "Distance",
+        "file": "output/core.en/html/concept_distance.html"
+      },
+      {
+        "name": "distance_formula",
+        "label": "Distance Formula",
+        "file": "output/core.en/html/concept_distance_formula.html"
+      },
+      {
+        "name": "line",
+        "label": "Line",
+        "file": "output/core.en/html/concept_line.html"
+      },
+      {
+        "name": "line_segment",
+        "label": "Line Segment",
+        "file": "output/core.en/html/concept_line_segment.html"
+      },
+      {
+        "name": "navigation_surveying",
+        "label": "Navigation Surveying",
+        "file": "output/core.en/html/concept_navigation_surveying.html"
+      },
+      {
+        "name": "point",
+        "label": "Point",
+        "file": "output/core.en/html/concept_point.html"
+      },
+      {
+        "name": "polygon",
+        "label": "Polygon",
+        "file": "output/core.en/html/concept_polygon.html"
+      },
+      {
+        "name": "pythagorean_theorem",
+        "label": "Pythagorean Theorem",
+        "file": "output/core.en/html/concept_pythagorean_theorem.html"
+      },
+      {
+        "name": "ray",
+        "label": "Ray",
+        "file": "output/core.en/html/concept_ray.html"
+      },
+      {
+        "name": "rigid_motion",
+        "label": "Rigid Motion",
+        "file": "output/core.en/html/concept_rigid_motion.html"
+      },
+      {
+        "name": "similarity",
+        "label": "Similarity",
+        "file": "output/core.en/html/concept_similarity.html"
+      },
+      {
+        "name": "triangle",
+        "label": "Triangle",
+        "file": "output/core.en/html/concept_triangle.html"
+      },
+      {
+        "name": "triangle_congruence_criteria",
+        "label": "Triangle Congruence Criteria",
+        "file": "output/core.en/html/concept_triangle_congruence_criteria.html"
+      },
+      {
+        "name": "triangle_similarity_criteria",
+        "label": "Triangle Similarity Criteria",
+        "file": "output/core.en/html/concept_triangle_similarity_criteria.html"
+      },
+      {
+        "name": "trigonometric_ratios",
+        "label": "Trigonometric Ratios",
+        "file": "output/core.en/html/concept_trigonometric_ratios.html"
+      }
+    ],
+    "default_level": "core"
+  },
+  {
+    "id": "calculus",
+    "name": "Calculus",
+    "description": "From limits and continuity to derivatives, integrals, series, and differential equations.",
+    "capstone": "fundamental_theorem",
+    "nodes": 23,
+    "edges": 38,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "physics_kinematics",
+        "file": "output/college.en/html/book_physics_kinematics.html"
+      },
+      {
+        "target": "gradient_descent",
+        "file": "output/college.en/html/book_gradient_descent.html"
+      },
+      {
+        "target": "physics_kinematics",
+        "file": "output/college.en/gemma4/html/book_physics_kinematics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "gradient_descent",
+        "file": "output/college.en/gemma4/html/book_gradient_descent.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "gradient_descent",
+        "file": "output/college.en/sonnet/html/book_gradient_descent.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "fundamental_theorem",
+        "file": "output/college.en/sonnet/html/book_fundamental_theorem.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "antiderivative",
+        "label": "Antiderivative",
+        "file": "output/college.en/sonnet/html/concept_antiderivative.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "continuity",
+        "label": "Continuity",
+        "file": "output/college.en/html/concept_continuity.html"
+      },
+      {
+        "name": "continuity",
+        "label": "Continuity",
+        "file": "output/college.en/gemma4/html/concept_continuity.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "continuity",
+        "label": "Continuity",
+        "file": "output/college.en/sonnet/html/concept_continuity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "definite_integral",
+        "label": "Definite Integral",
+        "file": "output/college.en/html/concept_definite_integral.html"
+      },
+      {
+        "name": "definite_integral",
+        "label": "Definite Integral",
+        "file": "output/college.en/gemma4/html/concept_definite_integral.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "definite_integral",
+        "label": "Definite Integral",
+        "file": "output/college.en/sonnet/html/concept_definite_integral.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "derivative",
+        "label": "Derivative",
+        "file": "output/college.en/html/concept_derivative.html"
+      },
+      {
+        "name": "derivative",
+        "label": "Derivative",
+        "file": "output/college.en/gemma4/html/concept_derivative.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "derivative",
+        "label": "Derivative",
+        "file": "output/college.en/sonnet/html/concept_derivative.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "differential_equation",
+        "label": "Differential Equation",
+        "file": "output/college.en/html/concept_differential_equation.html"
+      },
+      {
+        "name": "differential_equation",
+        "label": "Differential Equation",
+        "file": "output/college.en/gemma4/html/concept_differential_equation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "function",
+        "label": "Function",
+        "file": "output/college.en/html/concept_function.html"
+      },
+      {
+        "name": "function",
+        "label": "Function",
+        "file": "output/college.en/gemma4/html/concept_function.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "function",
+        "label": "Function",
+        "file": "output/college.en/sonnet/html/concept_function.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fundamental_theorem",
+        "label": "Fundamental Theorem",
+        "file": "output/college.en/sonnet/html/concept_fundamental_theorem.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gradient",
+        "label": "Gradient",
+        "file": "output/college.en/html/concept_gradient.html"
+      },
+      {
+        "name": "gradient",
+        "label": "Gradient",
+        "file": "output/college.en/gemma4/html/concept_gradient.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "gradient",
+        "label": "Gradient",
+        "file": "output/college.en/sonnet/html/concept_gradient.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gradient_descent",
+        "label": "Gradient Descent",
+        "file": "output/college.en/html/concept_gradient_descent.html"
+      },
+      {
+        "name": "gradient_descent",
+        "label": "Gradient Descent",
+        "file": "output/college.en/gemma4/html/concept_gradient_descent.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "gradient_descent",
+        "label": "Gradient Descent",
+        "file": "output/college.en/sonnet/html/concept_gradient_descent.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "infinity",
+        "label": "Infinity",
+        "file": "output/college.en/html/concept_infinity.html"
+      },
+      {
+        "name": "infinity",
+        "label": "Infinity",
+        "file": "output/college.en/gemma4/html/concept_infinity.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "infinity",
+        "label": "Infinity",
+        "file": "output/college.en/sonnet/html/concept_infinity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/college.en/html/concept_limit.html"
+      },
+      {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/college.en/gemma4/html/concept_limit.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/college.en/sonnet/html/concept_limit.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "optimization",
+        "label": "Optimization",
+        "file": "output/college.en/html/concept_optimization.html"
+      },
+      {
+        "name": "optimization",
+        "label": "Optimization",
+        "file": "output/college.en/gemma4/html/concept_optimization.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "optimization",
+        "label": "Optimization",
+        "file": "output/college.en/sonnet/html/concept_optimization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "partial_derivative",
+        "label": "Partial Derivative",
+        "file": "output/college.en/html/concept_partial_derivative.html"
+      },
+      {
+        "name": "partial_derivative",
+        "label": "Partial Derivative",
+        "file": "output/college.en/gemma4/html/concept_partial_derivative.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "partial_derivative",
+        "label": "Partial Derivative",
+        "file": "output/college.en/sonnet/html/concept_partial_derivative.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "physics_kinematics",
+        "label": "Physics Kinematics",
+        "file": "output/college.en/html/concept_physics_kinematics.html"
+      },
+      {
+        "name": "physics_kinematics",
+        "label": "Physics Kinematics",
+        "file": "output/college.en/gemma4/html/concept_physics_kinematics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "real_number",
+        "label": "Real Number",
+        "file": "output/college.en/html/concept_real_number.html"
+      },
+      {
+        "name": "real_number",
+        "label": "Real Number",
+        "file": "output/college.en/gemma4/html/concept_real_number.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "real_number",
+        "label": "Real Number",
+        "file": "output/college.en/sonnet/html/concept_real_number.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "riemann_sum",
+        "label": "Riemann Sum",
+        "file": "output/college.en/html/concept_riemann_sum.html"
+      },
+      {
+        "name": "riemann_sum",
+        "label": "Riemann Sum",
+        "file": "output/college.en/gemma4/html/concept_riemann_sum.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "riemann_sum",
+        "label": "Riemann Sum",
+        "file": "output/college.en/sonnet/html/concept_riemann_sum.html",
+        "model": "sonnet"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "mechanics",
+    "name": "Classical Mechanics",
+    "description": "From Newton's laws to Lagrangian dynamics.",
+    "capstone": null,
+    "nodes": 28,
+    "edges": 39,
+    "primitives": 4,
+    "concepts": 19,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "orbital_mechanics",
+        "file": "output/college.en/html/book_orbital_mechanics.html"
+      },
+      {
+        "target": "robotics",
+        "file": "output/college.en/html/book_robotics.html"
+      },
+      {
+        "target": "orbital_mechanics",
+        "file": "output/college.en/gemma4/html/book_orbital_mechanics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "robotics",
+        "file": "output/college.en/gemma4/html/book_robotics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "orbital_mechanics",
+        "file": "output/college.en/sonnet/html/book_orbital_mechanics.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "normal_modes",
+        "file": "output/college.en/sonnet/html/book_normal_modes.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "acceleration",
+        "label": "Acceleration",
+        "file": "output/college.en/sonnet/html/concept_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "angular_momentum",
+        "label": "Angular Momentum",
+        "file": "output/college.en/html/concept_angular_momentum.html"
+      },
+      {
+        "name": "angular_momentum",
+        "label": "Angular Momentum",
+        "file": "output/college.en/gemma4/html/concept_angular_momentum.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "angular_momentum",
+        "label": "Angular Momentum",
+        "file": "output/college.en/sonnet/html/concept_angular_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "configuration_space",
+        "label": "Configuration Space",
+        "file": "output/college.en/html/concept_configuration_space.html"
+      },
+      {
+        "name": "configuration_space",
+        "label": "Configuration Space",
+        "file": "output/college.en/gemma4/html/concept_configuration_space.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "configuration_space",
+        "label": "Configuration Space",
+        "file": "output/college.en/sonnet/html/concept_configuration_space.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "constraints",
+        "label": "Constraints",
+        "file": "output/college.en/html/concept_constraints.html"
+      },
+      {
+        "name": "constraints",
+        "label": "Constraints",
+        "file": "output/college.en/gemma4/html/concept_constraints.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "constraints",
+        "label": "Constraints",
+        "file": "output/college.en/sonnet/html/concept_constraints.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy_conservation",
+        "label": "Energy Conservation",
+        "file": "output/college.en/html/concept_energy_conservation.html"
+      },
+      {
+        "name": "energy_conservation",
+        "label": "Energy Conservation",
+        "file": "output/college.en/gemma4/html/concept_energy_conservation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "energy_conservation",
+        "label": "Energy Conservation",
+        "file": "output/college.en/sonnet/html/concept_energy_conservation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "euler_lagrange_equations",
+        "label": "Euler Lagrange Equations",
+        "file": "output/college.en/html/concept_euler_lagrange_equations.html"
+      },
+      {
+        "name": "euler_lagrange_equations",
+        "label": "Euler Lagrange Equations",
+        "file": "output/college.en/gemma4/html/concept_euler_lagrange_equations.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "euler_lagrange_equations",
+        "label": "Euler Lagrange Equations",
+        "file": "output/college.en/sonnet/html/concept_euler_lagrange_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/html/concept_force.html"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/gemma4/html/concept_force.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "generalized_coordinates",
+        "label": "Generalized Coordinates",
+        "file": "output/college.en/html/concept_generalized_coordinates.html"
+      },
+      {
+        "name": "generalized_coordinates",
+        "label": "Generalized Coordinates",
+        "file": "output/college.en/gemma4/html/concept_generalized_coordinates.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "generalized_coordinates",
+        "label": "Generalized Coordinates",
+        "file": "output/college.en/sonnet/html/concept_generalized_coordinates.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "harmonic_oscillator",
+        "label": "Harmonic Oscillator",
+        "file": "output/college.en/sonnet/html/concept_harmonic_oscillator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/html/concept_kinetic_energy.html"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/gemma4/html/concept_kinetic_energy.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lagrangian",
+        "label": "Lagrangian",
+        "file": "output/college.en/html/concept_lagrangian.html"
+      },
+      {
+        "name": "lagrangian",
+        "label": "Lagrangian",
+        "file": "output/college.en/gemma4/html/concept_lagrangian.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "lagrangian",
+        "label": "Lagrangian",
+        "file": "output/college.en/sonnet/html/concept_lagrangian.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "least_action",
+        "label": "Least Action",
+        "file": "output/college.en/html/concept_least_action.html"
+      },
+      {
+        "name": "least_action",
+        "label": "Least Action",
+        "file": "output/college.en/gemma4/html/concept_least_action.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "least_action",
+        "label": "Least Action",
+        "file": "output/college.en/sonnet/html/concept_least_action.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/html/concept_mass.html"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/gemma4/html/concept_mass.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "momentum",
+        "label": "Momentum",
+        "file": "output/college.en/html/concept_momentum.html"
+      },
+      {
+        "name": "momentum",
+        "label": "Momentum",
+        "file": "output/college.en/gemma4/html/concept_momentum.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "momentum",
+        "label": "Momentum",
+        "file": "output/college.en/sonnet/html/concept_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_second_law",
+        "label": "Newtons Second Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_second_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "normal_modes",
+        "label": "Normal Modes",
+        "file": "output/college.en/sonnet/html/concept_normal_modes.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orbital_mechanics",
+        "label": "Orbital Mechanics",
+        "file": "output/college.en/html/concept_orbital_mechanics.html"
+      },
+      {
+        "name": "orbital_mechanics",
+        "label": "Orbital Mechanics",
+        "file": "output/college.en/gemma4/html/concept_orbital_mechanics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "orbital_mechanics",
+        "label": "Orbital Mechanics",
+        "file": "output/college.en/sonnet/html/concept_orbital_mechanics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/college.en/html/concept_position.html"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/college.en/gemma4/html/concept_position.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/college.en/sonnet/html/concept_position.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/html/concept_potential_energy.html"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/gemma4/html/concept_potential_energy.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "robotics",
+        "label": "Robotics",
+        "file": "output/college.en/html/concept_robotics.html"
+      },
+      {
+        "name": "robotics",
+        "label": "Robotics",
+        "file": "output/college.en/gemma4/html/concept_robotics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/college.en/html/concept_time.html"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/college.en/gemma4/html/concept_time.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/college.en/sonnet/html/concept_time.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/html/concept_velocity.html"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/gemma4/html/concept_velocity.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "work",
+        "label": "Work",
+        "file": "output/college.en/html/concept_work.html"
+      },
+      {
+        "name": "work",
+        "label": "Work",
+        "file": "output/college.en/gemma4/html/concept_work.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "work",
+        "label": "Work",
+        "file": "output/college.en/sonnet/html/concept_work.html",
+        "model": "sonnet"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "chemistry_elements",
+    "name": "Chemistry Elements",
+    "description": "From atomic number to the periodic table.",
+    "capstone": null,
+    "nodes": 28,
+    "edges": 38,
+    "primitives": 9,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "reading_chemical_formulas",
+        "file": "output/core.en/gemma4/html/book_reading_chemical_formulas.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "balancing_equations",
+        "file": "output/core.en/gemma4/html/book_balancing_equations.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "balancing_equations",
+        "label": "Balancing Equations",
+        "file": "output/core.en/gemma4/html/concept_balancing_equations.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "C",
+        "label": "C",
+        "file": "output/core.en/gemma4/html/concept_C.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CH4",
+        "label": "Ch4",
+        "file": "output/core.en/gemma4/html/concept_CH4.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Cl",
+        "label": "Cl",
+        "file": "output/core.en/gemma4/html/concept_Cl.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CO2",
+        "label": "Co2",
+        "file": "output/core.en/gemma4/html/concept_CO2.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "conservation_of_atoms",
+        "label": "Conservation Of Atoms",
+        "file": "output/core.en/gemma4/html/concept_conservation_of_atoms.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "covalent_bonding",
+        "label": "Covalent Bonding",
+        "file": "output/core.en/gemma4/html/concept_covalent_bonding.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Fe",
+        "label": "Fe",
+        "file": "output/core.en/gemma4/html/concept_Fe.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Fe2O3",
+        "label": "Fe2O3",
+        "file": "output/core.en/gemma4/html/concept_Fe2O3.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "H",
+        "label": "H",
+        "file": "output/core.en/gemma4/html/concept_H.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "H2",
+        "label": "H2",
+        "file": "output/core.en/gemma4/html/concept_H2.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "H2O",
+        "label": "H2O",
+        "file": "output/core.en/gemma4/html/concept_H2O.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "ionic_bonding",
+        "label": "Ionic Bonding",
+        "file": "output/core.en/gemma4/html/concept_ionic_bonding.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "N",
+        "label": "N",
+        "file": "output/core.en/gemma4/html/concept_N.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "Na",
+        "label": "Na",
+        "file": "output/core.en/gemma4/html/concept_Na.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "NaCl",
+        "label": "Nacl",
+        "file": "output/core.en/gemma4/html/concept_NaCl.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "NH3",
+        "label": "Nh3",
+        "file": "output/core.en/gemma4/html/concept_NH3.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "O",
+        "label": "O",
+        "file": "output/core.en/gemma4/html/concept_O.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "O2",
+        "label": "O2",
+        "file": "output/core.en/gemma4/html/concept_O2.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "reading_chemical_formulas",
+        "label": "Reading Chemical Formulas",
+        "file": "output/core.en/gemma4/html/concept_reading_chemical_formulas.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "stoichiometry",
+        "label": "Stoichiometry",
+        "file": "output/core.en/gemma4/html/concept_stoichiometry.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "valence_electron",
+        "label": "Valence Electron",
+        "file": "output/core.en/gemma4/html/concept_valence_electron.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "core"
+  },
+  {
+    "id": "chinese_characters",
+    "name": "Chinese Characters",
+    "description": "From elemental radicals to compound characters — STEM-style.",
+    "capstone": null,
+    "nodes": 33,
+    "edges": 35,
+    "primitives": 12,
+    "concepts": 16,
+    "applications": 5,
+    "tags": [
+      "language"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "林",
+        "file": "output/intro.en/html/book_林.html"
+      },
+      {
+        "target": "vocabulary_compounds",
+        "file": "output/intro.en/html/book_vocabulary_compounds.html"
+      },
+      {
+        "target": "cultural_etymology",
+        "file": "output/intro.en/html/book_cultural_etymology.html"
+      },
+      {
+        "target": "众",
+        "file": "output/intro.en/html/book_众.html"
+      },
+      {
+        "target": "好",
+        "file": "output/intro.zh/html/book_好.html"
+      },
+      {
+        "target": "众",
+        "file": "output/intro.en/gemma4/html/book_众.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "众",
+        "file": "output/intro.en/sonnet/html/book_众.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "phono_semantic_principle",
+        "file": "output/intro.en/sonnet/html/book_phono_semantic_principle.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "phonetic_borrowing",
+        "label": "Phonetic Borrowing",
+        "file": "output/intro.en/sonnet/html/concept_phonetic_borrowing.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phono_semantic_principle",
+        "label": "Phono Semantic Principle",
+        "file": "output/intro.en/sonnet/html/concept_phono_semantic_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "semantic_composition",
+        "label": "Semantic Composition",
+        "file": "output/intro.en/sonnet/html/concept_semantic_composition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vocabulary_compounds",
+        "label": "Vocabulary Compounds",
+        "file": "output/intro.zh/html/concept_vocabulary_compounds.html"
+      },
+      {
+        "name": "人",
+        "label": "人",
+        "file": "output/intro.zh/html/concept_人.html"
+      },
+      {
+        "name": "人",
+        "label": "人",
+        "file": "output/intro.en/gemma4/html/concept_人.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "人",
+        "label": "人",
+        "file": "output/intro.en/sonnet/html/concept_人.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "从",
+        "label": "从",
+        "file": "output/intro.zh/html/concept_从.html"
+      },
+      {
+        "name": "从",
+        "label": "从",
+        "file": "output/intro.en/gemma4/html/concept_从.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "从",
+        "label": "从",
+        "file": "output/intro.en/sonnet/html/concept_从.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "休",
+        "label": "休",
+        "file": "output/intro.en/sonnet/html/concept_休.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "众",
+        "label": "众",
+        "file": "output/intro.zh/html/concept_众.html"
+      },
+      {
+        "name": "众",
+        "label": "众",
+        "file": "output/intro.en/gemma4/html/concept_众.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "众",
+        "label": "众",
+        "file": "output/intro.en/sonnet/html/concept_众.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "口",
+        "label": "口",
+        "file": "output/intro.zh/html/concept_口.html"
+      },
+      {
+        "name": "口",
+        "label": "口",
+        "file": "output/intro.en/sonnet/html/concept_口.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "吗",
+        "label": "吗",
+        "file": "output/intro.en/sonnet/html/concept_吗.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "女",
+        "label": "女",
+        "file": "output/intro.zh/html/concept_女.html"
+      },
+      {
+        "name": "女",
+        "label": "女",
+        "file": "output/intro.en/sonnet/html/concept_女.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "好",
+        "label": "好",
+        "file": "output/intro.zh/html/concept_好.html"
+      },
+      {
+        "name": "好",
+        "label": "好",
+        "file": "output/intro.en/sonnet/html/concept_好.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "妈",
+        "label": "妈",
+        "file": "output/intro.en/sonnet/html/concept_妈.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "子",
+        "label": "子",
+        "file": "output/intro.zh/html/concept_子.html"
+      },
+      {
+        "name": "子",
+        "label": "子",
+        "file": "output/intro.en/sonnet/html/concept_子.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "字",
+        "label": "字",
+        "file": "output/intro.zh/html/concept_字.html"
+      },
+      {
+        "name": "字",
+        "label": "字",
+        "file": "output/intro.en/sonnet/html/concept_字.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.zh/html/concept_宀.html"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.en/sonnet/html/concept_宀.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "安",
+        "label": "安",
+        "file": "output/intro.en/sonnet/html/concept_安.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "日",
+        "label": "日",
+        "file": "output/intro.zh/html/concept_日.html"
+      },
+      {
+        "name": "日",
+        "label": "日",
+        "file": "output/intro.en/sonnet/html/concept_日.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "明",
+        "label": "明",
+        "file": "output/intro.en/sonnet/html/concept_明.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "月",
+        "label": "月",
+        "file": "output/intro.zh/html/concept_月.html"
+      },
+      {
+        "name": "月",
+        "label": "月",
+        "file": "output/intro.en/sonnet/html/concept_月.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "木",
+        "label": "木",
+        "file": "output/intro.zh/html/concept_木.html"
+      },
+      {
+        "name": "木",
+        "label": "木",
+        "file": "output/intro.en/sonnet/html/concept_木.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "林",
+        "label": "林",
+        "file": "output/intro.zh/html/concept_林.html"
+      },
+      {
+        "name": "林",
+        "label": "林",
+        "file": "output/intro.en/sonnet/html/concept_林.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "森",
+        "label": "森",
+        "file": "output/intro.en/sonnet/html/concept_森.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "水",
+        "label": "水",
+        "file": "output/intro.zh/html/concept_水.html"
+      },
+      {
+        "name": "水",
+        "label": "水",
+        "file": "output/intro.en/sonnet/html/concept_水.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "沐",
+        "label": "沐",
+        "file": "output/intro.en/sonnet/html/concept_沐.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "马",
+        "label": "马",
+        "file": "output/intro.zh/html/concept_马.html"
+      },
+      {
+        "name": "马",
+        "label": "马",
+        "file": "output/intro.en/sonnet/html/concept_马.html",
+        "model": "sonnet"
+      }
+    ],
+    "default_level": "intro",
+    "pdfs": [
+      {
+        "target": "林",
+        "file": "output/intro.en/pdf/book_林.pdf"
+      },
+      {
+        "target": "众",
+        "file": "output/intro.en/pdf/book_众.pdf"
+      },
+      {
+        "target": "好",
+        "file": "output/intro.zh/pdf/book_好.pdf"
+      }
+    ]
+  },
+  {
+    "id": "english_morphology",
+    "name": "English Morphology",
+    "description": "Unlocking English Words the LEGO Way — from prefix/stem/suffix bricks to morphological decoding.",
+    "capstone": "morphological_decoding_principle",
+    "nodes": 39,
+    "edges": 64,
+    "primitives": 3,
+    "concepts": 31,
+    "applications": 5,
+    "tags": [
+      "language"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "import",
+        "file": "output/intro.en/html/book_import.html"
+      },
+      {
+        "target": "decoding_unseen_words",
+        "file": "output/intro.en/html/book_decoding_unseen_words.html"
+      },
+      {
+        "target": "academic_vocabulary",
+        "file": "output/intro.en/html/book_academic_vocabulary.html"
+      },
+      {
+        "target": "decoding_unseen_words",
+        "file": "output/intro.en/gemma4/html/book_decoding_unseen_words.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "academic_vocabulary",
+        "file": "output/intro.en/gemma4/html/book_academic_vocabulary.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "decoding_unseen_words",
+        "file": "output/intro.en/sonnet/html/book_decoding_unseen_words.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "academic_vocabulary",
+        "file": "output/intro.en/sonnet/html/book_academic_vocabulary.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "decoding_unseen_words",
+        "file": "output/intro.en/gemma3/html/book_decoding_unseen_words.html",
+        "model": "gemma3"
+      },
+      {
+        "target": "academic_vocabulary",
+        "file": "output/intro.en/gemma3/html/book_academic_vocabulary.html",
+        "model": "gemma3"
+      },
+      {
+        "target": "-ion",
+        "file": "output/intro.en/gemma4/html/book_-ion.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "-ion",
+        "file": "output/intro.en/gemma3/html/book_-ion.html",
+        "model": "gemma3"
+      },
+      {
+        "target": "-ion",
+        "file": "output/intro.en/sonnet/html/book_-ion.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "morphological_decoding_principle",
+        "file": "output/intro.en/sonnet/html/book_morphological_decoding_principle.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "-able",
+        "label": "-Able",
+        "file": "output/intro.en/html/concept_-able.html"
+      },
+      {
+        "name": "-able",
+        "label": "-Able",
+        "file": "output/intro.en/gemma4/html/concept_-able.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "-able",
+        "label": "-Able",
+        "file": "output/intro.en/gemma3/html/concept_-able.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "-able",
+        "label": "-Able",
+        "file": "output/intro.en/sonnet/html/concept_-able.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "-ion",
+        "label": "-Ion",
+        "file": "output/intro.en/html/concept_-ion.html"
+      },
+      {
+        "name": "-ion",
+        "label": "-Ion",
+        "file": "output/intro.en/gemma4/html/concept_-ion.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "-ion",
+        "label": "-Ion",
+        "file": "output/intro.en/gemma3/html/concept_-ion.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "-ion",
+        "label": "-Ion",
+        "file": "output/intro.en/sonnet/html/concept_-ion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "-or",
+        "label": "-Or",
+        "file": "output/intro.en/html/concept_-or.html"
+      },
+      {
+        "name": "-or",
+        "label": "-Or",
+        "file": "output/intro.en/gemma4/html/concept_-or.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "-or",
+        "label": "-Or",
+        "file": "output/intro.en/gemma3/html/concept_-or.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "-or",
+        "label": "-Or",
+        "file": "output/intro.en/sonnet/html/concept_-or.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "academic_vocabulary",
+        "label": "Academic Vocabulary",
+        "file": "output/intro.en/html/concept_academic_vocabulary.html"
+      },
+      {
+        "name": "academic_vocabulary",
+        "label": "Academic Vocabulary",
+        "file": "output/intro.en/gemma4/html/concept_academic_vocabulary.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "academic_vocabulary",
+        "label": "Academic Vocabulary",
+        "file": "output/intro.en/gemma3/html/concept_academic_vocabulary.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "academic_vocabulary",
+        "label": "Academic Vocabulary",
+        "file": "output/intro.en/sonnet/html/concept_academic_vocabulary.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "allomorphy",
+        "label": "Allomorphy",
+        "file": "output/intro.en/html/concept_allomorphy.html"
+      },
+      {
+        "name": "allomorphy",
+        "label": "Allomorphy",
+        "file": "output/intro.en/gemma4/html/concept_allomorphy.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "allomorphy",
+        "label": "Allomorphy",
+        "file": "output/intro.en/gemma3/html/concept_allomorphy.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "allomorphy",
+        "label": "Allomorphy",
+        "file": "output/intro.en/sonnet/html/concept_allomorphy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "con-",
+        "label": "Con-",
+        "file": "output/intro.en/html/concept_con-.html"
+      },
+      {
+        "name": "con-",
+        "label": "Con-",
+        "file": "output/intro.en/gemma4/html/concept_con-.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "con-",
+        "label": "Con-",
+        "file": "output/intro.en/gemma3/html/concept_con-.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "con-",
+        "label": "Con-",
+        "file": "output/intro.en/sonnet/html/concept_con-.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "construct",
+        "label": "Construct",
+        "file": "output/intro.en/html/concept_construct.html"
+      },
+      {
+        "name": "construct",
+        "label": "Construct",
+        "file": "output/intro.en/gemma4/html/concept_construct.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "construct",
+        "label": "Construct",
+        "file": "output/intro.en/gemma3/html/concept_construct.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "construct",
+        "label": "Construct",
+        "file": "output/intro.en/sonnet/html/concept_construct.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "construction",
+        "label": "Construction",
+        "file": "output/intro.en/html/concept_construction.html"
+      },
+      {
+        "name": "construction",
+        "label": "Construction",
+        "file": "output/intro.en/gemma4/html/concept_construction.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "construction",
+        "label": "Construction",
+        "file": "output/intro.en/gemma3/html/concept_construction.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "construction",
+        "label": "Construction",
+        "file": "output/intro.en/sonnet/html/concept_construction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "decoding_unseen_words",
+        "label": "Decoding Unseen Words",
+        "file": "output/intro.en/html/concept_decoding_unseen_words.html"
+      },
+      {
+        "name": "decoding_unseen_words",
+        "label": "Decoding Unseen Words",
+        "file": "output/intro.en/gemma4/html/concept_decoding_unseen_words.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "decoding_unseen_words",
+        "label": "Decoding Unseen Words",
+        "file": "output/intro.en/gemma3/html/concept_decoding_unseen_words.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "decoding_unseen_words",
+        "label": "Decoding Unseen Words",
+        "file": "output/intro.en/sonnet/html/concept_decoding_unseen_words.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "dict",
+        "label": "Dict",
+        "file": "output/intro.en/html/concept_dict.html"
+      },
+      {
+        "name": "dict",
+        "label": "Dict",
+        "file": "output/intro.en/gemma4/html/concept_dict.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dict",
+        "label": "Dict",
+        "file": "output/intro.en/gemma3/html/concept_dict.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "dict",
+        "label": "Dict",
+        "file": "output/intro.en/sonnet/html/concept_dict.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "import",
+        "label": "Import",
+        "file": "output/intro.en/html/concept_import.html"
+      },
+      {
+        "name": "import",
+        "label": "Import",
+        "file": "output/intro.en/gemma4/html/concept_import.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "import",
+        "label": "Import",
+        "file": "output/intro.en/gemma3/html/concept_import.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "import",
+        "label": "Import",
+        "file": "output/intro.en/sonnet/html/concept_import.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "in-",
+        "label": "In-",
+        "file": "output/intro.en/html/concept_in-.html"
+      },
+      {
+        "name": "in-",
+        "label": "In-",
+        "file": "output/intro.en/gemma4/html/concept_in-.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "in-",
+        "label": "In-",
+        "file": "output/intro.en/gemma3/html/concept_in-.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "in-",
+        "label": "In-",
+        "file": "output/intro.en/sonnet/html/concept_in-.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inspect",
+        "label": "Inspect",
+        "file": "output/intro.en/html/concept_inspect.html"
+      },
+      {
+        "name": "inspect",
+        "label": "Inspect",
+        "file": "output/intro.en/gemma4/html/concept_inspect.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "inspect",
+        "label": "Inspect",
+        "file": "output/intro.en/gemma3/html/concept_inspect.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "inspect",
+        "label": "Inspect",
+        "file": "output/intro.en/sonnet/html/concept_inspect.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inspection",
+        "label": "Inspection",
+        "file": "output/intro.en/html/concept_inspection.html"
+      },
+      {
+        "name": "inspection",
+        "label": "Inspection",
+        "file": "output/intro.en/gemma4/html/concept_inspection.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "inspection",
+        "label": "Inspection",
+        "file": "output/intro.en/gemma3/html/concept_inspection.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "inspection",
+        "label": "Inspection",
+        "file": "output/intro.en/sonnet/html/concept_inspection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inspector",
+        "label": "Inspector",
+        "file": "output/intro.en/html/concept_inspector.html"
+      },
+      {
+        "name": "inspector",
+        "label": "Inspector",
+        "file": "output/intro.en/gemma4/html/concept_inspector.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "inspector",
+        "label": "Inspector",
+        "file": "output/intro.en/gemma3/html/concept_inspector.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "inspector",
+        "label": "Inspector",
+        "file": "output/intro.en/sonnet/html/concept_inspector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ject",
+        "label": "Ject",
+        "file": "output/intro.en/html/concept_ject.html"
+      },
+      {
+        "name": "ject",
+        "label": "Ject",
+        "file": "output/intro.en/gemma4/html/concept_ject.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "ject",
+        "label": "Ject",
+        "file": "output/intro.en/gemma3/html/concept_ject.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "ject",
+        "label": "Ject",
+        "file": "output/intro.en/sonnet/html/concept_ject.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "morphological_decoding_principle",
+        "label": "Morphological Decoding Principle",
+        "file": "output/intro.en/html/concept_morphological_decoding_principle.html"
+      },
+      {
+        "name": "morphological_decoding_principle",
+        "label": "Morphological Decoding Principle",
+        "file": "output/intro.en/gemma4/html/concept_morphological_decoding_principle.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "morphological_decoding_principle",
+        "label": "Morphological Decoding Principle",
+        "file": "output/intro.en/gemma3/html/concept_morphological_decoding_principle.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "morphological_decoding_principle",
+        "label": "Morphological Decoding Principle",
+        "file": "output/intro.en/sonnet/html/concept_morphological_decoding_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "port",
+        "label": "Port",
+        "file": "output/intro.en/html/concept_port.html"
+      },
+      {
+        "name": "port",
+        "label": "Port",
+        "file": "output/intro.en/gemma4/html/concept_port.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "port",
+        "label": "Port",
+        "file": "output/intro.en/gemma3/html/concept_port.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "port",
+        "label": "Port",
+        "file": "output/intro.en/sonnet/html/concept_port.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "portable",
+        "label": "Portable",
+        "file": "output/intro.en/html/concept_portable.html"
+      },
+      {
+        "name": "portable",
+        "label": "Portable",
+        "file": "output/intro.en/gemma4/html/concept_portable.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "portable",
+        "label": "Portable",
+        "file": "output/intro.en/gemma3/html/concept_portable.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "portable",
+        "label": "Portable",
+        "file": "output/intro.en/sonnet/html/concept_portable.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pre-",
+        "label": "Pre-",
+        "file": "output/intro.en/html/concept_pre-.html"
+      },
+      {
+        "name": "pre-",
+        "label": "Pre-",
+        "file": "output/intro.en/gemma4/html/concept_pre-.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pre-",
+        "label": "Pre-",
+        "file": "output/intro.en/gemma3/html/concept_pre-.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "pre-",
+        "label": "Pre-",
+        "file": "output/intro.en/sonnet/html/concept_pre-.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "predict",
+        "label": "Predict",
+        "file": "output/intro.en/html/concept_predict.html"
+      },
+      {
+        "name": "predict",
+        "label": "Predict",
+        "file": "output/intro.en/gemma4/html/concept_predict.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "predict",
+        "label": "Predict",
+        "file": "output/intro.en/gemma3/html/concept_predict.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "predict",
+        "label": "Predict",
+        "file": "output/intro.en/sonnet/html/concept_predict.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "prediction",
+        "label": "Prediction",
+        "file": "output/intro.en/html/concept_prediction.html"
+      },
+      {
+        "name": "prediction",
+        "label": "Prediction",
+        "file": "output/intro.en/gemma4/html/concept_prediction.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "prediction",
+        "label": "Prediction",
+        "file": "output/intro.en/gemma3/html/concept_prediction.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "prediction",
+        "label": "Prediction",
+        "file": "output/intro.en/sonnet/html/concept_prediction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "prefix",
+        "label": "Prefix",
+        "file": "output/intro.en/html/concept_prefix.html"
+      },
+      {
+        "name": "prefix",
+        "label": "Prefix",
+        "file": "output/intro.en/gemma4/html/concept_prefix.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "prefix",
+        "label": "Prefix",
+        "file": "output/intro.en/gemma3/html/concept_prefix.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "prefix",
+        "label": "Prefix",
+        "file": "output/intro.en/sonnet/html/concept_prefix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "prefix_root_composition",
+        "label": "Prefix Root Composition",
+        "file": "output/intro.en/html/concept_prefix_root_composition.html"
+      },
+      {
+        "name": "prefix_root_composition",
+        "label": "Prefix Root Composition",
+        "file": "output/intro.en/gemma4/html/concept_prefix_root_composition.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "prefix_root_composition",
+        "label": "Prefix Root Composition",
+        "file": "output/intro.en/gemma3/html/concept_prefix_root_composition.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "prefix_root_composition",
+        "label": "Prefix Root Composition",
+        "file": "output/intro.en/sonnet/html/concept_prefix_root_composition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "re-",
+        "label": "Re-",
+        "file": "output/intro.en/html/concept_re-.html"
+      },
+      {
+        "name": "re-",
+        "label": "Re-",
+        "file": "output/intro.en/gemma4/html/concept_re-.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "re-",
+        "label": "Re-",
+        "file": "output/intro.en/gemma3/html/concept_re-.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "re-",
+        "label": "Re-",
+        "file": "output/intro.en/sonnet/html/concept_re-.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "reject",
+        "label": "Reject",
+        "file": "output/intro.en/html/concept_reject.html"
+      },
+      {
+        "name": "reject",
+        "label": "Reject",
+        "file": "output/intro.en/gemma4/html/concept_reject.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "reject",
+        "label": "Reject",
+        "file": "output/intro.en/gemma3/html/concept_reject.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "reject",
+        "label": "Reject",
+        "file": "output/intro.en/sonnet/html/concept_reject.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rejection",
+        "label": "Rejection",
+        "file": "output/intro.en/html/concept_rejection.html"
+      },
+      {
+        "name": "rejection",
+        "label": "Rejection",
+        "file": "output/intro.en/gemma4/html/concept_rejection.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "rejection",
+        "label": "Rejection",
+        "file": "output/intro.en/gemma3/html/concept_rejection.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "rejection",
+        "label": "Rejection",
+        "file": "output/intro.en/sonnet/html/concept_rejection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "spect",
+        "label": "Spect",
+        "file": "output/intro.en/html/concept_spect.html"
+      },
+      {
+        "name": "spect",
+        "label": "Spect",
+        "file": "output/intro.en/gemma4/html/concept_spect.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "spect",
+        "label": "Spect",
+        "file": "output/intro.en/gemma3/html/concept_spect.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "spect",
+        "label": "Spect",
+        "file": "output/intro.en/sonnet/html/concept_spect.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "stem",
+        "label": "Stem",
+        "file": "output/intro.en/html/concept_stem.html"
+      },
+      {
+        "name": "stem",
+        "label": "Stem",
+        "file": "output/intro.en/gemma4/html/concept_stem.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "stem",
+        "label": "Stem",
+        "file": "output/intro.en/gemma3/html/concept_stem.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "stem",
+        "label": "Stem",
+        "file": "output/intro.en/sonnet/html/concept_stem.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "struct",
+        "label": "Struct",
+        "file": "output/intro.en/html/concept_struct.html"
+      },
+      {
+        "name": "struct",
+        "label": "Struct",
+        "file": "output/intro.en/gemma4/html/concept_struct.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "struct",
+        "label": "Struct",
+        "file": "output/intro.en/gemma3/html/concept_struct.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "struct",
+        "label": "Struct",
+        "file": "output/intro.en/sonnet/html/concept_struct.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "suffix",
+        "label": "Suffix",
+        "file": "output/intro.en/html/concept_suffix.html"
+      },
+      {
+        "name": "suffix",
+        "label": "Suffix",
+        "file": "output/intro.en/gemma4/html/concept_suffix.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "suffix",
+        "label": "Suffix",
+        "file": "output/intro.en/gemma3/html/concept_suffix.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "suffix",
+        "label": "Suffix",
+        "file": "output/intro.en/sonnet/html/concept_suffix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "suffix_derivation",
+        "label": "Suffix Derivation",
+        "file": "output/intro.en/html/concept_suffix_derivation.html"
+      },
+      {
+        "name": "suffix_derivation",
+        "label": "Suffix Derivation",
+        "file": "output/intro.en/gemma4/html/concept_suffix_derivation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "suffix_derivation",
+        "label": "Suffix Derivation",
+        "file": "output/intro.en/gemma3/html/concept_suffix_derivation.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "suffix_derivation",
+        "label": "Suffix Derivation",
+        "file": "output/intro.en/sonnet/html/concept_suffix_derivation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "trans-",
+        "label": "Trans-",
+        "file": "output/intro.en/html/concept_trans-.html"
+      },
+      {
+        "name": "trans-",
+        "label": "Trans-",
+        "file": "output/intro.en/gemma4/html/concept_trans-.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "trans-",
+        "label": "Trans-",
+        "file": "output/intro.en/gemma3/html/concept_trans-.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "trans-",
+        "label": "Trans-",
+        "file": "output/intro.en/sonnet/html/concept_trans-.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "transport",
+        "label": "Transport",
+        "file": "output/intro.en/html/concept_transport.html"
+      },
+      {
+        "name": "transport",
+        "label": "Transport",
+        "file": "output/intro.en/gemma4/html/concept_transport.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transport",
+        "label": "Transport",
+        "file": "output/intro.en/gemma3/html/concept_transport.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "transport",
+        "label": "Transport",
+        "file": "output/intro.en/sonnet/html/concept_transport.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "transportable",
+        "label": "Transportable",
+        "file": "output/intro.en/html/concept_transportable.html"
+      },
+      {
+        "name": "transportable",
+        "label": "Transportable",
+        "file": "output/intro.en/gemma4/html/concept_transportable.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transportable",
+        "label": "Transportable",
+        "file": "output/intro.en/gemma3/html/concept_transportable.html",
+        "model": "gemma3"
+      },
+      {
+        "name": "transportable",
+        "label": "Transportable",
+        "file": "output/intro.en/sonnet/html/concept_transportable.html",
+        "model": "sonnet"
+      }
+    ],
+    "default_level": "intro"
+  },
+  {
+    "id": "python_science",
+    "name": "Python for Science",
+    "description": "From Python basics to scientific computing with NumPy, SciPy, and friends.",
+    "capstone": null,
+    "nodes": 28,
+    "edges": 33,
+    "primitives": 4,
+    "concepts": 19,
+    "applications": 5,
+    "tags": [
+      "cs",
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "random_sampling",
+        "file": "output/college.en/html/book_random_sampling.html"
+      },
+      {
+        "target": "symbolic_computation",
+        "file": "output/college.en/html/book_symbolic_computation.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "array",
+        "label": "Array",
+        "file": "output/college.en/html/concept_array.html"
+      },
+      {
+        "name": "random_sampling",
+        "label": "Random Sampling",
+        "file": "output/college.en/html/concept_random_sampling.html"
+      },
+      {
+        "name": "randomness",
+        "label": "Randomness",
+        "file": "output/college.en/html/concept_randomness.html"
+      },
+      {
+        "name": "symbol",
+        "label": "Symbol",
+        "file": "output/college.en/html/concept_symbol.html"
+      },
+      {
+        "name": "symbolic_computation",
+        "label": "Symbolic Computation",
+        "file": "output/college.en/html/concept_symbolic_computation.html"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "sage_learning",
+    "name": "SageMath",
+    "description": "From Python syntax to symbolic mathematics with SageMath.",
+    "capstone": null,
+    "nodes": 27,
+    "edges": 33,
+    "primitives": 4,
+    "concepts": 18,
+    "applications": 5,
+    "tags": [
+      "math",
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "algebraic_numbers",
+        "file": "output/research.en/html/book_algebraic_numbers.html"
+      },
+      {
+        "target": "cryptography",
+        "file": "output/research.en/html/book_cryptography.html"
+      },
+      {
+        "target": "general_relativity",
+        "file": "output/research.en/html/book_general_relativity.html"
+      },
+      {
+        "target": "simplification",
+        "file": "output/research.zh/html/book_simplification.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "cryptography",
+        "label": "Cryptography",
+        "file": "output/research.zh/html/concept_cryptography.html"
+      },
+      {
+        "name": "exact_integer",
+        "label": "Exact Integer",
+        "file": "output/research.zh/html/concept_exact_integer.html"
+      },
+      {
+        "name": "finite_fields",
+        "label": "Finite Fields",
+        "file": "output/research.zh/html/concept_finite_fields.html"
+      },
+      {
+        "name": "number_theory_sage",
+        "label": "Number Theory Sage",
+        "file": "output/research.zh/html/concept_number_theory_sage.html"
+      },
+      {
+        "name": "parent_structure",
+        "label": "Parent Structure",
+        "file": "output/research.zh/html/concept_parent_structure.html"
+      },
+      {
+        "name": "polynomial_rings",
+        "label": "Polynomial Rings",
+        "file": "output/research.zh/html/concept_polynomial_rings.html"
+      },
+      {
+        "name": "simplification",
+        "label": "Simplification",
+        "file": "output/research.zh/html/concept_simplification.html"
+      },
+      {
+        "name": "symbolic_expression",
+        "label": "Symbolic Expression",
+        "file": "output/research.zh/html/concept_symbolic_expression.html"
+      },
+      {
+        "name": "symbolic_variable",
+        "label": "Symbolic Variable",
+        "file": "output/research.zh/html/concept_symbolic_variable.html"
+      }
+    ],
+    "default_level": "research"
+  },
+  {
+    "id": "lean_proving",
+    "name": "Lean Theorem Proving",
+    "description": "From propositions to formal proof in Lean 4.",
+    "capstone": null,
+    "nodes": 28,
+    "edges": 37,
+    "primitives": 4,
+    "concepts": 19,
+    "applications": 5,
+    "tags": [
+      "math",
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "function_types",
+        "file": "output/research.en/html/book_function_types.html"
+      },
+      {
+        "target": "verified_mathematics",
+        "file": "output/research.en/gemma4/html/book_verified_mathematics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "ai_mathematics",
+        "file": "output/research.en/gemma4/html/book_ai_mathematics.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "ai_assisted_proving",
+        "label": "Ai Assisted Proving",
+        "file": "output/research.en/gemma4/html/concept_ai_assisted_proving.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "ai_mathematics",
+        "label": "Ai Mathematics",
+        "file": "output/research.en/gemma4/html/concept_ai_mathematics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "automation_tactics",
+        "label": "Automation Tactics",
+        "file": "output/research.en/gemma4/html/concept_automation_tactics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "core_tactics",
+        "label": "Core Tactics",
+        "file": "output/research.en/gemma4/html/concept_core_tactics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "curry_howard",
+        "label": "Curry Howard",
+        "file": "output/research.en/gemma4/html/concept_curry_howard.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "equality_rfl",
+        "label": "Equality Rfl",
+        "file": "output/research.en/gemma4/html/concept_equality_rfl.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "formalization_gap",
+        "label": "Formalization Gap",
+        "file": "output/research.en/gemma4/html/concept_formalization_gap.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "function_types",
+        "label": "Function Types",
+        "file": "output/research.en/html/concept_function_types.html"
+      },
+      {
+        "name": "function_types",
+        "label": "Function Types",
+        "file": "output/research.en/gemma4/html/concept_function_types.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "inductive_types",
+        "label": "Inductive Types",
+        "file": "output/research.en/gemma4/html/concept_inductive_types.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mathlib",
+        "label": "Mathlib",
+        "file": "output/research.en/gemma4/html/concept_mathlib.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "proof",
+        "label": "Proof",
+        "file": "output/research.en/gemma4/html/concept_proof.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "proof_search",
+        "label": "Proof Search",
+        "file": "output/research.en/gemma4/html/concept_proof_search.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "proposition",
+        "label": "Proposition",
+        "file": "output/research.en/gemma4/html/concept_proposition.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "rewriting_simp",
+        "label": "Rewriting Simp",
+        "file": "output/research.en/gemma4/html/concept_rewriting_simp.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "sorry_first_workflow",
+        "label": "Sorry First Workflow",
+        "file": "output/research.en/gemma4/html/concept_sorry_first_workflow.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "tactic_mode",
+        "label": "Tactic Mode",
+        "file": "output/research.en/gemma4/html/concept_tactic_mode.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "term",
+        "label": "Term",
+        "file": "output/research.en/html/concept_term.html"
+      },
+      {
+        "name": "term",
+        "label": "Term",
+        "file": "output/research.en/gemma4/html/concept_term.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "theorem_statements",
+        "label": "Theorem Statements",
+        "file": "output/research.en/gemma4/html/concept_theorem_statements.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "type",
+        "label": "Type",
+        "file": "output/research.en/html/concept_type.html"
+      },
+      {
+        "name": "type",
+        "label": "Type",
+        "file": "output/research.en/gemma4/html/concept_type.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "typeclasses_structures",
+        "label": "Typeclasses Structures",
+        "file": "output/research.en/gemma4/html/concept_typeclasses_structures.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "verified_mathematics",
+        "label": "Verified Mathematics",
+        "file": "output/research.en/gemma4/html/concept_verified_mathematics.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "research"
+  },
+  {
+    "id": "music_theory",
+    "name": "Music Theory",
+    "description": "From pitch and rhythm to harmony and composition.",
+    "capstone": null,
+    "nodes": 26,
+    "edges": 37,
+    "primitives": 4,
+    "concepts": 17,
+    "applications": 5,
+    "tags": [
+      "arts"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "play_from_chord_charts",
+        "file": "output/core.en/gemma4/html/book_play_from_chord_charts.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "transposition_arithmetic",
+        "file": "output/core.en/gemma4/html/book_transposition_arithmetic.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "beat",
+        "label": "Beat",
+        "file": "output/core.en/gemma4/html/concept_beat.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "chord_construction",
+        "label": "Chord Construction",
+        "file": "output/core.en/gemma4/html/concept_chord_construction.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dominant_seventh",
+        "label": "Dominant Seventh",
+        "file": "output/core.en/gemma4/html/concept_dominant_seventh.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "eighth_note",
+        "label": "Eighth Note",
+        "file": "output/core.en/gemma4/html/concept_eighth_note.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "four_chord_loop",
+        "label": "Four Chord Loop",
+        "file": "output/core.en/gemma4/html/concept_four_chord_loop.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "halving",
+        "label": "Halving",
+        "file": "output/core.en/gemma4/html/concept_halving.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "interval_stacking",
+        "label": "Interval Stacking",
+        "file": "output/core.en/gemma4/html/concept_interval_stacking.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "major_scale",
+        "label": "Major Scale",
+        "file": "output/core.en/gemma4/html/concept_major_scale.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "major_third",
+        "label": "Major Third",
+        "file": "output/core.en/gemma4/html/concept_major_third.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "major_triad",
+        "label": "Major Triad",
+        "file": "output/core.en/gemma4/html/concept_major_triad.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "measure",
+        "label": "Measure",
+        "file": "output/core.en/gemma4/html/concept_measure.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "melody",
+        "label": "Melody",
+        "file": "output/core.en/gemma4/html/concept_melody.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "middle_c",
+        "label": "Middle C",
+        "file": "output/core.en/gemma4/html/concept_middle_c.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "minor_third",
+        "label": "Minor Third",
+        "file": "output/core.en/gemma4/html/concept_minor_third.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "minor_triad",
+        "label": "Minor Triad",
+        "file": "output/core.en/gemma4/html/concept_minor_triad.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "octave",
+        "label": "Octave",
+        "file": "output/core.en/gemma4/html/concept_octave.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "perfect_fifth",
+        "label": "Perfect Fifth",
+        "file": "output/core.en/gemma4/html/concept_perfect_fifth.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "perfect_fourth",
+        "label": "Perfect Fourth",
+        "file": "output/core.en/gemma4/html/concept_perfect_fourth.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "play_from_chord_charts",
+        "label": "Play From Chord Charts",
+        "file": "output/core.en/gemma4/html/concept_play_from_chord_charts.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "rhythm_grouping",
+        "label": "Rhythm Grouping",
+        "file": "output/core.en/gemma4/html/concept_rhythm_grouping.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "semitone",
+        "label": "Semitone",
+        "file": "output/core.en/gemma4/html/concept_semitone.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transposition_arithmetic",
+        "label": "Transposition Arithmetic",
+        "file": "output/core.en/gemma4/html/concept_transposition_arithmetic.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "whole_tone",
+        "label": "Whole Tone",
+        "file": "output/core.en/gemma4/html/concept_whole_tone.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "core"
+  },
+  {
+    "id": "biology",
+    "name": "Biology",
+    "description": "From cells and genes to ecosystems and evolution.",
+    "capstone": null,
+    "nodes": 23,
+    "edges": 39,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "genetic_engineering",
+        "file": "output/college.en/gemma4/html/book_genetic_engineering.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "vaccine_design",
+        "file": "output/college.en/gemma4/html/book_vaccine_design.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "cell",
+        "label": "Cell",
+        "file": "output/college.en/gemma4/html/concept_cell.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "cell_division",
+        "label": "Cell Division",
+        "file": "output/college.en/gemma4/html/concept_cell_division.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "gene_expression",
+        "label": "Gene Expression",
+        "file": "output/college.en/gemma4/html/concept_gene_expression.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "genetic_engineering",
+        "label": "Genetic Engineering",
+        "file": "output/college.en/gemma4/html/concept_genetic_engineering.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "hereditary_information",
+        "label": "Hereditary Information",
+        "file": "output/college.en/gemma4/html/concept_hereditary_information.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "molecule",
+        "label": "Molecule",
+        "file": "output/college.en/gemma4/html/concept_molecule.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mutation",
+        "label": "Mutation",
+        "file": "output/college.en/gemma4/html/concept_mutation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "natural_selection",
+        "label": "Natural Selection",
+        "file": "output/college.en/gemma4/html/concept_natural_selection.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transcription",
+        "label": "Transcription",
+        "file": "output/college.en/gemma4/html/concept_transcription.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "translation",
+        "label": "Translation",
+        "file": "output/college.en/gemma4/html/concept_translation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "vaccine_design",
+        "label": "Vaccine Design",
+        "file": "output/college.en/gemma4/html/concept_vaccine_design.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "cs_algorithms",
+    "name": "Algorithms",
+    "description": "From sorting and searching to graph algorithms and complexity.",
+    "capstone": null,
+    "nodes": 23,
+    "edges": 37,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "route_planning",
+        "file": "output/college.en/gemma4/html/book_route_planning.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "search_engine_ranking",
+        "file": "output/college.en/gemma4/html/book_search_engine_ranking.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "compiler_optimization",
+        "file": "output/college.en/sonnet/html/book_compiler_optimization.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "dynamic_programming",
+        "file": "output/college.en/sonnet/html/book_dynamic_programming.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "bfs",
+        "label": "Bfs",
+        "file": "output/college.en/gemma4/html/concept_bfs.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "comparison",
+        "label": "Comparison",
+        "file": "output/college.en/gemma4/html/concept_comparison.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "compiler_optimization",
+        "label": "Compiler Optimization",
+        "file": "output/college.en/sonnet/html/concept_compiler_optimization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "dfs",
+        "label": "Dfs",
+        "file": "output/college.en/sonnet/html/concept_dfs.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "dijkstra",
+        "label": "Dijkstra",
+        "file": "output/college.en/gemma4/html/concept_dijkstra.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dynamic_programming",
+        "label": "Dynamic Programming",
+        "file": "output/college.en/gemma4/html/concept_dynamic_programming.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "dynamic_programming",
+        "label": "Dynamic Programming",
+        "file": "output/college.en/sonnet/html/concept_dynamic_programming.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "dynamic_programming_on_graphs",
+        "label": "Dynamic Programming On Graphs",
+        "file": "output/college.en/gemma4/html/concept_dynamic_programming_on_graphs.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "greedy",
+        "label": "Greedy",
+        "file": "output/college.en/gemma4/html/concept_greedy.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "memory_access",
+        "label": "Memory Access",
+        "file": "output/college.en/gemma4/html/concept_memory_access.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "memory_access",
+        "label": "Memory Access",
+        "file": "output/college.en/sonnet/html/concept_memory_access.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "recursion",
+        "label": "Recursion",
+        "file": "output/college.en/gemma4/html/concept_recursion.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "recursion",
+        "label": "Recursion",
+        "file": "output/college.en/sonnet/html/concept_recursion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "route_planning",
+        "label": "Route Planning",
+        "file": "output/college.en/gemma4/html/concept_route_planning.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "search_engine_ranking",
+        "label": "Search Engine Ranking",
+        "file": "output/college.en/gemma4/html/concept_search_engine_ranking.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "cs_data_structures",
+    "name": "Data Structures",
+    "description": "From arrays and linked lists to trees and hash tables.",
+    "capstone": null,
+    "nodes": 21,
+    "edges": 29,
+    "primitives": 4,
+    "concepts": 12,
+    "applications": 5,
+    "tags": [
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "compiler_symbol_table",
+        "file": "output/college.en/gemma4/html/book_compiler_symbol_table.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "operating_system_scheduler",
+        "file": "output/college.en/gemma4/html/book_operating_system_scheduler.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "array",
+        "label": "Array",
+        "file": "output/college.en/gemma4/html/concept_array.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "binary_search_tree",
+        "label": "Binary Search Tree",
+        "file": "output/college.en/gemma4/html/concept_binary_search_tree.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "binary_tree",
+        "label": "Binary Tree",
+        "file": "output/college.en/gemma4/html/concept_binary_tree.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "comparison",
+        "label": "Comparison",
+        "file": "output/college.en/gemma4/html/concept_comparison.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "compiler_symbol_table",
+        "label": "Compiler Symbol Table",
+        "file": "output/college.en/gemma4/html/concept_compiler_symbol_table.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "hash_table",
+        "label": "Hash Table",
+        "file": "output/college.en/gemma4/html/concept_hash_table.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "heap",
+        "label": "Heap",
+        "file": "output/college.en/gemma4/html/concept_heap.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "key",
+        "label": "Key",
+        "file": "output/college.en/gemma4/html/concept_key.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "linked_list",
+        "label": "Linked List",
+        "file": "output/college.en/gemma4/html/concept_linked_list.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "memory_cell",
+        "label": "Memory Cell",
+        "file": "output/college.en/gemma4/html/concept_memory_cell.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "operating_system_scheduler",
+        "label": "Operating System Scheduler",
+        "file": "output/college.en/gemma4/html/concept_operating_system_scheduler.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pointer",
+        "label": "Pointer",
+        "file": "output/college.en/gemma4/html/concept_pointer.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "priority_queue",
+        "label": "Priority Queue",
+        "file": "output/college.en/gemma4/html/concept_priority_queue.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "queue",
+        "label": "Queue",
+        "file": "output/college.en/gemma4/html/concept_queue.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "medicine",
+    "name": "Medicine",
+    "description": "From anatomy and physiology to diagnosis and treatment.",
+    "capstone": null,
+    "nodes": 20,
+    "edges": 38,
+    "primitives": 4,
+    "concepts": 11,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "precision_medicine",
+        "file": "output/research.en/gemma4/html/book_precision_medicine.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "public_health",
+        "file": "output/research.en/gemma4/html/book_public_health.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "anatomy",
+        "label": "Anatomy",
+        "file": "output/research.en/gemma4/html/concept_anatomy.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "diagnosis",
+        "label": "Diagnosis",
+        "file": "output/research.en/gemma4/html/concept_diagnosis.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "epidemiology",
+        "label": "Epidemiology",
+        "file": "output/research.en/gemma4/html/concept_epidemiology.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "immune_response",
+        "label": "Immune Response",
+        "file": "output/research.en/gemma4/html/concept_immune_response.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pathogen",
+        "label": "Pathogen",
+        "file": "output/research.en/gemma4/html/concept_pathogen.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pharmacodynamics",
+        "label": "Pharmacodynamics",
+        "file": "output/research.en/gemma4/html/concept_pharmacodynamics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "pharmacokinetics",
+        "label": "Pharmacokinetics",
+        "file": "output/research.en/gemma4/html/concept_pharmacokinetics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "physiology",
+        "label": "Physiology",
+        "file": "output/research.en/gemma4/html/concept_physiology.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "precision_medicine",
+        "label": "Precision Medicine",
+        "file": "output/research.en/gemma4/html/concept_precision_medicine.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "public_health",
+        "label": "Public Health",
+        "file": "output/research.en/gemma4/html/concept_public_health.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "receptor",
+        "label": "Receptor",
+        "file": "output/research.en/gemma4/html/concept_receptor.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "sign",
+        "label": "Sign",
+        "file": "output/research.en/gemma4/html/concept_sign.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "symptom",
+        "label": "Symptom",
+        "file": "output/research.en/gemma4/html/concept_symptom.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "research"
+  },
+  {
+    "id": "sql",
+    "name": "SQL",
+    "description": "From tables and queries to joins, subqueries, and transactions.",
+    "capstone": null,
+    "nodes": 23,
+    "edges": 48,
+    "primitives": 4,
+    "concepts": 14,
+    "applications": 5,
+    "tags": [
+      "cs"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "analytics_dashboards",
+        "file": "output/core.en/html/book_analytics_dashboards.html"
+      },
+      {
+        "target": "web_application_backend",
+        "file": "output/core.en/html/book_web_application_backend.html"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "aggregate",
+        "label": "Aggregate",
+        "file": "output/core.en/html/concept_aggregate.html"
+      },
+      {
+        "name": "analytics_dashboards",
+        "label": "Analytics Dashboards",
+        "file": "output/core.en/html/concept_analytics_dashboards.html"
+      },
+      {
+        "name": "attribute",
+        "label": "Attribute",
+        "file": "output/core.en/html/concept_attribute.html"
+      },
+      {
+        "name": "cartesian_product",
+        "label": "Cartesian Product",
+        "file": "output/core.en/html/concept_cartesian_product.html"
+      },
+      {
+        "name": "domain",
+        "label": "Domain",
+        "file": "output/core.en/html/concept_domain.html"
+      },
+      {
+        "name": "index",
+        "label": "Index",
+        "file": "output/core.en/html/concept_index.html"
+      },
+      {
+        "name": "join",
+        "label": "Join",
+        "file": "output/core.en/html/concept_join.html"
+      },
+      {
+        "name": "projection",
+        "label": "Projection",
+        "file": "output/core.en/html/concept_projection.html"
+      },
+      {
+        "name": "relation",
+        "label": "Relation",
+        "file": "output/core.en/html/concept_relation.html"
+      },
+      {
+        "name": "selection",
+        "label": "Selection",
+        "file": "output/core.en/html/concept_selection.html"
+      },
+      {
+        "name": "transaction",
+        "label": "Transaction",
+        "file": "output/core.en/html/concept_transaction.html"
+      },
+      {
+        "name": "tuple",
+        "label": "Tuple",
+        "file": "output/core.en/html/concept_tuple.html"
+      },
+      {
+        "name": "view",
+        "label": "View",
+        "file": "output/core.en/html/concept_view.html"
+      },
+      {
+        "name": "web_application_backend",
+        "label": "Web Application Backend",
+        "file": "output/core.en/html/concept_web_application_backend.html"
+      },
+      {
+        "name": "window_function",
+        "label": "Window Function",
+        "file": "output/core.en/html/concept_window_function.html"
+      }
+    ],
+    "default_level": "core"
+  },
+  {
+    "id": "college_physics_ch01",
+    "name": "Physics Ch1: Introduction: The Nature of Science and Physics",
+    "description": "OpenStax College Physics 2e, Chapter 1: Introduction: The Nature of Science and Physics.",
+    "capstone": "approximation",
+    "nodes": 23,
+    "edges": 24,
+    "primitives": 3,
+    "concepts": 19,
+    "applications": 1,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "approximation",
+        "file": "output/core.en/html/book_approximation.html"
+      },
+      {
+        "target": "scientific_law",
+        "file": "output/core.en/html/book_scientific_law.html"
+      },
+      {
+        "target": "fundamental_units",
+        "file": "output/core.en/html/book_fundamental_units.html"
+      },
+      {
+        "target": "accuracy",
+        "file": "output/core.en/html/book_accuracy.html"
+      },
+      {
+        "target": "approximation",
+        "file": "output/core.en/gemma4/html/book_approximation.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "uncertainty",
+        "file": "output/core.en/sonnet/html/book_uncertainty.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "approximation",
+        "file": "output/college.en/sonnet/html/book_approximation.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "accuracy",
+        "label": "Accuracy",
+        "file": "output/core.en/html/concept_accuracy.html"
+      },
+      {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/core.en/html/concept_approximation.html"
+      },
+      {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/core.en/gemma4/html/concept_approximation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/research.en/sonnet/html/concept_approximation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fundamental_units",
+        "label": "Fundamental Units",
+        "file": "output/core.en/html/concept_fundamental_units.html"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/core.en/gemma4/html/concept_measurement.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/research.en/sonnet/html/concept_measurement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/core.en/html/concept_order_of_magnitude.html"
+      },
+      {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/core.en/gemma4/html/concept_order_of_magnitude.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/research.en/sonnet/html/concept_order_of_magnitude.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/core.en/html/concept_physical_quantity.html"
+      },
+      {
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/core.en/gemma4/html/concept_physical_quantity.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/research.en/sonnet/html/concept_physical_quantity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "precision",
+        "label": "Precision",
+        "file": "output/core.en/html/concept_precision.html"
+      },
+      {
+        "name": "scientific_law",
+        "label": "Scientific Law",
+        "file": "output/core.en/html/concept_scientific_law.html"
+      },
+      {
+        "name": "scientific_method",
+        "label": "Scientific Method",
+        "file": "output/core.en/html/concept_scientific_method.html"
+      },
+      {
+        "name": "significant_figures",
+        "label": "Significant Figures",
+        "file": "output/core.en/html/concept_significant_figures.html"
+      },
+      {
+        "name": "uncertainty",
+        "label": "Uncertainty",
+        "file": "output/core.en/html/concept_uncertainty.html"
+      },
+      {
+        "name": "units",
+        "label": "Units",
+        "file": "output/core.en/html/concept_units.html"
+      },
+      {
+        "name": "units",
+        "label": "Units",
+        "file": "output/core.en/gemma4/html/concept_units.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "units",
+        "label": "Units",
+        "file": "output/research.en/sonnet/html/concept_units.html",
+        "model": "sonnet"
+      }
+    ],
+    "default_level": "core",
+    "source": {
+      "title": "College Physics 2e",
+      "authors": "OpenStax",
+      "license": "CC BY 4.0",
+      "url": "https://openstax.org/details/books/college-physics-2e",
+      "attribution": "Access for free at openstax.org."
+    },
+    "pdfs": [
+      {
+        "target": "approximation",
+        "file": "output/core.en/pdf/book_approximation.pdf"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch02",
+    "name": "Physics Ch2: Kinematics",
+    "description": "OpenStax College Physics 2e, Chapter 2: Kinematics.",
+    "capstone": "graphical_analysis_of_motion",
+    "nodes": 23,
+    "edges": 32,
+    "primitives": 5,
+    "concepts": 15,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "stopping_distance",
+        "file": "output/core.en/html/book_stopping_distance.html"
+      },
+      {
+        "target": "graphical_analysis_of_motion",
+        "file": "output/core.en/gemma4/html/book_graphical_analysis_of_motion.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "problem_solving_kinematics",
+        "file": "output/core.en/gemma4/html/book_problem_solving_kinematics.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "graphical_analysis_of_motion",
+        "file": "output/college.en/sonnet/html/book_graphical_analysis_of_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "problem_solving_kinematics",
+        "file": "output/college.en/sonnet/html/book_problem_solving_kinematics.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "falling_objects_calculation",
+        "file": "output/college.en/sonnet/html/book_falling_objects_calculation.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "acceleration_due_to_gravity",
+        "label": "Acceleration Due To Gravity",
+        "file": "output/college.en/sonnet/html/concept_acceleration_due_to_gravity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "average_acceleration",
+        "label": "Average Acceleration",
+        "file": "output/core.en/html/concept_average_acceleration.html"
+      },
+      {
+        "name": "average_acceleration",
+        "label": "Average Acceleration",
+        "file": "output/core.en/gemma4/html/concept_average_acceleration.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "average_acceleration",
+        "label": "Average Acceleration",
+        "file": "output/college.en/sonnet/html/concept_average_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "average_velocity",
+        "label": "Average Velocity",
+        "file": "output/core.en/html/concept_average_velocity.html"
+      },
+      {
+        "name": "average_velocity",
+        "label": "Average Velocity",
+        "file": "output/core.en/gemma4/html/concept_average_velocity.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "average_velocity",
+        "label": "Average Velocity",
+        "file": "output/college.en/sonnet/html/concept_average_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "constant_acceleration",
+        "label": "Constant Acceleration",
+        "file": "output/core.en/html/concept_constant_acceleration.html"
+      },
+      {
+        "name": "coordinate_system",
+        "label": "Coordinate System",
+        "file": "output/core.en/html/concept_coordinate_system.html"
+      },
+      {
+        "name": "deceleration",
+        "label": "Deceleration",
+        "file": "output/core.en/html/concept_deceleration.html"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/core.en/html/concept_displacement.html"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/core.en/gemma4/html/concept_displacement.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "elapsed_time",
+        "label": "Elapsed Time",
+        "file": "output/core.en/html/concept_elapsed_time.html"
+      },
+      {
+        "name": "elapsed_time",
+        "label": "Elapsed Time",
+        "file": "output/core.en/gemma4/html/concept_elapsed_time.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "elapsed_time",
+        "label": "Elapsed Time",
+        "file": "output/college.en/sonnet/html/concept_elapsed_time.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "falling_objects_calculation",
+        "label": "Falling Objects Calculation",
+        "file": "output/college.en/sonnet/html/concept_falling_objects_calculation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "free_fall",
+        "label": "Free Fall",
+        "file": "output/college.en/sonnet/html/concept_free_fall.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "graphical_analysis_of_motion",
+        "label": "Graphical Analysis Of Motion",
+        "file": "output/core.en/gemma4/html/concept_graphical_analysis_of_motion.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "graphical_analysis_of_motion",
+        "label": "Graphical Analysis Of Motion",
+        "file": "output/college.en/sonnet/html/concept_graphical_analysis_of_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "instantaneous_acceleration",
+        "label": "Instantaneous Acceleration",
+        "file": "output/core.en/html/concept_instantaneous_acceleration.html"
+      },
+      {
+        "name": "instantaneous_velocity",
+        "label": "Instantaneous Velocity",
+        "file": "output/core.en/html/concept_instantaneous_velocity.html"
+      },
+      {
+        "name": "kinematic_equations",
+        "label": "Kinematic Equations",
+        "file": "output/core.en/html/concept_kinematic_equations.html"
+      },
+      {
+        "name": "kinematic_equations_constant_acceleration",
+        "label": "Kinematic Equations Constant Acceleration",
+        "file": "output/core.en/gemma4/html/concept_kinematic_equations_constant_acceleration.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "kinematic_equations_constant_acceleration",
+        "label": "Kinematic Equations Constant Acceleration",
+        "file": "output/college.en/sonnet/html/concept_kinematic_equations_constant_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/core.en/html/concept_position.html"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/core.en/gemma4/html/concept_position.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "file": "output/college.en/sonnet/html/concept_position.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "problem_solving_kinematics",
+        "label": "Problem Solving Kinematics",
+        "file": "output/core.en/gemma4/html/concept_problem_solving_kinematics.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "problem_solving_kinematics",
+        "label": "Problem Solving Kinematics",
+        "file": "output/college.en/sonnet/html/concept_problem_solving_kinematics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "stopping_distance",
+        "label": "Stopping Distance",
+        "file": "output/core.en/html/concept_stopping_distance.html"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/core.en/html/concept_time.html"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/core.en/gemma4/html/concept_time.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "time",
+        "label": "Time",
+        "file": "output/college.en/sonnet/html/concept_time.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/core.en/html/concept_vector.html"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/core.en/gemma4/html/concept_vector.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/college.en/sonnet/html/concept_vector.html",
+        "model": "sonnet"
+      }
+    ],
+    "default_level": "core",
+    "source": {
+      "title": "College Physics 2e",
+      "authors": "OpenStax",
+      "license": "CC BY 4.0",
+      "url": "https://openstax.org/details/books/college-physics-2e",
+      "attribution": "Access for free at openstax.org."
+    }
+  },
+  {
+    "id": "quantum_physics",
+    "name": "Quantum Physics",
+    "description": "From wave functions and superposition to entanglement, tunneling, and path integrals.",
+    "capstone": "path_integral",
+    "nodes": 25,
+    "edges": 47,
+    "primitives": 4,
+    "concepts": 16,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "quantum_computing",
+        "file": "output/college.en/gemma4/html/book_quantum_computing.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "mri_and_nmr",
+        "file": "output/college.en/gemma4/html/book_mri_and_nmr.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "energy_quantization",
+        "label": "Energy Quantization",
+        "file": "output/college.en/gemma4/html/concept_energy_quantization.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "entanglement",
+        "label": "Entanglement",
+        "file": "output/college.en/gemma4/html/concept_entanglement.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "many_body_states",
+        "label": "Many Body States",
+        "file": "output/college.en/gemma4/html/concept_many_body_states.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/college.en/gemma4/html/concept_measurement.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mri_and_nmr",
+        "label": "Mri And Nmr",
+        "file": "output/college.en/gemma4/html/concept_mri_and_nmr.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "observable",
+        "label": "Observable",
+        "file": "output/college.en/gemma4/html/concept_observable.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "perturbation_theory",
+        "label": "Perturbation Theory",
+        "file": "output/college.en/gemma4/html/concept_perturbation_theory.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "planck_constant",
+        "label": "Planck Constant",
+        "file": "output/college.en/gemma4/html/concept_planck_constant.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "probability_amplitude",
+        "label": "Probability Amplitude",
+        "file": "output/college.en/gemma4/html/concept_probability_amplitude.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "quantum_computing",
+        "label": "Quantum Computing",
+        "file": "output/college.en/gemma4/html/concept_quantum_computing.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "quantum_state",
+        "label": "Quantum State",
+        "file": "output/college.en/gemma4/html/concept_quantum_state.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "schrodinger_equation",
+        "label": "Schrodinger Equation",
+        "file": "output/college.en/gemma4/html/concept_schrodinger_equation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "spin",
+        "label": "Spin",
+        "file": "output/college.en/gemma4/html/concept_spin.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "superposition",
+        "label": "Superposition",
+        "file": "output/college.en/gemma4/html/concept_superposition.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "wave_function",
+        "label": "Wave Function",
+        "file": "output/college.en/gemma4/html/concept_wave_function.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "molecular_biology",
+    "name": "Molecular Biology",
+    "description": "From nucleotides and amino acids to gene regulation, CRISPR, and single-cell sequencing.",
+    "capstone": null,
+    "nodes": 25,
+    "edges": 46,
+    "primitives": 4,
+    "concepts": 16,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "mRNA_vaccines",
+        "file": "output/college.en/gemma4/html/book_mRNA_vaccines.html",
+        "model": "gemma4"
+      },
+      {
+        "target": "CRISPR_gene_editing",
+        "file": "output/college.en/gemma4/html/book_CRISPR_gene_editing.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amino_acid",
+        "label": "Amino Acid",
+        "file": "output/college.en/gemma4/html/concept_amino_acid.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "cell_membrane",
+        "label": "Cell Membrane",
+        "file": "output/college.en/gemma4/html/concept_cell_membrane.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CRISPR_Cas9",
+        "label": "Crispr Cas9",
+        "file": "output/college.en/gemma4/html/concept_CRISPR_Cas9.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "CRISPR_gene_editing",
+        "label": "Crispr Gene Editing",
+        "file": "output/college.en/gemma4/html/concept_CRISPR_gene_editing.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "DNA_double_helix",
+        "label": "Dna Double Helix",
+        "file": "output/college.en/gemma4/html/concept_DNA_double_helix.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "DNA_replication",
+        "label": "Dna Replication",
+        "file": "output/college.en/gemma4/html/concept_DNA_replication.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "enzyme",
+        "label": "Enzyme",
+        "file": "output/college.en/gemma4/html/concept_enzyme.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "gene_regulation",
+        "label": "Gene Regulation",
+        "file": "output/college.en/gemma4/html/concept_gene_regulation.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "mRNA_vaccines",
+        "label": "Mrna Vaccines",
+        "file": "output/college.en/gemma4/html/concept_mRNA_vaccines.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "nucleotide",
+        "label": "Nucleotide",
+        "file": "output/college.en/gemma4/html/concept_nucleotide.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "phospholipid",
+        "label": "Phospholipid",
+        "file": "output/college.en/gemma4/html/concept_phospholipid.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "transcription",
+        "label": "Transcription",
+        "file": "output/college.en/gemma4/html/concept_transcription.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "translation",
+        "label": "Translation",
+        "file": "output/college.en/gemma4/html/concept_translation.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "college"
+  },
+  {
+    "id": "守株待兔",
+    "name": "守株待兔",
+    "description": "Character decomposition of the idiom 守株待兔 — waiting by a stump for a rabbit.",
+    "capstone": "phrase_守株待兔",
+    "nodes": 17,
+    "edges": 20,
+    "primitives": 8,
+    "concepts": 8,
+    "applications": 1,
+    "tags": [
+      "language"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "phrase_守株待兔",
+        "file": "output/intro.en/gemma4/html/book_phrase_守株待兔.html",
+        "model": "gemma4"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "phrase_守株待兔",
+        "label": "Phrase 守株待兔",
+        "file": "output/intro.en/gemma4/html/concept_phrase_守株待兔.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "一",
+        "label": "一",
+        "file": "output/intro.en/gemma4/html/concept_一.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "丨",
+        "label": "丨",
+        "file": "output/intro.en/gemma4/html/concept_丨.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "丿",
+        "label": "丿",
+        "file": "output/intro.en/gemma4/html/concept_丿.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "兔",
+        "label": "兔",
+        "file": "output/intro.en/gemma4/html/concept_兔.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "十",
+        "label": "十",
+        "file": "output/intro.en/gemma4/html/concept_十.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "又",
+        "label": "又",
+        "file": "output/intro.en/gemma4/html/concept_又.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "土",
+        "label": "土",
+        "file": "output/intro.en/gemma4/html/concept_土.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.en/gemma4/html/concept_宀.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "守",
+        "label": "守",
+        "file": "output/intro.en/gemma4/html/concept_守.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "寸",
+        "label": "寸",
+        "file": "output/intro.en/gemma4/html/concept_寸.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "寺",
+        "label": "寺",
+        "file": "output/intro.en/gemma4/html/concept_寺.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "彳",
+        "label": "彳",
+        "file": "output/intro.en/gemma4/html/concept_彳.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "待",
+        "label": "待",
+        "file": "output/intro.en/gemma4/html/concept_待.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "木",
+        "label": "木",
+        "file": "output/intro.en/gemma4/html/concept_木.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "朱",
+        "label": "朱",
+        "file": "output/intro.en/gemma4/html/concept_朱.html",
+        "model": "gemma4"
+      },
+      {
+        "name": "株",
+        "label": "株",
+        "file": "output/intro.en/gemma4/html/concept_株.html",
+        "model": "gemma4"
+      }
+    ],
+    "default_level": "intro"
+  },
+  {
+    "id": "college_physics_ch03",
+    "name": "Physics Ch3: Two-Dimensional Kinematics",
+    "description": "OpenStax College Physics 2e, Chapter 3: Two-Dimensional Kinematics.",
+    "capstone": "river_crossing_relative_velocity",
+    "nodes": 28,
+    "edges": 36,
+    "primitives": 10,
+    "concepts": 16,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "river_crossing_relative_velocity",
+        "file": "output/college.en/sonnet/html/book_river_crossing_relative_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "projectile_motion_applications",
+        "file": "output/college.en/sonnet/html/book_projectile_motion_applications.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "acceleration_due_to_gravity",
+        "label": "Acceleration Due To Gravity",
+        "file": "output/college.en/sonnet/html/concept_acceleration_due_to_gravity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "analytical_vector_addition",
+        "label": "Analytical Vector Addition",
+        "file": "output/college.en/sonnet/html/concept_analytical_vector_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "independence_of_perpendicular_motions",
+        "label": "Independence Of Perpendicular Motions",
+        "file": "output/college.en/sonnet/html/concept_independence_of_perpendicular_motions.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "one_dimensional_kinematics",
+        "label": "One Dimensional Kinematics",
+        "file": "output/college.en/sonnet/html/concept_one_dimensional_kinematics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_maximum_height",
+        "label": "Projectile Maximum Height",
+        "file": "output/college.en/sonnet/html/concept_projectile_maximum_height.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_motion",
+        "label": "Projectile Motion",
+        "file": "output/college.en/sonnet/html/concept_projectile_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_motion_applications",
+        "label": "Projectile Motion Applications",
+        "file": "output/college.en/sonnet/html/concept_projectile_motion_applications.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_range",
+        "label": "Projectile Range",
+        "file": "output/college.en/sonnet/html/concept_projectile_range.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "reference_frame",
+        "label": "Reference Frame",
+        "file": "output/college.en/sonnet/html/concept_reference_frame.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "relative_velocity",
+        "label": "Relative Velocity",
+        "file": "output/college.en/sonnet/html/concept_relative_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resolving_vectors_into_components",
+        "label": "Resolving Vectors Into Components",
+        "file": "output/college.en/sonnet/html/concept_resolving_vectors_into_components.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resultant_vector",
+        "label": "Resultant Vector",
+        "file": "output/college.en/sonnet/html/concept_resultant_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "river_crossing_relative_velocity",
+        "label": "River Crossing Relative Velocity",
+        "file": "output/college.en/sonnet/html/concept_river_crossing_relative_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "trajectory",
+        "label": "Trajectory",
+        "file": "output/college.en/sonnet/html/concept_trajectory.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "trigonometric_functions",
+        "label": "Trigonometric Functions",
+        "file": "output/college.en/sonnet/html/concept_trigonometric_functions.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "two_dimensional_kinematics",
+        "label": "Two Dimensional Kinematics",
+        "file": "output/college.en/sonnet/html/concept_two_dimensional_kinematics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector",
+        "label": "Vector",
+        "file": "output/college.en/sonnet/html/concept_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector_components",
+        "label": "Vector Components",
+        "file": "output/college.en/sonnet/html/concept_vector_components.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity_addition",
+        "label": "Velocity Addition",
+        "file": "output/college.en/sonnet/html/concept_velocity_addition.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch04",
+    "name": "Physics Ch4: Dynamics: Force and Newton's Laws of Motion",
+    "description": "OpenStax College Physics 2e, Chapter 4: Dynamics: Force and Newton's Laws of Motion.",
+    "capstone": "four_basic_forces",
+    "nodes": 24,
+    "edges": 32,
+    "primitives": 6,
+    "concepts": 15,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "four_basic_forces",
+        "file": "output/college.en/sonnet/html/book_four_basic_forces.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "four_basic_forces",
+        "label": "Four Basic Forces",
+        "file": "output/college.en/sonnet/html/concept_four_basic_forces.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch05",
+    "name": "Physics Ch5: Further Applications of Newton's Laws: Friction, Drag, and Elasticity",
+    "description": "OpenStax College Physics 2e, Chapter 5: Further Applications of Newton's Laws: Friction, Drag, and Elasticity.",
+    "capstone": "joint_lubrication",
+    "nodes": 27,
+    "edges": 29,
+    "primitives": 9,
+    "concepts": 14,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "joint_lubrication",
+        "file": "output/college.en/sonnet/html/book_joint_lubrication.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "aerodynamic_drag_reduction",
+        "file": "output/intro.en/sonnet/html/book_aerodynamic_drag_reduction.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "aerodynamic_drag_reduction",
+        "label": "Aerodynamic Drag Reduction",
+        "file": "output/intro.en/sonnet/html/concept_aerodynamic_drag_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coefficient_of_kinetic_friction",
+        "label": "Coefficient Of Kinetic Friction",
+        "file": "output/intro.en/sonnet/html/concept_coefficient_of_kinetic_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "drag_coefficient",
+        "label": "Drag Coefficient",
+        "file": "output/intro.en/sonnet/html/concept_drag_coefficient.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "drag_force",
+        "label": "Drag Force",
+        "file": "output/intro.en/sonnet/html/concept_drag_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fluid_density",
+        "label": "Fluid Density",
+        "file": "output/intro.en/sonnet/html/concept_fluid_density.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "friction",
+        "label": "Friction",
+        "file": "output/intro.en/sonnet/html/concept_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "joint_lubrication",
+        "label": "Joint Lubrication",
+        "file": "output/intro.en/sonnet/html/concept_joint_lubrication.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_friction",
+        "label": "Kinetic Friction",
+        "file": "output/intro.en/sonnet/html/concept_kinetic_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "normal_force",
+        "label": "Normal Force",
+        "file": "output/intro.en/sonnet/html/concept_normal_force.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch06",
+    "name": "Physics Ch6: Uniform Circular Motion and Gravitation",
+    "description": "OpenStax College Physics 2e, Chapter 6: Uniform Circular Motion and Gravitation.",
+    "capstone": "tides",
+    "nodes": 35,
+    "edges": 46,
+    "primitives": 9,
+    "concepts": 21,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "tides",
+        "file": "output/college.en/sonnet/html/book_tides.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "coriolis_weather_patterns",
+        "file": "output/college.en/sonnet/html/book_coriolis_weather_patterns.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "acceleration",
+        "label": "Acceleration",
+        "file": "output/college.en/sonnet/html/concept_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "angular_velocity",
+        "label": "Angular Velocity",
+        "file": "output/college.en/sonnet/html/concept_angular_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "center_of_mass",
+        "label": "Center Of Mass",
+        "file": "output/college.en/sonnet/html/concept_center_of_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coriolis_force",
+        "label": "Coriolis Force",
+        "file": "output/college.en/sonnet/html/concept_coriolis_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coriolis_weather_patterns",
+        "label": "Coriolis Weather Patterns",
+        "file": "output/college.en/sonnet/html/concept_coriolis_weather_patterns.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fictitious_force",
+        "label": "Fictitious Force",
+        "file": "output/college.en/sonnet/html/concept_fictitious_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gravitational_constant",
+        "label": "Gravitational Constant",
+        "file": "output/college.en/sonnet/html/concept_gravitational_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inertial_frame_of_reference",
+        "label": "Inertial Frame Of Reference",
+        "file": "output/college.en/sonnet/html/concept_inertial_frame_of_reference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_first_law",
+        "label": "Newtons First Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_first_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_law_of_gravitation",
+        "label": "Newtons Law Of Gravitation",
+        "file": "output/college.en/sonnet/html/concept_newtons_law_of_gravitation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_second_law",
+        "label": "Newtons Second Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_second_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "non_inertial_frame_of_reference",
+        "label": "Non Inertial Frame Of Reference",
+        "file": "output/college.en/sonnet/html/concept_non_inertial_frame_of_reference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radian",
+        "label": "Radian",
+        "file": "output/college.en/sonnet/html/concept_radian.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radius_of_curvature",
+        "label": "Radius Of Curvature",
+        "file": "output/college.en/sonnet/html/concept_radius_of_curvature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rotation_angle",
+        "label": "Rotation Angle",
+        "file": "output/college.en/sonnet/html/concept_rotation_angle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "tides",
+        "label": "Tides",
+        "file": "output/college.en/sonnet/html/concept_tides.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch07",
+    "name": "Physics Ch7: Work, Energy, and Energy Resources",
+    "description": "OpenStax College Physics 2e, Chapter 7: Work, Energy, and Energy Resources.",
+    "capstone": "useful_work_in_humans",
+    "nodes": 29,
+    "edges": 36,
+    "primitives": 6,
+    "concepts": 16,
+    "applications": 7,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "useful_work_in_humans",
+        "file": "output/college.en/sonnet/html/book_useful_work_in_humans.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "useful_work_in_humans",
+        "label": "Useful Work In Humans",
+        "file": "output/college.en/sonnet/html/concept_useful_work_in_humans.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "work",
+        "label": "Work",
+        "file": "output/college.en/sonnet/html/concept_work.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch08",
+    "name": "Physics Ch8: Linear Momentum and Collisions",
+    "description": "OpenStax College Physics 2e, Chapter 8: Linear Momentum and Collisions.",
+    "capstone": "recoil",
+    "nodes": 20,
+    "edges": 25,
+    "primitives": 5,
+    "concepts": 13,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "recoil",
+        "file": "output/college.en/sonnet/html/book_recoil.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conservation_of_momentum",
+        "label": "Conservation Of Momentum",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "isolated_system",
+        "label": "Isolated System",
+        "file": "output/college.en/sonnet/html/concept_isolated_system.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_momentum",
+        "label": "Linear Momentum",
+        "file": "output/college.en/sonnet/html/concept_linear_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "net_external_force",
+        "label": "Net External Force",
+        "file": "output/college.en/sonnet/html/concept_net_external_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "recoil",
+        "label": "Recoil",
+        "file": "output/college.en/sonnet/html/concept_recoil.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch09",
+    "name": "Physics Ch9: Statics and Torque",
+    "description": "OpenStax College Physics 2e, Chapter 9: Statics and Torque.",
+    "capstone": "free_body_diagram",
+    "nodes": 29,
+    "edges": 44,
+    "primitives": 6,
+    "concepts": 19,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "free_body_diagram",
+        "file": "output/college.en/sonnet/html/book_free_body_diagram.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "equilibrium",
+        "label": "Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "free_body_diagram",
+        "label": "Free Body Diagram",
+        "file": "output/college.en/sonnet/html/concept_free_body_diagram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "net_external_force",
+        "label": "Net External Force",
+        "file": "output/college.en/sonnet/html/concept_net_external_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "perpendicular_lever_arm",
+        "label": "Perpendicular Lever Arm",
+        "file": "output/college.en/sonnet/html/concept_perpendicular_lever_arm.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pivot_point",
+        "label": "Pivot Point",
+        "file": "output/college.en/sonnet/html/concept_pivot_point.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "torque",
+        "label": "Torque",
+        "file": "output/college.en/sonnet/html/concept_torque.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch10",
+    "name": "Physics Ch10: Rotational Motion and Angular Momentum",
+    "description": "OpenStax College Physics 2e, Chapter 10: Rotational Motion and Angular Momentum.",
+    "capstone": "rolling_without_slipping",
+    "nodes": 25,
+    "edges": 33,
+    "primitives": 9,
+    "concepts": 13,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "rolling_without_slipping",
+        "file": "output/college.en/sonnet/html/book_rolling_without_slipping.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "angular_velocity",
+        "label": "Angular Velocity",
+        "file": "output/college.en/sonnet/html/concept_angular_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_velocity",
+        "label": "Linear Velocity",
+        "file": "output/college.en/sonnet/html/concept_linear_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "moment_of_inertia",
+        "label": "Moment Of Inertia",
+        "file": "output/college.en/sonnet/html/concept_moment_of_inertia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rolling_without_slipping",
+        "label": "Rolling Without Slipping",
+        "file": "output/college.en/sonnet/html/concept_rolling_without_slipping.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rotational_kinetic_energy",
+        "label": "Rotational Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_rotational_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "translational_kinetic_energy",
+        "label": "Translational Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_translational_kinetic_energy.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch11",
+    "name": "Physics Ch11: Fluid Statics",
+    "description": "OpenStax College Physics 2e, Chapter 11: Fluid Statics.",
+    "capstone": "hydraulic_system",
+    "nodes": 26,
+    "edges": 34,
+    "primitives": 5,
+    "concepts": 16,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "hydraulic_system",
+        "file": "output/college.en/sonnet/html/book_hydraulic_system.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "area",
+        "label": "Area",
+        "file": "output/college.en/sonnet/html/concept_area.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fluid",
+        "label": "Fluid",
+        "file": "output/college.en/sonnet/html/concept_fluid.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hydraulic_system",
+        "label": "Hydraulic System",
+        "file": "output/college.en/sonnet/html/concept_hydraulic_system.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pascals_principle",
+        "label": "Pascals Principle",
+        "file": "output/college.en/sonnet/html/concept_pascals_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch12",
+    "name": "Physics Ch12: Fluid Dynamics and Its Biological and Medical Applications",
+    "description": "OpenStax College Physics 2e, Chapter 12: Fluid Dynamics and Its Biological and Medical Applications.",
+    "capstone": "entrainment",
+    "nodes": 36,
+    "edges": 48,
+    "primitives": 8,
+    "concepts": 23,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "entrainment",
+        "file": "output/college.en/sonnet/html/book_entrainment.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "bernoullis_equation",
+        "label": "Bernoullis Equation",
+        "file": "output/college.en/sonnet/html/concept_bernoullis_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "bernoullis_principle",
+        "label": "Bernoullis Principle",
+        "file": "output/college.en/sonnet/html/concept_bernoullis_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_energy",
+        "label": "Conservation Of Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "entrainment",
+        "label": "Entrainment",
+        "file": "output/college.en/sonnet/html/concept_entrainment.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fluid_density",
+        "label": "Fluid Density",
+        "file": "output/college.en/sonnet/html/concept_fluid_density.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gravitational_potential_energy",
+        "label": "Gravitational Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_gravitational_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "incompressible_fluid",
+        "label": "Incompressible Fluid",
+        "file": "output/college.en/sonnet/html/concept_incompressible_fluid.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch13",
+    "name": "Physics Ch13: Temperature, Kinetic Theory, and the Gas Laws",
+    "description": "OpenStax College Physics 2e, Chapter 13: Temperature, Kinetic Theory, and the Gas Laws.",
+    "capstone": "thermometer",
+    "nodes": 41,
+    "edges": 55,
+    "primitives": 5,
+    "concepts": 32,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "thermometer",
+        "file": "output/college.en/sonnet/html/book_thermometer.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "temperature",
+        "label": "Temperature",
+        "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermal_expansion",
+        "label": "Thermal Expansion",
+        "file": "output/college.en/sonnet/html/concept_thermal_expansion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermometer",
+        "label": "Thermometer",
+        "file": "output/college.en/sonnet/html/concept_thermometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "volume",
+        "label": "Volume",
+        "file": "output/college.en/sonnet/html/concept_volume.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch14",
+    "name": "Physics Ch14: Heat and Heat Transfer Methods",
+    "description": "OpenStax College Physics 2e, Chapter 14: Heat and Heat Transfer Methods.",
+    "capstone": "wind_chill",
+    "nodes": 27,
+    "edges": 28,
+    "primitives": 5,
+    "concepts": 18,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "wind_chill",
+        "file": "output/college.en/sonnet/html/book_wind_chill.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conduction",
+        "label": "Conduction",
+        "file": "output/college.en/sonnet/html/concept_conduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "convection",
+        "label": "Convection",
+        "file": "output/college.en/sonnet/html/concept_convection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "heat",
+        "label": "Heat",
+        "file": "output/college.en/sonnet/html/concept_heat.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "temperature",
+        "label": "Temperature",
+        "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wind_chill",
+        "label": "Wind Chill",
+        "file": "output/college.en/sonnet/html/concept_wind_chill.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch15",
+    "name": "Physics Ch15: Thermodynamics",
+    "description": "OpenStax College Physics 2e, Chapter 15: Thermodynamics.",
+    "capstone": "human_metabolism",
+    "nodes": 35,
+    "edges": 53,
+    "primitives": 7,
+    "concepts": 24,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "human_metabolism",
+        "file": "output/college.en/sonnet/html/book_human_metabolism.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conservation_of_energy",
+        "label": "Conservation Of Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "first_law_of_thermodynamics",
+        "label": "First Law Of Thermodynamics",
+        "file": "output/college.en/sonnet/html/concept_first_law_of_thermodynamics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "heat_transfer",
+        "label": "Heat Transfer",
+        "file": "output/college.en/sonnet/html/concept_heat_transfer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "human_metabolism",
+        "label": "Human Metabolism",
+        "file": "output/college.en/sonnet/html/concept_human_metabolism.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "internal_energy",
+        "label": "Internal Energy",
+        "file": "output/college.en/sonnet/html/concept_internal_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "temperature",
+        "label": "Temperature",
+        "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermodynamic_work",
+        "label": "Thermodynamic Work",
+        "file": "output/college.en/sonnet/html/concept_thermodynamic_work.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "volume",
+        "label": "Volume",
+        "file": "output/college.en/sonnet/html/concept_volume.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch16",
+    "name": "Physics Ch16: Oscillatory Motion and Waves",
+    "description": "OpenStax College Physics 2e, Chapter 16: Oscillatory Motion and Waves.",
+    "capstone": "medical_ultrasound",
+    "nodes": 47,
+    "edges": 77,
+    "primitives": 7,
+    "concepts": 35,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "medical_ultrasound",
+        "file": "output/college.en/sonnet/html/book_medical_ultrasound.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amplitude",
+        "label": "Amplitude",
+        "file": "output/college.en/sonnet/html/concept_amplitude.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy",
+        "label": "Energy",
+        "file": "output/college.en/sonnet/html/concept_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "equilibrium",
+        "label": "Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "frequency",
+        "label": "Frequency",
+        "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "longitudinal_wave",
+        "label": "Longitudinal Wave",
+        "file": "output/college.en/sonnet/html/concept_longitudinal_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "medical_ultrasound",
+        "label": "Medical Ultrasound",
+        "file": "output/college.en/sonnet/html/concept_medical_ultrasound.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "periodic_motion",
+        "label": "Periodic Motion",
+        "file": "output/college.en/sonnet/html/concept_periodic_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave",
+        "label": "Wave",
+        "file": "output/college.en/sonnet/html/concept_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave_intensity",
+        "label": "Wave Intensity",
+        "file": "output/college.en/sonnet/html/concept_wave_intensity.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch17",
+    "name": "Physics Ch17: Physics of Hearing",
+    "description": "OpenStax College Physics 2e, Chapter 17: Physics of Hearing.",
+    "capstone": "noise_cancellation",
+    "nodes": 38,
+    "edges": 52,
+    "primitives": 9,
+    "concepts": 24,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "noise_cancellation",
+        "file": "output/college.en/sonnet/html/book_noise_cancellation.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amplitude",
+        "label": "Amplitude",
+        "file": "output/college.en/sonnet/html/concept_amplitude.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "interference",
+        "label": "Interference",
+        "file": "output/college.en/sonnet/html/concept_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "noise_cancellation",
+        "label": "Noise Cancellation",
+        "file": "output/college.en/sonnet/html/concept_noise_cancellation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "simple_harmonic_motion",
+        "label": "Simple Harmonic Motion",
+        "file": "output/college.en/sonnet/html/concept_simple_harmonic_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "sound",
+        "label": "Sound",
+        "file": "output/college.en/sonnet/html/concept_sound.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave",
+        "label": "Wave",
+        "file": "output/college.en/sonnet/html/concept_wave.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch18",
+    "name": "Physics Ch18: Electric Charge and Electric Field",
+    "description": "OpenStax College Physics 2e, Chapter 18: Electric Charge and Electric Field.",
+    "capstone": "faraday_cage",
+    "nodes": 23,
+    "edges": 33,
+    "primitives": 3,
+    "concepts": 15,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "faraday_cage",
+        "file": "output/college.en/sonnet/html/book_faraday_cage.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "conductor",
+        "label": "Conductor",
+        "file": "output/college.en/sonnet/html/concept_conductor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulombs_law",
+        "label": "Coulombs Law",
+        "file": "output/college.en/sonnet/html/concept_coulombs_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_field",
+        "label": "Electric Field",
+        "file": "output/college.en/sonnet/html/concept_electric_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electron",
+        "label": "Electron",
+        "file": "output/college.en/sonnet/html/concept_electron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electrostatic_equilibrium",
+        "label": "Electrostatic Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_electrostatic_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "faraday_cage",
+        "label": "Faraday Cage",
+        "file": "output/college.en/sonnet/html/concept_faraday_cage.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch19",
+    "name": "Physics Ch19: Electric Potential and Electric Field",
+    "description": "OpenStax College Physics 2e, Chapter 19: Electric Potential and Electric Field.",
+    "capstone": "defibrillator",
+    "nodes": 30,
+    "edges": 33,
+    "primitives": 7,
+    "concepts": 22,
+    "applications": 1,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "defibrillator",
+        "file": "output/college.en/sonnet/html/book_defibrillator.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "capacitance",
+        "label": "Capacitance",
+        "file": "output/college.en/sonnet/html/concept_capacitance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "capacitor",
+        "label": "Capacitor",
+        "file": "output/college.en/sonnet/html/concept_capacitor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulomb_force",
+        "label": "Coulomb Force",
+        "file": "output/college.en/sonnet/html/concept_coulomb_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "defibrillator",
+        "label": "Defibrillator",
+        "file": "output/college.en/sonnet/html/concept_defibrillator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_potential",
+        "label": "Electric Potential",
+        "file": "output/college.en/sonnet/html/concept_electric_potential.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_potential_energy",
+        "label": "Electric Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_electric_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy_stored_in_capacitors",
+        "label": "Energy Stored In Capacitors",
+        "file": "output/college.en/sonnet/html/concept_energy_stored_in_capacitors.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_difference",
+        "label": "Potential Difference",
+        "file": "output/college.en/sonnet/html/concept_potential_difference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_potential_energy.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch20",
+    "name": "Physics Ch20: Electric Current, Resistance, and Ohm's Law",
+    "description": "OpenStax College Physics 2e, Chapter 20: Electric Current, Resistance, and Ohm's Law.",
+    "capstone": "thermal_hazard",
+    "nodes": 36,
+    "edges": 48,
+    "primitives": 6,
+    "concepts": 25,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "thermal_hazard",
+        "file": "output/college.en/sonnet/html/book_thermal_hazard.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_current",
+        "label": "Electric Current",
+        "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_power",
+        "label": "Electric Power",
+        "file": "output/college.en/sonnet/html/concept_electric_power.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_difference",
+        "label": "Potential Difference",
+        "file": "output/college.en/sonnet/html/concept_potential_difference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermal_hazard",
+        "label": "Thermal Hazard",
+        "file": "output/college.en/sonnet/html/concept_thermal_hazard.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch21",
+    "name": "Physics Ch21: Circuits and DC Instruments",
+    "description": "OpenStax College Physics 2e, Chapter 21: Circuits and DC Instruments.",
+    "capstone": "voltmeter",
+    "nodes": 33,
+    "edges": 49,
+    "primitives": 8,
+    "concepts": 20,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "voltmeter",
+        "file": "output/college.en/sonnet/html/book_voltmeter.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_current",
+        "label": "Electric Current",
+        "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "galvanometer",
+        "label": "Galvanometer",
+        "file": "output/college.en/sonnet/html/concept_galvanometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ohms_law",
+        "label": "Ohms Law",
+        "file": "output/college.en/sonnet/html/concept_ohms_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resistance",
+        "label": "Resistance",
+        "file": "output/college.en/sonnet/html/concept_resistance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "voltage",
+        "label": "Voltage",
+        "file": "output/college.en/sonnet/html/concept_voltage.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "voltmeter",
+        "label": "Voltmeter",
+        "file": "output/college.en/sonnet/html/concept_voltmeter.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch22",
+    "name": "Physics Ch22: Magnetism",
+    "description": "OpenStax College Physics 2e, Chapter 22: Magnetism.",
+    "capstone": "velocity_selector",
+    "nodes": 42,
+    "edges": 61,
+    "primitives": 5,
+    "concepts": 27,
+    "applications": 10,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "velocity_selector",
+        "file": "output/college.en/sonnet/html/book_velocity_selector.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_field",
+        "label": "Electric Field",
+        "file": "output/college.en/sonnet/html/concept_electric_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lorentz_force",
+        "label": "Lorentz Force",
+        "file": "output/college.en/sonnet/html/concept_lorentz_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field",
+        "label": "Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity_selector",
+        "label": "Velocity Selector",
+        "file": "output/college.en/sonnet/html/concept_velocity_selector.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch23",
+    "name": "Physics Ch23: Electromagnetic Induction, AC Circuits, and Electrical Technologies",
+    "description": "OpenStax College Physics 2e, Chapter 23: Electromagnetic Induction, AC Circuits, and Electrical Technologies.",
+    "capstone": "transformer",
+    "nodes": 27,
+    "edges": 37,
+    "primitives": 5,
+    "concepts": 19,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "transformer",
+        "file": "output/college.en/sonnet/html/book_transformer.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electric_current",
+        "label": "Electric Current",
+        "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_induction",
+        "label": "Electromagnetic Induction",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_induction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "faradays_law",
+        "label": "Faradays Law",
+        "file": "output/college.en/sonnet/html/concept_faradays_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field",
+        "label": "Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_flux",
+        "label": "Magnetic Flux",
+        "file": "output/college.en/sonnet/html/concept_magnetic_flux.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mutual_inductance",
+        "label": "Mutual Inductance",
+        "file": "output/college.en/sonnet/html/concept_mutual_inductance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "transformer",
+        "label": "Transformer",
+        "file": "output/college.en/sonnet/html/concept_transformer.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch24",
+    "name": "Physics Ch24: Electromagnetic Waves",
+    "description": "OpenStax College Physics 2e, Chapter 24: Electromagnetic Waves.",
+    "capstone": "radio_waves",
+    "nodes": 33,
+    "edges": 39,
+    "primitives": 10,
+    "concepts": 11,
+    "applications": 12,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "radio_waves",
+        "file": "output/college.en/sonnet/html/book_radio_waves.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "amperes_law",
+        "label": "Amperes Law",
+        "file": "output/college.en/sonnet/html/concept_amperes_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "changing_electric_field_creates_magnetic_field",
+        "label": "Changing Electric Field Creates Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_changing_electric_field_creates_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_field",
+        "label": "Electric Field",
+        "file": "output/college.en/sonnet/html/concept_electric_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_spectrum",
+        "label": "Electromagnetic Spectrum",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_spectrum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_wave",
+        "label": "Electromagnetic Wave",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "faradays_law",
+        "label": "Faradays Law",
+        "file": "output/college.en/sonnet/html/concept_faradays_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gauss_law_electricity",
+        "label": "Gauss Law Electricity",
+        "file": "output/college.en/sonnet/html/concept_gauss_law_electricity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gauss_law_magnetism",
+        "label": "Gauss Law Magnetism",
+        "file": "output/college.en/sonnet/html/concept_gauss_law_magnetism.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field",
+        "label": "Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "maxwells_equations",
+        "label": "Maxwells Equations",
+        "file": "output/college.en/sonnet/html/concept_maxwells_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "permeability_of_free_space",
+        "label": "Permeability Of Free Space",
+        "file": "output/college.en/sonnet/html/concept_permeability_of_free_space.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "permittivity_of_free_space",
+        "label": "Permittivity Of Free Space",
+        "file": "output/college.en/sonnet/html/concept_permittivity_of_free_space.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "speed_of_light",
+        "label": "Speed Of Light",
+        "file": "output/college.en/sonnet/html/concept_speed_of_light.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave_equation_em",
+        "label": "Wave Equation Em",
+        "file": "output/college.en/sonnet/html/concept_wave_equation_em.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave_frequency_wavelength",
+        "label": "Wave Frequency Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wave_frequency_wavelength.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch25",
+    "name": "Physics Ch25: Geometric Optics",
+    "description": "OpenStax College Physics 2e, Chapter 25: Geometric Optics.",
+    "capstone": "rainbow",
+    "nodes": 37,
+    "edges": 59,
+    "primitives": 3,
+    "concepts": 25,
+    "applications": 9,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "rainbow",
+        "file": "output/college.en/sonnet/html/book_rainbow.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "dispersion",
+        "label": "Dispersion",
+        "file": "output/college.en/sonnet/html/concept_dispersion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "geometric_optics",
+        "label": "Geometric Optics",
+        "file": "output/college.en/sonnet/html/concept_geometric_optics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "index_of_refraction",
+        "label": "Index Of Refraction",
+        "file": "output/college.en/sonnet/html/concept_index_of_refraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "law_of_reflection",
+        "label": "Law Of Reflection",
+        "file": "output/college.en/sonnet/html/concept_law_of_reflection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "light_ray",
+        "label": "Light Ray",
+        "file": "output/college.en/sonnet/html/concept_light_ray.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rainbow",
+        "label": "Rainbow",
+        "file": "output/college.en/sonnet/html/concept_rainbow.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "refraction",
+        "label": "Refraction",
+        "file": "output/college.en/sonnet/html/concept_refraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "speed_of_light_vacuum",
+        "label": "Speed Of Light Vacuum",
+        "file": "output/college.en/sonnet/html/concept_speed_of_light_vacuum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch26",
+    "name": "Physics Ch26: Vision and Optical Instruments",
+    "description": "OpenStax College Physics 2e, Chapter 26: Vision and Optical Instruments.",
+    "capstone": "vision_correction_spectacles",
+    "nodes": 37,
+    "edges": 52,
+    "primitives": 7,
+    "concepts": 23,
+    "applications": 7,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "vision_correction_spectacles",
+        "file": "output/college.en/sonnet/html/book_vision_correction_spectacles.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "accommodation",
+        "label": "Accommodation",
+        "file": "output/college.en/sonnet/html/concept_accommodation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "concave_lens",
+        "label": "Concave Lens",
+        "file": "output/college.en/sonnet/html/concept_concave_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "convex_lens",
+        "label": "Convex Lens",
+        "file": "output/college.en/sonnet/html/concept_convex_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "eye_as_optical_system",
+        "label": "Eye As Optical System",
+        "file": "output/college.en/sonnet/html/concept_eye_as_optical_system.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "far_point",
+        "label": "Far Point",
+        "file": "output/college.en/sonnet/html/concept_far_point.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "focal_length",
+        "label": "Focal Length",
+        "file": "output/college.en/sonnet/html/concept_focal_length.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hyperopia",
+        "label": "Hyperopia",
+        "file": "output/college.en/sonnet/html/concept_hyperopia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lens_power",
+        "label": "Lens Power",
+        "file": "output/college.en/sonnet/html/concept_lens_power.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "myopia",
+        "label": "Myopia",
+        "file": "output/college.en/sonnet/html/concept_myopia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "near_point",
+        "label": "Near Point",
+        "file": "output/college.en/sonnet/html/concept_near_point.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thin_lens_equation",
+        "label": "Thin Lens Equation",
+        "file": "output/college.en/sonnet/html/concept_thin_lens_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vision_correction_spectacles",
+        "label": "Vision Correction Spectacles",
+        "file": "output/college.en/sonnet/html/concept_vision_correction_spectacles.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch27",
+    "name": "Physics Ch27: Wave Optics",
+    "description": "OpenStax College Physics 2e, Chapter 27: Wave Optics.",
+    "capstone": "non_reflective_coatings",
+    "nodes": 36,
+    "edges": 55,
+    "primitives": 7,
+    "concepts": 24,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "non_reflective_coatings",
+        "file": "output/college.en/sonnet/html/book_non_reflective_coatings.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "constructive_interference",
+        "label": "Constructive Interference",
+        "file": "output/college.en/sonnet/html/concept_constructive_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "destructive_interference",
+        "label": "Destructive Interference",
+        "file": "output/college.en/sonnet/html/concept_destructive_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_wave",
+        "label": "Electromagnetic Wave",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "index_of_refraction",
+        "label": "Index Of Refraction",
+        "file": "output/college.en/sonnet/html/concept_index_of_refraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "interference",
+        "label": "Interference",
+        "file": "output/college.en/sonnet/html/concept_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "non_reflective_coatings",
+        "label": "Non Reflective Coatings",
+        "file": "output/college.en/sonnet/html/concept_non_reflective_coatings.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phase_change_on_reflection",
+        "label": "Phase Change On Reflection",
+        "file": "output/college.en/sonnet/html/concept_phase_change_on_reflection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thin_film_interference",
+        "label": "Thin Film Interference",
+        "file": "output/college.en/sonnet/html/concept_thin_film_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength_in_medium",
+        "label": "Wavelength In Medium",
+        "file": "output/college.en/sonnet/html/concept_wavelength_in_medium.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch28",
+    "name": "Physics Ch28: Special Relativity",
+    "description": "OpenStax College Physics 2e, Chapter 28: Special Relativity.",
+    "capstone": "michelson_morley_experiment",
+    "nodes": 26,
+    "edges": 32,
+    "primitives": 6,
+    "concepts": 16,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "michelson_morley_experiment",
+        "file": "output/college.en/sonnet/html/book_michelson_morley_experiment.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "michelson_morley_experiment",
+        "label": "Michelson Morley Experiment",
+        "file": "output/college.en/sonnet/html/concept_michelson_morley_experiment.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "second_postulate",
+        "label": "Second Postulate",
+        "file": "output/college.en/sonnet/html/concept_second_postulate.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "speed_of_light",
+        "label": "Speed Of Light",
+        "file": "output/college.en/sonnet/html/concept_speed_of_light.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch29",
+    "name": "Physics Ch29: Quantum Physics",
+    "description": "OpenStax College Physics 2e, Chapter 29: Quantum Physics.",
+    "capstone": "x_ray_production",
+    "nodes": 25,
+    "edges": 34,
+    "primitives": 6,
+    "concepts": 17,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "x_ray_production",
+        "file": "output/college.en/sonnet/html/book_x_ray_production.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "electromagnetic_radiation",
+        "label": "Electromagnetic Radiation",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electron",
+        "label": "Electron",
+        "file": "output/college.en/sonnet/html/concept_electron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy",
+        "label": "Energy",
+        "file": "output/college.en/sonnet/html/concept_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "frequency",
+        "label": "Frequency",
+        "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "photon",
+        "label": "Photon",
+        "file": "output/college.en/sonnet/html/concept_photon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "photon_energy",
+        "label": "Photon Energy",
+        "file": "output/college.en/sonnet/html/concept_photon_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "planck_constant",
+        "label": "Planck Constant",
+        "file": "output/college.en/sonnet/html/concept_planck_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quantization",
+        "label": "Quantization",
+        "file": "output/college.en/sonnet/html/concept_quantization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "x_ray_production",
+        "label": "X Ray Production",
+        "file": "output/college.en/sonnet/html/concept_x_ray_production.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch30",
+    "name": "Physics Ch30: Atomic Physics",
+    "description": "OpenStax College Physics 2e, Chapter 30: Atomic Physics.",
+    "capstone": "x_ray_diffraction",
+    "nodes": 50,
+    "edges": 61,
+    "primitives": 8,
+    "concepts": 37,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "x_ray_diffraction",
+        "file": "output/college.en/sonnet/html/book_x_ray_diffraction.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "atom",
+        "label": "Atom",
+        "file": "output/college.en/sonnet/html/concept_atom.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_radiation",
+        "label": "Electromagnetic Radiation",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "x_ray_diffraction",
+        "label": "X Ray Diffraction",
+        "file": "output/college.en/sonnet/html/concept_x_ray_diffraction.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch31",
+    "name": "Physics Ch31: Radioactivity and Nuclear Physics",
+    "description": "OpenStax College Physics 2e, Chapter 31: Radioactivity and Nuclear Physics.",
+    "capstone": "geiger_tube",
+    "nodes": 56,
+    "edges": 81,
+    "primitives": 12,
+    "concepts": 39,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "geiger_tube",
+        "file": "output/college.en/sonnet/html/book_geiger_tube.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "geiger_tube",
+        "label": "Geiger Tube",
+        "file": "output/college.en/sonnet/html/concept_geiger_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ionization",
+        "label": "Ionization",
+        "file": "output/college.en/sonnet/html/concept_ionization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ionizing_radiation",
+        "label": "Ionizing Radiation",
+        "file": "output/college.en/sonnet/html/concept_ionizing_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass_energy_equivalence",
+        "label": "Mass Energy Equivalence",
+        "file": "output/college.en/sonnet/html/concept_mass_energy_equivalence.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_radiation",
+        "label": "Nuclear Radiation",
+        "file": "output/college.en/sonnet/html/concept_nuclear_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nucleus",
+        "label": "Nucleus",
+        "file": "output/college.en/sonnet/html/concept_nucleus.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radiation_detector",
+        "label": "Radiation Detector",
+        "file": "output/college.en/sonnet/html/concept_radiation_detector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radioactivity",
+        "label": "Radioactivity",
+        "file": "output/college.en/sonnet/html/concept_radioactivity.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch32",
+    "name": "Physics Ch32: Medical Applications of Nuclear Physics",
+    "description": "OpenStax College Physics 2e, Chapter 32: Medical Applications of Nuclear Physics.",
+    "capstone": "fission_bomb",
+    "nodes": 35,
+    "edges": 41,
+    "primitives": 7,
+    "concepts": 23,
+    "applications": 5,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "fission_bomb",
+        "file": "output/college.en/sonnet/html/book_fission_bomb.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "binding_energy_per_nucleon",
+        "label": "Binding Energy Per Nucleon",
+        "file": "output/college.en/sonnet/html/concept_binding_energy_per_nucleon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "chain_reaction",
+        "label": "Chain Reaction",
+        "file": "output/college.en/sonnet/html/concept_chain_reaction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulomb_repulsion",
+        "label": "Coulomb Repulsion",
+        "file": "output/college.en/sonnet/html/concept_coulomb_repulsion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "critical_mass",
+        "label": "Critical Mass",
+        "file": "output/college.en/sonnet/html/concept_critical_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fission_bomb",
+        "label": "Fission Bomb",
+        "file": "output/college.en/sonnet/html/concept_fission_bomb.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_fission",
+        "label": "Nuclear Fission",
+        "file": "output/college.en/sonnet/html/concept_nuclear_fission.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_force",
+        "label": "Nuclear Force",
+        "file": "output/college.en/sonnet/html/concept_nuclear_force.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch33",
+    "name": "Physics Ch33: Particle Physics",
+    "description": "OpenStax College Physics 2e, Chapter 33: Particle Physics.",
+    "capstone": "particle_accelerator",
+    "nodes": 40,
+    "edges": 64,
+    "primitives": 7,
+    "concepts": 30,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "particle_accelerator",
+        "file": "output/college.en/sonnet/html/book_particle_accelerator.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "colliding_beams",
+        "label": "Colliding Beams",
+        "file": "output/college.en/sonnet/html/concept_colliding_beams.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_mass_energy",
+        "label": "Conservation Of Mass Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_mass_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_momentum",
+        "label": "Conservation Of Momentum",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "cyclotron",
+        "label": "Cyclotron",
+        "file": "output/college.en/sonnet/html/concept_cyclotron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromagnetic_force",
+        "label": "Electromagnetic Force",
+        "file": "output/college.en/sonnet/html/concept_electromagnetic_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "particle_accelerator",
+        "label": "Particle Accelerator",
+        "file": "output/college.en/sonnet/html/concept_particle_accelerator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "synchrotron",
+        "label": "Synchrotron",
+        "file": "output/college.en/sonnet/html/concept_synchrotron.html",
+        "model": "sonnet"
+      }
+    ]
+  },
+  {
+    "id": "college_physics_ch34",
+    "name": "Physics Ch34: Frontiers of Physics",
+    "description": "OpenStax College Physics 2e, Chapter 34: Frontiers of Physics.",
+    "capstone": "quasar",
+    "nodes": 46,
+    "edges": 53,
+    "primitives": 9,
+    "concepts": 35,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "quasar",
+        "file": "output/college.en/sonnet/html/book_quasar.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "black_hole",
+        "label": "Black Hole",
+        "file": "output/college.en/sonnet/html/concept_black_hole.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "equivalence_principle",
+        "label": "Equivalence Principle",
+        "file": "output/college.en/sonnet/html/concept_equivalence_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "escape_velocity",
+        "label": "Escape Velocity",
+        "file": "output/college.en/sonnet/html/concept_escape_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "galaxy",
+        "label": "Galaxy",
+        "file": "output/college.en/sonnet/html/concept_galaxy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "general_relativity",
+        "label": "General Relativity",
+        "file": "output/college.en/sonnet/html/concept_general_relativity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quasar",
+        "label": "Quasar",
+        "file": "output/college.en/sonnet/html/concept_quasar.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "special_relativity",
+        "label": "Special Relativity",
+        "file": "output/college.en/sonnet/html/concept_special_relativity.html",
+        "model": "sonnet"
+      }
+    ]
+  }
+]

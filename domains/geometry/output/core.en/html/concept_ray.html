@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ray | Geometry</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain/geometry" class="back">← Geometry</a>
+  </header>
+  <main>
+    <h2 id="ray">Ray</h2>
+<p><strong>Definition.</strong> A *ray* is a subset of a line that begins at a fixed point and extends infinitely in one direction. Formally, given two distinct points $A$ and $B$ in $\mathbb{R}^n$, the ray with *endpoint* (or *origin*) $A$ passing through $B$ is defined as</p>
+$$\overrightarrow{AB} = \{ A + t\,(B - A) \mid t \in [0, +\infty) \}.$$
+<p>The point $A$ belongs to the ray; no point "behind" $A$ (i.e., corresponding to $t < 0$) does. The ray is thus a half-line closed at $A$. In the plane $\mathbb{R}^2$, a ray is often specified by its endpoint and a direction vector $\mathbf{d} \neq \mathbf{0}$:</p>
+$$r(t) = P + t\,\mathbf{d}, \qquad t \geq 0.$$
+<p><strong>Worked Example.</strong> Let $P = (1, 2)$ and $\mathbf{d} = (3, -1)$ in $\mathbb{R}^2$. Find the point on the ray at parameter $t = 2$, and determine whether $Q = (7, 0)$ lies on the ray.</p>
+<p>*Point at $t = 2$:</em></p>
+$$r(2) = (1,2) + 2\,(3,-1) = (1 + 6,\; 2 - 2) = (7, 0).$$
+<p>*Membership check for $Q = (7,0)$:</em> Solve $P + t\,\mathbf{d} = Q$:</p>
+$$t = \frac{7 - 1}{3} = 2, \qquad t = \frac{0 - 2}{-1} = 2.$$
+<p>Both components yield $t = 2 \geq 0$, so $Q \in \overrightarrow{AB}$. $\square$</p>
+<p><strong>Key Theorem (Ray–Ray Intersection).</strong> Two rays $r_1(t) = P + t\,\mathbf{d}_1$ and $r_2(s) = Q + s\,\mathbf{d}_2$ in $\mathbb{R}^2$ intersect if and only if there exist $t \geq 0$ and $s \geq 0$ satisfying</p>
+$$P + t\,\mathbf{d}_1 = Q + s\,\mathbf{d}_2.$$
+<p>This $2 \times 2$ linear system has a unique solution when $\mathbf{d}_1$ and $\mathbf{d}_2$ are not parallel (i.e., $\mathbf{d}_1 \times \mathbf{d}_2 \neq 0$, the scalar 2D cross product), and the intersection is valid precisely when both parameters are non-negative.</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import symbols, Matrix, solve
+
+t, s = symbols('t s', real=True)
+P = Matrix([0, 0]);  d1 = Matrix([1, 1])
+Q = Matrix([2, 0]);  d2 = Matrix([-1, 1])
+
+eq = P + t*d1 - (Q + s*d2)
+sol = solve([eq[0], eq[1]], [t, s])
+print(sol)          # {t: 1, s: 1}  → intersection at (1, 1)
+assert sol[t] &gt;= 0 and sol[s] &gt;= 0</code></pre>
+<p>Running this cell confirms $t = 1 \geq 0$ and $s = 1 \geq 0$, so the two rays meet at $r_1(1) = (1, 1)$.</p>
+  </main>
+</div>
+</body>
+</html>

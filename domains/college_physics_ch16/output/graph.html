@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Concept Graph — graph</title>
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:100vh}
+.app{
+  display:grid;
+  grid-template-columns:230px 1fr 210px;
+  grid-template-rows:60vh 40vh;
+  height:100vh;
+  gap:0;
+}
+/* ── Left sidebar: learning path ── */
+#path-sidebar{
+  grid-column:1;grid-row:1/3;
+  background:#f5f6f8;color:#2a2a2a;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border-right:1px solid #dde0e6;
+}
+#path-header{
+  padding:14px 14px 10px;
+  border-bottom:1px solid #dde0e6;
+  flex-shrink:0;
+}
+#path-header h1{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#888;margin-bottom:2px;font-weight:700}
+#path-header .domain-name{font-size:11px;color:#555;margin-top:4px}
+#path-steps{flex:1;overflow-y:auto;padding:8px 0}
+#path-steps .hint{color:#aaa;font-size:12px;text-align:center;padding:24px 12px;line-height:1.5}
+.step-item{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:7px 12px;cursor:pointer;
+  border-left:3px solid transparent;
+  transition:background .15s;
+}
+.step-item:hover{background:#ebebf0}
+.step-item.active{background:#e8eef8;border-left-color:#4a90d9}
+.step-item.target{background:#eaf5ea;border-left-color:#4caf50}
+.step-num{min-width:20px;font-size:10px;font-weight:700;color:#bbb;padding-top:2px;flex-shrink:0}
+.step-item.target .step-num{color:#4caf50}
+.step-label{font-size:12px;font-weight:600;color:#333;line-height:1.4}
+.step-def{font-size:10px;color:#888;margin-top:2px;line-height:1.4}
+.step-kind{display:inline-block;padding:0 5px;border-radius:8px;font-size:9px;font-weight:700;margin-left:4px}
+#path-count{font-size:10px;color:#aaa;margin-top:3px}
+/* ── Graph panel ── */
+#graph-panel{
+  grid-column:2;grid-row:1;
+  position:relative;background:#fff;
+  border-bottom:2px solid #dde;
+}
+#graph-container{width:100%;height:100%}
+.graph-recenter-btn{
+  position:absolute;right:16px;bottom:16px;z-index:50;
+  padding:6px 14px;border-radius:6px;
+  border:1px solid #1e3a5f;background:#1e3a5f;color:#fff;
+  font-size:12px;font-weight:600;font-family:system-ui,sans-serif;
+  box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer;
+}
+.graph-recenter-btn:hover{background:#28496f;border-color:#28496f}
+/* ── Explanation panel ── */
+#explain-panel{
+  grid-column:2;grid-row:2;
+  background:#fff;overflow-y:auto;
+  padding:16px 20px;
+}
+#explain-panel .empty{color:#aaa;font-size:13px;padding:20px 0;text-align:center}
+#explain-panel .node-title{
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+#explain-panel .node-title h2{font-size:16px;color:#1e3a5f}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-size:11px;font-weight:700;
+}
+.badge.primitive{background:#e8f5e9;color:#2e7d32}
+.badge.concept{background:#e3f2fd;color:#1565c0}
+.badge.application{background:#fff3e0;color:#ef6c00}
+.tier-tag{font-size:11px;color:#999;margin-left:auto}
+#explain-panel .defines{
+  font-size:14px;color:#333;line-height:1.6;margin-bottom:12px;
+  padding:10px 12px;background:#f8f9fb;border-radius:6px;
+  border-left:3px solid #90b4e8;
+}
+#explain-panel .section-label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:#999;margin-bottom:6px;
+}
+#explain-panel .prereq-list{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.prereq-chip{
+  padding:3px 9px;border-radius:12px;font-size:11px;
+  background:#e3f2fd;color:#1565c0;cursor:pointer;
+  border:1px solid #90caf9;transition:background .12s;
+}
+.prereq-chip:hover{background:#bbdefb}
+#explain-panel .meta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.meta-item{font-size:12px;color:#555}
+.meta-item b{color:#1e3a5f}
+#explain-panel .play-hint{
+  font-size:12px;color:#5a5a5a;line-height:1.6;
+  padding:8px 12px;background:#fffde7;border-radius:6px;
+  border-left:3px solid #ffd54f;margin-bottom:8px;
+}
+/* ── Notes sidebar ── */
+#notes-sidebar{
+  grid-column:3;grid-row:1/3;
+  background:#fafaf8;
+  border-left:2px solid #e8e8e0;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+#notes-header{
+  padding:10px 12px 8px;
+  border-bottom:1px solid #e0e0d8;
+  flex-shrink:0;
+}
+#notes-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+#notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em;margin:0}
+#notes-node-label{font-size:11px;color:#999;margin-top:2px}
+.nb-btn{font-size:10px;padding:2px 7px;border-radius:3px;
+  border:1px solid #ddd;background:#f0f0ea;cursor:pointer;color:#777;
+  font-family:system-ui,sans-serif}
+.nb-btn:hover{background:#e0e0d8;color:#444}
+#notes-textarea{
+  flex:0 0 auto;height:100px;border:none;resize:none;
+  padding:12px;font-size:12px;line-height:1.6;
+  font-family:inherit;background:#fafaf8;color:#333;
+  outline:none;
+}
+#notes-with-entries{
+  border-top:1px solid #e8e8e0;flex:1;min-height:0;overflow-y:auto;
+}
+.note-entry{
+  padding:6px 12px;cursor:pointer;
+  border-bottom:1px solid #f0f0e8;
+  font-size:11px;
+}
+.note-entry:hover{background:#f0efe8}
+.note-entry .note-node{font-weight:600;color:#555;display:flex;justify-content:space-between;align-items:center}
+.note-entry .note-ts{font-weight:400;color:#bbb;font-size:10px}
+.note-entry .note-preview{color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ── kind badge colours in sidebar ── */
+.primitive-k{background:#e8f5e9;color:#2e7d32}
+.concept-k{background:#e3f2fd;color:#1565c0}
+.application-k{background:#fff3e0;color:#ef6c00}
+/* ── concept detail panel ── */
+#concept-detail{margin-top:14px;border-top:1px solid #e8e8e0;padding-top:10px;}
+#concept-iframe{width:100%;height:500px;border:1px solid #e0e0d8;border-radius:4px;margin-top:6px;display:block;}
+.concept-not-found{color:#e57373;font-size:12px;padding:6px 0;font-style:italic;}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- LEFT: learning path sidebar -->
+<aside id="path-sidebar">
+  <div id="path-header">
+    <h1>Learning Path</h1>
+    <div class="domain-name">graph</div>
+    <div id="path-count"></div>
+  </div>
+  <div id="path-steps">
+    <div class="hint">Click any node in the graph<br>to see its learning path</div>
+  </div>
+</aside>
+
+<!-- CENTRE TOP: concept graph -->
+<div id="graph-panel">
+  <div id="graph-container"></div>
+  <button class="graph-recenter-btn" onclick="reCenterGraph()" title="Re-fit the graph to the viewport">Re-Center</button>
+</div>
+
+<!-- CENTRE BOTTOM: explanation panel -->
+<div id="explain-panel">
+  <div class="empty">Select a node to see its definition, prerequisites, and learning context.</div>
+</div>
+
+<!-- RIGHT: notes sidebar -->
+<aside id="notes-sidebar">
+  <div id="notes-header">
+    <div id="notes-header-top">
+      <h2>Notes</h2>
+      <div>
+        <button class="nb-btn" id="nb-clear-btn" onclick="clearNote()">Clear</button>
+        <button class="nb-btn" onclick="exportNotes()">Export</button>
+      </div>
+    </div>
+    <div id="notes-node-label">no node selected</div>
+  </div>
+  <textarea id="notes-textarea" placeholder="Type notes here&#10;(auto-saved per node)"></textarea>
+  <div id="notes-with-entries"></div>
+</aside>
+
+</div><!-- .app -->
+
+<script>
+const RAW = {"nodes": [{"id": "displacement", "label": "displacement", "kind": "primitive", "tier": 0, "defines": "The distance and direction an object has moved from its equilibrium position.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "force", "label": "force", "kind": "primitive", "tier": 0, "defines": "A push or pull on an object, described by Newton's laws of motion.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "mass", "label": "mass", "kind": "primitive", "tier": 0, "defines": "A measure of the amount of matter in an object, affecting its resistance to acceleration.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "energy", "label": "energy", "kind": "primitive", "tier": 0, "defines": "The capacity to do work, existing in kinetic, potential, and other forms.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "equilibrium", "label": "equilibrium", "kind": "primitive", "tier": 0, "defines": "The position at which the net force on an object is zero.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "velocity", "label": "velocity", "kind": "primitive", "tier": 0, "defines": "The rate of change of displacement with respect to time, including direction.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "acceleration", "label": "acceleration", "kind": "primitive", "tier": 0, "defines": "The rate of change of velocity with respect to time.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "restoring_force", "label": "restoring force", "kind": "concept", "tier": 1, "defines": "A force that acts in the direction opposite to displacement from equilibrium, driving an object back toward its equilibrium position.", "prereqs": ["force", "displacement", "equilibrium"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "periodic_motion", "label": "periodic motion", "kind": "concept", "tier": 1, "defines": "Motion that repeats itself at regular time intervals.", "prereqs": ["displacement"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "wave", "label": "wave", "kind": "concept", "tier": 1, "defines": "A disturbance that propagates from its source, carrying energy without transporting matter.", "prereqs": ["energy", "displacement"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "hookes_law", "label": "hookes law", "kind": "concept", "tier": 2, "defines": "The restoring force is directly proportional to displacement from equilibrium, expressed as F = -kx, where k is the force constant.", "prereqs": ["restoring_force"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "period", "label": "period", "kind": "concept", "tier": 2, "defines": "The time required to complete one full oscillation cycle, measured in seconds.", "prereqs": ["periodic_motion"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "frequency", "label": "frequency", "kind": "concept", "tier": 2, "defines": "The number of oscillations per unit time, related to period by f = 1/T, measured in hertz.", "prereqs": ["periodic_motion"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "amplitude", "label": "amplitude", "kind": "concept", "tier": 2, "defines": "The maximum displacement from the equilibrium position during an oscillation.", "prereqs": ["periodic_motion", "equilibrium"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "wavelength", "label": "wavelength", "kind": "concept", "tier": 2, "defines": "The distance between adjacent identical parts of a wave, measured parallel to the direction of propagation.", "prereqs": ["wave"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "transverse_wave", "label": "transverse wave", "kind": "concept", "tier": 2, "defines": "A wave in which the disturbance is perpendicular to the direction of propagation.", "prereqs": ["wave"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "longitudinal_wave", "label": "longitudinal wave", "kind": "concept", "tier": 2, "defines": "A wave in which the disturbance is parallel to the direction of propagation.", "prereqs": ["wave"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "superposition", "label": "superposition", "kind": "concept", "tier": 2, "defines": "The phenomenon in which two or more waves combine at the same point by adding their individual disturbances.", "prereqs": ["wave"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "force_constant", "label": "force constant", "kind": "concept", "tier": 3, "defines": "The constant k in Hooke's law that measures the stiffness or rigidity of a system, in units of newtons per meter.", "prereqs": ["hookes_law"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "simple_harmonic_motion", "label": "simple harmonic motion", "kind": "concept", "tier": 3, "defines": "Oscillatory motion in which the net restoring force is described by Hooke's law, producing sinusoidal displacement as a function of time.", "prereqs": ["periodic_motion", "hookes_law"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "wave_velocity", "label": "wave velocity", "kind": "concept", "tier": 3, "defines": "The speed at which a wave disturbance propagates, related to wavelength and frequency by v_w = f*lambda.", "prereqs": ["wavelength", "frequency"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "constructive_interference", "label": "constructive interference", "kind": "concept", "tier": 3, "defines": "Superposition of waves that are in phase, resulting in a combined wave with greater amplitude.", "prereqs": ["superposition", "amplitude"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "destructive_interference", "label": "destructive interference", "kind": "concept", "tier": 3, "defines": "Superposition of waves that are exactly out of phase, resulting in reduced or zero amplitude.", "prereqs": ["superposition", "amplitude"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "standing_wave", "label": "standing wave", "kind": "concept", "tier": 3, "defines": "A wave pattern formed by the superposition of two waves traveling in opposite directions, producing nodes and antinodes at fixed positions.", "prereqs": ["superposition"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "beat_frequency", "label": "beat frequency", "kind": "concept", "tier": 3, "defines": "The frequency of amplitude fluctuations produced by superposition of two waves with slightly different frequencies, equal to |f1 - f2|.", "prereqs": ["superposition", "frequency"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "wave_intensity", "label": "wave intensity", "kind": "concept", "tier": 3, "defines": "Power per unit area carried by a wave, proportional to the square of its amplitude, measured in watts per square meter.", "prereqs": ["wave", "amplitude"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "elastic_potential_energy", "label": "elastic potential energy", "kind": "concept", "tier": 4, "defines": "Energy stored in the deformation of a system that obeys Hooke's law, given by PE_el = (1/2)kx^2.", "prereqs": ["energy", "force_constant"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "shm_period_frequency", "label": "shm period frequency", "kind": "concept", "tier": 4, "defines": "For a simple harmonic oscillator, the period T = 2*pi*sqrt(m/k) and frequency f = (1/2*pi)*sqrt(k/m), both independent of amplitude.", "prereqs": ["simple_harmonic_motion", "period", "frequency", "mass", "force_constant"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "shm_equations_of_motion", "label": "shm equations of motion", "kind": "concept", "tier": 4, "defines": "The displacement x(t) = X*cos(2*pi*t/T), velocity v(t) = -v_max*sin(2*pi*t/T), and acceleration a = -(k/m)*x for simple harmonic motion.", "prereqs": ["simple_harmonic_motion", "amplitude", "velocity", "acceleration"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "simple_pendulum", "label": "simple pendulum", "kind": "concept", "tier": 4, "defines": "A mass suspended from a light string that undergoes simple harmonic motion for small angles, with period T = 2*pi*sqrt(L/g) independent of mass.", "prereqs": ["simple_harmonic_motion", "period"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "uniform_circular_motion_shm", "label": "uniform circular motion shm", "kind": "concept", "tier": 4, "defines": "The projection of uniform circular motion onto a diameter produces simple harmonic motion, linking angular velocity omega to SHM period.", "prereqs": ["simple_harmonic_motion", "period"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "damped_harmonic_motion", "label": "damped harmonic motion", "kind": "concept", "tier": 4, "defines": "Oscillatory motion in which non-conservative forces such as friction remove energy from the system, causing amplitude to decrease over time.", "prereqs": ["simple_harmonic_motion", "energy", "amplitude"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "natural_frequency", "label": "natural frequency", "kind": "concept", "tier": 4, "defines": "The frequency at which a system oscillates when not subject to a driving or damping force.", "prereqs": ["frequency", "simple_harmonic_motion"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "nodes_and_antinodes", "label": "nodes and antinodes", "kind": "concept", "tier": 4, "defines": "Nodes are points of zero displacement in a standing wave; antinodes are points of maximum displacement.", "prereqs": ["standing_wave", "amplitude"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "fundamental_frequency_and_harmonics", "label": "fundamental frequency and harmonics", "kind": "concept", "tier": 4, "defines": "The lowest resonant frequency of a standing wave system is the fundamental; overtones or harmonics are integer multiples of the fundamental.", "prereqs": ["standing_wave", "frequency"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "energy_in_shm", "label": "energy in shm", "kind": "concept", "tier": 5, "defines": "In undamped SHM, total mechanical energy is conserved as it oscillates between kinetic energy (1/2)mv^2 and elastic potential energy (1/2)kx^2.", "prereqs": ["simple_harmonic_motion", "elastic_potential_energy", "mass", "velocity"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "critical_damping", "label": "critical damping", "kind": "concept", "tier": 5, "defines": "The damping condition in which a system returns to equilibrium as quickly as possible without oscillating past it.", "prereqs": ["damped_harmonic_motion"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "underdamping", "label": "underdamping", "kind": "concept", "tier": 5, "defines": "A damping condition where the system oscillates through equilibrium with gradually decreasing amplitude before coming to rest.", "prereqs": ["damped_harmonic_motion"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "overdamping", "label": "overdamping", "kind": "concept", "tier": 5, "defines": "A damping condition where the system returns to equilibrium without oscillating but more slowly than a critically damped system.", "prereqs": ["damped_harmonic_motion"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "forced_oscillation", "label": "forced oscillation", "kind": "concept", "tier": 5, "defines": "Oscillation driven by a periodic external force applied at a particular frequency, which may differ from the system's natural frequency.", "prereqs": ["natural_frequency", "damped_harmonic_motion"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "maximum_velocity_shm", "label": "maximum velocity shm", "kind": "concept", "tier": 6, "defines": "The maximum speed of a simple harmonic oscillator is v_max = sqrt(k/m)*X, occurring as the object passes through equilibrium.", "prereqs": ["energy_in_shm", "amplitude"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "resonance", "label": "resonance", "kind": "concept", "tier": 6, "defines": "The phenomenon in which a system driven at its natural frequency responds with maximum amplitude oscillations.", "prereqs": ["forced_oscillation"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "medical_ultrasound", "label": "medical ultrasound", "kind": "application", "tier": 4, "defines": "Application of high-frequency oscillations to produce ultrasound waves used for noninvasive medical imaging.", "prereqs": ["frequency", "wave_intensity", "longitudinal_wave"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "earthquake_wave_detection", "label": "earthquake wave detection", "kind": "application", "tier": 4, "defines": "Application of wave propagation speeds and interference patterns to locate earthquake epicenters and study geological structures.", "prereqs": ["wave_velocity", "transverse_wave", "longitudinal_wave", "superposition"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "pendulum_clock", "label": "pendulum clock", "kind": "application", "tier": 5, "defines": "Application of the simple pendulum's constant period to keep accurate time by adjusting pendulum length.", "prereqs": ["simple_pendulum"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "car_suspension", "label": "car suspension", "kind": "application", "tier": 6, "defines": "Application of damped harmonic motion where shock absorbers provide critical damping to prevent prolonged oscillation after hitting a bump.", "prereqs": ["critical_damping", "force_constant"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "musical_instrument_resonance", "label": "musical instrument resonance", "kind": "application", "tier": 7, "defines": "Application of standing waves and harmonics on strings and in tubes to produce musical tones at specific frequencies.", "prereqs": ["fundamental_frequency_and_harmonics", "resonance"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}], "edges": [{"from": "displacement", "to": "restoring_force"}, {"from": "displacement", "to": "periodic_motion"}, {"from": "displacement", "to": "wave"}, {"from": "force", "to": "restoring_force"}, {"from": "mass", "to": "shm_period_frequency"}, {"from": "mass", "to": "energy_in_shm"}, {"from": "energy", "to": "wave"}, {"from": "energy", "to": "elastic_potential_energy"}, {"from": "energy", "to": "damped_harmonic_motion"}, {"from": "equilibrium", "to": "restoring_force"}, {"from": "equilibrium", "to": "amplitude"}, {"from": "velocity", "to": "shm_equations_of_motion"}, {"from": "velocity", "to": "energy_in_shm"}, {"from": "acceleration", "to": "shm_equations_of_motion"}, {"from": "restoring_force", "to": "hookes_law"}, {"from": "periodic_motion", "to": "period"}, {"from": "periodic_motion", "to": "frequency"}, {"from": "periodic_motion", "to": "amplitude"}, {"from": "periodic_motion", "to": "simple_harmonic_motion"}, {"from": "wave", "to": "wavelength"}, {"from": "wave", "to": "transverse_wave"}, {"from": "wave", "to": "longitudinal_wave"}, {"from": "wave", "to": "superposition"}, {"from": "wave", "to": "wave_intensity"}, {"from": "hookes_law", "to": "force_constant"}, {"from": "hookes_law", "to": "simple_harmonic_motion"}, {"from": "period", "to": "shm_period_frequency"}, {"from": "period", "to": "simple_pendulum"}, {"from": "period", "to": "uniform_circular_motion_shm"}, {"from": "frequency", "to": "wave_velocity"}, {"from": "frequency", "to": "beat_frequency"}, {"from": "frequency", "to": "shm_period_frequency"}, {"from": "frequency", "to": "natural_frequency"}, {"from": "frequency", "to": "fundamental_frequency_and_harmonics"}, {"from": "frequency", "to": "medical_ultrasound"}, {"from": "amplitude", "to": "constructive_interference"}, {"from": "amplitude", "to": "destructive_interference"}, {"from": "amplitude", "to": "wave_intensity"}, {"from": "amplitude", "to": "shm_equations_of_motion"}, {"from": "amplitude", "to": "damped_harmonic_motion"}, {"from": "amplitude", "to": "nodes_and_antinodes"}, {"from": "amplitude", "to": "maximum_velocity_shm"}, {"from": "wavelength", "to": "wave_velocity"}, {"from": "transverse_wave", "to": "earthquake_wave_detection"}, {"from": "longitudinal_wave", "to": "medical_ultrasound"}, {"from": "longitudinal_wave", "to": "earthquake_wave_detection"}, {"from": "superposition", "to": "constructive_interference"}, {"from": "superposition", "to": "destructive_interference"}, {"from": "superposition", "to": "standing_wave"}, {"from": "superposition", "to": "beat_frequency"}, {"from": "superposition", "to": "earthquake_wave_detection"}, {"from": "force_constant", "to": "elastic_potential_energy"}, {"from": "force_constant", "to": "shm_period_frequency"}, {"from": "force_constant", "to": "car_suspension"}, {"from": "simple_harmonic_motion", "to": "shm_period_frequency"}, {"from": "simple_harmonic_motion", "to": "shm_equations_of_motion"}, {"from": "simple_harmonic_motion", "to": "simple_pendulum"}, {"from": "simple_harmonic_motion", "to": "uniform_circular_motion_shm"}, {"from": "simple_harmonic_motion", "to": "damped_harmonic_motion"}, {"from": "simple_harmonic_motion", "to": "natural_frequency"}, {"from": "simple_harmonic_motion", "to": "energy_in_shm"}, {"from": "wave_velocity", "to": "earthquake_wave_detection"}, {"from": "standing_wave", "to": "nodes_and_antinodes"}, {"from": "standing_wave", "to": "fundamental_frequency_and_harmonics"}, {"from": "wave_intensity", "to": "medical_ultrasound"}, {"from": "elastic_potential_energy", "to": "energy_in_shm"}, {"from": "simple_pendulum", "to": "pendulum_clock"}, {"from": "damped_harmonic_motion", "to": "critical_damping"}, {"from": "damped_harmonic_motion", "to": "underdamping"}, {"from": "damped_harmonic_motion", "to": "overdamping"}, {"from": "damped_harmonic_motion", "to": "forced_oscillation"}, {"from": "natural_frequency", "to": "forced_oscillation"}, {"from": "fundamental_frequency_and_harmonics", "to": "musical_instrument_resonance"}, {"from": "energy_in_shm", "to": "maximum_velocity_shm"}, {"from": "critical_damping", "to": "car_suspension"}, {"from": "forced_oscillation", "to": "resonance"}, {"from": "resonance", "to": "musical_instrument_resonance"}]};
+const DOMAIN_KEY = "graph";
+
+// ── index ──────────────────────────────────────────────────────────────────
+const nodeIndex = {};
+RAW.nodes.forEach(n => nodeIndex[n.id] = n);
+
+const prereqOf  = {};  // id → ids that are direct prerequisites OF id
+const dependsOn = {};  // id → ids that id feeds into
+RAW.nodes.forEach(n => { prereqOf[n.id] = []; dependsOn[n.id] = []; });
+RAW.edges.forEach(e => {
+  prereqOf[e.to].push(e.from);
+  dependsOn[e.from].push(e.to);
+});
+
+// ── BFS longest-path levels (fixes application nodes at wrong tier) ─────────
+const bfsLevels = (() => {
+  const levels = {};
+  const successors = {};
+  RAW.nodes.forEach(n => { levels[n.id] = -1; successors[n.id] = []; });
+  RAW.edges.forEach(e => successors[e.from].push(e.to));
+  const sources = RAW.nodes.filter(n => !RAW.edges.some(e => e.to === n.id));
+  const queue = sources.map(n => n.id);
+  queue.forEach(n => levels[n] = 0);
+  let i = 0;
+  while (i < queue.length) {
+    const cur = queue[i++];
+    for (const succ of successors[cur]) {
+      const nl = levels[cur] + 1;
+      if (levels[succ] < nl) { levels[succ] = nl; queue.push(succ); }
+    }
+  }
+  return levels;
+})();
+
+// ── graph algorithms ────────────────────────────────────────────────────────
+function getAncestors(targetId) {
+  const visited = new Set();
+  const queue = [targetId];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const p of prereqOf[cur])
+      if (!visited.has(p)) { visited.add(p); queue.push(p); }
+  }
+  return visited;
+}
+
+function topoSort(nodeSet) {
+  const inDeg = {};
+  nodeSet.forEach(n => inDeg[n] = 0);
+  nodeSet.forEach(n => { for (const p of prereqOf[n]) if (nodeSet.has(p)) inDeg[n]++; });
+  const reach = {};
+  nodeSet.forEach(n => {
+    let r = 0;
+    nodeSet.forEach(m => { if (m !== n && getAncestors(m).has(n)) r++; });
+    reach[n] = r;
+  });
+  const heap = [];
+  nodeSet.forEach(n => { if (inDeg[n] === 0) heap.push(n); });
+  heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+  const result = [];
+  while (heap.length) {
+    const node = heap.shift();
+    result.push(node);
+    for (const succ of dependsOn[node]) {
+      if (!nodeSet.has(succ)) continue;
+      if (--inDeg[succ] === 0) {
+        heap.push(succ);
+        heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+      }
+    }
+  }
+  return result;
+}
+
+// ── vis.js network ──────────────────────────────────────────────────────────
+const container = document.getElementById('graph-container');
+const visNodes = new vis.DataSet(RAW.nodes.map(n => ({
+  id: n.id,
+  label: n.label.replace(/ /g, '\n'),
+  level: bfsLevels[n.id] !== undefined ? bfsLevels[n.id] : n.tier,
+  color: n.color,
+  font: n.font,
+  title: `<b>${n.label}</b> [${n.kind}]<br>${n.defines || ''}`,
+  shape: n.kind === 'concept' ? 'ellipse' : 'box',
+})));
+const visEdges = new vis.DataSet(RAW.edges.map((e, i) => ({
+  id: i, from: e.from, to: e.to,
+  arrows: 'to', color: {color: '#c8ccd4'}, width: 1,
+})));
+const network = new vis.Network(container, {nodes: visNodes, edges: visEdges}, {
+  layout: { hierarchical: {
+    enabled: true, direction: 'UD',
+    sortMethod: 'directed', levelSeparation: 85, nodeSpacing: 130,
+  } },
+  physics: { enabled: false },
+  interaction: { hover: true, tooltipDelay: 150 },
+  edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical' } },
+});
+
+// Compact layout: group by tier, sort alphabetically, left-align all nodes.
+network.once('afterDrawing', function() {
+  const pos = network.getPositions();
+  const spacing = 140;
+
+  // Group nodes by their BFS tier
+  const byTier = {};
+  RAW.nodes.forEach(n => {
+    const tier = bfsLevels[n.id] ?? n.tier ?? 0;
+    if (!byTier[tier]) byTier[tier] = [];
+    byTier[tier].push(n.id);
+  });
+
+  // Sort each tier alphabetically, assign X starting from 0
+  const tiers = Object.keys(byTier).map(Number).sort((a, b) => a - b);
+  const tierSep = 85;
+  tiers.forEach((tier, ti) => {
+    const ids = byTier[tier].sort();
+    const y = ti * tierSep;
+    ids.forEach((id, i) => {
+      network.moveNode(id, i * spacing, y);
+    });
+  });
+
+  network.fit({ animation: false });
+});
+
+function reCenterGraph() {
+  network.fit({ animation: true });
+}
+
+const C_PATH   = {background: '#fff9c4', border: '#f9a825'};
+const C_TARGET = {background: '#ffe082', border: '#e65100'};
+
+function resetColors() {
+  visNodes.update(RAW.nodes.map(n => ({id: n.id, color: n.color})));
+  visEdges.update(RAW.edges.map((e, i) => ({id: i, color: {color: '#c8ccd4'}, width: 1})));
+}
+
+// ── explanation panel ───────────────────────────────────────────────────────
+function renderExplanation(node) {
+  const kclass = node.kind;
+  const prereqChips = (node.prereqs || []).map(p =>
+    `<span class="prereq-chip" onclick="selectNode('${p}')">${p.replace(/_/g,' ')}</span>`
+  ).join('');
+  const metaItems = [
+    node.verifier ? `<span class="meta-item"><b>Verifier:</b> ${node.verifier}</span>` : '',
+    node.lab      ? `<span class="meta-item"><b>Lab:</b> ${node.lab}</span>` : '',
+  ].filter(Boolean).join('');
+  const playHtml = node.play
+    ? `<div class="section-label">Try it</div><div class="play-hint">${node.play}</div>`
+    : '';
+
+  const panel = document.getElementById('explain-panel');
+  panel.innerHTML = `
+    <div class="node-title">
+      <h2>${node.label}</h2>
+      <span class="badge ${kclass}">${kclass}</span>
+      <span class="tier-tag">BFS level ${bfsLevels[node.id] ?? node.tier}</span>
+    </div>
+    ${node.defines ? `<div class="defines">${node.defines}</div>` : ''}
+    ${prereqChips ? `<div class="section-label">Prerequisites</div><div class="prereq-list">${prereqChips}</div>` : ''}
+    ${metaItems ? `<div class="meta-row">${metaItems}</div>` : ''}
+    ${playHtml}
+  `;
+
+  // ── concept HTML detail ──
+  const conceptsBase = window.__cb_CONCEPTS_BASE;
+  const conceptUrls = window.__cb_CONCEPT_URLS || {};
+  const mappedUrl = conceptUrls[node.id];
+  if (mappedUrl || conceptsBase) {
+    const conceptUrl = mappedUrl || (conceptsBase + 'concept_' + encodeURIComponent(node.id) + '.html');
+    const detail = document.createElement('div');
+    detail.id = 'concept-detail';
+    detail.innerHTML = '<div class="section-label">Concept Detail</div><div class="concept-loading" style="color:#aaa;font-size:12px;padding:6px 0">Loading…</div>';
+    panel.appendChild(detail);
+    fetch(conceptUrl)
+      .then(r => {
+        if (!r.ok) throw new Error('not found');
+        return r.text();
+      })
+      .then(html => {
+        const slot = detail.querySelector('.concept-loading');
+        if (!slot) return;
+        // Vite dev server returns the SPA index.html (200) for missing static files.
+        // Verify we got a real concept page by checking for a known marker.
+        if (html.includes('spl-credit') || html.includes('Powered by')) {
+          const iframe = document.createElement('iframe');
+          iframe.id = 'concept-iframe';
+          iframe.src = conceptUrl;
+          slot.replaceWith(iframe);
+        } else {
+          slot.className = 'concept-not-found';
+          slot.textContent = 'Content not found — generate it first.';
+        }
+      })
+      .catch(() => {
+        const slot = detail.querySelector('.concept-loading');
+        if (slot) { slot.className = 'concept-not-found'; slot.textContent = 'Content not found — generate it first.'; }
+      });
+  }
+}
+
+// ── learning path sidebar ───────────────────────────────────────────────────
+function renderPathSidebar(orderedPath, targetId) {
+  const stepsEl = document.getElementById('path-steps');
+  const countEl = document.getElementById('path-count');
+  countEl.textContent = orderedPath.length
+    ? `${orderedPath.length} step${orderedPath.length !== 1 ? 's' : ''} to learn first`
+    : 'Root concept — no prerequisites';
+
+  const target = nodeIndex[targetId];
+  const kc = k => `${k.charAt(0).toUpperCase() + k.slice(1)}`;
+
+  stepsEl.innerHTML = orderedPath.map((n, i) => {
+    const nd = nodeIndex[n];
+    return `<div class="step-item" onclick="selectNode('${n}')">
+      <span class="step-num">${i + 1}.</span>
+      <div>
+        <div class="step-label">${nd.label}
+          <span class="step-kind ${nd.kind}-k">${nd.kind}</span>
+        </div>
+        ${nd.defines ? `<div class="step-def">${nd.defines}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('') + `<div class="step-item target">
+    <span class="step-num">▶</span>
+    <div>
+      <div class="step-label">${target.label}
+        <span class="step-kind ${target.kind}-k">${target.kind}</span>
+      </div>
+      ${target.defines ? `<div class="step-def">${target.defines}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+// ── notes (localStorage) ────────────────────────────────────────────────────
+let currentNodeId = null;
+
+function noteKey(nodeId) { return `concept_notes_${DOMAIN_KEY}_${nodeId}`; }
+
+function loadNote(nodeId) {
+  const parsed = _parseNote(localStorage.getItem(noteKey(nodeId)));
+  return parsed ? parsed.text : '';
+}
+
+function saveNote(nodeId, text) {
+  if (text.trim()) {
+    const data = JSON.stringify({ text, ts: new Date().toISOString() });
+    localStorage.setItem(noteKey(nodeId), data);
+  } else {
+    localStorage.removeItem(noteKey(nodeId));
+  }
+  renderNotesList();
+}
+
+function _parseNote(raw) {
+  if (!raw) return null;
+  try { const d = JSON.parse(raw); return { text: d.text || '', ts: d.ts || '' }; }
+  catch (_) { return { text: raw, ts: '' }; }
+}
+
+function _fmtTs(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  const yy = d.getFullYear();
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  const hh = String(d.getHours()).padStart(2,'0');
+  const mi = String(d.getMinutes()).padStart(2,'0');
+  return `${yy}-${mm}-${dd} ${hh}:${mi}`;
+}
+
+function renderNotesList() {
+  const container = document.getElementById('notes-with-entries');
+  const entries = RAW.nodes
+    .filter(n => localStorage.getItem(noteKey(n.id)))
+    .map(n => {
+      const parsed = _parseNote(localStorage.getItem(noteKey(n.id)));
+      return {id: n.id, label: n.label, preview: (parsed?.text || '').slice(0, 60), ts: parsed?.ts || ''};
+    });
+  if (!entries.length) { container.innerHTML = ''; return; }
+  container.innerHTML = entries.map(e =>
+    `<div class="note-entry" onclick="selectNode('${e.id}')">
+      <div class="note-node">${e.label}<span class="note-ts">${_fmtTs(e.ts)}</span></div>
+      <div class="note-preview">${e.preview}</div>
+    </div>`
+  ).join('');
+}
+
+function switchNotes(nodeId) {
+  if (currentNodeId !== null) {
+    saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+  }
+  currentNodeId = nodeId;
+  document.getElementById('notes-textarea').value = loadNote(nodeId);
+  document.getElementById('notes-node-label').textContent =
+    nodeIndex[nodeId]?.label || nodeId;
+}
+
+function clearNote() {
+  if (!currentNodeId) return;
+  document.getElementById('notes-textarea').value = '';
+  saveNote(currentNodeId, '');
+  const btn = document.getElementById('nb-clear-btn');
+  if (btn) { btn.textContent = 'Cleared!'; setTimeout(() => { btn.textContent = 'Clear'; }, 1000); }
+}
+
+function exportNotes() {
+  const notes = {};
+  RAW.nodes.forEach(n => {
+    const v = localStorage.getItem(noteKey(n.id));
+    if (v) notes[n.id] = v;
+  });
+  const blob = new Blob([JSON.stringify(notes, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${DOMAIN_KEY}_notes.json`;
+  a.click();
+}
+
+document.getElementById('notes-textarea').addEventListener('input', () => {
+  if (currentNodeId) saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+});
+
+// ── unified node select ─────────────────────────────────────────────────────
+function selectNode(nodeId) {
+  if (!nodeIndex[nodeId]) return;
+  network.selectNodes([nodeId]);
+  handleSelect(nodeId);
+}
+
+function handleSelect(targetId) {
+  const node = nodeIndex[targetId];
+
+  renderExplanation(node);
+  switchNotes(targetId);
+
+  const ancestors = getAncestors(targetId);
+  const pathSet = new Set([...ancestors]);
+  const orderedPath = topoSort(pathSet);
+
+  renderPathSidebar(orderedPath, targetId);
+
+  resetColors();
+  visNodes.update(orderedPath.map(n => ({id: n, color: C_PATH})));
+  visNodes.update([{id: targetId, color: C_TARGET}]);
+  visEdges.update(RAW.edges.map((e, i) => {
+    const inPath = pathSet.has(e.from) && (pathSet.has(e.to) || e.to === targetId);
+    return {id: i, color: {color: inPath ? '#f9a825' : '#c8ccd4'}, width: inPath ? 2 : 1};
+  }));
+}
+
+network.on('click', params => {
+  if (params.nodes.length) handleSelect(params.nodes[0]);
+});
+
+// initialise notes list on load
+renderNotesList();
+
+// When viewed directly (not in an iframe), inject a back link next to the
+// "Learning Path" heading so it doesn't look like a title-bar element.
+if (window.parent === window) {
+  var h1 = document.querySelector('#path-header h1');
+  if (h1) {
+    var backLink = document.createElement('a');
+    backLink.href = '../../';
+    backLink.textContent = '← App';
+    backLink.style.cssText = [
+      'font-size:10px','color:#2563eb','font-family:system-ui,sans-serif',
+      'text-decoration:none','font-weight:400','letter-spacing:normal',
+      'text-transform:none','white-space:nowrap','flex-shrink:0'
+    ].join(';');
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:baseline;gap:8px;';
+    h1.parentNode.insertBefore(row, h1);
+    row.appendChild(h1);
+    row.appendChild(backLink);
+  }
+}
+</script>
+</body>
+</html>

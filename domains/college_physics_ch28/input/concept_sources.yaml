@@ -1,0 +1,134 @@
+domain: college_physics_2e_ch28
+sources:
+  speed_of_light:
+    label: Speed of Light
+    sections:
+    - id: ch28_s28_1
+      title: 28.1 Einstein’s Postulates
+  inertial_reference_frame:
+    label: Inertial Reference Frame
+    sections:
+    - id: ch28_s28_1
+      title: 28.1 Einstein’s Postulates
+  rest_mass:
+    label: Rest Mass
+    sections:
+    - id: ch28_s28_5
+      title: 28.5 Relativistic Momentum
+  classical_velocity_addition:
+    label: Classical Velocity Addition
+    sections:
+    - id: ch28_s28_4
+      title: 28.4 Relativistic Addition of Velocities
+  classical_momentum:
+    label: Classical Momentum
+    sections:
+    - id: ch28_s28_5
+      title: 28.5 Relativistic Momentum
+  classical_kinetic_energy:
+    label: Classical Kinetic Energy
+    sections:
+    - id: ch28_s28_6
+      title: 28.6 Relativistic Energy
+  first_postulate:
+    label: First Postulate of Special Relativity
+    sections:
+    - id: ch28_s28_1
+      title: 28.1 Einstein’s Postulates
+  second_postulate:
+    label: Second Postulate of Special Relativity
+    sections:
+    - id: ch28_s28_1
+      title: 28.1 Einstein’s Postulates
+  simultaneity:
+    label: Simultaneity
+    sections:
+    - id: ch28_s28_2
+      title: 28.2 Simultaneity And Time Dilation
+  proper_time:
+    label: Proper Time
+    sections:
+    - id: ch28_s28_2
+      title: 28.2 Simultaneity And Time Dilation
+  lorentz_factor:
+    label: Lorentz Factor
+    sections:
+    - id: ch28_s28_2
+      title: 28.2 Simultaneity And Time Dilation
+  time_dilation:
+    label: Time Dilation
+    sections:
+    - id: ch28_s28_2
+      title: 28.2 Simultaneity And Time Dilation
+  proper_length:
+    label: Proper Length
+    sections:
+    - id: ch28_s28_3
+      title: 28.3 Length Contraction
+  length_contraction:
+    label: Length Contraction
+    sections:
+    - id: ch28_s28_3
+      title: 28.3 Length Contraction
+  relativistic_velocity_addition:
+    label: Relativistic Velocity Addition
+    sections:
+    - id: ch28_s28_4
+      title: 28.4 Relativistic Addition of Velocities
+  relativistic_doppler_effect:
+    label: Relativistic Doppler Effect
+    sections:
+    - id: ch28_s28_4
+      title: 28.4 Relativistic Addition of Velocities
+  relativistic_momentum:
+    label: Relativistic Momentum
+    sections:
+    - id: ch28_s28_5
+      title: 28.5 Relativistic Momentum
+  total_energy:
+    label: Total Relativistic Energy
+    sections:
+    - id: ch28_s28_6
+      title: 28.6 Relativistic Energy
+  rest_energy:
+    label: Rest Energy
+    sections:
+    - id: ch28_s28_6
+      title: 28.6 Relativistic Energy
+  relativistic_kinetic_energy:
+    label: Relativistic Kinetic Energy
+    sections:
+    - id: ch28_s28_6
+      title: 28.6 Relativistic Energy
+  energy_momentum_relation:
+    label: Energy-Momentum Relation
+    sections:
+    - id: ch28_s28_6
+      title: 28.6 Relativistic Energy
+  mass_energy_equivalence:
+    label: Mass-Energy Equivalence
+    sections:
+    - id: ch28_s28_6
+      title: 28.6 Relativistic Energy
+  twin_paradox:
+    label: Twin Paradox
+    sections:
+    - id: ch28_s28_2
+      title: 28.2 Simultaneity And Time Dilation
+  muon_lifetime:
+    label: Muon Lifetime Dilation
+    sections:
+    - id: ch28_s28_2
+      title: 28.2 Simultaneity And Time Dilation
+    - id: ch28_s28_3
+      title: 28.3 Length Contraction
+  michelson_morley_experiment:
+    label: Michelson-Morley Experiment
+    sections:
+    - id: ch28_s28_1
+      title: 28.1 Einstein’s Postulates
+  gps_relativistic_corrections:
+    label: GPS Relativistic Corrections
+    sections:
+    - id: ch28_s28_2
+      title: 28.2 Simultaneity And Time Dilation

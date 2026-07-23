@@ -1,0 +1,203 @@
+domain: college_physics_2e_ch13
+sources:
+  pressure:
+    label: Pressure
+    sections: []
+  kinetic_energy:
+    label: Kinetic Energy
+    sections: []
+  volume:
+    label: Volume
+    sections: []
+  mass:
+    label: Mass
+    sections: []
+  density:
+    label: Density
+    sections: []
+  temperature:
+    label: Temperature
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 Temperature
+  temperature_scales:
+    label: Temperature Scales
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 Temperature
+  absolute_zero:
+    label: Absolute Zero
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 Temperature
+  thermal_equilibrium:
+    label: Thermal Equilibrium
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 Temperature
+  zeroth_law_of_thermodynamics:
+    label: Zeroth Law of Thermodynamics
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 Temperature
+  thermal_expansion:
+    label: Thermal Expansion
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 Thermal Expansion of Solids and Liquids
+  linear_thermal_expansion:
+    label: Linear Thermal Expansion
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 Thermal Expansion of Solids and Liquids
+  volume_thermal_expansion:
+    label: Volume Thermal Expansion
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 Thermal Expansion of Solids and Liquids
+  thermal_stress:
+    label: Thermal Stress
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 Thermal Expansion of Solids and Liquids
+  ideal_gas_law:
+    label: Ideal Gas Law
+    sections:
+    - id: ch13_s13_3
+      title: 13.3 The Ideal Gas Law
+  boltzmann_constant:
+    label: Boltzmann Constant
+    sections:
+    - id: ch13_s13_3
+      title: 13.3 The Ideal Gas Law
+  mole:
+    label: Mole
+    sections:
+    - id: ch13_s13_3
+      title: 13.3 The Ideal Gas Law
+  avogadros_number:
+    label: Avogadro's Number
+    sections:
+    - id: ch13_s13_3
+      title: 13.3 The Ideal Gas Law
+  universal_gas_constant:
+    label: Universal Gas Constant
+    sections:
+    - id: ch13_s13_3
+      title: 13.3 The Ideal Gas Law
+  kinetic_theory_of_gases:
+    label: Kinetic Theory of Gases
+    sections:
+    - id: ch13_s13_4
+      title: '13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature'
+  thermal_energy:
+    label: Thermal Energy
+    sections:
+    - id: ch13_s13_4
+      title: '13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature'
+  rms_speed:
+    label: Root-Mean-Square Speed
+    sections:
+    - id: ch13_s13_4
+      title: '13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature'
+  maxwell_boltzmann_distribution:
+    label: Maxwell-Boltzmann Distribution
+    sections:
+    - id: ch13_s13_4
+      title: '13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature'
+  phase_change:
+    label: Phase Change
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  pv_diagram:
+    label: PV Diagram
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  phase_diagram:
+    label: Phase Diagram
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  critical_point:
+    label: Critical Point
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  triple_point:
+    label: Triple Point
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  sublimation:
+    label: Sublimation
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  vapor:
+    label: Vapor
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  vapor_pressure:
+    label: Vapor Pressure
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+    - id: ch13_s13_6
+      title: 13.6 Humidity, Evaporation, and Boiling
+  partial_pressure:
+    label: Partial Pressure
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+    - id: ch13_s13_6
+      title: 13.6 Humidity, Evaporation, and Boiling
+  daltons_law:
+    label: Dalton's Law of Partial Pressures
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  relative_humidity:
+    label: Relative Humidity
+    sections:
+    - id: ch13_s13_6
+      title: 13.6 Humidity, Evaporation, and Boiling
+  saturation_vapor_density:
+    label: Saturation Vapor Density
+    sections:
+    - id: ch13_s13_6
+      title: 13.6 Humidity, Evaporation, and Boiling
+  dew_point:
+    label: Dew Point
+    sections:
+    - id: ch13_s13_6
+      title: 13.6 Humidity, Evaporation, and Boiling
+  boiling:
+    label: Boiling
+    sections:
+    - id: ch13_s13_6
+      title: 13.6 Humidity, Evaporation, and Boiling
+  thermometer:
+    label: Thermometer
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 Temperature
+  expansion_joints:
+    label: Expansion Joints
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 Thermal Expansion of Solids and Liquids
+  pressure_cooker:
+    label: Pressure Cooker
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+  freeze_drying:
+    label: Freeze Drying
+    sections:
+    - id: ch13_s13_5
+      title: 13.5 Phase Changes
+    - id: ch13_s13_6
+      title: 13.6 Humidity, Evaporation, and Boiling

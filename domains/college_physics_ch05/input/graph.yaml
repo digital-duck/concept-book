@@ -1,0 +1,158 @@
+domain: college_physics_2e_ch5
+primitives:
+  normal_force:
+    defines: The contact force perpendicular to a surface that supports an object resting on or pressed
+      against that surface.
+    tier: 0
+  coefficient_of_static_friction:
+    defines: A dimensionless material-pair constant μ_s that sets the upper limit of static friction relative
+      to the normal force; determined empirically and listed in reference tables.
+    tier: 0
+  coefficient_of_kinetic_friction:
+    defines: A dimensionless material-pair constant μ_k, always less than μ_s, that gives the ratio of
+      kinetic friction force to normal force; determined empirically.
+    tier: 0
+  drag_coefficient:
+    defines: A dimensionless empirical constant C that characterizes how much drag a particular object
+      shape and size produces in a fluid, typically measured in a wind tunnel.
+    tier: 0
+  fluid_density:
+    defines: Mass per unit volume of the fluid through which an object moves, a given material property
+      that enters the quadratic drag force formula.
+    tier: 0
+  fluid_viscosity:
+    defines: A property of a fluid (symbol η) that measures its resistance to flow, appearing as a given
+      constant in Stokes' law for drag on small slow objects.
+    tier: 0
+  youngs_modulus:
+    defines: A material-specific constant Y (units N/m²) that relates tensile or compressive stress to
+      strain; listed in reference tables and treated as a given property of the substance.
+    tier: 0
+  shear_modulus:
+    defines: A material-specific constant S (units N/m²) that characterizes a material's resistance to
+      shear deformation, given in reference tables.
+    tier: 0
+  bulk_modulus:
+    defines: A material-specific constant B (units N/m²) that characterizes resistance to uniform volumetric
+      compression, given in reference tables.
+    tier: 0
+concepts:
+  friction:
+    defines: A contact force parallel to the interface between two surfaces that always opposes relative
+      motion or attempted motion between them.
+    composed_of:
+    - normal_force
+    tier: 1
+  drag_force:
+    defines: A resistive force exerted by a fluid on a moving object that opposes the motion; for large
+      fast objects it is proportional to the square of speed, F_D = ½CρAv².
+    composed_of:
+    - drag_coefficient
+    - fluid_density
+    tier: 1
+  deformation:
+    defines: A change in an object's shape or size produced by an applied force; for small deformations
+      the object returns to its original shape when the force is removed (elastic deformation).
+    composed_of: []
+    tier: 1
+  static_friction:
+    defines: The friction force between two surfaces that are not moving relative to each other, which
+      responds to applied force up to a maximum of f_s ≤ μ_s N.
+    composed_of:
+    - friction
+    - coefficient_of_static_friction
+    tier: 2
+  kinetic_friction:
+    defines: The friction force between two surfaces in relative motion, given by f_k = μ_k N, which is
+      constant and less than the maximum static friction.
+    composed_of:
+    - friction
+    - coefficient_of_kinetic_friction
+    tier: 2
+  stokes_law:
+    defines: The drag force formula for small objects moving slowly in a dense fluid, F_s = 6πrηv, where
+      drag is proportional to the object's radius, fluid viscosity, and speed.
+    composed_of:
+    - drag_force
+    - fluid_viscosity
+    tier: 2
+  terminal_velocity:
+    defines: The constant maximum velocity reached by a falling object when the drag force exactly balances
+      the gravitational force, producing zero net force and zero acceleration.
+    composed_of:
+    - drag_force
+    tier: 2
+  hookes_law:
+    defines: The proportional relationship between applied force F and the resulting deformation ΔL for
+      small deformations, expressed as F = kΔL where k depends on material and geometry.
+    composed_of:
+    - deformation
+    tier: 2
+  stress:
+    defines: The ratio of applied force to cross-sectional area (F/A), measured in N/m², that quantifies
+      the internal force intensity within a deformed material.
+    composed_of:
+    - deformation
+    tier: 2
+  strain:
+    defines: The dimensionless ratio of the change in length to the original length (ΔL/L₀) that quantifies
+      the fractional deformation of a material.
+    composed_of:
+    - deformation
+    tier: 2
+  tension_compression_deformation:
+    defines: Change in length of a rod or wire under a force applied parallel to its length, given by
+      ΔL = (1/Y)(F/A)L₀, where Y is Young's modulus.
+    composed_of:
+    - stress
+    - strain
+    - youngs_modulus
+    tier: 3
+  shear_deformation:
+    defines: Deformation perpendicular to the original length produced by a force applied parallel to
+      the cross-sectional area, given by Δx = (1/S)(F/A)L₀.
+    composed_of:
+    - stress
+    - shear_modulus
+    tier: 3
+  bulk_compression:
+    defines: Uniform reduction in volume when inward forces are applied evenly on all surfaces of an object,
+      given by ΔV/V₀ = −F/(B·A).
+    composed_of:
+    - stress
+    - bulk_modulus
+    tier: 3
+  tensile_strength:
+    defines: The maximum stress a material can withstand before it permanently deforms or fractures.
+    composed_of:
+    - stress
+    tier: 3
+applications:
+  joint_lubrication:
+    defines: The reduction of kinetic friction in biological joints through synovial fluid and cartilage,
+      resulting in coefficients of friction far lower than most engineered surfaces.
+    needs:
+    - kinetic_friction
+    tier: 3
+  aerodynamic_drag_reduction:
+    defines: The engineering and design practice of minimizing drag force by shaping objects (cars, athletes,
+      aircraft) to reduce drag coefficient and frontal area.
+    needs:
+    - drag_force
+    - drag_coefficient
+    tier: 2
+  skydiver_terminal_velocity:
+    defines: The application of drag force and Newton's second law to calculate the maximum falling speed
+      of a skydiver, showing how body orientation and mass affect terminal velocity.
+    needs:
+    - terminal_velocity
+    - drag_force
+    tier: 3
+  elasticity_in_biological_structures:
+    defines: The application of stress, strain, and elastic moduli to analyze deformation in bones, tendons,
+      arteries, and other tissues under physiological loads.
+    needs:
+    - tension_compression_deformation
+    - shear_deformation
+    - bulk_compression
+    tier: 4

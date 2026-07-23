@@ -1,0 +1,127 @@
+domain: college_physics_2e_ch23
+sources:
+  magnetic_field:
+    label: Magnetic Field
+    sections: []
+  electric_current:
+    label: Electric Current
+    sections: []
+  resistance:
+    label: Resistance
+    sections: []
+  capacitance:
+    label: Capacitance
+    sections: []
+  angular_velocity:
+    label: Angular Velocity
+    sections: []
+  magnetic_flux:
+    label: Magnetic Flux
+    sections:
+    - id: ch23_s23_1
+      title: 23.1 Induced Emf and Magnetic Flux
+  electromagnetic_induction:
+    label: Electromagnetic Induction
+    sections:
+    - id: ch23_s23_1
+      title: 23.1 Induced Emf and Magnetic Flux
+  faradays_law:
+    label: Faraday's Law of Induction
+    sections:
+    - id: ch23_s23_2
+      title: '23.2 Faraday’s Law of Induction: Lenz’s Law'
+  lenzs_law:
+    label: Lenz's Law
+    sections:
+    - id: ch23_s23_2
+      title: '23.2 Faraday’s Law of Induction: Lenz’s Law'
+  motional_emf:
+    label: Motional EMF
+    sections:
+    - id: ch23_s23_3
+      title: 23.3 Motional Emf
+  eddy_currents:
+    label: Eddy Currents
+    sections:
+    - id: ch23_s23_4
+      title: 23.4 Eddy Currents and Magnetic Damping
+  magnetic_damping:
+    label: Magnetic Damping
+    sections:
+    - id: ch23_s23_4
+      title: 23.4 Eddy Currents and Magnetic Damping
+  electric_generator:
+    label: Electric Generator
+    sections:
+    - id: ch23_s23_5
+      title: 23.5 Electric Generators
+  back_emf:
+    label: Back EMF
+    sections:
+    - id: ch23_s23_6
+      title: 23.6 Back Emf
+  mutual_inductance:
+    label: Mutual Inductance
+    sections:
+    - id: ch23_s23_9
+      title: 23.9 Inductance
+  self_inductance:
+    label: Self-Inductance
+    sections:
+    - id: ch23_s23_9
+      title: 23.9 Inductance
+  inductor_energy:
+    label: Energy Stored in an Inductor
+    sections:
+    - id: ch23_s23_9
+      title: 23.9 Inductance
+  rl_time_constant:
+    label: RL Time Constant
+    sections:
+    - id: ch23_s23_10
+      title: 23.10 RL Circuits
+  inductive_reactance:
+    label: Inductive Reactance
+    sections:
+    - id: ch23_s23_11
+      title: 23.11 Reactance, Inductive and Capacitive
+  capacitive_reactance:
+    label: Capacitive Reactance
+    sections:
+    - id: ch23_s23_11
+      title: 23.11 Reactance, Inductive and Capacitive
+  impedance:
+    label: Impedance
+    sections:
+    - id: ch23_s23_12
+      title: 23.12 RLC Series AC Circuits
+  resonant_frequency:
+    label: Resonant Frequency
+    sections:
+    - id: ch23_s23_12
+      title: 23.12 RLC Series AC Circuits
+  phase_angle:
+    label: Phase Angle
+    sections:
+    - id: ch23_s23_12
+      title: 23.12 RLC Series AC Circuits
+  power_factor:
+    label: Power Factor
+    sections:
+    - id: ch23_s23_12
+      title: 23.12 RLC Series AC Circuits
+  transformer:
+    label: Transformer
+    sections:
+    - id: ch23_s23_7
+      title: 23.7 Transformers
+  electrical_safety_devices:
+    label: Induction-Based Electrical Safety Devices
+    sections:
+    - id: ch23_s23_8
+      title: '23.8 Electrical Safety: Systems and Devices'
+  rlc_series_circuit:
+    label: RLC Series AC Circuit
+    sections:
+    - id: ch23_s23_12
+      title: 23.12 RLC Series AC Circuits

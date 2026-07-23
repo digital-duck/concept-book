@@ -1,0 +1,301 @@
+domain: molecular_biology
+primitives:
+  nucleotide:
+    symbol: A/T/G/C (dNTP)
+    defines: first radical — the four-letter alphabet of heredity; each is a sugar
+      + phosphate + base; the base (A, T, G, C or U in RNA) carries the information;
+      the sugar-phosphate backbone is the structural spine
+    tier: 0
+  amino_acid:
+    symbol: aa (20 canonical)
+    defines: first radical — the monomer of proteins; a central carbon flanked by
+      an amino group, a carboxyl group, a hydrogen, and a side chain (R) that determines
+      chemical identity; twenty standard varieties encode all protein function
+    tier: 0
+  enzyme:
+    symbol: E (catalyst)
+    defines: second radical — a protein (occasionally RNA) that accelerates a specific
+      chemical reaction without being consumed; the active site is a precisely shaped
+      pocket that binds substrate and lowers the activation energy by orders of magnitude
+    tier: 0
+  phospholipid:
+    symbol: PL (amphiphile)
+    defines: second radical — a glycerol backbone esterified to two fatty-acid tails
+      and a charged head group; the amphiphilic geometry (water-loving head, water-fearing
+      tails) spontaneously forms the bilayer membrane that bounds every cell
+    tier: 0
+first_radical_primitives:
+- nucleotide
+- amino_acid
+concepts:
+  DNA_double_helix:
+    composed_of:
+    - nucleotide
+    defines: two antiparallel strands of nucleotides held together by Watson-Crick
+      base pairs (A=T via two H-bonds, G≡C via three); the double-stranded structure
+      provides redundancy — each strand is a complete template for the other; the
+      genetic archive
+    verifier: python
+    lab: python (implement complement_strand(); verify complement(complement(seq))=seq
+      and base-pair counts)
+    play: complement ATGCGT; verify result is TACGCA; confirm the two strands are
+      antiparallel by reading each 5'→3'
+    tier: 1
+  cell_membrane:
+    composed_of:
+    - phospholipid
+    defines: a 5 nm phospholipid bilayer — two leaflets of amphiphiles with tails
+      inward and heads outward; selectively permeable; the boundary that makes a
+      cell a distinct chemical compartment; membrane proteins float in it like icebergs
+    verifier: structural
+    lab: graph_lib.verify_character_lego (bilayer = two monolayers of phospholipid)
+    play: list three molecules that cross the bilayer freely (O₂, CO₂, ethanol) and
+      three that need a protein channel (Na⁺, glucose, ATP)
+    tier: 1
+  protein_primary_structure:
+    composed_of:
+    - amino_acid
+    defines: the linear sequence of amino acids linked by peptide bonds (—CO—NH—);
+      the sequence encodes all structural and functional information; determined by
+      the gene, read by the ribosome; the primary structure is the blueprint, everything
+      else is consequence
+    verifier: python
+    lab: python (compute molecular weight from amino-acid sequence; verify peptide
+      bond count = len(seq) - 1)
+    play: count the peptide bonds in the 5-mer Ala-Gly-Val-Leu-Pro; confirm 4 bonds,
+      one per adjacent pair
+    tier: 1
+  DNA_replication:
+    composed_of:
+    - DNA_double_helix
+    - enzyme
+    defines: semiconservative copying of the double helix — DNA polymerase reads
+      each strand 3'→5' and synthesises the complement 5'→3'; helicase unwinds the
+      duplex, primase lays RNA primers, ligase seals nicks; error rate ~1 in 10⁹
+      bases after proofreading
+    verifier: python
+    lab: python (implement replicate(seq); verify both daughter duplexes equal the
+      parent and each shares one original strand)
+    play: replicate ATGCGT; confirm both daughters contain one original strand and
+      one newly synthesised complement
+    tier: 2
+  transcription:
+    composed_of:
+    - DNA_double_helix
+    - enzyme
+    defines: RNA polymerase copies one DNA strand (template strand, read 3'→5') into
+      a complementary mRNA (synthesised 5'→3', using U instead of T); initiated
+      at a promoter sequence; terminated at a terminator; the first step of gene
+      expression
+    verifier: python
+    lab: python (implement transcribe(dna); verify mRNA has U not T and matches the
+      non-template strand)
+    play: transcribe ATGCGT; confirm mRNA = AUGCGU; identify which DNA strand was
+      the template
+    tier: 2
+  membrane_transport:
+    composed_of:
+    - cell_membrane
+    - enzyme
+    defines: movement of molecules across the bilayer via channel proteins (passive,
+      down gradient), carrier proteins (facilitated diffusion), or pumps (active,
+      ATP-powered, against gradient); the Na⁺/K⁺-ATPase maintains the membrane
+      potential of every neuron and muscle cell
+    verifier: python
+    lab: python (simulate passive diffusion to equilibrium; verify flux ∝ concentration
+      gradient per Fick's law)
+    play: model glucose uptake via GLUT2; confirm net flux reverses direction when
+      external and internal concentrations swap
+    tier: 2
+  enzyme_kinetics:
+    composed_of:
+    - enzyme
+    - amino_acid
+    defines: Michaelis-Menten kinetics — v = Vmax·[S]/(Km+[S]); at low [S] velocity
+      is first-order; at high [S] the enzyme saturates; Km is the substrate concentration
+      at half-maximal velocity; inhibitors shift Km or Vmax
+    verifier: python
+    lab: python (fit Michaelis-Menten to simulated v vs [S] data; verify recovered
+      Km and Vmax match parameters)
+    play: at [S] = Km, show v = Vmax/2 exactly from the formula; at [S] = 10·Km
+      show v = 10/11 · Vmax ≈ 0.91 Vmax
+    tier: 2
+  translation:
+    composed_of:
+    - transcription
+    - amino_acid
+    - enzyme
+    defines: the ribosome decodes mRNA codons (triplets of nucleotides) into a sequence
+      of amino acids; tRNA adaptors carry each amino acid to its codon; the genetic
+      code maps 64 codons to 20 amino acids + 3 stop signals; the universal code
+      in every known cell
+    verifier: python
+    lab: python (implement translate(mrna) using the standard codon table; verify
+      against known protein sequences)
+    play: translate AUG-UUU-GCG-UAA → Met-Phe-Ala-Stop; mutate the second codon
+      by one base and observe the amino-acid change
+    tier: 3
+  protein_folding:
+    composed_of:
+    - protein_primary_structure
+    - enzyme
+    defines: the spontaneous (and chaperone-assisted) collapse of a polypeptide chain
+      into its native three-dimensional structure — secondary structure (α-helices,
+      β-sheets) forms first, then the tertiary hydrophobic core; misfolding underlies
+      Alzheimer's, Parkinson's, and prion diseases
+    verifier: python
+    lab: python (predict secondary structure fraction from Chou-Fasman rules on a
+      short peptide; verify helix propensity of Ala vs. Pro)
+    play: find the α-helix in the protein sequence AAKAAAKAAAK by noting every 3-4
+      residues are Ala (helix-forming) with occasional Lys (solvent-facing)
+    tier: 3
+  gene_regulation:
+    composed_of:
+    - transcription
+    - DNA_double_helix
+    defines: the control of when and how much a gene is transcribed — transcription
+      factors bind enhancers or silencers upstream of the promoter; RNA polymerase
+      access is the bottleneck; the same genome makes a neuron and a liver cell by
+      differential gene regulation
+    verifier: python
+    lab: python (model a simple activator-repressor toggle switch ODE; show bistability
+      for appropriate parameters)
+    play: describe how lactose repressor keeps the lac operon OFF; explain in one
+      sentence what happens when lactose binds the repressor
+    tier: 3
+  metabolic_pathway:
+    composed_of:
+    - enzyme_kinetics
+    - membrane_transport
+    defines: a linked series of enzyme-catalysed reactions that converts one molecule
+      to another — glycolysis converts glucose to pyruvate in 10 steps; each enzyme
+      is the output of a gene; pathway flux is tuned by allosteric feedback and gene
+      regulation
+    verifier: python
+    lab: python (implement glycolysis stoichiometry; verify 2 ATP net gain per glucose
+      from the substrate-level phosphorylation steps)
+    play: "count the net ATP in glycolysis: −2 in investment phase, +4 in payoff\
+      \ phase = net +2; confirm this from the 10-step reaction list"
+    tier: 3
+  signal_transduction:
+    composed_of:
+    - enzyme_kinetics
+    - cell_membrane
+    - protein_folding
+    defines: the conversion of an extracellular signal (hormone, growth factor) into
+      an intracellular response via a cascade of protein modifications — receptor
+      tyrosine kinases phosphorylate downstream targets; one signal molecule can
+      trigger millions of molecular events through amplification cascades
+    verifier: python
+    lab: python (simulate a two-stage kinase cascade ODE; verify signal amplification
+      ratio at steady state)
+    play: describe how insulin binding to its receptor leads to GLUT4 insertion into
+      the membrane — list the three-step cascade (receptor→PI3K→Akt→vesicle fusion)
+    tier: 4
+  epigenetics:
+    composed_of:
+    - gene_regulation
+    - DNA_double_helix
+    defines: heritable changes in gene activity without changes in DNA sequence —
+      DNA methylation (CpG islands silenced) and histone modification (acetylation
+      opens chromatin, methylation can close it); transmitted through cell division;
+      the mechanism of cell-type identity and developmental memory
+    verifier: python
+    lab: python (simulate a CpG methylation pattern; verify propagation across simulated
+      cell divisions by maintenance methyltransferase)
+    play: explain in one sentence why identical twins with identical DNA can have
+      different disease risks (different epigenetic marks accumulated over time)
+    tier: 4
+  PCR:
+    composed_of:
+    - DNA_replication
+    - enzyme
+    defines: Polymerase Chain Reaction — exponential amplification of a DNA segment
+      by repeated cycles of denaturation (94°C), primer annealing (50-65°C), and
+      extension (72°C, Taq polymerase); starting from one molecule, 30 cycles yield
+      2³⁰ ≈ 10⁹ copies in two hours
+    verifier: python
+    lab: python (simulate 30 PCR cycles with 95% amplification efficiency; verify
+      final copy number vs. 2³⁰)
+    play: after n cycles ideal PCR gives 2ⁿ copies; verify 2¹⁰ = 1024 ≈ 10³ and
+      2³⁰ ≈ 10⁹ by direct computation
+    tier: 3
+  CRISPR_Cas9:
+    composed_of:
+    - DNA_replication
+    - gene_regulation
+    - enzyme
+    defines: a guide RNA directs the Cas9 endonuclease to a specific 20-nucleotide
+      genomic target adjacent to a PAM sequence; Cas9 cuts both strands; repair by
+      NHEJ introduces indels (gene knockout) or by HDR inserts a new sequence (precise
+      editing); a programmable restriction enzyme for any genome
+    verifier: python
+    lab: python (implement off-target score between guide RNA and candidate sites;
+      verify perfect match scores highest)
+    play: design a guide RNA for a 20-mer target sequence; confirm the PAM (NGG)
+      is immediately 3' of the target on the non-template strand
+    tier: 5
+  single_cell_sequencing:
+    composed_of:
+    - PCR
+    - gene_regulation
+    - transcription
+    defines: RNA from a single cell is reverse-transcribed, amplified by PCR, and
+      sequenced; the read counts per gene report gene_regulation state in that one
+      cell; clustering thousands of cells by their expression profiles reveals cell
+      types and developmental trajectories invisible in bulk measurements
+    verifier: python
+    lab: python (PCA and k-means cluster a synthetic single-cell count matrix; verify
+      recovered clusters match planted cell types)
+    play: explain why two cells from the same tissue can have very different gene-expression
+      profiles (cell-cycle stage, stochastic gene-regulation fluctuations, rare subpopulations)
+    tier: 5
+applications:
+  mRNA_vaccines:
+    needs:
+    - transcription
+    - translation
+    - cell_membrane
+    domain: vaccinology / medicine
+    defines: synthetic mRNA encoding a pathogen antigen is encapsulated in lipid
+      nanoparticles (phospholipid shells), delivered into cells, and translated into
+      protein that primes the immune response; no live pathogen needed; sequence
+      can be updated in days
+  CRISPR_gene_editing:
+    needs:
+    - CRISPR_Cas9
+    - gene_regulation
+    domain: biotechnology / genetic medicine
+    defines: precision genome surgery at the nucleotide level — sickle-cell disease
+      corrected ex vivo, crop plants improved for drought resistance, entire malaria
+      mosquito populations targeted with gene drives; the first general-purpose genome
+      editor
+  antibiotic_development:
+    needs:
+    - enzyme_kinetics
+    - membrane_transport
+    - protein_primary_structure
+    domain: pharmacology / infectious disease
+    defines: antibiotics target bacterial-specific molecular machinery — cell-wall
+      synthesis enzymes (penicillin), protein synthesis (tetracycline), membrane
+      integrity (polymyxin); understanding enzyme_kinetics and membrane_transport
+      identifies targets and predicts resistance mechanisms
+  protein_engineering:
+    needs:
+    - protein_folding
+    - gene_regulation
+    domain: industrial biotechnology / medicine
+    defines: rational or directed-evolution redesign of enzyme active sites to alter
+      substrate specificity, stability, or catalytic rate; industrial enzymes (detergents,
+      biofuels), therapeutic proteins (insulin, antibodies), and nanomachines all
+      emerge from controlled protein_folding
+  genomic_medicine:
+    needs:
+    - single_cell_sequencing
+    - epigenetics
+    - CRISPR_Cas9
+    domain: precision medicine / oncology
+    defines: sequencing a patient's tumour and normal genome to identify driver mutations,
+      epigenetic changes, and single-cell heterogeneity; pairs with CRISPR for functional
+      validation and guides targeted therapy; the translation of molecular biology
+      into individual treatment

@@ -1,0 +1,257 @@
+domain: college_physics_2e_ch33
+primitives:
+  heisenberg_uncertainty_principle:
+    defines: The principle relating uncertainties in energy and time by ΔEΔt ≥ h/4π, allowing temporary
+      violations of conservation of mass-energy.
+    tier: 0
+  conservation_of_mass_energy:
+    defines: The principle that total mass-energy is conserved in all processes, with E = mc² relating
+      mass and energy.
+    tier: 0
+  conservation_of_momentum:
+    defines: The principle that total momentum is conserved in all interactions and decays.
+    tier: 0
+  conservation_of_charge:
+    defines: The principle that total electric charge is conserved in all interactions.
+    tier: 0
+  pauli_exclusion_principle:
+    defines: The principle that no two fermions can occupy the same quantum state simultaneously.
+    tier: 0
+  intrinsic_spin:
+    defines: A fundamental quantum number of particles that is either integer (bosons) or half-integer
+      (fermions).
+    tier: 0
+  electromagnetic_force:
+    defines: The infinite-range force between charged particles, carried by virtual photons.
+    tier: 0
+concepts:
+  virtual_particle:
+    defines: A particle that cannot be directly observed but whose effects are observable, existing temporarily
+      via the Heisenberg uncertainty principle.
+    composed_of:
+    - heisenberg_uncertainty_principle
+    - conservation_of_mass_energy
+    tier: 1
+  carrier_particle:
+    defines: A virtual particle exchanged between other particles to transmit a fundamental force, as
+      proposed by Yukawa.
+    composed_of:
+    - heisenberg_uncertainty_principle
+    tier: 1
+  boson:
+    defines: A particle with zero or integer intrinsic spin that does not obey the Pauli exclusion principle;
+      all force carrier particles are bosons.
+    composed_of:
+    - intrinsic_spin
+    - pauli_exclusion_principle
+    tier: 1
+  fermion:
+    defines: A particle with half-integer intrinsic spin that obeys the Pauli exclusion principle; all
+      quarks and leptons are fermions.
+    composed_of:
+    - intrinsic_spin
+    - pauli_exclusion_principle
+    tier: 1
+  antimatter:
+    defines: Particles with opposite charge but otherwise nearly identical properties to their matter
+      counterparts, which annihilate with matter converting mass entirely to energy.
+    composed_of:
+    - conservation_of_mass_energy
+    - conservation_of_charge
+    tier: 1
+  colliding_beams:
+    defines: A technique where particle beams moving in opposite directions collide head-on, making all
+      kinetic energy available for particle creation since total momentum is zero.
+    composed_of:
+    - conservation_of_momentum
+    - conservation_of_mass_energy
+    tier: 1
+  cyclotron:
+    defines: A particle accelerator using fixed-frequency alternating electric fields and fixed magnets
+      to accelerate particles in a circular spiral path of increasing radius.
+    composed_of:
+    - electromagnetic_force
+    tier: 1
+  four_basic_forces:
+    defines: 'The four distinct fundamental forces in nature: gravity, electromagnetic, weak nuclear,
+      and strong nuclear, each carried by specific particles.'
+    composed_of:
+    - carrier_particle
+    - electromagnetic_force
+    tier: 2
+  pion:
+    defines: A meson exchanged between nucleons that carries the strong nuclear force, with mass approximately
+      100–140 MeV/c².
+    composed_of:
+    - carrier_particle
+    - virtual_particle
+    tier: 2
+  feynman_diagram:
+    defines: A graph of time versus position that depicts the exchange of virtual particles between subatomic
+      particles and is used to calculate interaction strengths and probabilities.
+    composed_of:
+    - virtual_particle
+    - carrier_particle
+    tier: 2
+  synchrotron:
+    defines: A particle accelerator in which the frequency of alternating voltage and magnetic field strength
+      increase as particles accelerate in fixed-radius orbits.
+    composed_of:
+    - cyclotron
+    tier: 2
+  quark:
+    defines: A fundamental fermion with fractional electric charge that combines in threes to form baryons
+      or in quark-antiquark pairs to form mesons.
+    composed_of:
+    - fermion
+    tier: 2
+  quantum_electrodynamics:
+    defines: The quantum mechanical theory of electromagnetism describing electromagnetic interactions
+      at the submicroscopic scale via virtual photon exchange.
+    composed_of:
+    - electromagnetic_force
+    - virtual_particle
+    - feynman_diagram
+    tier: 3
+  hadron:
+    defines: A particle that feels the strong nuclear force, composed of quarks, and subdivided into baryons
+      and mesons.
+    composed_of:
+    - four_basic_forces
+    tier: 3
+  lepton:
+    defines: A fundamental particle that does not feel the strong nuclear force, organized into three
+      families (electron, muon, tau) each with an associated neutrino.
+    composed_of:
+    - four_basic_forces
+    - fermion
+    tier: 3
+  synchrotron_radiation:
+    defines: Radiation emitted when a magnetic field accelerates a charged particle perpendicular to its
+      velocity.
+    composed_of:
+    - synchrotron
+    - electromagnetic_force
+    tier: 3
+  quark_flavor:
+    defines: The six types of quarks—up, down, strange, charm, bottom, and top—organized into three families
+      analogous to lepton families.
+    composed_of:
+    - quark
+    tier: 3
+  quark_color:
+    defines: A quantum number with three values (red, green, blue) that quarks carry, constrained so that
+      observable hadrons are always color-neutral (white).
+    composed_of:
+    - quark
+    tier: 3
+  baryon:
+    defines: A hadron composed of three quarks that always decays to another baryon, carrying baryon number
+      B = +1 for matter.
+    composed_of:
+    - hadron
+    - quark
+    tier: 4
+  meson:
+    defines: A hadron composed of a quark-antiquark pair that can decay to leptons leaving no hadrons,
+      with baryon number B = 0.
+    composed_of:
+    - hadron
+    - quark
+    - antimatter
+    tier: 4
+  lepton_family_number:
+    defines: Quantum numbers (electron, muon, tau family numbers) assigned to leptons that are conserved
+      in most interactions, though violated by neutrino oscillations.
+    composed_of:
+    - lepton
+    tier: 4
+  strangeness:
+    defines: A quantum number conserved by the strong force but not the weak force, assigned to particles
+      based on their decay systematics and related to strange quark content.
+    composed_of:
+    - quark_flavor
+    - four_basic_forces
+    tier: 4
+  gluon:
+    defines: The massless, spin-1 carrier particle of the strong force between quarks, carrying color
+      charge and existing in eight types.
+    composed_of:
+    - carrier_particle
+    - quark_color
+    tier: 4
+  quark_confinement:
+    defines: The principle that quarks cannot be isolated or directly observed because the color force
+      increases with separation, producing new particles instead of free quarks.
+    composed_of:
+    - quark
+    - quark_color
+    tier: 4
+  electroweak_theory:
+    defines: The unified gauge theory showing that electromagnetic and weak forces are identical at sufficiently
+      high energies, predicting the W+, W−, and Z⁰ carrier particles.
+    composed_of:
+    - quantum_electrodynamics
+    - four_basic_forces
+    tier: 4
+  baryon_number_conservation:
+    defines: The law that total baryon number (B = +1 for baryons, B = −1 for antibaryons, B = 0 for mesons
+      and leptons) is conserved in all observed interactions.
+    composed_of:
+    - baryon
+    - antimatter
+    tier: 5
+  quantum_chromodynamics:
+    defines: The theory of the strong force describing quark interactions via gluon exchange, governed
+      by the color quantum number.
+    composed_of:
+    - gluon
+    - quark_color
+    - quark
+    tier: 5
+  standard_model:
+    defines: The combination of quantum chromodynamics and electroweak theory that describes all known
+      fundamental particles and three of the four forces.
+    composed_of:
+    - quantum_chromodynamics
+    - electroweak_theory
+    tier: 6
+  grand_unified_theory:
+    defines: A theoretical framework proposing that the strong, weak, and electromagnetic forces unify
+      into a single force at extremely high energies around 10¹⁴ GeV.
+    composed_of:
+    - standard_model
+    tier: 7
+  higgs_boson:
+    defines: A massive particle whose existence validates the mechanism by which carrier particles acquire
+      mass, connecting to the unification of forces at high energies.
+    composed_of:
+    - standard_model
+    - boson
+    tier: 7
+applications:
+  particle_accelerator:
+    defines: A device that accelerates charged particles to high energies for collisions that reveal subatomic
+      structure and create new particles from energy via E = mc².
+    needs:
+    - conservation_of_mass_energy
+    - electromagnetic_force
+    - cyclotron
+    - synchrotron
+    - colliding_beams
+    tier: 3
+  cosmic_ray_experiments:
+    defines: Observations of high-energy particles from space interacting with the atmosphere, historically
+      used to discover pions, muons, and other particles.
+    needs:
+    - conservation_of_mass_energy
+    - antimatter
+    - pion
+    tier: 3
+  proton_decay_detection:
+    defines: Experimental efforts to observe the extremely rare predicted decay of protons (lifetime ~10³⁹
+      years) as evidence for grand unified theories.
+    needs:
+    - grand_unified_theory
+    - baryon_number_conservation
+    tier: 8

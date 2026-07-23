@@ -1,0 +1,319 @@
+# "Learning Chinese Characters the LEGO Way" — concept-book character graph (pilot)
+# (the on-the-fly dimension of the Digital Duck Press: lessons auto-generated per
+#  character-graph slice, accompanying the ZiNets portal — digital-duck/zinets_vis)
+# Publisher: Digital Duck (github.com/digital-duck)
+#
+# The structural isomorphism this domain demonstrates: the concept-book schema
+# was ALREADY speaking Chinese — composed_of IS character decomposition, the
+# "radical" vocabulary IS 部首, and the two-radical convention maps onto the
+# deepest fact of the writing system:
+#   first radical  — FORM:  semantic pictograms (what the piece means)
+#   second radical — SOUND: phonetic lenders (what the piece sounds like; 马 here)
+# Their meeting is 形声字 (phono-semantic compounds) — 80%+ of all characters.
+# Target: phono_semantic_principle — learn ~200 pieces + 1 principle, decode
+# thousands of characters. graph_lib.reducible() machine-checks the LEGO claim:
+# every character reduces to the brick set.
+#
+# This pilot is a 33-node slice; production graphs are generated from the ZiNets
+# decomposition database (zi.sqlite) behind the zinets_vis portal, and
+# answer_on_demand.spl turns any tapped character into a personalized lesson
+# from its ancestor slice (gap() against what the learner already knows).
+domain: chinese_characters
+primitives:
+  人:
+    symbol: rén
+    defines: person — a walking figure; the most-used semantic piece in the writing system
+    tier: 0
+  木:
+    symbol: mù
+    defines: tree — trunk and branches; lends MEANING in 林/休 and SOUND in 沐 (one brick, two roles)
+    tier: 0
+  日:
+    symbol: rì
+    defines: sun — a circle with a mark, squared by the brush; the source of all brightness pieces
+    tier: 0
+  月:
+    symbol: yuè
+    defines: moon — a crescent; also the "flesh" radical in body characters (one shape, two ancestries)
+    tier: 0
+  口:
+    symbol: kǒu
+    defines: mouth — an opening; speaks, eats, and marks questions
+    tier: 0
+  女:
+    symbol: nǚ
+    defines: woman — a kneeling figure; semantic anchor of family and relation characters
+    tier: 0
+  子:
+    symbol: zǐ
+    defines: child — a swaddled infant; also the suffix that makes nouns
+    tier: 0
+  水:
+    symbol: shuǐ
+    defines: water — a flowing stream; appears as 氵 (three drops) on the left of liquid characters
+    tier: 0
+  火:
+    symbol: huǒ
+    defines: fire — rising flames; appears as 灬 (four dots) beneath cooking characters
+    tier: 0
+  山:
+    symbol: shān
+    defines: mountain — three peaks; ground for terrain and place characters
+    tier: 0
+  宀:
+    symbol: mián
+    defines: roof — the canopy radical; whatever sits under it is sheltered, housed, or settled
+    tier: 0
+  马:
+    symbol: mǎ
+    defines: horse — and this graph's resident SOUND-lender; in 妈 and 吗 it contributes "ma", not horseness
+    tier: 0
+first_radical_primitives:
+- 人
+- 木
+- 日
+- 月
+- 口
+- 女
+- 子
+- 水
+- 火
+- 山
+- 宀
+concepts:
+  休:
+    composed_of:
+    - 人
+    - 木
+    pieces:
+    - 人
+    - 木
+    defines: rest (xiū) — a person leaning against a tree; two pictures snap together into one idea
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: build 休 from its two bricks in the ZiNets portal; then guess what a person beside a door might
+      mean before looking it up
+    tier: 1
+  明:
+    composed_of:
+    - 日
+    - 月
+    pieces:
+    - 日
+    - 月
+    defines: bright (míng) — sun and moon side by side; the sum of all light there is
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: predict the meaning of sun+moon before being told; check three more light-related characters
+      for a 日 brick
+    tier: 1
+  好:
+    composed_of:
+    - 女
+    - 子
+    pieces:
+    - 女
+    - 子
+    defines: good (hǎo) — woman and child together; a three-thousand-year-old picture of wellbeing
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: 好 is also the greeting 你好 — find both bricks inside the full phrase
+    tier: 1
+  林:
+    composed_of:
+    - 木
+    pieces:
+    - 木
+    - 木
+    defines: woods (lín) — two trees; repetition as intensification, the simplest LEGO rule of all
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: if two trees are woods, guess three trees before the next section
+    tier: 1
+  从:
+    composed_of:
+    - 人
+    pieces:
+    - 人
+    - 人
+    defines: follow (cóng) — one person walking behind another; the verb is the picture
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: act it out, then guess what THREE people might mean
+    tier: 1
+  安:
+    composed_of:
+    - 宀
+    - 女
+    pieces:
+    - 宀
+    - 女
+    defines: peace (ān) — a woman under a roof; settled, safe, at home (as in 平安 and 安全)
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: collect three more 宀 characters and check whether "shelter" survives in each meaning
+    tier: 1
+  字:
+    composed_of:
+    - 宀
+    - 子
+    pieces:
+    - 宀
+    - 子
+    defines: character (zì) — a child under a roof; new characters were "born and raised" from old pieces,
+      and the writing system named itself with this picture (ZiNets = 字 networks)
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: this book's subject contains its own theory — explain 字 to a friend using only 宀 and 子
+    tier: 1
+  森:
+    composed_of:
+    - 木
+    - 林
+    pieces:
+    - 木
+    - 木
+    - 木
+    defines: forest (sēn) — three trees; with 木→林→森 the brick count IS the meaning gradient
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: 森林 (forest) uses five trees in two characters — count them in your handwriting
+    tier: 2
+  众:
+    composed_of:
+    - 人
+    - 从
+    pieces:
+    - 人
+    - 人
+    - 人
+    defines: crowd (zhòng) — three people; the same tripling rule as 森, applied to humanity
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: having met 木木木 and 人人人, predict what 火火 and 火火火 should mean — then verify
+    tier: 2
+  晶:
+    composed_of:
+    - 日
+    pieces:
+    - 日
+    - 日
+    - 日
+    defines: sparkle (jīng) — three suns; crystal brilliance (as in 水晶, rock crystal)
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: the tripling rule now has three data points (森 众 晶) — state it as a law
+    tier: 2
+  沐:
+    composed_of:
+    - 水
+    - 木
+    pieces:
+    - 水
+    - 木
+    defines: to wash (mù) — water gives the MEANING, 木 gives only the SOUND "mu"; the first brick in
+      this book that lends its pronunciation instead of its picture
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: 沐 sounds exactly like 木 and has nothing to do with trees — say both aloud and feel the system
+      click
+    tier: 2
+  妈:
+    composed_of:
+    - 女
+    - 马
+    pieces:
+    - 女
+    - 马
+    defines: mother (mā) — 女 says "a female person", 马 says "sounds like ma"; no horses involved
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: pronounce 马 and 妈; the sound carried over, the meaning did not — which brick did which job?
+    tier: 2
+  吗:
+    composed_of:
+    - 口
+    - 马
+    pieces:
+    - 口
+    - 马
+    defines: question particle (ma) — 口 says "something spoken", 马 again says "ma"; with 妈 it forms
+      the minimal pair that exposes the whole phonetic system
+    verifier: structural
+    lab: graph_lib.verify_character_lego + zinets_vis portal tree
+    play: 妈 vs 吗 — same sound brick, different meaning brick; build the sentence 妈妈好吗 from four
+      characters you can now fully explain
+    tier: 2
+  semantic_composition:
+    composed_of:
+    - 休
+    - 明
+    - 好
+    - 森
+    - 众
+    - 安
+    - 字
+    defines: the meaning-stacking principle (会意) — pictures combine into ideas; rest, bright, good,
+      forest, crowd, peace, and "character" itself are all built this way
+    verifier: structural
+    lab: zinets_vis portal — semantic network view
+    play: pick any unfamiliar two-part character and attempt a meaning-stack reading; score yourself against
+      the dictionary
+    tier: 3
+  phonetic_borrowing:
+    composed_of:
+    - 沐
+    - 妈
+    - 吗
+    defines: the sound-lending principle (声旁) — a known piece donates its pronunciation; 木→沐 and 马→妈/吗
+      show the same brick working a second job
+    verifier: structural
+    lab: zinets_vis portal — phonetic series view
+    play: find two more characters containing 马 and predict their pronunciation before checking
+    tier: 3
+  phono_semantic_principle:
+    composed_of:
+    - semantic_composition
+    - phonetic_borrowing
+    defines: the payoff (形声) — one meaning piece + one sound piece composes over 80% of all Chinese
+      characters; master ~200 bricks and this single principle, and thousands of unseen characters become
+      decodable on sight — the LEGO way
+    verifier: structural
+    lab: graph_lib.reducible — the LEGO claim, machine-checked (every character reduces to the brick set)
+    play: open any Chinese news headline, pick the hardest character, split it into meaning-half and sound-half,
+      and make your two guesses before the dictionary settles it
+    tier: 4
+applications:
+  reading_unseen_characters:
+    needs:
+    - phono_semantic_principle
+    domain: literacy
+    defines: the decoding superpower — meet a brand-new character and extract a meaning guess and a sound
+      guess from its bricks before any lookup
+  vocabulary_compounds:
+    needs:
+    - 字
+    - 好
+    domain: vocabulary growth
+    defines: words are LEGO of LEGO — 森林, 明天, 好人, 安全 compose characters the way characters compose
+      bricks; the same graph, one level up
+  cultural_etymology:
+    needs:
+    - 安
+    - 字
+    domain: culture and history
+    defines: characters are living fossils — 安 preserves a Bronze-Age picture of home, 字 preserves the
+      system's own self-description; etymology becomes archaeology you can read
+  zinets_portal:
+    needs:
+    - phono_semantic_principle
+    domain: ZiNets learning platform (digital-duck/zinets_vis)
+    defines: tap any character in the portal's ECharts network and answer_on_demand generates a personalized
+      micro-lesson from its ancestor slice, scoped by gap() to what the learner already knows — the on-the-fly
+      textbook
+  heritage_and_classroom:
+    needs:
+    - semantic_composition
+    domain: education and equity
+    defines: heritage learners and classrooms get a free, structural path into the writing system — bricks
+      before brute-force memorization, generated lessons in the learner's own language

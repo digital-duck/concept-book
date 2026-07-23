@@ -1,0 +1,111 @@
+domain: college_physics_2e_ch10
+sources:
+  rotation_angle:
+    label: Rotation Angle
+    sections: []
+  angular_velocity:
+    label: Angular Velocity
+    sections: []
+  linear_velocity:
+    label: Linear (Translational) Velocity
+    sections: []
+  force:
+    label: Force
+    sections: []
+  mass:
+    label: Mass
+    sections: []
+  translational_kinetic_energy:
+    label: Translational Kinetic Energy
+    sections: []
+  linear_momentum:
+    label: Linear Momentum
+    sections: []
+  gravitational_potential_energy:
+    label: Gravitational Potential Energy
+    sections: []
+  centripetal_acceleration:
+    label: Centripetal Acceleration
+    sections: []
+  angular_acceleration:
+    label: Angular Acceleration
+    sections:
+    - id: ch10_s10_1
+      title: 10.1 Angular Acceleration
+  tangential_acceleration:
+    label: Tangential Acceleration
+    sections:
+    - id: ch10_s10_1
+      title: 10.1 Angular Acceleration
+  rotational_kinematics:
+    label: Kinematics of Rotational Motion
+    sections:
+    - id: ch10_s10_2
+      title: 10.2 Kinematics of Rotational Motion
+  torque:
+    label: Torque
+    sections:
+    - id: ch10_s10_3
+      title: '10.3 Dynamics of Rotational Motion: Rotational Inertia'
+  moment_of_inertia:
+    label: Moment of Inertia
+    sections:
+    - id: ch10_s10_3
+      title: '10.3 Dynamics of Rotational Motion: Rotational Inertia'
+  newtons_second_law_rotation:
+    label: Newton's Second Law for Rotation
+    sections:
+    - id: ch10_s10_3
+      title: '10.3 Dynamics of Rotational Motion: Rotational Inertia'
+  rotational_work:
+    label: Rotational Work
+    sections:
+    - id: ch10_s10_4
+      title: '10.4 Rotational Kinetic Energy: Work and Energy Revisited'
+  rotational_kinetic_energy:
+    label: Rotational Kinetic Energy
+    sections:
+    - id: ch10_s10_4
+      title: '10.4 Rotational Kinetic Energy: Work and Energy Revisited'
+  work_energy_theorem_rotation:
+    label: Work-Energy Theorem for Rotation
+    sections:
+    - id: ch10_s10_4
+      title: '10.4 Rotational Kinetic Energy: Work and Energy Revisited'
+  angular_momentum:
+    label: Angular Momentum
+    sections:
+    - id: ch10_s10_5
+      title: 10.5 Angular Momentum and Its Conservation
+  torque_angular_momentum_relation:
+    label: Torque–Angular Momentum Relationship
+    sections:
+    - id: ch10_s10_5
+      title: 10.5 Angular Momentum and Its Conservation
+  conservation_of_angular_momentum:
+    label: Conservation of Angular Momentum
+    sections:
+    - id: ch10_s10_5
+      title: 10.5 Angular Momentum and Its Conservation
+    - id: ch10_s10_6
+      title: 10.6 Collisions of Extended Bodies in Two Dimensions
+  rolling_without_slipping:
+    label: Rolling Without Slipping
+    sections:
+    - id: ch10_s10_4
+      title: '10.4 Rotational Kinetic Energy: Work and Energy Revisited'
+  collisions_of_extended_bodies:
+    label: Collisions of Extended Bodies
+    sections:
+    - id: ch10_s10_6
+      title: 10.6 Collisions of Extended Bodies in Two Dimensions
+  right_hand_rule:
+    label: Right-Hand Rule for Angular Vectors
+    sections:
+    - id: ch10_s10_7
+      title: '10.7 Gyroscopic Effects: Vector Aspects of Angular Momentum'
+  gyroscopic_precession:
+    label: Gyroscopic Precession
+    sections:
+    - id: ch10_s10_7
+      title: '10.7 Gyroscopic Effects: Vector Aspects of Angular Momentum'
