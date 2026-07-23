@@ -188,4 +188,4 @@ Set in a `.env` file at the repo root or export before starting the API.
 | [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) | Content engine — generates YAML graphs, HTML navigators, concept-book HTML |
 | [digital-duck/concept-book](https://github.com/digital-duck/concept-book) | This repo — web portal |
 | [Proj-ZiNets/zinets_vis](https://github.com/Proj-ZiNets/zinets_vis) | Precedent — Chinese character learning web-app |
-| digital-duck/concept-net | Future — multi-domain network, Momagrid-backed |
+
