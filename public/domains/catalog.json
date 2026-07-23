@@ -3321,7 +3321,7 @@
     "default_level": "core"
   },
   {
-    "id": "college_physics_ch1",
+    "id": "college_physics_ch01",
     "name": "Physics Ch1: Introduction: The Nature of Science and Physics",
     "description": "OpenStax College Physics 2e, Chapter 1: Introduction: The Nature of Science and Physics.",
     "capstone": "approximation",
@@ -3501,7 +3501,7 @@
     ]
   },
   {
-    "id": "college_physics_ch2",
+    "id": "college_physics_ch02",
     "name": "Physics Ch2: Kinematics",
     "description": "OpenStax College Physics 2e, Chapter 2: Kinematics.",
     "capstone": "graphical_analysis_of_motion",
@@ -3534,9 +3534,25 @@
         "target": "graphical_analysis_of_motion",
         "file": "output/college.en/sonnet/html/book_graphical_analysis_of_motion.html",
         "model": "sonnet"
+      },
+      {
+        "target": "problem_solving_kinematics",
+        "file": "output/college.en/sonnet/html/book_problem_solving_kinematics.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "falling_objects_calculation",
+        "file": "output/college.en/sonnet/html/book_falling_objects_calculation.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "acceleration_due_to_gravity",
+        "label": "Acceleration Due To Gravity",
+        "file": "output/college.en/sonnet/html/concept_acceleration_due_to_gravity.html",
+        "model": "sonnet"
+      },
       {
         "name": "average_acceleration",
         "label": "Average Acceleration",
@@ -3621,6 +3637,18 @@
         "model": "sonnet"
       },
       {
+        "name": "falling_objects_calculation",
+        "label": "Falling Objects Calculation",
+        "file": "output/college.en/sonnet/html/concept_falling_objects_calculation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "free_fall",
+        "label": "Free Fall",
+        "file": "output/college.en/sonnet/html/concept_free_fall.html",
+        "model": "sonnet"
+      },
+      {
         "name": "graphical_analysis_of_motion",
         "label": "Graphical Analysis Of Motion",
         "file": "output/core.en/gemma4/html/concept_graphical_analysis_of_motion.html",
@@ -3654,6 +3682,12 @@
         "model": "gemma4"
       },
       {
+        "name": "kinematic_equations_constant_acceleration",
+        "label": "Kinematic Equations Constant Acceleration",
+        "file": "output/college.en/sonnet/html/concept_kinematic_equations_constant_acceleration.html",
+        "model": "sonnet"
+      },
+      {
         "name": "position",
         "label": "Position",
         "file": "output/core.en/html/concept_position.html"
@@ -3675,6 +3709,12 @@
         "label": "Problem Solving Kinematics",
         "file": "output/core.en/gemma4/html/concept_problem_solving_kinematics.html",
         "model": "gemma4"
+      },
+      {
+        "name": "problem_solving_kinematics",
+        "label": "Problem Solving Kinematics",
+        "file": "output/college.en/sonnet/html/concept_problem_solving_kinematics.html",
+        "model": "sonnet"
       },
       {
         "name": "stopping_distance",
@@ -4084,7 +4124,7 @@
     "default_level": "intro"
   },
   {
-    "id": "college_physics_ch3",
+    "id": "college_physics_ch03",
     "name": "Physics Ch3: Two-Dimensional Kinematics",
     "description": "OpenStax College Physics 2e, Chapter 3: Two-Dimensional Kinematics.",
     "capstone": "river_crossing_relative_velocity",
@@ -4103,13 +4143,66 @@
         "target": "river_crossing_relative_velocity",
         "file": "output/college.en/sonnet/html/book_river_crossing_relative_velocity.html",
         "model": "sonnet"
+      },
+      {
+        "target": "projectile_motion_applications",
+        "file": "output/college.en/sonnet/html/book_projectile_motion_applications.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "acceleration_due_to_gravity",
+        "label": "Acceleration Due To Gravity",
+        "file": "output/college.en/sonnet/html/concept_acceleration_due_to_gravity.html",
+        "model": "sonnet"
+      },
+      {
         "name": "analytical_vector_addition",
         "label": "Analytical Vector Addition",
         "file": "output/college.en/sonnet/html/concept_analytical_vector_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "displacement",
+        "label": "Displacement",
+        "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "independence_of_perpendicular_motions",
+        "label": "Independence Of Perpendicular Motions",
+        "file": "output/college.en/sonnet/html/concept_independence_of_perpendicular_motions.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "one_dimensional_kinematics",
+        "label": "One Dimensional Kinematics",
+        "file": "output/college.en/sonnet/html/concept_one_dimensional_kinematics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_maximum_height",
+        "label": "Projectile Maximum Height",
+        "file": "output/college.en/sonnet/html/concept_projectile_maximum_height.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_motion",
+        "label": "Projectile Motion",
+        "file": "output/college.en/sonnet/html/concept_projectile_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_motion_applications",
+        "label": "Projectile Motion Applications",
+        "file": "output/college.en/sonnet/html/concept_projectile_motion_applications.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "projectile_range",
+        "label": "Projectile Range",
+        "file": "output/college.en/sonnet/html/concept_projectile_range.html",
         "model": "sonnet"
       },
       {
@@ -4143,9 +4236,21 @@
         "model": "sonnet"
       },
       {
+        "name": "trajectory",
+        "label": "Trajectory",
+        "file": "output/college.en/sonnet/html/concept_trajectory.html",
+        "model": "sonnet"
+      },
+      {
         "name": "trigonometric_functions",
         "label": "Trigonometric Functions",
         "file": "output/college.en/sonnet/html/concept_trigonometric_functions.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "two_dimensional_kinematics",
+        "label": "Two Dimensional Kinematics",
+        "file": "output/college.en/sonnet/html/concept_two_dimensional_kinematics.html",
         "model": "sonnet"
       },
       {
@@ -4175,7 +4280,7 @@
     ]
   },
   {
-    "id": "college_physics_ch4",
+    "id": "college_physics_ch04",
     "name": "Physics Ch4: Dynamics: Force and Newton's Laws of Motion",
     "description": "OpenStax College Physics 2e, Chapter 4: Dynamics: Force and Newton's Laws of Motion.",
     "capstone": "four_basic_forces",
@@ -4212,7 +4317,7 @@
     ]
   },
   {
-    "id": "college_physics_ch5",
+    "id": "college_physics_ch05",
     "name": "Physics Ch5: Further Applications of Newton's Laws: Friction, Drag, and Elasticity",
     "description": "OpenStax College Physics 2e, Chapter 5: Further Applications of Newton's Laws: Friction, Drag, and Elasticity.",
     "capstone": "joint_lubrication",
@@ -4225,12 +4330,78 @@
       "science"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": []
+    "has_book": true,
+    "books": [
+      {
+        "target": "joint_lubrication",
+        "file": "output/college.en/sonnet/html/book_joint_lubrication.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "aerodynamic_drag_reduction",
+        "file": "output/intro.en/sonnet/html/book_aerodynamic_drag_reduction.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "aerodynamic_drag_reduction",
+        "label": "Aerodynamic Drag Reduction",
+        "file": "output/intro.en/sonnet/html/concept_aerodynamic_drag_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coefficient_of_kinetic_friction",
+        "label": "Coefficient Of Kinetic Friction",
+        "file": "output/intro.en/sonnet/html/concept_coefficient_of_kinetic_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "drag_coefficient",
+        "label": "Drag Coefficient",
+        "file": "output/intro.en/sonnet/html/concept_drag_coefficient.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "drag_force",
+        "label": "Drag Force",
+        "file": "output/intro.en/sonnet/html/concept_drag_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fluid_density",
+        "label": "Fluid Density",
+        "file": "output/intro.en/sonnet/html/concept_fluid_density.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "friction",
+        "label": "Friction",
+        "file": "output/intro.en/sonnet/html/concept_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "joint_lubrication",
+        "label": "Joint Lubrication",
+        "file": "output/intro.en/sonnet/html/concept_joint_lubrication.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_friction",
+        "label": "Kinetic Friction",
+        "file": "output/intro.en/sonnet/html/concept_kinetic_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "normal_force",
+        "label": "Normal Force",
+        "file": "output/intro.en/sonnet/html/concept_normal_force.html",
+        "model": "sonnet"
+      }
+    ]
   },
   {
-    "id": "college_physics_ch6",
+    "id": "college_physics_ch06",
     "name": "Physics Ch6: Uniform Circular Motion and Gravitation",
     "description": "OpenStax College Physics 2e, Chapter 6: Uniform Circular Motion and Gravitation.",
     "capstone": "tides",
@@ -4249,13 +4420,48 @@
         "target": "tides",
         "file": "output/college.en/sonnet/html/book_tides.html",
         "model": "sonnet"
+      },
+      {
+        "target": "coriolis_weather_patterns",
+        "file": "output/college.en/sonnet/html/book_coriolis_weather_patterns.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "acceleration",
+        "label": "Acceleration",
+        "file": "output/college.en/sonnet/html/concept_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "angular_velocity",
+        "label": "Angular Velocity",
+        "file": "output/college.en/sonnet/html/concept_angular_velocity.html",
+        "model": "sonnet"
+      },
+      {
         "name": "center_of_mass",
         "label": "Center Of Mass",
         "file": "output/college.en/sonnet/html/concept_center_of_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coriolis_force",
+        "label": "Coriolis Force",
+        "file": "output/college.en/sonnet/html/concept_coriolis_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coriolis_weather_patterns",
+        "label": "Coriolis Weather Patterns",
+        "file": "output/college.en/sonnet/html/concept_coriolis_weather_patterns.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fictitious_force",
+        "label": "Fictitious Force",
+        "file": "output/college.en/sonnet/html/concept_fictitious_force.html",
         "model": "sonnet"
       },
       {
@@ -4265,9 +4471,21 @@
         "model": "sonnet"
       },
       {
+        "name": "inertial_frame_of_reference",
+        "label": "Inertial Frame Of Reference",
+        "file": "output/college.en/sonnet/html/concept_inertial_frame_of_reference.html",
+        "model": "sonnet"
+      },
+      {
         "name": "mass",
         "label": "Mass",
         "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_first_law",
+        "label": "Newtons First Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_first_law.html",
         "model": "sonnet"
       },
       {
@@ -4277,9 +4495,33 @@
         "model": "sonnet"
       },
       {
+        "name": "newtons_second_law",
+        "label": "Newtons Second Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_second_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "non_inertial_frame_of_reference",
+        "label": "Non Inertial Frame Of Reference",
+        "file": "output/college.en/sonnet/html/concept_non_inertial_frame_of_reference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radian",
+        "label": "Radian",
+        "file": "output/college.en/sonnet/html/concept_radian.html",
+        "model": "sonnet"
+      },
+      {
         "name": "radius_of_curvature",
         "label": "Radius Of Curvature",
         "file": "output/college.en/sonnet/html/concept_radius_of_curvature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rotation_angle",
+        "label": "Rotation Angle",
+        "file": "output/college.en/sonnet/html/concept_rotation_angle.html",
         "model": "sonnet"
       },
       {
@@ -4291,7 +4533,7 @@
     ]
   },
   {
-    "id": "college_physics_ch7",
+    "id": "college_physics_ch07",
     "name": "Physics Ch7: Work, Energy, and Energy Resources",
     "description": "OpenStax College Physics 2e, Chapter 7: Work, Energy, and Energy Resources.",
     "capstone": "useful_work_in_humans",
@@ -4340,7 +4582,7 @@
     ]
   },
   {
-    "id": "college_physics_ch8",
+    "id": "college_physics_ch08",
     "name": "Physics Ch8: Linear Momentum and Collisions",
     "description": "OpenStax College Physics 2e, Chapter 8: Linear Momentum and Collisions.",
     "capstone": "recoil",
@@ -4407,7 +4649,7 @@
     ]
   },
   {
-    "id": "college_physics_ch9",
+    "id": "college_physics_ch09",
     "name": "Physics Ch9: Statics and Torque",
     "description": "OpenStax College Physics 2e, Chapter 9: Statics and Torque.",
     "capstone": "free_body_diagram",

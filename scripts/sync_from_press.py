@@ -69,7 +69,9 @@ def sync_chapter(book: str, chapter: int, domain_prefix: str, dry_run: bool) -> 
         print(f"  ch{chapter}: SKIP (no graph.yaml at {graph_src})")
         return None
 
-    domain_id = f"{domain_prefix}{chapter}"
+    # Zero-padded so plain string sort (used by the frontend's domain
+    # dropdowns) matches chapter order: ch01..ch09, ch10..ch34.
+    domain_id = f"{domain_prefix}{chapter:02d}"
     dest_dir = DOMAINS_ROOT / domain_id
     input_dir = dest_dir / "input"
 

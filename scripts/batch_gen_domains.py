@@ -1,23 +1,29 @@
 #!/usr/bin/env python3
-"""Batch-generate concept books for a list of domains, one book per domain.
+"""Batch-generate concept books for a list of domains, one book per application.
 
 Reads a plain-text domain list (one domain id per line, '#' starts a comment,
-blank lines ignored), picks each domain's capstone target (same rule the sync
-script used: first application node, else the highest-tier concept), and runs
-spl3 for it — same path as batch_generate.py, but driven from a file instead
-of --domain flags, with a progress file for resuming a long/interrupted run
-and a hard stop on Claude CLI rate limits (retrying the same wall on the next
-domain wastes calls instead of avoiding it).
+blank lines ignored). For each domain, generates a book for *every* application
+node in its graph.yaml (falling back to the single highest-tier concept when a
+domain has no applications) — a domain with 12 applications gets 12 books, not
+just one, otherwise the static GitHub Pages site is missing content for every
+application beyond the first. Runs spl3 once per (domain, target) pair — same
+path as batch_generate.py, but driven from a file instead of --domain flags,
+with a progress file for resuming a long/interrupted run and a hard stop on
+Claude CLI rate limits (retrying the same wall on the next target wastes calls
+instead of avoiding it).
 
 Catalog marking reuses batch_generate.py's _mark_generated so there is one
 source of truth for what a "generated" catalog entry looks like.
 
 Usage:
-    # Test one domain first
+    # Test one domain first (all of its applications)
     python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt --limit 1
 
     # Full run (resumable — safe to re-run after an interruption)
     python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt
+
+    # Cap cost: at most 3 applications per domain
+    python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt --max-targets 3
 
     # Different model/level/language for a later pass
     python scripts/batch_gen_domains.py -f scripts/domains-college-physics.txt \\
@@ -71,18 +77,21 @@ def _load_domains(path: Path) -> list[str]:
     return domains
 
 
-def _capstone(domain_id: str) -> str | None:
+def _targets(domain_id: str) -> list[str]:
+    """All targets to generate for a domain: every application node, in
+    graph.yaml order; falling back to the single highest-tier concept when
+    the domain has no applications at all."""
     graph_yaml = DOMAINS_DIR / domain_id / "input" / "graph.yaml"
     if not graph_yaml.exists():
-        return None
+        return []
     data = yaml.safe_load(graph_yaml.read_text(encoding="utf-8"))
     apps = data.get("applications") or {}
     if apps:
-        return next(iter(apps))
+        return list(apps.keys())
     concepts = data.get("concepts") or {}
     if not concepts:
-        return None
-    return max(concepts, key=lambda k: concepts[k].get("tier", 0))
+        return []
+    return [max(concepts, key=lambda k: concepts[k].get("tier", 0))]
 
 
 def _output_exists(domain_id: str, target: str, level: str, language: str, model: str) -> bool:
@@ -173,11 +182,14 @@ def _run_spl3(domain_id: str, target: str, level: str, language: str, model: str
 @click.option("--skip-cache", is_flag=True)
 @click.option("--force", is_flag=True, help="Regenerate even if output already exists.")
 @click.option("--limit", default=None, type=int, help="Only process the first N domains (e.g. for a test run).")
+@click.option("--max-targets", default=None, type=int,
+              help="Cap the number of applications generated per domain (default: all of them).")
 @click.option("--progress-file", default=DEFAULT_PROGRESS_FILE, type=click.Path(path_type=Path), show_default=True)
 @click.option("--log-file", default=None, type=click.Path(path_type=Path))
 def main(domains_file: Path, model: str, level: str, language: str, skip_cache: bool,
-         force: bool, limit: int | None, progress_file: Path, log_file: Path | None) -> None:
-    """Batch-generate concept books, one capstone target per domain."""
+         force: bool, limit: int | None, max_targets: int | None, progress_file: Path,
+         log_file: Path | None) -> None:
+    """Batch-generate concept books, one per application node per domain."""
     console = logging.StreamHandler()
     console.setLevel(logging.INFO)
     handlers: list[logging.Handler] = [console]
@@ -199,36 +211,45 @@ def main(domains_file: Path, model: str, level: str, language: str, skip_cache: 
     if limit:
         domains = domains[:limit]
 
+    # Expand each domain into one (domain_id, target) job per application
+    # node (capped by --max-targets, uncapped by default) so a domain like
+    # college_physics_ch24 with 12 applications gets all 12 books.
+    jobs: list[tuple[str, str]] = []
+    for domain_id in domains:
+        targets = _targets(domain_id)
+        if not targets:
+            log.warning(f"SKIP   {domain_id}  (no targets found — missing/empty graph.yaml?)")
+            continue
+        if max_targets:
+            targets = targets[:max_targets]
+        jobs.extend((domain_id, target) for target in targets)
+
     log.info(f"Batch gen  domains_file={domains_file}  llm={llm}  model={model_dir}  "
               f"level={level}  lang={language}  skip_cache={skip_cache}")
-    log.info(f"Items: {len(domains)}  |  Progress file: {progress_file}")
+    log.info(f"Domains: {len(domains)}  |  Jobs (domain x application): {len(jobs)}  |  "
+              f"Progress file: {progress_file}")
     log.info("")
 
     progress = _load_progress(progress_file)
     ok = skipped = failed = 0
 
-    for domain_id in domains:
-        key = f"{domain_id}|{model_dir}|{level}|{language}"
+    for domain_id, target in jobs:
+        key = f"{domain_id}|{target}|{model_dir}|{level}|{language}"
+        label = f"{domain_id}/{target}"
 
         if not force and progress.get(key) == "done":
-            log.info(f"SKIP   {domain_id}  (done in progress file)")
-            skipped += 1
-            continue
-
-        target = _capstone(domain_id)
-        if not target:
-            log.warning(f"SKIP   {domain_id}  (no capstone found — missing/empty graph.yaml?)")
+            log.info(f"SKIP   {label}  (done in progress file)")
             skipped += 1
             continue
 
         if not force and _output_exists(domain_id, target, level, language, model_dir):
-            log.info(f"SKIP   {domain_id}  (output exists → target={target})")
+            log.info(f"SKIP   {label}  (output exists)")
             progress[key] = "done"
             _save_progress(progress_file, progress)
             skipped += 1
             continue
 
-        log.info(f"Queue  {domain_id}  target={target}")
+        log.info(f"Queue  {label}")
         t0 = time.time()
         success, err = _run_spl3(domain_id, target, level, language, model_dir, llm, skip_cache, log)
         elapsed = time.time() - t0
@@ -242,12 +263,12 @@ def main(domains_file: Path, model: str, level: str, language: str, skip_cache: 
             detail = err.split(":", 1)[1].strip() if ":" in err else None
             log.error(f"       ✗ Claude CLI session/rate limit reached{f' — {detail}' if detail else ''} "
                       "— stopping batch early.")
-            log.error(f"       {domain_id} was NOT marked done — re-run later to pick up here and beyond.")
+            log.error(f"       {label} was NOT marked done — re-run later to pick up here and beyond.")
             _save_progress(progress_file, progress)
             log.info("")
             log.info(f"Stopped early — {ok} generated, {skipped} skipped, {failed} failed, "
-                      f"{len(domains) - ok - skipped - failed} not yet attempted.")
-            log.info("Re-run once the limit resets; completed domains are skipped automatically.")
+                      f"{len(jobs) - ok - skipped - failed} not yet attempted.")
+            log.info("Re-run once the limit resets; completed jobs are skipped automatically.")
             sys.exit(1)
         else:
             log.error(f"       ✗ {err}")

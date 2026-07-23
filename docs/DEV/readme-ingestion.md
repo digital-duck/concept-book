@@ -85,7 +85,7 @@ NetworkX-based structural checks:
 ### Stage 4: Publish to ConceptBook
 
 ```bash
-DOMAIN=college_physics_ch1
+DOMAIN=college_physics_ch01
 DEST=~/projects/digital-duck/concept-book/public/domains/$DOMAIN
 
 mkdir -p $DEST/input $DEST/output
@@ -129,7 +129,7 @@ Validation runs automatically as Step 3 of the pipeline. After it completes, pub
 cd ~/projects/digital-duck/concept-book-press
 
 # Chapter 1
-DEST=~/projects/digital-duck/concept-book/public/domains/college_physics_ch1
+DEST=~/projects/digital-duck/concept-book/public/domains/college_physics_ch01
 cp output/college-physics-2e/ch1/graph.yaml           $DEST/input/graph.yaml
 cp output/college-physics-2e/ch1/concept_sources.yaml $DEST/input/concept_sources.yaml
 python ~/projects/digital-duck/concept-book/scripts/concept_graph.py \
@@ -137,7 +137,7 @@ python ~/projects/digital-duck/concept-book/scripts/concept_graph.py \
   visualize --format html --output $DEST/output/graph.html
 
 # Chapter 2
-DEST=~/projects/digital-duck/concept-book/public/domains/college_physics_ch2
+DEST=~/projects/digital-duck/concept-book/public/domains/college_physics_ch02
 cp output/college-physics-2e/ch2/graph.yaml           $DEST/input/graph.yaml
 cp output/college-physics-2e/ch2/concept_sources.yaml $DEST/input/concept_sources.yaml
 python ~/projects/digital-duck/concept-book/scripts/concept_graph.py \
@@ -151,8 +151,8 @@ Generate contents:
 cd ~/projects/digital-duck/concept-book
 
 python scripts/batch_generate.py  --language en --skip-cache --llm ollama:gemma4 \
-    --domain college_physics_ch1 \
-    --domain college_physics_ch2
+    --domain college_physics_ch01 \
+    --domain college_physics_ch02
 
 ```
 

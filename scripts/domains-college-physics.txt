@@ -3,15 +3,15 @@
 # batch runs. One domain id per line, '#' starts a comment.
 
 # 2026-07-21
-college_physics_ch1   # already generated
-college_physics_ch2   # already generated
-college_physics_ch3
-college_physics_ch4
-college_physics_ch5
-college_physics_ch6
-college_physics_ch7
-college_physics_ch8
-college_physics_ch9
+college_physics_ch01   # already generated
+college_physics_ch02   # already generated
+college_physics_ch03
+college_physics_ch04
+college_physics_ch05
+college_physics_ch06
+college_physics_ch07
+college_physics_ch08
+college_physics_ch09
 college_physics_ch10
 college_physics_ch11
 college_physics_ch12

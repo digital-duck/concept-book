@@ -29,13 +29,15 @@ Usage examples:
     python scripts/batch_generate.py --language French
     python scripts/batch_generate.py --language zh
 """
-import json
 import subprocess
 import sys
 from pathlib import Path
 
 import click
 import yaml
+
+sys.path.insert(0, str(Path(__file__).parent))
+from catalog_lock import read_catalog, update_catalog  # noqa: E402
 
 REPO_ROOT = Path(__file__).parent.parent
 SPL_WORKFLOW = REPO_ROOT / "spl"
@@ -89,11 +91,7 @@ def _llm_to_model(llm: str) -> str:
 
 
 def _load_catalog() -> list[dict]:
-    return json.loads(CATALOG_PATH.read_text())
-
-
-def _save_catalog(catalog: list[dict]) -> None:
-    CATALOG_PATH.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
+    return read_catalog(CATALOG_PATH)
 
 
 def _get_application_ids(domain_id: str) -> list[str]:
@@ -115,31 +113,33 @@ def _already_generated(catalog_entry: dict, target: str, model: str) -> bool:
 
 def _mark_generated(domain_id: str, target: str, level: str, language: str, model: str) -> None:
     """Update catalog.json after a successful generation."""
-    catalog = _load_catalog()
     variant = f"{level}.{language}"
-    for d in catalog:
-        if d["id"] != domain_id:
-            continue
-        books: list[dict] = d.setdefault("books", [])
-        book_file = f"output/{variant}/{model}/html/book_{target}.html"
-        if not any(b["target"] == target and b.get("model") == model for b in books):
-            books.append({"target": target, "file": book_file, "model": model})
-        d["has_book"] = True
-        html_dir = DOMAINS_DIR / domain_id / "output" / variant / model / "html"
-        new_concepts = [
-            {
-                "name": p.stem[len("concept_"):],
-                "label": p.stem[len("concept_"):].replace("_", " ").title(),
-                "file": f"output/{variant}/{model}/html/{p.name}",
-                "model": model,
-            }
-            for p in html_dir.glob("concept_*.html")
-        ]
-        # Preserve legacy entries (no model field) and entries from other models
-        other = [c for c in d.get("generated_concepts", []) if c.get("model") != model]
-        d["generated_concepts"] = sorted(other + new_concepts, key=lambda c: c["label"])
-        break
-    _save_catalog(catalog)
+    html_dir = DOMAINS_DIR / domain_id / "output" / variant / model / "html"
+    new_concepts = [
+        {
+            "name": p.stem[len("concept_"):],
+            "label": p.stem[len("concept_"):].replace("_", " ").title(),
+            "file": f"output/{variant}/{model}/html/{p.name}",
+            "model": model,
+        }
+        for p in html_dir.glob("concept_*.html")
+    ]
+
+    def mutate(catalog: list[dict]) -> None:
+        for d in catalog:
+            if d["id"] != domain_id:
+                continue
+            books: list[dict] = d.setdefault("books", [])
+            book_file = f"output/{variant}/{model}/html/book_{target}.html"
+            if not any(b["target"] == target and b.get("model") == model for b in books):
+                books.append({"target": target, "file": book_file, "model": model})
+            d["has_book"] = True
+            # Preserve legacy entries (no model field) and entries from other models
+            other = [c for c in d.get("generated_concepts", []) if c.get("model") != model]
+            d["generated_concepts"] = sorted(other + new_concepts, key=lambda c: c["label"])
+            break
+
+    update_catalog(mutate, CATALOG_PATH)
 
 
 def _run_spl3(

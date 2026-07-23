@@ -26,8 +26,8 @@ LOG="$LOG_DIR/batch_gen_$(date +%Y%m%d_%H%M%S).log"
 
 ALL_DOMAINS=(
   geometry
-  college_physics_ch1
-  college_physics_ch2
+  college_physics_ch01
+  college_physics_ch02
   chinese_characters
   english_morphology
   chemistry_elements

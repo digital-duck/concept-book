@@ -222,3 +222,4 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+public/domains/catalog.json.lock

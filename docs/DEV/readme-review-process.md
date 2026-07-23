@@ -107,7 +107,7 @@ extracted during ingestion and stored alongside the graph. This is the **stronge
 quality gate**: the reference was written by domain experts and peer-reviewed. A low ΔK score
 means the generated content diverges from what authoritative humans wrote about that concept.
 
-**Domains**: college_physics_ch1, college_physics_ch2 (OpenStax), and any future textbook
+**Domains**: college_physics_ch01, college_physics_ch02 (OpenStax), and any future textbook
 ingestions via concept-book-press.
 
 **Missing link**: `concept-book-press` currently does not persist the mapping
