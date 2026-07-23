@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Batch pre-generate concept books for all domains.
 
-Picks 1-2 application nodes per domain and runs spl3 for each,
-updating catalog.json on success — same path as the FastAPI backend.
+Picks every application node per domain (the whole graph.yaml applications:
+dict, in order) and runs spl3 for each, updating catalog.json on success —
+same path as the FastAPI backend. Skipping applications beyond the first
+few used to be the default; a domain like college_physics_ch24 has 12, so
+capping silently left the static site incomplete for the rest.
 
 Prerequisites (spl123 conda env must be active):
     conda activate spl123
@@ -12,7 +15,7 @@ Usage examples:
     # Dry-run: show what would be generated
     python scripts/batch_generate.py --dry-run
 
-    # Generate 1 application per domain at default level
+    # Cap cost: at most 1 application per domain
     python scripts/batch_generate.py --n-targets 1
 
     # Only specific domains
@@ -179,8 +182,8 @@ def _run_spl3(
     help="Domain ID to generate (repeatable). Default: all domains in catalog.",
 )
 @click.option(
-    "--n-targets", default=2, show_default=True, type=click.IntRange(1, 5),
-    help="Number of application nodes to generate per domain.",
+    "--n-targets", default=None, type=int,
+    help="Cap the number of applications generated per domain (default: all of them).",
 )
 @click.option(
     "--level", default=None,
@@ -208,7 +211,7 @@ def _run_spl3(
 )
 def main(
     domains: tuple,
-    n_targets: int,
+    n_targets: int | None,
     level,
     language: str,
     llm: str,
@@ -242,7 +245,7 @@ def main(
         if not app_ids:
             click.echo(f"[skip] {did}: no application nodes in graph.yaml")
             continue
-        selected = app_ids[:n_targets]
+        selected = app_ids[:n_targets] if n_targets else app_ids
         for target in selected:
             if skip_existing and _already_generated(entry, target, model):
                 click.echo(f"[skip] {did}/{target} ({model}): already in catalog")

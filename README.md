@@ -4,6 +4,8 @@ A web portal for exploring knowledge domains through interactive concept graphs 
 
 Pick a domain, click any concept node, see the exact learning path, and generate LLM-verified explanations for every prerequisite.
 
+> **Paper**: Wen G. Gong, *ConceptBook: A Graph-First Framework for AI-Generated Curricula*, preprint, July 2026 — [PDF](https://github.com/digital-duck/dd-work/blob/main/docs/spl4ed-paper-arxiv.pdf). This repo is the reference implementation of the framework described there: a single concept-graph drives both Path A (author a graph, generate a concept-book) and Path B (ingest an existing textbook into a graph, generate a companion concept-book).
+
 ---
 
 > **Design details** — level profiles, language input, output directory layout, API events: [`docs/DEV/readme-design.md`](docs/DEV/readme-design.md)
