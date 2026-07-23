@@ -1,5 +1,7 @@
 # concept-book
 
+ConceptBook demo app: https://digital-duck.github.io/concept-book/
+
 A web portal for exploring knowledge domains through interactive concept graphs — powered by the [SPL.py](https://github.com/digital-duck/SPL.py) content engine.
 
 Pick a domain, click any concept node, see the exact learning path, and generate LLM-verified explanations for every prerequisite.
