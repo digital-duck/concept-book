@@ -12,12 +12,16 @@ college_physics_ch06
 college_physics_ch07
 college_physics_ch08
 college_physics_ch09
+
+# 2026-07-23
 college_physics_ch10
 college_physics_ch11
 college_physics_ch12
 college_physics_ch13
 college_physics_ch14
 college_physics_ch15
+
+# 2026-07-23
 college_physics_ch16
 # 2026-07-22
 college_physics_ch17
@@ -28,6 +32,8 @@ college_physics_ch21
 college_physics_ch22
 college_physics_ch23
 college_physics_ch24
+
+# 2026-07-23
 college_physics_ch25
 college_physics_ch26
 college_physics_ch27

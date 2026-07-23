@@ -4299,9 +4299,31 @@
         "target": "four_basic_forces",
         "file": "output/college.en/sonnet/html/book_four_basic_forces.html",
         "model": "sonnet"
+      },
+      {
+        "target": "force_field",
+        "file": "output/college.en/sonnet/html/book_force_field.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "newton_problem_solving_strategy",
+        "file": "output/college.en/sonnet/html/book_newton_problem_solving_strategy.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "acceleration",
+        "label": "Acceleration",
+        "file": "output/college.en/sonnet/html/concept_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "dynamics",
+        "label": "Dynamics",
+        "file": "output/college.en/sonnet/html/concept_dynamics.html",
+        "model": "sonnet"
+      },
       {
         "name": "force",
         "label": "Force",
@@ -4309,9 +4331,75 @@
         "model": "sonnet"
       },
       {
+        "name": "force_field",
+        "label": "Force Field",
+        "file": "output/college.en/sonnet/html/concept_force_field.html",
+        "model": "sonnet"
+      },
+      {
         "name": "four_basic_forces",
         "label": "Four Basic Forces",
         "file": "output/college.en/sonnet/html/concept_four_basic_forces.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "free_body_diagram",
+        "label": "Free Body Diagram",
+        "file": "output/college.en/sonnet/html/concept_free_body_diagram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inertia",
+        "label": "Inertia",
+        "file": "output/college.en/sonnet/html/concept_inertia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "net_external_force",
+        "label": "Net External Force",
+        "file": "output/college.en/sonnet/html/concept_net_external_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newton_problem_solving_strategy",
+        "label": "Newton Problem Solving Strategy",
+        "file": "output/college.en/sonnet/html/concept_newton_problem_solving_strategy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_first_law",
+        "label": "Newtons First Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_first_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_second_law",
+        "label": "Newtons Second Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_second_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "newtons_third_law",
+        "label": "Newtons Third Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_third_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "system_of_interest",
+        "label": "System Of Interest",
+        "file": "output/college.en/sonnet/html/concept_system_of_interest.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
         "model": "sonnet"
       }
     ]
@@ -4341,61 +4429,143 @@
         "target": "aerodynamic_drag_reduction",
         "file": "output/intro.en/sonnet/html/book_aerodynamic_drag_reduction.html",
         "model": "sonnet"
+      },
+      {
+        "target": "skydiver_terminal_velocity",
+        "file": "output/college.en/sonnet/html/book_skydiver_terminal_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "elasticity_in_biological_structures",
+        "file": "output/college.en/sonnet/html/book_elasticity_in_biological_structures.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
         "name": "aerodynamic_drag_reduction",
         "label": "Aerodynamic Drag Reduction",
-        "file": "output/intro.en/sonnet/html/concept_aerodynamic_drag_reduction.html",
+        "file": "output/college.en/sonnet/html/concept_aerodynamic_drag_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "bulk_compression",
+        "label": "Bulk Compression",
+        "file": "output/college.en/sonnet/html/concept_bulk_compression.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "bulk_modulus",
+        "label": "Bulk Modulus",
+        "file": "output/college.en/sonnet/html/concept_bulk_modulus.html",
         "model": "sonnet"
       },
       {
         "name": "coefficient_of_kinetic_friction",
         "label": "Coefficient Of Kinetic Friction",
-        "file": "output/intro.en/sonnet/html/concept_coefficient_of_kinetic_friction.html",
+        "file": "output/college.en/sonnet/html/concept_coefficient_of_kinetic_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "deformation",
+        "label": "Deformation",
+        "file": "output/college.en/sonnet/html/concept_deformation.html",
         "model": "sonnet"
       },
       {
         "name": "drag_coefficient",
         "label": "Drag Coefficient",
-        "file": "output/intro.en/sonnet/html/concept_drag_coefficient.html",
+        "file": "output/college.en/sonnet/html/concept_drag_coefficient.html",
         "model": "sonnet"
       },
       {
         "name": "drag_force",
         "label": "Drag Force",
-        "file": "output/intro.en/sonnet/html/concept_drag_force.html",
+        "file": "output/college.en/sonnet/html/concept_drag_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "elasticity_in_biological_structures",
+        "label": "Elasticity In Biological Structures",
+        "file": "output/college.en/sonnet/html/concept_elasticity_in_biological_structures.html",
         "model": "sonnet"
       },
       {
         "name": "fluid_density",
         "label": "Fluid Density",
-        "file": "output/intro.en/sonnet/html/concept_fluid_density.html",
+        "file": "output/college.en/sonnet/html/concept_fluid_density.html",
         "model": "sonnet"
       },
       {
         "name": "friction",
         "label": "Friction",
-        "file": "output/intro.en/sonnet/html/concept_friction.html",
+        "file": "output/college.en/sonnet/html/concept_friction.html",
         "model": "sonnet"
       },
       {
         "name": "joint_lubrication",
         "label": "Joint Lubrication",
-        "file": "output/intro.en/sonnet/html/concept_joint_lubrication.html",
+        "file": "output/college.en/sonnet/html/concept_joint_lubrication.html",
         "model": "sonnet"
       },
       {
         "name": "kinetic_friction",
         "label": "Kinetic Friction",
-        "file": "output/intro.en/sonnet/html/concept_kinetic_friction.html",
+        "file": "output/college.en/sonnet/html/concept_kinetic_friction.html",
         "model": "sonnet"
       },
       {
         "name": "normal_force",
         "label": "Normal Force",
-        "file": "output/intro.en/sonnet/html/concept_normal_force.html",
+        "file": "output/college.en/sonnet/html/concept_normal_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "shear_deformation",
+        "label": "Shear Deformation",
+        "file": "output/college.en/sonnet/html/concept_shear_deformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "shear_modulus",
+        "label": "Shear Modulus",
+        "file": "output/college.en/sonnet/html/concept_shear_modulus.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "skydiver_terminal_velocity",
+        "label": "Skydiver Terminal Velocity",
+        "file": "output/college.en/sonnet/html/concept_skydiver_terminal_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "strain",
+        "label": "Strain",
+        "file": "output/college.en/sonnet/html/concept_strain.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "stress",
+        "label": "Stress",
+        "file": "output/college.en/sonnet/html/concept_stress.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "tension_compression_deformation",
+        "label": "Tension Compression Deformation",
+        "file": "output/college.en/sonnet/html/concept_tension_compression_deformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "terminal_velocity",
+        "label": "Terminal Velocity",
+        "file": "output/college.en/sonnet/html/concept_terminal_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "youngs_modulus",
+        "label": "Youngs Modulus",
+        "file": "output/college.en/sonnet/html/concept_youngs_modulus.html",
         "model": "sonnet"
       }
     ]
@@ -4425,6 +4595,21 @@
         "target": "coriolis_weather_patterns",
         "file": "output/college.en/sonnet/html/book_coriolis_weather_patterns.html",
         "model": "sonnet"
+      },
+      {
+        "target": "centrifuge",
+        "file": "output/college.en/sonnet/html/book_centrifuge.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "ideal_banking",
+        "file": "output/college.en/sonnet/html/book_ideal_banking.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "satellite_orbits",
+        "file": "output/college.en/sonnet/html/book_satellite_orbits.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -4432,6 +4617,12 @@
         "name": "acceleration",
         "label": "Acceleration",
         "file": "output/college.en/sonnet/html/concept_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "acceleration_due_to_gravity",
+        "label": "Acceleration Due To Gravity",
+        "file": "output/college.en/sonnet/html/concept_acceleration_due_to_gravity.html",
         "model": "sonnet"
       },
       {
@@ -4444,6 +4635,24 @@
         "name": "center_of_mass",
         "label": "Center Of Mass",
         "file": "output/college.en/sonnet/html/concept_center_of_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "centrifuge",
+        "label": "Centrifuge",
+        "file": "output/college.en/sonnet/html/concept_centrifuge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "centripetal_acceleration",
+        "label": "Centripetal Acceleration",
+        "file": "output/college.en/sonnet/html/concept_centripetal_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "centripetal_force",
+        "label": "Centripetal Force",
+        "file": "output/college.en/sonnet/html/concept_centripetal_force.html",
         "model": "sonnet"
       },
       {
@@ -4474,6 +4683,12 @@
         "name": "inertial_frame_of_reference",
         "label": "Inertial Frame Of Reference",
         "file": "output/college.en/sonnet/html/concept_inertial_frame_of_reference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_velocity",
+        "label": "Linear Velocity",
+        "file": "output/college.en/sonnet/html/concept_linear_velocity.html",
         "model": "sonnet"
       },
       {
@@ -4525,9 +4740,27 @@
         "model": "sonnet"
       },
       {
+        "name": "satellite_orbits",
+        "label": "Satellite Orbits",
+        "file": "output/college.en/sonnet/html/concept_satellite_orbits.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "tangential_speed",
+        "label": "Tangential Speed",
+        "file": "output/college.en/sonnet/html/concept_tangential_speed.html",
+        "model": "sonnet"
+      },
+      {
         "name": "tides",
         "label": "Tides",
         "file": "output/college.en/sonnet/html/concept_tides.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "uniform_circular_motion",
+        "label": "Uniform Circular Motion",
+        "file": "output/college.en/sonnet/html/concept_uniform_circular_motion.html",
         "model": "sonnet"
       }
     ]
@@ -4552,13 +4785,61 @@
         "target": "useful_work_in_humans",
         "file": "output/college.en/sonnet/html/book_useful_work_in_humans.html",
         "model": "sonnet"
+      },
+      {
+        "target": "friction",
+        "file": "output/college.en/sonnet/html/book_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "metabolic_rate",
+        "file": "output/college.en/sonnet/html/book_metabolic_rate.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "energy_cost_calculation",
+        "file": "output/college.en/sonnet/html/book_energy_cost_calculation.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "basal_metabolic_rate",
+        "file": "output/college.en/sonnet/html/book_basal_metabolic_rate.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "renewable_energy_sources",
+        "file": "output/college.en/sonnet/html/book_renewable_energy_sources.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "nonrenewable_energy_sources",
+        "file": "output/college.en/sonnet/html/book_nonrenewable_energy_sources.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "basal_metabolic_rate",
+        "label": "Basal Metabolic Rate",
+        "file": "output/college.en/sonnet/html/concept_basal_metabolic_rate.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservative_force",
+        "label": "Conservative Force",
+        "file": "output/college.en/sonnet/html/concept_conservative_force.html",
+        "model": "sonnet"
+      },
+      {
         "name": "displacement",
         "label": "Displacement",
         "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "energy_cost_calculation",
+        "label": "Energy Cost Calculation",
+        "file": "output/college.en/sonnet/html/concept_energy_cost_calculation.html",
         "model": "sonnet"
       },
       {
@@ -4568,9 +4849,87 @@
         "model": "sonnet"
       },
       {
+        "name": "friction",
+        "label": "Friction",
+        "file": "output/college.en/sonnet/html/concept_friction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_energy",
+        "label": "Kinetic Energy",
+        "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "law_of_conservation_of_energy",
+        "label": "Law Of Conservation Of Energy",
+        "file": "output/college.en/sonnet/html/concept_law_of_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mechanical_energy",
+        "label": "Mechanical Energy",
+        "file": "output/college.en/sonnet/html/concept_mechanical_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "metabolic_rate",
+        "label": "Metabolic Rate",
+        "file": "output/college.en/sonnet/html/concept_metabolic_rate.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nonconservative_force",
+        "label": "Nonconservative Force",
+        "file": "output/college.en/sonnet/html/concept_nonconservative_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nonrenewable_energy_sources",
+        "label": "Nonrenewable Energy Sources",
+        "file": "output/college.en/sonnet/html/concept_nonrenewable_energy_sources.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potential_energy",
+        "label": "Potential Energy",
+        "file": "output/college.en/sonnet/html/concept_potential_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "power",
+        "label": "Power",
+        "file": "output/college.en/sonnet/html/concept_power.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "renewable_energy_sources",
+        "label": "Renewable Energy Sources",
+        "file": "output/college.en/sonnet/html/concept_renewable_energy_sources.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermal_energy",
+        "label": "Thermal Energy",
+        "file": "output/college.en/sonnet/html/concept_thermal_energy.html",
+        "model": "sonnet"
+      },
+      {
         "name": "useful_work_in_humans",
         "label": "Useful Work In Humans",
         "file": "output/college.en/sonnet/html/concept_useful_work_in_humans.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
         "model": "sonnet"
       },
       {
@@ -4600,6 +4959,11 @@
       {
         "target": "recoil",
         "file": "output/college.en/sonnet/html/book_recoil.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "rocket_propulsion",
+        "file": "output/college.en/sonnet/html/book_rocket_propulsion.html",
         "model": "sonnet"
       }
     ],
@@ -4635,9 +4999,33 @@
         "model": "sonnet"
       },
       {
+        "name": "newtons_third_law",
+        "label": "Newtons Third Law",
+        "file": "output/college.en/sonnet/html/concept_newtons_third_law.html",
+        "model": "sonnet"
+      },
+      {
         "name": "recoil",
         "label": "Recoil",
         "file": "output/college.en/sonnet/html/concept_recoil.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rocket_acceleration",
+        "label": "Rocket Acceleration",
+        "file": "output/college.en/sonnet/html/concept_rocket_acceleration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rocket_propulsion",
+        "label": "Rocket Propulsion",
+        "file": "output/college.en/sonnet/html/concept_rocket_propulsion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rocket_thrust",
+        "label": "Rocket Thrust",
+        "file": "output/college.en/sonnet/html/concept_rocket_thrust.html",
         "model": "sonnet"
       },
       {
@@ -4668,13 +5056,40 @@
         "target": "free_body_diagram",
         "file": "output/college.en/sonnet/html/book_free_body_diagram.html",
         "model": "sonnet"
+      },
+      {
+        "target": "statics",
+        "file": "output/college.en/sonnet/html/book_statics.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "posture_back_strain",
+        "file": "output/college.en/sonnet/html/book_posture_back_strain.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "muscles_joints_statics",
+        "file": "output/college.en/sonnet/html/book_muscles_joints_statics.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "center_of_gravity",
+        "label": "Center Of Gravity",
+        "file": "output/college.en/sonnet/html/concept_center_of_gravity.html",
+        "model": "sonnet"
+      },
+      {
         "name": "equilibrium",
         "label": "Equilibrium",
         "file": "output/college.en/sonnet/html/concept_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "first_condition_equilibrium",
+        "label": "First Condition Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_first_condition_equilibrium.html",
         "model": "sonnet"
       },
       {
@@ -4687,6 +5102,36 @@
         "name": "free_body_diagram",
         "label": "Free Body Diagram",
         "file": "output/college.en/sonnet/html/concept_free_body_diagram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fulcrum",
+        "label": "Fulcrum",
+        "file": "output/college.en/sonnet/html/concept_fulcrum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lever",
+        "label": "Lever",
+        "file": "output/college.en/sonnet/html/concept_lever.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mechanical_advantage",
+        "label": "Mechanical Advantage",
+        "file": "output/college.en/sonnet/html/concept_mechanical_advantage.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "muscles_joints_statics",
+        "label": "Muscles Joints Statics",
+        "file": "output/college.en/sonnet/html/concept_muscles_joints_statics.html",
         "model": "sonnet"
       },
       {
@@ -4708,9 +5153,45 @@
         "model": "sonnet"
       },
       {
+        "name": "posture_back_strain",
+        "label": "Posture Back Strain",
+        "file": "output/college.en/sonnet/html/concept_posture_back_strain.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "second_condition_equilibrium",
+        "label": "Second Condition Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_second_condition_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "simple_machine",
+        "label": "Simple Machine",
+        "file": "output/college.en/sonnet/html/concept_simple_machine.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "static_equilibrium",
+        "label": "Static Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_static_equilibrium.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "statics",
+        "label": "Statics",
+        "file": "output/college.en/sonnet/html/concept_statics.html",
+        "model": "sonnet"
+      },
+      {
         "name": "torque",
         "label": "Torque",
         "file": "output/college.en/sonnet/html/concept_torque.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "weight",
+        "label": "Weight",
+        "file": "output/college.en/sonnet/html/concept_weight.html",
         "model": "sonnet"
       }
     ]
@@ -4735,13 +5216,53 @@
         "target": "rolling_without_slipping",
         "file": "output/college.en/sonnet/html/book_rolling_without_slipping.html",
         "model": "sonnet"
+      },
+      {
+        "target": "collisions_of_extended_bodies",
+        "file": "output/college.en/sonnet/html/book_collisions_of_extended_bodies.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "gyroscopic_precession",
+        "file": "output/college.en/sonnet/html/book_gyroscopic_precession.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "angular_momentum",
+        "label": "Angular Momentum",
+        "file": "output/college.en/sonnet/html/concept_angular_momentum.html",
+        "model": "sonnet"
+      },
+      {
         "name": "angular_velocity",
         "label": "Angular Velocity",
         "file": "output/college.en/sonnet/html/concept_angular_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "collisions_of_extended_bodies",
+        "label": "Collisions Of Extended Bodies",
+        "file": "output/college.en/sonnet/html/concept_collisions_of_extended_bodies.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_angular_momentum",
+        "label": "Conservation Of Angular Momentum",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_angular_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gyroscopic_precession",
+        "label": "Gyroscopic Precession",
+        "file": "output/college.en/sonnet/html/concept_gyroscopic_precession.html",
         "model": "sonnet"
       },
       {
@@ -4763,6 +5284,12 @@
         "model": "sonnet"
       },
       {
+        "name": "right_hand_rule",
+        "label": "Right Hand Rule",
+        "file": "output/college.en/sonnet/html/concept_right_hand_rule.html",
+        "model": "sonnet"
+      },
+      {
         "name": "rolling_without_slipping",
         "label": "Rolling Without Slipping",
         "file": "output/college.en/sonnet/html/concept_rolling_without_slipping.html",
@@ -4772,6 +5299,18 @@
         "name": "rotational_kinetic_energy",
         "label": "Rotational Kinetic Energy",
         "file": "output/college.en/sonnet/html/concept_rotational_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "torque",
+        "label": "Torque",
+        "file": "output/college.en/sonnet/html/concept_torque.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "torque_angular_momentum_relation",
+        "label": "Torque Angular Momentum Relation",
+        "file": "output/college.en/sonnet/html/concept_torque_angular_momentum_relation.html",
         "model": "sonnet"
       },
       {
@@ -4802,6 +5341,26 @@
         "target": "hydraulic_system",
         "file": "output/college.en/sonnet/html/book_hydraulic_system.html",
         "model": "sonnet"
+      },
+      {
+        "target": "barometer",
+        "file": "output/college.en/sonnet/html/book_barometer.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "manometer",
+        "file": "output/college.en/sonnet/html/book_manometer.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "body_pressures",
+        "file": "output/college.en/sonnet/html/book_body_pressures.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "blood_pressure_measurement",
+        "file": "output/college.en/sonnet/html/book_blood_pressure_measurement.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -4809,6 +5368,36 @@
         "name": "area",
         "label": "Area",
         "file": "output/college.en/sonnet/html/concept_area.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "atmospheric_pressure",
+        "label": "Atmospheric Pressure",
+        "file": "output/college.en/sonnet/html/concept_atmospheric_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "barometer",
+        "label": "Barometer",
+        "file": "output/college.en/sonnet/html/concept_barometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "blood_pressure_measurement",
+        "label": "Blood Pressure Measurement",
+        "file": "output/college.en/sonnet/html/concept_blood_pressure_measurement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "body_pressures",
+        "label": "Body Pressures",
+        "file": "output/college.en/sonnet/html/concept_body_pressures.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "density",
+        "label": "Density",
+        "file": "output/college.en/sonnet/html/concept_density.html",
         "model": "sonnet"
       },
       {
@@ -4824,9 +5413,33 @@
         "model": "sonnet"
       },
       {
+        "name": "gauge_pressure",
+        "label": "Gauge Pressure",
+        "file": "output/college.en/sonnet/html/concept_gauge_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gravitational_acceleration",
+        "label": "Gravitational Acceleration",
+        "file": "output/college.en/sonnet/html/concept_gravitational_acceleration.html",
+        "model": "sonnet"
+      },
+      {
         "name": "hydraulic_system",
         "label": "Hydraulic System",
         "file": "output/college.en/sonnet/html/concept_hydraulic_system.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "manometer",
+        "label": "Manometer",
+        "file": "output/college.en/sonnet/html/concept_manometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass",
+        "label": "Mass",
+        "file": "output/college.en/sonnet/html/concept_mass.html",
         "model": "sonnet"
       },
       {
@@ -4839,6 +5452,18 @@
         "name": "pressure",
         "label": "Pressure",
         "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure_depth_relation",
+        "label": "Pressure Depth Relation",
+        "file": "output/college.en/sonnet/html/concept_pressure_depth_relation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "volume",
+        "label": "Volume",
+        "file": "output/college.en/sonnet/html/concept_volume.html",
         "model": "sonnet"
       }
     ]
@@ -4863,9 +5488,35 @@
         "target": "entrainment",
         "file": "output/college.en/sonnet/html/book_entrainment.html",
         "model": "sonnet"
+      },
+      {
+        "target": "aerodynamic_lift",
+        "file": "output/college.en/sonnet/html/book_aerodynamic_lift.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "pitot_tube",
+        "file": "output/college.en/sonnet/html/book_pitot_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "blood_flow_regulation",
+        "file": "output/college.en/sonnet/html/book_blood_flow_regulation.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "reverse_osmosis",
+        "file": "output/college.en/sonnet/html/book_reverse_osmosis.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "aerodynamic_lift",
+        "label": "Aerodynamic Lift",
+        "file": "output/college.en/sonnet/html/concept_aerodynamic_lift.html",
+        "model": "sonnet"
+      },
       {
         "name": "bernoullis_equation",
         "label": "Bernoullis Equation",
@@ -4879,9 +5530,27 @@
         "model": "sonnet"
       },
       {
+        "name": "blood_flow_regulation",
+        "label": "Blood Flow Regulation",
+        "file": "output/college.en/sonnet/html/concept_blood_flow_regulation.html",
+        "model": "sonnet"
+      },
+      {
         "name": "conservation_of_energy",
         "label": "Conservation Of Energy",
         "file": "output/college.en/sonnet/html/concept_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "cross_sectional_area",
+        "label": "Cross Sectional Area",
+        "file": "output/college.en/sonnet/html/concept_cross_sectional_area.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diffusion",
+        "label": "Diffusion",
+        "file": "output/college.en/sonnet/html/concept_diffusion.html",
         "model": "sonnet"
       },
       {
@@ -4891,9 +5560,27 @@
         "model": "sonnet"
       },
       {
+        "name": "flow_rate",
+        "label": "Flow Rate",
+        "file": "output/college.en/sonnet/html/concept_flow_rate.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "flow_resistance",
+        "label": "Flow Resistance",
+        "file": "output/college.en/sonnet/html/concept_flow_resistance.html",
+        "model": "sonnet"
+      },
+      {
         "name": "fluid_density",
         "label": "Fluid Density",
         "file": "output/college.en/sonnet/html/concept_fluid_density.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
         "model": "sonnet"
       },
       {
@@ -4915,9 +5602,63 @@
         "model": "sonnet"
       },
       {
+        "name": "laminar_flow",
+        "label": "Laminar Flow",
+        "file": "output/college.en/sonnet/html/concept_laminar_flow.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "osmosis",
+        "label": "Osmosis",
+        "file": "output/college.en/sonnet/html/concept_osmosis.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "osmotic_pressure",
+        "label": "Osmotic Pressure",
+        "file": "output/college.en/sonnet/html/concept_osmotic_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pitot_tube",
+        "label": "Pitot Tube",
+        "file": "output/college.en/sonnet/html/concept_pitot_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "poiseuilles_law",
+        "label": "Poiseuilles Law",
+        "file": "output/college.en/sonnet/html/concept_poiseuilles_law.html",
+        "model": "sonnet"
+      },
+      {
         "name": "pressure",
         "label": "Pressure",
         "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "reverse_osmosis",
+        "label": "Reverse Osmosis",
+        "file": "output/college.en/sonnet/html/concept_reverse_osmosis.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "semipermeable_membrane",
+        "label": "Semipermeable Membrane",
+        "file": "output/college.en/sonnet/html/concept_semipermeable_membrane.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "viscosity",
+        "label": "Viscosity",
+        "file": "output/college.en/sonnet/html/concept_viscosity.html",
         "model": "sonnet"
       }
     ]
@@ -4942,13 +5683,82 @@
         "target": "thermometer",
         "file": "output/college.en/sonnet/html/book_thermometer.html",
         "model": "sonnet"
+      },
+      {
+        "target": "expansion_joints",
+        "file": "output/college.en/sonnet/html/book_expansion_joints.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "pressure_cooker",
+        "file": "output/college.en/sonnet/html/book_pressure_cooker.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "freeze_drying",
+        "file": "output/college.en/sonnet/html/book_freeze_drying.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "boiling",
+        "label": "Boiling",
+        "file": "output/college.en/sonnet/html/concept_boiling.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "expansion_joints",
+        "label": "Expansion Joints",
+        "file": "output/college.en/sonnet/html/concept_expansion_joints.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "freeze_drying",
+        "label": "Freeze Drying",
+        "file": "output/college.en/sonnet/html/concept_freeze_drying.html",
+        "model": "sonnet"
+      },
+      {
         "name": "kinetic_energy",
         "label": "Kinetic Energy",
         "file": "output/college.en/sonnet/html/concept_kinetic_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_thermal_expansion",
+        "label": "Linear Thermal Expansion",
+        "file": "output/college.en/sonnet/html/concept_linear_thermal_expansion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phase_change",
+        "label": "Phase Change",
+        "file": "output/college.en/sonnet/html/concept_phase_change.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phase_diagram",
+        "label": "Phase Diagram",
+        "file": "output/college.en/sonnet/html/concept_phase_diagram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure",
+        "label": "Pressure",
+        "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pressure_cooker",
+        "label": "Pressure Cooker",
+        "file": "output/college.en/sonnet/html/concept_pressure_cooker.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "sublimation",
+        "label": "Sublimation",
+        "file": "output/college.en/sonnet/html/concept_sublimation.html",
         "model": "sonnet"
       },
       {
@@ -4964,9 +5774,33 @@
         "model": "sonnet"
       },
       {
+        "name": "thermal_stress",
+        "label": "Thermal Stress",
+        "file": "output/college.en/sonnet/html/concept_thermal_stress.html",
+        "model": "sonnet"
+      },
+      {
         "name": "thermometer",
         "label": "Thermometer",
         "file": "output/college.en/sonnet/html/concept_thermometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "triple_point",
+        "label": "Triple Point",
+        "file": "output/college.en/sonnet/html/concept_triple_point.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vapor",
+        "label": "Vapor",
+        "file": "output/college.en/sonnet/html/concept_vapor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vapor_pressure",
+        "label": "Vapor Pressure",
+        "file": "output/college.en/sonnet/html/concept_vapor_pressure.html",
         "model": "sonnet"
       },
       {
@@ -4997,9 +5831,30 @@
         "target": "wind_chill",
         "file": "output/college.en/sonnet/html/book_wind_chill.html",
         "model": "sonnet"
+      },
+      {
+        "target": "calorimetry",
+        "file": "output/college.en/sonnet/html/book_calorimetry.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "greenhouse_effect",
+        "file": "output/college.en/sonnet/html/book_greenhouse_effect.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "evaporative_cooling",
+        "file": "output/college.en/sonnet/html/book_evaporative_cooling.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "calorimetry",
+        "label": "Calorimetry",
+        "file": "output/college.en/sonnet/html/concept_calorimetry.html",
+        "model": "sonnet"
+      },
       {
         "name": "conduction",
         "label": "Conduction",
@@ -5013,9 +5868,33 @@
         "model": "sonnet"
       },
       {
+        "name": "emissivity",
+        "label": "Emissivity",
+        "file": "output/college.en/sonnet/html/concept_emissivity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "evaporative_cooling",
+        "label": "Evaporative Cooling",
+        "file": "output/college.en/sonnet/html/concept_evaporative_cooling.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "greenhouse_effect",
+        "label": "Greenhouse Effect",
+        "file": "output/college.en/sonnet/html/concept_greenhouse_effect.html",
+        "model": "sonnet"
+      },
+      {
         "name": "heat",
         "label": "Heat",
         "file": "output/college.en/sonnet/html/concept_heat.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "heat_capacity_equation",
+        "label": "Heat Capacity Equation",
+        "file": "output/college.en/sonnet/html/concept_heat_capacity_equation.html",
         "model": "sonnet"
       },
       {
@@ -5025,9 +5904,45 @@
         "model": "sonnet"
       },
       {
+        "name": "latent_heat",
+        "label": "Latent Heat",
+        "file": "output/college.en/sonnet/html/concept_latent_heat.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "latent_heat_of_vaporization",
+        "label": "Latent Heat Of Vaporization",
+        "file": "output/college.en/sonnet/html/concept_latent_heat_of_vaporization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phase_change",
+        "label": "Phase Change",
+        "file": "output/college.en/sonnet/html/concept_phase_change.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radiation",
+        "label": "Radiation",
+        "file": "output/college.en/sonnet/html/concept_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "specific_heat",
+        "label": "Specific Heat",
+        "file": "output/college.en/sonnet/html/concept_specific_heat.html",
+        "model": "sonnet"
+      },
+      {
         "name": "temperature",
         "label": "Temperature",
         "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermal_equilibrium",
+        "label": "Thermal Equilibrium",
+        "file": "output/college.en/sonnet/html/concept_thermal_equilibrium.html",
         "model": "sonnet"
       },
       {
@@ -5058,9 +5973,30 @@
         "target": "human_metabolism",
         "file": "output/college.en/sonnet/html/book_human_metabolism.html",
         "model": "sonnet"
+      },
+      {
+        "target": "otto_cycle",
+        "file": "output/college.en/sonnet/html/book_otto_cycle.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "power_station_efficiency",
+        "file": "output/college.en/sonnet/html/book_power_station_efficiency.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "heat_death_of_universe",
+        "file": "output/college.en/sonnet/html/book_heat_death_of_universe.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "adiabatic_process",
+        "label": "Adiabatic Process",
+        "file": "output/college.en/sonnet/html/concept_adiabatic_process.html",
+        "model": "sonnet"
+      },
       {
         "name": "conservation_of_energy",
         "label": "Conservation Of Energy",
@@ -5068,9 +6004,21 @@
         "model": "sonnet"
       },
       {
+        "name": "cyclical_process",
+        "label": "Cyclical Process",
+        "file": "output/college.en/sonnet/html/concept_cyclical_process.html",
+        "model": "sonnet"
+      },
+      {
         "name": "first_law_of_thermodynamics",
         "label": "First Law Of Thermodynamics",
         "file": "output/college.en/sonnet/html/concept_first_law_of_thermodynamics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "heat_engine",
+        "label": "Heat Engine",
+        "file": "output/college.en/sonnet/html/concept_heat_engine.html",
         "model": "sonnet"
       },
       {
@@ -5086,9 +6034,27 @@
         "model": "sonnet"
       },
       {
+        "name": "ideal_gas_law",
+        "label": "Ideal Gas Law",
+        "file": "output/college.en/sonnet/html/concept_ideal_gas_law.html",
+        "model": "sonnet"
+      },
+      {
         "name": "internal_energy",
         "label": "Internal Energy",
         "file": "output/college.en/sonnet/html/concept_internal_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "irreversible_process",
+        "label": "Irreversible Process",
+        "file": "output/college.en/sonnet/html/concept_irreversible_process.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "isochoric_process",
+        "label": "Isochoric Process",
+        "file": "output/college.en/sonnet/html/concept_isochoric_process.html",
         "model": "sonnet"
       },
       {
@@ -5107,6 +6073,24 @@
         "name": "pressure",
         "label": "Pressure",
         "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pv_diagram",
+        "label": "Pv Diagram",
+        "file": "output/college.en/sonnet/html/concept_pv_diagram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "reversible_process",
+        "label": "Reversible Process",
+        "file": "output/college.en/sonnet/html/concept_reversible_process.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "second_law_of_thermodynamics",
+        "label": "Second Law Of Thermodynamics",
+        "file": "output/college.en/sonnet/html/concept_second_law_of_thermodynamics.html",
         "model": "sonnet"
       },
       {
@@ -5149,6 +6133,21 @@
         "target": "medical_ultrasound",
         "file": "output/college.en/sonnet/html/book_medical_ultrasound.html",
         "model": "sonnet"
+      },
+      {
+        "target": "earthquake_wave_detection",
+        "file": "output/college.en/sonnet/html/book_earthquake_wave_detection.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "car_suspension",
+        "file": "output/college.en/sonnet/html/book_car_suspension.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "musical_instrument_resonance",
+        "file": "output/college.en/sonnet/html/book_musical_instrument_resonance.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -5159,9 +6158,33 @@
         "model": "sonnet"
       },
       {
+        "name": "car_suspension",
+        "label": "Car Suspension",
+        "file": "output/college.en/sonnet/html/concept_car_suspension.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "critical_damping",
+        "label": "Critical Damping",
+        "file": "output/college.en/sonnet/html/concept_critical_damping.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "damped_harmonic_motion",
+        "label": "Damped Harmonic Motion",
+        "file": "output/college.en/sonnet/html/concept_damped_harmonic_motion.html",
+        "model": "sonnet"
+      },
+      {
         "name": "displacement",
         "label": "Displacement",
         "file": "output/college.en/sonnet/html/concept_displacement.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "earthquake_wave_detection",
+        "label": "Earthquake Wave Detection",
+        "file": "output/college.en/sonnet/html/concept_earthquake_wave_detection.html",
         "model": "sonnet"
       },
       {
@@ -5177,9 +6200,33 @@
         "model": "sonnet"
       },
       {
+        "name": "force",
+        "label": "Force",
+        "file": "output/college.en/sonnet/html/concept_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "force_constant",
+        "label": "Force Constant",
+        "file": "output/college.en/sonnet/html/concept_force_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "forced_oscillation",
+        "label": "Forced Oscillation",
+        "file": "output/college.en/sonnet/html/concept_forced_oscillation.html",
+        "model": "sonnet"
+      },
+      {
         "name": "frequency",
         "label": "Frequency",
         "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hookes_law",
+        "label": "Hookes Law",
+        "file": "output/college.en/sonnet/html/concept_hookes_law.html",
         "model": "sonnet"
       },
       {
@@ -5195,9 +6242,39 @@
         "model": "sonnet"
       },
       {
+        "name": "natural_frequency",
+        "label": "Natural Frequency",
+        "file": "output/college.en/sonnet/html/concept_natural_frequency.html",
+        "model": "sonnet"
+      },
+      {
         "name": "periodic_motion",
         "label": "Periodic Motion",
         "file": "output/college.en/sonnet/html/concept_periodic_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "restoring_force",
+        "label": "Restoring Force",
+        "file": "output/college.en/sonnet/html/concept_restoring_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "simple_harmonic_motion",
+        "label": "Simple Harmonic Motion",
+        "file": "output/college.en/sonnet/html/concept_simple_harmonic_motion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "superposition",
+        "label": "Superposition",
+        "file": "output/college.en/sonnet/html/concept_superposition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "transverse_wave",
+        "label": "Transverse Wave",
+        "file": "output/college.en/sonnet/html/concept_transverse_wave.html",
         "model": "sonnet"
       },
       {
@@ -5210,6 +6287,18 @@
         "name": "wave_intensity",
         "label": "Wave Intensity",
         "file": "output/college.en/sonnet/html/concept_wave_intensity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wave_velocity",
+        "label": "Wave Velocity",
+        "file": "output/college.en/sonnet/html/concept_wave_velocity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
         "model": "sonnet"
       }
     ]
@@ -5234,13 +6323,81 @@
         "target": "noise_cancellation",
         "file": "output/college.en/sonnet/html/book_noise_cancellation.html",
         "model": "sonnet"
+      },
+      {
+        "target": "musical_instrument_resonance",
+        "file": "output/college.en/sonnet/html/book_musical_instrument_resonance.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "ultrasound_therapy",
+        "file": "output/college.en/sonnet/html/book_ultrasound_therapy.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "doppler_shifted_ultrasound",
+        "file": "output/college.en/sonnet/html/book_doppler_shifted_ultrasound.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "ultrasound_medical_imaging",
+        "file": "output/college.en/sonnet/html/book_ultrasound_medical_imaging.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "acoustic_impedance",
+        "label": "Acoustic Impedance",
+        "file": "output/college.en/sonnet/html/concept_acoustic_impedance.html",
+        "model": "sonnet"
+      },
+      {
         "name": "amplitude",
         "label": "Amplitude",
         "file": "output/college.en/sonnet/html/concept_amplitude.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "density",
+        "label": "Density",
+        "file": "output/college.en/sonnet/html/concept_density.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "doppler_effect",
+        "label": "Doppler Effect",
+        "file": "output/college.en/sonnet/html/concept_doppler_effect.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "doppler_shifted_ultrasound",
+        "label": "Doppler Shifted Ultrasound",
+        "file": "output/college.en/sonnet/html/concept_doppler_shifted_ultrasound.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "frequency",
+        "label": "Frequency",
+        "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fundamental_frequency",
+        "label": "Fundamental Frequency",
+        "file": "output/college.en/sonnet/html/concept_fundamental_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hearing",
+        "label": "Hearing",
+        "file": "output/college.en/sonnet/html/concept_hearing.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "intensity_reflection_coefficient",
+        "label": "Intensity Reflection Coefficient",
+        "file": "output/college.en/sonnet/html/concept_intensity_reflection_coefficient.html",
         "model": "sonnet"
       },
       {
@@ -5256,9 +6413,27 @@
         "model": "sonnet"
       },
       {
+        "name": "overtones_and_harmonics",
+        "label": "Overtones And Harmonics",
+        "file": "output/college.en/sonnet/html/concept_overtones_and_harmonics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "power",
+        "label": "Power",
+        "file": "output/college.en/sonnet/html/concept_power.html",
+        "model": "sonnet"
+      },
+      {
         "name": "pressure",
         "label": "Pressure",
         "file": "output/college.en/sonnet/html/concept_pressure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resonance_closed_tube",
+        "label": "Resonance Closed Tube",
+        "file": "output/college.en/sonnet/html/concept_resonance_closed_tube.html",
         "model": "sonnet"
       },
       {
@@ -5274,9 +6449,51 @@
         "model": "sonnet"
       },
       {
+        "name": "sound_intensity",
+        "label": "Sound Intensity",
+        "file": "output/college.en/sonnet/html/concept_sound_intensity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "speed_of_sound",
+        "label": "Speed Of Sound",
+        "file": "output/college.en/sonnet/html/concept_speed_of_sound.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "standing_wave",
+        "label": "Standing Wave",
+        "file": "output/college.en/sonnet/html/concept_standing_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "temperature",
+        "label": "Temperature",
+        "file": "output/college.en/sonnet/html/concept_temperature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ultrasound",
+        "label": "Ultrasound",
+        "file": "output/college.en/sonnet/html/concept_ultrasound.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ultrasound_therapy",
+        "label": "Ultrasound Therapy",
+        "file": "output/college.en/sonnet/html/concept_ultrasound_therapy.html",
+        "model": "sonnet"
+      },
+      {
         "name": "wave",
         "label": "Wave",
         "file": "output/college.en/sonnet/html/concept_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
         "model": "sonnet"
       }
     ]
@@ -5301,9 +6518,41 @@
         "target": "faraday_cage",
         "file": "output/college.en/sonnet/html/book_faraday_cage.html",
         "model": "sonnet"
+      },
+      {
+        "target": "lightning_rod",
+        "file": "output/college.en/sonnet/html/book_lightning_rod.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "van_de_graaff_generator",
+        "file": "output/college.en/sonnet/html/book_van_de_graaff_generator.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "xerography",
+        "file": "output/college.en/sonnet/html/book_xerography.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "electrostatic_precipitator",
+        "file": "output/college.en/sonnet/html/book_electrostatic_precipitator.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "charging_by_contact",
+        "label": "Charging By Contact",
+        "file": "output/college.en/sonnet/html/concept_charging_by_contact.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "charging_by_induction",
+        "label": "Charging By Induction",
+        "file": "output/college.en/sonnet/html/concept_charging_by_induction.html",
+        "model": "sonnet"
+      },
       {
         "name": "conductor",
         "label": "Conductor",
@@ -5341,9 +6590,45 @@
         "model": "sonnet"
       },
       {
+        "name": "electrostatic_precipitator",
+        "label": "Electrostatic Precipitator",
+        "file": "output/college.en/sonnet/html/concept_electrostatic_precipitator.html",
+        "model": "sonnet"
+      },
+      {
         "name": "faraday_cage",
         "label": "Faraday Cage",
         "file": "output/college.en/sonnet/html/concept_faraday_cage.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "insulator",
+        "label": "Insulator",
+        "file": "output/college.en/sonnet/html/concept_insulator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lightning_rod",
+        "label": "Lightning Rod",
+        "file": "output/college.en/sonnet/html/concept_lightning_rod.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "polarization",
+        "label": "Polarization",
+        "file": "output/college.en/sonnet/html/concept_polarization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "van_de_graaff_generator",
+        "label": "Van De Graaff Generator",
+        "file": "output/college.en/sonnet/html/concept_van_de_graaff_generator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "xerography",
+        "label": "Xerography",
+        "file": "output/college.en/sonnet/html/concept_xerography.html",
         "model": "sonnet"
       }
     ]
@@ -5453,9 +6738,53 @@
         "target": "thermal_hazard",
         "file": "output/college.en/sonnet/html/book_thermal_hazard.html",
         "model": "sonnet"
+      },
+      {
+        "target": "shock_hazard",
+        "file": "output/college.en/sonnet/html/book_shock_hazard.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "electrocardiogram",
+        "file": "output/college.en/sonnet/html/book_electrocardiogram.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "high_voltage_power_transmission",
+        "file": "output/college.en/sonnet/html/book_high_voltage_power_transmission.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "fuses_and_circuit_breakers",
+        "file": "output/college.en/sonnet/html/book_fuses_and_circuit_breakers.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "action_potential",
+        "label": "Action Potential",
+        "file": "output/college.en/sonnet/html/concept_action_potential.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "alternating_current",
+        "label": "Alternating Current",
+        "file": "output/college.en/sonnet/html/concept_alternating_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulomb_force",
+        "label": "Coulomb Force",
+        "file": "output/college.en/sonnet/html/concept_coulomb_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diffusion",
+        "label": "Diffusion",
+        "file": "output/college.en/sonnet/html/concept_diffusion.html",
+        "model": "sonnet"
+      },
       {
         "name": "electric_charge",
         "label": "Electric Charge",
@@ -5475,9 +6804,45 @@
         "model": "sonnet"
       },
       {
+        "name": "electrocardiogram",
+        "label": "Electrocardiogram",
+        "file": "output/college.en/sonnet/html/concept_electrocardiogram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fuses_and_circuit_breakers",
+        "label": "Fuses And Circuit Breakers",
+        "file": "output/college.en/sonnet/html/concept_fuses_and_circuit_breakers.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "high_voltage_power_transmission",
+        "label": "High Voltage Power Transmission",
+        "file": "output/college.en/sonnet/html/concept_high_voltage_power_transmission.html",
+        "model": "sonnet"
+      },
+      {
         "name": "potential_difference",
         "label": "Potential Difference",
         "file": "output/college.en/sonnet/html/concept_potential_difference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resistance",
+        "label": "Resistance",
+        "file": "output/college.en/sonnet/html/concept_resistance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resting_membrane_potential",
+        "label": "Resting Membrane Potential",
+        "file": "output/college.en/sonnet/html/concept_resting_membrane_potential.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "shock_hazard",
+        "label": "Shock Hazard",
+        "file": "output/college.en/sonnet/html/concept_shock_hazard.html",
         "model": "sonnet"
       },
       {
@@ -5508,13 +6873,75 @@
         "target": "voltmeter",
         "file": "output/college.en/sonnet/html/book_voltmeter.html",
         "model": "sonnet"
+      },
+      {
+        "target": "ammeter",
+        "file": "output/college.en/sonnet/html/book_ammeter.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "potentiometer",
+        "file": "output/college.en/sonnet/html/book_potentiometer.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "wheatstone_bridge",
+        "file": "output/college.en/sonnet/html/book_wheatstone_bridge.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "rc_timing_applications",
+        "file": "output/college.en/sonnet/html/book_rc_timing_applications.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "ammeter",
+        "label": "Ammeter",
+        "file": "output/college.en/sonnet/html/concept_ammeter.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "capacitance",
+        "label": "Capacitance",
+        "file": "output/college.en/sonnet/html/concept_capacitance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "capacitor_charging",
+        "label": "Capacitor Charging",
+        "file": "output/college.en/sonnet/html/concept_capacitor_charging.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "capacitor_discharging",
+        "label": "Capacitor Discharging",
+        "file": "output/college.en/sonnet/html/concept_capacitor_discharging.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_charge",
+        "label": "Conservation Of Charge",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_energy",
+        "label": "Conservation Of Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
         "name": "electric_current",
         "label": "Electric Current",
         "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electromotive_force",
+        "label": "Electromotive Force",
+        "file": "output/college.en/sonnet/html/concept_electromotive_force.html",
         "model": "sonnet"
       },
       {
@@ -5524,9 +6951,57 @@
         "model": "sonnet"
       },
       {
+        "name": "kirchhoffs_junction_rule",
+        "label": "Kirchhoffs Junction Rule",
+        "file": "output/college.en/sonnet/html/concept_kirchhoffs_junction_rule.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kirchhoffs_loop_rule",
+        "label": "Kirchhoffs Loop Rule",
+        "file": "output/college.en/sonnet/html/concept_kirchhoffs_loop_rule.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kirchhoffs_rules",
+        "label": "Kirchhoffs Rules",
+        "file": "output/college.en/sonnet/html/concept_kirchhoffs_rules.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "null_measurement",
+        "label": "Null Measurement",
+        "file": "output/college.en/sonnet/html/concept_null_measurement.html",
+        "model": "sonnet"
+      },
+      {
         "name": "ohms_law",
         "label": "Ohms Law",
         "file": "output/college.en/sonnet/html/concept_ohms_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "potentiometer",
+        "label": "Potentiometer",
+        "file": "output/college.en/sonnet/html/concept_potentiometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rc_circuit",
+        "label": "Rc Circuit",
+        "file": "output/college.en/sonnet/html/concept_rc_circuit.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rc_time_constant",
+        "label": "Rc Time Constant",
+        "file": "output/college.en/sonnet/html/concept_rc_time_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rc_timing_applications",
+        "label": "Rc Timing Applications",
+        "file": "output/college.en/sonnet/html/concept_rc_timing_applications.html",
         "model": "sonnet"
       },
       {
@@ -5545,6 +7020,12 @@
         "name": "voltmeter",
         "label": "Voltmeter",
         "file": "output/college.en/sonnet/html/concept_voltmeter.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wheatstone_bridge",
+        "label": "Wheatstone Bridge",
+        "file": "output/college.en/sonnet/html/concept_wheatstone_bridge.html",
         "model": "sonnet"
       }
     ]
@@ -5569,9 +7050,84 @@
         "target": "velocity_selector",
         "file": "output/college.en/sonnet/html/book_velocity_selector.html",
         "model": "sonnet"
+      },
+      {
+        "target": "cathode_ray_tube",
+        "file": "output/college.en/sonnet/html/book_cathode_ray_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "magnetohydrodynamic_drive",
+        "file": "output/college.en/sonnet/html/book_magnetohydrodynamic_drive.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "aurora",
+        "file": "output/college.en/sonnet/html/book_aurora.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "mass_spectrometer",
+        "file": "output/college.en/sonnet/html/book_mass_spectrometer.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "electric_motor",
+        "file": "output/college.en/sonnet/html/book_electric_motor.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "galvanometer",
+        "file": "output/college.en/sonnet/html/book_galvanometer.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "hall_probe",
+        "file": "output/college.en/sonnet/html/book_hall_probe.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "van_allen_radiation_belts",
+        "file": "output/college.en/sonnet/html/book_van_allen_radiation_belts.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "magnetic_resonance_imaging",
+        "file": "output/college.en/sonnet/html/book_magnetic_resonance_imaging.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "amperes_law",
+        "label": "Amperes Law",
+        "file": "output/college.en/sonnet/html/concept_amperes_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "aurora",
+        "label": "Aurora",
+        "file": "output/college.en/sonnet/html/concept_aurora.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "cathode_ray_tube",
+        "label": "Cathode Ray Tube",
+        "file": "output/college.en/sonnet/html/concept_cathode_ray_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "centripetal_force",
+        "label": "Centripetal Force",
+        "file": "output/college.en/sonnet/html/concept_centripetal_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "circular_motion_in_magnetic_field",
+        "label": "Circular Motion In Magnetic Field",
+        "file": "output/college.en/sonnet/html/concept_circular_motion_in_magnetic_field.html",
+        "model": "sonnet"
+      },
       {
         "name": "electric_charge",
         "label": "Electric Charge",
@@ -5579,9 +7135,45 @@
         "model": "sonnet"
       },
       {
+        "name": "electric_current",
+        "label": "Electric Current",
+        "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
         "name": "electric_field",
         "label": "Electric Field",
         "file": "output/college.en/sonnet/html/concept_electric_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_motor",
+        "label": "Electric Motor",
+        "file": "output/college.en/sonnet/html/concept_electric_motor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "galvanometer",
+        "label": "Galvanometer",
+        "file": "output/college.en/sonnet/html/concept_galvanometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hall_effect",
+        "label": "Hall Effect",
+        "file": "output/college.en/sonnet/html/concept_hall_effect.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hall_emf",
+        "label": "Hall Emf",
+        "file": "output/college.en/sonnet/html/concept_hall_emf.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "hall_probe",
+        "label": "Hall Probe",
+        "file": "output/college.en/sonnet/html/concept_hall_probe.html",
         "model": "sonnet"
       },
       {
@@ -5594,6 +7186,84 @@
         "name": "magnetic_field",
         "label": "Magnetic Field",
         "file": "output/college.en/sonnet/html/concept_magnetic_field.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field_circular_loop",
+        "label": "Magnetic Field Circular Loop",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field_circular_loop.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_field_straight_wire",
+        "label": "Magnetic Field Straight Wire",
+        "file": "output/college.en/sonnet/html/concept_magnetic_field_straight_wire.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_force_on_current",
+        "label": "Magnetic Force On Current",
+        "file": "output/college.en/sonnet/html/concept_magnetic_force_on_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_mirror",
+        "label": "Magnetic Mirror",
+        "file": "output/college.en/sonnet/html/concept_magnetic_mirror.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetic_resonance_imaging",
+        "label": "Magnetic Resonance Imaging",
+        "file": "output/college.en/sonnet/html/concept_magnetic_resonance_imaging.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnetohydrodynamic_drive",
+        "label": "Magnetohydrodynamic Drive",
+        "file": "output/college.en/sonnet/html/concept_magnetohydrodynamic_drive.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "mass_spectrometer",
+        "label": "Mass Spectrometer",
+        "file": "output/college.en/sonnet/html/concept_mass_spectrometer.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "permeability_of_free_space",
+        "label": "Permeability Of Free Space",
+        "file": "output/college.en/sonnet/html/concept_permeability_of_free_space.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radius_of_curvature",
+        "label": "Radius Of Curvature",
+        "file": "output/college.en/sonnet/html/concept_radius_of_curvature.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "right_hand_rule_2",
+        "label": "Right Hand Rule 2",
+        "file": "output/college.en/sonnet/html/concept_right_hand_rule_2.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "solenoid",
+        "label": "Solenoid",
+        "file": "output/college.en/sonnet/html/concept_solenoid.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "torque_on_current_loop",
+        "label": "Torque On Current Loop",
+        "file": "output/college.en/sonnet/html/concept_torque_on_current_loop.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "van_allen_radiation_belts",
+        "label": "Van Allen Radiation Belts",
+        "file": "output/college.en/sonnet/html/concept_van_allen_radiation_belts.html",
         "model": "sonnet"
       },
       {
@@ -5630,13 +7300,41 @@
         "target": "transformer",
         "file": "output/college.en/sonnet/html/book_transformer.html",
         "model": "sonnet"
+      },
+      {
+        "target": "electrical_safety_devices",
+        "file": "output/college.en/sonnet/html/book_electrical_safety_devices.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "rlc_series_circuit",
+        "file": "output/college.en/sonnet/html/book_rlc_series_circuit.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "capacitance",
+        "label": "Capacitance",
+        "file": "output/college.en/sonnet/html/concept_capacitance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "capacitive_reactance",
+        "label": "Capacitive Reactance",
+        "file": "output/college.en/sonnet/html/concept_capacitive_reactance.html",
+        "model": "sonnet"
+      },
+      {
         "name": "electric_current",
         "label": "Electric Current",
         "file": "output/college.en/sonnet/html/concept_electric_current.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electrical_safety_devices",
+        "label": "Electrical Safety Devices",
+        "file": "output/college.en/sonnet/html/concept_electrical_safety_devices.html",
         "model": "sonnet"
       },
       {
@@ -5649,6 +7347,18 @@
         "name": "faradays_law",
         "label": "Faradays Law",
         "file": "output/college.en/sonnet/html/concept_faradays_law.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "impedance",
+        "label": "Impedance",
+        "file": "output/college.en/sonnet/html/concept_impedance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inductive_reactance",
+        "label": "Inductive Reactance",
+        "file": "output/college.en/sonnet/html/concept_inductive_reactance.html",
         "model": "sonnet"
       },
       {
@@ -5667,6 +7377,42 @@
         "name": "mutual_inductance",
         "label": "Mutual Inductance",
         "file": "output/college.en/sonnet/html/concept_mutual_inductance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "phase_angle",
+        "label": "Phase Angle",
+        "file": "output/college.en/sonnet/html/concept_phase_angle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "power_factor",
+        "label": "Power Factor",
+        "file": "output/college.en/sonnet/html/concept_power_factor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resistance",
+        "label": "Resistance",
+        "file": "output/college.en/sonnet/html/concept_resistance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resonant_frequency",
+        "label": "Resonant Frequency",
+        "file": "output/college.en/sonnet/html/concept_resonant_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rlc_series_circuit",
+        "label": "Rlc Series Circuit",
+        "file": "output/college.en/sonnet/html/concept_rlc_series_circuit.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "self_inductance",
+        "label": "Self Inductance",
+        "file": "output/college.en/sonnet/html/concept_self_inductance.html",
         "model": "sonnet"
       },
       {
@@ -5696,6 +7442,61 @@
       {
         "target": "radio_waves",
         "file": "output/college.en/sonnet/html/book_radio_waves.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "microwaves",
+        "file": "output/college.en/sonnet/html/book_microwaves.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "infrared_radiation",
+        "file": "output/college.en/sonnet/html/book_infrared_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "visible_light",
+        "file": "output/college.en/sonnet/html/book_visible_light.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "ultraviolet_radiation",
+        "file": "output/college.en/sonnet/html/book_ultraviolet_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "x_rays",
+        "file": "output/college.en/sonnet/html/book_x_rays.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "gamma_rays",
+        "file": "output/college.en/sonnet/html/book_gamma_rays.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "amplitude_modulation",
+        "file": "output/college.en/sonnet/html/book_amplitude_modulation.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "frequency_modulation",
+        "file": "output/college.en/sonnet/html/book_frequency_modulation.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "radar",
+        "file": "output/college.en/sonnet/html/book_radar.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "dielectric_heating",
+        "file": "output/college.en/sonnet/html/book_dielectric_heating.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "greenhouse_effect",
+        "file": "output/college.en/sonnet/html/book_greenhouse_effect.html",
         "model": "sonnet"
       }
     ],
@@ -5812,9 +7613,91 @@
         "target": "rainbow",
         "file": "output/college.en/sonnet/html/book_rainbow.html",
         "model": "sonnet"
+      },
+      {
+        "target": "magnifying_glass",
+        "file": "output/college.en/sonnet/html/book_magnifying_glass.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "camera_lens",
+        "file": "output/college.en/sonnet/html/book_camera_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "corrective_eyeglasses",
+        "file": "output/college.en/sonnet/html/book_corrective_eyeglasses.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "fiber_optics",
+        "file": "output/college.en/sonnet/html/book_fiber_optics.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "corner_reflector",
+        "file": "output/college.en/sonnet/html/book_corner_reflector.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "diamond_sparkle",
+        "file": "output/college.en/sonnet/html/book_diamond_sparkle.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "concave_mirror_heater",
+        "file": "output/college.en/sonnet/html/book_concave_mirror_heater.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "endoscope",
+        "file": "output/college.en/sonnet/html/book_endoscope.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "camera_lens",
+        "label": "Camera Lens",
+        "file": "output/college.en/sonnet/html/concept_camera_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "concave_mirror_heater",
+        "label": "Concave Mirror Heater",
+        "file": "output/college.en/sonnet/html/concept_concave_mirror_heater.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "converging_lens",
+        "label": "Converging Lens",
+        "file": "output/college.en/sonnet/html/concept_converging_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "corner_reflector",
+        "label": "Corner Reflector",
+        "file": "output/college.en/sonnet/html/concept_corner_reflector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "corrective_eyeglasses",
+        "label": "Corrective Eyeglasses",
+        "file": "output/college.en/sonnet/html/concept_corrective_eyeglasses.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "critical_angle",
+        "label": "Critical Angle",
+        "file": "output/college.en/sonnet/html/concept_critical_angle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diamond_sparkle",
+        "label": "Diamond Sparkle",
+        "file": "output/college.en/sonnet/html/concept_diamond_sparkle.html",
+        "model": "sonnet"
+      },
       {
         "name": "dispersion",
         "label": "Dispersion",
@@ -5822,9 +7705,45 @@
         "model": "sonnet"
       },
       {
+        "name": "diverging_lens",
+        "label": "Diverging Lens",
+        "file": "output/college.en/sonnet/html/concept_diverging_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "endoscope",
+        "label": "Endoscope",
+        "file": "output/college.en/sonnet/html/concept_endoscope.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fiber_optics",
+        "label": "Fiber Optics",
+        "file": "output/college.en/sonnet/html/concept_fiber_optics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "focal_length",
+        "label": "Focal Length",
+        "file": "output/college.en/sonnet/html/concept_focal_length.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "focal_point",
+        "label": "Focal Point",
+        "file": "output/college.en/sonnet/html/concept_focal_point.html",
+        "model": "sonnet"
+      },
+      {
         "name": "geometric_optics",
         "label": "Geometric Optics",
         "file": "output/college.en/sonnet/html/concept_geometric_optics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "image_distance",
+        "label": "Image Distance",
+        "file": "output/college.en/sonnet/html/concept_image_distance.html",
         "model": "sonnet"
       },
       {
@@ -5840,9 +7759,39 @@
         "model": "sonnet"
       },
       {
+        "name": "lens_power",
+        "label": "Lens Power",
+        "file": "output/college.en/sonnet/html/concept_lens_power.html",
+        "model": "sonnet"
+      },
+      {
         "name": "light_ray",
         "label": "Light Ray",
         "file": "output/college.en/sonnet/html/concept_light_ray.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnification",
+        "label": "Magnification",
+        "file": "output/college.en/sonnet/html/concept_magnification.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnifying_glass",
+        "label": "Magnifying Glass",
+        "file": "output/college.en/sonnet/html/concept_magnifying_glass.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "object_distance",
+        "label": "Object Distance",
+        "file": "output/college.en/sonnet/html/concept_object_distance.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radius_of_curvature",
+        "label": "Radius Of Curvature",
+        "file": "output/college.en/sonnet/html/concept_radius_of_curvature.html",
         "model": "sonnet"
       },
       {
@@ -5852,15 +7801,57 @@
         "model": "sonnet"
       },
       {
+        "name": "ray_tracing",
+        "label": "Ray Tracing",
+        "file": "output/college.en/sonnet/html/concept_ray_tracing.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "real_image",
+        "label": "Real Image",
+        "file": "output/college.en/sonnet/html/concept_real_image.html",
+        "model": "sonnet"
+      },
+      {
         "name": "refraction",
         "label": "Refraction",
         "file": "output/college.en/sonnet/html/concept_refraction.html",
         "model": "sonnet"
       },
       {
+        "name": "snells_law",
+        "label": "Snells Law",
+        "file": "output/college.en/sonnet/html/concept_snells_law.html",
+        "model": "sonnet"
+      },
+      {
         "name": "speed_of_light_vacuum",
         "label": "Speed Of Light Vacuum",
         "file": "output/college.en/sonnet/html/concept_speed_of_light_vacuum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "spherical_mirror",
+        "label": "Spherical Mirror",
+        "file": "output/college.en/sonnet/html/concept_spherical_mirror.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thin_lens_equations",
+        "label": "Thin Lens Equations",
+        "file": "output/college.en/sonnet/html/concept_thin_lens_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "total_internal_reflection",
+        "label": "Total Internal Reflection",
+        "file": "output/college.en/sonnet/html/concept_total_internal_reflection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "virtual_image",
+        "label": "Virtual Image",
+        "file": "output/college.en/sonnet/html/concept_virtual_image.html",
         "model": "sonnet"
       },
       {
@@ -5891,6 +7882,11 @@
         "target": "vision_correction_spectacles",
         "file": "output/college.en/sonnet/html/book_vision_correction_spectacles.html",
         "model": "sonnet"
+      },
+      {
+        "target": "laser_vision_correction",
+        "file": "output/college.en/sonnet/html/book_laser_vision_correction.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -5898,6 +7894,12 @@
         "name": "accommodation",
         "label": "Accommodation",
         "file": "output/college.en/sonnet/html/concept_accommodation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "astigmatism",
+        "label": "Astigmatism",
+        "file": "output/college.en/sonnet/html/concept_astigmatism.html",
         "model": "sonnet"
       },
       {
@@ -5934,6 +7936,12 @@
         "name": "hyperopia",
         "label": "Hyperopia",
         "file": "output/college.en/sonnet/html/concept_hyperopia.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "laser_vision_correction",
+        "label": "Laser Vision Correction",
+        "file": "output/college.en/sonnet/html/concept_laser_vision_correction.html",
         "model": "sonnet"
       },
       {
