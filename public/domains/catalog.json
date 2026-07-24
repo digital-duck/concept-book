@@ -7887,13 +7887,50 @@
         "target": "laser_vision_correction",
         "file": "output/college.en/sonnet/html/book_laser_vision_correction.html",
         "model": "sonnet"
+      },
+      {
+        "target": "contact_lenses",
+        "file": "output/college.en/sonnet/html/book_contact_lenses.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "reflecting_telescope",
+        "file": "output/college.en/sonnet/html/book_reflecting_telescope.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "adaptive_optics",
+        "file": "output/college.en/sonnet/html/book_adaptive_optics.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "electron_microscope",
+        "file": "output/college.en/sonnet/html/book_electron_microscope.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "immersion_lens",
+        "file": "output/college.en/sonnet/html/book_immersion_lens.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "aberration",
+        "label": "Aberration",
+        "file": "output/college.en/sonnet/html/concept_aberration.html",
+        "model": "sonnet"
+      },
+      {
         "name": "accommodation",
         "label": "Accommodation",
         "file": "output/college.en/sonnet/html/concept_accommodation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "adaptive_optics",
+        "label": "Adaptive Optics",
+        "file": "output/college.en/sonnet/html/concept_adaptive_optics.html",
         "model": "sonnet"
       },
       {
@@ -7903,15 +7940,39 @@
         "model": "sonnet"
       },
       {
+        "name": "chromatic_aberration",
+        "label": "Chromatic Aberration",
+        "file": "output/college.en/sonnet/html/concept_chromatic_aberration.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "compound_microscope",
+        "label": "Compound Microscope",
+        "file": "output/college.en/sonnet/html/concept_compound_microscope.html",
+        "model": "sonnet"
+      },
+      {
         "name": "concave_lens",
         "label": "Concave Lens",
         "file": "output/college.en/sonnet/html/concept_concave_lens.html",
         "model": "sonnet"
       },
       {
+        "name": "contact_lenses",
+        "label": "Contact Lenses",
+        "file": "output/college.en/sonnet/html/concept_contact_lenses.html",
+        "model": "sonnet"
+      },
+      {
         "name": "convex_lens",
         "label": "Convex Lens",
         "file": "output/college.en/sonnet/html/concept_convex_lens.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electron_microscope",
+        "label": "Electron Microscope",
+        "file": "output/college.en/sonnet/html/concept_electron_microscope.html",
         "model": "sonnet"
       },
       {
@@ -7939,6 +8000,12 @@
         "model": "sonnet"
       },
       {
+        "name": "immersion_lens",
+        "label": "Immersion Lens",
+        "file": "output/college.en/sonnet/html/concept_immersion_lens.html",
+        "model": "sonnet"
+      },
+      {
         "name": "laser_vision_correction",
         "label": "Laser Vision Correction",
         "file": "output/college.en/sonnet/html/concept_laser_vision_correction.html",
@@ -7948,6 +8015,12 @@
         "name": "lens_power",
         "label": "Lens Power",
         "file": "output/college.en/sonnet/html/concept_lens_power.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "magnification",
+        "label": "Magnification",
+        "file": "output/college.en/sonnet/html/concept_magnification.html",
         "model": "sonnet"
       },
       {
@@ -7963,6 +8036,30 @@
         "model": "sonnet"
       },
       {
+        "name": "numerical_aperture",
+        "label": "Numerical Aperture",
+        "file": "output/college.en/sonnet/html/concept_numerical_aperture.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "reflecting_telescope",
+        "label": "Reflecting Telescope",
+        "file": "output/college.en/sonnet/html/concept_reflecting_telescope.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "refractive_index",
+        "label": "Refractive Index",
+        "file": "output/college.en/sonnet/html/concept_refractive_index.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "telescope",
+        "label": "Telescope",
+        "file": "output/college.en/sonnet/html/concept_telescope.html",
+        "model": "sonnet"
+      },
+      {
         "name": "thin_lens_equation",
         "label": "Thin Lens Equation",
         "file": "output/college.en/sonnet/html/concept_thin_lens_equation.html",
@@ -7972,6 +8069,12 @@
         "name": "vision_correction_spectacles",
         "label": "Vision Correction Spectacles",
         "file": "output/college.en/sonnet/html/concept_vision_correction_spectacles.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavelength",
+        "label": "Wavelength",
+        "file": "output/college.en/sonnet/html/concept_wavelength.html",
         "model": "sonnet"
       }
     ]
@@ -7996,9 +8099,35 @@
         "target": "non_reflective_coatings",
         "file": "output/college.en/sonnet/html/book_non_reflective_coatings.html",
         "model": "sonnet"
+      },
+      {
+        "target": "spectroscopic_dispersion",
+        "file": "output/college.en/sonnet/html/book_spectroscopic_dispersion.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "polarizing_filter",
+        "file": "output/college.en/sonnet/html/book_polarizing_filter.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "liquid_crystal_display",
+        "file": "output/college.en/sonnet/html/book_liquid_crystal_display.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "interference_microscopy",
+        "file": "output/college.en/sonnet/html/book_interference_microscopy.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "coherence",
+        "label": "Coherence",
+        "file": "output/college.en/sonnet/html/concept_coherence.html",
+        "model": "sonnet"
+      },
       {
         "name": "constructive_interference",
         "label": "Constructive Interference",
@@ -8012,9 +8141,39 @@
         "model": "sonnet"
       },
       {
+        "name": "diffraction",
+        "label": "Diffraction",
+        "file": "output/college.en/sonnet/html/concept_diffraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diffraction_grating",
+        "label": "Diffraction Grating",
+        "file": "output/college.en/sonnet/html/concept_diffraction_grating.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "double_slit_interference",
+        "label": "Double Slit Interference",
+        "file": "output/college.en/sonnet/html/concept_double_slit_interference.html",
+        "model": "sonnet"
+      },
+      {
         "name": "electromagnetic_wave",
         "label": "Electromagnetic Wave",
         "file": "output/college.en/sonnet/html/concept_electromagnetic_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "frequency",
+        "label": "Frequency",
+        "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "huygens_principle",
+        "label": "Huygens Principle",
+        "file": "output/college.en/sonnet/html/concept_huygens_principle.html",
         "model": "sonnet"
       },
       {
@@ -8030,9 +8189,39 @@
         "model": "sonnet"
       },
       {
+        "name": "interference_microscopy",
+        "label": "Interference Microscopy",
+        "file": "output/college.en/sonnet/html/concept_interference_microscopy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "interference_order",
+        "label": "Interference Order",
+        "file": "output/college.en/sonnet/html/concept_interference_order.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "liquid_crystal_display",
+        "label": "Liquid Crystal Display",
+        "file": "output/college.en/sonnet/html/concept_liquid_crystal_display.html",
+        "model": "sonnet"
+      },
+      {
         "name": "non_reflective_coatings",
         "label": "Non Reflective Coatings",
         "file": "output/college.en/sonnet/html/concept_non_reflective_coatings.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "optical_activity",
+        "label": "Optical Activity",
+        "file": "output/college.en/sonnet/html/concept_optical_activity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "path_length_difference",
+        "label": "Path Length Difference",
+        "file": "output/college.en/sonnet/html/concept_path_length_difference.html",
         "model": "sonnet"
       },
       {
@@ -8042,9 +8231,57 @@
         "model": "sonnet"
       },
       {
+        "name": "polarization",
+        "label": "Polarization",
+        "file": "output/college.en/sonnet/html/concept_polarization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "polarizing_filter",
+        "label": "Polarizing Filter",
+        "file": "output/college.en/sonnet/html/concept_polarizing_filter.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "rayleigh_criterion",
+        "label": "Rayleigh Criterion",
+        "file": "output/college.en/sonnet/html/concept_rayleigh_criterion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "resolving_power",
+        "label": "Resolving Power",
+        "file": "output/college.en/sonnet/html/concept_resolving_power.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "single_slit_diffraction",
+        "label": "Single Slit Diffraction",
+        "file": "output/college.en/sonnet/html/concept_single_slit_diffraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "spectroscopic_dispersion",
+        "label": "Spectroscopic Dispersion",
+        "file": "output/college.en/sonnet/html/concept_spectroscopic_dispersion.html",
+        "model": "sonnet"
+      },
+      {
         "name": "thin_film_interference",
         "label": "Thin Film Interference",
         "file": "output/college.en/sonnet/html/concept_thin_film_interference.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "transverse_wave",
+        "label": "Transverse Wave",
+        "file": "output/college.en/sonnet/html/concept_transverse_wave.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "wavefront",
+        "label": "Wavefront",
+        "file": "output/college.en/sonnet/html/concept_wavefront.html",
         "model": "sonnet"
       },
       {
@@ -8081,13 +8318,70 @@
         "target": "michelson_morley_experiment",
         "file": "output/college.en/sonnet/html/book_michelson_morley_experiment.html",
         "model": "sonnet"
+      },
+      {
+        "target": "twin_paradox",
+        "file": "output/college.en/sonnet/html/book_twin_paradox.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "muon_lifetime",
+        "file": "output/college.en/sonnet/html/book_muon_lifetime.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "gps_relativistic_corrections",
+        "file": "output/college.en/sonnet/html/book_gps_relativistic_corrections.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "gps_relativistic_corrections",
+        "label": "Gps Relativistic Corrections",
+        "file": "output/college.en/sonnet/html/concept_gps_relativistic_corrections.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inertial_reference_frame",
+        "label": "Inertial Reference Frame",
+        "file": "output/college.en/sonnet/html/concept_inertial_reference_frame.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "length_contraction",
+        "label": "Length Contraction",
+        "file": "output/college.en/sonnet/html/concept_length_contraction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "lorentz_factor",
+        "label": "Lorentz Factor",
+        "file": "output/college.en/sonnet/html/concept_lorentz_factor.html",
+        "model": "sonnet"
+      },
+      {
         "name": "michelson_morley_experiment",
         "label": "Michelson Morley Experiment",
         "file": "output/college.en/sonnet/html/concept_michelson_morley_experiment.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "muon_lifetime",
+        "label": "Muon Lifetime",
+        "file": "output/college.en/sonnet/html/concept_muon_lifetime.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "proper_length",
+        "label": "Proper Length",
+        "file": "output/college.en/sonnet/html/concept_proper_length.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "proper_time",
+        "label": "Proper Time",
+        "file": "output/college.en/sonnet/html/concept_proper_time.html",
         "model": "sonnet"
       },
       {
@@ -8100,6 +8394,18 @@
         "name": "speed_of_light",
         "label": "Speed Of Light",
         "file": "output/college.en/sonnet/html/concept_speed_of_light.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "time_dilation",
+        "label": "Time Dilation",
+        "file": "output/college.en/sonnet/html/concept_time_dilation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "twin_paradox",
+        "label": "Twin Paradox",
+        "file": "output/college.en/sonnet/html/concept_twin_paradox.html",
         "model": "sonnet"
       }
     ]
@@ -8124,9 +8430,20 @@
         "target": "x_ray_production",
         "file": "output/college.en/sonnet/html/book_x_ray_production.html",
         "model": "sonnet"
+      },
+      {
+        "target": "electron_microscope",
+        "file": "output/college.en/sonnet/html/book_electron_microscope.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "de_broglie_wavelength",
+        "label": "De Broglie Wavelength",
+        "file": "output/college.en/sonnet/html/concept_de_broglie_wavelength.html",
+        "model": "sonnet"
+      },
       {
         "name": "electromagnetic_radiation",
         "label": "Electromagnetic Radiation",
@@ -8140,6 +8457,12 @@
         "model": "sonnet"
       },
       {
+        "name": "electron_microscope",
+        "label": "Electron Microscope",
+        "file": "output/college.en/sonnet/html/concept_electron_microscope.html",
+        "model": "sonnet"
+      },
+      {
         "name": "energy",
         "label": "Energy",
         "file": "output/college.en/sonnet/html/concept_energy.html",
@@ -8149,6 +8472,18 @@
         "name": "frequency",
         "label": "Frequency",
         "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "momentum",
+        "label": "Momentum",
+        "file": "output/college.en/sonnet/html/concept_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "particle_wave_duality",
+        "label": "Particle Wave Duality",
+        "file": "output/college.en/sonnet/html/concept_particle_wave_duality.html",
         "model": "sonnet"
       },
       {
@@ -8209,9 +8544,35 @@
         "target": "x_ray_diffraction",
         "file": "output/college.en/sonnet/html/book_x_ray_diffraction.html",
         "model": "sonnet"
+      },
+      {
+        "target": "millikan_oil_drop_experiment",
+        "file": "output/college.en/sonnet/html/book_millikan_oil_drop_experiment.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "ct_scanner",
+        "file": "output/college.en/sonnet/html/book_ct_scanner.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "holography",
+        "file": "output/college.en/sonnet/html/book_holography.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "periodic_table",
+        "file": "output/college.en/sonnet/html/book_periodic_table.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
+      {
+        "name": "angular_momentum_quantum_number",
+        "label": "Angular Momentum Quantum Number",
+        "file": "output/college.en/sonnet/html/concept_angular_momentum_quantum_number.html",
+        "model": "sonnet"
+      },
       {
         "name": "atom",
         "label": "Atom",
@@ -8219,9 +8580,153 @@
         "model": "sonnet"
       },
       {
+        "name": "atomic_de_excitation",
+        "label": "Atomic De Excitation",
+        "file": "output/college.en/sonnet/html/concept_atomic_de_excitation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "atomic_excitation",
+        "label": "Atomic Excitation",
+        "file": "output/college.en/sonnet/html/concept_atomic_excitation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "atomic_nucleus",
+        "label": "Atomic Nucleus",
+        "file": "output/college.en/sonnet/html/concept_atomic_nucleus.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "atomic_spectra",
+        "label": "Atomic Spectra",
+        "file": "output/college.en/sonnet/html/concept_atomic_spectra.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "bohr_model",
+        "label": "Bohr Model",
+        "file": "output/college.en/sonnet/html/concept_bohr_model.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "bremsstrahlung",
+        "label": "Bremsstrahlung",
+        "file": "output/college.en/sonnet/html/concept_bremsstrahlung.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "classical_angular_momentum",
+        "label": "Classical Angular Momentum",
+        "file": "output/college.en/sonnet/html/concept_classical_angular_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "coulomb_force",
+        "label": "Coulomb Force",
+        "file": "output/college.en/sonnet/html/concept_coulomb_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ct_scanner",
+        "label": "Ct Scanner",
+        "file": "output/college.en/sonnet/html/concept_ct_scanner.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electric_charge",
+        "label": "Electric Charge",
+        "file": "output/college.en/sonnet/html/concept_electric_charge.html",
+        "model": "sonnet"
+      },
+      {
         "name": "electromagnetic_radiation",
         "label": "Electromagnetic Radiation",
         "file": "output/college.en/sonnet/html/concept_electromagnetic_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electron",
+        "label": "Electron",
+        "file": "output/college.en/sonnet/html/concept_electron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "electron_charge",
+        "label": "Electron Charge",
+        "file": "output/college.en/sonnet/html/concept_electron_charge.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "holography",
+        "label": "Holography",
+        "file": "output/college.en/sonnet/html/concept_holography.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "laser",
+        "label": "Laser",
+        "file": "output/college.en/sonnet/html/concept_laser.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "metastable_state",
+        "label": "Metastable State",
+        "file": "output/college.en/sonnet/html/concept_metastable_state.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "millikan_oil_drop_experiment",
+        "label": "Millikan Oil Drop Experiment",
+        "file": "output/college.en/sonnet/html/concept_millikan_oil_drop_experiment.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "photon",
+        "label": "Photon",
+        "file": "output/college.en/sonnet/html/concept_photon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "planck_constant",
+        "label": "Planck Constant",
+        "file": "output/college.en/sonnet/html/concept_planck_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "planetary_model",
+        "label": "Planetary Model",
+        "file": "output/college.en/sonnet/html/concept_planetary_model.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "population_inversion",
+        "label": "Population Inversion",
+        "file": "output/college.en/sonnet/html/concept_population_inversion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "principal_quantum_number",
+        "label": "Principal Quantum Number",
+        "file": "output/college.en/sonnet/html/concept_principal_quantum_number.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quantized_orbits",
+        "label": "Quantized Orbits",
+        "file": "output/college.en/sonnet/html/concept_quantized_orbits.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "space_quantization",
+        "label": "Space Quantization",
+        "file": "output/college.en/sonnet/html/concept_space_quantization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "stimulated_emission",
+        "label": "Stimulated Emission",
+        "file": "output/college.en/sonnet/html/concept_stimulated_emission.html",
         "model": "sonnet"
       },
       {
@@ -8251,6 +8756,21 @@
       {
         "target": "geiger_tube",
         "file": "output/college.en/sonnet/html/book_geiger_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "scintillator",
+        "file": "output/college.en/sonnet/html/book_scintillator.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "solid_state_detector",
+        "file": "output/college.en/sonnet/html/book_solid_state_detector.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "photomultiplier",
+        "file": "output/college.en/sonnet/html/book_photomultiplier.html",
         "model": "sonnet"
       }
     ],
@@ -8292,6 +8812,18 @@
         "model": "sonnet"
       },
       {
+        "name": "photomultiplier",
+        "label": "Photomultiplier",
+        "file": "output/college.en/sonnet/html/concept_photomultiplier.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "photon",
+        "label": "Photon",
+        "file": "output/college.en/sonnet/html/concept_photon.html",
+        "model": "sonnet"
+      },
+      {
         "name": "radiation_detector",
         "label": "Radiation Detector",
         "file": "output/college.en/sonnet/html/concept_radiation_detector.html",
@@ -8301,6 +8833,18 @@
         "name": "radioactivity",
         "label": "Radioactivity",
         "file": "output/college.en/sonnet/html/concept_radioactivity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "scintillator",
+        "label": "Scintillator",
+        "file": "output/college.en/sonnet/html/concept_scintillator.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "solid_state_detector",
+        "label": "Solid State Detector",
+        "file": "output/college.en/sonnet/html/concept_solid_state_detector.html",
         "model": "sonnet"
       }
     ]
