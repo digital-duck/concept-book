@@ -181,11 +181,13 @@ Set in a `.env` file at the repo root or export before starting the API.
 
 ---
 
-## Related repos
+## Related repos and pages
 
-| Repo | Role |
+| Repo | Web | Role |
 |---|---|
-| [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) | Content engine — generates YAML graphs, HTML navigators, concept-book HTML |
-| [digital-duck/concept-book](https://github.com/digital-duck/concept-book) | This repo — web portal |
-| [Proj-ZiNets/zinets_vis](https://github.com/Proj-ZiNets/zinets_vis) | Precedent — Chinese character learning web-app |
+| [digital-duck/concept-book](https://github.com/digital-duck/concept-book) | https://digital-duck.github.io/concept-book/ | This repo — web portal |
+| [digital-duck/cb-linalg](https://github.com/digital-duck/cb-linalg) | https://digital-duck.github.io/cb-linalg/ | Linear Algenra by Robert A. Beezer |
+| [digital-duck/cb-college-physics](https://github.com/digital-duck/cb-college-physics) | https://digital-duck.github.io/cb-college-physics/| College Physics by OpenStax.org |
+| [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) | https://digital-duck.github.io/cb-zinets/ | Chinese Characters by Wen Gong|
+| [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) | | Content engine — generates YAML graphs, HTML navigators, concept-book HTML |
 
