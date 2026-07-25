@@ -181,13 +181,13 @@ Set in a `.env` file at the repo root or export before starting the API.
 
 ---
 
-## Related repos and pages
+## Related pages and repos
 
-| Repo | Web | Role |
-|---|---|---|
-| [digital-duck/concept-book](https://github.com/digital-duck/concept-book) | https://digital-duck.github.io/concept-book/ | This repo — web portal |
-| [digital-duck/cb-linalg](https://github.com/digital-duck/cb-linalg) | https://digital-duck.github.io/cb-linalg/ | Linear Algenra by Robert A. Beezer |
-| [digital-duck/cb-college-physics](https://github.com/digital-duck/cb-college-physics) | https://digital-duck.github.io/cb-college-physics/| College Physics by OpenStax.org |
-| [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) | https://digital-duck.github.io/cb-zinets/ | Chinese Characters by Wen Gong|
-| [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) | | Content engine — generates YAML graphs, HTML navigators, concept-book HTML |
+| Domain |  Repo |
+|---|---|
+| [ConceptBook demo: multiple domains](https://digital-duck.github.io/concept-book) | [digital-duck/concept-book](https://github.com/digital-duck/concept-book) |
+|  [Linear Algenra by Robert A. Beezer](https://digital-duck.github.io/cb-linalg/) |  [digital-duck/cb-linalg](https://github.com/digital-duck/cb-linalg) |
+| [College Physics by OpenStax.org](https://digital-duck.github.io/cb-college-physics/) | [digital-duck/cb-college-physics](https://github.com/digital-duck/cb-college-physics) |
+| [Chinese Characters by Wen Gong](https://digital-duck.github.io/cb-zinets/) | [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) |
+| Structured Prompt Language (SPL) Engine | [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) | 
 
