@@ -6148,6 +6148,11 @@
         "target": "musical_instrument_resonance",
         "file": "output/college.en/sonnet/html/book_musical_instrument_resonance.html",
         "model": "sonnet"
+      },
+      {
+        "target": "pendulum_clock",
+        "file": "output/college.en/sonnet/html/book_pendulum_clock.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -8772,13 +8777,54 @@
         "target": "photomultiplier",
         "file": "output/college.en/sonnet/html/book_photomultiplier.html",
         "model": "sonnet"
+      },
+      {
+        "target": "radioactive_dating",
+        "file": "output/college.en/sonnet/html/book_radioactive_dating.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "atomic_number",
+        "label": "Atomic Number",
+        "file": "output/college.en/sonnet/html/concept_atomic_number.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_energy",
+        "label": "Conservation Of Energy",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_energy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_momentum",
+        "label": "Conservation Of Momentum",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_momentum.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "decay_constant",
+        "label": "Decay Constant",
+        "file": "output/college.en/sonnet/html/concept_decay_constant.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "exponential_decay_law",
+        "label": "Exponential Decay Law",
+        "file": "output/college.en/sonnet/html/concept_exponential_decay_law.html",
+        "model": "sonnet"
+      },
+      {
         "name": "geiger_tube",
         "label": "Geiger Tube",
         "file": "output/college.en/sonnet/html/concept_geiger_tube.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "half_life",
+        "label": "Half Life",
+        "file": "output/college.en/sonnet/html/concept_half_life.html",
         "model": "sonnet"
       },
       {
@@ -8800,15 +8846,45 @@
         "model": "sonnet"
       },
       {
+        "name": "mass_number",
+        "label": "Mass Number",
+        "file": "output/college.en/sonnet/html/concept_mass_number.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "neutron",
+        "label": "Neutron",
+        "file": "output/college.en/sonnet/html/concept_neutron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_decay",
+        "label": "Nuclear Decay",
+        "file": "output/college.en/sonnet/html/concept_nuclear_decay.html",
+        "model": "sonnet"
+      },
+      {
         "name": "nuclear_radiation",
         "label": "Nuclear Radiation",
         "file": "output/college.en/sonnet/html/concept_nuclear_radiation.html",
         "model": "sonnet"
       },
       {
+        "name": "nucleon",
+        "label": "Nucleon",
+        "file": "output/college.en/sonnet/html/concept_nucleon.html",
+        "model": "sonnet"
+      },
+      {
         "name": "nucleus",
         "label": "Nucleus",
         "file": "output/college.en/sonnet/html/concept_nucleus.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclide",
+        "label": "Nuclide",
+        "file": "output/college.en/sonnet/html/concept_nuclide.html",
         "model": "sonnet"
       },
       {
@@ -8821,6 +8897,12 @@
         "name": "photon",
         "label": "Photon",
         "file": "output/college.en/sonnet/html/concept_photon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "proton",
+        "label": "Proton",
+        "file": "output/college.en/sonnet/html/concept_proton.html",
         "model": "sonnet"
       },
       {
@@ -8869,13 +8951,45 @@
         "target": "fission_bomb",
         "file": "output/college.en/sonnet/html/book_fission_bomb.html",
         "model": "sonnet"
+      },
+      {
+        "target": "nuclear_power_reactor",
+        "file": "output/college.en/sonnet/html/book_nuclear_power_reactor.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "cancer_radiotherapy",
+        "file": "output/college.en/sonnet/html/book_cancer_radiotherapy.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "thermonuclear_bomb",
+        "file": "output/college.en/sonnet/html/book_thermonuclear_bomb.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "medical_imaging",
+        "file": "output/college.en/sonnet/html/book_medical_imaging.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "anger_camera",
+        "label": "Anger Camera",
+        "file": "output/college.en/sonnet/html/concept_anger_camera.html",
+        "model": "sonnet"
+      },
+      {
         "name": "binding_energy_per_nucleon",
         "label": "Binding Energy Per Nucleon",
         "file": "output/college.en/sonnet/html/concept_binding_energy_per_nucleon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "cancer_radiotherapy",
+        "label": "Cancer Radiotherapy",
+        "file": "output/college.en/sonnet/html/concept_cancer_radiotherapy.html",
         "model": "sonnet"
       },
       {
@@ -8897,9 +9011,33 @@
         "model": "sonnet"
       },
       {
+        "name": "dose_equivalent",
+        "label": "Dose Equivalent",
+        "file": "output/college.en/sonnet/html/concept_dose_equivalent.html",
+        "model": "sonnet"
+      },
+      {
         "name": "fission_bomb",
         "label": "Fission Bomb",
         "file": "output/college.en/sonnet/html/concept_fission_bomb.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "ionizing_radiation",
+        "label": "Ionizing Radiation",
+        "file": "output/college.en/sonnet/html/concept_ionizing_radiation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "medical_imaging",
+        "label": "Medical Imaging",
+        "file": "output/college.en/sonnet/html/concept_medical_imaging.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "neutron_moderation",
+        "label": "Neutron Moderation",
+        "file": "output/college.en/sonnet/html/concept_neutron_moderation.html",
         "model": "sonnet"
       },
       {
@@ -8912,6 +9050,84 @@
         "name": "nuclear_force",
         "label": "Nuclear Force",
         "file": "output/college.en/sonnet/html/concept_nuclear_force.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_fusion",
+        "label": "Nuclear Fusion",
+        "file": "output/college.en/sonnet/html/concept_nuclear_fusion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nuclear_power_reactor",
+        "label": "Nuclear Power Reactor",
+        "file": "output/college.en/sonnet/html/concept_nuclear_power_reactor.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pet",
+        "label": "Pet",
+        "file": "output/college.en/sonnet/html/concept_pet.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quantum_tunneling",
+        "label": "Quantum Tunneling",
+        "file": "output/college.en/sonnet/html/concept_quantum_tunneling.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radiation_absorbed_dose",
+        "label": "Radiation Absorbed Dose",
+        "file": "output/college.en/sonnet/html/concept_radiation_absorbed_dose.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radioactive_decay",
+        "label": "Radioactive Decay",
+        "file": "output/college.en/sonnet/html/concept_radioactive_decay.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radiopharmaceutical",
+        "label": "Radiopharmaceutical",
+        "file": "output/college.en/sonnet/html/concept_radiopharmaceutical.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "radiotherapy",
+        "label": "Radiotherapy",
+        "file": "output/college.en/sonnet/html/concept_radiotherapy.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "relative_biological_effectiveness",
+        "label": "Relative Biological Effectiveness",
+        "file": "output/college.en/sonnet/html/concept_relative_biological_effectiveness.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "spect",
+        "label": "Spect",
+        "file": "output/college.en/sonnet/html/concept_spect.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "tagging",
+        "label": "Tagging",
+        "file": "output/college.en/sonnet/html/concept_tagging.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "therapeutic_ratio",
+        "label": "Therapeutic Ratio",
+        "file": "output/college.en/sonnet/html/concept_therapeutic_ratio.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "thermonuclear_bomb",
+        "label": "Thermonuclear Bomb",
+        "file": "output/college.en/sonnet/html/concept_thermonuclear_bomb.html",
         "model": "sonnet"
       }
     ]
@@ -8936,13 +9152,41 @@
         "target": "particle_accelerator",
         "file": "output/college.en/sonnet/html/book_particle_accelerator.html",
         "model": "sonnet"
+      },
+      {
+        "target": "cosmic_ray_experiments",
+        "file": "output/college.en/sonnet/html/book_cosmic_ray_experiments.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "proton_decay_detection",
+        "file": "output/college.en/sonnet/html/book_proton_decay_detection.html",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
       {
+        "name": "antimatter",
+        "label": "Antimatter",
+        "file": "output/college.en/sonnet/html/concept_antimatter.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "carrier_particle",
+        "label": "Carrier Particle",
+        "file": "output/college.en/sonnet/html/concept_carrier_particle.html",
+        "model": "sonnet"
+      },
+      {
         "name": "colliding_beams",
         "label": "Colliding Beams",
         "file": "output/college.en/sonnet/html/concept_colliding_beams.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "conservation_of_charge",
+        "label": "Conservation Of Charge",
+        "file": "output/college.en/sonnet/html/concept_conservation_of_charge.html",
         "model": "sonnet"
       },
       {
@@ -8958,6 +9202,12 @@
         "model": "sonnet"
       },
       {
+        "name": "cosmic_ray_experiments",
+        "label": "Cosmic Ray Experiments",
+        "file": "output/college.en/sonnet/html/concept_cosmic_ray_experiments.html",
+        "model": "sonnet"
+      },
+      {
         "name": "cyclotron",
         "label": "Cyclotron",
         "file": "output/college.en/sonnet/html/concept_cyclotron.html",
@@ -8970,15 +9220,87 @@
         "model": "sonnet"
       },
       {
+        "name": "fermion",
+        "label": "Fermion",
+        "file": "output/college.en/sonnet/html/concept_fermion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "feynman_diagram",
+        "label": "Feynman Diagram",
+        "file": "output/college.en/sonnet/html/concept_feynman_diagram.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "four_basic_forces",
+        "label": "Four Basic Forces",
+        "file": "output/college.en/sonnet/html/concept_four_basic_forces.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gluon",
+        "label": "Gluon",
+        "file": "output/college.en/sonnet/html/concept_gluon.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "heisenberg_uncertainty_principle",
+        "label": "Heisenberg Uncertainty Principle",
+        "file": "output/college.en/sonnet/html/concept_heisenberg_uncertainty_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "intrinsic_spin",
+        "label": "Intrinsic Spin",
+        "file": "output/college.en/sonnet/html/concept_intrinsic_spin.html",
+        "model": "sonnet"
+      },
+      {
         "name": "particle_accelerator",
         "label": "Particle Accelerator",
         "file": "output/college.en/sonnet/html/concept_particle_accelerator.html",
         "model": "sonnet"
       },
       {
+        "name": "pauli_exclusion_principle",
+        "label": "Pauli Exclusion Principle",
+        "file": "output/college.en/sonnet/html/concept_pauli_exclusion_principle.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pion",
+        "label": "Pion",
+        "file": "output/college.en/sonnet/html/concept_pion.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quantum_electrodynamics",
+        "label": "Quantum Electrodynamics",
+        "file": "output/college.en/sonnet/html/concept_quantum_electrodynamics.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quark",
+        "label": "Quark",
+        "file": "output/college.en/sonnet/html/concept_quark.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "quark_color",
+        "label": "Quark Color",
+        "file": "output/college.en/sonnet/html/concept_quark_color.html",
+        "model": "sonnet"
+      },
+      {
         "name": "synchrotron",
         "label": "Synchrotron",
         "file": "output/college.en/sonnet/html/concept_synchrotron.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "virtual_particle",
+        "label": "Virtual Particle",
+        "file": "output/college.en/sonnet/html/concept_virtual_particle.html",
         "model": "sonnet"
       }
     ]
@@ -9002,6 +9324,11 @@
       {
         "target": "quasar",
         "file": "output/college.en/sonnet/html/book_quasar.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "gravitational_wave_detection",
+        "file": "output/college.en/sonnet/html/book_gravitational_wave_detection.html",
         "model": "sonnet"
       }
     ],
@@ -9034,6 +9361,18 @@
         "name": "general_relativity",
         "label": "General Relativity",
         "file": "output/college.en/sonnet/html/concept_general_relativity.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gravitational_wave_detection",
+        "label": "Gravitational Wave Detection",
+        "file": "output/college.en/sonnet/html/concept_gravitational_wave_detection.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gravitational_waves",
+        "label": "Gravitational Waves",
+        "file": "output/college.en/sonnet/html/concept_gravitational_waves.html",
         "model": "sonnet"
       },
       {

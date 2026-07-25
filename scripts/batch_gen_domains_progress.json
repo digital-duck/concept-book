@@ -176,15 +176,15 @@
   "college_physics_ch31|scintillator|sonnet|college|en": "done",
   "college_physics_ch31|solid_state_detector|sonnet|college|en": "done",
   "college_physics_ch31|photomultiplier|sonnet|college|en": "done",
-  "college_physics_ch31|radioactive_dating|sonnet|college|en": "error: spl3 exited 1",
+  "college_physics_ch31|radioactive_dating|sonnet|college|en": "done",
   "college_physics_ch32|fission_bomb|sonnet|college|en": "done",
-  "college_physics_ch32|nuclear_power_reactor|sonnet|college|en": "error: spl3 exited 1",
-  "college_physics_ch32|cancer_radiotherapy|sonnet|college|en": "error: spl3 exited 1",
-  "college_physics_ch32|thermonuclear_bomb|sonnet|college|en": "error: spl3 exited 1",
-  "college_physics_ch32|medical_imaging|sonnet|college|en": "error: spl3 exited 1",
+  "college_physics_ch32|nuclear_power_reactor|sonnet|college|en": "done",
+  "college_physics_ch32|cancer_radiotherapy|sonnet|college|en": "done",
+  "college_physics_ch32|thermonuclear_bomb|sonnet|college|en": "done",
+  "college_physics_ch32|medical_imaging|sonnet|college|en": "done",
   "college_physics_ch33|particle_accelerator|sonnet|college|en": "done",
-  "college_physics_ch33|cosmic_ray_experiments|sonnet|college|en": "error: spl3 exited 1",
-  "college_physics_ch33|proton_decay_detection|sonnet|college|en": "error: spl3 exited 1",
+  "college_physics_ch33|cosmic_ray_experiments|sonnet|college|en": "done",
+  "college_physics_ch33|proton_decay_detection|sonnet|college|en": "done",
   "college_physics_ch34|quasar|sonnet|college|en": "done",
-  "college_physics_ch34|gravitational_wave_detection|sonnet|college|en": "error: spl3 exited 1"
+  "college_physics_ch34|gravitational_wave_detection|sonnet|college|en": "done"
 }

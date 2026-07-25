@@ -42,6 +42,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).parent))
 from batch_generate import _llm_to_model, _mark_generated, _resolve_lang  # noqa: E402
+from catalog_lock import read_catalog  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SPL_WORKFLOW = REPO_ROOT / "spl"
@@ -97,6 +98,22 @@ def _targets(domain_id: str) -> list[str]:
 def _output_exists(domain_id: str, target: str, level: str, language: str, model: str) -> bool:
     path = DOMAINS_DIR / domain_id / "output" / f"{level}.{language}" / model / "html" / f"book_{target}.html"
     return path.exists() and path.stat().st_size > 500
+
+
+def _catalog_has_target(domain_id: str, target: str, model: str) -> bool:
+    """True if catalog.json's entry for domain_id already lists this
+    (target, model) book. A skip decision (progress file says done, or the
+    file is on disk) means content exists -- but content existing and the
+    catalog knowing about it are two different things, and a lost write
+    (concurrent writers, no locking before catalog_lock.py existed) can
+    leave the first true and the second false with no other symptom than a
+    domain page missing a link. college_physics_ch05/joint_lubrication and
+    college_physics_ch16/pendulum_clock both hit exactly this."""
+    catalog = read_catalog(CATALOG_PATH)
+    entry = next((d for d in catalog if d["id"] == domain_id), None)
+    if entry is None:
+        return False
+    return any(b["target"] == target and b.get("model") == model for b in entry.get("books", []))
 
 
 def _load_progress(path: Path) -> dict:
@@ -238,11 +255,17 @@ def main(domains_file: Path, model: str, level: str, language: str, skip_cache: 
         label = f"{domain_id}/{target}"
 
         if not force and progress.get(key) == "done":
+            if not _catalog_has_target(domain_id, target, model_dir):
+                log.warning(f"       catalog.json missing {label} despite progress='done' — self-healing")
+                _mark_generated(domain_id, target, level, language, model_dir)
             log.info(f"SKIP   {label}  (done in progress file)")
             skipped += 1
             continue
 
         if not force and _output_exists(domain_id, target, level, language, model_dir):
+            if not _catalog_has_target(domain_id, target, model_dir):
+                log.warning(f"       catalog.json missing {label} despite output existing — self-healing")
+                _mark_generated(domain_id, target, level, language, model_dir)
             log.info(f"SKIP   {label}  (output exists)")
             progress[key] = "done"
             _save_progress(progress_file, progress)
