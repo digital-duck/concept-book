@@ -7,6 +7,9 @@ same path as the FastAPI backend. Skipping applications beyond the first
 few used to be the default; a domain like college_physics_ch24 has 12, so
 capping silently left the static site incomplete for the rest.
 
+Targets already present in catalog.json are skipped by default (pass
+--no-skip-existing to force regeneration, e.g. after a prompt/style change).
+
 Prerequisites (spl123 conda env must be active):
     conda activate spl123
     pip install -r requirements-api.txt   # click, pyyaml, pydantic-settings
@@ -21,8 +24,8 @@ Usage examples:
     # Only specific domains
     python scripts/batch_generate.py --domain mechanics --domain calculus
 
-    # Skip already-generated targets
-    python scripts/batch_generate.py --skip-existing
+    # Force-regenerate targets already in catalog.json (default is to skip them)
+    python scripts/batch_generate.py --no-skip-existing
 
     # Override level and LLM
     python scripts/batch_generate.py --level college --llm claude_cli:claude-opus-4-8
@@ -32,6 +35,7 @@ Usage examples:
     python scripts/batch_generate.py --language French
     python scripts/batch_generate.py --language zh
 """
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -46,6 +50,17 @@ REPO_ROOT = Path(__file__).parent.parent
 SPL_WORKFLOW = REPO_ROOT / "spl"
 DOMAINS_DIR = REPO_ROOT / "public" / "domains"
 CATALOG_PATH = DOMAINS_DIR / "catalog.json"
+
+# api/config.py's Settings is the single source of truth for these limits
+# (CB_SPL_WHILE_MAX_ITER / CB_SPL_MAX_LLM_CALLS env vars, default 50 each) —
+# the FastAPI backend (api/services/executor.py) already passes them to spl3
+# this way. This script used to invoke spl3 with a bare environment, silently
+# falling back to SPL.py's own hardcoded default of 15 for SPL_WHILE_MAX_ITER
+# — much tighter than the backend's 50, and the actual cause of "WHILE loop
+# exceeded 15 iterations" failures on longer sections that the same domain
+# generates fine through the web UI.
+sys.path.insert(0, str(REPO_ROOT))
+from api.config import settings as _api_settings  # noqa: E402
 
 # Maps friendly language names and aliases → ISO 639-1 codes (case-insensitive lookup).
 _LANG_MAP: dict[str, str] = {
@@ -107,9 +122,9 @@ def _get_application_ids(domain_id: str) -> list[str]:
     return list(apps.keys())
 
 
-def _already_generated(catalog_entry: dict, target: str, model: str) -> bool:
+def _already_generated(catalog_entry: dict, target: str, model: str, language: str) -> bool:
     return any(
-        b["target"] == target and b.get("model") == model
+        b["target"] == target and b.get("model") == model and b.get("language", "en") == language
         for b in catalog_entry.get("books", [])
     )
 
@@ -134,11 +149,20 @@ def _mark_generated(domain_id: str, target: str, level: str, language: str, mode
                 continue
             books: list[dict] = d.setdefault("books", [])
             book_file = f"output/{variant}/{model}/html/book_{target}.html"
-            if not any(b["target"] == target and b.get("model") == model for b in books):
-                books.append({"target": target, "file": book_file, "model": model})
+            if not any(
+                b["target"] == target and b.get("model") == model
+                and b.get("language", "en") == language
+                for b in books
+            ):
+                books.append({"target": target, "file": book_file, "model": model, "language": language})
             d["has_book"] = True
-            # Preserve legacy entries (no model field) and entries from other models
-            other = [c for c in d.get("generated_concepts", []) if c.get("model") != model]
+            # Preserve legacy entries (no model field) and entries from other models/languages
+            other = [
+                c for c in d.get("generated_concepts", [])
+                if c.get("model") != model or c.get("language", "en") != language
+            ]
+            for c in new_concepts:
+                c["language"] = language
             d["generated_concepts"] = sorted(other + new_concepts, key=lambda c: c["label"])
             break
 
@@ -159,11 +183,21 @@ def _run_spl3(
     output_dir = DOMAINS_DIR / domain_id / "output" / f"{level}.{language}" / model / "html"
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Pass the domain's own synced graph.yaml as an absolute path rather than
+    # a bare "{domain_id}_graph.yaml" filename. graph_lib.load_domain()
+    # resolves bare filenames relative to SPL.py's own cookbook/74_concept_book
+    # directory, which requires every domain's graph to also be hand-copied
+    # there; an absolute path is honored as-is and works for any domain synced
+    # into public/domains/ regardless of whether a same-named copy exists in
+    # SPL.py's cookbook dir (e.g. domains synced from concept-book-press's
+    # ingestion pipeline, which never puts anything there).
+    domain_yaml_path = DOMAINS_DIR / domain_id / "input" / "graph.yaml"
+
     cmd = [
         "spl3", "run", str(SPL_WORKFLOW / "build_concept_book.spl"),
         "--tools", str(SPL_WORKFLOW / "tools.py"),
         "--llm", llm,
-        "--param", f"domain_yaml={domain_id}_graph.yaml",
+        "--param", f"domain_yaml={domain_yaml_path}",
         "--param", f"target={target}",
         "--param", f"lvl={level}",
         "--param", f"language={language}",
@@ -172,7 +206,13 @@ def _run_spl3(
         "--param", f"llm={llm}",
     ]
 
-    result = subprocess.run(cmd, cwd=str(spl_dir))
+    spl_env = {
+        **os.environ,
+        "SPL_WHILE_MAX_ITER": str(_api_settings.spl_while_max_iter),
+        "SPL_MAX_LLM_CALLS": str(_api_settings.spl_max_llm_calls),
+    }
+
+    result = subprocess.run(cmd, cwd=str(spl_dir), env=spl_env)
     return result.returncode == 0
 
 
@@ -201,8 +241,9 @@ def _run_spl3(
 )
 @click.option("--skip-cache", is_flag=True, help="Pass skip_cache=yes to spl3.")
 @click.option(
-    "--skip-existing", is_flag=True,
-    help="Skip targets already present in catalog.json books list for this model.",
+    "--skip-existing/--no-skip-existing", default=True,
+    help="Skip targets already present in catalog.json books list for this model "
+         "(default: on — pass --no-skip-existing to force regeneration).",
 )
 @click.option("--dry-run", is_flag=True, help="Print planned jobs without running them.")
 @click.option(
@@ -247,7 +288,7 @@ def main(
             continue
         selected = app_ids[:n_targets] if n_targets else app_ids
         for target in selected:
-            if skip_existing and _already_generated(entry, target, model):
+            if skip_existing and _already_generated(entry, target, model, language):
                 click.echo(f"[skip] {did}/{target} ({model}): already in catalog")
                 continue
             jobs.append((did, target, eff_level))
