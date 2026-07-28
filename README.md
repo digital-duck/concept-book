@@ -12,16 +12,16 @@ Pick a domain, click any concept node, see the exact learning path, and generate
 
 ## Selected Concept-Books
 
-| Title |  Category | Repo | Citation |
-|---|---|---|---|
-| [ConceptBook demo: multiple domains](https://digital-duck.github.io/concept-book) | Demo | [digital-duck/concept-book](https://github.com/digital-duck/concept-book) | https://github.com/digital-duck/dd-work/blob/main/docs/spl4ed-paper-arxiv.pdf |
-|  [Linear Algenra by Robert A. Beezer](https://digital-duck.github.io/cb-linalg/) | Math | [digital-duck/cb-linalg](https://github.com/digital-duck/cb-linalg) | https://open.umn.edu/opentextbooks/textbooks/5 |
-|  [Introduction to Statistics by OpenStax.org](https://digital-duck.github.io/cb-statistics/) |Math |  [digital-duck/cb-statistics](https://github.com/digital-duck/cb-statistics) | https://openstax.org/details/books/introductory-statistics-2e |
-|  [Calculus Vol.1 by OpenStax.org](https://digital-duck.github.io/cb-calculus/) | Math |  [digital-duck/cb-calculus](https://github.com/digital-duck/cb-calculus) | https://openstax.org/details/books/calculus-volume-1 |
-| [College Physics by OpenStax.org](https://digital-duck.github.io/cb-college-physics/) | Physics | [digital-duck/cb-college-physics](https://github.com/digital-duck/cb-college-physics) | https://openstax.org/details/books/college-physics-2e |
-|  [Open Data Structures by Pat Morin](https://digital-duck.github.io/cb-data-structure/) | CS |  [digital-duck/cb-data-structure](https://github.com/digital-duck/cb-data-structure) | https://opendatastructures.org/ |
-|  [Algorithms by Jeff Erickson](https://digital-duck.github.io/cb-algorithms/) | CS | [digital-duck/cb-algorithms](https://github.com/digital-duck/cb-algorithms) | https://jeffe.cs.illinois.edu/teaching/algorithms/ |
-| [Chinese Characters by Wen Gong](https://digital-duck.github.io/cb-zinets/) | Language | [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) | https://arxiv.org/abs/2502.19428 |
+| Title |  Category | Level | Repo | Citation |
+|---|---|---|---|---|
+| [ConceptBook demo: multiple domains](https://digital-duck.github.io/concept-book) | Demo | Core | [digital-duck/concept-book](https://github.com/digital-duck/concept-book) | https://github.com/digital-duck/dd-work/blob/main/docs/spl4ed-paper-arxiv.pdf |
+|  [Linear Algenra by Robert A. Beezer](https://digital-duck.github.io/cb-linalg/) | Math | College| [digital-duck/cb-linalg](https://github.com/digital-duck/cb-linalg) | https://open.umn.edu/opentextbooks/textbooks/5 |
+|  [Introduction to Statistics by OpenStax.org](https://digital-duck.github.io/cb-statistics/) |Math | College| [digital-duck/cb-statistics](https://github.com/digital-duck/cb-statistics) | https://openstax.org/details/books/introductory-statistics-2e |
+|  [Calculus Vol.1 by OpenStax.org](https://digital-duck.github.io/cb-calculus/) | Math | College| [digital-duck/cb-calculus](https://github.com/digital-duck/cb-calculus) | https://openstax.org/details/books/calculus-volume-1 |
+| [College Physics by OpenStax.org](https://digital-duck.github.io/cb-college-physics/) | Physics |College| [digital-duck/cb-college-physics](https://github.com/digital-duck/cb-college-physics) | https://openstax.org/details/books/college-physics-2e |
+|  [Open Data Structures by Pat Morin](https://digital-duck.github.io/cb-data-structure/) | CS | College| [digital-duck/cb-data-structure](https://github.com/digital-duck/cb-data-structure) | https://opendatastructures.org/ |
+|  [Algorithms by Jeff Erickson](https://digital-duck.github.io/cb-algorithms/) | CS |College| [digital-duck/cb-algorithms](https://github.com/digital-duck/cb-algorithms) | https://jeffe.cs.illinois.edu/teaching/algorithms/ |
+| [Chinese Characters by Wen Gong](https://digital-duck.github.io/cb-zinets/) | Language | N/A| [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) | https://arxiv.org/abs/2502.19428 |
 | Structured Prompt Language (SPL) | CS | [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) |  https://arxiv.org/abs/2607.07727 |
 
 
