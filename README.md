@@ -194,3 +194,39 @@ Set in a `.env` file at the repo root or export before starting the API.
 
 ---
 
+## Top Open Source Learning Resources
+
+These are candidate source materials for ConceptBook's Path B (ingest an existing text
+or course into a concept graph, then generate an AI-powered companion guide). The goal
+isn't to republish these resources as-is, but to mine their structure and content for
+concept graphs, then use those graphs to drive LLM-generated, prerequisite-aware
+companion books — explanations sequenced by what a learner actually needs to know
+first, and eventually paired with interactive material (like the PhET simulations
+below) rather than text alone.
+
+### Textbooks
+
+| Resource | Link | Description |
+|---|---|---|
+| OpenStax | https://openstax.org | Peer-reviewed college and high school textbooks managed by Rice University, focusing on high-enrollment general education courses. [^1] |
+| Open Textbook Library | https://open.umn.edu/opentextbooks | A curated collection of academic textbooks supported by the Open Education Network that include faculty reviews. |
+| LibreTexts | https://libretexts.org | A massive, customizable multi-campus OER platform with comprehensive STEM and humanities libraries. [^2] |
+| OER Commons | https://www.oercommons.org | A massive public digital library where you can search for full open textbooks, courses, and lesson plans by grade level. [^2] |
+| MIT OpenCourseWare | https://ocw.mit.edu | Full course materials (not just textbooks) from MIT, including lecture notes, problem sets, and some open textbooks. [^1] |
+| CK-12 Foundation | https://www.ck12.org | Free, standards-aligned K-12 STEM textbooks ("FlexBooks") that are natively modular/customizable. [^1] |
+| 学堂在线 (XuetangX) | https://www.xuetangx.com | China's largest MOOC platform (Tsinghua-led), hosts full open courses from top Chinese universities. [^3] |
+| 中国大学MOOC (icourse163) | https://www.icourse163.org | Joint NetEase/Ministry of Education MOOC platform aggregating open courses from Chinese universities, including many with structured syllabi. [^3] |
+| 国家智慧教育公共服务平台 (National Smart Education Platform) | https://www.smartedu.cn | Ministry of Education-run platform with official K-12 textbook content aligned to the national curriculum — the closest Chinese equivalent to an "open textbook" repository. [^3] |
+| CNKI 优秀教材 / 高校教材建设 | https://www.cnki.net | Not fully open, but a major aggregator of Chinese academic and textbook material; useful for sourcing terminology and structure even where full-text access is restricted. [^3] |
+
+[^1]: Best near-term source for Concept-Book: content is already organized by topic/module, which reduces the work needed to derive a `graph.yaml` from raw text.
+[^2]: Broader but more heterogeneous in structure than OpenStax/CK-12/MIT OCW, so extracting a clean concept graph may need more preprocessing.
+[^3]: Weaker on "open textbook" licensing (mostly video/course-based, not full open-text). For a Chinese-language companion guide, sourcing textbook *text* from 国家智慧教育公共服务平台 or CNKI (where licensing permits) and pairing it with lecture content from XuetangX/icourse163 is likely the pragmatic path, rather than expecting a single all-in-one OER source like OpenStax has for English.
+
+### Interactive Simulations
+
+| Resource | Link | Description |
+|---|---|---|
+| PhET Interactive Simulations | https://phet.colorado.edu/en/simulations/filter?type=html | Free, research-based HTML5 science/math simulations from University of Colorado Boulder — open license and embeddable. [^4] |
+
+[^4]: Mappable to individual concept nodes (e.g. a "circuit" node links to the PhET circuit-construction sim) — a natural extension beyond text: pairing a concept's generated explanation with a runnable lab animation rather than just prose.
