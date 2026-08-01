@@ -22,7 +22,7 @@ Pick a domain, click any concept node, see the exact learning path, and generate
 | [College Physics by OpenStax.org](https://digital-duck.github.io/cb-college-physics/) | Physics |College| [digital-duck/cb-college-physics](https://github.com/digital-duck/cb-college-physics) | https://openstax.org/details/books/college-physics-2e | [🚦](https://github.com/digital-duck/cb-college-physics/graphs/traffic) |
 |  [Open Data Structures by Pat Morin](https://digital-duck.github.io/cb-data-structure/) | CS | College| [digital-duck/cb-data-structure](https://github.com/digital-duck/cb-data-structure) | https://opendatastructures.org/ | [🚦](https://github.com/digital-duck/cb-data-structure/graphs/traffic) |
 |  [Algorithms by Jeff Erickson](https://digital-duck.github.io/cb-algorithms/) | CS |College| [digital-duck/cb-algorithms](https://github.com/digital-duck/cb-algorithms) | https://jeffe.cs.illinois.edu/teaching/algorithms/ | [🚦](https://github.com/digital-duck/cb-algorithms/graphs/traffic) |
-| [Chinese Characters by Wen Gong](https://digital-duck.github.io/cb-zinets/) | Language | N/A| [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) | https://arxiv.org/abs/2502.19428 | [🚦](https://github.com/digital-duck/cb-zinets/graphs/traffic) |
+| [Chinese Characters by Wen Gong](https://digital-duck.github.io/cb-zinets/) | Language | Intro | [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) | https://arxiv.org/abs/2502.19428 | [🚦](https://github.com/digital-duck/cb-zinets/graphs/traffic) |
 | Structured Prompt Language (SPL) | CS | Research | [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) |  https://arxiv.org/abs/2607.07727 | [🚦](https://github.com/digital-duck/SPL.py/graphs/traffic) |
 
 
