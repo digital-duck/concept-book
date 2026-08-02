@@ -1,0 +1,167 @@
+domain: college_physics_2e_ch24
+sources:
+  electric_field:
+    label: Electric Field
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  magnetic_field:
+    label: Magnetic Field
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  electric_charge:
+    label: Electric Charge
+    sections: []
+  permittivity_of_free_space:
+    label: Permittivity of Free Space
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  permeability_of_free_space:
+    label: Permeability of Free Space
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  faradays_law:
+    label: Faraday's Law of Induction
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  amperes_law:
+    label: Ampere's Law
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  gauss_law_electricity:
+    label: Gauss's Law for Electricity
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  gauss_law_magnetism:
+    label: Gauss's Law for Magnetism
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  wave_frequency_wavelength:
+    label: Wave Frequency and Wavelength
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  maxwells_equations:
+    label: Maxwell's Equations
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  changing_electric_field_creates_magnetic_field:
+    label: Changing Electric Fields Create Magnetic Fields
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  speed_of_light:
+    label: Speed of Light
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+  electromagnetic_wave:
+    label: Electromagnetic Wave
+    sections:
+    - id: ch24_s24_1
+      title: '24.1 Maxwell’s Equations: Electromagnetic Waves Predicted and Observed'
+    - id: ch24_s24_2
+      title: 24.2 Production of Electromagnetic Waves
+  em_wave_production:
+    label: Production of Electromagnetic Waves
+    sections:
+    - id: ch24_s24_2
+      title: 24.2 Production of Electromagnetic Waves
+  transverse_em_wave:
+    label: Transverse Nature of EM Waves
+    sections:
+    - id: ch24_s24_2
+      title: 24.2 Production of Electromagnetic Waves
+  e_b_field_ratio:
+    label: E-to-B Field Ratio
+    sections:
+    - id: ch24_s24_2
+      title: 24.2 Production of Electromagnetic Waves
+  wave_equation_em:
+    label: EM Wave Equation (c = fλ)
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  electromagnetic_spectrum:
+    label: Electromagnetic Spectrum
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  wave_energy_amplitude:
+    label: Wave Energy Proportional to Amplitude Squared
+    sections:
+    - id: ch24_s24_4
+      title: 24.4 Energy in Electromagnetic Waves
+  em_wave_intensity:
+    label: Electromagnetic Wave Intensity
+    sections:
+    - id: ch24_s24_4
+      title: 24.4 Energy in Electromagnetic Waves
+  radio_waves:
+    label: Radio Waves
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  amplitude_modulation:
+    label: Amplitude Modulation (AM)
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  frequency_modulation:
+    label: Frequency Modulation (FM)
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  microwaves:
+    label: Microwaves
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  radar:
+    label: Radar
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  dielectric_heating:
+    label: Dielectric Heating (Microwave Oven)
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  infrared_radiation:
+    label: Infrared Radiation
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  greenhouse_effect:
+    label: Greenhouse Effect
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  visible_light:
+    label: Visible Light
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  ultraviolet_radiation:
+    label: Ultraviolet Radiation
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  x_rays:
+    label: X-Rays
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum
+  gamma_rays:
+    label: Gamma Rays
+    sections:
+    - id: ch24_s24_3
+      title: 24.3 The Electromagnetic Spectrum

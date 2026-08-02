@@ -1,0 +1,184 @@
+domain: college_physics_2e_ch27
+sources:
+  electromagnetic_wave:
+    label: Electromagnetic Wave
+    sections:
+    - id: ch27_s27_1
+      title: '27.1 The Wave Aspect of Light: Interference'
+  wavelength:
+    label: Wavelength
+    sections:
+    - id: ch27_s27_1
+      title: '27.1 The Wave Aspect of Light: Interference'
+  frequency:
+    label: Frequency
+    sections:
+    - id: ch27_s27_1
+      title: '27.1 The Wave Aspect of Light: Interference'
+  speed_of_light:
+    label: Speed of Light
+    sections:
+    - id: ch27_s27_1
+      title: '27.1 The Wave Aspect of Light: Interference'
+  index_of_refraction:
+    label: Index of Refraction
+    sections:
+    - id: ch27_s27_1
+      title: '27.1 The Wave Aspect of Light: Interference'
+  transverse_wave:
+    label: Transverse Wave
+    sections:
+    - id: ch27_s27_2
+      title: '27.2 Huygens''s Principle: Diffraction'
+  wavefront:
+    label: Wavefront
+    sections:
+    - id: ch27_s27_2
+      title: '27.2 Huygens''s Principle: Diffraction'
+  interference:
+    label: Interference
+    sections:
+    - id: ch27_s27_1
+      title: '27.1 The Wave Aspect of Light: Interference'
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  constructive_interference:
+    label: Constructive Interference
+    sections:
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  destructive_interference:
+    label: Destructive Interference
+    sections:
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  wavelength_in_medium:
+    label: Wavelength in a Medium
+    sections:
+    - id: ch27_s27_1
+      title: '27.1 The Wave Aspect of Light: Interference'
+  coherence:
+    label: Coherence
+    sections:
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  huygens_principle:
+    label: Huygens's Principle
+    sections:
+    - id: ch27_s27_2
+      title: '27.2 Huygens''s Principle: Diffraction'
+  diffraction:
+    label: Diffraction
+    sections:
+    - id: ch27_s27_2
+      title: '27.2 Huygens''s Principle: Diffraction'
+  path_length_difference:
+    label: Path Length Difference
+    sections:
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  double_slit_interference:
+    label: Young's Double Slit Interference
+    sections:
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  interference_order:
+    label: Interference Order
+    sections:
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  interference_fringes:
+    label: Interference Fringes
+    sections:
+    - id: ch27_s27_3
+      title: 27.3 Young’s Double Slit Experiment
+  diffraction_grating:
+    label: Diffraction Grating
+    sections:
+    - id: ch27_s27_4
+      title: 27.4 Multiple Slit Diffraction
+  single_slit_diffraction:
+    label: Single Slit Diffraction
+    sections:
+    - id: ch27_s27_5
+      title: 27.5 Single Slit Diffraction
+  rayleigh_criterion:
+    label: Rayleigh Criterion
+    sections:
+    - id: ch27_s27_6
+      title: '27.6 Limits of Resolution: The Rayleigh Criterion'
+  resolving_power:
+    label: Resolving Power
+    sections:
+    - id: ch27_s27_6
+      title: '27.6 Limits of Resolution: The Rayleigh Criterion'
+  numerical_aperture:
+    label: Numerical Aperture
+    sections:
+    - id: ch27_s27_6
+      title: '27.6 Limits of Resolution: The Rayleigh Criterion'
+  thin_film_interference:
+    label: Thin Film Interference
+    sections:
+    - id: ch27_s27_7
+      title: 27.7 Thin Film Interference
+  phase_change_on_reflection:
+    label: Phase Change on Reflection
+    sections:
+    - id: ch27_s27_7
+      title: 27.7 Thin Film Interference
+  polarization:
+    label: Polarization
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  malus_law:
+    label: Malus's Law
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  brewsters_law:
+    label: Brewster's Law
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  polarization_by_scattering:
+    label: Polarization by Scattering
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  optical_activity:
+    label: Optical Activity
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  birefringence:
+    label: Birefringence
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  non_reflective_coatings:
+    label: Non-Reflective Coatings
+    sections:
+    - id: ch27_s27_7
+      title: 27.7 Thin Film Interference
+  spectroscopic_dispersion:
+    label: Spectroscopic Dispersion
+    sections:
+    - id: ch27_s27_4
+      title: 27.4 Multiple Slit Diffraction
+  polarizing_filter:
+    label: Polarizing Filter
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  liquid_crystal_display:
+    label: Liquid Crystal Display
+    sections:
+    - id: ch27_s27_8
+      title: 27.8 Polarization
+  interference_microscopy:
+    label: Interference Microscopy
+    sections:
+    - id: ch27_s27_9
+      title: 27.9 *Extended Topic* Microscopy Enhanced by the Wave Characteristics of Light

@@ -1,0 +1,248 @@
+domain: college_physics_2e_ch25
+primitives:
+  light_ray:
+    defines: Light is modeled as traveling in straight lines called rays that may change direction only
+      when encountering matter or boundaries between media.
+    tier: 0
+  speed_of_light_vacuum:
+    defines: The fundamental constant c ≈ 3.00×10⁸ m/s representing the maximum speed at which light travels,
+      occurring only in a vacuum.
+    tier: 0
+  wavelength:
+    defines: The spatial period of a light wave, which determines its color and influences how it interacts
+      with matter; treated as prior knowledge in this chapter.
+    tier: 0
+concepts:
+  geometric_optics:
+    defines: The branch of optics in which light is described by rays and geometry because it interacts
+      with objects much larger than its wavelength.
+    composed_of:
+    - light_ray
+    tier: 1
+  index_of_refraction:
+    defines: A dimensionless quantity n = c/v giving the ratio of the speed of light in vacuum to its
+      speed in a given medium; always greater than or equal to 1.
+    composed_of:
+    - speed_of_light_vacuum
+    tier: 1
+  law_of_reflection:
+    defines: The angle of reflection equals the angle of incidence, both measured from the perpendicular
+      to the surface at the point of contact.
+    composed_of:
+    - light_ray
+    - geometric_optics
+    tier: 2
+  refraction:
+    defines: The change in direction of a light ray as it passes from one medium to another, caused by
+      the change in the speed of light between media.
+    composed_of:
+    - light_ray
+    - index_of_refraction
+    tier: 2
+  focal_point:
+    defines: For a converging lens or mirror, the point at which parallel rays converge after passing
+      through or reflecting; for a diverging lens or mirror, the point from which diverging rays appear
+      to originate.
+    composed_of:
+    - light_ray
+    - geometric_optics
+    tier: 2
+  object_distance:
+    defines: The distance d_o from an object to the center of a lens or mirror.
+    composed_of:
+    - geometric_optics
+    tier: 2
+  image_distance:
+    defines: The distance d_i from the center of a lens or mirror to the image it forms; positive for
+      a real image and negative for a virtual image.
+    composed_of:
+    - geometric_optics
+    tier: 2
+  specular_reflection:
+    defines: Reflection from a smooth surface (relative to the wavelength of light) in which parallel
+      incoming rays reflect in a single well-defined direction.
+    composed_of:
+    - law_of_reflection
+    - wavelength
+    tier: 3
+  diffuse_reflection:
+    defines: Reflection from a rough surface that scatters incoming rays in many directions, allowing
+      objects to be seen from any angle.
+    composed_of:
+    - law_of_reflection
+    tier: 3
+  snells_law:
+    defines: The quantitative relationship n₁ sin θ₁ = n₂ sin θ₂ that governs the angle of refraction
+      when light crosses the boundary between two media.
+    composed_of:
+    - refraction
+    - index_of_refraction
+    tier: 3
+  dispersion:
+    defines: The spreading of white light into its full spectrum of wavelengths that occurs because the
+      index of refraction of a medium varies with wavelength.
+    composed_of:
+    - refraction
+    - index_of_refraction
+    - wavelength
+    tier: 3
+  focal_length:
+    defines: The distance f from the center of a lens or mirror to its focal point, positive for converging
+      optics and negative for diverging optics.
+    composed_of:
+    - focal_point
+    tier: 3
+  ray_tracing:
+    defines: A graphical technique for determining image location and size by following the paths of selected
+      light rays through an optical system using a defined set of rules.
+    composed_of:
+    - light_ray
+    - focal_point
+    tier: 3
+  magnification:
+    defines: The ratio m = h_i/h_o = −d_i/d_o of image height to object height, with sign indicating orientation
+      (negative = inverted).
+    composed_of:
+    - image_distance
+    - object_distance
+    tier: 3
+  critical_angle:
+    defines: The incident angle θ_c at which the refracted ray travels exactly along the boundary (θ_refracted
+      = 90°), given by sin θ_c = n₂/n₁ when n₂ < n₁.
+    composed_of:
+    - snells_law
+    - index_of_refraction
+    tier: 4
+  lens_power:
+    defines: The inverse of the focal length in meters, P = 1/f, measured in diopters (D), expressing
+      the converging or diverging strength of a lens or mirror.
+    composed_of:
+    - focal_length
+    tier: 4
+  converging_lens:
+    defines: A lens shaped so that parallel rays entering along its axis are refracted to cross at a single
+      focal point on the opposite side, with positive focal length.
+    composed_of:
+    - refraction
+    - focal_length
+    tier: 4
+  diverging_lens:
+    defines: A lens shaped so that parallel rays entering along its axis are refracted to spread apart,
+      appearing to originate from a focal point on the same side as the incoming light, with negative
+      focal length.
+    composed_of:
+    - refraction
+    - focal_length
+    tier: 4
+  thin_lens_equations:
+    defines: The pair of equations 1/d_o + 1/d_i = 1/f and m = −d_i/d_o that quantitatively relate object
+      distance, image distance, focal length, and magnification for a thin lens or mirror.
+    composed_of:
+    - object_distance
+    - image_distance
+    - focal_length
+    - magnification
+    tier: 4
+  real_image:
+    defines: An image formed where light rays actually converge, which can be projected onto a screen
+      and is always inverted relative to the object.
+    composed_of:
+    - ray_tracing
+    tier: 4
+  virtual_image:
+    defines: An image from which light rays only appear to diverge — rays do not actually pass through
+      the image location — so it cannot be projected on a screen and is always upright.
+    composed_of:
+    - ray_tracing
+    tier: 4
+  radius_of_curvature:
+    defines: The radius R of the sphere of which a curved mirror is a section; related to focal length
+      by f = R/2.
+    composed_of:
+    - focal_length
+    tier: 4
+  total_internal_reflection:
+    defines: The complete reflection of a light ray back into the original medium that occurs when the
+      incident angle exceeds the critical angle and the second medium has a lower index of refraction.
+    composed_of:
+    - critical_angle
+    tier: 5
+  spherical_mirror:
+    defines: A mirror whose reflecting surface is a section of a sphere; concave (converging, positive
+      f) or convex (diverging, negative f), with focal length equal to half the radius of curvature.
+    composed_of:
+    - law_of_reflection
+    - radius_of_curvature
+    tier: 5
+  flat_mirror_image:
+    defines: A flat mirror produces a virtual, upright image located the same distance behind the mirror
+      as the object is in front, with unit magnification.
+    composed_of:
+    - law_of_reflection
+    - virtual_image
+    tier: 5
+applications:
+  rainbow:
+    defines: The arc of spectral colors produced when sunlight is refracted into a water droplet, reflected
+      off its back surface, and refracted again on exit, with dispersion separating colors by wavelength.
+    needs:
+    - dispersion
+    - law_of_reflection
+    tier: 4
+  magnifying_glass:
+    defines: A converging lens used with the object placed inside its focal length (case 2) to produce
+      an upright, enlarged virtual image of the object.
+    needs:
+    - converging_lens
+    - thin_lens_equations
+    - virtual_image
+    tier: 5
+  camera_lens:
+    defines: A converging lens system that forms a real, inverted image of a distant object on film or
+      a sensor when the object distance exceeds the focal length (case 1).
+    needs:
+    - converging_lens
+    - thin_lens_equations
+    - real_image
+    tier: 5
+  corrective_eyeglasses:
+    defines: Converging or diverging lenses prescribed in diopters to shift an out-of-focus image onto
+      the retina, correcting farsightedness or nearsightedness respectively.
+    needs:
+    - converging_lens
+    - diverging_lens
+    - lens_power
+    tier: 5
+  fiber_optics:
+    defines: The technology of transmitting light signals along thin strands of glass or plastic by exploiting
+      total internal reflection at the core-cladding boundary.
+    needs:
+    - total_internal_reflection
+    tier: 6
+  corner_reflector:
+    defines: An optical device consisting of two mutually perpendicular reflecting surfaces that returns
+      incident light parallel to its original direction regardless of entry angle, using total internal
+      reflection.
+    needs:
+    - total_internal_reflection
+    tier: 6
+  diamond_sparkle:
+    defines: The brilliance of diamonds arising from their very small critical angle (~24°) and high index
+      of refraction, which cause most internal light to undergo total internal reflection and exit only
+      through specific facets.
+    needs:
+    - total_internal_reflection
+    - critical_angle
+    tier: 6
+  concave_mirror_heater:
+    defines: A converging spherical mirror used in devices such as room heaters and solar collectors to
+      focus radiation from a source onto a target, with focal length f = R/2.
+    needs:
+    - spherical_mirror
+    tier: 6
+  endoscope:
+    defines: A medical instrument that uses bundled optical fibers and total internal reflection to transmit
+      illuminating light into and reflected images out of the body through small openings.
+    needs:
+    - fiber_optics
+    tier: 7

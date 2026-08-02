@@ -1,0 +1,279 @@
+# "Doing Science with Python" — concept-book concept graph
+# (Book III of the trilogy with "Doing Math in SageMath Lab" and
+#  "Proving Math the Lean Way" — Book I finds it, Book II proves it, Book III measures it)
+# Publisher: Digital Duck (github.com/digital-duck)
+#
+# E-book mission: a free, verified tour of the scientific Python stack —
+# NumPy, SymPy, SciPy, pandas, scikit-learn, matplotlib — ending at the
+# reproducible scientific pipeline. Compiled by recipe 74
+# (build_concept_book.spl --lang python/domain_textbook); each concept's
+# verifier IS the library it teaches (engine-of-record per node).
+#
+# Two radicals:
+#   first  — NUMBERS AT SCALE: arrays and floating point (fast, approximate, honest about it)
+#   second — MODELS & UNCERTAINTY: symbols and randomness (formulas before numbers; noise as an object)
+# Target: reproducible_science — data → model → fit → validate → report, seeded and re-runnable.
+domain: python_science
+primitives:
+  array:
+    symbol: ndarray
+    defines: the floor of scientific computing — numbers in bulk; one NumPy operation moves a million
+      numbers at C speed, and almost everything else in the stack is built on it
+    tier: 0
+  floating_point:
+    symbol: float64
+    defines: the working currency of measurement — fast and approximate, with rules (machine epsilon,
+      overflow, cancellation); science computes in floats and must respect their limits
+    tier: 0
+  symbol:
+    symbol: x
+    defines: second radical — the analytical floor; a SymPy Symbol stands for every value at once, so
+      formulas exist before numbers do
+    tier: 0
+  randomness:
+    symbol: rng
+    defines: second radical — uncertainty as a first-class object; distributions, noise, and sampling
+      are the floor of measurement and inference
+    tier: 0
+first_radical_primitives:
+- array
+- floating_point
+concepts:
+  vectorization:
+    composed_of:
+    - array
+    defines: think in whole arrays — broadcasting and ufuncs replace loops; the habit that makes Python
+      fast enough for science
+    verifier: numpy
+    lab: numpy broadcasting
+    play: compute a million sin values with one expression; time it against a Python for-loop and explain
+      the gap
+    tier: 1
+  floating_point_awareness:
+    composed_of:
+    - floating_point
+    defines: the honesty chapter — 0.1 + 0.2 != 0.3, catastrophic cancellation, np.isclose over ==; knowing
+      when 15 digits are 15 lies
+    verifier: numpy
+    lab: numpy finfo/isclose
+    play: find the largest n where (1 + 1/n) - 1 still differs from 0; compare exact arithmetic in Book
+      I with what float64 does to the same inputs
+    tier: 1
+  symbolic_computation:
+    composed_of:
+    - symbol
+    defines: SymPy expressions — build, expand, factor, simplify; algebra done by the machine, exactly,
+      inside plain Python
+    verifier: sympy
+    lab: sympy simplify
+    play: expand (x+1)**6, factor it back, and verify the round trip is the identity
+    tier: 1
+  tabular_data:
+    composed_of:
+    - array
+    defines: pandas DataFrames — labeled, heterogeneous, indexable tables; the shape real-world data actually
+      arrives in
+    verifier: pandas
+    lab: pandas DataFrame
+    play: load a CSV of real measurements, select by label, filter by condition, and group by category
+      in four lines
+    tier: 2
+  random_sampling:
+    composed_of:
+    - randomness
+    - array
+    defines: numpy.random Generators — draws from distributions, seeded for reproducibility; simulated
+      data you fully control
+    verifier: numpy
+    lab: numpy.random default_rng
+    play: draw 10000 samples from a normal distribution with a fixed seed; rerun and verify you get bit-identical
+      results
+    tier: 2
+  calculus_symbolic:
+    composed_of:
+    - symbolic_computation
+    defines: diff, integrate, series, limit — SymPy as the formula engine; derive the model analytically
+      before any number exists
+    verifier: sympy
+    lab: sympy diff/integrate
+    play: integrate exp(-x**2/2) symbolically, meet erf, and understand why the normal CDF has no closed
+      form
+    tier: 2
+  linear_algebra_numeric:
+    composed_of:
+    - array
+    - floating_point
+    defines: numpy.linalg — solve, lstsq, eig at LAPACK speed; the numeric twin of Book I's exact linear
+      algebra, traded precision for a million unknowns
+    verifier: numpy
+    lab: numpy.linalg
+    play: solve a 1000x1000 random system, check the residual norm, and explain why it is small but not
+      zero
+    tier: 2
+  lambdify_bridge:
+    composed_of:
+    - symbolic_computation
+    - vectorization
+    defines: sympy.lambdify — the handoff from formula to fast function; derive symbolically once, evaluate
+      numerically a million times
+    verifier: sympy
+    lab: sympy lambdify
+    play: differentiate a model symbolically, lambdify the derivative, and plot both over an array without
+      writing the derivative by hand
+    tier: 3
+  data_cleaning:
+    composed_of:
+    - tabular_data
+    defines: missing values, types, duplicates, tidy shape — the unglamorous majority of real analysis,
+      made systematic
+    verifier: pandas
+    lab: pandas dropna/astype/melt
+    play: take a messy real CSV (mixed types, NaNs, wide format) and produce a tidy table, documenting
+      every decision
+    tier: 3
+  visualization:
+    composed_of:
+    - vectorization
+    - tabular_data
+    defines: matplotlib — the figure as a scientific argument; axes, labels, error bars, and the discipline
+      of showing uncertainty
+    verifier: matplotlib
+    lab: matplotlib pyplot
+    play: plot measured points with error bars and a fitted curve on shared axes; make the caption state
+      what the reader should conclude
+    tier: 3
+  descriptive_statistics:
+    composed_of:
+    - tabular_data
+    - random_sampling
+    defines: mean, spread, correlation, and their pitfalls — describe() before you infer; Anscombe's quartet
+      as the cautionary tale
+    verifier: scipy
+    lab: pandas describe + scipy.stats
+    play: compute identical summary statistics for Anscombe's four datasets, then plot them and revise
+      your respect for plots
+    tier: 3
+  numerical_integration_odes:
+    composed_of:
+    - lambdify_bridge
+    - linear_algebra_numeric
+    defines: scipy.integrate — quad and solve_ivp; the equations you cannot solve on paper, solved to
+      controlled tolerance
+    verifier: scipy
+    lab: scipy.integrate solve_ivp
+    play: integrate the pendulum ODE numerically and compare against the small-angle formula from Book
+      I's mechanics chapter
+    tier: 4
+  spectral_analysis:
+    composed_of:
+    - vectorization
+    - linear_algebra_numeric
+    defines: scipy.fft — signals as sums of frequencies; the transform that turns time-series noise into
+      structure
+    verifier: scipy
+    lab: scipy.fft
+    play: build a signal from two known sine waves plus noise, FFT it, and read both frequencies back
+      off the spectrum
+    tier: 4
+  optimization:
+    composed_of:
+    - linear_algebra_numeric
+    - floating_point_awareness
+    defines: scipy.optimize — minimize and root-find under floating point; tolerances, local minima, and
+      why starting points matter
+    verifier: scipy
+    lab: scipy.optimize minimize
+    play: minimize a function with two basins from different starting points; watch the optimizer find
+      different answers and explain why
+    tier: 4
+  curve_fitting:
+    composed_of:
+    - optimization
+    - random_sampling
+    defines: least squares as the meeting point of model and measurement — fit parameters, residuals,
+      and uncertainty on the estimates
+    verifier: scipy
+    lab: scipy.optimize curve_fit
+    play: generate noisy data from a model with known parameters, fit it, and check the true values sit
+      inside the reported uncertainties
+    tier: 5
+  hypothesis_testing:
+    composed_of:
+    - descriptive_statistics
+    - random_sampling
+    defines: scipy.stats tests and what a p-value is NOT — inference as disciplined humility about noise
+    verifier: scipy
+    lab: scipy.stats ttest_ind
+    play: simulate two identical groups, test them 100 times, and count the false positives — then explain
+      the 5 you found
+    tier: 5
+  machine_learning:
+    composed_of:
+    - curve_fitting
+    - data_cleaning
+    defines: scikit-learn — fit/predict on train/test splits; regression and classification as curve fitting
+      grown up, with the same overfitting dangers
+    verifier: sklearn
+    lab: scikit-learn Pipeline
+    play: fit a polynomial of degree 1, 5, and 15 to the same small dataset; watch the training error
+      lie and the test error tell the truth
+    tier: 6
+  model_validation:
+    composed_of:
+    - machine_learning
+    - hypothesis_testing
+    defines: cross-validation, baselines, and leakage — the difference between a model that works and
+      a model that worked once
+    verifier: sklearn
+    lab: scikit-learn cross_val_score
+    play: beat your model with a dummy baseline once by leaking the test set, then fix the leak and tell
+      the story
+    tier: 7
+  reproducible_science:
+    composed_of:
+    - model_validation
+    - numerical_integration_odes
+    - visualization
+    defines: the payoff — data, code, seeds, environment, and figures in one re-runnable pipeline; an
+      analysis someone else can run and get YOUR numbers
+    verifier: numpy
+    lab: the whole stack (seeded notebook end to end)
+    play: take your favorite analysis from this book and rerun it from a clean environment with one command;
+      fix everything that breaks
+    tier: 8
+applications:
+  physics_simulation:
+    needs:
+    - numerical_integration_odes
+    - spectral_analysis
+    domain: physics and engineering
+    defines: ODE integration plus FFT is the daily bread of simulation — oscillators, orbits, circuits,
+      and vibrations (Book I's normal modes, now with numbers)
+  climate_data_analysis:
+    needs:
+    - tabular_data
+    - visualization
+    - hypothesis_testing
+    domain: climate and environmental science
+    defines: open station records and reanalysis data are free — pandas, plots, and honest trend tests
+      put climate evidence in anyone's hands
+  epidemiology_modeling:
+    needs:
+    - curve_fitting
+    - numerical_integration_odes
+    domain: epidemiology and public health
+    defines: fitting SIR-family models to case counts — the workflow the whole world watched in real time,
+      reproducible at home
+  global_open_science:
+    needs:
+    - reproducible_science
+    domain: education and equity
+    defines: the entire stack is free — a student anywhere with a laptop runs the same pipeline as a national
+      lab; reproducibility is what makes that participation real
+  spl_verifier_ladder:
+    needs:
+    - symbolic_computation
+    - linear_algebra_numeric
+    domain: SPL neurosymbolic workflows
+    defines: NumPy and SymPy are the first rungs of SPL's verifier ladder — the numeric spot-check and
+      the exact symbolic instance that stamp generated content machine_verified

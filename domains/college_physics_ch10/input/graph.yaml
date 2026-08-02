@@ -1,0 +1,158 @@
+domain: college_physics_2e_ch10
+primitives:
+  rotation_angle:
+    defines: The angle θ swept out by a rotating object, measured in radians, used as the fundamental
+      displacement quantity in rotational motion.
+    tier: 0
+  angular_velocity:
+    defines: The rate of change of rotation angle with time (ω = Δθ/Δt), recalled from prior chapters
+      as a starting point for this chapter.
+    tier: 0
+  linear_velocity:
+    defines: The speed of an object moving along a path, assumed known from prior one-dimensional kinematics
+      study.
+    tier: 0
+  force:
+    defines: A push or pull that causes linear acceleration, assumed known from Newton's laws prior to
+      this chapter.
+    tier: 0
+  mass:
+    defines: The quantity of matter in an object that resists translational acceleration, treated as a
+      fundamental given quantity.
+    tier: 0
+  translational_kinetic_energy:
+    defines: The kinetic energy of an object moving in a straight line, (1/2)mv², assumed known from prior
+      chapters.
+    tier: 0
+  linear_momentum:
+    defines: The product of mass and velocity (p = mv), assumed known from prior study of translational
+      motion.
+    tier: 0
+  gravitational_potential_energy:
+    defines: Energy stored by an object due to its height in a gravitational field (mgh), assumed known
+      from prior chapters.
+    tier: 0
+  centripetal_acceleration:
+    defines: Acceleration directed toward the center of a circular path that changes the direction but
+      not the magnitude of velocity, recalled from Uniform Circular Motion.
+    tier: 0
+concepts:
+  angular_acceleration:
+    defines: The rate of change of angular velocity with time (α = Δω/Δt), expressed in rad/s²; positive
+      when ω increases, negative when ω decreases.
+    composed_of:
+    - angular_velocity
+    tier: 1
+  torque:
+    defines: The turning effectiveness of a force about a pivot point, equal to the product of force magnitude
+      and perpendicular lever arm (τ = rF⊥); the rotational analog of force.
+    composed_of:
+    - force
+    tier: 1
+  moment_of_inertia:
+    defines: The rotational analog of mass, defined as the sum of mr² for all point masses composing an
+      object (I = Σmr²); depends on both the total mass and how that mass is distributed relative to the
+      rotation axis.
+    composed_of:
+    - mass
+    tier: 1
+  tangential_acceleration:
+    defines: The component of linear acceleration tangent to the circular path that changes the speed
+      (not direction) of a rotating object, related to angular acceleration by a_t = rα.
+    composed_of:
+    - angular_acceleration
+    tier: 2
+  rotational_kinematics:
+    defines: The set of four equations relating rotation angle, angular velocity, angular acceleration,
+      and time for constant angular acceleration, exactly analogous to the translational kinematic equations.
+    composed_of:
+    - rotation_angle
+    - angular_velocity
+    - angular_acceleration
+    tier: 2
+  newtons_second_law_rotation:
+    defines: The rotational analog of F = ma, stating that net torque equals moment of inertia times angular
+      acceleration (τ_net = Iα).
+    composed_of:
+    - torque
+    - moment_of_inertia
+    - angular_acceleration
+    tier: 2
+  rotational_work:
+    defines: Work done by a torque acting through an angle of rotation, given by W = τθ; the rotational
+      analog of translational work W = Fd.
+    composed_of:
+    - torque
+    - rotation_angle
+    tier: 2
+  rotational_kinetic_energy:
+    defines: The kinetic energy of a rotating object due to its spin, given by KE_rot = (1/2)Iω²; exactly
+      analogous to translational kinetic energy with I replacing m and ω replacing v.
+    composed_of:
+    - moment_of_inertia
+    - angular_velocity
+    tier: 2
+  angular_momentum:
+    defines: The rotational analog of linear momentum, defined as the product of moment of inertia and
+      angular velocity (L = Iω), with units of kg·m²/s.
+    composed_of:
+    - moment_of_inertia
+    - angular_velocity
+    tier: 2
+  work_energy_theorem_rotation:
+    defines: The principle that net rotational work done on a rigid object equals the change in its rotational
+      kinetic energy (W_net = ΔKE_rot).
+    composed_of:
+    - rotational_work
+    - rotational_kinetic_energy
+    tier: 3
+  torque_angular_momentum_relation:
+    defines: The principle that net torque equals the rate of change of angular momentum (τ_net = ΔL/Δt),
+      the rotational form of Newton's second law in terms of momentum.
+    composed_of:
+    - torque
+    - angular_momentum
+    tier: 3
+  right_hand_rule:
+    defines: 'The convention for determining the direction of angular velocity, angular momentum, and
+      torque vectors: the right-hand thumb points along the rotation axis in the direction of the vector
+      when fingers curl in the direction of rotation.'
+    composed_of:
+    - angular_velocity
+    - torque
+    - angular_momentum
+    tier: 3
+  conservation_of_angular_momentum:
+    defines: The law stating that the total angular momentum of a system remains constant when the net
+      external torque is zero (L_initial = L_final), leading to the result that reducing moment of inertia
+      increases angular velocity.
+    composed_of:
+    - torque_angular_momentum_relation
+    tier: 4
+applications:
+  rolling_without_slipping:
+    defines: Motion in which an object rolls such that its translational velocity equals the product of
+      its angular velocity and radius (v = rω), with total kinetic energy split between translational
+      and rotational contributions.
+    needs:
+    - linear_velocity
+    - angular_velocity
+    - rotational_kinetic_energy
+    - translational_kinetic_energy
+    tier: 3
+  collisions_of_extended_bodies:
+    defines: Collisions in which angular momentum is conserved (when net external torque is zero) even
+      as kinetic energy may be lost, applied to rotating objects that collide and stick or interact at
+      a pivot point.
+    needs:
+    - conservation_of_angular_momentum
+    - moment_of_inertia
+    tier: 5
+  gyroscopic_precession:
+    defines: The slow rotation of a gyroscope's spin axis around a second axis, caused by an applied torque
+      perpendicular to the angular momentum, changing the direction of L without changing its magnitude.
+    needs:
+    - torque
+    - angular_momentum
+    - right_hand_rule
+    tier: 4

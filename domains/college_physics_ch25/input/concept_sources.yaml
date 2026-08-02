@@ -1,0 +1,193 @@
+domain: college_physics_2e_ch25
+sources:
+  light_ray:
+    label: Ray Model of Light
+    sections:
+    - id: ch25_s25_1
+      title: 25.1 The Ray Aspect of Light
+  speed_of_light_vacuum:
+    label: Speed of Light in Vacuum
+    sections:
+    - id: ch25_s25_3
+      title: 25.3 The Law of Refraction
+  wavelength:
+    label: Wavelength of Light
+    sections: []
+  geometric_optics:
+    label: Geometric Optics
+    sections:
+    - id: ch25_s25_1
+      title: 25.1 The Ray Aspect of Light
+    - id: ch25_s25_2
+      title: 25.2 The Law of Reflection
+  law_of_reflection:
+    label: Law of Reflection
+    sections:
+    - id: ch25_s25_2
+      title: 25.2 The Law of Reflection
+  specular_reflection:
+    label: Specular Reflection
+    sections:
+    - id: ch25_s25_2
+      title: 25.2 The Law of Reflection
+  diffuse_reflection:
+    label: Diffuse Reflection
+    sections:
+    - id: ch25_s25_2
+      title: 25.2 The Law of Reflection
+  index_of_refraction:
+    label: Index of Refraction
+    sections:
+    - id: ch25_s25_3
+      title: 25.3 The Law of Refraction
+  refraction:
+    label: Refraction
+    sections:
+    - id: ch25_s25_3
+      title: 25.3 The Law of Refraction
+  snells_law:
+    label: Snell's Law (Law of Refraction)
+    sections:
+    - id: ch25_s25_3
+      title: 25.3 The Law of Refraction
+  critical_angle:
+    label: Critical Angle
+    sections:
+    - id: ch25_s25_4
+      title: 25.4 Total Internal Reflection
+  total_internal_reflection:
+    label: Total Internal Reflection
+    sections:
+    - id: ch25_s25_4
+      title: 25.4 Total Internal Reflection
+  dispersion:
+    label: Dispersion
+    sections:
+    - id: ch25_s25_5
+      title: '25.5 Dispersion: The Rainbow and Prisms'
+  focal_point:
+    label: Focal Point
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+    - id: ch25_s25_7
+      title: 25.7 Image Formation by Mirrors
+  focal_length:
+    label: Focal Length
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+    - id: ch25_s25_7
+      title: 25.7 Image Formation by Mirrors
+  lens_power:
+    label: Optical Power
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  converging_lens:
+    label: Converging (Convex) Lens
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  diverging_lens:
+    label: Diverging (Concave) Lens
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  ray_tracing:
+    label: Ray Tracing
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+    - id: ch25_s25_7
+      title: 25.7 Image Formation by Mirrors
+  object_distance:
+    label: Object Distance
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  image_distance:
+    label: Image Distance
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  thin_lens_equations:
+    label: Thin Lens Equations
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  magnification:
+    label: Magnification
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  real_image:
+    label: Real Image
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  virtual_image:
+    label: Virtual Image
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  radius_of_curvature:
+    label: Radius of Curvature
+    sections:
+    - id: ch25_s25_7
+      title: 25.7 Image Formation by Mirrors
+  spherical_mirror:
+    label: Spherical Mirror
+    sections:
+    - id: ch25_s25_7
+      title: 25.7 Image Formation by Mirrors
+  flat_mirror_image:
+    label: Image Formation by a Flat Mirror
+    sections:
+    - id: ch25_s25_7
+      title: 25.7 Image Formation by Mirrors
+  fiber_optics:
+    label: Fiber Optics
+    sections:
+    - id: ch25_s25_4
+      title: 25.4 Total Internal Reflection
+  endoscope:
+    label: Endoscope
+    sections:
+    - id: ch25_s25_4
+      title: 25.4 Total Internal Reflection
+  corner_reflector:
+    label: Corner Reflector
+    sections:
+    - id: ch25_s25_4
+      title: 25.4 Total Internal Reflection
+  diamond_sparkle:
+    label: Diamond Sparkle
+    sections:
+    - id: ch25_s25_4
+      title: 25.4 Total Internal Reflection
+  rainbow:
+    label: Rainbow
+    sections:
+    - id: ch25_s25_5
+      title: '25.5 Dispersion: The Rainbow and Prisms'
+  magnifying_glass:
+    label: Magnifying Glass
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  camera_lens:
+    label: Camera Lens
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  corrective_eyeglasses:
+    label: Corrective Eyeglasses
+    sections:
+    - id: ch25_s25_6
+      title: 25.6 Image Formation by Lenses
+  concave_mirror_heater:
+    label: Concave Mirror Reflector
+    sections:
+    - id: ch25_s25_7
+      title: 25.7 Image Formation by Mirrors

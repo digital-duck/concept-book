@@ -1,0 +1,278 @@
+domain: college_physics_2e_ch22
+primitives:
+  electric_charge:
+    defines: A fundamental property of matter (positive or negative) that is the source of electric and
+      magnetic phenomena; treated as a known quantity in this chapter.
+    tier: 0
+  electric_current:
+    defines: The flow of electric charges; treated as a given starting point and identified as the ultimate
+      source of all magnetism.
+    tier: 0
+  velocity:
+    defines: The speed and direction of a moving particle or charge; a prerequisite quantity used throughout
+      force and motion analysis.
+    tier: 0
+  centripetal_force:
+    defines: The inward-directed net force required to keep an object moving in a circular path; assumed
+      from prior mechanics study.
+    tier: 0
+  electric_field:
+    defines: A field that exerts force on stationary or moving charges; introduced as a known concept
+      for comparison with and interaction with the magnetic field.
+    tier: 0
+concepts:
+  magnetic_poles:
+    defines: The two ends of a magnet, called north and south, where like poles repel and unlike poles
+      attract.
+    composed_of: []
+    tier: 1
+  magnetic_field:
+    defines: A vector field that represents magnetic forces in space, defined in terms of the force it
+      exerts on a moving charge.
+    composed_of:
+    - electric_charge
+    - velocity
+    tier: 1
+  no_magnetic_monopoles:
+    defines: The empirical rule that north and south magnetic poles always occur in pairs and cannot be
+      isolated, unlike electric charges.
+    composed_of:
+    - magnetic_poles
+    - electric_charge
+    tier: 2
+  ferromagnetism:
+    defines: The property of certain materials (iron, cobalt, nickel, gadolinium) to exhibit strong magnetic
+      effects and to be permanently magnetized.
+    composed_of:
+    - magnetic_poles
+    tier: 2
+  magnetic_field_lines:
+    defines: Continuous closed loops used to pictorially represent the direction and relative strength
+      of a magnetic field, always running from north to south poles externally.
+    composed_of:
+    - magnetic_field
+    - magnetic_poles
+    tier: 2
+  lorentz_force:
+    defines: The magnetic force on a charge q moving at speed v in field B, given by F = qvB sin theta,
+      directed perpendicular to both v and B.
+    composed_of:
+    - electric_charge
+    - velocity
+    - magnetic_field
+    tier: 2
+  permeability_of_free_space:
+    defines: The fundamental constant mu_0 = 4pi x 10^-7 T·m/A that relates magnetic field strength to
+      the currents that produce it.
+    composed_of:
+    - magnetic_field
+    - electric_current
+    tier: 2
+  right_hand_rule_2:
+    defines: 'A mnemonic for finding the direction of the magnetic field produced by a current: point
+      the right thumb in the direction of current flow and the curling fingers indicate the direction
+      of the circular field loops.'
+    composed_of:
+    - electric_current
+    - magnetic_field
+    tier: 2
+  magnetic_domains:
+    defines: Millimeter-sized regions within a ferromagnetic material in which atomic magnetic moments
+      are aligned, acting collectively like small bar magnets.
+    composed_of:
+    - ferromagnetism
+    tier: 3
+  current_as_source_of_magnetism:
+    defines: The principle that every magnetic effect, including ferromagnetism, arises from electric
+      current (including orbital and spin currents of electrons).
+    composed_of:
+    - electric_current
+    - ferromagnetism
+    tier: 3
+  right_hand_rule_1:
+    defines: 'A mnemonic rule for finding the direction of the magnetic force on a positive moving charge:
+      thumb points along v, fingers along B, palm-push direction is F.'
+    composed_of:
+    - lorentz_force
+    tier: 3
+  tesla:
+    defines: The SI unit of magnetic field strength B, defined as the field that exerts a 1-N force on
+      a 1-C charge moving at 1 m/s perpendicular to it.
+    composed_of:
+    - lorentz_force
+    tier: 3
+  circular_motion_in_magnetic_field:
+    defines: The uniform circular path followed by a charged particle moving perpendicular to a uniform
+      magnetic field, because the magnetic force is always perpendicular to velocity and supplies the
+      centripetal force.
+    composed_of:
+    - lorentz_force
+    - centripetal_force
+    tier: 3
+  hall_effect:
+    defines: The creation of a transverse voltage (Hall emf) across a current-carrying conductor placed
+      in a magnetic field, caused by the deflection of charge carriers to one side.
+    composed_of:
+    - electric_current
+    - lorentz_force
+    - electric_field
+    tier: 3
+  magnetic_force_on_current:
+    defines: The force F = IlB sin theta on a straight wire of length l carrying current I in a uniform
+      field B, arising because the field acts on the moving charges inside the conductor.
+    composed_of:
+    - electric_current
+    - lorentz_force
+    tier: 3
+  magnetic_field_straight_wire:
+    defines: The magnetic field of magnitude B = mu_0 I/(2 pi r) that forms circular loops around a long
+      straight current-carrying wire at perpendicular distance r.
+    composed_of:
+    - electric_current
+    - permeability_of_free_space
+    - right_hand_rule_2
+    tier: 3
+  magnetic_field_circular_loop:
+    defines: The magnetic field B = mu_0 I/(2R) at the center of a circular loop of radius R carrying
+      current I, analogous in shape to a bar magnet's field.
+    composed_of:
+    - electric_current
+    - permeability_of_free_space
+    - right_hand_rule_2
+    tier: 3
+  curie_temperature:
+    defines: The temperature above which thermal agitation randomizes domain alignment and a ferromagnetic
+      material can no longer be magnetized.
+    composed_of:
+    - magnetic_domains
+    tier: 4
+  electromagnet:
+    defines: A temporarily magnetic object created by passing electric current through a coil of wire,
+      often enhanced by a ferromagnetic core.
+    composed_of:
+    - electric_current
+    - current_as_source_of_magnetism
+    tier: 4
+  radius_of_curvature:
+    defines: The radius r = mv/(qB) of the circular path traced by a particle of mass m and charge q moving
+      at speed v perpendicular to field B.
+    composed_of:
+    - circular_motion_in_magnetic_field
+    tier: 4
+  magnetic_mirror:
+    defines: A region of increasing magnetic field strength that reflects charged particles moving along
+      field lines by converting parallel velocity into perpendicular velocity.
+    composed_of:
+    - circular_motion_in_magnetic_field
+    tier: 4
+  hall_emf:
+    defines: The equilibrium voltage V = vBd produced across a conductor of width d when charge carriers
+      moving at drift speed v are deflected by magnetic field B until the electric force balances the
+      magnetic force.
+    composed_of:
+    - hall_effect
+    tier: 4
+  torque_on_current_loop:
+    defines: The rotational force tau = NIAB sin theta exerted by a uniform magnetic field on a flat loop
+      of N turns, area A, carrying current I, where theta is the angle between the field and the loop
+      normal.
+    composed_of:
+    - magnetic_force_on_current
+    tier: 4
+  amperes_law:
+    defines: The general physical law stating that the magnetic field around any closed path is proportional
+      to the net current enclosed; the total field of any current shape is the vector sum of contributions
+      from each current segment.
+    composed_of:
+    - electric_current
+    - magnetic_field
+    - magnetic_field_straight_wire
+    tier: 4
+  force_between_parallel_conductors:
+    defines: The force per unit length F/l = mu_0 I_1 I_2 / (2 pi d) between two parallel wires separated
+      by distance d; attractive for currents in the same direction, repulsive for opposite directions.
+    composed_of:
+    - magnetic_field_straight_wire
+    - magnetic_force_on_current
+    tier: 4
+  solenoid:
+    defines: A long coil of wire with many turns that produces a highly uniform interior field B = mu_0
+      n I, where n is the number of turns per unit length, and a near-zero exterior field.
+    composed_of:
+    - magnetic_field_circular_loop
+    - amperes_law
+    tier: 5
+  definition_of_ampere:
+    defines: One ampere is the current that, flowing in each of two infinitely long parallel wires separated
+      by 1 m in vacuum, produces a force of 2 x 10^-7 N per meter of length between them.
+    composed_of:
+    - force_between_parallel_conductors
+    tier: 5
+applications:
+  velocity_selector:
+    defines: A device using crossed electric and magnetic fields to pass only particles for which the
+      electric force qE exactly balances the magnetic force qvB, giving v = E/B.
+    needs:
+    - lorentz_force
+    - electric_field
+    tier: 3
+  cathode_ray_tube:
+    defines: A device that accelerates electrons in an electron gun and steers them with magnetic (or
+      electric) fields onto a phosphor screen to form images.
+    needs:
+    - lorentz_force
+    - electric_field
+    tier: 3
+  magnetohydrodynamic_drive:
+    defines: A pump or propulsion system that drives electrically conducting fluid by passing current
+      through it perpendicular to an applied magnetic field, producing a force with no moving mechanical
+      parts.
+    needs:
+    - magnetic_force_on_current
+    tier: 4
+  aurora:
+    defines: Luminous atmospheric displays caused by cosmic-ray charged particles spiraling along Earth's
+      magnetic field lines into the polar atmosphere, ionizing air molecules.
+    needs:
+    - circular_motion_in_magnetic_field
+    tier: 4
+  mass_spectrometer:
+    defines: An instrument that uses a velocity selector and a uniform magnetic field to separate ions
+      by mass-to-charge ratio, measured from the radius of their circular paths r = mv/(qB).
+    needs:
+    - velocity_selector
+    - radius_of_curvature
+    tier: 5
+  electric_motor:
+    defines: A device that converts electrical energy to mechanical work by using the magnetic torque
+      on current-carrying loops rotating in a magnetic field, with brushes reversing current each half
+      turn to sustain rotation.
+    needs:
+    - torque_on_current_loop
+    tier: 5
+  galvanometer:
+    defines: An instrument that measures current by balancing the magnetic torque on a current loop against
+      a spring, producing a needle deflection proportional to current.
+    needs:
+    - torque_on_current_loop
+    tier: 5
+  hall_probe:
+    defines: A small calibrated device that measures magnetic field strength by measuring the Hall emf
+      produced when a known current passes through a conductor placed in the field.
+    needs:
+    - hall_emf
+    tier: 5
+  van_allen_radiation_belts:
+    defines: Two toroidal regions above Earth's atmosphere where energetic charged particles are trapped
+      in spiral orbits along Earth's magnetic field lines.
+    needs:
+    - circular_motion_in_magnetic_field
+    - magnetic_mirror
+    tier: 5
+  magnetic_resonance_imaging:
+    defines: A medical imaging technique based on nuclear magnetic resonance, in which hydrogen nuclei
+      in a strong external field absorb and reemit specific radio frequencies that encode position and
+      tissue type.
+    needs:
+    - solenoid
+    tier: 6

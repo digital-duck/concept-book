@@ -1,0 +1,212 @@
+domain: college_physics_2e_ch6
+primitives:
+  linear_displacement:
+    defines: The straight-line distance an object travels, used as the translational analogue to rotation
+      angle.
+    tier: 0
+  linear_velocity:
+    defines: The rate of change of position along a path; in circular motion, this is the tangential speed
+      at a point on the rotating object.
+    tier: 0
+  acceleration:
+    defines: The rate of change of velocity, either in magnitude or direction.
+    tier: 0
+  newtons_second_law:
+    defines: The net force on an object equals its mass times its acceleration (F = ma).
+    tier: 0
+  newtons_first_law:
+    defines: An object in motion continues in a straight line at constant velocity unless acted upon by
+      a net external force.
+    tier: 0
+  friction_force:
+    defines: A contact force that opposes relative motion between surfaces, providing the centripetal
+      force in unbanked curves.
+    tier: 0
+  normal_force:
+    defines: A contact force perpendicular to a surface that supports an object resting on or pressing
+      against that surface.
+    tier: 0
+  mass:
+    defines: A measure of the amount of matter in an object, which determines its inertia and gravitational
+      interaction.
+    tier: 0
+  radius_of_curvature:
+    defines: The radius r of the circular path an object follows, which sets the scale for rotational
+      and centripetal quantities.
+    tier: 0
+concepts:
+  radian:
+    defines: The dimensionless unit of angle measurement defined so that one full revolution equals 2π
+      radians.
+    tier: 1
+  uniform_circular_motion:
+    defines: Motion along a circular path at constant speed, in which the direction of velocity continuously
+      changes.
+    composed_of:
+    - linear_velocity
+    - radius_of_curvature
+    tier: 1
+  inertial_frame_of_reference:
+    defines: A non-accelerating frame in which Newton's laws hold and all forces have identifiable physical
+      origins.
+    composed_of:
+    - newtons_first_law
+    - newtons_second_law
+    tier: 1
+  gravitational_constant:
+    defines: The universal proportionality constant G ≈ 6.674×10⁻¹¹ N·m²/kg² appearing in Newton's law
+      of gravitation, determined experimentally by the Cavendish experiment.
+    composed_of:
+    - mass
+    tier: 1
+  center_of_mass:
+    defines: The point at which the entire mass of an object or system can be considered concentrated
+      for the purpose of calculating gravitational and inertial effects.
+    composed_of:
+    - mass
+    tier: 1
+  rotation_angle:
+    defines: The ratio of arc length to radius of curvature (Δθ = Δs/r), measured in radians, representing
+      the amount of rotation.
+    composed_of:
+    - radian
+    - radius_of_curvature
+    tier: 2
+  non_inertial_frame_of_reference:
+    defines: An accelerating or rotating frame of reference in which fictitious forces must be introduced
+      to explain observed motion.
+    composed_of:
+    - inertial_frame_of_reference
+    - acceleration
+    tier: 2
+  newtons_law_of_gravitation:
+    defines: Every particle attracts every other particle with a force proportional to the product of
+      their masses and inversely proportional to the square of the distance between them (F = Gm₁m₂/r²).
+    composed_of:
+    - gravitational_constant
+    - mass
+    - radius_of_curvature
+    tier: 2
+  arc_length:
+    defines: The distance Δs traveled along a circular path, equal to the product of the radius and the
+      rotation angle (Δs = rΔθ).
+    composed_of:
+    - rotation_angle
+    - radius_of_curvature
+    tier: 3
+  angular_velocity:
+    defines: The rate of change of rotation angle with time (ω = Δθ/Δt), measured in radians per second.
+    composed_of:
+    - rotation_angle
+    tier: 3
+  fictitious_force:
+    defines: An apparent force with no physical origin that arises when analyzing motion from a non-inertial
+      (accelerating or rotating) frame of reference.
+    composed_of:
+    - non_inertial_frame_of_reference
+    tier: 3
+  acceleration_due_to_gravity:
+    defines: The gravitational acceleration at Earth's surface (~9.8 m/s²), derived from Newton's law
+      of gravitation as g = GM_E/r².
+    composed_of:
+    - newtons_law_of_gravitation
+    tier: 3
+  keplers_first_law:
+    defines: The orbit of each planet (or satellite) about the Sun (or parent body) is an ellipse with
+      the parent body at one focus.
+    composed_of:
+    - newtons_law_of_gravitation
+    tier: 3
+  keplers_second_law:
+    defines: A line from the parent body to the orbiting object sweeps out equal areas in equal times,
+      implying the object moves faster when closer to the parent.
+    composed_of:
+    - newtons_law_of_gravitation
+    tier: 3
+  tangential_speed:
+    defines: The linear speed of a point on a rotating object, related to angular velocity by v = rω,
+      and directed tangent to the circular path.
+    composed_of:
+    - angular_velocity
+    - radius_of_curvature
+    tier: 4
+  coriolis_force:
+    defines: A fictitious force in a rotating frame that deflects moving objects perpendicular to their
+      motion, to the right in the northern hemisphere and to the left in the southern hemisphere.
+    composed_of:
+    - fictitious_force
+    - angular_velocity
+    tier: 4
+  weightlessness:
+    defines: The condition experienced by an object in free fall or orbit where the apparent net gravitational
+      acceleration is negligible compared to that at Earth's surface.
+    composed_of:
+    - acceleration_due_to_gravity
+    - newtons_first_law
+    tier: 4
+  centripetal_acceleration:
+    defines: The acceleration directed toward the center of a circular path experienced during uniform
+      circular motion, with magnitude ac = v²/r = rω².
+    composed_of:
+    - uniform_circular_motion
+    - tangential_speed
+    - acceleration
+    tier: 5
+  centripetal_force:
+    defines: Any net force directed toward the center of curvature that causes uniform circular motion,
+      with magnitude Fc = mv²/r = mrω².
+    composed_of:
+    - centripetal_acceleration
+    - mass
+    - newtons_second_law
+    tier: 6
+  centrifugal_force:
+    defines: A fictitious outward force perceived in a rotating non-inertial frame, which in an inertial
+      frame is explained by inertia carrying objects in a straight line.
+    composed_of:
+    - fictitious_force
+    - centripetal_force
+    tier: 7
+  keplers_third_law:
+    defines: The square of the orbital period of a satellite is proportional to the cube of its average
+      orbital radius (T² ∝ r³), derivable from Newton's law of gravitation.
+    composed_of:
+    - newtons_law_of_gravitation
+    - centripetal_force
+    tier: 7
+applications:
+  tides:
+    defines: The periodic rise and fall of sea levels caused by the differential gravitational pull of
+      the Moon (and Sun) across Earth's diameter.
+    needs:
+    - newtons_law_of_gravitation
+    - center_of_mass
+    tier: 3
+  coriolis_weather_patterns:
+    defines: The deflection of large-scale wind flows by Earth's rotation, causing counterclockwise rotation
+      of low-pressure systems in the northern hemisphere and clockwise in the southern.
+    needs:
+    - coriolis_force
+    tier: 5
+  centrifuge:
+    defines: A device that spins samples at high angular velocity to produce large centripetal accelerations,
+      separating materials of different densities far faster than gravity alone.
+    needs:
+    - centripetal_acceleration
+    - angular_velocity
+    tier: 6
+  ideal_banking:
+    defines: The road slope angle θ at which a vehicle can navigate a curve at a given speed without friction,
+      given by tan θ = v²/(rg).
+    needs:
+    - centripetal_force
+    - normal_force
+    - acceleration_due_to_gravity
+    tier: 7
+  satellite_orbits:
+    defines: Gravitationally bound circular or elliptical paths of a small mass around a much larger parent
+      body, where gravity provides the centripetal force.
+    needs:
+    - newtons_law_of_gravitation
+    - centripetal_force
+    tier: 7

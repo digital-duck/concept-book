@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌱 Intrinsic Spin — College Physics Ch33</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px;
+        display:flex;flex-direction:column}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0;flex:1}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+nav.toc .spl-credit{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);
+                    font-size:11px;color:#90b4e8;font-family:system-ui,sans-serif}
+nav.toc .spl-credit a{color:#a8c8f0;text-decoration:none}
+nav.toc .spl-credit a:hover{color:#fff;text-decoration:underline}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:32px}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
+section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="toc">
+    <a href="../../../../#/domain/college_physics_ch33" class="back">← College Physics Ch33</a>
+    <h2>Contents</h2>
+    <ol>
+<li><a href="concept_heisenberg_uncertainty_principle.html">🌱 Heisenberg Uncertainty Principle</a></li>
+<li><a href="concept_carrier_particle.html">🍃 Carrier Particle</a></li>
+<li class="toc-target"><a href="concept_intrinsic_spin.html">🌱 Intrinsic Spin</a></li>
+<li><a href="concept_pauli_exclusion_principle.html">🌱 Pauli Exclusion Principle</a></li>
+<li><a href="concept_conservation_of_mass_energy.html">🌱 Conservation Of Mass Energy</a></li>
+<li><a href="concept_electromagnetic_force.html">🌱 Electromagnetic Force</a></li>
+<li><a href="concept_fermion.html">🍃 Fermion</a></li>
+<li><a href="concept_quark.html">🍃 Quark</a></li>
+<li><a href="concept_four_basic_forces.html">🍃 Four Basic Forces</a></li>
+<li><a href="concept_virtual_particle.html">🍃 Virtual Particle</a></li>
+<li><a href="concept_feynman_diagram.html">🍃 Feynman Diagram</a></li>
+<li><a href="concept_quark_color.html">🍃 Quark Color</a></li>
+<li><a href="concept_gluon.html">🍃 Gluon</a></li>
+<li><a href="concept_quantum_electrodynamics.html">🍃 Quantum Electrodynamics</a></li>
+<li><a href="concept_conservation_of_charge.html">🌱 Conservation Of Charge</a></li>
+<li><a href="concept_electroweak_theory.html">🍃 Electroweak Theory</a></li>
+<li><a href="concept_hadron.html">🍃 Hadron</a></li>
+<li><a href="concept_quantum_chromodynamics.html">🍃 Quantum Chromodynamics</a></li>
+<li><a href="concept_antimatter.html">🍃 Antimatter</a></li>
+<li><a href="concept_baryon.html">🍃 Baryon</a></li>
+<li><a href="concept_standard_model.html">🍃 Standard Model</a></li>
+<li><a href="concept_baryon_number_conservation.html">🍃 Baryon Number Conservation</a></li>
+<li><a href="concept_grand_unified_theory.html">🍃 Grand Unified Theory</a></li>
+<li><a href="concept_proton_decay_detection.html">🌸 Proton Decay Detection</a></li>
+</ol>
+    <div class="spl-credit">Generated by <a href="https://github.com/digital-duck/SPL.py" target="_blank">SPL</a></div>
+  </nav>
+  <main>
+    <h1 class="book-title">🌱 Intrinsic Spin</h1>
+    <section>
+<h2>🌱 Intrinsic Spin</h2>
+<p><strong>Definition.</strong> Intrinsic spin is a fundamental, quantized angular momentum possessed by elementary particles that is entirely independent of any orbital motion. Unlike orbital angular momentum, which arises from a particle's trajectory through space, spin is an intrinsic property analogous to a particle having a built-in angular momentum with no classical counterpart. For an electron, the spin quantum number is $s = \tfrac{1}{2}$, and the magnitude of the spin angular momentum vector is</p>
+$$
+|\mathbf{S}| = \hbar\sqrt{s(s+1)} = \frac{\sqrt{3}}{2}\hbar,
+$$
+<p>where $\hbar = h/(2\pi)$ is the reduced Planck constant. The projection of spin along any chosen quantization axis (conventionally $z$) is restricted to</p>
+$$
+S_z = m_s \hbar, \quad m_s = +\tfrac{1}{2} \text{ (spin-up)} \text{ or } -\tfrac{1}{2} \text{ (spin-down}).
+$$
+<p><strong>Worked Example.</strong> Determine the angle $\theta$ between the electron spin vector $\mathbf{S}$ and the $z$-axis when the electron is in the spin-up state.</p>
+<p>The magnitude of $\mathbf{S}$ is $|\mathbf{S}| = \tfrac{\sqrt{3}}{2}\hbar$, and the $z$-projection is $S_z = +\tfrac{1}{2}\hbar$. Using the dot-product relation:</p>
+$$
+\cos\theta = \frac{S_z}{|\mathbf{S}|} = \frac{\tfrac{1}{2}\hbar}{\tfrac{\sqrt{3}}{2}\hbar} = \frac{1}{\sqrt{3}}.
+$$
+<p>Therefore $\theta = \arccos(1/\sqrt{3}) \approx 54.7°$. Note that $\theta$ can never equal $0°$: the spin vector cannot align perfectly with the $z$-axis, a direct consequence of the quantum uncertainty principle applied to angular momentum components.</p>
+<p><strong>Key Theorem — Spin-Statistics Connection.</strong> Particles with half-integer spin ($s = \tfrac{1}{2}, \tfrac{3}{2}, \ldots$) are fermions and obey the Pauli exclusion principle: no two identical fermions may occupy the same quantum state simultaneously. Electrons, protons, and neutrons are all spin-$\tfrac{1}{2}$ fermions. This theorem, proven rigorously in relativistic quantum field theory, underlies the shell structure of atoms, the Periodic Table, and the stability of matter itself.</p>
+<p><strong>Lab Exercise.</strong> In a Stern–Gerlach apparatus, a beam of silver atoms (each with one unpaired valence electron) passes through an inhomogeneous magnetic field. Predict the number of distinct deflected beams observed and calculate the force $F = \mu_B \,(\partial B/\partial z)$ on each component, where $\mu_B = e\hbar/(2m_e) = 9.274\times10^{-24}\ \text{J/T}$ is the Bohr magneton. Explain why the result confirms $s = \tfrac{1}{2}$ rather than an integer spin.</p>
+</section>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Concept Graph — graph</title>
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f0f2f5;overflow:hidden;height:100vh}
+.app{
+  display:grid;
+  grid-template-columns:230px 1fr 210px;
+  grid-template-rows:60vh 40vh;
+  height:100vh;
+  gap:0;
+}
+/* ── Left sidebar: learning path ── */
+#path-sidebar{
+  grid-column:1;grid-row:1/3;
+  background:#f5f6f8;color:#2a2a2a;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border-right:1px solid #dde0e6;
+}
+#path-header{
+  padding:14px 14px 10px;
+  border-bottom:1px solid #dde0e6;
+  flex-shrink:0;
+}
+#path-header h1{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#888;margin-bottom:2px;font-weight:700}
+#path-header .domain-name{font-size:11px;color:#555;margin-top:4px}
+#path-steps{flex:1;overflow-y:auto;padding:8px 0}
+#path-steps .hint{color:#aaa;font-size:12px;text-align:center;padding:24px 12px;line-height:1.5}
+.step-item{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:7px 12px;cursor:pointer;
+  border-left:3px solid transparent;
+  transition:background .15s;
+}
+.step-item:hover{background:#ebebf0}
+.step-item.active{background:#e8eef8;border-left-color:#4a90d9}
+.step-item.target{background:#eaf5ea;border-left-color:#4caf50}
+.step-num{min-width:20px;font-size:10px;font-weight:700;color:#bbb;padding-top:2px;flex-shrink:0}
+.step-item.target .step-num{color:#4caf50}
+.step-label{font-size:12px;font-weight:600;color:#333;line-height:1.4}
+.step-def{font-size:10px;color:#888;margin-top:2px;line-height:1.4}
+.step-kind{display:inline-block;padding:0 5px;border-radius:8px;font-size:9px;font-weight:700;margin-left:4px}
+#path-count{font-size:10px;color:#aaa;margin-top:3px}
+/* ── Graph panel ── */
+#graph-panel{
+  grid-column:2;grid-row:1;
+  position:relative;background:#fff;
+  border-bottom:2px solid #dde;
+}
+#graph-container{width:100%;height:100%}
+.graph-recenter-btn{
+  position:absolute;right:16px;bottom:16px;z-index:50;
+  padding:6px 14px;border-radius:6px;
+  border:1px solid #1e3a5f;background:#1e3a5f;color:#fff;
+  font-size:12px;font-weight:600;font-family:system-ui,sans-serif;
+  box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer;
+}
+.graph-recenter-btn:hover{background:#28496f;border-color:#28496f}
+/* ── Explanation panel ── */
+#explain-panel{
+  grid-column:2;grid-row:2;
+  background:#fff;overflow-y:auto;
+  padding:16px 20px;
+}
+#explain-panel .empty{color:#aaa;font-size:13px;padding:20px 0;text-align:center}
+#explain-panel .node-title{
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+#explain-panel .node-title h2{font-size:16px;color:#1e3a5f}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-size:11px;font-weight:700;
+}
+.badge.primitive{background:#e8f5e9;color:#2e7d32}
+.badge.concept{background:#e3f2fd;color:#1565c0}
+.badge.application{background:#fff3e0;color:#ef6c00}
+.tier-tag{font-size:11px;color:#999;margin-left:auto}
+#explain-panel .defines{
+  font-size:14px;color:#333;line-height:1.6;margin-bottom:12px;
+  padding:10px 12px;background:#f8f9fb;border-radius:6px;
+  border-left:3px solid #90b4e8;
+}
+#explain-panel .section-label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:#999;margin-bottom:6px;
+}
+#explain-panel .prereq-list{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.prereq-chip{
+  padding:3px 9px;border-radius:12px;font-size:11px;
+  background:#e3f2fd;color:#1565c0;cursor:pointer;
+  border:1px solid #90caf9;transition:background .12s;
+}
+.prereq-chip:hover{background:#bbdefb}
+#explain-panel .meta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.meta-item{font-size:12px;color:#555}
+.meta-item b{color:#1e3a5f}
+#explain-panel .play-hint{
+  font-size:12px;color:#5a5a5a;line-height:1.6;
+  padding:8px 12px;background:#fffde7;border-radius:6px;
+  border-left:3px solid #ffd54f;margin-bottom:8px;
+}
+/* ── Notes sidebar ── */
+#notes-sidebar{
+  grid-column:3;grid-row:1/3;
+  background:#fafaf8;
+  border-left:2px solid #e8e8e0;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+#notes-header{
+  padding:10px 12px 8px;
+  border-bottom:1px solid #e0e0d8;
+  flex-shrink:0;
+}
+#notes-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+#notes-header h2{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em;margin:0}
+#notes-node-label{font-size:11px;color:#999;margin-top:2px}
+.nb-btn{font-size:10px;padding:2px 7px;border-radius:3px;
+  border:1px solid #ddd;background:#f0f0ea;cursor:pointer;color:#777;
+  font-family:system-ui,sans-serif}
+.nb-btn:hover{background:#e0e0d8;color:#444}
+#notes-textarea{
+  flex:0 0 auto;height:100px;border:none;resize:none;
+  padding:12px;font-size:12px;line-height:1.6;
+  font-family:inherit;background:#fafaf8;color:#333;
+  outline:none;
+}
+#notes-with-entries{
+  border-top:1px solid #e8e8e0;flex:1;min-height:0;overflow-y:auto;
+}
+.note-entry{
+  padding:6px 12px;cursor:pointer;
+  border-bottom:1px solid #f0f0e8;
+  font-size:11px;
+}
+.note-entry:hover{background:#f0efe8}
+.note-entry .note-node{font-weight:600;color:#555;display:flex;justify-content:space-between;align-items:center}
+.note-entry .note-ts{font-weight:400;color:#bbb;font-size:10px}
+.note-entry .note-preview{color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ── kind badge colours in sidebar ── */
+.primitive-k{background:#e8f5e9;color:#2e7d32}
+.concept-k{background:#e3f2fd;color:#1565c0}
+.application-k{background:#fff3e0;color:#ef6c00}
+/* ── concept detail panel ── */
+#concept-detail{margin-top:14px;border-top:1px solid #e8e8e0;padding-top:10px;}
+#concept-iframe{width:100%;height:500px;border:1px solid #e0e0d8;border-radius:4px;margin-top:6px;display:block;}
+.concept-not-found{color:#e57373;font-size:12px;padding:6px 0;font-style:italic;}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- LEFT: learning path sidebar -->
+<aside id="path-sidebar">
+  <div id="path-header">
+    <h1>Learning Path</h1>
+    <div class="domain-name">graph</div>
+    <div id="path-count"></div>
+  </div>
+  <div id="path-steps">
+    <div class="hint">Click any node in the graph<br>to see its learning path</div>
+  </div>
+</aside>
+
+<!-- CENTRE TOP: concept graph -->
+<div id="graph-panel">
+  <div id="graph-container"></div>
+  <button class="graph-recenter-btn" onclick="reCenterGraph()" title="Re-fit the graph to the viewport">Re-Center</button>
+</div>
+
+<!-- CENTRE BOTTOM: explanation panel -->
+<div id="explain-panel">
+  <div class="empty">Select a node to see its definition, prerequisites, and learning context.</div>
+</div>
+
+<!-- RIGHT: notes sidebar -->
+<aside id="notes-sidebar">
+  <div id="notes-header">
+    <div id="notes-header-top">
+      <h2>Notes</h2>
+      <div>
+        <button class="nb-btn" id="nb-clear-btn" onclick="clearNote()">Clear</button>
+        <button class="nb-btn" onclick="exportNotes()">Export</button>
+      </div>
+    </div>
+    <div id="notes-node-label">no node selected</div>
+  </div>
+  <textarea id="notes-textarea" placeholder="Type notes here&#10;(auto-saved per node)"></textarea>
+  <div id="notes-with-entries"></div>
+</aside>
+
+</div><!-- .app -->
+
+<script>
+const RAW = {"nodes": [{"id": "nucleus", "label": "nucleus", "kind": "primitive", "tier": 0, "defines": "A dense central region of an atom consisting of protons and neutrons.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "proton", "label": "proton", "kind": "primitive", "tier": 0, "defines": "A positively charged nucleon found in the nucleus with mass approximately 1.007276 u.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "neutron", "label": "neutron", "kind": "primitive", "tier": 0, "defines": "An electrically neutral nucleon found in the nucleus with mass approximately 1.008665 u.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "electron", "label": "electron", "kind": "primitive", "tier": 0, "defines": "A negatively charged particle with very small mass that orbits the nucleus.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "electromagnetic_force", "label": "electromagnetic force", "kind": "primitive", "tier": 0, "defines": "The long-range force between charged particles, including the repulsive Coulomb force between protons.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "mass_energy_equivalence", "label": "mass energy equivalence", "kind": "primitive", "tier": 0, "defines": "Einstein’s relation E = mc² connecting mass and energy.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "photon", "label": "photon", "kind": "primitive", "tier": 0, "defines": "A quantum of electromagnetic radiation that travels at the speed of light and has no rest mass.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "conservation_of_energy", "label": "conservation of energy", "kind": "primitive", "tier": 0, "defines": "The total energy in a closed system remains constant, modified to include mass–energy conversion in nuclear processes.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "conservation_of_momentum", "label": "conservation of momentum", "kind": "primitive", "tier": 0, "defines": "The total linear and angular momentum of a closed system remains constant.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "kinetic_energy", "label": "kinetic energy", "kind": "primitive", "tier": 0, "defines": "Energy of motion, given classically by ½mv² for particles with mass.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "wave_function", "label": "wave function", "kind": "primitive", "tier": 0, "defines": "A quantum mechanical function whose square gives the probability of finding a particle at a given location.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "ionization", "label": "ionization", "kind": "primitive", "tier": 0, "defines": "The process of removing electrons from atoms or molecules, requiring only a few eV of energy per event.", "prereqs": [], "verifier": "", "lab": "", "play": "", "color": {"background": "#fffde7", "border": "#795548"}, "font": {"size": 13}}, {"id": "radioactivity", "label": "radioactivity", "kind": "concept", "tier": 1, "defines": "The spontaneous emission of radiation by unstable nuclei that convert part of their mass into energy.", "prereqs": ["nucleus", "mass_energy_equivalence"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "nucleon", "label": "nucleon", "kind": "concept", "tier": 1, "defines": "A constituent particle of the nucleus, either a proton or a neutron.", "prereqs": ["proton", "neutron"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "atomic_number", "label": "atomic number", "kind": "concept", "tier": 1, "defines": "The number of protons Z in a nucleus, which uniquely identifies the element.", "prereqs": ["nucleus", "proton"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "antimatter", "label": "antimatter", "kind": "concept", "tier": 1, "defines": "Particles that are counterparts to ordinary matter with opposite charge, including positrons and antineutrinos.", "prereqs": ["electron"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "potential_energy_barrier", "label": "potential energy barrier", "kind": "concept", "tier": 1, "defines": "A region of high potential energy that classically confines a particle but can be penetrated quantum mechanically.", "prereqs": ["kinetic_energy"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "nuclear_radiation", "label": "nuclear radiation", "kind": "concept", "tier": 2, "defines": "Energetic rays originating from nuclei, including alpha, beta, and gamma radiation, with energies on the order of MeV.", "prereqs": ["radioactivity"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "unified_atomic_mass_unit", "label": "unified atomic mass unit", "kind": "concept", "tier": 2, "defines": "A mass unit defined so that carbon-12 has exactly 12 u, with 1 u = 931.5 MeV/c².", "prereqs": ["nucleon", "mass_energy_equivalence"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "mass_number", "label": "mass number", "kind": "concept", "tier": 2, "defines": "The total number of nucleons A = Z + N in a nucleus.", "prereqs": ["atomic_number", "nucleon"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "strong_nuclear_force", "label": "strong nuclear force", "kind": "concept", "tier": 2, "defines": "A very short-range attractive force between nucleons about 100 times stronger than the Coulomb force, responsible for holding nuclei together.", "prereqs": ["nucleon", "electromagnetic_force"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "weak_nuclear_force", "label": "weak nuclear force", "kind": "concept", "tier": 2, "defines": "A very short-range nuclear force distinct from the strong force, responsible for beta decay.", "prereqs": ["nucleon"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "quantum_tunneling", "label": "quantum tunneling", "kind": "concept", "tier": 2, "defines": "A quantum process in which a particle penetrates a potential energy barrier it classically lacks the energy to surmount.", "prereqs": ["wave_function", "potential_energy_barrier"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "conservation_of_electron_family_number", "label": "conservation of electron family number", "kind": "concept", "tier": 2, "defines": "The total electron family number remains constant in any process, requiring creation of antimatter counterparts when electrons or positrons are produced.", "prereqs": ["electron", "antimatter"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "alpha_radiation", "label": "alpha radiation", "kind": "concept", "tier": 3, "defines": "Nuclear radiation consisting of helium-4 nuclei (two protons and two neutrons) with the shortest range and strongest ionizing ability.", "prereqs": ["nuclear_radiation", "proton", "neutron"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "beta_radiation", "label": "beta radiation", "kind": "concept", "tier": 3, "defines": "Nuclear radiation consisting of electrons or positrons emitted from the nucleus, with intermediate range and ionizing ability.", "prereqs": ["nuclear_radiation", "electron"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "gamma_radiation", "label": "gamma radiation", "kind": "concept", "tier": 3, "defines": "Nuclear radiation consisting of high-energy photons emitted by nuclei, uncharged, with the greatest range and least ionizing ability.", "prereqs": ["nuclear_radiation", "photon"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "ionizing_radiation", "label": "ionizing radiation", "kind": "concept", "tier": 3, "defines": "Any radiation with sufficient energy per event to ionize atoms and molecules, whether nuclear in origin or not.", "prereqs": ["nuclear_radiation", "ionization"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "nuclide", "label": "nuclide", "kind": "concept", "tier": 3, "defines": "A specific nuclear species defined by a unique combination of protons (Z) and neutrons (N).", "prereqs": ["atomic_number", "mass_number"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "mass_defect", "label": "mass defect", "kind": "concept", "tier": 3, "defines": "The difference between the total mass of a nucleus’s separate nucleons and the actual mass of the nucleus.", "prereqs": ["nucleon", "unified_atomic_mass_unit"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "neutrino", "label": "neutrino", "kind": "concept", "tier": 3, "defines": "A nearly massless, uncharged fermion emitted in beta decay that interacts only via the weak nuclear force.", "prereqs": ["weak_nuclear_force", "conservation_of_energy", "conservation_of_momentum"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "nuclear_radius", "label": "nuclear radius", "kind": "concept", "tier": 3, "defines": "The approximate radius of a nucleus given by r = r₀A^(1/3), implying nuclear volume is proportional to the number of nucleons.", "prereqs": ["mass_number"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "range_of_radiation", "label": "range of radiation", "kind": "concept", "tier": 4, "defines": "The distance radiation can travel through a material, determined by energy, charge, speed, and the material’s electron density.", "prereqs": ["ionizing_radiation"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "radiation_detector", "label": "radiation detector", "kind": "concept", "tier": 4, "defines": "An instrument that detects ionizing radiation based on the ionization it produces in matter.", "prereqs": ["ionizing_radiation"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "isotope", "label": "isotope", "kind": "concept", "tier": 4, "defines": "Nuclei of the same element (same Z) that differ in the number of neutrons, with nearly identical chemistry but different nuclear properties.", "prereqs": ["nuclide"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "chart_of_nuclides", "label": "chart of nuclides", "kind": "concept", "tier": 4, "defines": "A plot of N versus Z for known nuclides that reveals patterns in nuclear stability, abundance, and decay modes.", "prereqs": ["nuclide"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "magic_numbers", "label": "magic numbers", "kind": "concept", "tier": 4, "defines": "Specific numbers of protons or neutrons that correspond to closed nuclear shells and greater stability.", "prereqs": ["nuclide", "strong_nuclear_force"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "binding_energy", "label": "binding energy", "kind": "concept", "tier": 4, "defines": "The energy required to completely disassemble a nucleus into separate protons and neutrons, equal to the mass defect times c².", "prereqs": ["mass_defect", "mass_energy_equivalence"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "nuclear_decay", "label": "nuclear decay", "kind": "concept", "tier": 4, "defines": "The process by which an unstable parent nucleus transforms into a daughter nucleus by emitting particles or radiation, obeying conservation laws.", "prereqs": ["radioactivity", "nuclide", "conservation_of_energy", "conservation_of_momentum"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "decay_series", "label": "decay series", "kind": "concept", "tier": 5, "defines": "A sequence of successive nuclear decays from an unstable parent through intermediate daughters until a stable nuclide is produced.", "prereqs": ["nuclear_decay"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "alpha_decay", "label": "alpha decay", "kind": "concept", "tier": 5, "defines": "Nuclear decay in which a parent nucleus emits a helium-4 nucleus, reducing Z by 2 and A by 4.", "prereqs": ["nuclear_decay", "alpha_radiation"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "beta_minus_decay", "label": "beta minus decay", "kind": "concept", "tier": 5, "defines": "Nuclear decay in which a neutron converts into a proton with emission of an electron and an antineutrino.", "prereqs": ["nuclear_decay", "beta_radiation", "weak_nuclear_force", "neutrino"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "positron_decay", "label": "positron decay", "kind": "concept", "tier": 5, "defines": "Nuclear decay in which a proton converts into a neutron with emission of a positron and a neutrino.", "prereqs": ["nuclear_decay", "weak_nuclear_force", "neutrino", "antimatter"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "electron_capture", "label": "electron capture", "kind": "concept", "tier": 5, "defines": "A nuclear decay process in which a nucleus absorbs an inner-shell electron, converting a proton to a neutron and emitting a neutrino.", "prereqs": ["nuclear_decay", "weak_nuclear_force", "neutrino", "electron"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "gamma_decay", "label": "gamma decay", "kind": "concept", "tier": 5, "defines": "Nuclear decay in which an excited nucleus emits a high-energy photon without changing Z or A.", "prereqs": ["nuclear_decay", "gamma_radiation"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "nuclear_reaction_energy", "label": "nuclear reaction energy", "kind": "concept", "tier": 5, "defines": "The energy released or absorbed in a nuclear decay, given by Q = (Δm)c².", "prereqs": ["nuclear_decay", "mass_energy_equivalence"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "half_life", "label": "half life", "kind": "concept", "tier": 5, "defines": "The time interval during which a radioactive nucleus has a 50% probability of decaying.", "prereqs": ["nuclear_decay"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "binding_energy_per_nucleon", "label": "binding energy per nucleon", "kind": "concept", "tier": 5, "defines": "The binding energy divided by mass number (BE/A), averaging about 8 MeV and peaking near A ≈ 60.", "prereqs": ["binding_energy", "mass_number"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "decay_constant", "label": "decay constant", "kind": "concept", "tier": 6, "defines": "The quantity λ = 0.693/t½ that governs the rate of exponential radioactive decay.", "prereqs": ["half_life"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "exponential_decay_law", "label": "exponential decay law", "kind": "concept", "tier": 7, "defines": "The number of radioactive nuclei decreases as N = N₀e^(−λt).", "prereqs": ["decay_constant"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "activity", "label": "activity", "kind": "concept", "tier": 8, "defines": "The rate of radioactive decay in decays per unit time, expressed in becquerels or curies.", "prereqs": ["exponential_decay_law"], "verifier": "", "lab": "", "play": "", "color": {"background": "#e8f5e9", "border": "#2e7d32"}, "font": {"size": 13}}, {"id": "geiger_tube", "label": "geiger tube", "kind": "application", "tier": 5, "defines": "A gas-filled radiation detector that registers counts when ionizing radiation creates ion pairs attracted to electrodes.", "prereqs": ["radiation_detector"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "scintillator", "label": "scintillator", "kind": "application", "tier": 5, "defines": "A radiation detection material that converts radiation energy into brief flashes of light.", "prereqs": ["radiation_detector"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "solid_state_detector", "label": "solid state detector", "kind": "application", "tier": 5, "defines": "A semiconductor device that converts ionization produced by radiation into an electrical signal proportional to deposited energy.", "prereqs": ["radiation_detector"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "photomultiplier", "label": "photomultiplier", "kind": "application", "tier": 6, "defines": "A device that converts scintillator light into amplified electrical signals using cascaded photoelectric-effect stages.", "prereqs": ["scintillator", "photon"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}, {"id": "radioactive_dating", "label": "radioactive dating", "kind": "application", "tier": 8, "defines": "A technique for determining the age of materials by measuring the remaining fraction of a radioactive isotope.", "prereqs": ["exponential_decay_law", "isotope"], "verifier": "", "lab": "", "play": "", "color": {"background": "#fce4ec", "border": "#c62828"}, "font": {"size": 13}}], "edges": [{"from": "nucleus", "to": "radioactivity"}, {"from": "nucleus", "to": "atomic_number"}, {"from": "proton", "to": "nucleon"}, {"from": "proton", "to": "atomic_number"}, {"from": "proton", "to": "alpha_radiation"}, {"from": "neutron", "to": "nucleon"}, {"from": "neutron", "to": "alpha_radiation"}, {"from": "electron", "to": "antimatter"}, {"from": "electron", "to": "conservation_of_electron_family_number"}, {"from": "electron", "to": "beta_radiation"}, {"from": "electron", "to": "electron_capture"}, {"from": "electromagnetic_force", "to": "strong_nuclear_force"}, {"from": "mass_energy_equivalence", "to": "radioactivity"}, {"from": "mass_energy_equivalence", "to": "unified_atomic_mass_unit"}, {"from": "mass_energy_equivalence", "to": "binding_energy"}, {"from": "mass_energy_equivalence", "to": "nuclear_reaction_energy"}, {"from": "photon", "to": "gamma_radiation"}, {"from": "photon", "to": "photomultiplier"}, {"from": "conservation_of_energy", "to": "neutrino"}, {"from": "conservation_of_energy", "to": "nuclear_decay"}, {"from": "conservation_of_momentum", "to": "neutrino"}, {"from": "conservation_of_momentum", "to": "nuclear_decay"}, {"from": "kinetic_energy", "to": "potential_energy_barrier"}, {"from": "wave_function", "to": "quantum_tunneling"}, {"from": "ionization", "to": "ionizing_radiation"}, {"from": "radioactivity", "to": "nuclear_radiation"}, {"from": "radioactivity", "to": "nuclear_decay"}, {"from": "nucleon", "to": "unified_atomic_mass_unit"}, {"from": "nucleon", "to": "mass_number"}, {"from": "nucleon", "to": "strong_nuclear_force"}, {"from": "nucleon", "to": "weak_nuclear_force"}, {"from": "nucleon", "to": "mass_defect"}, {"from": "atomic_number", "to": "mass_number"}, {"from": "atomic_number", "to": "nuclide"}, {"from": "antimatter", "to": "conservation_of_electron_family_number"}, {"from": "antimatter", "to": "positron_decay"}, {"from": "potential_energy_barrier", "to": "quantum_tunneling"}, {"from": "nuclear_radiation", "to": "alpha_radiation"}, {"from": "nuclear_radiation", "to": "beta_radiation"}, {"from": "nuclear_radiation", "to": "gamma_radiation"}, {"from": "nuclear_radiation", "to": "ionizing_radiation"}, {"from": "unified_atomic_mass_unit", "to": "mass_defect"}, {"from": "mass_number", "to": "nuclide"}, {"from": "mass_number", "to": "nuclear_radius"}, {"from": "mass_number", "to": "binding_energy_per_nucleon"}, {"from": "strong_nuclear_force", "to": "magic_numbers"}, {"from": "weak_nuclear_force", "to": "neutrino"}, {"from": "weak_nuclear_force", "to": "beta_minus_decay"}, {"from": "weak_nuclear_force", "to": "positron_decay"}, {"from": "weak_nuclear_force", "to": "electron_capture"}, {"from": "alpha_radiation", "to": "alpha_decay"}, {"from": "beta_radiation", "to": "beta_minus_decay"}, {"from": "gamma_radiation", "to": "gamma_decay"}, {"from": "ionizing_radiation", "to": "range_of_radiation"}, {"from": "ionizing_radiation", "to": "radiation_detector"}, {"from": "nuclide", "to": "isotope"}, {"from": "nuclide", "to": "chart_of_nuclides"}, {"from": "nuclide", "to": "magic_numbers"}, {"from": "nuclide", "to": "nuclear_decay"}, {"from": "mass_defect", "to": "binding_energy"}, {"from": "neutrino", "to": "beta_minus_decay"}, {"from": "neutrino", "to": "positron_decay"}, {"from": "neutrino", "to": "electron_capture"}, {"from": "radiation_detector", "to": "geiger_tube"}, {"from": "radiation_detector", "to": "scintillator"}, {"from": "radiation_detector", "to": "solid_state_detector"}, {"from": "isotope", "to": "radioactive_dating"}, {"from": "binding_energy", "to": "binding_energy_per_nucleon"}, {"from": "nuclear_decay", "to": "decay_series"}, {"from": "nuclear_decay", "to": "alpha_decay"}, {"from": "nuclear_decay", "to": "beta_minus_decay"}, {"from": "nuclear_decay", "to": "positron_decay"}, {"from": "nuclear_decay", "to": "electron_capture"}, {"from": "nuclear_decay", "to": "gamma_decay"}, {"from": "nuclear_decay", "to": "nuclear_reaction_energy"}, {"from": "nuclear_decay", "to": "half_life"}, {"from": "half_life", "to": "decay_constant"}, {"from": "decay_constant", "to": "exponential_decay_law"}, {"from": "exponential_decay_law", "to": "activity"}, {"from": "exponential_decay_law", "to": "radioactive_dating"}, {"from": "scintillator", "to": "photomultiplier"}]};
+const DOMAIN_KEY = "graph";
+
+// ── index ──────────────────────────────────────────────────────────────────
+const nodeIndex = {};
+RAW.nodes.forEach(n => nodeIndex[n.id] = n);
+
+const prereqOf  = {};  // id → ids that are direct prerequisites OF id
+const dependsOn = {};  // id → ids that id feeds into
+RAW.nodes.forEach(n => { prereqOf[n.id] = []; dependsOn[n.id] = []; });
+RAW.edges.forEach(e => {
+  prereqOf[e.to].push(e.from);
+  dependsOn[e.from].push(e.to);
+});
+
+// ── BFS longest-path levels (fixes application nodes at wrong tier) ─────────
+const bfsLevels = (() => {
+  const levels = {};
+  const successors = {};
+  RAW.nodes.forEach(n => { levels[n.id] = -1; successors[n.id] = []; });
+  RAW.edges.forEach(e => successors[e.from].push(e.to));
+  const sources = RAW.nodes.filter(n => !RAW.edges.some(e => e.to === n.id));
+  const queue = sources.map(n => n.id);
+  queue.forEach(n => levels[n] = 0);
+  let i = 0;
+  while (i < queue.length) {
+    const cur = queue[i++];
+    for (const succ of successors[cur]) {
+      const nl = levels[cur] + 1;
+      if (levels[succ] < nl) { levels[succ] = nl; queue.push(succ); }
+    }
+  }
+  return levels;
+})();
+
+// ── graph algorithms ────────────────────────────────────────────────────────
+function getAncestors(targetId) {
+  const visited = new Set();
+  const queue = [targetId];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const p of prereqOf[cur])
+      if (!visited.has(p)) { visited.add(p); queue.push(p); }
+  }
+  return visited;
+}
+
+function topoSort(nodeSet) {
+  const inDeg = {};
+  nodeSet.forEach(n => inDeg[n] = 0);
+  nodeSet.forEach(n => { for (const p of prereqOf[n]) if (nodeSet.has(p)) inDeg[n]++; });
+  const reach = {};
+  nodeSet.forEach(n => {
+    let r = 0;
+    nodeSet.forEach(m => { if (m !== n && getAncestors(m).has(n)) r++; });
+    reach[n] = r;
+  });
+  const heap = [];
+  nodeSet.forEach(n => { if (inDeg[n] === 0) heap.push(n); });
+  heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+  const result = [];
+  while (heap.length) {
+    const node = heap.shift();
+    result.push(node);
+    for (const succ of dependsOn[node]) {
+      if (!nodeSet.has(succ)) continue;
+      if (--inDeg[succ] === 0) {
+        heap.push(succ);
+        heap.sort((a, b) => (reach[b] - reach[a]) || a.localeCompare(b));
+      }
+    }
+  }
+  return result;
+}
+
+// ── vis.js network ──────────────────────────────────────────────────────────
+const container = document.getElementById('graph-container');
+const visNodes = new vis.DataSet(RAW.nodes.map(n => ({
+  id: n.id,
+  label: n.label.replace(/ /g, '\n'),
+  level: bfsLevels[n.id] !== undefined ? bfsLevels[n.id] : n.tier,
+  color: n.color,
+  font: n.font,
+  title: `<b>${n.label}</b> [${n.kind}]<br>${n.defines || ''}`,
+  shape: n.kind === 'concept' ? 'ellipse' : 'box',
+})));
+const visEdges = new vis.DataSet(RAW.edges.map((e, i) => ({
+  id: i, from: e.from, to: e.to,
+  arrows: 'to', color: {color: '#c8ccd4'}, width: 1,
+})));
+const network = new vis.Network(container, {nodes: visNodes, edges: visEdges}, {
+  layout: { hierarchical: {
+    enabled: true, direction: 'UD',
+    sortMethod: 'directed', levelSeparation: 85, nodeSpacing: 130,
+  } },
+  physics: { enabled: false },
+  interaction: { hover: true, tooltipDelay: 150 },
+  edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical' } },
+});
+
+// Compact layout: group by tier, sort alphabetically, left-align all nodes.
+network.once('afterDrawing', function() {
+  const pos = network.getPositions();
+  const spacing = 140;
+
+  // Group nodes by their BFS tier
+  const byTier = {};
+  RAW.nodes.forEach(n => {
+    const tier = bfsLevels[n.id] ?? n.tier ?? 0;
+    if (!byTier[tier]) byTier[tier] = [];
+    byTier[tier].push(n.id);
+  });
+
+  // Sort each tier alphabetically, assign X starting from 0
+  const tiers = Object.keys(byTier).map(Number).sort((a, b) => a - b);
+  const tierSep = 85;
+  tiers.forEach((tier, ti) => {
+    const ids = byTier[tier].sort();
+    const y = ti * tierSep;
+    ids.forEach((id, i) => {
+      network.moveNode(id, i * spacing, y);
+    });
+  });
+
+  network.fit({ animation: false });
+});
+
+function reCenterGraph() {
+  network.fit({ animation: true });
+}
+
+const C_PATH   = {background: '#fff9c4', border: '#f9a825'};
+const C_TARGET = {background: '#ffe082', border: '#e65100'};
+
+function resetColors() {
+  visNodes.update(RAW.nodes.map(n => ({id: n.id, color: n.color})));
+  visEdges.update(RAW.edges.map((e, i) => ({id: i, color: {color: '#c8ccd4'}, width: 1})));
+}
+
+// ── explanation panel ───────────────────────────────────────────────────────
+function renderExplanation(node) {
+  const kclass = node.kind;
+  const prereqChips = (node.prereqs || []).map(p =>
+    `<span class="prereq-chip" onclick="selectNode('${p}')">${p.replace(/_/g,' ')}</span>`
+  ).join('');
+  const metaItems = [
+    node.verifier ? `<span class="meta-item"><b>Verifier:</b> ${node.verifier}</span>` : '',
+    node.lab      ? `<span class="meta-item"><b>Lab:</b> ${node.lab}</span>` : '',
+  ].filter(Boolean).join('');
+  const playHtml = node.play
+    ? `<div class="section-label">Try it</div><div class="play-hint">${node.play}</div>`
+    : '';
+
+  const panel = document.getElementById('explain-panel');
+  panel.innerHTML = `
+    <div class="node-title">
+      <h2>${node.label}</h2>
+      <span class="badge ${kclass}">${kclass}</span>
+      <span class="tier-tag">BFS level ${bfsLevels[node.id] ?? node.tier}</span>
+    </div>
+    ${node.defines ? `<div class="defines">${node.defines}</div>` : ''}
+    ${prereqChips ? `<div class="section-label">Prerequisites</div><div class="prereq-list">${prereqChips}</div>` : ''}
+    ${metaItems ? `<div class="meta-row">${metaItems}</div>` : ''}
+    ${playHtml}
+  `;
+
+  // ── concept HTML detail ──
+  const conceptsBase = window.__cb_CONCEPTS_BASE;
+  const conceptUrls = window.__cb_CONCEPT_URLS || {};
+  const mappedUrl = conceptUrls[node.id];
+  if (mappedUrl || conceptsBase) {
+    const conceptUrl = mappedUrl || (conceptsBase + 'concept_' + encodeURIComponent(node.id) + '.html');
+    const detail = document.createElement('div');
+    detail.id = 'concept-detail';
+    detail.innerHTML = '<div class="section-label">Concept Detail</div><div class="concept-loading" style="color:#aaa;font-size:12px;padding:6px 0">Loading…</div>';
+    panel.appendChild(detail);
+    fetch(conceptUrl)
+      .then(r => {
+        if (!r.ok) throw new Error('not found');
+        return r.text();
+      })
+      .then(html => {
+        const slot = detail.querySelector('.concept-loading');
+        if (!slot) return;
+        // Vite dev server returns the SPA index.html (200) for missing static files.
+        // Verify we got a real concept page by checking for a known marker.
+        if (html.includes('spl-credit') || html.includes('Powered by')) {
+          const iframe = document.createElement('iframe');
+          iframe.id = 'concept-iframe';
+          iframe.src = conceptUrl;
+          slot.replaceWith(iframe);
+        } else {
+          slot.className = 'concept-not-found';
+          slot.textContent = 'Content not found — generate it first.';
+        }
+      })
+      .catch(() => {
+        const slot = detail.querySelector('.concept-loading');
+        if (slot) { slot.className = 'concept-not-found'; slot.textContent = 'Content not found — generate it first.'; }
+      });
+  }
+}
+
+// ── learning path sidebar ───────────────────────────────────────────────────
+function renderPathSidebar(orderedPath, targetId) {
+  const stepsEl = document.getElementById('path-steps');
+  const countEl = document.getElementById('path-count');
+  countEl.textContent = orderedPath.length
+    ? `${orderedPath.length} step${orderedPath.length !== 1 ? 's' : ''} to learn first`
+    : 'Root concept — no prerequisites';
+
+  const target = nodeIndex[targetId];
+  const kc = k => `${k.charAt(0).toUpperCase() + k.slice(1)}`;
+
+  stepsEl.innerHTML = orderedPath.map((n, i) => {
+    const nd = nodeIndex[n];
+    return `<div class="step-item" onclick="selectNode('${n}')">
+      <span class="step-num">${i + 1}.</span>
+      <div>
+        <div class="step-label">${nd.label}
+          <span class="step-kind ${nd.kind}-k">${nd.kind}</span>
+        </div>
+        ${nd.defines ? `<div class="step-def">${nd.defines}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('') + `<div class="step-item target">
+    <span class="step-num">▶</span>
+    <div>
+      <div class="step-label">${target.label}
+        <span class="step-kind ${target.kind}-k">${target.kind}</span>
+      </div>
+      ${target.defines ? `<div class="step-def">${target.defines}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+// ── notes (localStorage) ────────────────────────────────────────────────────
+let currentNodeId = null;
+
+function noteKey(nodeId) { return `concept_notes_${DOMAIN_KEY}_${nodeId}`; }
+
+function loadNote(nodeId) {
+  const parsed = _parseNote(localStorage.getItem(noteKey(nodeId)));
+  return parsed ? parsed.text : '';
+}
+
+function saveNote(nodeId, text) {
+  if (text.trim()) {
+    const data = JSON.stringify({ text, ts: new Date().toISOString() });
+    localStorage.setItem(noteKey(nodeId), data);
+  } else {
+    localStorage.removeItem(noteKey(nodeId));
+  }
+  renderNotesList();
+}
+
+function _parseNote(raw) {
+  if (!raw) return null;
+  try { const d = JSON.parse(raw); return { text: d.text || '', ts: d.ts || '' }; }
+  catch (_) { return { text: raw, ts: '' }; }
+}
+
+function _fmtTs(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  const yy = d.getFullYear();
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  const hh = String(d.getHours()).padStart(2,'0');
+  const mi = String(d.getMinutes()).padStart(2,'0');
+  return `${yy}-${mm}-${dd} ${hh}:${mi}`;
+}
+
+function renderNotesList() {
+  const container = document.getElementById('notes-with-entries');
+  const entries = RAW.nodes
+    .filter(n => localStorage.getItem(noteKey(n.id)))
+    .map(n => {
+      const parsed = _parseNote(localStorage.getItem(noteKey(n.id)));
+      return {id: n.id, label: n.label, preview: (parsed?.text || '').slice(0, 60), ts: parsed?.ts || ''};
+    });
+  if (!entries.length) { container.innerHTML = ''; return; }
+  container.innerHTML = entries.map(e =>
+    `<div class="note-entry" onclick="selectNode('${e.id}')">
+      <div class="note-node">${e.label}<span class="note-ts">${_fmtTs(e.ts)}</span></div>
+      <div class="note-preview">${e.preview}</div>
+    </div>`
+  ).join('');
+}
+
+function switchNotes(nodeId) {
+  if (currentNodeId !== null) {
+    saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+  }
+  currentNodeId = nodeId;
+  document.getElementById('notes-textarea').value = loadNote(nodeId);
+  document.getElementById('notes-node-label').textContent =
+    nodeIndex[nodeId]?.label || nodeId;
+}
+
+function clearNote() {
+  if (!currentNodeId) return;
+  document.getElementById('notes-textarea').value = '';
+  saveNote(currentNodeId, '');
+  const btn = document.getElementById('nb-clear-btn');
+  if (btn) { btn.textContent = 'Cleared!'; setTimeout(() => { btn.textContent = 'Clear'; }, 1000); }
+}
+
+function exportNotes() {
+  const notes = {};
+  RAW.nodes.forEach(n => {
+    const v = localStorage.getItem(noteKey(n.id));
+    if (v) notes[n.id] = v;
+  });
+  const blob = new Blob([JSON.stringify(notes, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${DOMAIN_KEY}_notes.json`;
+  a.click();
+}
+
+document.getElementById('notes-textarea').addEventListener('input', () => {
+  if (currentNodeId) saveNote(currentNodeId, document.getElementById('notes-textarea').value);
+});
+
+// ── unified node select ─────────────────────────────────────────────────────
+function selectNode(nodeId) {
+  if (!nodeIndex[nodeId]) return;
+  network.selectNodes([nodeId]);
+  handleSelect(nodeId);
+}
+
+function handleSelect(targetId) {
+  const node = nodeIndex[targetId];
+
+  renderExplanation(node);
+  switchNotes(targetId);
+
+  const ancestors = getAncestors(targetId);
+  const pathSet = new Set([...ancestors]);
+  const orderedPath = topoSort(pathSet);
+
+  renderPathSidebar(orderedPath, targetId);
+
+  resetColors();
+  visNodes.update(orderedPath.map(n => ({id: n, color: C_PATH})));
+  visNodes.update([{id: targetId, color: C_TARGET}]);
+  visEdges.update(RAW.edges.map((e, i) => {
+    const inPath = pathSet.has(e.from) && (pathSet.has(e.to) || e.to === targetId);
+    return {id: i, color: {color: inPath ? '#f9a825' : '#c8ccd4'}, width: inPath ? 2 : 1};
+  }));
+}
+
+network.on('click', params => {
+  if (params.nodes.length) handleSelect(params.nodes[0]);
+});
+
+// initialise notes list on load
+renderNotesList();
+
+// When viewed directly (not in an iframe), inject a back link next to the
+// "Learning Path" heading so it doesn't look like a title-bar element.
+if (window.parent === window) {
+  var h1 = document.querySelector('#path-header h1');
+  if (h1) {
+    var backLink = document.createElement('a');
+    backLink.href = '../../';
+    backLink.textContent = '← App';
+    backLink.style.cssText = [
+      'font-size:10px','color:#2563eb','font-family:system-ui,sans-serif',
+      'text-decoration:none','font-weight:400','letter-spacing:normal',
+      'text-transform:none','white-space:nowrap','flex-shrink:0'
+    ].join(';');
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:baseline;gap:8px;';
+    h1.parentNode.insertBefore(row, h1);
+    row.appendChild(h1);
+    row.appendChild(backLink);
+  }
+}
+</script>
+</body>
+</html>

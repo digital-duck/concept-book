@@ -1,0 +1,210 @@
+domain: medicine
+primitives:
+  anatomy:
+    symbol: Σ(structures)
+    defines: first radical — the spatial organization of the body's structures; the map that
+      every intervention, diagnosis, and drug target is located on; taken as given within
+      medicine (biology explains its origins)
+    tier: 0
+  physiology:
+    symbol: f(t) = normal
+    defines: first radical — the dynamic function of living systems at baseline; homeostatic
+      set points, normal ranges, and the feedback loops that maintain them; the "what the body
+      does when healthy" floor
+    tier: 0
+  pathogen:
+    symbol: P (infectious agent)
+    defines: second radical — a foreign agent (virus, bacterium, fungus, parasite) capable
+      of disrupting physiology; not derivable from anatomy or physiology alone; the exogenous
+      driver of infectious disease
+    tier: 0
+  receptor:
+    symbol: R (molecular lock)
+    defines: second radical — a protein that binds a specific ligand (hormone, drug, neurotransmitter)
+      and transduces a signal; the molecular interface between pharmacology and physiology;
+      selectivity lives here
+    tier: 0
+first_radical_primitives:
+- anatomy
+- physiology
+concepts:
+  symptom:
+    composed_of:
+    - physiology
+    defines: subjective departure from normal physiological function as reported by the patient
+      — pain, fatigue, dyspnea; the raw signal; same phenomenon as an engineering sensor deviation
+      from set point
+    verifier: structural
+    lab: graph_lib.verify_character_lego (symptom = deviation from physiology baseline)
+    tier: 1
+  sign:
+    composed_of:
+    - anatomy
+    - physiology
+    defines: objective, measurable deviation detected by examination — blood pressure, heart
+      rate, auscultation finding; distinct from symptom in that the clinician, not the patient,
+      makes the observation
+    verifier: structural
+    lab: graph_lib.verify_character_lego (sign = observable from anatomy + physiology)
+    tier: 1
+  inflammation:
+    composed_of:
+    - physiology
+    - pathogen
+    defines: the stereotyped vascular and cellular response to tissue injury or infection —
+      redness, heat, swelling, pain, loss of function; the body's first responder; both
+      protective and pathological when chronic
+    verifier: python
+    lab: "python (simulate cytokine cascade: model TNF-α, IL-6 dynamics with ODEs; verify
+      resolution when pathogen load = 0)"
+    play: model the fever response — pathogen → pyrogens → hypothalamus set-point rise →
+      fever; confirm negative feedback drives temperature back after pathogen clearance
+    tier: 2
+  immune_response:
+    composed_of:
+    - physiology
+    - pathogen
+    - receptor
+    defines: innate (immediate, non-specific) and adaptive (delayed, antigen-specific) arms —
+      innate fires first; adaptive learns the antigen via receptor rearrangement and mounts
+      targeted attack; memory cells make the second exposure faster
+    verifier: python
+    lab: python (SIR model for innate; clonal expansion model for adaptive; compare peak
+      pathogen loads with and without adaptive arm)
+    play: run SIR with R₀ = 3 (measles-like); then add a memory arm that reduces susceptibility
+      by 90% on re-exposure and watch the second outbreak collapse
+    tier: 3
+  diagnosis:
+    composed_of:
+    - symptom
+    - sign
+    - anatomy
+    - physiology
+    defines: mapping a clinical presentation (symptoms + signs + tests) onto a disease entity —
+      the probabilistic inference step; Bayes' theorem in practice; prior = prevalence,
+      likelihood = test sensitivity/specificity
+    verifier: python
+    lab: "python (implement Bayesian update: P(disease|test) = P(test|disease)P(disease)/P(test);
+      compute post-test probability for a given sensitivity and specificity)"
+    play: disease prevalence 1%, test sensitivity 95%, specificity 90% — compute P(disease | positive test);
+      the answer (~8.7%) surprises most clinicians
+    tier: 3
+  pharmacokinetics:
+    composed_of:
+    - physiology
+    - receptor
+    defines: what the body does to a drug — absorption, distribution, metabolism, excretion
+      (ADME); described by compartmental ODE models; Cmax, Tmax, half-life, AUC are all
+      derived from these equations
+    verifier: python
+    lab: "python (one-compartment model: dC/dt = -k_el * C; solve analytically and numerically;
+      compare half-life t₁/₂ = ln(2)/k_el)"
+    play: give an IV bolus of dose D; integrate C(t) = D/Vd * exp(-k_el * t); mark the
+      time when concentration falls to MIC (minimum inhibitory concentration)
+    tier: 3
+  pharmacodynamics:
+    composed_of:
+    - receptor
+    - physiology
+    defines: what the drug does to the body — concentration-effect relationship, mediated by
+      receptor binding; the Hill equation E = Emax * C^n / (EC50^n + C^n) models graded
+      responses; Kd governs receptor occupancy
+    verifier: python
+    lab: python (plot Hill curve for n=1,2,4; compute EC50 from Kd and Bmax)
+    play: vary the Hill coefficient n; observe how increasing n sharpens the switch-like response;
+      discuss why ion channels (n ~ 2–4) respond more sharply than G-protein coupled receptors
+    tier: 3
+  treatment:
+    composed_of:
+    - diagnosis
+    - pharmacokinetics
+    - pharmacodynamics
+    defines: an intervention (pharmacological, surgical, behavioral) whose dose, timing, and
+      route are chosen to move the patient's state toward physiology baseline while minimizing
+      harm; therapeutic window = the dose range between efficacy and toxicity
+    verifier: python
+    lab: "python (PK/PD simulation: dosing regimen → C(t) → effect E(t); optimize regimen to
+      keep C within therapeutic window)"
+    play: compute a twice-daily dosing regimen for an antibiotic with half-life 8 h; verify
+      trough concentration stays above MIC and peak stays below toxic threshold
+    tier: 4
+  epidemiology:
+    composed_of:
+    - pathogen
+    - immune_response
+    - physiology
+    defines: the study of disease distribution and determinants in populations — incidence,
+      prevalence, risk factors, reproductive number R₀; the field that connects individual
+      pathophysiology to population-level spread
+    verifier: python
+    lab: python (SEIR model with births/deaths; compute R₀ = β/γ; find herd immunity threshold
+      1 - 1/R₀)
+    play: run SEIR for COVID-like parameters (R₀ ≈ 3); compute herd immunity threshold (~67%);
+      then vaccinate that fraction and verify the epidemic dies out
+    tier: 4
+  surgery:
+    composed_of:
+    - anatomy
+    - diagnosis
+    defines: direct mechanical intervention on anatomical structures to treat pathology —
+      requires precise spatial knowledge of anatomy and a clear indication from diagnosis;
+      the original evidence-based intervention
+    verifier: structural
+    lab: graph_lib.verify_character_lego (surgery depends on anatomy map + diagnosis indication)
+    play: "for appendectomy: locate the appendix (anatomy); confirm appendicitis (diagnosis);
+      list the tissue layers traversed (anatomy applied sequentially)"
+    tier: 4
+  clinical_trial:
+    composed_of:
+    - treatment
+    - epidemiology
+    defines: controlled experiment to determine whether a treatment causes improvement beyond
+      placebo/standard-of-care; the randomized controlled trial (RCT) is the gold standard —
+      randomization balances confounders, blinding prevents measurement bias
+    verifier: python
+    lab: python (simulate a 2-arm RCT; compute power = P(reject H₀ | H₁ true) as function of
+      n and effect size; verify sample size formula n = 2(z_α + z_β)²σ²/δ²)
+    play: compute the sample size needed to detect a 5 mmHg blood pressure reduction (σ = 15 mmHg,
+      α = 0.05, power = 80%); n ≈ 142 per arm
+    tier: 5
+applications:
+  precision_medicine:
+    needs:
+    - diagnosis
+    - pharmacodynamics
+    - pharmacokinetics
+    domain: genomic medicine / oncology
+    defines: matching treatment to the patient's genetic and molecular profile — the receptor
+      target and ADME parameters encoded in the genome; moving from population-average
+      dosing to individual optimization
+  public_health:
+    needs:
+    - epidemiology
+    - immune_response
+    domain: population health / policy
+    defines: interventions at the population level — vaccination campaigns, screening programs,
+      sanitation — that exploit herd immunity and early detection to reduce disease burden
+  drug_discovery:
+    needs:
+    - receptor
+    - pharmacokinetics
+    - pharmacodynamics
+    domain: pharmaceutical science
+    defines: identifying molecules that bind the right receptor with high affinity and selectivity,
+      then optimizing ADME properties to place Cmax in the therapeutic window
+  diagnostics_ai:
+    needs:
+    - diagnosis
+    - sign
+    domain: medical AI / radiology
+    defines: machine-learning models trained to map image features or lab values (signs) to
+      disease labels (diagnoses) — Bayesian inference approximated by a neural network, with
+      sensitivity and specificity as the performance metrics
+  evidence_based_medicine:
+    needs:
+    - clinical_trial
+    - epidemiology
+    domain: medical practice / policy
+    defines: using the best available evidence (RCTs, meta-analyses) to guide treatment decisions —
+      the institutional answer to the reproducibility crisis; NNT (number needed to treat)
+      and NNH (number needed to harm) are the decision-relevant effect sizes

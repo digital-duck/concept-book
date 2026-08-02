@@ -1,0 +1,358 @@
+# "Hearing Music the LEGO Way" — concept-book music-theory graph (pilot)
+# (third structural pilot, after chinese_characters and english_morphology —
+#  same schema, same verifier: graph_lib.verify_character_lego)
+# Publisher: Digital Duck (github.com/digital-duck)
+#
+# Written for the reader who knows NOTHING about music — because the LEGO
+# claim is strongest there: Western music is built from FOUR bricks.
+# The two-radical convention maps onto music's deepest fact — it lives in
+# two independent dimensions:
+#   first radical  — FORM (PITCH): a reference note + the semitone step;
+#                    every interval, scale, and chord is semitone COUNTING
+#   second radical — OPERATOR (TIME): the beat + halving; every rhythm is
+#                    grouping beats up and splitting them down
+# Their meeting is melody — pitches placed on the time grid — and the
+# irreducibility theorem is checkable: pitch alone is never music
+# (reducible() fails from the first radical, passes with both).
+# Music's interval arithmetic is literally integers mod 12: a major triad is
+# 4+3 semitones, a minor triad is 3+4 — same bricks, swapped order is the
+# entire difference between happy and sad.
+# Target: four_chord_loop — learn 4 bricks + 3 stacking principles, and the
+# I–V–vi–IV loop behind thousands of pop songs becomes readable on sight.
+domain: music_theory
+primitives:
+  middle_c:
+    symbol: C (do)
+    defines: the reference note — the white key in the middle of every piano; not special in sound,
+      special as the agreed zero point every other note is counted from
+    tier: 0
+  semitone:
+    symbol: +1
+    defines: the smallest step in Western music — any key to its immediate neighbor, black or white;
+      ALL pitch structure is counting these
+    tier: 0
+  beat:
+    symbol: ♩ (the pulse)
+    defines: the steady tick a crowd claps to — music's unit of time, as the semitone is its unit
+      of pitch
+    tier: 0
+  halving:
+    symbol: ÷2
+    defines: the splitting operator — cut any duration in two; all rhythm finer than the beat comes
+      from repeated halving
+    tier: 0
+first_radical_primitives:
+- middle_c
+- semitone
+concepts:
+  whole_tone:
+    composed_of:
+    - semitone
+    pieces:
+    - semitone
+    - semitone
+    defines: two semitones (C→D) — repetition as construction, the simplest stack of all (the 林 of
+      this graph)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (interval = semitone count, machine-checked)
+    play: on any piano picture, walk C to D and count the keys you stepped over — there is exactly one
+      (a black key); two steps total
+    tier: 1
+  minor_third:
+    composed_of:
+    - semitone
+    pieces:
+    - semitone
+    - semitone
+    - semitone
+    defines: three semitones (C→E♭) — the "sad" color in chords, and the gap between a phone's
+      double-buzz
+    verifier: structural
+    lab: graph_lib.verify_character_lego (interval = semitone count, machine-checked)
+    play: hum the first two notes of "Greensleeves" — that drop is three semitones
+    tier: 1
+  major_third:
+    composed_of:
+    - semitone
+    pieces:
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: four semitones (C→E) — the "bright" color; with the minor third it is one of the two
+      bricks every chord stacks
+    verifier: structural
+    lab: graph_lib.verify_character_lego (interval = semitone count, machine-checked)
+    play: sing "Oh when the saints" — "Oh when" is a major third going up
+    tier: 1
+  perfect_fourth:
+    composed_of:
+    - semitone
+    pieces:
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: five semitones (C→F) — the fifth's mirror twin; 5 + 7 = 12, so fourth + fifth = exactly
+      one octave (arithmetic you can hear)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (interval = semitone count, machine-checked)
+    play: sing the opening of "Here comes the bride" — that leap is a perfect fourth; then check
+      5 + 7 = 12 on the keyboard
+    tier: 1
+  perfect_fifth:
+    composed_of:
+    - semitone
+    pieces:
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: seven semitones (C→G) — the most consonant interval after the octave; the opening of
+      "Twinkle Twinkle" and the backbone of every power chord
+    verifier: structural
+    lab: graph_lib.verify_character_lego (interval = semitone count, machine-checked)
+    play: sing "twinkle, twinkle" — the jump between the two words is seven semitones; count it on
+      a keyboard
+    tier: 1
+  octave:
+    composed_of:
+    - semitone
+    pieces:
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: twelve semitones — and the ear says "home again"; the frequency exactly doubles, which
+      is why the note keeps its name (somewhere over the rainbow opens with one)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (interval = semitone count, machine-checked)
+    play: sing "some-WHERE" from Over the Rainbow — that leap is the octave; this is why music runs
+      on arithmetic mod 12
+    tier: 1
+  measure:
+    composed_of:
+    - beat
+    pieces:
+    - beat
+    - beat
+    - beat
+    - beat
+    defines: four beats grouped into a bar — the "sentence" of musical time; nearly all pop music
+      counts in fours
+    verifier: structural
+    lab: graph_lib.verify_character_lego (rhythm = beat grouping, machine-checked)
+    play: put on any pop song and count 1-2-3-4 over and over — you will land on the drum accents
+      without trying
+    tier: 1
+  eighth_note:
+    composed_of:
+    - beat
+    - halving
+    pieces:
+    - beat
+    - halving
+    defines: one beat split in two — count "1-and-2-and"; the skipping motion under every pop verse
+    verifier: structural
+    lab: graph_lib.verify_character_lego (rhythm = beat × halving, machine-checked)
+    play: clap steady beats with one hand, then say "and" between every clap — you just performed
+      the halving operator
+    tier: 1
+  major_scale:
+    composed_of:
+    - middle_c
+    - whole_tone
+    - semitone
+    - octave
+    pieces:
+    - middle_c
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: do-re-mi-fa-sol-la-ti-do — the step recipe W-W-H-W-W-W-H from the anchor note; the
+      steps sum to 2+2+1+2+2+2+1 = 12, so the scale closes exactly one octave (the white keys from
+      C to C are this recipe made visible)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (scale = anchored semitone recipe, machine-checked)
+    play: play the eight white keys from C to C and sing do-re-mi along; then verify the arithmetic
+      2+2+1+2+2+2+1 = 12
+    tier: 2
+  major_triad:
+    composed_of:
+    - middle_c
+    - major_third
+    - minor_third
+    pieces:
+    - middle_c
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: the "happy" chord (C-E-G) — a major third then a minor third stacked on the anchor;
+      4 + 3 = 7, so the outer notes are a perfect fifth apart, automatically
+    verifier: structural
+    lab: graph_lib.verify_character_lego (chord = interval stack, machine-checked)
+    play: press C, E, and G together on any keyboard app — that sound is 4+3 in semitone arithmetic
+    tier: 2
+  minor_triad:
+    composed_of:
+    - middle_c
+    - minor_third
+    - major_third
+    pieces:
+    - middle_c
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: the "sad" chord (C-E♭-G) — the SAME two bricks as the major triad, stacked in the other
+      order (3 + 4); swapped order is the entire difference between happy and sad
+    verifier: structural
+    lab: graph_lib.verify_character_lego (chord = interval stack, machine-checked)
+    play: play C-E-G, then slide the middle note down one key (E→E♭) and play again — one semitone
+      moved, the mood flipped
+    tier: 2
+  dominant_seventh:
+    composed_of:
+    - major_triad
+    - minor_third
+    pieces:
+    - middle_c
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    - semitone
+    defines: stack ONE more minor third on the major triad (4+3+3 = 10) and the chord starts leaning
+      forward, aching to resolve home — the engine of musical motion (the blues runs almost entirely
+      on this chord)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (chord = interval stack, machine-checked)
+    play: play C-E-G-B♭ and just stop — feel how unfinished it sounds; then play plain C-E-G and feel
+      it land
+    tier: 3
+  melody:
+    composed_of:
+    - major_scale
+    - measure
+    defines: FORM meets TIME — notes from the scale placed onto the beat grid; the first complete
+      musical object, and the proof the two radicals are both required
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: take three scale notes and place them anywhere on a counted 1-2-3-4 bar — congratulations,
+      you have composed
+    tier: 3
+  interval_stacking:
+    composed_of:
+    - whole_tone
+    - minor_third
+    - major_third
+    - perfect_fourth
+    - perfect_fifth
+    - octave
+    defines: the counting principle — every interval IS its semitone count, so pitch space is integer
+      arithmetic mod 12; nothing about intervals needs to be memorized, only counted
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: pick any two keys on a keyboard, count the semitones between them, and you have named the
+      interval better than most beginners ever do
+    tier: 3
+  chord_construction:
+    composed_of:
+    - major_triad
+    - minor_triad
+    - dominant_seventh
+    defines: the stacking principle — chords are thirds piled on an anchor; major (4+3), minor (3+4),
+      and one more third makes the seventh (4+3+3); every chord chart symbol is a stacking recipe
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: decode the chord symbols of any song on an online chord chart — C, Am, G7 — into their
+      semitone stacks
+    tier: 3
+  rhythm_grouping:
+    composed_of:
+    - measure
+    - eighth_note
+    defines: the time principle — beats group UP into measures and split DOWN by halving; the entire
+      rhythm notation system is these two moves
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: count "1-and-2-and-3-and-4-and" along with any song — you are running both moves at once
+    tier: 3
+  four_chord_loop:
+    composed_of:
+    - chord_construction
+    - melody
+    - rhythm_grouping
+    defines: the payoff — I–V–vi–IV, four triads built on scale degrees, looped over four-beat bars,
+      composes THOUSANDS of pop songs (the famous "four chords" medley is real); master 4 bricks and
+      3 principles, and the radio becomes readable — the LEGO way
+    verifier: structural
+    lab: graph_lib.reducible — the LEGO claim, machine-checked (everything reduces to 4 bricks)
+    play: look up the "Axis of Awesome four chords" medley, then find the I–V–vi–IV loop in two songs
+      you already love
+    tier: 4
+applications:
+  play_from_chord_charts:
+    needs:
+    - four_chord_loop
+    domain: music literacy
+    defines: the decoding superpower — every guitar tab and ukulele chord chart on the internet is
+      written in the stacking language this graph teaches
+  transposition_arithmetic:
+    needs:
+    - interval_stacking
+    domain: STEM crossover
+    defines: move any song to any key by adding a constant to every note, mod 12 — the first musical
+      skill that is literally arithmetic, no talent required
+  keyboard_as_number_line:
+    needs:
+    - major_scale
+    domain: instruments
+    defines: the piano keyboard is the integer line of music — white and black keys are the major
+      scale's whole/half recipe made visible; once seen, it cannot be unseen
+  equal_temperament_math:
+    needs:
+    - octave
+    domain: STEM crossover
+    defines: why twelve? because 2^(7/12) ≈ 1.4983 ≈ 3/2 — twelve equal steps almost perfectly hit
+      the natural fifth; the piano is a rounding decision, and the error is audible to no one at a
+      party
+  drum_machine_grid:
+    needs:
+    - rhythm_grouping
+    domain: music technology
+    defines: every drum machine and DAW grid is grouping × halving rendered as pixels — program one
+      bar and you have used the time radical the way a coder uses a loop

@@ -1,0 +1,121 @@
+domain: college_physics_2e_ch8
+primitives:
+  mass:
+    defines: The quantity of matter in an object, treated as a scalar measure of inertia.
+    tier: 0
+  velocity:
+    defines: The vector rate of change of position with respect to time.
+    tier: 0
+  kinetic_energy:
+    defines: The energy an object possesses due to its motion, equal to one-half the product of its mass
+      and the square of its speed.
+    tier: 0
+  net_external_force:
+    defines: The vector sum of all forces exerted on a system by agents outside the system.
+    tier: 0
+  newtons_third_law:
+    defines: For every action force exerted by one object on another, there is an equal and opposite reaction
+      force exerted back on the first object.
+    tier: 0
+concepts:
+  linear_momentum:
+    defines: The product of a system's mass and its velocity, a vector quantity in the same direction
+      as velocity with SI unit kg·m/s.
+    composed_of:
+    - mass
+    - velocity
+    tier: 1
+  isolated_system:
+    defines: A system for which the net external force is zero, so no external agent can change its total
+      momentum.
+    composed_of:
+    - net_external_force
+    tier: 1
+  internal_kinetic_energy:
+    defines: The sum of the kinetic energies of all objects within a system, used to classify collision
+      types.
+    composed_of:
+    - kinetic_energy
+    tier: 1
+  point_mass:
+    defines: An idealized structureless particle that has mass but no rotational degrees of freedom, used
+      to simplify two-dimensional collision analysis.
+    composed_of:
+    - mass
+    tier: 1
+  rocket_thrust:
+    defines: The reaction force on a rocket produced by the expulsion of exhaust gases, equal to the exhaust
+      velocity multiplied by the mass ejection rate.
+    composed_of:
+    - newtons_third_law
+    tier: 1
+  newtons_second_law_momentum:
+    defines: The net external force on a system equals the rate of change of its momentum, expressed as
+      F_net = Δp/Δt.
+    composed_of:
+    - net_external_force
+    - linear_momentum
+    tier: 2
+  impulse:
+    defines: The product of the average net external force and the time interval over which it acts, equal
+      to the change in momentum of the system.
+    composed_of:
+    - net_external_force
+    - linear_momentum
+    tier: 2
+  conservation_of_momentum:
+    defines: The total momentum of an isolated system remains constant; the initial total momentum equals
+      the final total momentum.
+    composed_of:
+    - linear_momentum
+    - isolated_system
+    tier: 2
+  rocket_acceleration:
+    defines: The net acceleration of a rocket, given by the exhaust velocity times the mass ejection rate
+      divided by the remaining rocket mass, minus gravitational acceleration.
+    composed_of:
+    - rocket_thrust
+    - mass
+    tier: 2
+  elastic_collision:
+    defines: A collision in which both total momentum and total internal kinetic energy of the system
+      are conserved.
+    composed_of:
+    - conservation_of_momentum
+    - internal_kinetic_energy
+    tier: 3
+  inelastic_collision:
+    defines: A collision in which total momentum is conserved but internal kinetic energy is not, with
+      some energy converted to heat, sound, or deformation.
+    composed_of:
+    - conservation_of_momentum
+    - internal_kinetic_energy
+    tier: 3
+  two_dimensional_collision:
+    defines: A collision analyzed by resolving momentum conservation independently along two perpendicular
+      axes, yielding one conservation equation per axis.
+    composed_of:
+    - conservation_of_momentum
+    - point_mass
+    tier: 3
+  perfectly_inelastic_collision:
+    defines: A special case of inelastic collision in which the colliding objects stick together, maximally
+      reducing internal kinetic energy while still conserving momentum.
+    composed_of:
+    - inelastic_collision
+    tier: 4
+applications:
+  recoil:
+    defines: The backward momentum acquired by an object or system in reaction to expelling mass or exerting
+      a force, a direct consequence of conservation of momentum.
+    needs:
+    - conservation_of_momentum
+    tier: 3
+  rocket_propulsion:
+    defines: The real-world application of Newton's third law and conservation of momentum in which a
+      rocket accelerates by expelling exhaust mass at high velocity.
+    needs:
+    - newtons_third_law
+    - conservation_of_momentum
+    - rocket_acceleration
+    tier: 3

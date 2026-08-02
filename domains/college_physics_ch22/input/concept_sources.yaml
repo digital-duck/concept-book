@@ -1,0 +1,212 @@
+domain: college_physics_2e_ch22
+sources:
+  electric_charge:
+    label: Electric Charge
+    sections: []
+  electric_current:
+    label: Electric Current
+    sections: []
+  velocity:
+    label: Velocity
+    sections: []
+  centripetal_force:
+    label: Centripetal Force
+    sections: []
+  electric_field:
+    label: Electric Field
+    sections: []
+  magnetic_poles:
+    label: Magnetic Poles
+    sections:
+    - id: ch22_s22_1
+      title: 22.1 Magnets
+  no_magnetic_monopoles:
+    label: No Magnetic Monopoles
+    sections:
+    - id: ch22_s22_1
+      title: 22.1 Magnets
+    - id: ch22_s22_3
+      title: 22.3 Magnetic Fields and Magnetic Field Lines
+  ferromagnetism:
+    label: Ferromagnetism
+    sections:
+    - id: ch22_s22_2
+      title: 22.2 Ferromagnets and Electromagnets
+  magnetic_domains:
+    label: Magnetic Domains
+    sections:
+    - id: ch22_s22_2
+      title: 22.2 Ferromagnets and Electromagnets
+  curie_temperature:
+    label: Curie Temperature
+    sections:
+    - id: ch22_s22_2
+      title: 22.2 Ferromagnets and Electromagnets
+  current_as_source_of_magnetism:
+    label: Current as Source of All Magnetism
+    sections:
+    - id: ch22_s22_2
+      title: 22.2 Ferromagnets and Electromagnets
+    - id: ch22_s22_3
+      title: 22.3 Magnetic Fields and Magnetic Field Lines
+  electromagnet:
+    label: Electromagnet
+    sections:
+    - id: ch22_s22_2
+      title: 22.2 Ferromagnets and Electromagnets
+  magnetic_field:
+    label: Magnetic Field (B-field)
+    sections:
+    - id: ch22_s22_3
+      title: 22.3 Magnetic Fields and Magnetic Field Lines
+    - id: ch22_s22_4
+      title: '22.4 Magnetic Field Strength: Force on a Moving Charge in a Magnetic Field'
+  magnetic_field_lines:
+    label: Magnetic Field Lines
+    sections:
+    - id: ch22_s22_3
+      title: 22.3 Magnetic Fields and Magnetic Field Lines
+  lorentz_force:
+    label: Lorentz Force on a Moving Charge
+    sections:
+    - id: ch22_s22_4
+      title: '22.4 Magnetic Field Strength: Force on a Moving Charge in a Magnetic Field'
+  right_hand_rule_1:
+    label: Right Hand Rule 1 (RHR-1)
+    sections:
+    - id: ch22_s22_4
+      title: '22.4 Magnetic Field Strength: Force on a Moving Charge in a Magnetic Field'
+    - id: ch22_s22_7
+      title: 22.7 Magnetic Force on a Current-Carrying Conductor
+  tesla:
+    label: Tesla (Unit of Magnetic Field Strength)
+    sections:
+    - id: ch22_s22_4
+      title: '22.4 Magnetic Field Strength: Force on a Moving Charge in a Magnetic Field'
+  circular_motion_in_magnetic_field:
+    label: Circular Motion of Charged Particle in Magnetic Field
+    sections:
+    - id: ch22_s22_5
+      title: '22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications'
+  radius_of_curvature:
+    label: Radius of Curvature of Charged Particle Path
+    sections:
+    - id: ch22_s22_5
+      title: '22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications'
+  magnetic_mirror:
+    label: Magnetic Mirror
+    sections:
+    - id: ch22_s22_5
+      title: '22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications'
+  hall_effect:
+    label: Hall Effect
+    sections:
+    - id: ch22_s22_6
+      title: 22.6 The Hall Effect
+  hall_emf:
+    label: Hall EMF
+    sections:
+    - id: ch22_s22_6
+      title: 22.6 The Hall Effect
+  magnetic_force_on_current:
+    label: Magnetic Force on a Current-Carrying Conductor
+    sections:
+    - id: ch22_s22_7
+      title: 22.7 Magnetic Force on a Current-Carrying Conductor
+  torque_on_current_loop:
+    label: Torque on a Current Loop
+    sections:
+    - id: ch22_s22_8
+      title: '22.8 Torque on a Current Loop: Motors and Meters'
+  permeability_of_free_space:
+    label: Permeability of Free Space
+    sections:
+    - id: ch22_s22_9
+      title: '22.9 Magnetic Fields Produced by Currents: Ampere’s Law'
+  right_hand_rule_2:
+    label: Right Hand Rule 2 (RHR-2)
+    sections:
+    - id: ch22_s22_9
+      title: '22.9 Magnetic Fields Produced by Currents: Ampere’s Law'
+  magnetic_field_straight_wire:
+    label: Magnetic Field of a Long Straight Wire
+    sections:
+    - id: ch22_s22_9
+      title: '22.9 Magnetic Fields Produced by Currents: Ampere’s Law'
+  amperes_law:
+    label: Ampere's Law
+    sections:
+    - id: ch22_s22_9
+      title: '22.9 Magnetic Fields Produced by Currents: Ampere’s Law'
+  magnetic_field_circular_loop:
+    label: Magnetic Field at Center of Circular Current Loop
+    sections:
+    - id: ch22_s22_9
+      title: '22.9 Magnetic Fields Produced by Currents: Ampere’s Law'
+  solenoid:
+    label: Solenoid and Its Magnetic Field
+    sections:
+    - id: ch22_s22_9
+      title: '22.9 Magnetic Fields Produced by Currents: Ampere’s Law'
+  force_between_parallel_conductors:
+    label: Force Between Parallel Current-Carrying Conductors
+    sections:
+    - id: ch22_s22_10
+      title: 22.10 Magnetic Force between Two Parallel Conductors
+  definition_of_ampere:
+    label: Definition of the Ampere
+    sections:
+    - id: ch22_s22_10
+      title: 22.10 Magnetic Force between Two Parallel Conductors
+  velocity_selector:
+    label: Velocity Selector
+    sections:
+    - id: ch22_s22_11
+      title: 22.11 More Applications of Magnetism
+  mass_spectrometer:
+    label: Mass Spectrometer
+    sections:
+    - id: ch22_s22_5
+      title: '22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications'
+    - id: ch22_s22_11
+      title: 22.11 More Applications of Magnetism
+  electric_motor:
+    label: Electric Motor
+    sections:
+    - id: ch22_s22_8
+      title: '22.8 Torque on a Current Loop: Motors and Meters'
+  galvanometer:
+    label: Galvanometer / Analog Meter
+    sections:
+    - id: ch22_s22_8
+      title: '22.8 Torque on a Current Loop: Motors and Meters'
+  hall_probe:
+    label: Hall Probe
+    sections:
+    - id: ch22_s22_6
+      title: 22.6 The Hall Effect
+  magnetohydrodynamic_drive:
+    label: Magnetohydrodynamic (MHD) Drive
+    sections:
+    - id: ch22_s22_7
+      title: 22.7 Magnetic Force on a Current-Carrying Conductor
+  van_allen_radiation_belts:
+    label: Van Allen Radiation Belts
+    sections:
+    - id: ch22_s22_5
+      title: '22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications'
+  aurora:
+    label: Aurora (Northern/Southern Lights)
+    sections:
+    - id: ch22_s22_5
+      title: '22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications'
+  cathode_ray_tube:
+    label: Cathode Ray Tube (CRT)
+    sections:
+    - id: ch22_s22_11
+      title: 22.11 More Applications of Magnetism
+  magnetic_resonance_imaging:
+    label: Magnetic Resonance Imaging (MRI)
+    sections:
+    - id: ch22_s22_11
+      title: 22.11 More Applications of Magnetism

@@ -1,0 +1,117 @@
+domain: college_physics_2e_ch1
+sources:
+  physics:
+    label: Physics
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  observation:
+    label: Observation
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  measurement:
+    label: Measurement
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  scientific_method:
+    label: Scientific Method
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  scientific_model:
+    label: Scientific Model
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  scientific_theory:
+    label: Scientific Theory
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  scientific_law:
+    label: Scientific Law
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  classical_physics:
+    label: Classical Physics
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  modern_physics:
+    label: Modern Physics
+    sections:
+    - id: ch01_s1_1
+      title: '1.1 Physics: An Introduction'
+  physical_quantity:
+    label: Physical Quantity
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  units:
+    label: Units
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  fundamental_units:
+    label: Fundamental Units
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  derived_units:
+    label: Derived Units
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  si_units:
+    label: SI Units
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  metric_prefixes:
+    label: Metric Prefixes
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  order_of_magnitude:
+    label: Order of Magnitude
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  unit_conversion:
+    label: Unit Conversion
+    sections:
+    - id: ch01_s1_2
+      title: 1.2 Physical Quantities and Units
+  accuracy:
+    label: Accuracy
+    sections:
+    - id: ch01_s1_3
+      title: 1.3 Accuracy, Precision, and Significant Figures
+  precision:
+    label: Precision
+    sections:
+    - id: ch01_s1_3
+      title: 1.3 Accuracy, Precision, and Significant Figures
+  uncertainty:
+    label: Uncertainty
+    sections:
+    - id: ch01_s1_3
+      title: 1.3 Accuracy, Precision, and Significant Figures
+  percent_uncertainty:
+    label: Percent Uncertainty
+    sections:
+    - id: ch01_s1_3
+      title: 1.3 Accuracy, Precision, and Significant Figures
+  significant_figures:
+    label: Significant Figures
+    sections:
+    - id: ch01_s1_3
+      title: 1.3 Accuracy, Precision, and Significant Figures
+  approximation:
+    label: Approximation
+    sections:
+    - id: ch01_s1_4
+      title: 1.4 Approximation

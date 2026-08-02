@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍃 Quark — College Physics Ch33</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px;
+        display:flex;flex-direction:column}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0;flex:1}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+nav.toc .spl-credit{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);
+                    font-size:11px;color:#90b4e8;font-family:system-ui,sans-serif}
+nav.toc .spl-credit a{color:#a8c8f0;text-decoration:none}
+nav.toc .spl-credit a:hover{color:#fff;text-decoration:underline}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:32px}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
+section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="toc">
+    <a href="../../../../#/domain/college_physics_ch33" class="back">← College Physics Ch33</a>
+    <h2>Contents</h2>
+    <ol>
+<li><a href="concept_heisenberg_uncertainty_principle.html">🌱 Heisenberg Uncertainty Principle</a></li>
+<li><a href="concept_carrier_particle.html">🍃 Carrier Particle</a></li>
+<li><a href="concept_intrinsic_spin.html">🌱 Intrinsic Spin</a></li>
+<li><a href="concept_pauli_exclusion_principle.html">🌱 Pauli Exclusion Principle</a></li>
+<li><a href="concept_conservation_of_mass_energy.html">🌱 Conservation Of Mass Energy</a></li>
+<li><a href="concept_electromagnetic_force.html">🌱 Electromagnetic Force</a></li>
+<li><a href="concept_fermion.html">🍃 Fermion</a></li>
+<li class="toc-target"><a href="concept_quark.html">🍃 Quark</a></li>
+<li><a href="concept_four_basic_forces.html">🍃 Four Basic Forces</a></li>
+<li><a href="concept_virtual_particle.html">🍃 Virtual Particle</a></li>
+<li><a href="concept_feynman_diagram.html">🍃 Feynman Diagram</a></li>
+<li><a href="concept_quark_color.html">🍃 Quark Color</a></li>
+<li><a href="concept_gluon.html">🍃 Gluon</a></li>
+<li><a href="concept_quantum_electrodynamics.html">🍃 Quantum Electrodynamics</a></li>
+<li><a href="concept_conservation_of_charge.html">🌱 Conservation Of Charge</a></li>
+<li><a href="concept_electroweak_theory.html">🍃 Electroweak Theory</a></li>
+<li><a href="concept_hadron.html">🍃 Hadron</a></li>
+<li><a href="concept_quantum_chromodynamics.html">🍃 Quantum Chromodynamics</a></li>
+<li><a href="concept_antimatter.html">🍃 Antimatter</a></li>
+<li><a href="concept_baryon.html">🍃 Baryon</a></li>
+<li><a href="concept_standard_model.html">🍃 Standard Model</a></li>
+<li><a href="concept_baryon_number_conservation.html">🍃 Baryon Number Conservation</a></li>
+<li><a href="concept_grand_unified_theory.html">🍃 Grand Unified Theory</a></li>
+<li><a href="concept_proton_decay_detection.html">🌸 Proton Decay Detection</a></li>
+</ol>
+    <div class="spl-credit">Generated by <a href="https://github.com/digital-duck/SPL.py" target="_blank">SPL</a></div>
+  </nav>
+  <main>
+    <h1 class="book-title">🍃 Quark</h1>
+    <section>
+<h2>🍃 Quark</h2>
+<p><strong>Definition.</strong> Quarks are fundamental spin-$\tfrac{1}{2}$ fermions and the elementary constituents of hadrons. The Standard Model identifies six quark <em>flavors</em> arranged in three generations: up ($u$) and down ($d$); charm ($c$) and strange ($s$); top ($t$) and bottom ($b$). Each quark carries a fractional electric charge—$+\tfrac{2}{3}e$ for up-type quarks and $-\tfrac{1}{3}e$ for down-type quarks—as well as a <em>color charge</em> (red, green, or blue) that couples to the strong nuclear force via gluon exchange, described by quantum chromodynamics (QCD). Quarks are never observed in isolation; the phenomenon of <em>color confinement</em> requires all observable particles to be color-neutral (colorless) composites.</p>
+<p><strong>Hadron composition.</strong> Baryons consist of three quarks whose colors combine to white ($r+g+b$), while mesons consist of a quark–antiquark pair ($q\bar{q}$) whose colors cancel. The proton is $(uud)$ and the neutron is $(udd)$. The net charge of the proton is confirmed by</p>
+$$
+Q_p = \frac{2}{3}e + \frac{2}{3}e - \frac{1}{3}e = e,
+$$
+<p>and for the neutron:</p>
+$$
+Q_n = \frac{2}{3}e - \frac{1}{3}e - \frac{1}{3}e = 0.
+$$
+<p><strong>Worked example.</strong> Identify the quark content of the $\pi^+$ meson, which carries charge $+e$. A meson requires one quark and one antiquark. Choosing $u$ ($+\tfrac{2}{3}e$) and $\bar{d}$ ($+\tfrac{1}{3}e$) gives</p>
+$$
+Q = +\tfrac{2}{3}e + \tfrac{1}{3}e = +e. \checkmark
+$$
+<p>Thus $\pi^+ = u\bar{d}$, consistent with its observed charge and the meson color-neutrality condition ($\text{color} + \overline{\text{color}} = \text{white}$).</p>
+<p><strong>Key theorem — Asymptotic freedom.</strong> The QCD coupling constant $\alpha_s(\mu)$ decreases logarithmically as the energy scale $\mu$ increases:</p>
+$$
+\alpha_s(\mu) \approx \frac{12\pi}{(33 - 2n_f)\ln(\mu^2/\Lambda_{\rm QCD}^2)},
+$$
+<p>where $n_f$ is the number of active quark flavors and $\Lambda_{\operatorname{rm} QCD} \approx 200\ \text{MeV}$. At high energies quarks behave as nearly free particles, while at low energies $\alpha_s$ grows large, enforcing confinement.</p>
+<p><strong>Lab exercise.</strong> A particle detector records a track with charge $-\tfrac{1}{3}e$ and strangeness $S = -1$. (a) Identify the quark flavor responsible for this strangeness quantum number. (b) Construct the simplest baryon containing this quark, state its full quark content, and verify that its total charge is consistent with the fractional-charge assignments above.</p>
+</section>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+domain: college_physics_2e_ch29
+sources:
+  energy:
+    label: Energy
+    sections: []
+  electromagnetic_radiation:
+    label: Electromagnetic Radiation
+    sections: []
+  frequency:
+    label: Frequency
+    sections: []
+  wavelength:
+    label: Wavelength
+    sections: []
+  momentum:
+    label: Momentum
+    sections: []
+  electron:
+    label: Electron
+    sections: []
+  quantization:
+    label: Quantization
+    sections:
+    - id: ch29_s29_1
+      title: 29.1 Quantization of Energy
+  planck_constant:
+    label: Planck's Constant
+    sections:
+    - id: ch29_s29_1
+      title: 29.1 Quantization of Energy
+  blackbody_radiation:
+    label: Blackbody Radiation
+    sections:
+    - id: ch29_s29_1
+      title: 29.1 Quantization of Energy
+  energy_quantization:
+    label: Energy Quantization
+    sections:
+    - id: ch29_s29_1
+      title: 29.1 Quantization of Energy
+  atomic_spectra:
+    label: Atomic Spectra
+    sections:
+    - id: ch29_s29_1
+      title: 29.1 Quantization of Energy
+  correspondence_principle:
+    label: Correspondence Principle
+    sections:
+    - id: ch29_s29_1
+      title: 29.1 Quantization of Energy
+  photon:
+    label: Photon
+    sections:
+    - id: ch29_s29_2
+      title: 29.2 The Photoelectric Effect
+    - id: ch29_s29_3
+      title: 29.3 Photon Energies and the Electromagnetic Spectrum
+  photon_energy:
+    label: Photon Energy
+    sections:
+    - id: ch29_s29_2
+      title: 29.2 The Photoelectric Effect
+    - id: ch29_s29_3
+      title: 29.3 Photon Energies and the Electromagnetic Spectrum
+  photoelectric_effect:
+    label: Photoelectric Effect
+    sections:
+    - id: ch29_s29_2
+      title: 29.2 The Photoelectric Effect
+  binding_energy:
+    label: Binding Energy (Work Function)
+    sections:
+    - id: ch29_s29_2
+      title: 29.2 The Photoelectric Effect
+  ionizing_radiation:
+    label: Ionizing Radiation
+    sections:
+    - id: ch29_s29_3
+      title: 29.3 Photon Energies and the Electromagnetic Spectrum
+  photon_momentum:
+    label: Photon Momentum
+    sections:
+    - id: ch29_s29_4
+      title: 29.4 Photon Momentum
+  compton_effect:
+    label: Compton Effect
+    sections:
+    - id: ch29_s29_4
+      title: 29.4 Photon Momentum
+  particle_wave_duality:
+    label: Particle-Wave Duality
+    sections:
+    - id: ch29_s29_5
+      title: 29.5 The Particle-Wave Duality
+    - id: ch29_s29_8
+      title: 29.8 The Particle-Wave Duality Reviewed
+  de_broglie_wavelength:
+    label: De Broglie Wavelength
+    sections:
+    - id: ch29_s29_6
+      title: 29.6 The Wave Nature of Matter
+  probability_distribution:
+    label: Probability Distribution
+    sections:
+    - id: ch29_s29_7
+      title: '29.7 Probability: The Heisenberg Uncertainty Principle'
+  heisenberg_uncertainty_principle:
+    label: Heisenberg Uncertainty Principle
+    sections:
+    - id: ch29_s29_7
+      title: '29.7 Probability: The Heisenberg Uncertainty Principle'
+  electron_microscope:
+    label: Electron Microscope
+    sections:
+    - id: ch29_s29_6
+      title: 29.6 The Wave Nature of Matter
+  x_ray_production:
+    label: X-Ray Production
+    sections:
+    - id: ch29_s29_3
+      title: 29.3 Photon Energies and the Electromagnetic Spectrum

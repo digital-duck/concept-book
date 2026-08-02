@@ -1,0 +1,184 @@
+domain: college_physics_2e_ch7
+primitives:
+  force:
+    defines: A push or pull on an object, treated as a given vector quantity from Newton's laws without
+      derivation in this chapter.
+    tier: 0
+  displacement:
+    defines: The vector change in position of an object, assumed as a known kinematic quantity throughout
+      this chapter.
+    tier: 0
+  mass:
+    defines: A scalar measure of an object's inertia, taken as a given property without derivation in
+      this chapter.
+    tier: 0
+  velocity:
+    defines: The rate of change of position, treated as a known kinematic quantity whose prior derivation
+      is assumed from earlier chapters.
+    tier: 0
+  gravitational_acceleration:
+    defines: The constant acceleration g ≈ 9.8 m/s² due to Earth's gravity near its surface, taken as
+      an empirical given in this chapter.
+    tier: 0
+  spring_constant:
+    defines: The proportionality constant k in Hooke's law (F = kx) characterizing a spring's stiffness,
+      introduced by reference to a prior chapter without re-derivation here.
+    tier: 0
+concepts:
+  work:
+    defines: The transfer of energy by a force acting on an object through a displacement, equal to the
+      product of force magnitude, displacement magnitude, and the cosine of the angle between them (W
+      = Fd cos θ).
+    composed_of:
+    - force
+    - displacement
+    tier: 1
+  kinetic_energy:
+    defines: The energy an object possesses by virtue of its translational motion, equal to one-half the
+      product of its mass and the square of its speed (KE = ½mv²).
+    composed_of:
+    - mass
+    - velocity
+    tier: 1
+  joule:
+    defines: The SI unit of work and energy, defined as one newton-meter (1 J = 1 N·m), used for all forms
+      of mechanical energy in this chapter.
+    composed_of:
+    - work
+    tier: 2
+  net_work:
+    defines: The total work done on a system by the vector sum (net force) of all forces acting on it,
+      equal to the sum of work contributions from each individual force.
+    composed_of:
+    - work
+    tier: 2
+  gravitational_potential_energy:
+    defines: The stored energy of an object-Earth system due to the object's vertical position, equal
+      to the product of mass, gravitational acceleration, and height above a chosen reference (PE_grav
+      = mgh).
+    composed_of:
+    - work
+    - mass
+    - gravitational_acceleration
+    tier: 2
+  conservative_force:
+    defines: A force for which the work done between any two points depends only on those endpoints and
+      not on the path taken, allowing the definition of a corresponding potential energy.
+    composed_of:
+    - work
+    tier: 2
+  power:
+    defines: The rate at which work is done or energy is transferred, equal to work divided by the time
+      interval (P = W/t), measured in watts (1 W = 1 J/s).
+    composed_of:
+    - work
+    tier: 2
+  work_energy_theorem:
+    defines: The principle that the net work done on a system equals the change in its kinetic energy
+      (W_net = ΔKE), derived from Newton's second law and kinematics.
+    composed_of:
+    - net_work
+    - kinetic_energy
+    tier: 3
+  potential_energy:
+    defines: Energy stored in a system due to its position, shape, or configuration that is fully recoverable
+      as work; defined for any conservative force as the work done against that force to reach a given
+      configuration.
+    composed_of:
+    - conservative_force
+    - work
+    tier: 3
+  spring_potential_energy:
+    defines: The potential energy stored in a compressed or stretched spring obeying Hooke's law, equal
+      to one-half the spring constant times the square of the deformation (PE_spring = ½kx²).
+    composed_of:
+    - potential_energy
+    - spring_constant
+    tier: 4
+  mechanical_energy:
+    defines: The sum of an object's or system's kinetic energy and all of its potential energies (ME =
+      KE + PE), which remains constant when only conservative forces act.
+    composed_of:
+    - kinetic_energy
+    - potential_energy
+    tier: 4
+  conservation_of_mechanical_energy:
+    defines: The principle that the total mechanical energy of a system is constant whenever only conservative
+      forces act, so that any decrease in potential energy equals the increase in kinetic energy and vice
+      versa.
+    composed_of:
+    - mechanical_energy
+    - conservative_force
+    tier: 5
+  nonconservative_force:
+    defines: A force for which the work done between two points depends on the path taken, so that no
+      potential energy can be defined for it and it changes the total mechanical energy of a system.
+    composed_of:
+    - conservative_force
+    - mechanical_energy
+    tier: 5
+  thermal_energy:
+    defines: The internal energy of an object associated with the random microscopic motions of its atoms
+      and molecules, produced when nonconservative forces such as friction dissipate mechanical energy.
+    composed_of:
+    - nonconservative_force
+    tier: 6
+  law_of_conservation_of_energy:
+    defines: The universal law stating that the total energy of an isolated system is constant in any
+      process; energy may change form or be transferred between systems, but the total amount never changes.
+    composed_of:
+    - mechanical_energy
+    - thermal_energy
+    tier: 7
+  efficiency:
+    defines: The ratio of useful work output to total energy input for a device or process, always less
+      than one because some energy is inevitably converted to less useful forms such as thermal energy.
+    composed_of:
+    - work
+    - thermal_energy
+    tier: 7
+applications:
+  useful_work_in_humans:
+    defines: Work done by a person on the external world—such as lifting objects or climbing stairs—as
+      distinct from internal work such as circulating blood, equal to force exerted on the environment
+      times displacement.
+    needs:
+    - work
+    tier: 2
+  friction:
+    defines: A nonconservative contact force between surfaces that converts mechanical energy into thermal
+      energy, with the amount of energy dissipated depending on the length of the path traveled.
+    needs:
+    - nonconservative_force
+    - thermal_energy
+    tier: 7
+  metabolic_rate:
+    defines: The rate at which the human body converts chemical energy stored in food into work, thermal
+      energy, and other forms to sustain life and perform activities, measurable via oxygen consumption.
+    needs:
+    - power
+    tier: 3
+  energy_cost_calculation:
+    defines: The monetary cost of operating an electrical device, calculated as the product of its power
+      consumption and time of use expressed in kilowatt-hours and multiplied by the utility rate per kilowatt-hour.
+    needs:
+    - power
+    tier: 3
+  basal_metabolic_rate:
+    defines: The total energy conversion rate of a person at complete rest, representing the power required
+      to sustain all basic physiological functions and accounting for roughly 75% of daily caloric use.
+    needs:
+    - metabolic_rate
+    tier: 4
+  renewable_energy_sources:
+    defines: Energy sources such as solar, wind, water, and biomass that are naturally replenished and
+      cannot be permanently depleted, contrasted with finite fossil fuels.
+    needs:
+    - law_of_conservation_of_energy
+    tier: 8
+  nonrenewable_energy_sources:
+    defines: Finite energy stores—oil, natural gas, and coal—formed over geological time whose combustion
+      releases chemical energy but produces carbon dioxide and depletes a fixed resource base.
+    needs:
+    - law_of_conservation_of_energy
+    tier: 8

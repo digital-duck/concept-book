@@ -1,0 +1,154 @@
+domain: college_physics_2e_ch3
+sources:
+  scalar:
+    label: Scalar
+    sections:
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+  vector:
+    label: Vector
+    sections:
+    - id: ch03_s3_1
+      title: '3.1 Kinematics in Two Dimensions: An Introduction'
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+  displacement:
+    label: Displacement
+    sections:
+    - id: ch03_s3_1
+      title: '3.1 Kinematics in Two Dimensions: An Introduction'
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+  velocity:
+    label: Velocity
+    sections:
+    - id: ch03_s3_5
+      title: 3.5 Addition of Velocities
+  acceleration:
+    label: Acceleration
+    sections: []
+  acceleration_due_to_gravity:
+    label: Acceleration Due to Gravity
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion
+  pythagorean_theorem:
+    label: Pythagorean Theorem
+    sections:
+    - id: ch03_s3_1
+      title: '3.1 Kinematics in Two Dimensions: An Introduction'
+  trigonometric_functions:
+    label: Trigonometric Functions
+    sections:
+    - id: ch03_s3_3
+      title: '3.3 Vector Addition and Subtraction: Analytical Methods'
+  one_dimensional_kinematics:
+    label: One-Dimensional Kinematics
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion
+  reference_frame:
+    label: Reference Frame
+    sections:
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+    - id: ch03_s3_5
+      title: 3.5 Addition of Velocities
+  two_dimensional_kinematics:
+    label: Two-Dimensional Kinematics
+    sections:
+    - id: ch03_s3_1
+      title: '3.1 Kinematics in Two Dimensions: An Introduction'
+  independence_of_perpendicular_motions:
+    label: Independence of Perpendicular Motions
+    sections:
+    - id: ch03_s3_1
+      title: '3.1 Kinematics in Two Dimensions: An Introduction'
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion
+  vector_components:
+    label: Vector Components
+    sections:
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+    - id: ch03_s3_3
+      title: '3.3 Vector Addition and Subtraction: Analytical Methods'
+  resultant_vector:
+    label: Resultant Vector
+    sections:
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+    - id: ch03_s3_3
+      title: '3.3 Vector Addition and Subtraction: Analytical Methods'
+  graphical_vector_addition:
+    label: Graphical Vector Addition
+    sections:
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+  vector_subtraction:
+    label: Vector Subtraction
+    sections:
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+    - id: ch03_s3_3
+      title: '3.3 Vector Addition and Subtraction: Analytical Methods'
+  scalar_multiplication_of_vectors:
+    label: Scalar Multiplication of Vectors
+    sections:
+    - id: ch03_s3_2
+      title: '3.2 Vector Addition and Subtraction: Graphical Methods'
+  resolving_vectors_into_components:
+    label: Resolving Vectors into Components
+    sections:
+    - id: ch03_s3_3
+      title: '3.3 Vector Addition and Subtraction: Analytical Methods'
+  analytical_vector_addition:
+    label: Analytical Vector Addition
+    sections:
+    - id: ch03_s3_3
+      title: '3.3 Vector Addition and Subtraction: Analytical Methods'
+  projectile_motion:
+    label: Projectile Motion
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion
+  trajectory:
+    label: Trajectory
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion
+  projectile_range:
+    label: Projectile Range
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion
+  projectile_maximum_height:
+    label: Projectile Maximum Height
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion
+  relative_velocity:
+    label: Relative Velocity
+    sections:
+    - id: ch03_s3_5
+      title: 3.5 Addition of Velocities
+  velocity_addition:
+    label: Velocity Addition
+    sections:
+    - id: ch03_s3_5
+      title: 3.5 Addition of Velocities
+  classical_relativity:
+    label: Classical Relativity
+    sections:
+    - id: ch03_s3_5
+      title: 3.5 Addition of Velocities
+  river_crossing_relative_velocity:
+    label: River Crossing (Relative Velocity)
+    sections:
+    - id: ch03_s3_5
+      title: 3.5 Addition of Velocities
+  projectile_motion_applications:
+    label: Projectile Motion Applications
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Projectile Motion

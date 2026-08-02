@@ -1,0 +1,253 @@
+domain: calculus
+primitives:
+  real_number:
+    symbol: ℝ
+    defines: first radical — the continuum; every point on the number line, rational
+      or irrational; the stage on which all of calculus plays out; its completeness
+      (no holes) is what makes limits meaningful
+    tier: 0
+  function:
+    symbol: f&#58; ℝ → ℝ
+    defines: first radical — a rule assigning exactly one output to each input; the
+      object calculus studies; not the formula but the mapping; sin, exp, polynomials
+      and piecewise definitions are all functions
+    tier: 0
+  limit:
+    symbol: lim_{x→a} f(x) = L
+    defines: second radical — what f(x) approaches as x gets arbitrarily close to
+      a (without equalling a); the single operation from which derivative, integral,
+      and series all derive; made precise by the ε-δ definition
+    tier: 0
+  infinity:
+    symbol: ∞ / ε→0
+    defines: second radical — the concept of unbounded growth (x→∞) and of arbitrarily
+      small scale (ε→0); not a number but a direction; appears in every limit at
+      the boundary of the finite world and in every infinite sum
+    tier: 0
+first_radical_primitives:
+- real_number
+- function
+concepts:
+  continuity:
+    composed_of:
+    - function
+    - limit
+    defines: f is continuous at a when lim_{x→a} f(x) = f(a) — the limit exists,
+      equals the function value, and no jump or hole interrupts the graph; the prerequisite
+      for the Intermediate Value Theorem and for differentiability
+    verifier: sympy
+    lab: sympy (check continuity of abs(x) at 0 by computing left and right limits;
+      confirm they agree)
+    play: test f(x) = sin(x)/x at x=0; the limit is 1 but f(0) is undefined — extend
+      it to make it continuous
+    tier: 1
+  derivative:
+    composed_of:
+    - function
+    - limit
+    defines: f'(x) = lim_{h→0} [f(x+h) − f(x)] / h — the instantaneous rate of
+      change; the slope of the tangent line; the key that unlocks velocity from
+      position and marginal cost from total cost
+    verifier: sympy
+    lab: sympy (compute derivative of x**n from the limit definition; verify result
+      is n*x**(n-1))
+    play: differentiate f(x) = x² from the definition; expand (x+h)²-x², divide
+      by h, then take h→0 and watch 2x appear
+    tier: 2
+  riemann_sum:
+    composed_of:
+    - function
+    - real_number
+    - infinity
+    defines: partition [a,b] into n subintervals and sum f(xᵢ*)·Δx — an approximation
+      of the area under f; as n→∞ and Δx→0, the sum converges to the exact area;
+      the constructive definition of the integral
+    verifier: python
+    lab: python (compute left, right, and midpoint Riemann sums for f=x**2 on [0,1];
+      verify convergence to 1/3 as n grows)
+    play: approximate ∫₀¹ x² dx with n=4 midpoint rectangles; compute each term
+      f(0.125)·0.25+… and compare to the exact 1/3
+    tier: 2
+  differentiation_rules:
+    composed_of:
+    - derivative
+    defines: the power rule (d/dx xⁿ = nxⁿ⁻¹), product rule (fg)' = f'g+fg', chain
+      rule (f∘g)' = f'(g)·g' — systematic machinery so you never need the limit
+      definition again; every derivative in physics, ML, and economics is one of
+      these rules applied
+    verifier: sympy
+    lab: sympy (differentiate x**3 * sin(x) with product rule; verify against sympy.diff)
+    play: differentiate sin(x²) using the chain rule; outer = sin, inner = x²; result
+      is cos(x²)·2x — confirm with sympy
+    tier: 3
+  antiderivative:
+    composed_of:
+    - derivative
+    defines: F is an antiderivative of f when F'(x) = f(x); undoing the derivative;
+      not unique — any two antiderivatives differ by a constant C; also called the
+      indefinite integral ∫ f(x) dx = F(x) + C
+    verifier: sympy
+    lab: sympy (integrate x**n and verify derivative of result equals x**n)
+    play: find the antiderivative of 3x²; guess F(x) = x³; check F'(x) = 3x²; add
+      +C to cover all solutions
+    tier: 3
+  definite_integral:
+    composed_of:
+    - riemann_sum
+    - limit
+    defines: ∫_a^b f(x) dx — the limit of Riemann sums as the partition refines;
+      the signed area between the curve and the x-axis; positive where f>0, negative
+      where f<0; the accumulation of f over [a,b]
+    verifier: sympy
+    lab: sympy (compute ∫₀^π sin(x) dx exactly; verify the result is 2)
+    play: evaluate ∫₀¹ x dx as the area of a right triangle with base 1 and height
+      1; confirm geometrically that the answer is 1/2
+    tier: 3
+  fundamental_theorem:
+    composed_of:
+    - definite_integral
+    - antiderivative
+    defines: "∫_a^b f(x) dx = F(b) − F(a) where F'=f — the single equation that\
+      \ unifies differentiation and integration; Part 1: d/dx ∫_a^x f = f(x); Part\
+      \ 2: definite integrals compute via antiderivatives; calculus becomes computable"
+    verifier: sympy
+    lab: sympy (verify ∫₀^x sin(t) dt differentiated returns sin(x); compute ∫₀^π
+      cos(x) dx = sin(π)-sin(0))
+    play: compute ∫₁^e (1/x) dx using F(x)=ln(x); F(e)-F(1) = 1-0 = 1; confirm
+      with sympy
+    tier: 4
+  optimization:
+    composed_of:
+    - derivative
+    - continuity
+    defines: a local maximum or minimum of f occurs where f'(x)=0 (critical point)
+      or f' is undefined; the second derivative test distinguishes them; on a closed
+      interval the extreme value theorem guarantees a global max and min exist
+    verifier: sympy
+    lab: sympy (find and classify critical points of f=x**3 - 3*x; verify local
+      max at x=-1, local min at x=1)
+    play: minimize f(x) = x² - 4x + 5; set f'=2x-4=0; solve x=2; confirm it is
+      a minimum by checking f''(2)=2>0
+    tier: 4
+  series:
+    composed_of:
+    - real_number
+    - infinity
+    defines: an infinite sum Σ aₙ = a₁ + a₂ + a₃ + … — not the act of adding infinitely
+      many times, but the limit of partial sums S_N = Σ_{n=1}^N aₙ; the geometric
+      series Σ rⁿ = 1/(1-r) for |r|<1 is the prototype
+    verifier: python
+    lab: python (compute partial sums of geometric series with r=0.5; verify convergence
+      to 2; measure error vs N)
+    play: sum 1 + 1/2 + 1/4 + 1/8 + … by computing S₁, S₂, S₃, S₄; watch the partial
+      sums approach 2
+    tier: 3
+  convergence:
+    composed_of:
+    - series
+    - limit
+    defines: a series converges if its partial sums approach a finite limit; diverges
+      otherwise; the ratio test (lim|aₙ₊₁/aₙ| < 1 implies convergence) and comparison
+      test are the main tools; the harmonic series Σ 1/n diverges despite aₙ→0
+    verifier: python
+    lab: python (apply ratio test to Σ xⁿ/n!; verify radius of convergence is ∞;
+      compare partial sums to exp(x))
+    play: show Σ 1/n diverges by grouping 1 + 1/2 + (1/3+1/4) + (1/5…1/8) + …;
+      each group exceeds 1/2
+    tier: 4
+  taylor_series:
+    composed_of:
+    - convergence
+    - derivative
+    defines: f(x) = Σ f⁽ⁿ⁾(a)/n! · (x-a)ⁿ — every infinitely differentiable function
+      is locally a polynomial; e^x = 1+x+x²/2!+…, sin x = x-x³/3!+…; the key
+      link between algebra and analysis; used in every numerical computation
+    verifier: sympy
+    lab: sympy (compute Taylor series of sin(x) to order 7 around 0; verify coefficients
+      match (-1)^n/(2n+1)!)
+    play: approximate sin(0.1) using the first two nonzero terms 0.1 - 0.001/6;
+      compare to the true value 0.09983…; error is ~10⁻⁷
+    tier: 5
+  partial_derivative:
+    composed_of:
+    - derivative
+    - function
+    defines: ∂f/∂x — differentiate f(x,y,…) with respect to x while holding all
+      other variables fixed; the rate of change in one direction through the landscape
+      of f; the first step from single-variable to multivariable calculus
+    verifier: sympy
+    lab: sympy (compute ∂/∂x and ∂/∂y of f=x**2 + x*y + y**3; verify mixed partials
+      are equal)
+    play: for f(x,y)=x²y, compute ∂f/∂x = 2xy and ∂f/∂y = x²; check that differentiating
+      either result in the mixed order gives the same answer 2x
+    tier: 4
+  gradient:
+    composed_of:
+    - partial_derivative
+    defines: "∇f = (∂f/∂x, ∂f/∂y, …) — the vector of all partial derivatives; points\
+      \ in the direction of steepest ascent; its magnitude is the slope in that\
+      \ direction; moving opposite to ∇f descends fastest — the geometry behind\
+      \ gradient descent"
+    verifier: sympy
+    lab: sympy (compute gradient of f=x**2+y**2; verify it equals (2x, 2y) and points
+      radially outward)
+    play: at the point (1,2) on f(x,y)=x²+y², compute ∇f=(2,4); confirm this direction
+      is steeper than (1,0) by comparing directional derivatives
+    tier: 5
+  differential_equation:
+    composed_of:
+    - derivative
+    - function
+    defines: an equation relating f and its derivatives — y' = ky has solution y
+      = Ce^(kt); every law of physics (Newton's F=ma, Maxwell's equations, Schrödinger's
+      equation) is a differential equation; the language in which nature writes its
+      rules
+    verifier: sympy
+    lab: sympy (solve y' = -y symbolically; verify solution is C*exp(-x); check
+      initial condition y(0)=1 gives C=1)
+    play: verify that y = e^(-t) satisfies y' = -y by differentiating and substituting;
+      the equation eats its own solution
+    tier: 5
+applications:
+  physics_kinematics:
+    needs:
+    - derivative
+    - definite_integral
+    - differential_equation
+    domain: classical mechanics / engineering
+    defines: position x(t), velocity v=x'(t), acceleration a=x''(t) — calculus is
+      the native language of motion; ∫v dt recovers displacement; every equation
+      in mechanics_graph is a differential equation in disguise
+  gradient_descent:
+    needs:
+    - gradient
+    - optimization
+    domain: machine learning / numerical optimization
+    defines: update parameters θ ← θ − α∇L iteratively to minimize loss L; the
+      algorithm that trains every neural network; convergence guaranteed near convex
+      minima; the gradient does the geometry, the learning rate sets the step
+  fourier_analysis:
+    needs:
+    - definite_integral
+    - series
+    - convergence
+    domain: signal processing / acoustics / PDEs
+    defines: any periodic function decomposes as Σ aₙ cos(nωt) + bₙ sin(nωt) where
+      coefficients are definite integrals; the FFT algorithm executes this in O(n
+      log n); every audio codec, image compressor, and PDE solver uses it
+  continuous_probability:
+    needs:
+    - definite_integral
+    - convergence
+    domain: probability theory / statistics
+    defines: a probability density f satisfies ∫_{-∞}^∞ f(x)dx = 1 and P(a≤X≤b)
+      = ∫_a^b f(x)dx; the normal, exponential, and beta distributions are all integrals;
+      calculus is what makes continuous probability precise
+  population_dynamics:
+    needs:
+    - differential_equation
+    - optimization
+    domain: ecology / epidemiology / economics
+    defines: logistic growth dP/dt = rP(1−P/K) models population with a carrying
+      capacity K; the SIR epidemic model is three coupled differential equations;
+      equilibrium and stability are optimization questions in disguise
