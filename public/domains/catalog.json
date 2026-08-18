@@ -63,6 +63,24 @@
         "name": "vector_addition",
         "label": "Vector Addition",
         "file": "output/college.en/html/concept_vector_addition.html"
+      },
+      {
+        "name": "linear_combination",
+        "label": "Linear Combination",
+        "file": "output/intro.en/html/concept_linear_combination.html",
+        "language": "en"
+      },
+      {
+        "name": "scalar_multiplication",
+        "label": "Scalar Multiplication",
+        "file": "output/intro.en/html/concept_scalar_multiplication.html",
+        "language": "en"
+      },
+      {
+        "name": "vector_addition",
+        "label": "Vector Addition",
+        "file": "output/intro.en/html/concept_vector_addition.html",
+        "language": "en"
       }
     ],
     "default_level": "college"
@@ -118,6 +136,25 @@
       {
         "target": "navigation_surveying",
         "file": "output/core.en/html/book_navigation_surveying.html"
+      },
+      {
+        "target": "architecture_construction",
+        "file": "output/core.de/sonnet/html/book_architecture_construction.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "architecture_construction",
+        "file": "output/core.zh/html/book_architecture_construction.html"
+      },
+      {
+        "target": "circle",
+        "file": "output/core.zh/html/book_circle.html",
+        "language": "zh"
+      },
+      {
+        "target": "navigation_surveying",
+        "file": "output/core.zh/html/book_navigation_surveying.html",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -127,9 +164,21 @@
         "file": "output/core.en/html/concept_angle.html"
       },
       {
+        "name": "angle",
+        "label": "Angle",
+        "file": "output/core.de/sonnet/html/concept_angle.html",
+        "model": "sonnet"
+      },
+      {
         "name": "angle_measure",
         "label": "Angle Measure",
         "file": "output/core.en/html/concept_angle_measure.html"
+      },
+      {
+        "name": "angle_measure",
+        "label": "Angle Measure",
+        "file": "output/core.de/sonnet/html/concept_angle_measure.html",
+        "model": "sonnet"
       },
       {
         "name": "architecture_construction",
@@ -137,9 +186,21 @@
         "file": "output/core.en/html/concept_architecture_construction.html"
       },
       {
+        "name": "architecture_construction",
+        "label": "Architecture Construction",
+        "file": "output/core.de/sonnet/html/concept_architecture_construction.html",
+        "model": "sonnet"
+      },
+      {
         "name": "area",
         "label": "Area",
         "file": "output/core.en/html/concept_area.html"
+      },
+      {
+        "name": "area",
+        "label": "Area",
+        "file": "output/core.de/sonnet/html/concept_area.html",
+        "model": "sonnet"
       },
       {
         "name": "circle",
@@ -152,6 +213,12 @@
         "file": "output/core.en/html/concept_congruence.html"
       },
       {
+        "name": "congruence",
+        "label": "Congruence",
+        "file": "output/core.de/sonnet/html/concept_congruence.html",
+        "model": "sonnet"
+      },
+      {
         "name": "coordinate_plane",
         "label": "Coordinate Plane",
         "file": "output/core.en/html/concept_coordinate_plane.html"
@@ -160,6 +227,12 @@
         "name": "distance",
         "label": "Distance",
         "file": "output/core.en/html/concept_distance.html"
+      },
+      {
+        "name": "distance",
+        "label": "Distance",
+        "file": "output/core.de/sonnet/html/concept_distance.html",
+        "model": "sonnet"
       },
       {
         "name": "distance_formula",
@@ -172,9 +245,21 @@
         "file": "output/core.en/html/concept_line.html"
       },
       {
+        "name": "line",
+        "label": "Line",
+        "file": "output/core.de/sonnet/html/concept_line.html",
+        "model": "sonnet"
+      },
+      {
         "name": "line_segment",
         "label": "Line Segment",
         "file": "output/core.en/html/concept_line_segment.html"
+      },
+      {
+        "name": "line_segment",
+        "label": "Line Segment",
+        "file": "output/core.de/sonnet/html/concept_line_segment.html",
+        "model": "sonnet"
       },
       {
         "name": "navigation_surveying",
@@ -187,14 +272,32 @@
         "file": "output/core.en/html/concept_point.html"
       },
       {
+        "name": "point",
+        "label": "Point",
+        "file": "output/core.de/sonnet/html/concept_point.html",
+        "model": "sonnet"
+      },
+      {
         "name": "polygon",
         "label": "Polygon",
         "file": "output/core.en/html/concept_polygon.html"
       },
       {
+        "name": "polygon",
+        "label": "Polygon",
+        "file": "output/core.de/sonnet/html/concept_polygon.html",
+        "model": "sonnet"
+      },
+      {
         "name": "pythagorean_theorem",
         "label": "Pythagorean Theorem",
         "file": "output/core.en/html/concept_pythagorean_theorem.html"
+      },
+      {
+        "name": "pythagorean_theorem",
+        "label": "Pythagorean Theorem",
+        "file": "output/core.de/sonnet/html/concept_pythagorean_theorem.html",
+        "model": "sonnet"
       },
       {
         "name": "ray",
@@ -207,9 +310,21 @@
         "file": "output/core.en/html/concept_rigid_motion.html"
       },
       {
+        "name": "rigid_motion",
+        "label": "Rigid Motion",
+        "file": "output/core.de/sonnet/html/concept_rigid_motion.html",
+        "model": "sonnet"
+      },
+      {
         "name": "similarity",
         "label": "Similarity",
         "file": "output/core.en/html/concept_similarity.html"
+      },
+      {
+        "name": "similarity",
+        "label": "Similarity",
+        "file": "output/core.de/sonnet/html/concept_similarity.html",
+        "model": "sonnet"
       },
       {
         "name": "triangle",
@@ -217,9 +332,21 @@
         "file": "output/core.en/html/concept_triangle.html"
       },
       {
+        "name": "triangle",
+        "label": "Triangle",
+        "file": "output/core.de/sonnet/html/concept_triangle.html",
+        "model": "sonnet"
+      },
+      {
         "name": "triangle_congruence_criteria",
         "label": "Triangle Congruence Criteria",
         "file": "output/core.en/html/concept_triangle_congruence_criteria.html"
+      },
+      {
+        "name": "triangle_congruence_criteria",
+        "label": "Triangle Congruence Criteria",
+        "file": "output/core.de/sonnet/html/concept_triangle_congruence_criteria.html",
+        "model": "sonnet"
       },
       {
         "name": "triangle_similarity_criteria",
@@ -230,6 +357,131 @@
         "name": "trigonometric_ratios",
         "label": "Trigonometric Ratios",
         "file": "output/core.en/html/concept_trigonometric_ratios.html"
+      },
+      {
+        "name": "architecture_construction",
+        "label": "Architecture Construction",
+        "file": "output/core.zh/html/concept_architecture_construction.html"
+      },
+      {
+        "name": "angle",
+        "label": "Angle",
+        "file": "output/core.zh/html/concept_angle.html",
+        "language": "zh"
+      },
+      {
+        "name": "angle_measure",
+        "label": "Angle Measure",
+        "file": "output/core.zh/html/concept_angle_measure.html",
+        "language": "zh"
+      },
+      {
+        "name": "area",
+        "label": "Area",
+        "file": "output/core.zh/html/concept_area.html",
+        "language": "zh"
+      },
+      {
+        "name": "circle",
+        "label": "Circle",
+        "file": "output/core.zh/html/concept_circle.html",
+        "language": "zh"
+      },
+      {
+        "name": "congruence",
+        "label": "Congruence",
+        "file": "output/core.zh/html/concept_congruence.html",
+        "language": "zh"
+      },
+      {
+        "name": "coordinate_plane",
+        "label": "Coordinate Plane",
+        "file": "output/core.zh/html/concept_coordinate_plane.html",
+        "language": "zh"
+      },
+      {
+        "name": "distance",
+        "label": "Distance",
+        "file": "output/core.zh/html/concept_distance.html",
+        "language": "zh"
+      },
+      {
+        "name": "distance_formula",
+        "label": "Distance Formula",
+        "file": "output/core.zh/html/concept_distance_formula.html",
+        "language": "zh"
+      },
+      {
+        "name": "line",
+        "label": "Line",
+        "file": "output/core.zh/html/concept_line.html",
+        "language": "zh"
+      },
+      {
+        "name": "line_segment",
+        "label": "Line Segment",
+        "file": "output/core.zh/html/concept_line_segment.html",
+        "language": "zh"
+      },
+      {
+        "name": "navigation_surveying",
+        "label": "Navigation Surveying",
+        "file": "output/core.zh/html/concept_navigation_surveying.html",
+        "language": "zh"
+      },
+      {
+        "name": "point",
+        "label": "Point",
+        "file": "output/core.zh/html/concept_point.html",
+        "language": "zh"
+      },
+      {
+        "name": "polygon",
+        "label": "Polygon",
+        "file": "output/core.zh/html/concept_polygon.html",
+        "language": "zh"
+      },
+      {
+        "name": "pythagorean_theorem",
+        "label": "Pythagorean Theorem",
+        "file": "output/core.zh/html/concept_pythagorean_theorem.html",
+        "language": "zh"
+      },
+      {
+        "name": "rigid_motion",
+        "label": "Rigid Motion",
+        "file": "output/core.zh/html/concept_rigid_motion.html",
+        "language": "zh"
+      },
+      {
+        "name": "similarity",
+        "label": "Similarity",
+        "file": "output/core.zh/html/concept_similarity.html",
+        "language": "zh"
+      },
+      {
+        "name": "triangle",
+        "label": "Triangle",
+        "file": "output/core.zh/html/concept_triangle.html",
+        "language": "zh"
+      },
+      {
+        "name": "triangle_congruence_criteria",
+        "label": "Triangle Congruence Criteria",
+        "file": "output/core.zh/html/concept_triangle_congruence_criteria.html",
+        "language": "zh"
+      },
+      {
+        "name": "triangle_similarity_criteria",
+        "label": "Triangle Similarity Criteria",
+        "file": "output/core.zh/html/concept_triangle_similarity_criteria.html",
+        "language": "zh"
+      },
+      {
+        "name": "trigonometric_ratios",
+        "label": "Trigonometric Ratios",
+        "file": "output/core.zh/html/concept_trigonometric_ratios.html",
+        "language": "zh"
       }
     ],
     "default_level": "core"
@@ -1124,6 +1376,16 @@
         "target": "phono_semantic_principle",
         "file": "output/intro.en/sonnet/html/book_phono_semantic_principle.html",
         "model": "sonnet"
+      },
+      {
+        "target": "vocabulary_compounds",
+        "file": "output/intro.zh/html/book_vocabulary_compounds.html",
+        "language": "zh"
+      },
+      {
+        "target": "众",
+        "file": "output/intro.zh/html/book_众.html",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -1373,6 +1635,301 @@
         "name": "马",
         "label": "马",
         "file": "output/intro.en/sonnet/html/concept_马.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "cultural_etymology",
+        "label": "Cultural Etymology",
+        "file": "output/intro.en/html/concept_cultural_etymology.html",
+        "language": "en"
+      },
+      {
+        "name": "vocabulary_compounds",
+        "label": "Vocabulary Compounds",
+        "file": "output/intro.en/html/concept_vocabulary_compounds.html",
+        "language": "en"
+      },
+      {
+        "name": "人",
+        "label": "人",
+        "file": "output/intro.en/html/concept_人.html",
+        "language": "en"
+      },
+      {
+        "name": "从",
+        "label": "从",
+        "file": "output/intro.en/html/concept_从.html",
+        "language": "en"
+      },
+      {
+        "name": "休",
+        "label": "休",
+        "file": "output/intro.en/html/concept_休.html",
+        "language": "en"
+      },
+      {
+        "name": "众",
+        "label": "众",
+        "file": "output/intro.en/html/concept_众.html",
+        "language": "en"
+      },
+      {
+        "name": "口",
+        "label": "口",
+        "file": "output/intro.en/html/concept_口.html",
+        "language": "en"
+      },
+      {
+        "name": "吗",
+        "label": "吗",
+        "file": "output/intro.en/html/concept_吗.html",
+        "language": "en"
+      },
+      {
+        "name": "女",
+        "label": "女",
+        "file": "output/intro.en/html/concept_女.html",
+        "language": "en"
+      },
+      {
+        "name": "好",
+        "label": "好",
+        "file": "output/intro.en/html/concept_好.html",
+        "language": "en"
+      },
+      {
+        "name": "子",
+        "label": "子",
+        "file": "output/intro.en/html/concept_子.html",
+        "language": "en"
+      },
+      {
+        "name": "字",
+        "label": "字",
+        "file": "output/intro.en/html/concept_字.html",
+        "language": "en"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.en/html/concept_宀.html",
+        "language": "en"
+      },
+      {
+        "name": "安",
+        "label": "安",
+        "file": "output/intro.en/html/concept_安.html",
+        "language": "en"
+      },
+      {
+        "name": "日",
+        "label": "日",
+        "file": "output/intro.en/html/concept_日.html",
+        "language": "en"
+      },
+      {
+        "name": "月",
+        "label": "月",
+        "file": "output/intro.en/html/concept_月.html",
+        "language": "en"
+      },
+      {
+        "name": "木",
+        "label": "木",
+        "file": "output/intro.en/html/concept_木.html",
+        "language": "en"
+      },
+      {
+        "name": "林",
+        "label": "林",
+        "file": "output/intro.en/html/concept_林.html",
+        "language": "en"
+      },
+      {
+        "name": "水",
+        "label": "水",
+        "file": "output/intro.en/html/concept_水.html",
+        "language": "en"
+      },
+      {
+        "name": "马",
+        "label": "马",
+        "file": "output/intro.en/html/concept_马.html",
+        "language": "en"
+      },
+      {
+        "name": "phonetic_borrowing",
+        "label": "Phonetic Borrowing",
+        "file": "output/intro.zh/sonnet/html/concept_phonetic_borrowing.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "phono_semantic_principle",
+        "label": "Phono Semantic Principle",
+        "file": "output/intro.zh/sonnet/html/concept_phono_semantic_principle.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "semantic_composition",
+        "label": "Semantic Composition",
+        "file": "output/intro.zh/sonnet/html/concept_semantic_composition.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "人",
+        "label": "人",
+        "file": "output/intro.zh/sonnet/html/concept_人.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "从",
+        "label": "从",
+        "file": "output/intro.zh/sonnet/html/concept_从.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "休",
+        "label": "休",
+        "file": "output/intro.zh/sonnet/html/concept_休.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "众",
+        "label": "众",
+        "file": "output/intro.zh/sonnet/html/concept_众.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "口",
+        "label": "口",
+        "file": "output/intro.zh/sonnet/html/concept_口.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "吗",
+        "label": "吗",
+        "file": "output/intro.zh/sonnet/html/concept_吗.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "女",
+        "label": "女",
+        "file": "output/intro.zh/sonnet/html/concept_女.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "好",
+        "label": "好",
+        "file": "output/intro.zh/sonnet/html/concept_好.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "妈",
+        "label": "妈",
+        "file": "output/intro.zh/sonnet/html/concept_妈.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "子",
+        "label": "子",
+        "file": "output/intro.zh/sonnet/html/concept_子.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "字",
+        "label": "字",
+        "file": "output/intro.zh/sonnet/html/concept_字.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "宀",
+        "label": "宀",
+        "file": "output/intro.zh/sonnet/html/concept_宀.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "安",
+        "label": "安",
+        "file": "output/intro.zh/sonnet/html/concept_安.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "日",
+        "label": "日",
+        "file": "output/intro.zh/sonnet/html/concept_日.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "明",
+        "label": "明",
+        "file": "output/intro.zh/sonnet/html/concept_明.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "月",
+        "label": "月",
+        "file": "output/intro.zh/sonnet/html/concept_月.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "木",
+        "label": "木",
+        "file": "output/intro.zh/sonnet/html/concept_木.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "林",
+        "label": "林",
+        "file": "output/intro.zh/sonnet/html/concept_林.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "森",
+        "label": "森",
+        "file": "output/intro.zh/sonnet/html/concept_森.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "水",
+        "label": "水",
+        "file": "output/intro.zh/sonnet/html/concept_水.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "沐",
+        "label": "沐",
+        "file": "output/intro.zh/sonnet/html/concept_沐.html",
+        "language": "zh",
+        "model": "sonnet"
+      },
+      {
+        "name": "马",
+        "label": "马",
+        "file": "output/intro.zh/sonnet/html/concept_马.html",
+        "language": "zh",
         "model": "sonnet"
       }
     ],
@@ -2367,6 +2924,11 @@
       {
         "target": "simplification",
         "file": "output/research.zh/html/book_simplification.html"
+      },
+      {
+        "target": "cryptography",
+        "file": "output/research.zh/html/book_cryptography.html",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -2414,6 +2976,96 @@
         "name": "symbolic_variable",
         "label": "Symbolic Variable",
         "file": "output/research.zh/html/concept_symbolic_variable.html"
+      },
+      {
+        "name": "algebraic_numbers",
+        "label": "Algebraic Numbers",
+        "file": "output/research.en/html/concept_algebraic_numbers.html",
+        "language": "en"
+      },
+      {
+        "name": "calculus_sage",
+        "label": "Calculus Sage",
+        "file": "output/research.en/html/concept_calculus_sage.html",
+        "language": "en"
+      },
+      {
+        "name": "cryptography",
+        "label": "Cryptography",
+        "file": "output/research.en/html/concept_cryptography.html",
+        "language": "en"
+      },
+      {
+        "name": "exact_integer",
+        "label": "Exact Integer",
+        "file": "output/research.en/html/concept_exact_integer.html",
+        "language": "en"
+      },
+      {
+        "name": "exact_linear_algebra",
+        "label": "Exact Linear Algebra",
+        "file": "output/research.en/html/concept_exact_linear_algebra.html",
+        "language": "en"
+      },
+      {
+        "name": "exact_rational",
+        "label": "Exact Rational",
+        "file": "output/research.en/html/concept_exact_rational.html",
+        "language": "en"
+      },
+      {
+        "name": "finite_fields",
+        "label": "Finite Fields",
+        "file": "output/research.en/html/concept_finite_fields.html",
+        "language": "en"
+      },
+      {
+        "name": "general_relativity",
+        "label": "General Relativity",
+        "file": "output/research.en/html/concept_general_relativity.html",
+        "language": "en"
+      },
+      {
+        "name": "manifolds_geometry",
+        "label": "Manifolds Geometry",
+        "file": "output/research.en/html/concept_manifolds_geometry.html",
+        "language": "en"
+      },
+      {
+        "name": "number_theory_sage",
+        "label": "Number Theory Sage",
+        "file": "output/research.en/html/concept_number_theory_sage.html",
+        "language": "en"
+      },
+      {
+        "name": "parent_structure",
+        "label": "Parent Structure",
+        "file": "output/research.en/html/concept_parent_structure.html",
+        "language": "en"
+      },
+      {
+        "name": "polynomial_rings",
+        "label": "Polynomial Rings",
+        "file": "output/research.en/html/concept_polynomial_rings.html",
+        "language": "en"
+      },
+      {
+        "name": "simplification",
+        "label": "Simplification",
+        "file": "output/research.en/html/concept_simplification.html",
+        "language": "en"
+      },
+      {
+        "name": "symbolic_expression",
+        "label": "Symbolic Expression",
+        "file": "output/research.en/html/concept_symbolic_expression.html",
+        "language": "en"
+      },
+      {
+        "name": "symbolic_variable",
+        "label": "Symbolic Variable",
+        "file": "output/research.en/html/concept_symbolic_variable.html",
+        "language": "en"
       }
     ],
     "default_level": "research"
@@ -3366,6 +4018,17 @@
         "target": "approximation",
         "file": "output/college.en/sonnet/html/book_approximation.html",
         "model": "sonnet"
+      },
+      {
+        "target": "approximation",
+        "file": "output/intro.en/html/book_approximation.html",
+        "language": "en"
+      },
+      {
+        "target": "approximation",
+        "file": "output/research.en/sonnet/html/book_approximation.html",
+        "language": "en",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -3483,6 +4146,105 @@
         "label": "Units",
         "file": "output/research.en/sonnet/html/concept_units.html",
         "model": "sonnet"
+      },
+      {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/college.en/sonnet/html/concept_approximation.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/college.en/sonnet/html/concept_measurement.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/college.en/sonnet/html/concept_order_of_magnitude.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/college.en/sonnet/html/concept_physical_quantity.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "units",
+        "label": "Units",
+        "file": "output/college.en/sonnet/html/concept_units.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "accuracy",
+        "label": "Accuracy",
+        "file": "output/core.en/sonnet/html/concept_accuracy.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "measurement",
+        "label": "Measurement",
+        "file": "output/core.en/sonnet/html/concept_measurement.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "precision",
+        "label": "Precision",
+        "file": "output/core.en/sonnet/html/concept_precision.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "uncertainty",
+        "label": "Uncertainty",
+        "file": "output/core.en/sonnet/html/concept_uncertainty.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "approximation",
+        "label": "Approximation",
+        "file": "output/intro.en/html/concept_approximation.html",
+        "language": "en"
+      },
+      {
+        "name": "order_of_magnitude",
+        "label": "Order Of Magnitude",
+        "file": "output/intro.en/html/concept_order_of_magnitude.html",
+        "language": "en"
+      },
+      {
+        "name": "physical_quantity",
+        "label": "Physical Quantity",
+        "file": "output/intro.en/html/concept_physical_quantity.html",
+        "language": "en"
+      },
+      {
+        "name": "precision",
+        "label": "Precision",
+        "file": "output/intro.en/html/concept_precision.html",
+        "language": "en"
+      },
+      {
+        "name": "significant_figures",
+        "label": "Significant Figures",
+        "file": "output/intro.en/html/concept_significant_figures.html",
+        "language": "en"
+      },
+      {
+        "name": "uncertainty",
+        "label": "Uncertainty",
+        "file": "output/intro.en/html/concept_uncertainty.html",
+        "language": "en"
       }
     ],
     "default_level": "core",
@@ -4439,6 +5201,18 @@
         "target": "elasticity_in_biological_structures",
         "file": "output/college.en/sonnet/html/book_elasticity_in_biological_structures.html",
         "model": "sonnet"
+      },
+      {
+        "target": "aerodynamic_drag_reduction",
+        "file": "output/college.en/sonnet/html/book_aerodynamic_drag_reduction.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "target": "joint_lubrication",
+        "file": "output/intro.en/sonnet/html/book_joint_lubrication.html",
+        "language": "en",
+        "model": "sonnet"
       }
     ],
     "generated_concepts": [
@@ -4566,6 +5340,69 @@
         "name": "youngs_modulus",
         "label": "Youngs Modulus",
         "file": "output/college.en/sonnet/html/concept_youngs_modulus.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "aerodynamic_drag_reduction",
+        "label": "Aerodynamic Drag Reduction",
+        "file": "output/intro.en/sonnet/html/concept_aerodynamic_drag_reduction.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "coefficient_of_kinetic_friction",
+        "label": "Coefficient Of Kinetic Friction",
+        "file": "output/intro.en/sonnet/html/concept_coefficient_of_kinetic_friction.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "drag_coefficient",
+        "label": "Drag Coefficient",
+        "file": "output/intro.en/sonnet/html/concept_drag_coefficient.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "drag_force",
+        "label": "Drag Force",
+        "file": "output/intro.en/sonnet/html/concept_drag_force.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "fluid_density",
+        "label": "Fluid Density",
+        "file": "output/intro.en/sonnet/html/concept_fluid_density.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "friction",
+        "label": "Friction",
+        "file": "output/intro.en/sonnet/html/concept_friction.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "joint_lubrication",
+        "label": "Joint Lubrication",
+        "file": "output/intro.en/sonnet/html/concept_joint_lubrication.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "kinetic_friction",
+        "label": "Kinetic Friction",
+        "file": "output/intro.en/sonnet/html/concept_kinetic_friction.html",
+        "language": "en",
+        "model": "sonnet"
+      },
+      {
+        "name": "normal_force",
+        "label": "Normal Force",
+        "file": "output/intro.en/sonnet/html/concept_normal_force.html",
+        "language": "en",
         "model": "sonnet"
       }
     ]

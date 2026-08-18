@@ -177,6 +177,11 @@ const _SECTION_TITLE = 'font-size:11px;letter-spacing:.06em;text-transform:upper
 
 // ── Concept Books section ─────────────────────────────────────────────────────
 
+function _parseLevelLang(file) {
+  const m = file.match(/output\/([^.]+)\.([^/]+)\//)
+  return m ? { level: m[1], lang: m[2] } : { level: '?', lang: '?' }
+}
+
 function _localizePath(file, level, lang, model = '') {
   if (model && /output\/[^/]+\/[^/]+\/html\//.test(file)) {
     return file.replace(/output\/[^/]+\/[^/]+\/html\//, `output/${level}.${lang}/${model}/html/`)
@@ -193,10 +198,20 @@ function _injectConceptBooksSection(win, doc, domainId, books, genConcepts, leve
 
   const _WARN_STYLE = 'margin-top:4px;font-size:11px;color:#fca5a5;display:none'
 
-  const _bookModels = new Set(sortedBooks.map(b => b.model).filter(Boolean))
-  const _cptModels  = new Set(sortedConcepts.map(c => c.model).filter(Boolean))
-  const _showBookModel = _bookModels.size > 1
-  const _showCptModel  = _cptModels.size > 1
+  // Multiple entries can share the same target/label (e.g. a legacy
+  // model-less English entry alongside a freshly-generated tagged one) —
+  // without a distinguishing tag these render as identical option text, so
+  // picking the "wrong" one silently resolves to the wrong model/path
+  // (dropping the model subdir entirely for the legacy entry). Tag by count
+  // of entries per label, not by distinct non-empty model count, so a
+  // legacy vs. tagged pair (only one real model value) still gets tagged.
+  function _dupCounts(entries, keyFn) {
+    const counts = {}
+    entries.forEach(e => { const k = keyFn(e); counts[k] = (counts[k] || 0) + 1 })
+    return counts
+  }
+  const _bookDupCounts = _dupCounts(sortedBooks, b => b.target)
+  const _cptDupCounts = _dupCounts(sortedConcepts, c => c.label)
 
   const bookRowHtml = sortedBooks.length > 0 ? `
     <div style="${_SUB_LABEL}">TOC Index</div>
@@ -204,7 +219,8 @@ function _injectConceptBooksSection(win, doc, domainId, books, genConcepts, leve
       <select id="cb-book-sel" style="${_SEL}">
         <option value="">Select book…</option>
         ${sortedBooks.map(b => {
-          const label = b.target.replace(/_/g, ' ') + (_showBookModel && b.model ? ` (${b.model})` : '')
+          const { level: bLevel, lang: bLang } = _parseLevelLang(b.file)
+          const label = b.target.replace(/_/g, ' ') + (_bookDupCounts[b.target] > 1 ? ` [${bLevel}.${bLang}, ${b.model || 'legacy'}]` : '')
           return `<option value="${_localizePath(b.file, level, lang, b.model || '')}" data-orig="${b.file}" data-model="${b.model || ''}">${label}</option>`
         }).join('')}
       </select>
@@ -219,7 +235,8 @@ function _injectConceptBooksSection(win, doc, domainId, books, genConcepts, leve
       <select id="cb-cpt-sel" style="${_SEL}">
         <option value="">Select concept…</option>
         ${sortedConcepts.map(c => {
-          const label = c.label + (_showCptModel && c.model ? ` (${c.model})` : '')
+          const { level: cLevel, lang: cLang } = _parseLevelLang(c.file)
+          const label = c.label + (_cptDupCounts[c.label] > 1 ? ` [${cLevel}.${cLang}, ${c.model || 'legacy'}]` : '')
           return `<option value="${_localizePath(c.file, level, lang, c.model || '')}" data-orig="${c.file}" data-model="${c.model || ''}">${label}</option>`
         }).join('')}
       </select>
