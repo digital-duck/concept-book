@@ -1,0 +1,96 @@
+domain: college_physics_2e_ch8
+sources:
+  mass:
+    label: Mass
+    sections: []
+  velocity:
+    label: Velocity
+    sections: []
+  kinetic_energy:
+    label: Kinetic Energy
+    sections: []
+  net_external_force:
+    label: Net External Force
+    sections: []
+  newtons_third_law:
+    label: Newton's Third Law
+    sections:
+    - id: ch08_s8_7
+      title: 8.7 Introduction to Rocket Propulsion
+  linear_momentum:
+    label: Linear Momentum
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 Linear Momentum and Force
+  newtons_second_law_momentum:
+    label: Newton's Second Law in Terms of Momentum
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 Linear Momentum and Force
+  impulse:
+    label: Impulse
+    sections:
+    - id: ch08_s8_2
+      title: 8.2 Impulse
+  isolated_system:
+    label: Isolated System
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 Conservation of Momentum
+  conservation_of_momentum:
+    label: Conservation of Momentum
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 Conservation of Momentum
+  internal_kinetic_energy:
+    label: Internal Kinetic Energy
+    sections:
+    - id: ch08_s8_4
+      title: 8.4 Elastic Collisions in One Dimension
+  elastic_collision:
+    label: Elastic Collision
+    sections:
+    - id: ch08_s8_4
+      title: 8.4 Elastic Collisions in One Dimension
+  inelastic_collision:
+    label: Inelastic Collision
+    sections:
+    - id: ch08_s8_5
+      title: 8.5 Inelastic Collisions in One Dimension
+  perfectly_inelastic_collision:
+    label: Perfectly Inelastic Collision
+    sections:
+    - id: ch08_s8_5
+      title: 8.5 Inelastic Collisions in One Dimension
+  point_mass:
+    label: Point Mass
+    sections:
+    - id: ch08_s8_6
+      title: 8.6 Collisions of Point Masses in Two Dimensions
+  two_dimensional_collision:
+    label: Two-Dimensional Collision
+    sections:
+    - id: ch08_s8_6
+      title: 8.6 Collisions of Point Masses in Two Dimensions
+  rocket_thrust:
+    label: Rocket Thrust
+    sections:
+    - id: ch08_s8_7
+      title: 8.7 Introduction to Rocket Propulsion
+  rocket_acceleration:
+    label: Rocket Acceleration Equation
+    sections:
+    - id: ch08_s8_7
+      title: 8.7 Introduction to Rocket Propulsion
+  rocket_propulsion:
+    label: Rocket Propulsion
+    sections:
+    - id: ch08_s8_7
+      title: 8.7 Introduction to Rocket Propulsion
+  recoil:
+    label: Recoil
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 Conservation of Momentum
+    - id: ch08_s8_7
+      title: 8.7 Introduction to Rocket Propulsion

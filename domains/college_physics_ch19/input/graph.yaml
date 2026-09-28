@@ -1,0 +1,174 @@
+domain: college_physics_2e_ch19
+primitives:
+  electric_charge:
+    defines: A fundamental property of matter that experiences a force in an electric field, measured
+      in coulombs.
+    tier: 0
+  electric_field:
+    defines: A vector field that exerts a force on electric charges, with magnitude measured in newtons
+      per coulomb.
+    tier: 0
+  work:
+    defines: Energy transferred by a force acting over a distance, equal to the component of force along
+      the displacement times the distance.
+    tier: 0
+  kinetic_energy:
+    defines: The energy an object possesses due to its motion.
+    tier: 0
+  conservative_force:
+    defines: A force for which the work done on an object is independent of the path taken, allowing definition
+      of a potential energy.
+    tier: 0
+  potential_energy:
+    defines: Energy stored by virtue of an object's position in a field produced by a conservative force.
+    tier: 0
+  coulomb_force:
+    defines: The conservative electrostatic force between charged objects proportional to the product
+      of charges and inversely proportional to the square of the distance.
+    tier: 0
+concepts:
+  electric_potential_energy:
+    defines: The potential energy a charge possesses due to its position in an electric field, where the
+      change in PE equals the negative of the work done by the electrostatic force.
+    composed_of:
+    - potential_energy
+    - electric_charge
+    - coulomb_force
+    tier: 1
+  conservation_of_energy:
+    defines: For conservative forces, the sum of kinetic energy and potential energy remains constant,
+      so a loss in PE becomes an increase in KE.
+    composed_of:
+    - kinetic_energy
+    - potential_energy
+    - conservative_force
+    tier: 1
+  uniform_electric_field:
+    defines: An electric field of constant magnitude and direction, such as that produced between two
+      parallel conducting plates.
+    composed_of:
+    - electric_field
+    tier: 1
+  polarization:
+    defines: The separation of charge within atoms or molecules of a dielectric material caused by an
+      external electric field, reducing the internal field.
+    composed_of:
+    - electric_charge
+    - electric_field
+    tier: 1
+  capacitor:
+    defines: A device that stores electric charge by maintaining separated positive and negative charges
+      on two conducting surfaces close together but not touching.
+    composed_of:
+    - electric_charge
+    tier: 1
+  electric_potential:
+    defines: The electric potential energy per unit charge at a point in an electric field, measured in
+      volts.
+    composed_of:
+    - electric_potential_energy
+    tier: 2
+  polar_molecule:
+    defines: A molecule with an inherent separation of charge due to its asymmetric structure, resulting
+      in greater polarization effects and higher dielectric constants.
+    composed_of:
+    - polarization
+    tier: 2
+  potential_difference:
+    defines: The difference in electric potential between two points, measured in volts (joules per coulomb).
+    composed_of:
+    - electric_potential
+    tier: 3
+  point_charge_potential:
+    defines: The electric potential at distance r from a point charge Q is V = kQ/r, decreasing with distance
+      and chosen to be zero at infinity.
+    composed_of:
+    - electric_potential
+    tier: 3
+  equipotential_lines:
+    defines: Lines or surfaces along which the electric potential is constant, always perpendicular to
+      electric field lines, requiring no work to move a charge along them.
+    composed_of:
+    - electric_potential
+    - electric_field
+    tier: 3
+  electron_volt:
+    defines: An energy unit equal to the energy given to a fundamental charge accelerated through 1 V,
+      equal to 1.60 × 10⁻¹⁹ J.
+    composed_of:
+    - potential_difference
+    tier: 4
+  voltage_electric_field_relationship:
+    defines: In a uniform field V = Ed; more generally E equals the negative rate of change of V with
+      distance.
+    composed_of:
+    - potential_difference
+    - electric_field
+    tier: 4
+  superposition_of_potentials:
+    defines: The total electric potential due to multiple point charges is the algebraic (scalar) sum
+      of the individual potentials.
+    composed_of:
+    - point_charge_potential
+    tier: 4
+  grounding:
+    defines: Fixing a conductor at zero volts by connecting it to the earth, exploiting the fact that
+      conductors are equipotential surfaces.
+    composed_of:
+    - equipotential_lines
+    tier: 4
+  capacitance:
+    defines: The amount of charge a capacitor stores per unit voltage, C = Q/V, measured in farads.
+    composed_of:
+    - capacitor
+    - potential_difference
+    tier: 4
+  parallel_plate_capacitor:
+    defines: Two identical parallel conducting plates separated by distance d, with capacitance C = ε₀A/d.
+    composed_of:
+    - capacitance
+    - uniform_electric_field
+    tier: 5
+  dielectric:
+    defines: An insulating material placed between capacitor plates that increases capacitance by a factor
+      κ through polarization of its molecules.
+    composed_of:
+    - capacitance
+    - polarization
+    tier: 5
+  capacitors_in_series:
+    defines: Capacitors linked end-to-end sharing the same charge, with 1/C_total = 1/C₁ + 1/C₂ + …, always
+      less than any individual capacitance.
+    composed_of:
+    - capacitance
+    tier: 5
+  capacitors_in_parallel:
+    defines: Capacitors sharing the same voltage, with C_total = C₁ + C₂ + …, equal to the sum of individual
+      capacitances.
+    composed_of:
+    - capacitance
+    tier: 5
+  energy_stored_in_capacitors:
+    defines: The electrical potential energy stored in a capacitor, given by E = ½QV = ½CV² = ½Q²/C.
+    composed_of:
+    - capacitance
+    tier: 5
+  dielectric_constant:
+    defines: A dimensionless factor κ by which a dielectric increases capacitance, defined as the ratio
+      of field in vacuum to that in the dielectric.
+    composed_of:
+    - dielectric
+    tier: 6
+  dielectric_strength:
+    defines: The maximum electric field strength an insulating material can withstand before breakdown
+      and conduction.
+    composed_of:
+    - dielectric
+    tier: 6
+applications:
+  defibrillator:
+    defines: A medical device that stores energy in a capacitor and delivers a controlled electrical shock
+      to restore normal heart rhythm.
+    needs:
+    - energy_stored_in_capacitors
+    tier: 6

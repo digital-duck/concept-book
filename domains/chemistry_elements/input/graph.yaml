@@ -1,0 +1,343 @@
+# "Reading Molecules the LEGO Way" — concept-book chemistry graph (pilot)
+# (fourth structural pilot — and the one where the schema's `pieces`
+#  convention stops being a metaphor: a chemical formula IS a pieces
+#  multiset; H₂O is pieces [H, H, O], written by nature)
+# Publisher: Digital Duck (github.com/digital-duck)
+#
+# The two-radical convention maps onto chemistry's deepest split:
+#   first radical  — FORM:     the elements (the brick set the universe ships)
+#   second radical — OPERATOR: the valence electron (the brick that BONDS)
+# Formulas reduce to elements alone, but the system does not: WHY Na+Cl
+# snaps together while Ne bonds with nothing lives in the outermost
+# electron — reducible() fails from the elements alone, passes with the
+# electron. Target: stoichiometry — the ledger principle; bricks rearrange,
+# never appear or vanish, and graph_lib.verify_balanced_equation checks the
+# ledger with exact integer arithmetic.
+#
+# THE CROSS-PILOT FACT (the reason each element's `symbol` below carries a
+# Chinese character): when the periodic table was ported to Chinese
+# (Xu Shou 徐寿 and successors, 19th–20th c.), new characters were MINTED
+# per element using exactly the chinese_characters pilot's principle —
+#   FORM radical = room-temperature state & bonding family:
+#     气 gas (氢 H, 氧 O, 氮 N, 氯 Cl) · 钅 metal (钠 Na, 铁 Fe)
+#     石 solid nonmetal (碳 C, 硫 S)   · 氵 liquid (溴 Br, 汞 Hg)
+#   SOUND = a phonetic lender (氧 yǎng borrows 羊; 钠 nà borrows 内)
+# And the ENGLISH names are the english_morphology pilot: hydro+gen
+# "water-maker", oxy+gen "acid-maker". Three writing systems — hanzi,
+# Latin morphemes, chemical formulas — one machine-checked LEGO principle.
+domain: chemistry_elements
+primitives:
+  H:
+    symbol: hydrogen · 氢 qīng (气 gas-radical + 巠 phonetic, "the light gas")
+    defines: the lightest brick — one proton; star fuel, and the "hydro" (water-maker) of every acid
+      and ocean
+    tier: 0
+  C:
+    symbol: carbon · 碳 tàn (石 stone-radical + 炭 phonetic)
+    defines: the connector brick — bonds four ways at once, which is why all of life is built on it
+    tier: 0
+  N:
+    symbol: nitrogen · 氮 dàn (气 gas-radical + 炎 phonetic)
+    defines: most of every breath you take — inert in the air, essential in every protein
+    tier: 0
+  O:
+    symbol: oxygen · 氧 yǎng (气 gas-radical + 羊 phonetic)
+    defines: the eager bonder — burns fuel, rusts iron, and pairs with almost everything (oxy+gen,
+      "acid-maker", a naming mistake that stuck)
+    tier: 0
+  Na:
+    symbol: sodium · 钠 nà (钅 metal-radical + 内 phonetic)
+    defines: a soft metal that explodes in water — and sits calmly in your salt shaker once it gives
+      its electron away
+    tier: 0
+  S:
+    symbol: sulfur · 硫 liú (石 stone-radical + 㐬 phonetic)
+    defines: the yellow brick of volcanoes and matches; heart of battery acid
+    tier: 0
+  Cl:
+    symbol: chlorine · 氯 lǜ (气 gas-radical + 录 phonetic)
+    defines: a green toxic gas — and your salt shaker's other half once it takes an electron;
+      bonding behavior is not visible in the brick
+    tier: 0
+  Fe:
+    symbol: iron · 铁 tiě (钅 metal-radical + 失 phonetic)
+    defines: the metal of blood, bridges, and the Earth's core — and of rust, once O gets hold of it
+    tier: 0
+  valence_electron:
+    symbol: e⁻ (outermost shell)
+    defines: the second radical — the brick that does the bonding; every reaction in this book is
+      this brick being shared (covalent) or handed over (ionic); element identity alone predicts
+      nothing about it
+    tier: 0
+first_radical_primitives:
+- H
+- C
+- N
+- O
+- Na
+- S
+- Cl
+- Fe
+concepts:
+  H2:
+    composed_of:
+    - H
+    pieces:
+    - H
+    - H
+    defines: hydrogen gas — the lightest brick travels in pairs; repetition as construction (the 林
+      of this graph)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: the formula H₂ IS the pieces list — read the subscript as a brick count
+    tier: 1
+  O2:
+    composed_of:
+    - O
+    pieces:
+    - O
+    - O
+    defines: oxygen gas — the fifth of the air that keeps you alive, also paired
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: why do these gases pair up? hold the question — the answer is the second radical
+    tier: 1
+  H2O:
+    composed_of:
+    - H
+    - O
+    pieces:
+    - H
+    - H
+    - O
+    defines: water — nature's own pieces list; two H bricks, one O brick, and the most important
+      molecule on Earth
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: read five formulas off any bottled-water label's mineral list — every subscript is a brick
+      count
+    tier: 1
+  CO2:
+    composed_of:
+    - C
+    - O
+    pieces:
+    - C
+    - O
+    - O
+    defines: carbon dioxide — what you exhale and plants inhale; one connector brick, two eager
+      bonders
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: di- means two — the english_morphology pilot is already reading chemistry for you
+    tier: 1
+  NaCl:
+    composed_of:
+    - Na
+    - Cl
+    pieces:
+    - Na
+    - Cl
+    defines: table salt — an explosive metal plus a toxic gas makes dinner; proof that compounds are
+      NEW things, not mixtures of their bricks
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: nothing about Na or Cl alone predicts "safe and salty" — what changed? (the second radical
+      changed hands)
+    tier: 1
+  CH4:
+    composed_of:
+    - C
+    - H
+    pieces:
+    - C
+    - H
+    - H
+    - H
+    - H
+    defines: methane — the connector brick using all four of its hands at once; natural gas, and the
+      simplest portrait of carbon's talent
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: carbon bonds four ways — predict the formula of carbon-with-chlorine before looking up
+      CCl₄
+    tier: 1
+  NH3:
+    composed_of:
+    - N
+    - H
+    pieces:
+    - N
+    - H
+    - H
+    - H
+    defines: ammonia — nitrogen's three-handed compound; fertilizer, and the smell of cleaning day
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: N takes 3 H, C takes 4, O takes 2 — the hand-count pattern is the periodic table whispering
+    tier: 1
+  Fe2O3:
+    composed_of:
+    - Fe
+    - O
+    pieces:
+    - Fe
+    - Fe
+    - O
+    - O
+    - O
+    defines: rust — iron slowly surrendering electrons to oxygen; five bricks, and every bridge
+      inspector's enemy
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: find three rusty things today and read Fe₂O₃ off them like a label
+    tier: 2
+  H2SO4:
+    composed_of:
+    - H
+    - S
+    - O
+    pieces:
+    - H
+    - H
+    - S
+    - O
+    - O
+    - O
+    - O
+    defines: sulfuric acid — seven bricks, three element kinds; car batteries and half of industrial
+      chemistry (the 森 of formulas — brick count grows, nothing new to memorize)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: count the bricks in the formula, then in the pieces list — they must agree, and a machine
+      checks it
+    tier: 2
+  glucose:
+    composed_of:
+    - C
+    - H
+    - O
+    pieces:
+    - C
+    - C
+    - C
+    - C
+    - C
+    - C
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - O
+    - O
+    - O
+    - O
+    - O
+    - O
+    defines: C₆H₁₂O₆ — twenty-four bricks of three kinds, and it is breakfast; the LEGO claim at
+      biological scale (your body runs on a pieces list)
+    verifier: structural
+    lab: graph_lib.verify_character_lego (formula = pieces multiset, machine-checked)
+    play: photosynthesis builds this from six CO₂ and six H₂O — count both sides and feel the ledger
+      principle coming
+    tier: 2
+  covalent_bonding:
+    composed_of:
+    - H2
+    - O2
+    - H2O
+    - CO2
+    - CH4
+    - NH3
+    - valence_electron
+    defines: the sharing principle — nonmetal bricks SPLIT the difference, pooling valence electrons
+      in pairs; why gases pair up, why water is bent, why carbon makes chains
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: revisit H₂ — two identical bricks with nothing to give each other can still share; that
+      one idea is half of chemistry
+    tier: 3
+  ionic_bonding:
+    composed_of:
+    - NaCl
+    - Fe2O3
+    - valence_electron
+    defines: the transfer principle — a metal brick HANDS its valence electron to a nonmetal, and the
+      two now-charged bricks snap together; salt and rust are the same move
+    verifier: structural
+    lab: graph_lib.verify_character_lego (principle node — reducibility check)
+    play: the Chinese radicals already know this split — 钅-radical elements transfer, 气/石-radical
+      elements share; check it against 钠 and 氧
+    tier: 3
+  conservation_of_atoms:
+    composed_of:
+    - H2
+    - O2
+    - H2O
+    - CH4
+    - CO2
+    defines: the ledger principle — a chemical equation is a LEGO inventory check; bricks rearrange,
+      never appear or vanish (2H₂ + O₂ → 2H₂O — four H and two O on each side, exactly)
+    verifier: structural
+    lab: graph_lib.verify_balanced_equation — exact integer atom ledger, machine-checked
+    play: balance CH₄ + O₂ → CO₂ + H₂O by hand (try 2 before the O₂), then let the verifier grade you
+    tier: 3
+  stoichiometry:
+    composed_of:
+    - covalent_bonding
+    - ionic_bonding
+    - conservation_of_atoms
+    defines: the payoff — share, transfer, and keep the ledger; with ~20 element bricks and these
+      three principles, every formula on every label and every equation in a first chemistry course
+      becomes readable — the LEGO way
+    verifier: structural
+    lab: graph_lib.reducible + graph_lib.verify_balanced_equation — both rungs of the verifier ladder
+      in one domain
+    play: pick any ingredient label, find one E-number or formula, and read its brick list aloud
+    tier: 4
+applications:
+  reading_chemical_formulas:
+    needs:
+    - stoichiometry
+    domain: scientific literacy
+    defines: the decoding superpower — subscripts are brick counts, formulas are pieces lists; every
+      label, every safety sheet, every textbook equation
+  balancing_equations:
+    needs:
+    - conservation_of_atoms
+    domain: chemistry coursework
+    defines: the first machine-checkable homework in chemistry — verify_balanced_equation recomputes
+      the atom ledger with exact integer arithmetic, the same shape as recipe 74's momentum and
+      energy verifiers
+  chinese_element_characters:
+    needs:
+    - ionic_bonding
+    - covalent_bonding
+    domain: cross-pilot — chinese_characters
+    defines: the periodic table was ported to Chinese by MINTING new 形声 characters — FORM radical
+      encodes state and bonding family (气 gas, 钅 metal, 石 solid nonmetal, 氵 liquid), a phonetic
+      brick lends the sound (氧 yǎng ← 羊); the chinese_characters pilot's principle, run in reverse
+      by 19th-century chemists — and machine-checked by the same verifier
+  everyday_chemistry:
+    needs:
+    - H2O
+    - NaCl
+    - Fe2O3
+    domain: daily life
+    defines: water, salt, rust, breath — the kitchen and the garage are a chemistry lab already
+      labeled in formulas
+  molecular_model_kits:
+    needs:
+    - CH4
+    - glucose
+    domain: hands-on learning
+    defines: ball-and-stick kits are pieces lists rendered in plastic — building C₆H₁₂O₆ by hand IS
+      executing this graph's multiset, one brick at a time

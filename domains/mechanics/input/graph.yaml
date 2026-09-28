@@ -1,0 +1,249 @@
+domain: classical_mechanics
+primitives:
+  position:
+    symbol: x
+    defines: first radical — configuration; where things are; an undefined notion every other kinematic
+      quantity is built from
+    tier: 0
+  time:
+    symbol: t
+    defines: first radical — the parameter motion unfolds in; change is measured against it
+    tier: 0
+  mass:
+    symbol: m
+    defines: second radical — inertia; a body's resistance to changes in its state of motion; not reducible
+      to kinematics
+    tier: 0
+  force:
+    symbol: F
+    defines: second radical — interaction; what changes states of motion; the dynamical floor
+    tier: 0
+first_radical_primitives:
+- position
+- time
+concepts:
+  velocity:
+    composed_of:
+    - position
+    - time
+    defines: rate of change of position — v = dx/dt; the first derived kinematic quantity
+    verifier: sympy
+    lab: sympy.diff
+    play: differentiate x(t) = t**2 symbolically; compare v(t) against the difference quotient as h shrinks
+    tier: 1
+  acceleration:
+    composed_of:
+    - velocity
+    - time
+    defines: rate of change of velocity — a = dv/dt = d²x/dt²; the quantity dynamics acts on
+    verifier: sympy
+    lab: sympy.diff
+    play: differentiate v(t) twice for free fall x(t) = -g*t**2/2 and recover the constant -g
+    tier: 2
+  constraints:
+    composed_of:
+    - position
+    defines: restrictions on allowed configurations (a pendulum bob stays on its circle) — they carve
+      the space motion actually happens in
+    verifier: sympy
+    lab: sympy.geometry
+    play: write the constraint x**2 + y**2 == L**2 for a pendulum; count the surviving degrees of freedom
+    tier: 1
+  momentum:
+    composed_of:
+    - mass
+    - velocity
+    defines: p = m·v — the conserved currency of motion; what collisions exchange
+    verifier: sage|sympy
+    lab: graph_lib.verify_momentum_conservation (exact QQ recompute; Sage preferred, SymPy fallback)
+    play: collide two carts with rational masses and speeds; verify total p before == after, exactly
+    tier: 2
+  newtons_second_law:
+    composed_of:
+    - force
+    - mass
+    - acceleration
+    defines: F = m·a — the bridge between the two radicals; dynamics (force, mass) determines kinematics
+      (acceleration)
+    verifier: sympy
+    lab: sympy.solve
+    play: given F and m as exact rationals, solve for a; check units and limiting cases (m → large, a → small)
+    tier: 3
+  work:
+    composed_of:
+    - force
+    - position
+    defines: W = F·d — force acting through a displacement; the mechanism by which energy moves between
+      forms
+    verifier: sympy
+    lab: sympy.integrate
+    play: integrate a position-dependent force F(x) = -k*x over a displacement; compare with the area
+      under the F-x curve
+    tier: 3
+  kinetic_energy:
+    composed_of:
+    - mass
+    - velocity
+    defines: T = ½·m·v² — energy of motion; the kinematic half of the energy ledger
+    verifier: sympy
+    lab: sympy
+    play: verify the work-energy theorem on a worked example — net work equals ΔT exactly over the rationals
+    tier: 3
+  potential_energy:
+    composed_of:
+    - work
+    defines: V(x) — stored work; energy of configuration; defined so that conservative forces satisfy
+      F = -dV/dx
+    verifier: sympy
+    lab: sympy.diff
+    play: differentiate V(x) = m*g*h and V(x) = k*x**2/2; recover gravity and the spring force
+    tier: 4
+  torque:
+    composed_of:
+    - force
+    - position
+    defines: τ = r × F — the rotational analog of force; what changes rotational states of motion
+    verifier: sympy
+    lab: sympy.Matrix.cross
+    play: compute r × F for exact rational vectors; check the right-hand rule against the sign
+    tier: 4
+  angular_momentum:
+    composed_of:
+    - momentum
+    - position
+    defines: L = r × p — the rotational analog of momentum; conserved when torque vanishes
+    verifier: sympy
+    lab: sympy.Matrix.cross
+    play: verify Kepler's second law on a worked orbit — equal areas in equal times is constant L
+    tier: 4
+  energy_conservation:
+    composed_of:
+    - kinetic_energy
+    - potential_energy
+    - work
+    defines: T + V is constant along the motion when all forces are conservative — the deepest bookkeeping
+      identity in mechanics
+    verifier: sage|sympy
+    lab: graph_lib.verify_energy_conservation (exact QQ recompute; Sage preferred, SymPy fallback)
+    play: drop a mass from height h with rational data; verify ½mv₀² + mgh₀ == ½mv₁² + mgh₁ exactly
+    tier: 5
+  rotational_dynamics:
+    composed_of:
+    - torque
+    - angular_momentum
+    - newtons_second_law
+    defines: τ = dL/dt — Newton's second law transplanted to rotation; spinning tops, flywheels, orbits
+    verifier: sympy
+    lab: sympy.diff
+    play: differentiate L(t) for a worked example and compare against the applied torque
+    tier: 5
+  configuration_space:
+    composed_of:
+    - position
+    - constraints
+    defines: the manifold of allowed configurations — a pendulum lives on a circle, a double pendulum
+      on a torus; geometry becomes the stage for dynamics
+    verifier: sage
+    lab: classical_mechanics_seed.sphere_scalar_curvature (SageManifolds — charts, metric, curvature;
+      Sage-only, fails fast without Sage)
+    play: build S² as a Riemannian manifold and compute its Ricci scalar — exactly 2/r² (see classical_mechanics_seed.py)
+    tier: 5
+  harmonic_oscillator:
+    composed_of:
+    - newtons_second_law
+    - potential_energy
+    defines: m·x'' = -k·x — the one system every other system becomes near equilibrium; solution x(t)
+      = A·cos(ωt) + B·sin(ωt) with ω² = k/m
+    verifier: sage|sympy
+    lab: graph_lib.verify_sho_solution (symbolic differentiation recompute; Sage preferred, SymPy fallback)
+    play: substitute x(t) = A*cos(w*t) + B*sin(w*t) into x'' + w**2*x and watch it vanish identically
+    tier: 6
+  generalized_coordinates:
+    composed_of:
+    - configuration_space
+    defines: q₁ … qₙ — coordinates adapted to the constraints (the pendulum's angle, not its x and y);
+      the right variables make the physics simple
+    verifier: sympy
+    lab: sympy
+    play: rewrite the pendulum's energy in θ alone; the constraint disappears from the equations
+    tier: 6
+  lagrangian:
+    composed_of:
+    - kinetic_energy
+    - potential_energy
+    - generalized_coordinates
+    defines: L = T - V — one scalar function of (q, q̇, t) that encodes the entire dynamics; the payoff
+      of the energy ledger
+    verifier: sympy
+    lab: sympy
+    play: write L for the pendulum in θ; check its dimensions and its small-angle limit
+    tier: 7
+  least_action:
+    composed_of:
+    - lagrangian
+    - time
+    defines: motion makes the action S = ∫L dt stationary — dynamics restated as a variational principle;
+      the bridge to optics, field theory, and quantum mechanics
+    verifier: sympy
+    lab: sympy.integrate
+    play: compare the action of the true free-fall path against nearby wiggled paths on exact polynomial
+      trajectories
+    tier: 8
+  euler_lagrange_equations:
+    composed_of:
+    - least_action
+    - generalized_coordinates
+    defines: d/dt(∂L/∂q̇) = ∂L/∂q — the equations of motion extracted from the action; Newton's laws
+      recovered coordinate-free
+    verifier: sympy
+    lab: sympy.diff
+    play: run Euler-Lagrange on the SHO Lagrangian and watch m·x'' = -k·x reappear
+    tier: 8
+  normal_modes:
+    composed_of:
+    - harmonic_oscillator
+    - euler_lagrange_equations
+    defines: coupled oscillators decouple into independent harmonic motions at characteristic frequencies
+      — the eigenvalue problem of mechanics, and this textbook's target
+    verifier: sage|sympy
+    lab: sympy.Matrix.eigenvals (frequencies are eigenvalues of the dynamical matrix — the bridge back
+      to the linalg domain)
+    play: two carts and three springs — find both mode frequencies exactly and watch symmetric/antisymmetric
+      motion decouple
+    tier: 9
+applications:
+  orbital_mechanics:
+    needs:
+    - energy_conservation
+    - angular_momentum
+    domain: orbital mechanics and spaceflight
+    defines: every transfer orbit is an exercise in conserving E and L — Kepler's laws are conservation
+      laws in disguise
+  robotics:
+    needs:
+    - configuration_space
+    - euler_lagrange_equations
+    domain: robotics and control
+    defines: a robot arm is a point moving on its configuration manifold; its controllers integrate Euler-Lagrange
+      equations in real time
+  molecular_vibrations:
+    needs:
+    - normal_modes
+    - harmonic_oscillator
+    domain: molecular spectroscopy and chemistry
+    defines: infrared spectra read off a molecule's normal-mode frequencies — quantum chemistry's daily
+      use of the dynamical eigenvalue problem
+  structural_engineering:
+    needs:
+    - normal_modes
+    - energy_conservation
+    domain: structural and earthquake engineering
+    defines: buildings and bridges fail at resonance — engineers compute normal modes to keep driving
+      frequencies away from them
+  quantum_bridge:
+    needs:
+    - lagrangian
+    - least_action
+    domain: quantum mechanics and field theory
+    defines: canonical quantization starts from the Lagrangian and the path integral sums over least-action's
+      nearby paths — classical mechanics is the stationary-phase limit

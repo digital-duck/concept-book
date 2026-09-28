@@ -1,0 +1,233 @@
+domain: college_physics_2e_ch16
+sources:
+  displacement:
+    label: Displacement
+    sections: []
+  force:
+    label: Force
+    sections: []
+  mass:
+    label: Mass
+    sections: []
+  energy:
+    label: Energy
+    sections: []
+  equilibrium:
+    label: Equilibrium
+    sections: []
+  velocity:
+    label: Velocity
+    sections: []
+  acceleration:
+    label: Acceleration
+    sections: []
+  restoring_force:
+    label: Restoring Force
+    sections:
+    - id: ch16_s16_1
+      title: '16.1 Hooke’s Law: Stress and Strain Revisited'
+  hookes_law:
+    label: Hooke's Law
+    sections:
+    - id: ch16_s16_1
+      title: '16.1 Hooke’s Law: Stress and Strain Revisited'
+  force_constant:
+    label: Force Constant
+    sections:
+    - id: ch16_s16_1
+      title: '16.1 Hooke’s Law: Stress and Strain Revisited'
+  elastic_potential_energy:
+    label: Elastic Potential Energy
+    sections:
+    - id: ch16_s16_1
+      title: '16.1 Hooke’s Law: Stress and Strain Revisited'
+  periodic_motion:
+    label: Periodic Motion
+    sections:
+    - id: ch16_s16_2
+      title: 16.2 Period and Frequency in Oscillations
+  period:
+    label: Period
+    sections:
+    - id: ch16_s16_2
+      title: 16.2 Period and Frequency in Oscillations
+  frequency:
+    label: Frequency
+    sections:
+    - id: ch16_s16_2
+      title: 16.2 Period and Frequency in Oscillations
+  amplitude:
+    label: Amplitude
+    sections:
+    - id: ch16_s16_3
+      title: '16.3 Simple Harmonic Motion: A Special Periodic Motion'
+  simple_harmonic_motion:
+    label: Simple Harmonic Motion
+    sections:
+    - id: ch16_s16_3
+      title: '16.3 Simple Harmonic Motion: A Special Periodic Motion'
+  shm_period_frequency:
+    label: SHM Period and Frequency
+    sections:
+    - id: ch16_s16_3
+      title: '16.3 Simple Harmonic Motion: A Special Periodic Motion'
+  shm_equations_of_motion:
+    label: SHM Equations of Motion
+    sections:
+    - id: ch16_s16_3
+      title: '16.3 Simple Harmonic Motion: A Special Periodic Motion'
+  simple_pendulum:
+    label: Simple Pendulum
+    sections:
+    - id: ch16_s16_4
+      title: 16.4 The Simple Pendulum
+  energy_in_shm:
+    label: Energy in Simple Harmonic Motion
+    sections:
+    - id: ch16_s16_5
+      title: 16.5 Energy and the Simple Harmonic Oscillator
+  maximum_velocity_shm:
+    label: Maximum Velocity in SHM
+    sections:
+    - id: ch16_s16_5
+      title: 16.5 Energy and the Simple Harmonic Oscillator
+  uniform_circular_motion_shm:
+    label: Uniform Circular Motion and SHM
+    sections:
+    - id: ch16_s16_6
+      title: 16.6 Uniform Circular Motion and Simple Harmonic Motion
+  damped_harmonic_motion:
+    label: Damped Harmonic Motion
+    sections:
+    - id: ch16_s16_7
+      title: 16.7 Damped Harmonic Motion
+  critical_damping:
+    label: Critical Damping
+    sections:
+    - id: ch16_s16_7
+      title: 16.7 Damped Harmonic Motion
+  underdamping:
+    label: Underdamping
+    sections:
+    - id: ch16_s16_7
+      title: 16.7 Damped Harmonic Motion
+  overdamping:
+    label: Overdamping
+    sections:
+    - id: ch16_s16_7
+      title: 16.7 Damped Harmonic Motion
+  natural_frequency:
+    label: Natural Frequency
+    sections:
+    - id: ch16_s16_8
+      title: 16.8 Forced Oscillations and Resonance
+  forced_oscillation:
+    label: Forced Oscillation
+    sections:
+    - id: ch16_s16_8
+      title: 16.8 Forced Oscillations and Resonance
+  resonance:
+    label: Resonance
+    sections:
+    - id: ch16_s16_8
+      title: 16.8 Forced Oscillations and Resonance
+  wave:
+    label: Wave
+    sections:
+    - id: ch16_s16_9
+      title: 16.9 Waves
+  wavelength:
+    label: Wavelength
+    sections:
+    - id: ch16_s16_9
+      title: 16.9 Waves
+  wave_velocity:
+    label: Wave Velocity
+    sections:
+    - id: ch16_s16_9
+      title: 16.9 Waves
+  transverse_wave:
+    label: Transverse Wave
+    sections:
+    - id: ch16_s16_9
+      title: 16.9 Waves
+  longitudinal_wave:
+    label: Longitudinal Wave
+    sections:
+    - id: ch16_s16_9
+      title: 16.9 Waves
+  superposition:
+    label: Superposition
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+  constructive_interference:
+    label: Constructive Interference
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+  destructive_interference:
+    label: Destructive Interference
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+  standing_wave:
+    label: Standing Wave
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+  nodes_and_antinodes:
+    label: Nodes and Antinodes
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+  fundamental_frequency_and_harmonics:
+    label: Fundamental Frequency and Harmonics
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+  beat_frequency:
+    label: Beat Frequency
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+  wave_intensity:
+    label: Wave Intensity
+    sections:
+    - id: ch16_s16_11
+      title: '16.11 Energy in Waves: Intensity'
+  car_suspension:
+    label: Car Suspension System
+    sections:
+    - id: ch16_s16_1
+      title: '16.1 Hooke’s Law: Stress and Strain Revisited'
+    - id: ch16_s16_3
+      title: '16.3 Simple Harmonic Motion: A Special Periodic Motion'
+    - id: ch16_s16_7
+      title: 16.7 Damped Harmonic Motion
+  pendulum_clock:
+    label: Pendulum Clock
+    sections:
+    - id: ch16_s16_4
+      title: 16.4 The Simple Pendulum
+  musical_instrument_resonance:
+    label: Musical Instrument Resonance
+    sections:
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference
+    - id: ch16_s16_8
+      title: 16.8 Forced Oscillations and Resonance
+  medical_ultrasound:
+    label: Medical Ultrasound
+    sections:
+    - id: ch16_s16_2
+      title: 16.2 Period and Frequency in Oscillations
+    - id: ch16_s16_11
+      title: '16.11 Energy in Waves: Intensity'
+  earthquake_wave_detection:
+    label: Earthquake Wave Detection
+    sections:
+    - id: ch16_s16_9
+      title: 16.9 Waves
+    - id: ch16_s16_10
+      title: 16.10 Superposition and Interference

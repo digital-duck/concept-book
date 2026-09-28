@@ -1,0 +1,231 @@
+domain: college_physics_2e_ch27
+primitives:
+  electromagnetic_wave:
+    defines: A transverse wave consisting of oscillating electric and magnetic fields that propagates
+      through space, obeying c = fλ in vacuum.
+    tier: 0
+  wavelength:
+    defines: The distance between successive crests of a wave, with visible light ranging from approximately
+      380 to 760 nm.
+    tier: 0
+  frequency:
+    defines: The number of wave oscillations per unit time, which remains unchanged as light passes between
+      media.
+    tier: 0
+  speed_of_light:
+    defines: The speed at which electromagnetic waves travel in vacuum, related to frequency and wavelength
+      by c = fλ.
+    tier: 0
+  index_of_refraction:
+    defines: A property of a medium that determines the speed of light in that medium, where v = c/n.
+    tier: 0
+  transverse_wave:
+    defines: A wave whose oscillations are perpendicular to the direction of propagation.
+    tier: 0
+  wavefront:
+    defines: A surface connecting all points of a wave that are in the same phase, such as a crest or
+      trough.
+    tier: 0
+concepts:
+  interference:
+    defines: The phenomenon in which two or more waves superpose to form a resultant wave of greater,
+      lower, or equal amplitude.
+    composed_of:
+    - electromagnetic_wave
+    - wavelength
+    tier: 1
+  wavelength_in_medium:
+    defines: The wavelength of light in a medium, given by λ_n = λ/n, which is always shorter than its
+      vacuum wavelength.
+    composed_of:
+    - wavelength
+    - index_of_refraction
+    tier: 1
+  coherence:
+    defines: The property of waves being in phase or having a definite phase relationship, as opposed
+      to incoherent waves with random phase relationships.
+    composed_of:
+    - electromagnetic_wave
+    - frequency
+    tier: 1
+  huygens_principle:
+    defines: Every point on a wavefront is a source of wavelets that spread out in the forward direction
+      at the wave speed, and the new wavefront is the line tangent to all wavelets.
+    composed_of:
+    - wavefront
+    tier: 1
+  path_length_difference:
+    defines: The difference in distance traveled by two waves from their sources to a common point, which
+      determines whether they interfere constructively or destructively.
+    composed_of:
+    - wavelength
+    tier: 1
+  phase_change_on_reflection:
+    defines: A half-wavelength (λ/2) phase shift that occurs when light reflects from a medium with a
+      greater index of refraction than the medium in which it is traveling.
+    composed_of:
+    - wavelength
+    - index_of_refraction
+    tier: 1
+  polarization:
+    defines: The attribute that a wave's oscillations have a definite direction relative to the direction
+      of propagation, defined for EM waves as the direction of the electric field.
+    composed_of:
+    - transverse_wave
+    - electromagnetic_wave
+    tier: 1
+  constructive_interference:
+    defines: Interference that occurs when waves are in phase (crest to crest), producing a wave with
+      greater amplitude.
+    composed_of:
+    - interference
+    tier: 2
+  destructive_interference:
+    defines: Interference that occurs when waves are exactly out of phase (crest to trough), reducing
+      or canceling amplitude.
+    composed_of:
+    - interference
+    tier: 2
+  diffraction:
+    defines: The bending of a wave around the edges of an opening or obstacle, most prominent when the
+      opening is comparable in size to the wavelength.
+    composed_of:
+    - huygens_principle
+    - wavelength
+    tier: 2
+  malus_law:
+    defines: The intensity of polarized light transmitted through a polarizing filter is I = I₀ cos²θ,
+      where θ is the angle between the polarization direction and the filter axis.
+    composed_of:
+    - polarization
+    tier: 2
+  brewsters_law:
+    defines: Reflected light is completely polarized at Brewster's angle θ_b, given by tan θ_b = n₂/n₁,
+      where n₁ and n₂ are the indices of refraction of the two media.
+    composed_of:
+    - polarization
+    - index_of_refraction
+    tier: 2
+  polarization_by_scattering:
+    defines: The partial polarization of light that occurs when it is scattered by particles such as air
+      molecules, which oscillate perpendicular to the incident ray and radiate polarized light.
+    composed_of:
+    - polarization
+    tier: 2
+  optical_activity:
+    defines: The property of certain substances to rotate the plane of polarization of light passing through
+      them, due to asymmetric molecular shapes.
+    composed_of:
+    - polarization
+    tier: 2
+  birefringence:
+    defines: The property of certain crystals to split an unpolarized beam of light into two beams with
+      different polarizations, one ordinary and one extraordinary.
+    composed_of:
+    - polarization
+    - index_of_refraction
+    tier: 2
+  double_slit_interference:
+    defines: The interference pattern produced when coherent light passes through two narrow slits, with
+      constructive interference at d sin θ = mλ and destructive at d sin θ = (m + ½)λ.
+    composed_of:
+    - coherence
+    - diffraction
+    - constructive_interference
+    - destructive_interference
+    - path_length_difference
+    tier: 3
+  interference_order:
+    defines: The integer m used in interference equations that labels the sequence of maxima or minima
+      in a diffraction or interference pattern.
+    composed_of:
+    - constructive_interference
+    - destructive_interference
+    - path_length_difference
+    tier: 3
+  interference_fringes:
+    defines: The pattern of alternating bright and dark bands produced by constructive and destructive
+      interference of light waves.
+    composed_of:
+    - constructive_interference
+    - destructive_interference
+    tier: 3
+  single_slit_diffraction:
+    defines: The diffraction pattern from a single slit characterized by a broad central maximum and progressively
+      dimmer side maxima, with destructive minima at D sin θ = mλ.
+    composed_of:
+    - diffraction
+    - constructive_interference
+    - destructive_interference
+    - path_length_difference
+    tier: 3
+  thin_film_interference:
+    defines: Interference between light reflected from the top and bottom surfaces of a thin film, producing
+      colors dependent on film thickness, wavelength, and refractive indices.
+    composed_of:
+    - wavelength_in_medium
+    - constructive_interference
+    - destructive_interference
+    - phase_change_on_reflection
+    tier: 3
+  diffraction_grating:
+    defines: An optical element with a large number of evenly spaced parallel slits that produces an interference
+      pattern with sharper and narrower maxima than a double slit, with constructive interference at d
+      sin θ = mλ.
+    composed_of:
+    - double_slit_interference
+    - interference_order
+    tier: 4
+  rayleigh_criterion:
+    defines: Two images are just resolvable when the center of the diffraction pattern of one falls on
+      the first minimum of the other, giving a minimum angular separation of θ = 1.22λ/D.
+    composed_of:
+    - single_slit_diffraction
+    tier: 4
+  resolving_power:
+    defines: The minimum distance by which two point objects can be separated and still be seen as distinct,
+      limited by diffraction.
+    composed_of:
+    - rayleigh_criterion
+    tier: 5
+  numerical_aperture:
+    defines: A measure of a lens's ability to gather light and resolve fine detail, defined as NA = n
+      sin α, where n is the index of refraction and α is the half-angle subtended by the lens.
+    composed_of:
+    - index_of_refraction
+    - rayleigh_criterion
+    tier: 5
+applications:
+  non_reflective_coatings:
+    defines: Thin film coatings designed to produce destructive interference of reflected light, reducing
+      reflections from lenses and optical surfaces.
+    needs:
+    - thin_film_interference
+    tier: 4
+  spectroscopic_dispersion:
+    defines: The use of diffraction gratings or interference patterns to separate light by wavelength
+      for spectral analysis and wavelength measurement.
+    needs:
+    - diffraction_grating
+    tier: 5
+  polarizing_filter:
+    defines: A material composed of long aligned molecules that transmits only the component of an EM
+      wave's electric field parallel to its axis, selectively blocking other polarization directions.
+    needs:
+    - polarization
+    tier: 2
+  liquid_crystal_display:
+    defines: A display technology using liquid crystals that rotate light polarization by 90° unless a
+      voltage is applied, combined with polarizing filters to control light transmission in each pixel.
+    needs:
+    - polarizing_filter
+    - optical_activity
+    tier: 3
+  interference_microscopy:
+    defines: Microscopy techniques that enhance contrast by exploiting wave interference, including interference
+      microscopes, phase-contrast microscopes, and confocal microscopes.
+    needs:
+    - constructive_interference
+    - destructive_interference
+    - resolving_power
+    tier: 6

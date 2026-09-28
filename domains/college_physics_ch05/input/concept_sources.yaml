@@ -1,0 +1,135 @@
+domain: college_physics_2e_ch5
+sources:
+  normal_force:
+    label: Normal Force
+    sections: []
+  coefficient_of_static_friction:
+    label: Coefficient of Static Friction
+    sections:
+    - id: ch05_s5_1
+      title: 5.1 Friction
+  coefficient_of_kinetic_friction:
+    label: Coefficient of Kinetic Friction
+    sections:
+    - id: ch05_s5_1
+      title: 5.1 Friction
+  drag_coefficient:
+    label: Drag Coefficient
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  fluid_density:
+    label: Fluid Density
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  fluid_viscosity:
+    label: Fluid Viscosity
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  youngs_modulus:
+    label: Young's Modulus
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  shear_modulus:
+    label: Shear Modulus
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  bulk_modulus:
+    label: Bulk Modulus
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  friction:
+    label: Friction
+    sections:
+    - id: ch05_s5_1
+      title: 5.1 Friction
+  static_friction:
+    label: Static Friction
+    sections:
+    - id: ch05_s5_1
+      title: 5.1 Friction
+  kinetic_friction:
+    label: Kinetic Friction
+    sections:
+    - id: ch05_s5_1
+      title: 5.1 Friction
+  drag_force:
+    label: Drag Force
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  stokes_law:
+    label: Stokes' Law
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  terminal_velocity:
+    label: Terminal Velocity
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  deformation:
+    label: Deformation
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  hookes_law:
+    label: Hooke's Law
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  stress:
+    label: Stress
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  strain:
+    label: Strain
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  tension_compression_deformation:
+    label: Tension and Compression Deformation
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  shear_deformation:
+    label: Shear Deformation
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  bulk_compression:
+    label: Bulk Compression
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  tensile_strength:
+    label: Tensile Strength
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'
+  joint_lubrication:
+    label: Joint Lubrication
+    sections:
+    - id: ch05_s5_1
+      title: 5.1 Friction
+  aerodynamic_drag_reduction:
+    label: Aerodynamic Drag Reduction
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  skydiver_terminal_velocity:
+    label: Skydiver Terminal Velocity
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 Drag Forces
+  elasticity_in_biological_structures:
+    label: Elasticity in Biological Structures
+    sections:
+    - id: ch05_s5_3
+      title: '5.3 Elasticity: Stress and Strain'

@@ -1,0 +1,138 @@
+domain: college_physics_2e_ch19
+sources:
+  electric_charge:
+    label: Electric Charge
+    sections: []
+  electric_field:
+    label: Electric Field
+    sections: []
+  work:
+    label: Work
+    sections: []
+  kinetic_energy:
+    label: Kinetic Energy
+    sections: []
+  conservative_force:
+    label: Conservative Force
+    sections: []
+  potential_energy:
+    label: Potential Energy
+    sections: []
+  coulomb_force:
+    label: Coulomb Force
+    sections: []
+  electric_potential_energy:
+    label: Electric Potential Energy
+    sections:
+    - id: ch19_s19_1
+      title: '19.1 Electric Potential Energy: Potential Difference'
+  electric_potential:
+    label: Electric Potential
+    sections:
+    - id: ch19_s19_1
+      title: '19.1 Electric Potential Energy: Potential Difference'
+  potential_difference:
+    label: Potential Difference (Voltage)
+    sections:
+    - id: ch19_s19_1
+      title: '19.1 Electric Potential Energy: Potential Difference'
+  electron_volt:
+    label: Electron Volt
+    sections:
+    - id: ch19_s19_1
+      title: '19.1 Electric Potential Energy: Potential Difference'
+  conservation_of_energy:
+    label: Conservation of Energy (Mechanical)
+    sections:
+    - id: ch19_s19_1
+      title: '19.1 Electric Potential Energy: Potential Difference'
+  voltage_electric_field_relationship:
+    label: Voltage–Electric Field Relationship
+    sections:
+    - id: ch19_s19_2
+      title: 19.2 Electric Potential in a Uniform Electric Field
+  uniform_electric_field:
+    label: Uniform Electric Field
+    sections:
+    - id: ch19_s19_2
+      title: 19.2 Electric Potential in a Uniform Electric Field
+  point_charge_potential:
+    label: Electric Potential of a Point Charge
+    sections:
+    - id: ch19_s19_3
+      title: 19.3 Electrical Potential Due to a Point Charge
+  superposition_of_potentials:
+    label: Superposition of Electric Potentials
+    sections:
+    - id: ch19_s19_3
+      title: 19.3 Electrical Potential Due to a Point Charge
+  equipotential_lines:
+    label: Equipotential Lines and Surfaces
+    sections:
+    - id: ch19_s19_4
+      title: 19.4 Equipotential Lines
+  grounding:
+    label: Grounding
+    sections:
+    - id: ch19_s19_4
+      title: 19.4 Equipotential Lines
+  capacitor:
+    label: Capacitor
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  capacitance:
+    label: Capacitance
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  parallel_plate_capacitor:
+    label: Parallel Plate Capacitor
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  dielectric:
+    label: Dielectric
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  dielectric_constant:
+    label: Dielectric Constant
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  dielectric_strength:
+    label: Dielectric Strength
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  polarization:
+    label: Polarization
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  polar_molecule:
+    label: Polar Molecule
+    sections:
+    - id: ch19_s19_5
+      title: 19.5 Capacitors and Dielectrics
+  capacitors_in_series:
+    label: Capacitors in Series
+    sections:
+    - id: ch19_s19_6
+      title: 19.6 Capacitors in Series and Parallel
+  capacitors_in_parallel:
+    label: Capacitors in Parallel
+    sections:
+    - id: ch19_s19_6
+      title: 19.6 Capacitors in Series and Parallel
+  energy_stored_in_capacitors:
+    label: Energy Stored in Capacitors
+    sections:
+    - id: ch19_s19_7
+      title: 19.7 Energy Stored in Capacitors
+  defibrillator:
+    label: Defibrillator
+    sections:
+    - id: ch19_s19_7
+      title: 19.7 Energy Stored in Capacitors

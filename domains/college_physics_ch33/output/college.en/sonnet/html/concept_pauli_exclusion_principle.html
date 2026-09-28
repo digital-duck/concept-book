@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌱 Pauli Exclusion Principle — College Physics Ch33</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px;
+        display:flex;flex-direction:column}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0;flex:1}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+nav.toc .spl-credit{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);
+                    font-size:11px;color:#90b4e8;font-family:system-ui,sans-serif}
+nav.toc .spl-credit a{color:#a8c8f0;text-decoration:none}
+nav.toc .spl-credit a:hover{color:#fff;text-decoration:underline}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:32px}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
+section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="toc">
+    <a href="../../../../#/domain/college_physics_ch33" class="back">← College Physics Ch33</a>
+    <h2>Contents</h2>
+    <ol>
+<li><a href="concept_heisenberg_uncertainty_principle.html">🌱 Heisenberg Uncertainty Principle</a></li>
+<li><a href="concept_carrier_particle.html">🍃 Carrier Particle</a></li>
+<li><a href="concept_intrinsic_spin.html">🌱 Intrinsic Spin</a></li>
+<li class="toc-target"><a href="concept_pauli_exclusion_principle.html">🌱 Pauli Exclusion Principle</a></li>
+<li><a href="concept_conservation_of_mass_energy.html">🌱 Conservation Of Mass Energy</a></li>
+<li><a href="concept_electromagnetic_force.html">🌱 Electromagnetic Force</a></li>
+<li><a href="concept_fermion.html">🍃 Fermion</a></li>
+<li><a href="concept_quark.html">🍃 Quark</a></li>
+<li><a href="concept_four_basic_forces.html">🍃 Four Basic Forces</a></li>
+<li><a href="concept_virtual_particle.html">🍃 Virtual Particle</a></li>
+<li><a href="concept_feynman_diagram.html">🍃 Feynman Diagram</a></li>
+<li><a href="concept_quark_color.html">🍃 Quark Color</a></li>
+<li><a href="concept_gluon.html">🍃 Gluon</a></li>
+<li><a href="concept_quantum_electrodynamics.html">🍃 Quantum Electrodynamics</a></li>
+<li><a href="concept_conservation_of_charge.html">🌱 Conservation Of Charge</a></li>
+<li><a href="concept_electroweak_theory.html">🍃 Electroweak Theory</a></li>
+<li><a href="concept_hadron.html">🍃 Hadron</a></li>
+<li><a href="concept_quantum_chromodynamics.html">🍃 Quantum Chromodynamics</a></li>
+<li><a href="concept_antimatter.html">🍃 Antimatter</a></li>
+<li><a href="concept_baryon.html">🍃 Baryon</a></li>
+<li><a href="concept_standard_model.html">🍃 Standard Model</a></li>
+<li><a href="concept_baryon_number_conservation.html">🍃 Baryon Number Conservation</a></li>
+<li><a href="concept_grand_unified_theory.html">🍃 Grand Unified Theory</a></li>
+<li><a href="concept_proton_decay_detection.html">🌸 Proton Decay Detection</a></li>
+</ol>
+    <div class="spl-credit">Generated by <a href="https://github.com/digital-duck/SPL.py" target="_blank">SPL</a></div>
+  </nav>
+  <main>
+    <h1 class="book-title">🌱 Pauli Exclusion Principle</h1>
+    <section>
+<h2>🌱 Pauli Exclusion Principle</h2>
+<p><strong>Definition.</strong> The Pauli Exclusion Principle, formulated by Wolfgang Pauli in 1925, states that no two identical fermions can simultaneously occupy the same quantum state within a quantum system. Formally, if a system contains two or more identical particles of half-integer spin (fermions), the total wave function of the system must be antisymmetric under the exchange of any two particles. For a two-fermion system, this requires:</p>
+$$
+\Psi(r_1, s_1; r_2, s_2) = -\Psi(r_2, s_2; r_1, s_1)
+$$
+<p>where $r_i$ and $s_i$ denote the spatial coordinate and spin state of particle $i$. An immediate consequence is that if two particles share identical quantum numbers, the wave function vanishes identically — no physical state exists.</p>
+<p>For electrons in an atom, each electron is characterized by four quantum numbers: the principal quantum number $n$, the orbital angular momentum quantum number $\ell$, the magnetic quantum number $m_\ell$, and the spin projection $m_s = \pm\frac{1}{2}$. The Pauli Exclusion Principle forbids any two electrons in the same atom from sharing all four of these quantum numbers.</p>
+<p><strong>Worked Example.</strong> Consider the ground-state electron configuration of carbon ($Z = 6$). Filling subshells in order of increasing energy: the first two electrons occupy $1s$ with opposite spins, the next two fill $2s$, and the remaining two enter the $2p$ subshell. Within $2p$, three orbitals are available ($m_\ell = -1, 0, +1$). By Hund's rule (which follows partly from antisymmetry considerations), both electrons occupy different $2p$ orbitals with the same spin: $2p^2$ yields the configuration $1s^2\,2s^2\,2p^2$, consistent with the exclusion principle since no two electrons share all four quantum numbers.</p>
+<p><strong>Key Theorem.</strong> The spin-statistics theorem establishes that particles with half-integer spin (fermions) obey Fermi–Dirac statistics, requiring antisymmetric wave functions, while particles with integer spin (bosons) obey Bose–Einstein statistics with symmetric wave functions. The Pauli Exclusion Principle applies exclusively to fermions and underlies the shell structure of atoms, the stability of matter, and the behavior of degenerate electron gases in white dwarf stars.</p>
+<p><strong>Lab Exercise.</strong> Using spectroscopic tables, write the full electron configurations for oxygen ($Z = 8$) and iron ($Z = 26$). Verify that no subshell exceeds its maximum electron capacity $2(2\ell + 1)$, and identify how the exclusion principle constrains the $3d$ subshell population in iron.</p>
+</section>
+  </main>
+</div>
+</body>
+</html>

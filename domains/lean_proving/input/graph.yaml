@@ -1,0 +1,274 @@
+# "Proving Math the Lean Way" — concept-book concept graph
+# (Book II of the trilogy with "Doing Math in SageMath Lab" and "Doing Science with Python"
+#  — Book I finds it, Book II proves it, Book III measures it)
+# Publisher: Digital Duck (github.com/digital-duck)
+#
+# E-book mission: a free, verified introduction to Lean 4 + mathlib — the
+# proof assistant Terence Tao champions for doing mathematics with AI.
+# Compiled by recipe 74 (build_concept_book.spl --lang python/domain_textbook).
+# Verifier note: nodes declare "lean|sympy" — once spl3/lean_bridge (Part B)
+# lands, the lean engine takes over as engine-of-record automatically; until
+# then the sympy fallback keeps the textbook buildable everywhere.
+#
+# Two radicals (Curry–Howard split):
+#   first  — PROGRAMS: types and terms (the functional-programming half)
+#   second — PROOFS: propositions and proofs (claims as types, proofs as terms)
+# Target: ai_assisted_proving — the LLM proposes, the kernel disposes.
+domain: lean_proving
+primitives:
+  type:
+    symbol: "T : Type"
+    defines: "the floor of Lean's world — every object has a type, and #check tells you what it is; types
+      are how Lean knows what you mean"
+    tier: 0
+  term:
+    symbol: "t : T"
+    defines: an inhabitant of a type — numbers, functions, and (the twist to come) proofs are all terms;
+      def gives one a name
+    tier: 0
+  proposition:
+    symbol: "P : Prop"
+    defines: second radical — a mathematical claim as a first-class object; propositions are types whose
+      inhabitants are evidence
+    tier: 0
+  proof:
+    symbol: "h : P"
+    defines: second radical — evidence for a proposition; a proof is a term of a Prop-typed type, and
+      the kernel checks it like any other term
+    tier: 0
+first_radical_primitives:
+- type
+- term
+concepts:
+  function_types:
+    composed_of:
+    - type
+    - term
+    defines: "A → B and fun x => ... — functions as the basic building material; application is how anything
+      gets done"
+    verifier: lean|sympy
+    lab: "lean #check fun"
+    play: "write fun n => n + 1, #check it, apply it; then #check Nat.succ and notice it is the same shape"
+    tier: 1
+  inductive_types:
+    composed_of:
+    - type
+    - term
+    defines: "inductive Nat | zero | succ — data defined by its constructors; Nat, List, and Bool are
+      a few lines each, not built-in magic"
+    verifier: lean|sympy
+    lab: lean inductive
+    play: define your own two-constructor type and write a function on it by cases
+    tier: 2
+  curry_howard:
+    composed_of:
+    - proposition
+    - type
+    defines: the aha — propositions ARE types and proofs ARE terms; proving a theorem and writing a program
+      are the same activity, checked by the same kernel
+    verifier: lean|sympy
+    lab: lean Prop
+    play: "#check (And.intro : ∀ {a b : Prop}, a → b → a ∧ b) and read it as both a function and an inference
+      rule"
+    tier: 1
+  equality_rfl:
+    composed_of:
+    - proposition
+    - term
+    defines: "Eq and rfl — the equality type, whose simplest proof is reflexivity; 2 + 2 = 4 is provable
+      by rfl because both sides compute to the same term"
+    verifier: lean|sympy
+    lab: lean rfl
+    play: "prove example : 2 + 2 = 4 := rfl; then try 2 + 2 = 5 and read the kernel's refusal"
+    tier: 2
+  theorem_statements:
+    composed_of:
+    - curry_howard
+    - function_types
+    defines: "theorem name : statement := proof — the unit of mathematical work; the statement is a type
+      signature, the proof is the program"
+    verifier: lean|sympy
+    lab: lean theorem
+    play: "state (without proving) three facts you know about even numbers, using mathlib's Even"
+    tier: 2
+  term_proofs:
+    composed_of:
+    - curry_howard
+    - proof
+    defines: "proving by writing the term directly — exact h, And.intro h1 h2; short proofs are often
+      clearest as plain terms"
+    verifier: lean|sympy
+    lab: lean exact
+    play: "prove P → Q → P ∧ Q by writing the lambda term yourself, no tactics"
+    tier: 2
+  sorry_first_workflow:
+    composed_of:
+    - theorem_statements
+    - proof
+    defines: "sorry — the honest placeholder; state everything first, prove incrementally, and let the
+      warning list be your to-do list (statement-first formalization)"
+    verifier: lean|sympy
+    lab: lean sorry
+    play: "sketch a 3-lemma proof plan with sorry bodies; replace them one at a time and watch the warnings
+      disappear"
+    tier: 3
+  tactic_mode:
+    composed_of:
+    - theorem_statements
+    - proof
+    defines: "by — the interactive mode; the goal state shows what remains, each tactic transforms it,
+      and the proof is the recorded transcript"
+    verifier: lean|sympy
+    lab: lean by
+    play: enter by on a simple goal and watch the infoview update after every keystroke
+    tier: 3
+  quantifiers:
+    composed_of:
+    - proposition
+    - function_types
+    defines: "∀ is a function type, ∃ is a pair — intro gives you the universal, ⟨witness, proof⟩ builds
+      the existential; binders are the grammar of real theorems"
+    verifier: lean|sympy
+    lab: lean intro/use
+    play: "prove ∀ n : Nat, ∃ m, m > n and notice the witness you chose appears in the term"
+    tier: 3
+  core_tactics:
+    composed_of:
+    - tactic_mode
+    defines: intro, exact, apply, constructor, cases — the five moves that prove most beginner goals;
+      everything else is refinement
+    verifier: lean|sympy
+    lab: lean tactics
+    play: "prove A ∧ B → B ∧ A using only intro, cases, constructor, exact"
+    tier: 4
+  pattern_matching_recursion:
+    composed_of:
+    - inductive_types
+    - function_types
+    defines: match and structural recursion — functions on inductive data must terminate, and Lean checks
+      that too; computation is proof-adjacent
+    verifier: lean|sympy
+    lab: lean match
+    play: write factorial by recursion and evaluate it with #eval; then prove factorial 4 = 24 by rfl
+    tier: 3
+  induction_proofs:
+    composed_of:
+    - core_tactics
+    - inductive_types
+    defines: induction n with — proofs that mirror the data; the base case and step are just the constructors
+      revisited
+    verifier: lean|sympy
+    lab: lean induction
+    play: "prove n + 0 = n by induction and see why the rfl proof fails first"
+    tier: 5
+  rewriting_simp:
+    composed_of:
+    - core_tactics
+    - equality_rfl
+    defines: rw and simp — using equalities to transform goals; simp is a fleet of rewrite rules curated
+      by the community
+    verifier: lean|sympy
+    lab: lean rw/simp
+    play: "prove (a + b) + c = (c + b) + a with rw [Nat.add_comm] steps, then again with one simp [Nat.add_comm,
+      Nat.add_assoc]"
+    tier: 5
+  typeclasses_structures:
+    composed_of:
+    - inductive_types
+    - function_types
+    defines: "structure and [Group G] — bundling axioms with carriers; typeclass inference silently supplies
+      the right algebra so theorems state cleanly"
+    verifier: lean|sympy
+    lab: lean class/instance
+    play: "#check @mul_comm and read the [CommMonoid] argument that inference fills for you"
+    tier: 4
+  mathlib:
+    composed_of:
+    - typeclasses_structures
+    - rewriting_simp
+    defines: the library — over a million lines of formalized mathematics with strict naming conventions;
+      learning to FIND a lemma is learning mathlib
+    verifier: lean|sympy
+    lab: mathlib naming conventions
+    play: "guess the mathlib names for 'addition is commutative on Nat' and 'a square is nonnegative';
+      check your guesses"
+    tier: 6
+  proof_search:
+    composed_of:
+    - mathlib
+    defines: "exact?, apply?, Loogle, LeanSearch — the library as a queryable database; half of proving
+      is discovering what is already proved"
+    verifier: lean|sympy
+    lab: lean exact?
+    play: "state a small inequality and let exact? find the mathlib lemma; read the name it suggests and
+      decode the convention"
+    tier: 7
+  automation_tactics:
+    composed_of:
+    - rewriting_simp
+    - proof_search
+    defines: omega, ring, linarith, positivity, aesop — decision procedures that close whole goal families;
+      know which domain each one owns
+    verifier: lean|sympy
+    lab: lean omega/ring
+    play: "prove (a + b)^2 = a^2 + 2*a*b + b^2 with ring, and a linear arithmetic fact with omega; try
+      swapping them and read the failures"
+    tier: 7
+  formalization_gap:
+    composed_of:
+    - theorem_statements
+    - mathlib
+    defines: the informal↔formal correspondence — the one link no kernel checks; a statement can typecheck,
+      prove cleanly, and still not say what the prose claims (flipped quantifier, vacuous hypothesis)
+    verifier: lean|sympy
+    lab: side-by-side prose/Lean review (see cookbook/76_lean_proof report format)
+    play: "formalize 'every positive number has a square root' two ways — over Nat and over Real — and
+      explain why one is false and the other true"
+    tier: 8
+  ai_assisted_proving:
+    composed_of:
+    - formalization_gap
+    - automation_tactics
+    - sorry_first_workflow
+    defines: the payoff — the LLM proposes statements and proof candidates, Lean's kernel disposes; error
+      messages feed the repair loop; mathematics with AI on a foundation that cannot silently be wrong
+      (the workflow Terence Tao advocates)
+    verifier: lean|sympy
+    lab: SPL recipe 76 (cookbook/76_lean_proof) — generate-then-verify at proof grade
+    play: give an LLM a claim you know, check its formalization for faithfulness, run its proof through
+      the kernel, and feed the errors back once
+    tier: 9
+applications:
+  verified_mathematics:
+    needs:
+    - mathlib
+    - formalization_gap
+    domain: research mathematics
+    defines: large collaborative formalizations — the Liquid Tensor Experiment, Tao's PFR project — show
+      working mathematicians using Lean to make peer review mechanical
+  ai_mathematics:
+    needs:
+    - ai_assisted_proving
+    domain: AI for mathematics
+    defines: AlphaProof-style systems and LLM+Lean loops — the kernel turns a hallucination-prone generator
+      into a reliable mathematician's assistant
+  software_verification:
+    needs:
+    - inductive_types
+    - theorem_statements
+    domain: verified software
+    defines: the same kernel that checks theorems checks programs — compilers, protocols, and smart contracts
+      proved correct, not just tested
+  math_education_games:
+    needs:
+    - core_tactics
+    - equality_rfl
+    domain: education
+    defines: the Natural Number Game teaches induction to beginners as play — instant kernel feedback
+      is the most patient tutor there is
+  spl_machine_proved:
+    needs:
+    - ai_assisted_proving
+    domain: SPL neurosymbolic workflows
+    defines: Lean is the top rung of SPL's verifier ladder — the machine_proved badge on generated content
+      is exactly this textbook's workflow, automated (recipe 76)

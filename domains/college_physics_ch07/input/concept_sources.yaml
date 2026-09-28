@@ -1,0 +1,139 @@
+domain: college_physics_2e_ch7
+sources:
+  force:
+    label: Force
+    sections: []
+  displacement:
+    label: Displacement
+    sections: []
+  mass:
+    label: Mass
+    sections: []
+  velocity:
+    label: Velocity
+    sections: []
+  gravitational_acceleration:
+    label: Gravitational Acceleration
+    sections: []
+  spring_constant:
+    label: Spring Constant (Force Constant)
+    sections:
+    - id: ch07_s7_4
+      title: 7.4 Conservative Forces and Potential Energy
+  work:
+    label: Work
+    sections:
+    - id: ch07_s7_1
+      title: '7.1 Work: The Scientific Definition'
+  joule:
+    label: Joule (Unit of Work and Energy)
+    sections:
+    - id: ch07_s7_1
+      title: '7.1 Work: The Scientific Definition'
+  kinetic_energy:
+    label: Kinetic Energy
+    sections:
+    - id: ch07_s7_2
+      title: 7.2 Kinetic Energy and the Work-Energy Theorem
+  net_work:
+    label: Net Work
+    sections:
+    - id: ch07_s7_2
+      title: 7.2 Kinetic Energy and the Work-Energy Theorem
+  work_energy_theorem:
+    label: Work-Energy Theorem
+    sections:
+    - id: ch07_s7_2
+      title: 7.2 Kinetic Energy and the Work-Energy Theorem
+  gravitational_potential_energy:
+    label: Gravitational Potential Energy
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Gravitational Potential Energy
+  conservative_force:
+    label: Conservative Force
+    sections:
+    - id: ch07_s7_4
+      title: 7.4 Conservative Forces and Potential Energy
+  potential_energy:
+    label: Potential Energy
+    sections:
+    - id: ch07_s7_4
+      title: 7.4 Conservative Forces and Potential Energy
+  spring_potential_energy:
+    label: Elastic Potential Energy (Spring)
+    sections:
+    - id: ch07_s7_4
+      title: 7.4 Conservative Forces and Potential Energy
+  mechanical_energy:
+    label: Mechanical Energy
+    sections:
+    - id: ch07_s7_4
+      title: 7.4 Conservative Forces and Potential Energy
+  conservation_of_mechanical_energy:
+    label: Conservation of Mechanical Energy
+    sections:
+    - id: ch07_s7_4
+      title: 7.4 Conservative Forces and Potential Energy
+  nonconservative_force:
+    label: Nonconservative Force
+    sections:
+    - id: ch07_s7_5
+      title: 7.5 Nonconservative Forces
+  thermal_energy:
+    label: Thermal Energy
+    sections:
+    - id: ch07_s7_5
+      title: 7.5 Nonconservative Forces
+    - id: ch07_s7_6
+      title: 7.6 Conservation of Energy
+  law_of_conservation_of_energy:
+    label: Law of Conservation of Energy
+    sections:
+    - id: ch07_s7_6
+      title: 7.6 Conservation of Energy
+  efficiency:
+    label: Efficiency
+    sections:
+    - id: ch07_s7_6
+      title: 7.6 Conservation of Energy
+  power:
+    label: Power
+    sections:
+    - id: ch07_s7_7
+      title: 7.7 Power
+  friction:
+    label: Friction (as Nonconservative Force)
+    sections:
+    - id: ch07_s7_5
+      title: 7.5 Nonconservative Forces
+  metabolic_rate:
+    label: Metabolic Rate
+    sections:
+    - id: ch07_s7_8
+      title: 7.8 Work, Energy, and Power in Humans
+  basal_metabolic_rate:
+    label: Basal Metabolic Rate (BMR)
+    sections:
+    - id: ch07_s7_8
+      title: 7.8 Work, Energy, and Power in Humans
+  useful_work_in_humans:
+    label: Useful Work (Human Output)
+    sections:
+    - id: ch07_s7_8
+      title: 7.8 Work, Energy, and Power in Humans
+  energy_cost_calculation:
+    label: Electrical Energy Cost
+    sections:
+    - id: ch07_s7_7
+      title: 7.7 Power
+  renewable_energy_sources:
+    label: Renewable Energy Sources
+    sections:
+    - id: ch07_s7_9
+      title: 7.9 World Energy Use
+  nonrenewable_energy_sources:
+    label: Nonrenewable Energy Sources (Fossil Fuels)
+    sections:
+    - id: ch07_s7_9
+      title: 7.9 World Energy Use

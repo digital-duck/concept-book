@@ -1,0 +1,132 @@
+domain: college_physics_2e_ch4
+sources:
+  force:
+    label: Force
+    sections:
+    - id: ch04_s4_1
+      title: 4.1 Development of Force Concept
+  velocity:
+    label: Velocity
+    sections: []
+  acceleration:
+    label: Acceleration
+    sections:
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+  mass:
+    label: Mass
+    sections:
+    - id: ch04_s4_2
+      title: '4.2 Newton’s First Law of Motion: Inertia'
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+  gravitational_acceleration:
+    label: Acceleration Due to Gravity
+    sections:
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+  dynamics:
+    label: Dynamics
+    sections:
+    - id: ch04_s4_1
+      title: 4.1 Development of Force Concept
+  free_body_diagram:
+    label: Free-Body Diagram
+    sections:
+    - id: ch04_s4_1
+      title: 4.1 Development of Force Concept
+    - id: ch04_s4_6
+      title: 4.6 Problem-Solving Strategies
+  inertia:
+    label: Inertia
+    sections:
+    - id: ch04_s4_2
+      title: '4.2 Newton’s First Law of Motion: Inertia'
+  newtons_first_law:
+    label: Newton's First Law of Motion
+    sections:
+    - id: ch04_s4_2
+      title: '4.2 Newton’s First Law of Motion: Inertia'
+  system_of_interest:
+    label: System of Interest
+    sections:
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+    - id: ch04_s4_4
+      title: '4.4 Newton’s Third Law of Motion: Symmetry in Forces'
+  net_external_force:
+    label: Net External Force
+    sections:
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+  newtons_second_law:
+    label: Newton's Second Law of Motion
+    sections:
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+  weight:
+    label: Weight
+    sections:
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+  free_fall:
+    label: Free Fall
+    sections:
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+  newtons_third_law:
+    label: Newton's Third Law of Motion
+    sections:
+    - id: ch04_s4_4
+      title: '4.4 Newton’s Third Law of Motion: Symmetry in Forces'
+  friction:
+    label: Friction
+    sections:
+    - id: ch04_s4_2
+      title: '4.2 Newton’s First Law of Motion: Inertia'
+    - id: ch04_s4_3
+      title: '4.3 Newton’s Second Law of Motion: Concept of a System'
+    - id: ch04_s4_5
+      title: 4.5 Normal, Tension, and Other Examples of Forces
+  normal_force:
+    label: Normal Force
+    sections:
+    - id: ch04_s4_5
+      title: 4.5 Normal, Tension, and Other Examples of Forces
+  tension:
+    label: Tension
+    sections:
+    - id: ch04_s4_5
+      title: 4.5 Normal, Tension, and Other Examples of Forces
+  thrust:
+    label: Thrust
+    sections:
+    - id: ch04_s4_4
+      title: '4.4 Newton’s Third Law of Motion: Symmetry in Forces'
+  inertial_frame_of_reference:
+    label: Inertial Frame of Reference
+    sections:
+    - id: ch04_s4_5
+      title: 4.5 Normal, Tension, and Other Examples of Forces
+  weight_components_on_incline:
+    label: Weight Components on an Incline
+    sections:
+    - id: ch04_s4_5
+      title: 4.5 Normal, Tension, and Other Examples of Forces
+  four_basic_forces:
+    label: Four Basic Forces
+    sections:
+    - id: ch04_s4_8
+      title: '4.8 Extended Topic: The Four Basic Forces—An Introduction'
+  force_field:
+    label: Force Field
+    sections:
+    - id: ch04_s4_8
+      title: '4.8 Extended Topic: The Four Basic Forces—An Introduction'
+  newton_problem_solving_strategy:
+    label: Newton's Laws Problem-Solving Strategy
+    sections:
+    - id: ch04_s4_6
+      title: 4.6 Problem-Solving Strategies
+    - id: ch04_s4_7
+      title: 4.7 Further Applications of Newton’s Laws of Motion

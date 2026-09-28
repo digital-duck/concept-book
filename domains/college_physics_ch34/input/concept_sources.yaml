@@ -1,0 +1,232 @@
+domain: college_physics_2e_ch34
+sources:
+  galaxy:
+    label: Galaxy
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  blackbody_radiation:
+    label: Blackbody Radiation
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  doppler_effect:
+    label: Doppler Effect
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  escape_velocity:
+    label: Escape Velocity
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  special_relativity:
+    label: Special Relativity
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  quantum_mechanics:
+    label: Quantum Mechanics
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  neutrino:
+    label: Neutrino
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  four_basic_forces:
+    label: Four Basic Forces
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  resistivity:
+    label: Resistivity
+    sections:
+    - id: ch34_s34_6
+      title: 34.6 High-temperature Superconductors
+  cosmology:
+    label: Cosmology
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  cosmological_red_shift:
+    label: Cosmological Red Shift
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  hubble_constant:
+    label: Hubble Constant
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  big_bang:
+    label: Big Bang
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  cosmic_microwave_background:
+    label: Cosmic Microwave Background
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  matter_antimatter_asymmetry:
+    label: Matter–Antimatter Asymmetry
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  spontaneous_symmetry_breaking:
+    label: Spontaneous Symmetry Breaking
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  inflationary_scenario:
+    label: Inflationary Scenario
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  electroweak_epoch:
+    label: Electroweak Epoch
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  gut_epoch:
+    label: GUT Epoch
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  toe_epoch:
+    label: TOE Epoch
+    sections:
+    - id: ch34_s34_1
+      title: 34.1 Cosmology and Particle Physics
+  general_relativity:
+    label: General Relativity
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  equivalence_principle:
+    label: Equivalence Principle
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  gravitational_lensing:
+    label: Gravitational Lensing
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  black_hole:
+    label: Black Hole
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  event_horizon:
+    label: Event Horizon
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  schwarzschild_radius:
+    label: Schwarzschild Radius
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  neutron_star:
+    label: Neutron Star
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  gravitational_waves:
+    label: Gravitational Waves
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  quantum_gravity:
+    label: Quantum Gravity
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  hawking_radiation:
+    label: Hawking Radiation
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  superstring_theory:
+    label: Superstring Theory
+    sections:
+    - id: ch34_s34_3
+      title: 34.3 Superstrings
+  dark_matter:
+    label: Dark Matter
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  critical_density:
+    label: Critical Density
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  cosmological_constant:
+    label: Cosmological Constant
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  universe_curvature:
+    label: Universe Curvature
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  neutrino_oscillations:
+    label: Neutrino Oscillations
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  machos:
+    label: MACHOs
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  wimps:
+    label: WIMPs
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  microlensing:
+    label: Microlensing
+    sections:
+    - id: ch34_s34_4
+      title: 34.4 Dark Matter and Closure
+  complexity:
+    label: Complexity
+    sections:
+    - id: ch34_s34_5
+      title: 34.5 Complexity and Chaos
+  chaos:
+    label: Chaos
+    sections:
+    - id: ch34_s34_5
+      title: 34.5 Complexity and Chaos
+  superconductor:
+    label: Superconductor
+    sections:
+    - id: ch34_s34_6
+      title: 34.6 High-temperature Superconductors
+  critical_temperature:
+    label: Critical Temperature
+    sections:
+    - id: ch34_s34_6
+      title: 34.6 High-temperature Superconductors
+  high_temperature_superconductor:
+    label: High-Temperature Superconductor
+    sections:
+    - id: ch34_s34_6
+      title: 34.6 High-temperature Superconductors
+  quasar:
+    label: Quasar
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity
+  gravitational_wave_detection:
+    label: Gravitational Wave Detection
+    sections:
+    - id: ch34_s34_2
+      title: 34.2 General Relativity and Quantum Gravity

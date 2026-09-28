@@ -1,0 +1,213 @@
+domain: cs_data_structures
+primitives:
+  memory_cell:
+    symbol: □ (addressable slot)
+    defines: first radical — a fixed-size, addressable unit of storage; holds a value and
+      is identified by its address; the floor below which we do not descend in this domain
+      (transistors live at the hardware level)
+    tier: 0
+  pointer:
+    symbol: → (address reference)
+    defines: first radical — a value whose interpretation is as the address of another memory_cell;
+      the mechanism that lets structures escape the contiguous layout of the array; without
+      pointers there is only the array
+    tier: 0
+  comparison:
+    symbol: '≤ (total order predicate)'
+    defines: second radical — a binary predicate on keys that establishes a total order;
+      not derivable from storage alone; required for sorted structures, search, and priority
+    tier: 0
+  key:
+    symbol: k (identifier)
+    defines: second radical — the part of a stored element used to identify, sort, and retrieve
+      it; distinct from the associated value; what the comparison predicate acts on
+    tier: 0
+first_radical_primitives:
+- memory_cell
+- pointer
+concepts:
+  array:
+    composed_of:
+    - memory_cell
+    defines: a contiguous block of memory_cells of uniform size — O(1) random access by
+      index arithmetic; the simplest structure and the building block of almost everything else;
+      cache-friendly because adjacent cells are adjacent in memory
+    verifier: python
+    lab: python (implement get/set by index arithmetic; time O(1) access vs. linked-list O(n) scan)
+    play: allocate [1,2,3,4,5]; access index 3 in one step; insert at index 1 and count
+      the shifts — O(n) in the worst case
+    tier: 1
+  linked_list:
+    composed_of:
+    - memory_cell
+    - pointer
+    defines: a sequence of nodes, each pairing a value with a pointer to the next node —
+      O(1) insert/delete at a known node; O(n) access by position; the simplest pointer
+      structure
+    verifier: python
+    lab: python (implement Node + LinkedList; unit-test insert_head, insert_tail, delete, traverse)
+    play: build a list of 5 integers; delete the middle node; verify O(1) delete requires
+      a pointer to the predecessor — the classic interview insight
+    tier: 2
+  stack:
+    composed_of:
+    - linked_list
+    defines: last-in, first-out (LIFO) collection — push and pop at the same end; models
+      call stacks, undo histories, and balanced-bracket checking; can also be implemented
+      atop an array
+    verifier: python
+    lab: python (implement Stack with push/pop/peek; unit-test LIFO invariant; solve
+      balanced-brackets with it)
+    play: check whether '({[]})' is balanced using a stack; trace through character by
+      character and verify the stack is empty at the end iff balanced
+    tier: 3
+  queue:
+    composed_of:
+    - linked_list
+    defines: first-in, first-out (FIFO) collection — enqueue at the tail, dequeue at the
+      head; models task queues, BFS frontiers, and producer-consumer buffers
+    verifier: python
+    lab: python (implement Queue with enqueue/dequeue; unit-test FIFO invariant; implement
+      level-order tree traversal using it)
+    play: simulate a single-server queue with Poisson arrivals (λ) and exponential service
+      (μ); verify average wait ≈ λ/(μ(μ−λ)) (M/M/1 formula) by simulation
+    tier: 3
+  binary_tree:
+    composed_of:
+    - memory_cell
+    - pointer
+    defines: a node with a value and at most two child pointers (left, right); the branching
+      structure that achieves O(log n) operations when balanced; the foundation of BST, heap,
+      and trie
+    verifier: python
+    lab: python (implement BinaryTreeNode; recursive inorder/preorder/postorder traversal;
+      verify traversal order)
+    play: insert [5,3,7,1,4] into a binary tree; print inorder traversal — the result is
+      sorted iff the tree is a BST
+    tier: 3
+  binary_search_tree:
+    composed_of:
+    - binary_tree
+    - comparison
+    - key
+    defines: a binary_tree with the BST invariant — left subtree keys < node key < right
+      subtree keys — enabling O(log n) search, insert, delete in the average case; degrades
+      to O(n) on sorted input (the pathological case that motivates balancing)
+    verifier: python
+    lab: python (implement BST insert/search/delete; verify BST invariant after each operation
+      with an inorder walk; measure height on random vs. sorted input)
+    play: insert [1,2,3,4,5] in order; observe a height-5 chain; then insert in random order
+      and observe height ≈ 2 log n — visualize the difference
+    tier: 4
+  heap:
+    composed_of:
+    - binary_tree
+    - comparison
+    defines: a complete binary_tree satisfying the heap property — every node's key is
+      ≤ (min-heap) or ≥ (max-heap) its children's keys — stored compactly in an array via
+      the index formula children of i are 2i+1 and 2i+2; enables O(log n) insert and
+      extract-min/max
+    verifier: python
+    lab: python (implement heapify, push, pop using array index arithmetic; verify heap
+      property after each operation; time heapsort vs. sorted() on random data)
+    play: build a max-heap from [3,1,4,1,5,9,2,6]; extract the max three times;
+      verify you receive 9,6,5 in that order
+    tier: 4
+  hash_table:
+    composed_of:
+    - array
+    - key
+    defines: an array indexed by hash(key) % capacity — amortized O(1) insert, lookup, delete
+      under a good hash function; collisions handled by chaining (linked_list per bucket)
+      or open addressing; the single fastest general-purpose lookup structure
+    verifier: python
+    lab: python (implement HashTable with polynomial rolling hash + chaining; measure load
+      factor vs. collision rate; verify worst case degrades to O(n) at load 1 with adversarial keys)
+    play: insert 100 random strings; compute the distribution of chain lengths; observe that
+      at load factor 0.7 most chains have length ≤ 2
+    tier: 4
+  graph:
+    composed_of:
+    - memory_cell
+    - pointer
+    defines: a set of vertices V and edges E ⊆ V×V — represented as adjacency list (array
+      of linked_lists) for sparse graphs or adjacency matrix for dense; the universal model
+      for networks, dependencies, and state spaces
+    verifier: python
+    lab: python (implement Graph with add_vertex/add_edge; verify adjacency list and matrix
+      representations are consistent; compute degree sequence)
+    play: model a five-city road network; compute degree of each city; identify which cities
+      are hubs (degree > 2)
+    tier: 4
+  balanced_bst:
+    composed_of:
+    - binary_search_tree
+    defines: a BST that maintains O(log n) height via rotations on insert/delete — AVL trees
+      (height-balanced), red-black trees (color-balanced); the guarantee that worst-case
+      search is O(log n), not O(n); used inside most language standard libraries
+    verifier: python
+    lab: python (implement AVL rotations; verify height ≤ 1.44 log₂(n) after 1000 random inserts
+      by measuring actual height)
+    play: insert [1..15] into an AVL tree; trace the rotations; count the height at each step
+      and confirm it never exceeds ⌈log₂(n)⌉ + 1
+    tier: 5
+  trie:
+    composed_of:
+    - pointer
+    - key
+    defines: a tree where each edge is labeled by a character and each root-to-leaf path
+      spells a key — O(m) insert/search for a key of length m, independent of n; ideal for
+      prefix-based operations (autocomplete, IP routing, dictionary compression)
+    verifier: python
+    lab: python (implement Trie with insert/search/starts_with; verify all insertions retrievable;
+      count nodes shared by common-prefix words)
+    play: insert {"apple","app","application","apply"}; search for "app" and "apply"; list
+      all words with prefix "appl" — observe the shared prefix subtree
+    tier: 5
+  priority_queue:
+    composed_of:
+    - heap
+    defines: an abstract data type that always returns the element with the highest (or lowest)
+      priority; typically implemented with a heap; the building block of Dijkstra, Prim,
+      and event-driven simulation
+    verifier: python
+    lab: python (use heapq; implement a job scheduler that always runs the highest-priority
+      pending job; verify output order)
+    play: schedule five jobs with priorities [3,1,4,1,5]; dequeue them all; verify arrival
+      order is 5,4,3,1,1 — always the current maximum
+    tier: 5
+applications:
+  compiler_symbol_table:
+    needs:
+    - hash_table
+    - binary_search_tree
+    domain: compilers / interpreters
+    defines: variable names map to types and addresses — hash_table for O(1) lookup in
+      the common case; balanced_bst for ordered iteration during code generation
+  operating_system_scheduler:
+    needs:
+    - priority_queue
+    - queue
+    domain: operating systems
+    defines: the run queue is a multi-level priority_queue; timer interrupts enqueue tasks;
+      the scheduler dequeues the highest-priority runnable task at each context switch
+  social_network_graph:
+    needs:
+    - graph
+    - hash_table
+    domain: social platforms / recommendation
+    defines: users are vertices, relationships are edges; graph adjacency lists + hash_tables
+      for O(1) user lookup power every friend-of-a-friend query and community detection algorithm
+  database_indexing:
+    needs:
+    - balanced_bst
+    - hash_table
+    domain: databases / storage engines
+    defines: B-trees (generalized balanced_bst optimized for disk blocks) and hash indexes
+      underlie every SQL WHERE clause; the tree enables range queries; the hash enables equality
+  autocomplete:
+    needs:
+    - trie
+    domain: search / text editors / IDEs
+    defines: trie stores the dictionary; every keystroke traverses one edge; the subtree
+      below the current prefix enumerates all completions — O(m + |results|) total work

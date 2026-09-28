@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌱 Heisenberg Uncertainty Principle — College Physics Ch33</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px;
+        display:flex;flex-direction:column}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0;flex:1}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+nav.toc .spl-credit{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);
+                    font-size:11px;color:#90b4e8;font-family:system-ui,sans-serif}
+nav.toc .spl-credit a{color:#a8c8f0;text-decoration:none}
+nav.toc .spl-credit a:hover{color:#fff;text-decoration:underline}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:32px}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
+section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="toc">
+    <a href="../../../../#/domain/college_physics_ch33" class="back">← College Physics Ch33</a>
+    <h2>Contents</h2>
+    <ol>
+<li class="toc-target"><a href="concept_heisenberg_uncertainty_principle.html">🌱 Heisenberg Uncertainty Principle</a></li>
+<li><a href="concept_carrier_particle.html">🍃 Carrier Particle</a></li>
+<li><a href="concept_intrinsic_spin.html">🌱 Intrinsic Spin</a></li>
+<li><a href="concept_pauli_exclusion_principle.html">🌱 Pauli Exclusion Principle</a></li>
+<li><a href="concept_conservation_of_mass_energy.html">🌱 Conservation Of Mass Energy</a></li>
+<li><a href="concept_electromagnetic_force.html">🌱 Electromagnetic Force</a></li>
+<li><a href="concept_fermion.html">🍃 Fermion</a></li>
+<li><a href="concept_quark.html">🍃 Quark</a></li>
+<li><a href="concept_four_basic_forces.html">🍃 Four Basic Forces</a></li>
+<li><a href="concept_virtual_particle.html">🍃 Virtual Particle</a></li>
+<li><a href="concept_feynman_diagram.html">🍃 Feynman Diagram</a></li>
+<li><a href="concept_quark_color.html">🍃 Quark Color</a></li>
+<li><a href="concept_gluon.html">🍃 Gluon</a></li>
+<li><a href="concept_quantum_electrodynamics.html">🍃 Quantum Electrodynamics</a></li>
+<li><a href="concept_conservation_of_charge.html">🌱 Conservation Of Charge</a></li>
+<li><a href="concept_electroweak_theory.html">🍃 Electroweak Theory</a></li>
+<li><a href="concept_hadron.html">🍃 Hadron</a></li>
+<li><a href="concept_quantum_chromodynamics.html">🍃 Quantum Chromodynamics</a></li>
+<li><a href="concept_antimatter.html">🍃 Antimatter</a></li>
+<li><a href="concept_baryon.html">🍃 Baryon</a></li>
+<li><a href="concept_standard_model.html">🍃 Standard Model</a></li>
+<li><a href="concept_baryon_number_conservation.html">🍃 Baryon Number Conservation</a></li>
+<li><a href="concept_grand_unified_theory.html">🍃 Grand Unified Theory</a></li>
+<li><a href="concept_proton_decay_detection.html">🌸 Proton Decay Detection</a></li>
+</ol>
+    <div class="spl-credit">Generated by <a href="https://github.com/digital-duck/SPL.py" target="_blank">SPL</a></div>
+  </nav>
+  <main>
+    <h1 class="book-title">🌱 Heisenberg Uncertainty Principle</h1>
+    <section>
+<h2>🌱 Heisenberg Uncertainty Principle</h2>
+<p><strong>Definition.</strong> The Heisenberg Uncertainty Principle establishes a fundamental lower bound on the precision with which certain pairs of conjugate observables can be simultaneously determined. For position $x$ and momentum $p_x$, the principle states:</p>
+$$
+\Delta x \, \Delta p_x \geq \frac{\hbar}{2}
+$$
+<p>where $\Delta x$ is the standard deviation of position measurements, $\Delta p_x$ is the standard deviation of momentum measurements, and $\hbar = h/(2\pi) \approx 1.055 \times 10^{-34}$ J·s is the reduced Planck constant. An analogous relation holds for energy and time:</p>
+$$
+\Delta E \, \Delta t \geq \frac{\hbar}{2}
+$$
+<p>This is not a statement about measurement imprecision due to experimental limitations; it reflects an intrinsic feature of quantum mechanical wave functions. A state with a well-defined position is a spatially localized wave packet, which requires a broad superposition of momentum eigenstates, and vice versa.</p>
+<p><strong>Worked Example.</strong> An electron is confined within an atomic nucleus of diameter $d \approx 1.0 \times 10^{-14}$ m. Estimate the minimum uncertainty in the electron's momentum and the corresponding kinetic energy.</p>
+<p>Taking $\Delta x \approx d$, the minimum momentum uncertainty is:</p>
+$$
+\Delta p_x \geq \frac{\hbar}{2\Delta x} = \frac{1.055 \times 10^{-34}}{2(1.0 \times 10^{-14})} \approx 5.3 \times 10^{-21} \text{ kg·m/s}
+$$
+<p>The kinetic energy associated with this momentum (using $K = p^2/2m_e$ with $m_e = 9.11 \times 10^{-31}$ kg) is:</p>
+$$
+K \approx \frac{(\Delta p_x)^2}{2m_e} \approx \frac{(5.3 \times 10^{-21})^2}{2(9.11 \times 10^{-31})} \approx 1.5 \times 10^{-11} \text{ J} \approx 96 \text{ MeV}
+$$
+<p>Since electrons emitted from nuclear beta decay carry only a few MeV, this result demonstrates that electrons cannot be permanently confined within the nucleus — a foundational argument supporting the neutrino hypothesis.</p>
+<p><strong>Key Theorem.</strong> The uncertainty principle follows rigorously from the Cauchy–Schwarz inequality applied to the inner product space of square-integrable wave functions. For any two non-commuting operators $\hat{A}$ and $\hat{B}$ with commutator $[\hat{A}, \hat{B}] = i\hat{C}$, the generalized relation is $\Delta A \, \Delta B \geq |\langle \hat{C} \rangle|/2$.</p>
+<p><strong>Lab Exercise.</strong> Using a single-slit diffraction apparatus, pass a laser beam through a slit of adjustable width $a$. Record the angular half-width $\theta$ of the central diffraction maximum. Show that the transverse momentum spread $\Delta p_y \approx p\sin\theta$ satisfies $\Delta y \, \Delta p_y \approx h$, where $\Delta y \approx a$. Compare measured values to the theoretical minimum $\hbar/2$ and discuss sources of the numerical discrepancy.</p>
+</section>
+  </main>
+</div>
+</body>
+</html>

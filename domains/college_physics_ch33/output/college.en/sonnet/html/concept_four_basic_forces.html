@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍃 Four Basic Forces — College Physics Ch33</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+table{border-collapse:collapse;margin:16px 0;font-size:.95rem;width:auto}
+th,td{border:1px solid #d8d8d0;padding:8px 12px;text-align:left}
+th{background:#eef1f5;font-weight:600;color:#1e3a5f}
+tr:nth-child(even){background:#f8f8f5}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;
+        background:#1e3a5f;color:#e8f0fe;padding:24px 16px;
+        display:flex;flex-direction:column}
+nav.toc .back{color:#a8c8f0;margin-bottom:20px}
+nav.toc .back:hover{color:#fff}
+nav.toc h2{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+           color:#90b4e8;margin-bottom:14px;font-family:system-ui,sans-serif}
+nav.toc ol{list-style:decimal inside;padding:0;flex:1}
+nav.toc li{margin-bottom:7px;font-size:.85rem;line-height:1.4;font-family:system-ui,sans-serif}
+nav.toc a{color:#a8c8f0;text-decoration:none}
+nav.toc a:hover{color:#fff}
+nav.toc li.toc-target{font-weight:700}
+nav.toc li.toc-target a{color:#fff}
+nav.toc .spl-credit{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);
+                    font-size:11px;color:#90b4e8;font-family:system-ui,sans-serif}
+nav.toc .spl-credit a{color:#a8c8f0;text-decoration:none}
+nav.toc .spl-credit a:hover{color:#fff;text-decoration:underline}
+main{padding:48px 64px;max-width:860px}
+h1.book-title{font-size:2rem;color:#1e3a5f;margin-bottom:32px}
+section{margin-bottom:56px;border-top:1px solid #e0e0d8;padding-top:40px}
+section:first-of-type{border-top:none;padding-top:0}
+html{scroll-behavior:smooth}
+@media(max-width:768px){.page{grid-template-columns:1fr}
+nav.toc{position:relative;height:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="toc">
+    <a href="../../../../#/domain/college_physics_ch33" class="back">← College Physics Ch33</a>
+    <h2>Contents</h2>
+    <ol>
+<li><a href="concept_heisenberg_uncertainty_principle.html">🌱 Heisenberg Uncertainty Principle</a></li>
+<li><a href="concept_carrier_particle.html">🍃 Carrier Particle</a></li>
+<li><a href="concept_intrinsic_spin.html">🌱 Intrinsic Spin</a></li>
+<li><a href="concept_pauli_exclusion_principle.html">🌱 Pauli Exclusion Principle</a></li>
+<li><a href="concept_conservation_of_mass_energy.html">🌱 Conservation Of Mass Energy</a></li>
+<li><a href="concept_electromagnetic_force.html">🌱 Electromagnetic Force</a></li>
+<li><a href="concept_fermion.html">🍃 Fermion</a></li>
+<li><a href="concept_quark.html">🍃 Quark</a></li>
+<li class="toc-target"><a href="concept_four_basic_forces.html">🍃 Four Basic Forces</a></li>
+<li><a href="concept_virtual_particle.html">🍃 Virtual Particle</a></li>
+<li><a href="concept_feynman_diagram.html">🍃 Feynman Diagram</a></li>
+<li><a href="concept_quark_color.html">🍃 Quark Color</a></li>
+<li><a href="concept_gluon.html">🍃 Gluon</a></li>
+<li><a href="concept_quantum_electrodynamics.html">🍃 Quantum Electrodynamics</a></li>
+<li><a href="concept_conservation_of_charge.html">🌱 Conservation Of Charge</a></li>
+<li><a href="concept_electroweak_theory.html">🍃 Electroweak Theory</a></li>
+<li><a href="concept_hadron.html">🍃 Hadron</a></li>
+<li><a href="concept_quantum_chromodynamics.html">🍃 Quantum Chromodynamics</a></li>
+<li><a href="concept_antimatter.html">🍃 Antimatter</a></li>
+<li><a href="concept_baryon.html">🍃 Baryon</a></li>
+<li><a href="concept_standard_model.html">🍃 Standard Model</a></li>
+<li><a href="concept_baryon_number_conservation.html">🍃 Baryon Number Conservation</a></li>
+<li><a href="concept_grand_unified_theory.html">🍃 Grand Unified Theory</a></li>
+<li><a href="concept_proton_decay_detection.html">🌸 Proton Decay Detection</a></li>
+</ol>
+    <div class="spl-credit">Generated by <a href="https://github.com/digital-duck/SPL.py" target="_blank">SPL</a></div>
+  </nav>
+  <main>
+    <h1 class="book-title">🍃 Four Basic Forces</h1>
+    <section>
+<h2>🍃 Four Basic Forces</h2>
+<p><strong>Definition.</strong> All interactions in nature reduce to four fundamental forces (interactions): the <strong>gravitational force</strong>, the <strong>electromagnetic force</strong>, the <strong>weak nuclear force</strong>, and the <strong>strong nuclear force</strong>. These forces differ dramatically in strength, range, and the particles that mediate them.</p>
+<table>
+<thead>
+<tr>
+  <th>Force</th>
+  <th>Relative Strength</th>
+  <th>Range</th>
+  <th>Mediating Boson</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Strong</td>
+  <td>$1$</td>
+  <td>$\sim 10^{-15}$ m</td>
+  <td>Gluons</td>
+</tr>
+<tr>
+  <td>Electromagnetic</td>
+  <td>$10^{-2}$</td>
+  <td>$\infty$</td>
+  <td>Photons ($\gamma$)</td>
+</tr>
+<tr>
+  <td>Weak</td>
+  <td>$10^{-13}$</td>
+  <td>$\sim 10^{-18}$ m</td>
+  <td>$W^{\pm}, Z^0$</td>
+</tr>
+<tr>
+  <td>Gravitational</td>
+  <td>$10^{-38}$</td>
+  <td>$\infty$</td>
+  <td>Gravitons (theoretical)</td>
+</tr>
+</tbody>
+</table>
+<p>Gravitational and electromagnetic forces obey inverse-square laws ($F \propto r^{-2}$) and have infinite range. The nuclear forces are short-range: the strong force binds quarks into hadrons and nucleons into nuclei over distances $r \lesssim 10^{-15}$ m, while the weak force governs radioactive $\beta$-decay over $r \lesssim 10^{-18}$ m.</p>
+<p><strong>Worked Example.</strong> Compare the gravitational and electrostatic forces between two protons separated by $r = 1.00 \times 10^{-15}$ m (roughly one femtometer, the nuclear scale).</p>
+<p>Electrostatic repulsion:</p>
+$$
+F_E = k_e \frac{e^2}{r^2} = (8.99 \times 10^9)\frac{(1.60 \times 10^{-19})^2}{(1.00 \times 10^{-15})^2} \approx 230 \text{ N}
+$$
+<p>Gravitational attraction:</p>
+$$
+F_G = G\frac{m_p^2}{r^2} = (6.67 \times 10^{-11})\frac{(1.67 \times 10^{-27})^2}{(1.00 \times 10^{-15})^2} \approx 1.86 \times 10^{-34} \text{ N}
+$$
+<p>The ratio $F_E / F_G \approx 10^{36}$, confirming gravity is negligible at nuclear scales. Yet protons remain bound in nuclei because the strong force overwhelms electromagnetic repulsion at $r < 10^{-15}$ m.</p>
+<p><strong>Key Theorem (Unification).</strong> The electromagnetic and weak forces unify into a single <strong>electroweak force</strong> at energies $E \gtrsim 100$ GeV, described by the Glashow–Salam–Weinberg model. This was experimentally confirmed by the discovery of the $W^{\pm}$ and $Z^0$ bosons at CERN in 1983, earning the Nobel Prize in Physics. Grand Unified Theories (GUTs) attempt to incorporate the strong force at energies $\sim 10^{15}$ GeV, and a complete Theory of Everything would include gravity.</p>
+<p><strong>Lab Exercise.</strong> Using a Millikan-type apparatus, measure the charge-to-mass ratio $e/m_e$ for an electron. From your result, compute $F_E/F_G$ between two electrons at separation $r = 1.00$ nm and compare with the tabulated relative strengths above. Discuss which force dominates in atomic versus nuclear length scales, and identify which of the four forces is responsible for the contact force you experience when pressing your hand against a table.</p>
+</section>
+  </main>
+</div>
+</body>
+</html>

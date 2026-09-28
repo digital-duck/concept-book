@@ -1,0 +1,229 @@
+domain: college_physics_2e_ch26
+primitives:
+  refractive_index:
+    defines: A dimensionless number describing how much a medium bends light relative to vacuum, determining
+      the speed of light in that medium.
+    tier: 0
+  thin_lens_equation:
+    defines: The relationship 1/do + 1/di = 1/f connecting object distance, image distance, and focal
+      length for a thin lens.
+    tier: 0
+  focal_length:
+    defines: The distance from a lens or mirror to the point where parallel rays converge, determining
+      the lens's converging or diverging strength.
+    tier: 0
+  wavelength:
+    defines: The spatial period of a wave, which for visible light determines its perceived color.
+    tier: 0
+  magnification:
+    defines: The ratio of image height to object height, indicating how much larger or smaller an image
+      is compared to the object.
+    tier: 0
+  convex_lens:
+    defines: A lens that is thicker in the center than at the edges, causing parallel light rays to converge
+      to a focal point.
+    tier: 0
+  concave_lens:
+    defines: A lens that is thinner in the center than at the edges, causing light rays to diverge.
+    tier: 0
+concepts:
+  lens_power:
+    defines: The inverse of focal length in meters, measured in diopters, quantifying a lens's ability
+      to converge or diverge light.
+    composed_of:
+    - focal_length
+    tier: 1
+  eye_as_optical_system:
+    defines: The cornea and lens of the eye act together as a single thin lens that forms a real, inverted
+      image on the retina.
+    composed_of:
+    - thin_lens_equation
+    - convex_lens
+    tier: 1
+  accommodation:
+    defines: The process by which the ciliary muscle changes the shape and power of the eye's lens to
+      focus on objects at different distances.
+    composed_of:
+    - eye_as_optical_system
+    - lens_power
+    tier: 2
+  near_point:
+    defines: The closest distance at which the eye can focus sharply on an object, normally about 25 cm
+      for a young adult.
+    composed_of:
+    - accommodation
+    tier: 3
+  far_point:
+    defines: The farthest distance at which the eye can focus sharply, normally at infinity for an unaccommodated
+      eye.
+    composed_of:
+    - accommodation
+    tier: 3
+  myopia:
+    defines: A vision defect in which the eye overconverges light so that distant objects are focused
+      in front of the retina.
+    composed_of:
+    - eye_as_optical_system
+    - far_point
+    tier: 4
+  hyperopia:
+    defines: A vision defect in which the eye underconverges light so that close objects are focused behind
+      the retina.
+    composed_of:
+    - eye_as_optical_system
+    - near_point
+    tier: 4
+  presbyopia:
+    defines: The age-related loss of the eye's ability to accommodate, caused by stiffening of the lens.
+    composed_of:
+    - accommodation
+    tier: 3
+  astigmatism:
+    defines: A vision defect caused by asymmetric curvature of the cornea or lens, producing uneven focus
+      along certain axes.
+    composed_of:
+    - eye_as_optical_system
+    tier: 2
+  rods_and_cones:
+    defines: The two types of photoreceptors in the retina, responsible for dim-light vision and color/high-acuity
+      vision respectively.
+    composed_of:
+    - wavelength
+    tier: 1
+  simplified_color_vision_theory:
+    defines: The theory that three types of cones, each sensitive to a different wavelength range, combine
+      responses to produce all perceived hues.
+    composed_of:
+    - rods_and_cones
+    tier: 2
+  color_constancy:
+    defines: The ability of the eye-brain system to perceive the true color of an object despite changes
+      in illumination.
+    composed_of:
+    - simplified_color_vision_theory
+    tier: 3
+  retinex_theory:
+    defines: A modified color vision theory proposing three retinex systems that are compared to determine
+      true colors under varying illumination.
+    composed_of:
+    - simplified_color_vision_theory
+    - color_constancy
+    tier: 4
+  compound_microscope:
+    defines: An optical instrument using an objective lens to form an enlarged real image, further magnified
+      by an eyepiece.
+    composed_of:
+    - convex_lens
+    - focal_length
+    - magnification
+    tier: 1
+  overall_magnification:
+    defines: The total magnification of a multi-element optical system, equal to the product of the individual
+      magnifications.
+    composed_of:
+    - magnification
+    - compound_microscope
+    tier: 2
+  numerical_aperture:
+    defines: A measure of a lens's light-gathering ability defined as NA = n sin alpha.
+    composed_of:
+    - refractive_index
+    tier: 1
+  f_number:
+    defines: The ratio of a lens's focal length to its aperture diameter, characterizing light per unit
+      area reaching the image plane.
+    composed_of:
+    - focal_length
+    tier: 1
+  telescope:
+    defines: An optical instrument using a long-focal-length objective and short-focal-length eyepiece
+      to magnify distant objects.
+    composed_of:
+    - convex_lens
+    - focal_length
+    tier: 1
+  angular_magnification:
+    defines: The ratio of the angle subtended by the image through a telescope to the angle subtended
+      by the object unaided, M = -fo/fe.
+    composed_of:
+    - telescope
+    - magnification
+    tier: 2
+  aberration:
+    defines: A distortion in an image produced by an optical system, arising from lens geometry, material
+      properties, or object position.
+    composed_of:
+    - convex_lens
+    tier: 1
+  chromatic_aberration:
+    defines: An aberration caused by the wavelength-dependence of refractive index, producing different
+      focal points for different colors.
+    composed_of:
+    - aberration
+    - refractive_index
+    - wavelength
+    tier: 2
+  spherical_aberration:
+    defines: An aberration in which rays through outer edges of a spherical lens converge at a different
+      point than rays near the axis.
+    composed_of:
+    - aberration
+    tier: 2
+  coma:
+    defines: An aberration from off-axis imaging that produces pear-shaped distortion.
+    composed_of:
+    - aberration
+    tier: 2
+applications:
+  vision_correction_spectacles:
+    defines: Placing a diverging or converging lens in front of the eye to adjust total optical power
+      so images form on the retina.
+    needs:
+    - myopia
+    - hyperopia
+    - lens_power
+    - concave_lens
+    tier: 5
+  laser_vision_correction:
+    defines: A surgical procedure using excimer laser pulses to reshape the cornea, correcting myopia,
+      hyperopia, or astigmatism.
+    needs:
+    - myopia
+    - hyperopia
+    - astigmatism
+    tier: 5
+  contact_lenses:
+    defines: Corrective lenses worn directly on the eye that provide vision correction and compensate
+      for corneal irregularities.
+    needs:
+    - myopia
+    - hyperopia
+    - lens_power
+    tier: 5
+  reflecting_telescope:
+    defines: A telescope using a concave mirror as its objective, enabling larger apertures and freedom
+      from chromatic aberration.
+    needs:
+    - telescope
+    - chromatic_aberration
+    tier: 3
+  adaptive_optics:
+    defines: Computer-controlled arrays of small mirrors that deform in real time to compensate for atmospheric
+      turbulence and optical distortions.
+    needs:
+    - aberration
+    - telescope
+    tier: 2
+  electron_microscope:
+    defines: A microscope using focused electron beams to achieve magnifications up to 50 million times,
+      resolving individual atoms.
+    needs:
+    - compound_microscope
+    tier: 2
+  immersion_lens:
+    defines: A microscope objective used with oil or water between lens and specimen to increase numerical
+      aperture beyond 1.00.
+    needs:
+    - numerical_aperture
+    - compound_microscope
+    tier: 2

@@ -1,0 +1,124 @@
+domain: college_physics_2e_ch11
+sources:
+  mass:
+    label: Mass
+    sections: []
+  volume:
+    label: Volume
+    sections: []
+  force:
+    label: Force
+    sections: []
+  area:
+    label: Area
+    sections: []
+  gravitational_acceleration:
+    label: Gravitational Acceleration
+    sections: []
+  fluid:
+    label: Fluid
+    sections:
+    - id: ch11_s11_1
+      title: 11.1 What Is a Fluid?
+  density:
+    label: Density
+    sections:
+    - id: ch11_s11_2
+      title: 11.2 Density
+  pressure:
+    label: Pressure
+    sections:
+    - id: ch11_s11_3
+      title: 11.3 Pressure
+  pressure_depth_relation:
+    label: Pressure–Depth Relation
+    sections:
+    - id: ch11_s11_4
+      title: 11.4 Variation of Pressure with Depth in a Fluid
+  atmospheric_pressure:
+    label: Atmospheric Pressure
+    sections:
+    - id: ch11_s11_4
+      title: 11.4 Variation of Pressure with Depth in a Fluid
+  pascals_principle:
+    label: Pascal's Principle
+    sections:
+    - id: ch11_s11_5
+      title: 11.5 Pascal’s Principle
+  gauge_pressure:
+    label: Gauge Pressure
+    sections:
+    - id: ch11_s11_6
+      title: 11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement
+  absolute_pressure:
+    label: Absolute Pressure
+    sections:
+    - id: ch11_s11_6
+      title: 11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement
+  buoyant_force:
+    label: Buoyant Force
+    sections:
+    - id: ch11_s11_7
+      title: 11.7 Archimedes’ Principle
+  archimedes_principle:
+    label: Archimedes' Principle
+    sections:
+    - id: ch11_s11_7
+      title: 11.7 Archimedes’ Principle
+  specific_gravity:
+    label: Specific Gravity
+    sections:
+    - id: ch11_s11_7
+      title: 11.7 Archimedes’ Principle
+  cohesive_forces:
+    label: Cohesive Forces
+    sections:
+    - id: ch11_s11_8
+      title: '11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action'
+  adhesive_forces:
+    label: Adhesive Forces
+    sections:
+    - id: ch11_s11_8
+      title: '11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action'
+  surface_tension:
+    label: Surface Tension
+    sections:
+    - id: ch11_s11_8
+      title: '11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action'
+  contact_angle:
+    label: Contact Angle
+    sections:
+    - id: ch11_s11_8
+      title: '11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action'
+  capillary_action:
+    label: Capillary Action
+    sections:
+    - id: ch11_s11_8
+      title: '11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action'
+  hydraulic_system:
+    label: Hydraulic System
+    sections:
+    - id: ch11_s11_5
+      title: 11.5 Pascal’s Principle
+  manometer:
+    label: Manometer
+    sections:
+    - id: ch11_s11_6
+      title: 11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement
+  barometer:
+    label: Barometer
+    sections:
+    - id: ch11_s11_6
+      title: 11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement
+  blood_pressure_measurement:
+    label: Blood Pressure Measurement
+    sections:
+    - id: ch11_s11_6
+      title: 11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement
+    - id: ch11_s11_9
+      title: 11.9 Pressures in the Body
+  body_pressures:
+    label: Pressures in the Body
+    sections:
+    - id: ch11_s11_9
+      title: 11.9 Pressures in the Body

@@ -1,0 +1,155 @@
+domain: college_physics_2e_ch29
+primitives:
+  energy:
+    defines: A conserved physical quantity associated with the capacity to do work, carried in kinetic,
+      potential, and radiative forms.
+    tier: 0
+  electromagnetic_radiation:
+    defines: Waves of oscillating electric and magnetic fields that propagate at the speed of light and
+      are characterized by frequency and wavelength.
+    tier: 0
+  frequency:
+    defines: The number of wave oscillations per unit time, related to wavelength by c = fλ.
+    tier: 0
+  wavelength:
+    defines: The spatial period of a wave, inversely related to frequency through the speed of light.
+    tier: 0
+  momentum:
+    defines: A conserved quantity equal to mass times velocity for massive objects, representing the quantity
+      of motion.
+    tier: 0
+  electron:
+    defines: A fundamental negatively charged subatomic particle that orbits atomic nuclei and participates
+      in electromagnetic interactions.
+    tier: 0
+concepts:
+  quantization:
+    defines: The principle that certain physical quantities such as energy exist only in discrete values
+      rather than a continuous range.
+    composed_of:
+    - energy
+    tier: 1
+  planck_constant:
+    defines: The fundamental constant h = 6.626 × 10⁻³⁴ J·s that sets the scale of quantum effects and
+      relates photon energy to frequency.
+    composed_of:
+    - quantization
+    - frequency
+    tier: 2
+  correspondence_principle:
+    defines: The principle that quantum mechanics reduces to classical physics in the limit of large,
+      slow-moving objects where quantum steps become negligibly small.
+    composed_of:
+    - quantization
+    tier: 2
+  energy_quantization:
+    defines: The restriction that oscillator energies can only take values E = nhf, where n is a non-negative
+      integer, f is frequency, and h is Planck's constant.
+    composed_of:
+    - planck_constant
+    tier: 3
+  photon:
+    defines: A quantum of electromagnetic radiation that carries energy E = hf and interacts as a discrete
+      particle-like unit.
+    composed_of:
+    - electromagnetic_radiation
+    - planck_constant
+    tier: 3
+  blackbody_radiation:
+    defines: Electromagnetic radiation emitted by an ideal radiator whose spectrum depends only on temperature
+      and required quantized energy levels for theoretical explanation.
+    composed_of:
+    - electromagnetic_radiation
+    - energy_quantization
+    tier: 4
+  atomic_spectra:
+    defines: Discrete line spectra of electromagnetic emissions from atoms and molecules, arising from
+      electrons transitioning between quantized energy levels.
+    composed_of:
+    - electromagnetic_radiation
+    - electron
+    - energy_quantization
+    tier: 4
+  photon_energy:
+    defines: The energy of a single photon given by E = hf = hc/λ, determining its ability to interact
+      with atoms, molecules, and electrons.
+    composed_of:
+    - photon
+    - wavelength
+    tier: 4
+  photon_momentum:
+    defines: The momentum carried by a massless photon, given by p = h/λ, verified experimentally through
+      the Compton effect.
+    composed_of:
+    - photon
+    - momentum
+    - wavelength
+    tier: 4
+  particle_wave_duality:
+    defines: The principle that all entities, including photons and matter, exhibit both particle-like
+      and wave-like properties depending on the observation.
+    composed_of:
+    - photon
+    tier: 4
+  photoelectric_effect:
+    defines: The ejection of electrons from a material when struck by light, explained by individual photons
+      transferring their energy to individual electrons.
+    composed_of:
+    - photon_energy
+    - electron
+    tier: 5
+  ionizing_radiation:
+    defines: Electromagnetic radiation (UV, x rays, gamma rays) with sufficient photon energy to ionize
+      atoms and molecules in absorbing materials.
+    composed_of:
+    - photon_energy
+    tier: 5
+  compton_effect:
+    defines: The scattering of x-ray photons by electrons in which energy and momentum are conserved,
+      resulting in increased photon wavelength and confirming photon momentum.
+    composed_of:
+    - photon_momentum
+    - electron
+    tier: 5
+  de_broglie_wavelength:
+    defines: The wavelength λ = h/p associated with any particle of momentum p, establishing that all
+      matter has wave properties.
+    composed_of:
+    - particle_wave_duality
+    - momentum
+    - wavelength
+    tier: 5
+  probability_distribution:
+    defines: The spatial distribution describing the probability of finding a particle at a given location,
+      built up statistically from many individual measurements.
+    composed_of:
+    - particle_wave_duality
+    tier: 5
+  binding_energy:
+    defines: The minimum energy BE = hf₀ required to eject an electron from a material, where f₀ is the
+      threshold frequency.
+    composed_of:
+    - photoelectric_effect
+    tier: 6
+  heisenberg_uncertainty_principle:
+    defines: The fundamental limit ΔxΔp ≥ h/4π (and ΔEΔt ≥ h/4π) stating that certain pairs of physical
+      quantities cannot both be measured to arbitrary precision simultaneously.
+    composed_of:
+    - probability_distribution
+    - de_broglie_wavelength
+    tier: 6
+applications:
+  x_ray_production:
+    defines: The generation of x-ray photons by accelerating electrons through a high voltage and converting
+      their kinetic energy into electromagnetic radiation upon striking an anode.
+    needs:
+    - photon_energy
+    - electron
+    tier: 5
+  electron_microscope:
+    defines: An imaging instrument that exploits the short de Broglie wavelength of accelerated electrons
+      to resolve details far smaller than optical microscopes can.
+    needs:
+    - de_broglie_wavelength
+    - electron
+    tier: 6

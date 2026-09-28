@@ -1,0 +1,150 @@
+domain: college_physics_2e_ch11
+primitives:
+  mass:
+    defines: A measure of the amount of matter in an object, measured in kilograms.
+    tier: 0
+  volume:
+    defines: The amount of three-dimensional space occupied by a substance or object.
+    tier: 0
+  force:
+    defines: A push or pull on an object, measured in newtons.
+    tier: 0
+  area:
+    defines: The extent of a two-dimensional surface, measured in square meters.
+    tier: 0
+  gravitational_acceleration:
+    defines: The acceleration due to Earth's gravity, approximately 9.80 m/s².
+    tier: 0
+concepts:
+  fluid:
+    defines: A state of matter (liquid, gas, or plasma) that yields to shearing forces and flows.
+    composed_of:
+    - force
+    tier: 1
+  density:
+    defines: The mass per unit volume of a substance, defined as ρ = m/V.
+    composed_of:
+    - mass
+    - volume
+    tier: 1
+  pressure:
+    defines: The force per unit area perpendicular to the surface over which the force is applied, defined
+      as P = F/A.
+    composed_of:
+    - force
+    - area
+    tier: 1
+  cohesive_forces:
+    defines: Attractive forces between molecules of the same type.
+    composed_of:
+    - force
+    tier: 1
+  adhesive_forces:
+    defines: Attractive forces between molecules of different types.
+    composed_of:
+    - force
+    tier: 1
+  pressure_depth_relation:
+    defines: The pressure due to the weight of a fluid at depth h is given by P = ρgh, increasing linearly
+      with depth for incompressible fluids.
+    composed_of:
+    - density
+    - pressure
+    - gravitational_acceleration
+    tier: 2
+  atmospheric_pressure:
+    defines: The pressure exerted by the weight of the atmosphere above a given point, with a standard
+      value of 1.01 × 10⁵ N/m² at sea level.
+    composed_of:
+    - pressure
+    - fluid
+    tier: 2
+  pascals_principle:
+    defines: A change in pressure applied to an enclosed fluid is transmitted undiminished to all portions
+      of the fluid and to the walls of its container.
+    composed_of:
+    - pressure
+    - fluid
+    tier: 2
+  specific_gravity:
+    defines: The dimensionless ratio of the density of an object to the density of water at 4.00°C.
+    composed_of:
+    - density
+    tier: 2
+  surface_tension:
+    defines: The force per unit length exerted by a liquid surface that causes it to contract to the smallest
+      possible area, defined as γ = F/L.
+    composed_of:
+    - cohesive_forces
+    tier: 2
+  contact_angle:
+    defines: The angle θ between the tangent to the liquid surface and the solid surface, indicating the
+      relative strength of cohesive versus adhesive forces.
+    composed_of:
+    - cohesive_forces
+    - adhesive_forces
+    tier: 2
+  gauge_pressure:
+    defines: The pressure measured relative to atmospheric pressure, positive above atmospheric and negative
+      below.
+    composed_of:
+    - atmospheric_pressure
+    tier: 3
+  buoyant_force:
+    defines: The net upward force on any object in any fluid, arising because pressure increases with
+      depth.
+    composed_of:
+    - pressure_depth_relation
+    - fluid
+    tier: 3
+  capillary_action:
+    defines: The tendency of a fluid to be raised or suppressed in a narrow tube due to the interplay
+      of cohesive and adhesive forces, with height h = 2γ cos θ / (ρgr).
+    composed_of:
+    - surface_tension
+    - contact_angle
+    - density
+    - gravitational_acceleration
+    tier: 3
+  absolute_pressure:
+    defines: The total pressure equal to the sum of gauge pressure and atmospheric pressure.
+    composed_of:
+    - gauge_pressure
+    tier: 4
+  archimedes_principle:
+    defines: The buoyant force on an object equals the weight of the fluid it displaces (F_b = w_fl).
+    composed_of:
+    - buoyant_force
+    tier: 4
+applications:
+  hydraulic_system:
+    defines: An enclosed fluid system that transmits and multiplies forces using Pascal's principle, where
+      F₁/A₁ = F₂/A₂.
+    needs:
+    - pascals_principle
+    tier: 3
+  barometer:
+    defines: A device that measures atmospheric pressure using a column of mercury with a vacuum above
+      it.
+    needs:
+    - atmospheric_pressure
+    - pressure_depth_relation
+    tier: 3
+  manometer:
+    defines: A U-shaped tube device that measures gauge pressure by the height difference of fluid columns.
+    needs:
+    - gauge_pressure
+    - pressure_depth_relation
+    tier: 4
+  body_pressures:
+    defines: Gauge pressures in body systems—eyes (intraocular), lungs, spinal fluid, bladder, and skeleton—that
+      serve as medical indicators.
+    needs:
+    - gauge_pressure
+    tier: 4
+  blood_pressure_measurement:
+    defines: The measurement of systolic (maximum) and diastolic (minimum) arterial pressures using a
+      cuff and manometer, reported relative to atmospheric pressure.
+    needs:
+    - manometer
+    tier: 5

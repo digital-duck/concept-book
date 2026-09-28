@@ -1,0 +1,163 @@
+domain: college_physics_2e_ch32
+sources:
+  ionizing_radiation:
+    label: Ionizing Radiation
+    sections: []
+  radioactive_decay:
+    label: Radioactive Decay
+    sections: []
+  half_life:
+    label: Half-Life
+    sections: []
+  binding_energy_per_nucleon:
+    label: Binding Energy per Nucleon
+    sections: []
+  coulomb_repulsion:
+    label: Coulomb Repulsion
+    sections: []
+  quantum_tunneling:
+    label: Quantum Tunneling
+    sections: []
+  nuclear_force:
+    label: Nuclear Force
+    sections: []
+  radiopharmaceutical:
+    label: Radiopharmaceutical
+    sections:
+    - id: ch32_s32_1
+      title: 32.1 Diagnostics and Medical Imaging
+  tagging:
+    label: Radioactive Tagging
+    sections:
+    - id: ch32_s32_1
+      title: 32.1 Diagnostics and Medical Imaging
+  anger_camera:
+    label: Anger Camera
+    sections:
+    - id: ch32_s32_1
+      title: 32.1 Diagnostics and Medical Imaging
+  spect:
+    label: Single-Photon-Emission Computed Tomography (SPECT)
+    sections:
+    - id: ch32_s32_1
+      title: 32.1 Diagnostics and Medical Imaging
+  pet:
+    label: Positron Emission Tomography (PET)
+    sections:
+    - id: ch32_s32_1
+      title: 32.1 Diagnostics and Medical Imaging
+  radiation_absorbed_dose:
+    label: Radiation Absorbed Dose (rad / Gray)
+    sections:
+    - id: ch32_s32_2
+      title: 32.2 Biological Effects of Ionizing Radiation
+  relative_biological_effectiveness:
+    label: Relative Biological Effectiveness (RBE)
+    sections:
+    - id: ch32_s32_2
+      title: 32.2 Biological Effects of Ionizing Radiation
+  dose_equivalent:
+    label: Dose Equivalent (rem / Sievert)
+    sections:
+    - id: ch32_s32_2
+      title: 32.2 Biological Effects of Ionizing Radiation
+  linear_hypothesis:
+    label: Linear Hypothesis
+    sections:
+    - id: ch32_s32_2
+      title: 32.2 Biological Effects of Ionizing Radiation
+  radiation_protection:
+    label: Radiation Protection
+    sections:
+    - id: ch32_s32_2
+      title: 32.2 Biological Effects of Ionizing Radiation
+  therapeutic_ratio:
+    label: Therapeutic Ratio
+    sections:
+    - id: ch32_s32_3
+      title: 32.3 Therapeutic Uses of Ionizing Radiation
+  radiotherapy:
+    label: Radiotherapy
+    sections:
+    - id: ch32_s32_3
+      title: 32.3 Therapeutic Uses of Ionizing Radiation
+  food_irradiation:
+    label: Food Irradiation
+    sections:
+    - id: ch32_s32_4
+      title: 32.4 Food Irradiation
+  free_radicals:
+    label: Free Radicals
+    sections:
+    - id: ch32_s32_4
+      title: 32.4 Food Irradiation
+  nuclear_fusion:
+    label: Nuclear Fusion
+    sections:
+    - id: ch32_s32_5
+      title: 32.5 Fusion
+  proton_proton_cycle:
+    label: Proton-Proton Cycle
+    sections:
+    - id: ch32_s32_5
+      title: 32.5 Fusion
+  magnetic_confinement:
+    label: Magnetic Confinement
+    sections:
+    - id: ch32_s32_5
+      title: 32.5 Fusion
+  inertial_confinement:
+    label: Inertial Confinement
+    sections:
+    - id: ch32_s32_5
+      title: 32.5 Fusion
+  nuclear_fission:
+    label: Nuclear Fission
+    sections:
+    - id: ch32_s32_6
+      title: 32.6 Fission
+  chain_reaction:
+    label: Chain Reaction
+    sections:
+    - id: ch32_s32_6
+      title: 32.6 Fission
+  critical_mass:
+    label: Critical Mass
+    sections:
+    - id: ch32_s32_6
+      title: 32.6 Fission
+  neutron_moderation:
+    label: Neutron Moderation
+    sections:
+    - id: ch32_s32_6
+      title: 32.6 Fission
+  breeding:
+    label: Breeding
+    sections:
+    - id: ch32_s32_6
+      title: 32.6 Fission
+  fission_bomb:
+    label: Fission Bomb
+    sections:
+    - id: ch32_s32_7
+      title: 32.7 Nuclear Weapons
+  thermonuclear_bomb:
+    label: Thermonuclear Bomb
+    sections:
+    - id: ch32_s32_7
+      title: 32.7 Nuclear Weapons
+  nuclear_power_reactor:
+    label: Nuclear Power Reactor
+    sections:
+    - id: ch32_s32_6
+      title: 32.6 Fission
+  medical_imaging:
+    label: Medical Imaging with Radiation
+    sections:
+    - id: ch32_s32_1
+      title: 32.1 Diagnostics and Medical Imaging
+  cancer_radiotherapy:
+    label: Cancer Radiotherapy
+    sections:
+    - id: ch32_s32_3
+      title: 32.3 Therapeutic Uses of Ionizing Radiation

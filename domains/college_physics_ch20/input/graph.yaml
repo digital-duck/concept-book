@@ -1,0 +1,226 @@
+domain: college_physics_2e_ch20
+primitives:
+  electric_charge:
+    defines: A fundamental property of matter (measured in coulombs) whose flow constitutes electric current;
+      treated as a known quantity in this chapter.
+    tier: 0
+  electric_field:
+    defines: A field present in conductors carrying current that exerts force on charges and supplies
+      energy to maintain current flow; assumed as prior knowledge.
+    tier: 0
+  potential_difference:
+    defines: The electric potential difference between two points, created by a voltage source, that drives
+      current through a conductor; treated as a given starting point.
+    tier: 0
+  coulomb_force:
+    defines: The electrostatic force between charged particles that, together with diffusion, governs
+      ion movement across cell membranes; assumed as prior knowledge.
+    tier: 0
+  diffusion:
+    defines: The tendency of ions to move from regions of high concentration to low concentration across
+      semipermeable membranes; assumed as prior knowledge from earlier chapters.
+    tier: 0
+  free_charges:
+    defines: Electrons in a metallic conductor that are not bound to individual atoms and can move freely
+      through the lattice in response to an electric field.
+    tier: 0
+concepts:
+  electric_current:
+    defines: The rate at which charge flows through a cross-sectional area, defined as I = ΔQ/Δt and measured
+      in amperes.
+    composed_of:
+    - electric_charge
+    tier: 1
+  resting_membrane_potential:
+    defines: The voltage of approximately −90 mV across a neuron's cell membrane at rest, created by diffusion
+      and Coulomb-force-driven separation of ions across the semipermeable membrane.
+    composed_of:
+    - diffusion
+    - coulomb_force
+    - potential_difference
+    tier: 1
+  ampere:
+    defines: The SI unit of electric current, equal to one coulomb of charge passing through an area per
+      second.
+    composed_of:
+    - electric_current
+    tier: 2
+  conventional_current:
+    defines: The agreed-upon direction of current flow taken as the direction positive charge would move,
+      opposite to the actual motion of electrons in metal wires.
+    composed_of:
+    - electric_current
+    tier: 2
+  drift_velocity:
+    defines: The average velocity of free charge carriers moving through a conductor in response to an
+      electric field, related to current by I = nqAvd.
+    composed_of:
+    - electric_current
+    - electric_field
+    - free_charges
+    tier: 2
+  resistance:
+    defines: The electric property that impedes current flow in a material, defined as the ratio of voltage
+      to current R = V/I and measured in ohms.
+    composed_of:
+    - electric_current
+    - potential_difference
+    tier: 2
+  direct_current:
+    defines: The flow of electric charge in only one direction, produced by a constant-voltage source
+      such as a battery.
+    composed_of:
+    - electric_current
+    - potential_difference
+    tier: 2
+  alternating_current:
+    defines: The flow of electric charge that periodically reverses direction, typically varying sinusoidally
+      as I = I₀ sin(2πft).
+    composed_of:
+    - electric_current
+    tier: 2
+  action_potential:
+    defines: A brief voltage pulse generated when a stimulus makes the cell membrane transiently permeable
+      to Na⁺ ions, causing depolarization followed by repolarization.
+    composed_of:
+    - resting_membrane_potential
+    tier: 2
+  electric_power:
+    defines: The rate at which electrical energy is supplied or dissipated, given by P = IV = V²/R = I²R
+      and measured in watts.
+    composed_of:
+    - electric_current
+    - potential_difference
+    tier: 2
+  ohms_law:
+    defines: The empirical relationship stating that current through an ohmic material is directly proportional
+      to the applied voltage and inversely proportional to resistance, expressed as I = V/R.
+    composed_of:
+    - resistance
+    tier: 3
+  voltage_drop:
+    defines: The reduction in electric potential across a resistor produced by current flowing through
+      it, given by V = IR.
+    composed_of:
+    - resistance
+    - electric_current
+    tier: 3
+  resistivity:
+    defines: An intrinsic material property independent of shape or size that quantifies how strongly
+      a material opposes current flow, relating resistance to geometry by R = ρL/A.
+    composed_of:
+    - resistance
+    tier: 3
+  rms_values:
+    defines: Root-mean-square values of AC voltage and current (Vrms = V₀/√2, Irms = I₀/√2) that represent
+      the equivalent DC values for power calculations in resistive circuits.
+    composed_of:
+    - alternating_current
+    tier: 3
+  nerve_impulse_propagation:
+    defines: The transmission of an action potential along an axon as each depolarization event triggers
+      the same process in the adjacent membrane, traveling at roughly 1 m/s in unmyelinated axons.
+    composed_of:
+    - action_potential
+    tier: 3
+  short_circuit:
+    defines: An undesired low-resistance path between the terminals of a voltage source that causes very
+      large current and dangerously high power dissipation.
+    composed_of:
+    - resistance
+    - electric_power
+    tier: 3
+  electrical_energy:
+    defines: The energy used by an electrical device, calculated as E = Pt (power times time), and billed
+      commercially in kilowatt-hours.
+    composed_of:
+    - electric_power
+    tier: 3
+  ohmic_material:
+    defines: A material for which resistance is independent of applied voltage and current, so that Ohm's
+      law holds and I is linearly proportional to V.
+    composed_of:
+    - ohms_law
+    tier: 4
+  simple_circuit:
+    defines: An electric circuit consisting of a single voltage source connected to a single resistor,
+      in which the voltage supplied equals the voltage drop across the resistor.
+    composed_of:
+    - ohms_law
+    - potential_difference
+    tier: 4
+  material_classification:
+    defines: A classification of materials by resistivity into conductors (low ρ, many free charges),
+      semiconductors (intermediate ρ, few free charges), and insulators (high ρ, bound charges).
+    composed_of:
+    - resistivity
+    - free_charges
+    tier: 4
+  temperature_coefficient_of_resistivity:
+    defines: An empirical quantity α that describes how resistivity changes with temperature, giving ρ
+      = ρ₀(1 + αΔT); positive for metals, negative for semiconductors.
+    composed_of:
+    - resistivity
+    tier: 4
+  average_ac_power:
+    defines: The time-averaged power dissipated in an AC circuit, equal to half the peak power and expressible
+      as P = IrmsVrms = Irms²R = Vrms²/R.
+    composed_of:
+    - rms_values
+    - electric_power
+    - resistance
+    tier: 4
+  myelin_sheath:
+    defines: An insulating fat-containing layer around certain axons that speeds signal transmission,
+      reduces energy use, and prevents cross-talk by allowing passive conduction between nodes of Ranvier.
+    composed_of:
+    - nerve_impulse_propagation
+    tier: 4
+  kilowatt_hour:
+    defines: A unit of electrical energy equal to the energy consumed by a 1-kW device operating for one
+      hour, equivalent to 3.6 × 10⁶ J; used for billing purposes.
+    composed_of:
+    - electrical_energy
+    tier: 4
+  temperature_dependence_of_resistance:
+    defines: The variation of an object's resistance with temperature, expressed as R = R₀(1 + αΔT), following
+      directly from the temperature dependence of resistivity.
+    composed_of:
+    - resistance
+    - temperature_coefficient_of_resistivity
+    tier: 5
+applications:
+  thermal_hazard:
+    defines: An electrical safety hazard in which excessive power dissipation produces unwanted heat,
+      potentially igniting surrounding materials.
+    needs:
+    - electric_power
+    tier: 3
+  shock_hazard:
+    defines: An electrical safety hazard in which current passes through the human body, with severity
+      determined by the magnitude of current, its path, duration, and AC frequency.
+    needs:
+    - electric_current
+    - alternating_current
+    tier: 3
+  electrocardiogram:
+    defines: A recording of the voltage signals produced by the wave of depolarization and repolarization
+      spreading across the heart, used to assess cardiac function.
+    needs:
+    - action_potential
+    tier: 3
+  high_voltage_power_transmission:
+    defines: The practice of transmitting electrical power at high voltages to minimize resistive losses
+      in transmission lines, enabled by the ease of transforming AC voltages.
+    needs:
+    - alternating_current
+    - electric_power
+    - resistance
+    tier: 3
+  fuses_and_circuit_breakers:
+    defines: Safety devices that automatically interrupt a circuit when sustained current exceeds a safe
+      limit, protecting against thermal hazards from overloaded wires.
+    needs:
+    - electric_current
+    - thermal_hazard
+    tier: 4

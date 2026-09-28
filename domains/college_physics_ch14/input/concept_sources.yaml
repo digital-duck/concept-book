@@ -1,0 +1,141 @@
+domain: college_physics_2e_ch14
+sources:
+  temperature:
+    label: Temperature
+    sections: []
+  internal_energy:
+    label: Internal Energy
+    sections: []
+  thermal_equilibrium:
+    label: Thermal Equilibrium
+    sections:
+    - id: ch14_s14_1
+      title: 14.1 Heat
+  kinetic_energy:
+    label: Kinetic Energy
+    sections: []
+  work:
+    label: Work
+    sections: []
+  heat:
+    label: Heat
+    sections:
+    - id: ch14_s14_1
+      title: 14.1 Heat
+  calorie:
+    label: Calorie and Kilocalorie
+    sections:
+    - id: ch14_s14_1
+      title: 14.1 Heat
+  mechanical_equivalent_of_heat:
+    label: Mechanical Equivalent of Heat
+    sections:
+    - id: ch14_s14_1
+      title: 14.1 Heat
+    - id: ch14_s14_2
+      title: 14.2 Temperature Change and Heat Capacity
+  specific_heat:
+    label: Specific Heat
+    sections:
+    - id: ch14_s14_2
+      title: 14.2 Temperature Change and Heat Capacity
+  heat_capacity_equation:
+    label: Heat Transfer and Temperature Change Equation
+    sections:
+    - id: ch14_s14_2
+      title: 14.2 Temperature Change and Heat Capacity
+  calorimetry:
+    label: Calorimetry
+    sections:
+    - id: ch14_s14_2
+      title: 14.2 Temperature Change and Heat Capacity
+    - id: ch14_s14_3
+      title: 14.3 Phase Change and Latent Heat
+  phase_change:
+    label: Phase Change
+    sections:
+    - id: ch14_s14_3
+      title: 14.3 Phase Change and Latent Heat
+  latent_heat:
+    label: Latent Heat
+    sections:
+    - id: ch14_s14_3
+      title: 14.3 Phase Change and Latent Heat
+  latent_heat_of_fusion:
+    label: Latent Heat of Fusion
+    sections:
+    - id: ch14_s14_3
+      title: 14.3 Phase Change and Latent Heat
+  latent_heat_of_vaporization:
+    label: Latent Heat of Vaporization
+    sections:
+    - id: ch14_s14_3
+      title: 14.3 Phase Change and Latent Heat
+  sublimation:
+    label: Sublimation
+    sections:
+    - id: ch14_s14_3
+      title: 14.3 Phase Change and Latent Heat
+  conduction:
+    label: Conduction
+    sections:
+    - id: ch14_s14_4
+      title: 14.4 Heat Transfer Methods
+    - id: ch14_s14_5
+      title: 14.5 Conduction
+  thermal_conductivity:
+    label: Thermal Conductivity
+    sections:
+    - id: ch14_s14_5
+      title: 14.5 Conduction
+  r_factor:
+    label: R Factor
+    sections:
+    - id: ch14_s14_5
+      title: 14.5 Conduction
+  convection:
+    label: Convection
+    sections:
+    - id: ch14_s14_4
+      title: 14.4 Heat Transfer Methods
+    - id: ch14_s14_6
+      title: 14.6 Convection
+  radiation:
+    label: Radiation (Thermal)
+    sections:
+    - id: ch14_s14_4
+      title: 14.4 Heat Transfer Methods
+    - id: ch14_s14_7
+      title: 14.7 Radiation
+  stefan_boltzmann_law:
+    label: Stefan-Boltzmann Law
+    sections:
+    - id: ch14_s14_7
+      title: 14.7 Radiation
+  emissivity:
+    label: Emissivity
+    sections:
+    - id: ch14_s14_7
+      title: 14.7 Radiation
+  net_radiative_heat_transfer:
+    label: Net Rate of Radiative Heat Transfer
+    sections:
+    - id: ch14_s14_7
+      title: 14.7 Radiation
+  greenhouse_effect:
+    label: Greenhouse Effect
+    sections:
+    - id: ch14_s14_7
+      title: 14.7 Radiation
+  evaporative_cooling:
+    label: Evaporative Cooling
+    sections:
+    - id: ch14_s14_3
+      title: 14.3 Phase Change and Latent Heat
+    - id: ch14_s14_6
+      title: 14.6 Convection
+  wind_chill:
+    label: Wind Chill
+    sections:
+    - id: ch14_s14_6
+      title: 14.6 Convection

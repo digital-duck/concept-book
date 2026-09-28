@@ -1,0 +1,267 @@
+domain: linalg
+primitives:
+  field_of_scalars:
+    symbol: F
+    defines: the floor for scalars — we do not reduce the field
+    tier: 0
+  carrier_set:
+    symbol: V
+    defines: the floor for vectors — set theory is below the floor
+    tier: 0
+  vector_addition:
+    symbol: '⊕: V×V→V'
+    defines: first radical — closed binary operation on V
+    tier: 0
+  scalar_multiplication:
+    symbol: '⊙: F×V→V'
+    defines: first radical — scalar scaling of a vector
+    tier: 0
+  inner_product:
+    symbol: '⟨·,·⟩: V×V→F'
+    defines: second radical — geometry on V; not reducible to ⊕, ⊙
+    tier: 0
+    introduced_in: geometry
+first_radical_primitives:
+- field_of_scalars
+- carrier_set
+- vector_addition
+- scalar_multiplication
+concepts:
+  linear_combination:
+    composed_of:
+    - vector_addition
+    - scalar_multiplication
+    defines: Σ αᵢ ⊙ vᵢ — the atomic operation; almost all of linear algebra is a statement about this
+    verifier: sympy
+    lab: sympy
+    play: pick vectors and scalars; check the result is still in V
+    tier: 1
+  subspace:
+    composed_of:
+    - linear_combination
+    defines: subset of V closed under linear_combination
+    verifier: sympy
+    lab: sympy
+    tier: 2
+  span:
+    composed_of:
+    - linear_combination
+    defines: set of all linear combinations of a given set S — the smallest subspace containing S
+    verifier: sympy
+    lab: sympy
+    play: build A; A.columnspace()
+    tier: 2
+  linear_independence:
+    composed_of:
+    - linear_combination
+    defines: no non-trivial linear combination is zero — uniqueness of the trivial combination
+    verifier: sympy
+    lab: sympy
+    tier: 2
+  basis:
+    composed_of:
+    - linear_independence
+    - span
+    defines: linearly independent spanning set — minimal generator or maximal independent set
+    verifier: sympy
+    lab: sympy
+    tier: 3
+  dimension:
+    composed_of:
+    - basis
+    defines: '|basis| — well-defined by the exchange lemma (all bases have the same size)'
+    verifier: sympy
+    lab: sympy
+    tier: 4
+  coordinates:
+    composed_of:
+    - basis
+    defines: unique coefficients of a vector over a basis — isomorphism V ≅ Fⁿ
+    verifier: sympy
+    lab: sympy
+    tier: 4
+  linear_map:
+    composed_of:
+    - linear_combination
+    defines: 'function f: V→W preserving linear_combination — f(αu+βv) = αf(u)+βf(v)'
+    verifier: sympy
+    lab: sympy
+    tier: 2
+  matrix:
+    composed_of:
+    - linear_map
+    - coordinates
+    defines: coordinate representation of a linear_map relative to chosen bases
+    verifier: sympy
+    lab: sympy
+    shape_typed: true
+    tier: 5
+  matrix_multiplication:
+    composed_of:
+    - matrix
+    - linear_map
+    defines: coordinate form of map composition — definition is forced by (g∘f) → [g][f]
+    verifier: sympy
+    lab: sympy
+    shape_typed: true
+    tier: 6
+  image:
+    composed_of:
+    - span
+    - linear_map
+    defines: 'span of columns — {f(v) : v in domain}; the range of the map'
+    verifier: sympy
+    lab: sympy
+    tier: 3
+  kernel:
+    composed_of:
+    - linear_map
+    defines: '{v : f(v) = 0} — the ''lost information'' subspace'
+    verifier: sympy
+    lab: sympy
+    tier: 3
+  rank:
+    composed_of:
+    - dimension
+    - image
+    defines: dimension of the image — how much information is preserved
+    verifier: sympy
+    lab: sympy
+    tier: 5
+  nullity:
+    composed_of:
+    - dimension
+    - kernel
+    defines: dimension of the kernel — how much information is lost
+    verifier: sympy
+    lab: sympy
+    tier: 5
+  rank_nullity:
+    composed_of:
+    - rank
+    - nullity
+    - dimension
+    defines: rank + nullity = dim(domain) — information is neither created nor destroyed
+    verifier: sympy
+    lab: sympy
+    tier: 6
+  determinant:
+    composed_of:
+    - linear_map
+    defines: alternating multilinear form — signed volume scale factor of the map
+    verifier: sympy
+    lab: sympy
+    tier: 3
+  eigenpair:
+    composed_of:
+    - linear_map
+    - scalar_multiplication
+    defines: (λ, v≠0) with f(v) = λ ⊙ v — direction the map acts as pure ⊙
+    verifier: sympy
+    lab: sympy
+    play: build A; A.eigenvects(); perturb an entry; watch λ move
+    tier: 3
+  diagonalization:
+    composed_of:
+    - basis
+    - eigenpair
+    defines: basis of eigenpairs — operator decouples into independent ⊙'s along eigenbasis
+    verifier: sympy
+    lab: sympy
+    play: P, D = A.diagonalize(); verify A == P * D * P**(-1)
+    tier: 4
+  norm:
+    composed_of:
+    - inner_product
+    defines: √⟨v,v⟩ — length induced by the inner product
+    verifier: sympy
+    lab: sympy
+    tier: 1
+  orthogonality:
+    composed_of:
+    - inner_product
+    defines: ⟨u,v⟩ = 0 — generalised perpendicularity
+    verifier: sympy
+    lab: sympy
+    tier: 1
+  projection:
+    composed_of:
+    - orthogonality
+    - span
+    defines: orthogonal projection onto a subspace — nearest-point map
+    verifier: sympy
+    lab: sympy
+    tier: 3
+  orthonormal_basis:
+    composed_of:
+    - basis
+    - orthogonality
+    - norm
+    defines: basis with ⟨bᵢ, bⱼ⟩ = δᵢⱼ — coordinate geometry at its simplest
+    verifier: sympy
+    lab: sympy
+    tier: 4
+  gram_schmidt:
+    composed_of:
+    - projection
+    - orthonormal_basis
+    defines: algorithm producing orthonormal basis from any independent set
+    verifier: sympy
+    lab: sympy
+    play: take a random basis; apply Gram-Schmidt; verify columns are orthonormal
+    tier: 5
+  adjoint:
+    composed_of:
+    - inner_product
+    - linear_map
+    defines: f* such that ⟨f(v), w⟩ = ⟨v, f*(w)⟩ for all v, w
+    verifier: sympy
+    lab: sympy
+    tier: 3
+  spectral_theorem:
+    composed_of:
+    - adjoint
+    - eigenpair
+    - orthonormal_basis
+    defines: self-adjoint operator has orthonormal eigenbasis — both radicals meet here
+    verifier: sympy
+    lab: sympy
+    play: build Hermitian A; verify A.diagonalize() columns are orthonormal
+    tier: 5
+applications:
+  normal_modes:
+    needs:
+    - eigenpair
+    domain: classical mechanics
+    defines: coupled oscillators → independent normal modes via eigenpairs
+  stability_analysis:
+    needs:
+    - eigenpair
+    domain: dynamical systems
+    defines: sign of eigenvalue determines stability of a fixed point
+  markov_stationary:
+    needs:
+    - eigenpair
+    domain: probability
+    defines: stationary distribution = eigenvector with eigenvalue 1
+  pagerank:
+    needs:
+    - eigenpair
+    domain: networks
+    defines: dominant eigenvector of the (damped) link matrix
+  pca:
+    needs:
+    - eigenpair
+    - inner_product
+    domain: statistics
+    defines: principal components = eigenvectors of the covariance matrix
+  quantum_observable:
+    needs:
+    - spectral_theorem
+    domain: quantum mechanics
+    defines: observables are self-adjoint; spectral theorem guarantees real eigenvalues
+  fourier_modes:
+    needs:
+    - spectral_theorem
+    domain: signals and analysis
+    defines: Fourier basis = orthonormal eigenbasis of the derivative operator

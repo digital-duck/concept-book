@@ -1,0 +1,223 @@
+domain: college_physics_2e_ch15
+primitives:
+  temperature:
+    defines: A macroscopic quantity characterizing the thermal state of a system, measured on an absolute
+      (Kelvin) scale for thermodynamic calculations.
+    tier: 0
+  pressure:
+    defines: Force per unit area exerted by a gas or fluid, a type of potential energy per unit volume.
+    tier: 0
+  volume:
+    defines: The spatial extent occupied by a system, such as a gas in a cylinder.
+    tier: 0
+  conservation_of_energy:
+    defines: The principle that the total energy of an isolated system remains constant, with energy neither
+      created nor destroyed.
+    tier: 0
+  kinetic_energy:
+    defines: Energy of motion possessed by an object or by atoms and molecules within a system.
+    tier: 0
+  potential_energy:
+    defines: Stored energy due to position or configuration, including chemical and gravitational forms.
+    tier: 0
+  ideal_gas_law:
+    defines: The equation of state PV = NkT relating pressure, volume, number of molecules, and temperature
+      for an ideal gas.
+    tier: 0
+concepts:
+  internal_energy:
+    defines: The sum of the kinetic and potential energies of all atoms and molecules in a system, depending
+      only on the state of the system and not on the path taken to reach that state.
+    composed_of:
+    - kinetic_energy
+    - potential_energy
+    tier: 1
+  heat_transfer:
+    defines: Energy transferred between systems due to a temperature difference, characterized by random
+      molecular motion and dependent on the path taken.
+    composed_of:
+    - temperature
+    - kinetic_energy
+    tier: 1
+  thermodynamic_work:
+    defines: Energy transferred by a macroscopic force exerted through a distance, an organized process
+      that is path dependent.
+    composed_of:
+    - pressure
+    - volume
+    tier: 1
+  macrostate:
+    defines: An overall property of a system described by macroscopic variables such as pressure, volume,
+      and temperature, without specifying the detailed arrangement of individual components.
+    composed_of:
+    - pressure
+    - volume
+    - temperature
+    tier: 1
+  first_law_of_thermodynamics:
+    defines: The change in internal energy of a system equals the net heat transfer into the system minus
+      the net work done by the system (ΔE_int = Q − W).
+    composed_of:
+    - internal_energy
+    - heat_transfer
+    - thermodynamic_work
+    - conservation_of_energy
+    tier: 2
+  pv_diagram:
+    defines: A graph of pressure versus volume for a thermodynamic process, where the area under the curve
+      equals the work done on or by the system.
+    composed_of:
+    - thermodynamic_work
+    tier: 2
+  reversible_process:
+    defines: A process in which both the system and its environment can be returned to their exact original
+      states by following the reverse path, with no dissipative losses.
+    composed_of:
+    - heat_transfer
+    - thermodynamic_work
+    tier: 2
+  microstate:
+    defines: A detailed description of every element of a system, such as the specific positions and velocities
+      of all atoms, where each unique arrangement counts as one microstate.
+    composed_of:
+    - macrostate
+    tier: 2
+  isobaric_process:
+    defines: A thermodynamic process that occurs at constant pressure, where the work done equals the
+      pressure times the change in volume (W = PΔV).
+    composed_of:
+    - first_law_of_thermodynamics
+    - pv_diagram
+    tier: 3
+  isochoric_process:
+    defines: A constant-volume thermodynamic process in which no work is done because the volume does
+      not change (ΔV = 0).
+    composed_of:
+    - first_law_of_thermodynamics
+    - pv_diagram
+    tier: 3
+  isothermal_process:
+    defines: A constant-temperature thermodynamic process in which the internal energy of an ideal gas
+      remains constant and the net heat transfer equals the net work done.
+    composed_of:
+    - first_law_of_thermodynamics
+    - ideal_gas_law
+    - pv_diagram
+    tier: 3
+  adiabatic_process:
+    defines: A thermodynamic process in which no heat transfer occurs (Q = 0), so work is done at the
+      expense of internal energy.
+    composed_of:
+    - first_law_of_thermodynamics
+    - pv_diagram
+    tier: 3
+  irreversible_process:
+    defines: A process that depends on path direction and cannot be fully reversed, due to dissipative
+      factors such as friction or turbulence.
+    composed_of:
+    - reversible_process
+    tier: 3
+  cyclical_process:
+    defines: A process that returns a system to its original state at the end of every cycle, so that
+      the change in internal energy is zero.
+    composed_of:
+    - first_law_of_thermodynamics
+    tier: 3
+  heat_engine:
+    defines: A device that uses heat transfer from a hot reservoir to do work, with some heat necessarily
+      transferred to a cold reservoir.
+    composed_of:
+    - cyclical_process
+    tier: 4
+  carnot_cycle:
+    defines: The most efficient theoretical thermodynamic cycle, composed of two reversible isothermal
+      and two reversible adiabatic processes.
+    composed_of:
+    - cyclical_process
+    - reversible_process
+    - isothermal_process
+    - adiabatic_process
+    tier: 4
+  second_law_of_thermodynamics:
+    defines: Heat transfer occurs spontaneously from higher- to lower-temperature bodies but never in
+      reverse, and it is impossible for heat transfer from a reservoir to completely convert to work in
+      a cyclical process.
+    composed_of:
+    - heat_engine
+    - irreversible_process
+    tier: 5
+  thermodynamic_efficiency:
+    defines: The ratio of net work output to heat transfer input for a heat engine, expressed as Eff =
+      W/Q_h.
+    composed_of:
+    - heat_engine
+    tier: 5
+  heat_pump:
+    defines: A device that uses work input to transfer heat from a cold reservoir to a hot reservoir,
+      supplying Q_h = Q_c + W to the warm environment.
+    composed_of:
+    - heat_engine
+    tier: 5
+  refrigerator:
+    defines: A heat engine run backward that uses work input to transfer heat from a cold environment
+      to a warm one, judged by how much heat is removed from the cold reservoir per unit of work.
+    composed_of:
+    - heat_engine
+    tier: 5
+  carnot_efficiency:
+    defines: The maximum theoretical efficiency of a heat engine operating between two temperatures, given
+      by Eff_C = 1 − T_c/T_h.
+    composed_of:
+    - carnot_cycle
+    - thermodynamic_efficiency
+    tier: 6
+  coefficient_of_performance:
+    defines: A measure of the effectiveness of a heat pump or refrigerator, defined as the ratio of desired
+      heat transfer to work input (COP_hp = Q_h/W for heat pumps, COP_ref = Q_c/W for refrigerators).
+    composed_of:
+    - heat_pump
+    - refrigerator
+    tier: 6
+  entropy:
+    defines: A measure of a system's disorder and the unavailability of its energy to do work, defined
+      for a reversible process as ΔS = Q/T, where entropy is a state function that never decreases for
+      the total system.
+    composed_of:
+    - second_law_of_thermodynamics
+    - reversible_process
+    tier: 6
+  boltzmann_entropy:
+    defines: The statistical definition of entropy as S = k_B ln W, where k_B is Boltzmann's constant
+      and W is the number of microstates corresponding to a given macrostate.
+    composed_of:
+    - entropy
+    - microstate
+    tier: 7
+applications:
+  human_metabolism:
+    defines: The conversion of food's chemical potential energy into heat transfer, work, and stored fat,
+      governed by the first law of thermodynamics.
+    needs:
+    - first_law_of_thermodynamics
+    tier: 3
+  otto_cycle:
+    defines: A thermodynamic cycle consisting of two adiabatic and two isochoric processes, modeling the
+      four-stroke internal combustion gasoline engine.
+    needs:
+    - adiabatic_process
+    - isochoric_process
+    - heat_engine
+    tier: 5
+  power_station_efficiency:
+    defines: The application of heat engine principles to calculate the work output, efficiency, and environmental
+      impact of coal-fired and nuclear power plants.
+    needs:
+    - thermodynamic_efficiency
+    - carnot_efficiency
+    tier: 7
+  heat_death_of_universe:
+    defines: The predicted ultimate state of thermodynamic equilibrium in which the universe reaches maximum
+      entropy and no energy remains available to do work.
+    needs:
+    - entropy
+    tier: 7

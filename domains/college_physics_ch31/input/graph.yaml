@@ -1,0 +1,333 @@
+domain: college_physics_2e_ch31
+primitives:
+  nucleus:
+    defines: A dense central region of an atom consisting of protons and neutrons.
+    tier: 0
+  proton:
+    defines: A positively charged nucleon found in the nucleus with mass approximately 1.007276 u.
+    tier: 0
+  neutron:
+    defines: An electrically neutral nucleon found in the nucleus with mass approximately 1.008665 u.
+    tier: 0
+  electron:
+    defines: A negatively charged particle with very small mass that orbits the nucleus.
+    tier: 0
+  electromagnetic_force:
+    defines: The long-range force between charged particles, including the repulsive Coulomb force between
+      protons.
+    tier: 0
+  mass_energy_equivalence:
+    defines: Einstein’s relation E = mc² connecting mass and energy.
+    tier: 0
+  photon:
+    defines: A quantum of electromagnetic radiation that travels at the speed of light and has no rest
+      mass.
+    tier: 0
+  conservation_of_energy:
+    defines: The total energy in a closed system remains constant, modified to include mass–energy conversion
+      in nuclear processes.
+    tier: 0
+  conservation_of_momentum:
+    defines: The total linear and angular momentum of a closed system remains constant.
+    tier: 0
+  kinetic_energy:
+    defines: Energy of motion, given classically by ½mv² for particles with mass.
+    tier: 0
+  wave_function:
+    defines: A quantum mechanical function whose square gives the probability of finding a particle at
+      a given location.
+    tier: 0
+  ionization:
+    defines: The process of removing electrons from atoms or molecules, requiring only a few eV of energy
+      per event.
+    tier: 0
+concepts:
+  radioactivity:
+    defines: The spontaneous emission of radiation by unstable nuclei that convert part of their mass
+      into energy.
+    composed_of:
+    - nucleus
+    - mass_energy_equivalence
+    tier: 1
+  nucleon:
+    defines: A constituent particle of the nucleus, either a proton or a neutron.
+    composed_of:
+    - proton
+    - neutron
+    tier: 1
+  atomic_number:
+    defines: The number of protons Z in a nucleus, which uniquely identifies the element.
+    composed_of:
+    - nucleus
+    - proton
+    tier: 1
+  antimatter:
+    defines: Particles that are counterparts to ordinary matter with opposite charge, including positrons
+      and antineutrinos.
+    composed_of:
+    - electron
+    tier: 1
+  potential_energy_barrier:
+    defines: A region of high potential energy that classically confines a particle but can be penetrated
+      quantum mechanically.
+    composed_of:
+    - kinetic_energy
+    tier: 1
+  nuclear_radiation:
+    defines: Energetic rays originating from nuclei, including alpha, beta, and gamma radiation, with
+      energies on the order of MeV.
+    composed_of:
+    - radioactivity
+    tier: 2
+  unified_atomic_mass_unit:
+    defines: A mass unit defined so that carbon-12 has exactly 12 u, with 1 u = 931.5 MeV/c².
+    composed_of:
+    - nucleon
+    - mass_energy_equivalence
+    tier: 2
+  mass_number:
+    defines: The total number of nucleons A = Z + N in a nucleus.
+    composed_of:
+    - atomic_number
+    - nucleon
+    tier: 2
+  strong_nuclear_force:
+    defines: A very short-range attractive force between nucleons about 100 times stronger than the Coulomb
+      force, responsible for holding nuclei together.
+    composed_of:
+    - nucleon
+    - electromagnetic_force
+    tier: 2
+  weak_nuclear_force:
+    defines: A very short-range nuclear force distinct from the strong force, responsible for beta decay.
+    composed_of:
+    - nucleon
+    tier: 2
+  quantum_tunneling:
+    defines: A quantum process in which a particle penetrates a potential energy barrier it classically
+      lacks the energy to surmount.
+    composed_of:
+    - wave_function
+    - potential_energy_barrier
+    tier: 2
+  conservation_of_electron_family_number:
+    defines: The total electron family number remains constant in any process, requiring creation of antimatter
+      counterparts when electrons or positrons are produced.
+    composed_of:
+    - electron
+    - antimatter
+    tier: 2
+  alpha_radiation:
+    defines: Nuclear radiation consisting of helium-4 nuclei (two protons and two neutrons) with the shortest
+      range and strongest ionizing ability.
+    composed_of:
+    - nuclear_radiation
+    - proton
+    - neutron
+    tier: 3
+  beta_radiation:
+    defines: Nuclear radiation consisting of electrons or positrons emitted from the nucleus, with intermediate
+      range and ionizing ability.
+    composed_of:
+    - nuclear_radiation
+    - electron
+    tier: 3
+  gamma_radiation:
+    defines: Nuclear radiation consisting of high-energy photons emitted by nuclei, uncharged, with the
+      greatest range and least ionizing ability.
+    composed_of:
+    - nuclear_radiation
+    - photon
+    tier: 3
+  ionizing_radiation:
+    defines: Any radiation with sufficient energy per event to ionize atoms and molecules, whether nuclear
+      in origin or not.
+    composed_of:
+    - nuclear_radiation
+    - ionization
+    tier: 3
+  nuclide:
+    defines: A specific nuclear species defined by a unique combination of protons (Z) and neutrons (N).
+    composed_of:
+    - atomic_number
+    - mass_number
+    tier: 3
+  mass_defect:
+    defines: The difference between the total mass of a nucleus’s separate nucleons and the actual mass
+      of the nucleus.
+    composed_of:
+    - nucleon
+    - unified_atomic_mass_unit
+    tier: 3
+  neutrino:
+    defines: A nearly massless, uncharged fermion emitted in beta decay that interacts only via the weak
+      nuclear force.
+    composed_of:
+    - weak_nuclear_force
+    - conservation_of_energy
+    - conservation_of_momentum
+    tier: 3
+  nuclear_radius:
+    defines: The approximate radius of a nucleus given by r = r₀A^(1/3), implying nuclear volume is proportional
+      to the number of nucleons.
+    composed_of:
+    - mass_number
+    tier: 3
+  range_of_radiation:
+    defines: The distance radiation can travel through a material, determined by energy, charge, speed,
+      and the material’s electron density.
+    composed_of:
+    - ionizing_radiation
+    tier: 4
+  radiation_detector:
+    defines: An instrument that detects ionizing radiation based on the ionization it produces in matter.
+    composed_of:
+    - ionizing_radiation
+    tier: 4
+  isotope:
+    defines: Nuclei of the same element (same Z) that differ in the number of neutrons, with nearly identical
+      chemistry but different nuclear properties.
+    composed_of:
+    - nuclide
+    tier: 4
+  chart_of_nuclides:
+    defines: A plot of N versus Z for known nuclides that reveals patterns in nuclear stability, abundance,
+      and decay modes.
+    composed_of:
+    - nuclide
+    tier: 4
+  magic_numbers:
+    defines: Specific numbers of protons or neutrons that correspond to closed nuclear shells and greater
+      stability.
+    composed_of:
+    - nuclide
+    - strong_nuclear_force
+    tier: 4
+  binding_energy:
+    defines: The energy required to completely disassemble a nucleus into separate protons and neutrons,
+      equal to the mass defect times c².
+    composed_of:
+    - mass_defect
+    - mass_energy_equivalence
+    tier: 4
+  nuclear_decay:
+    defines: The process by which an unstable parent nucleus transforms into a daughter nucleus by emitting
+      particles or radiation, obeying conservation laws.
+    composed_of:
+    - radioactivity
+    - nuclide
+    - conservation_of_energy
+    - conservation_of_momentum
+    tier: 4
+  decay_series:
+    defines: A sequence of successive nuclear decays from an unstable parent through intermediate daughters
+      until a stable nuclide is produced.
+    composed_of:
+    - nuclear_decay
+    tier: 5
+  alpha_decay:
+    defines: Nuclear decay in which a parent nucleus emits a helium-4 nucleus, reducing Z by 2 and A by
+      4.
+    composed_of:
+    - nuclear_decay
+    - alpha_radiation
+    tier: 5
+  beta_minus_decay:
+    defines: Nuclear decay in which a neutron converts into a proton with emission of an electron and
+      an antineutrino.
+    composed_of:
+    - nuclear_decay
+    - beta_radiation
+    - weak_nuclear_force
+    - neutrino
+    tier: 5
+  positron_decay:
+    defines: Nuclear decay in which a proton converts into a neutron with emission of a positron and a
+      neutrino.
+    composed_of:
+    - nuclear_decay
+    - weak_nuclear_force
+    - neutrino
+    - antimatter
+    tier: 5
+  electron_capture:
+    defines: A nuclear decay process in which a nucleus absorbs an inner-shell electron, converting a
+      proton to a neutron and emitting a neutrino.
+    composed_of:
+    - nuclear_decay
+    - weak_nuclear_force
+    - neutrino
+    - electron
+    tier: 5
+  gamma_decay:
+    defines: Nuclear decay in which an excited nucleus emits a high-energy photon without changing Z or
+      A.
+    composed_of:
+    - nuclear_decay
+    - gamma_radiation
+    tier: 5
+  nuclear_reaction_energy:
+    defines: The energy released or absorbed in a nuclear decay, given by Q = (Δm)c².
+    composed_of:
+    - nuclear_decay
+    - mass_energy_equivalence
+    tier: 5
+  half_life:
+    defines: The time interval during which a radioactive nucleus has a 50% probability of decaying.
+    composed_of:
+    - nuclear_decay
+    tier: 5
+  binding_energy_per_nucleon:
+    defines: The binding energy divided by mass number (BE/A), averaging about 8 MeV and peaking near
+      A ≈ 60.
+    composed_of:
+    - binding_energy
+    - mass_number
+    tier: 5
+  decay_constant:
+    defines: The quantity λ = 0.693/t½ that governs the rate of exponential radioactive decay.
+    composed_of:
+    - half_life
+    tier: 6
+  exponential_decay_law:
+    defines: The number of radioactive nuclei decreases as N = N₀e^(−λt).
+    composed_of:
+    - decay_constant
+    tier: 7
+  activity:
+    defines: The rate of radioactive decay in decays per unit time, expressed in becquerels or curies.
+    composed_of:
+    - exponential_decay_law
+    tier: 8
+applications:
+  geiger_tube:
+    defines: A gas-filled radiation detector that registers counts when ionizing radiation creates ion
+      pairs attracted to electrodes.
+    needs:
+    - radiation_detector
+    tier: 5
+  scintillator:
+    defines: A radiation detection material that converts radiation energy into brief flashes of light.
+    needs:
+    - radiation_detector
+    tier: 5
+  solid_state_detector:
+    defines: A semiconductor device that converts ionization produced by radiation into an electrical
+      signal proportional to deposited energy.
+    needs:
+    - radiation_detector
+    tier: 5
+  photomultiplier:
+    defines: A device that converts scintillator light into amplified electrical signals using cascaded
+      photoelectric-effect stages.
+    needs:
+    - scintillator
+    - photon
+    tier: 6
+  radioactive_dating:
+    defines: A technique for determining the age of materials by measuring the remaining fraction of a
+      radioactive isotope.
+    needs:
+    - exponential_decay_law
+    - isotope
+    tier: 8

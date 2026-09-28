@@ -1,0 +1,161 @@
+domain: college_physics_2e_ch21
+sources:
+  electric_charge:
+    label: Electric Charge
+    sections: []
+  electric_current:
+    label: Electric Current
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  resistance:
+    label: Resistance
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  voltage:
+    label: Voltage (Potential Difference)
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  conservation_of_energy:
+    label: Conservation of Energy
+    sections: []
+  conservation_of_charge:
+    label: Conservation of Charge
+    sections: []
+  capacitor:
+    label: Capacitor
+    sections:
+    - id: ch21_s21_6
+      title: 21.6 DC Circuits Containing Resistors and Capacitors
+  capacitance:
+    label: Capacitance
+    sections:
+    - id: ch21_s21_6
+      title: 21.6 DC Circuits Containing Resistors and Capacitors
+  ohms_law:
+    label: Ohm's Law
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  joules_law:
+    label: Joule's Law (Power Dissipation)
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  voltage_drop:
+    label: Voltage Drop
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  series_resistance:
+    label: Series Resistance
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  parallel_resistance:
+    label: Parallel Resistance
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  series_parallel_combination:
+    label: Series-Parallel Combination Circuits
+    sections:
+    - id: ch21_s21_1
+      title: 21.1 Resistors in Series and Parallel
+  electromotive_force:
+    label: Electromotive Force (EMF)
+    sections:
+    - id: ch21_s21_2
+      title: '21.2 Electromotive Force: Terminal Voltage'
+  internal_resistance:
+    label: Internal Resistance
+    sections:
+    - id: ch21_s21_2
+      title: '21.2 Electromotive Force: Terminal Voltage'
+  terminal_voltage:
+    label: Terminal Voltage
+    sections:
+    - id: ch21_s21_2
+      title: '21.2 Electromotive Force: Terminal Voltage'
+  voltage_sources_in_combination:
+    label: Voltage Sources in Series and Parallel
+    sections:
+    - id: ch21_s21_2
+      title: '21.2 Electromotive Force: Terminal Voltage'
+  kirchhoffs_junction_rule:
+    label: Kirchhoff's Junction Rule
+    sections:
+    - id: ch21_s21_3
+      title: 21.3 Kirchhoff’s Rules
+  kirchhoffs_loop_rule:
+    label: Kirchhoff's Loop Rule
+    sections:
+    - id: ch21_s21_3
+      title: 21.3 Kirchhoff’s Rules
+  kirchhoffs_rules:
+    label: Kirchhoff's Rules
+    sections:
+    - id: ch21_s21_3
+      title: 21.3 Kirchhoff’s Rules
+  galvanometer:
+    label: Galvanometer
+    sections:
+    - id: ch21_s21_4
+      title: 21.4 DC Voltmeters and Ammeters
+  voltmeter:
+    label: Voltmeter
+    sections:
+    - id: ch21_s21_4
+      title: 21.4 DC Voltmeters and Ammeters
+  ammeter:
+    label: Ammeter
+    sections:
+    - id: ch21_s21_4
+      title: 21.4 DC Voltmeters and Ammeters
+  meter_circuit_loading:
+    label: Meter Circuit Loading
+    sections:
+    - id: ch21_s21_4
+      title: 21.4 DC Voltmeters and Ammeters
+  null_measurement:
+    label: Null Measurement
+    sections:
+    - id: ch21_s21_5
+      title: 21.5 Null Measurements
+  potentiometer:
+    label: Potentiometer
+    sections:
+    - id: ch21_s21_5
+      title: 21.5 Null Measurements
+  wheatstone_bridge:
+    label: Wheatstone Bridge
+    sections:
+    - id: ch21_s21_5
+      title: 21.5 Null Measurements
+  rc_circuit:
+    label: RC Circuit
+    sections:
+    - id: ch21_s21_6
+      title: 21.6 DC Circuits Containing Resistors and Capacitors
+  rc_time_constant:
+    label: RC Time Constant (τ)
+    sections:
+    - id: ch21_s21_6
+      title: 21.6 DC Circuits Containing Resistors and Capacitors
+  capacitor_charging:
+    label: Capacitor Charging
+    sections:
+    - id: ch21_s21_6
+      title: 21.6 DC Circuits Containing Resistors and Capacitors
+  capacitor_discharging:
+    label: Capacitor Discharging
+    sections:
+    - id: ch21_s21_6
+      title: 21.6 DC Circuits Containing Resistors and Capacitors
+  rc_timing_applications:
+    label: RC Timing Applications
+    sections:
+    - id: ch21_s21_6
+      title: 21.6 DC Circuits Containing Resistors and Capacitors

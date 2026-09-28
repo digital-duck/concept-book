@@ -1,0 +1,208 @@
+domain: college_physics_2e_ch21
+primitives:
+  electric_charge:
+    defines: A fundamental property of matter that is conserved in any process and whose flow constitutes
+      electric current.
+    tier: 0
+  electric_current:
+    defines: The flow of electric charge through a circuit past a given point of measurement, measured
+      in amperes.
+    tier: 0
+  resistance:
+    defines: A measure of the opposition to the flow of charge in a circuit, measured in ohms.
+    tier: 0
+  voltage:
+    defines: The electrical potential energy per unit charge between two points in a circuit, measured
+      in volts.
+    tier: 0
+  conservation_of_energy:
+    defines: The principle that total energy is constant in any process; used here to derive circuit rules.
+    tier: 0
+  conservation_of_charge:
+    defines: The principle that total electric charge is constant in any process; used here to derive
+      circuit rules.
+    tier: 0
+  capacitor:
+    defines: An electrical component that stores electric charge on two opposing plates, opposing further
+      charge flow as it charges.
+    tier: 0
+  capacitance:
+    defines: A measure of a capacitor's ability to store charge per unit voltage, given by C = Q/V and
+      measured in farads.
+    tier: 0
+concepts:
+  ohms_law:
+    defines: The relationship V = IR stating that the voltage drop across a resistor equals the current
+      through it times its resistance.
+    composed_of:
+    - voltage
+    - electric_current
+    - resistance
+    tier: 1
+  kirchhoffs_junction_rule:
+    defines: The sum of all currents entering a junction must equal the sum of all currents leaving it,
+      as a direct consequence of conservation of charge.
+    composed_of:
+    - conservation_of_charge
+    - electric_current
+    tier: 1
+  kirchhoffs_loop_rule:
+    defines: The algebraic sum of all changes in electric potential around any closed loop in a circuit
+      must equal zero, as a consequence of conservation of energy.
+    composed_of:
+    - conservation_of_energy
+    - voltage
+    tier: 1
+  electromotive_force:
+    defines: The potential difference of a voltage source when no current is flowing, representing the
+      energy per unit charge supplied by the source's internal chemistry or mechanism.
+    composed_of:
+    - voltage
+    tier: 1
+  galvanometer:
+    defines: An analog measuring device in which current through a coil in a magnetic field produces a
+      proportional needle deflection, characterized by its resistance and current sensitivity.
+    composed_of:
+    - electric_current
+    - resistance
+    tier: 1
+  joules_law:
+    defines: The relationship P = I²R (equivalently P = V²/R or P = IV) giving the power dissipated by
+      a resistor carrying current I.
+    composed_of:
+    - ohms_law
+    tier: 2
+  voltage_drop:
+    defines: The loss in electrical potential across a resistor when current flows through it, calculated
+      as V = IR.
+    composed_of:
+    - ohms_law
+    tier: 2
+  parallel_resistance:
+    defines: The total resistance of resistors connected in parallel, found from 1/R_p = 1/R1 + 1/R2 +
+      …, always less than the smallest individual resistance, with the same voltage across each.
+    composed_of:
+    - ohms_law
+    - conservation_of_charge
+    tier: 2
+  kirchhoffs_rules:
+    defines: A unified set of two rules—the junction rule and the loop rule—that together allow analysis
+      of any DC circuit, however complex.
+    composed_of:
+    - kirchhoffs_junction_rule
+    - kirchhoffs_loop_rule
+    tier: 2
+  internal_resistance:
+    defines: The inherent resistance within a voltage source that causes the terminal voltage to fall
+      below the EMF whenever current is drawn.
+    composed_of:
+    - resistance
+    - electromotive_force
+    tier: 2
+  rc_circuit:
+    defines: A circuit containing both a resistor and a capacitor, in which the capacitor charges or discharges
+      exponentially over time rather than instantaneously.
+    composed_of:
+    - resistance
+    - capacitance
+    - ohms_law
+    tier: 2
+  series_resistance:
+    defines: The total resistance of resistors connected in series, equal to the sum of all individual
+      resistances (R_s = R1 + R2 + …), with the same current through each.
+    composed_of:
+    - voltage_drop
+    - conservation_of_charge
+    tier: 3
+  terminal_voltage:
+    defines: The actual voltage measured across the output terminals of a source under load, given by
+      V_T = emf − Ir, where r is internal resistance and I is current.
+    composed_of:
+    - electromotive_force
+    - internal_resistance
+    - ohms_law
+    tier: 3
+  null_measurement:
+    defines: A technique that balances a circuit so no current flows through the measuring device, eliminating
+      circuit loading and yielding greater measurement accuracy.
+    composed_of:
+    - galvanometer
+    - kirchhoffs_rules
+    tier: 3
+  rc_time_constant:
+    defines: The characteristic time τ = RC governing the rate of charging or discharging in an RC circuit;
+      after one time constant the voltage changes by a factor of 1 − 1/e ≈ 0.632 of its remaining range.
+    composed_of:
+    - rc_circuit
+    tier: 3
+  meter_circuit_loading:
+    defines: The alteration of a measured circuit caused by inserting a voltmeter or ammeter, which can
+      be minimized by using high resistance in voltmeters and low resistance in ammeters.
+    composed_of:
+    - voltmeter
+    - ammeter
+    tier: 3
+  series_parallel_combination:
+    defines: A method of reducing complex resistor networks to a single equivalent resistance by iteratively
+      identifying and simplifying series and parallel sub-groups.
+    composed_of:
+    - series_resistance
+    - parallel_resistance
+    tier: 4
+  voltage_sources_in_combination:
+    defines: Multiple voltage sources connected in series add their EMFs and internal resistances algebraically;
+      sources in parallel share current while keeping the same EMF and reducing total internal resistance.
+    composed_of:
+    - terminal_voltage
+    - series_resistance
+    - parallel_resistance
+    tier: 4
+  capacitor_charging:
+    defines: The exponential rise in capacitor voltage when connected through a resistor to a DC source,
+      described by V(t) = emf(1 − e^{−t/τ}), approaching the source EMF asymptotically.
+    composed_of:
+    - rc_time_constant
+    - electromotive_force
+    tier: 4
+  capacitor_discharging:
+    defines: The exponential decay of capacitor voltage when it releases stored charge through a resistor,
+      described by V(t) = V₀ e^{−t/τ}, approaching zero asymptotically.
+    composed_of:
+    - rc_time_constant
+    tier: 4
+applications:
+  voltmeter:
+    defines: An instrument that measures voltage by connecting in parallel with the circuit element; constructed
+      from a galvanometer in series with a large multiplier resistance to limit current draw.
+    needs:
+    - galvanometer
+    - ohms_law
+    tier: 2
+  ammeter:
+    defines: An instrument that measures current by connecting in series with a branch; constructed from
+      a galvanometer in parallel with a small shunt resistance so most current bypasses the galvanometer.
+    needs:
+    - galvanometer
+    - ohms_law
+    tier: 2
+  potentiometer:
+    defines: A null measurement device that determines an unknown EMF by adjusting a voltage divider until
+      a galvanometer reads zero, then comparing resistances with a known standard EMF.
+    needs:
+    - null_measurement
+    - electromotive_force
+    tier: 4
+  wheatstone_bridge:
+    defines: A null measurement device that determines an unknown resistance by balancing a four-resistor
+      bridge until no current flows through a galvanometer, using the relation R_x = R_3(R_2/R_1).
+    needs:
+    - null_measurement
+    - resistance
+    tier: 4
+  rc_timing_applications:
+    defines: Real-world use of the RC time constant to control time intervals in devices such as intermittent
+      wipers, strobe lights, heart pacemakers, and defibrillators.
+    needs:
+    - capacitor_charging
+    - capacitor_discharging
+    tier: 5

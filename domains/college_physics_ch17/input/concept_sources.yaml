@@ -1,0 +1,178 @@
+domain: college_physics_2e_ch17
+sources:
+  wave:
+    label: Wave
+    sections: []
+  frequency:
+    label: Frequency
+    sections: []
+  wavelength:
+    label: Wavelength
+    sections: []
+  amplitude:
+    label: Amplitude
+    sections: []
+  pressure:
+    label: Pressure
+    sections: []
+  power:
+    label: Power
+    sections: []
+  density:
+    label: Density
+    sections: []
+  temperature:
+    label: Temperature
+    sections: []
+  simple_harmonic_motion:
+    label: Simple Harmonic Motion
+    sections: []
+  sound:
+    label: Sound
+    sections:
+    - id: ch17_s17_1
+      title: 17.1 Sound
+  compression_and_rarefaction:
+    label: Compression and Rarefaction
+    sections:
+    - id: ch17_s17_1
+      title: 17.1 Sound
+  speed_of_sound:
+    label: Speed of Sound
+    sections:
+    - id: ch17_s17_2
+      title: 17.2 Speed of Sound, Frequency, and Wavelength
+  pitch:
+    label: Pitch
+    sections:
+    - id: ch17_s17_2
+      title: 17.2 Speed of Sound, Frequency, and Wavelength
+    - id: ch17_s17_6
+      title: 17.6 Hearing
+  sound_intensity:
+    label: Sound Intensity
+    sections:
+    - id: ch17_s17_3
+      title: 17.3 Sound Intensity and Sound Level
+  sound_intensity_level:
+    label: Sound Intensity Level (Decibels)
+    sections:
+    - id: ch17_s17_3
+      title: 17.3 Sound Intensity and Sound Level
+  doppler_effect:
+    label: Doppler Effect
+    sections:
+    - id: ch17_s17_4
+      title: 17.4 Doppler Effect and Sonic Booms
+  sonic_boom:
+    label: Sonic Boom
+    sections:
+    - id: ch17_s17_4
+      title: 17.4 Doppler Effect and Sonic Booms
+  bow_wake:
+    label: Bow Wake
+    sections:
+    - id: ch17_s17_4
+      title: 17.4 Doppler Effect and Sonic Booms
+  interference:
+    label: Sound Interference
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  standing_wave:
+    label: Standing Wave
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  node_and_antinode:
+    label: Node and Antinode
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  fundamental_frequency:
+    label: Fundamental Frequency
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  overtones_and_harmonics:
+    label: Overtones and Harmonics
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  resonance_closed_tube:
+    label: Resonance in Closed-End Tubes
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  resonance_open_tube:
+    label: Resonance in Open-End Tubes
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  hearing:
+    label: Hearing
+    sections:
+    - id: ch17_s17_6
+      title: 17.6 Hearing
+  loudness:
+    label: Loudness
+    sections:
+    - id: ch17_s17_6
+      title: 17.6 Hearing
+  timbre:
+    label: Timbre
+    sections:
+    - id: ch17_s17_6
+      title: 17.6 Hearing
+  phon:
+    label: Phon
+    sections:
+    - id: ch17_s17_6
+      title: 17.6 Hearing
+  infrasound:
+    label: Infrasound
+    sections:
+    - id: ch17_s17_6
+      title: 17.6 Hearing
+  ultrasound:
+    label: Ultrasound
+    sections:
+    - id: ch17_s17_6
+      title: 17.6 Hearing
+    - id: ch17_s17_7
+      title: 17.7 Ultrasound
+  acoustic_impedance:
+    label: Acoustic Impedance
+    sections:
+    - id: ch17_s17_7
+      title: 17.7 Ultrasound
+  intensity_reflection_coefficient:
+    label: Intensity Reflection Coefficient
+    sections:
+    - id: ch17_s17_7
+      title: 17.7 Ultrasound
+  noise_cancellation:
+    label: Noise Cancellation
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  musical_instrument_resonance:
+    label: Musical Instrument Resonance
+    sections:
+    - id: ch17_s17_5
+      title: '17.5 Sound Interference and Resonance: Standing Waves in Air Columns'
+  ultrasound_medical_imaging:
+    label: Ultrasound Medical Imaging
+    sections:
+    - id: ch17_s17_7
+      title: 17.7 Ultrasound
+  ultrasound_therapy:
+    label: Ultrasound Therapy
+    sections:
+    - id: ch17_s17_7
+      title: 17.7 Ultrasound
+  doppler_shifted_ultrasound:
+    label: Doppler-Shifted Ultrasound
+    sections:
+    - id: ch17_s17_7
+      title: 17.7 Ultrasound

@@ -1,0 +1,209 @@
+domain: college_physics_2e_ch32
+primitives:
+  ionizing_radiation:
+    defines: Radiation with enough energy to ionize atoms and molecules, affecting biological tissue primarily
+      through DNA damage.
+    tier: 0
+  radioactive_decay:
+    defines: The spontaneous transformation of an unstable nucleus, emitting alpha, beta, or gamma radiation.
+    tier: 0
+  half_life:
+    defines: The time required for half of a radioactive substance to decay.
+    tier: 0
+  binding_energy_per_nucleon:
+    defines: The average energy needed to remove a nucleon from a nucleus, which is greater for medium-mass
+      nuclei and determines whether fusion or fission releases energy.
+    tier: 0
+  coulomb_repulsion:
+    defines: The electrostatic repulsive force between like-charged particles such as protons in nuclei.
+    tier: 0
+  quantum_tunneling:
+    defines: The quantum mechanical process by which particles penetrate an energy barrier they classically
+      could not surmount.
+    tier: 0
+  nuclear_force:
+    defines: The short-range attractive force between nucleons that binds nuclei together.
+    tier: 0
+concepts:
+  tagging:
+    defines: The process of attaching a radioactive nuclide to a chemical compound so that the compound
+      can be tracked inside the body.
+    composed_of:
+    - radioactive_decay
+    tier: 1
+  radiation_absorbed_dose:
+    defines: A measure of ionizing energy deposited per kilogram of tissue, where 1 rad equals 0.01 J/kg
+      and 1 Gray equals 1 J/kg.
+    composed_of:
+    - ionizing_radiation
+    tier: 1
+  free_radicals:
+    defines: Unstable oxygen- or hydrogen-containing molecular fragments created by ionizing radiation
+      that undergo rapid chemical reactions to produce radiolytic products capable of destroying cells.
+    composed_of:
+    - ionizing_radiation
+    tier: 1
+  nuclear_fusion:
+    defines: A reaction in which two light nuclei combine to form a larger nucleus, releasing energy because
+      the product has greater binding energy per nucleon than the reactants.
+    composed_of:
+    - binding_energy_per_nucleon
+    - coulomb_repulsion
+    - quantum_tunneling
+    - nuclear_force
+    tier: 1
+  nuclear_fission:
+    defines: A reaction in which a heavy nucleus splits into two or more lighter fission fragments, releasing
+      energy because the products have greater binding energy per nucleon.
+    composed_of:
+    - binding_energy_per_nucleon
+    - nuclear_force
+    - coulomb_repulsion
+    tier: 1
+  radiopharmaceutical:
+    defines: A radioactive compound tagged to a chemical designed for specific medical purposes, used
+      to image or treat organs and diseases.
+    composed_of:
+    - tagging
+    tier: 2
+  relative_biological_effectiveness:
+    defines: A factor that accounts for the varying biological damage caused by different types of ionizing
+      radiation for the same absorbed dose, with short-range particles having higher RBE values.
+    composed_of:
+    - radiation_absorbed_dose
+    tier: 2
+  chain_reaction:
+    defines: A self-sustaining sequence of fission reactions in which neutrons produced by each fission
+      induce further fissions, requiring on average more than one neutron per fission to sustain.
+    composed_of:
+    - nuclear_fission
+    tier: 2
+  proton_proton_cycle:
+    defines: The principal fusion reaction sequence in the Sun in which four protons are fused into a
+      helium-4 nucleus, releasing 26.7 MeV of energy along with positrons, neutrinos, and gamma rays.
+    composed_of:
+    - nuclear_fusion
+    tier: 2
+  magnetic_confinement:
+    defines: A fusion confinement technique that uses strong magnetic fields, as in a tokamak, to trap
+      charged plasma particles and sustain the high temperatures needed for fusion.
+    composed_of:
+    - nuclear_fusion
+    tier: 2
+  inertial_confinement:
+    defines: A fusion confinement technique that uses multiple high-power lasers to compress and heat
+      tiny fuel pellets to extreme density and temperature before the fuel can expand.
+    composed_of:
+    - nuclear_fusion
+    tier: 2
+  therapeutic_ratio:
+    defines: The ratio of abnormal (cancer) cells killed to normal cells killed during radiotherapy, which
+      radiotherapy techniques are designed to maximize.
+    composed_of:
+    - radiation_absorbed_dose
+    tier: 2
+  food_irradiation:
+    defines: The treatment of food with large doses of gamma rays, x-rays, or electrons to reduce pest
+      infestation, delay spoilage, and prevent illness from microorganisms.
+    composed_of:
+    - free_radicals
+    tier: 2
+  anger_camera:
+    defines: A medical imaging device that uses a lead collimator and scintillation detectors to produce
+      a two-dimensional image of gamma-ray-emitting radiopharmaceutical concentrations in the body.
+    composed_of:
+    - radiopharmaceutical
+    - ionizing_radiation
+    tier: 3
+  pet:
+    defines: An imaging technique that detects pairs of 0.511-MeV gamma rays produced by positron-electron
+      annihilation to accurately localize radiopharmaceuticals in the body.
+    composed_of:
+    - radiopharmaceutical
+    - ionizing_radiation
+    tier: 3
+  dose_equivalent:
+    defines: The biologically effective radiation dose, defined as absorbed dose in rads multiplied by
+      the RBE, with 1 Sv equal to 100 rem.
+    composed_of:
+    - radiation_absorbed_dose
+    - relative_biological_effectiveness
+    tier: 3
+  critical_mass:
+    defines: The minimum amount of fissionable material needed to sustain a chain reaction, dependent
+      on the nuclide's neutron production rate and fission probability.
+    composed_of:
+    - chain_reaction
+    tier: 3
+  neutron_moderation:
+    defines: The process of slowing fast fission-produced neutrons to thermal energies using a moderator
+      such as water, enabling them to be efficiently absorbed by fissile fuel like U-235.
+    composed_of:
+    - chain_reaction
+    tier: 3
+  radiotherapy:
+    defines: The therapeutic use of ionizing radiation to treat cancer by exploiting the greater sensitivity
+      of rapidly reproducing cancer cells to radiation damage.
+    composed_of:
+    - therapeutic_ratio
+    tier: 3
+  breeding:
+    defines: The production of fissile plutonium-239 from non-fissile uranium-238 through neutron capture
+      and subsequent beta decays in a nuclear reactor.
+    composed_of:
+    - chain_reaction
+    - radioactive_decay
+    tier: 3
+  spect:
+    defines: A tomographic imaging technique that uses gamma-emitting radiopharmaceuticals and a circular
+      detector array to construct three-dimensional images of radioactive concentration in the body.
+    composed_of:
+    - anger_camera
+    tier: 4
+  linear_hypothesis:
+    defines: The assumption that the risk of radiation-induced cancer or genetic defects is directly proportional
+      to dose, even at low doses, implying no threshold for harm.
+    composed_of:
+    - dose_equivalent
+    tier: 4
+  radiation_protection:
+    defines: Methods to limit radiation exposure using three principles — shielding to absorb radiation,
+      increasing distance from the source, and limiting exposure time.
+    composed_of:
+    - dose_equivalent
+    tier: 4
+applications:
+  fission_bomb:
+    defines: A nuclear weapon that rapidly assembles a supercritical mass of fissile material (uranium-235
+      or plutonium-239) using gun-type or implosion designs to produce an uncontrolled chain reaction.
+    needs:
+    - critical_mass
+    tier: 4
+  nuclear_power_reactor:
+    defines: A controlled fission device that uses enriched uranium fuel, a moderator, and control rods
+      to sustain a critical chain reaction for electrical power generation.
+    needs:
+    - critical_mass
+    - neutron_moderation
+    tier: 4
+  cancer_radiotherapy:
+    defines: The clinical application of ionizing radiation to treat cancer using geometric beam focusing,
+      radioactive implants, or tagged antibodies to maximize the therapeutic ratio.
+    needs:
+    - radiotherapy
+    - dose_equivalent
+    tier: 4
+  thermonuclear_bomb:
+    defines: A nuclear weapon that uses a fission bomb as a trigger to ignite fusion fuel (lithium deuteride),
+      achieving virtually unlimited energy yields measured in megatons.
+    needs:
+    - fission_bomb
+    - nuclear_fusion
+    tier: 5
+  medical_imaging:
+    defines: The use of radiopharmaceuticals and radiation detectors such as Anger cameras, SPECT, and
+      PET to produce diagnostic images of organ function and disease.
+    needs:
+    - spect
+    - pet
+    tier: 5

@@ -1,0 +1,117 @@
+domain: college_physics_2e_ch2
+sources:
+  reference_frame:
+    label: Reference Frame
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Displacement
+  position:
+    label: Position
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Displacement
+  time:
+    label: Time
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Time, Velocity, and Speed
+  vector:
+    label: Vector
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Vectors, Scalars, and Coordinate Systems
+  scalar:
+    label: Scalar
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Vectors, Scalars, and Coordinate Systems
+  coordinate_system:
+    label: Coordinate System
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Vectors, Scalars, and Coordinate Systems
+  displacement:
+    label: Displacement
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Displacement
+  distance:
+    label: Distance
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Displacement
+  distance_traveled:
+    label: Distance Traveled
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Displacement
+  elapsed_time:
+    label: Elapsed Time
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Time, Velocity, and Speed
+  average_velocity:
+    label: Average Velocity
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Time, Velocity, and Speed
+  instantaneous_velocity:
+    label: Instantaneous Velocity
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Time, Velocity, and Speed
+  average_speed:
+    label: Average Speed
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Time, Velocity, and Speed
+  instantaneous_speed:
+    label: Instantaneous Speed
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Time, Velocity, and Speed
+  average_acceleration:
+    label: Average Acceleration
+    sections:
+    - id: ch02_s2_4
+      title: 2.4 Acceleration
+  instantaneous_acceleration:
+    label: Instantaneous Acceleration
+    sections:
+    - id: ch02_s2_4
+      title: 2.4 Acceleration
+  deceleration:
+    label: Deceleration
+    sections:
+    - id: ch02_s2_4
+      title: 2.4 Acceleration
+  kinematic_equations_constant_acceleration:
+    label: Kinematic Equations for Constant Acceleration
+    sections:
+    - id: ch02_s2_5
+      title: 2.5 Motion Equations for Constant Acceleration in One Dimension
+  acceleration_due_to_gravity:
+    label: Acceleration Due to Gravity
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Falling Objects
+  free_fall:
+    label: Free Fall
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Falling Objects
+  graphical_analysis_of_motion:
+    label: Graphical Analysis of One-Dimensional Motion
+    sections:
+    - id: ch02_s2_8
+      title: 2.8 Graphical Analysis of One-Dimensional Motion
+  problem_solving_kinematics:
+    label: Problem-Solving Strategy for Kinematics
+    sections:
+    - id: ch02_s2_6
+      title: 2.6 Problem-Solving Basics for One-Dimensional Kinematics
+  falling_objects_calculation:
+    label: Falling Objects Calculation
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Falling Objects

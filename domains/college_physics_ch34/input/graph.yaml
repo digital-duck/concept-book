@@ -1,0 +1,268 @@
+domain: college_physics_2e_ch34
+primitives:
+  galaxy:
+    defines: A gravitationally bound system of billions of stars, gas, dust, and dark matter.
+    tier: 0
+  blackbody_radiation:
+    defines: Electromagnetic radiation emitted by an idealized opaque body in thermal equilibrium, with
+      spectrum determined solely by temperature.
+    tier: 0
+  doppler_effect:
+    defines: The change in observed frequency or wavelength of a wave due to relative motion between source
+      and observer.
+    tier: 0
+  escape_velocity:
+    defines: The minimum speed an object must have to escape the gravitational pull of a massive body
+      without further propulsion.
+    tier: 0
+  special_relativity:
+    defines: Einstein's theory where the speed of light is constant for all observers in uniform relative
+      motion.
+    tier: 0
+  quantum_mechanics:
+    defines: The branch of physics describing matter and energy at atomic and subatomic scales using probabilistic
+      wave functions.
+    tier: 0
+  neutrino:
+    defines: A nearly massless, chargeless lepton that interacts only via the weak force and gravity.
+    tier: 0
+  four_basic_forces:
+    defines: 'The four fundamental interactions: gravitational, electromagnetic, strong nuclear, and weak
+      nuclear forces.'
+    tier: 0
+  resistivity:
+    defines: A material property quantifying how strongly it opposes the flow of electric current.
+    tier: 0
+concepts:
+  cosmology:
+    defines: The study of the character and evolution of the universe on the largest scales.
+    composed_of:
+    - galaxy
+    tier: 1
+  equivalence_principle:
+    defines: The principle that the effects of acceleration and gravity are identical and indistinguishable
+      without external reference.
+    composed_of:
+    - special_relativity
+    tier: 1
+  dark_matter:
+    defines: Non-luminous matter detected indirectly through its gravitational effects, constituting roughly
+      ten times the mass of visible matter in galaxies.
+    composed_of:
+    - galaxy
+    tier: 1
+  neutron_star:
+    defines: A stellar remnant composed of neutrons, formed by core collapse in a supernova, stabilized
+      by the strong force.
+    composed_of:
+    - four_basic_forces
+    - quantum_mechanics
+    tier: 1
+  neutrino_oscillations:
+    defines: The spontaneous change of one neutrino flavor into another during propagation, possible only
+      if neutrinos have nonzero mass.
+    composed_of:
+    - neutrino
+    - quantum_mechanics
+    tier: 1
+  superconductor:
+    defines: A material that exhibits zero electrical resistivity when cooled below its critical temperature.
+    composed_of:
+    - resistivity
+    - quantum_mechanics
+    tier: 1
+  chaos:
+    defines: The study of deterministic systems whose outcomes are extremely sensitive to initial conditions,
+      making long-term prediction impossible.
+    composed_of:
+    - four_basic_forces
+    tier: 1
+  cosmological_red_shift:
+    defines: The stretching of photon wavelengths due to the expansion of space itself, proportional to
+      distance.
+    composed_of:
+    - doppler_effect
+    - cosmology
+    tier: 2
+  general_relativity:
+    defines: Einstein's theory describing all types of relative motion including accelerated frames and
+      gravity, encompassing special relativity.
+    composed_of:
+    - equivalence_principle
+    tier: 2
+  critical_temperature:
+    defines: The temperature at and below which a material transitions to the superconducting state with
+      zero resistivity.
+    composed_of:
+    - superconductor
+    tier: 2
+  complexity:
+    defines: An emerging field studying complex adaptive systems that self-organize, adapt, and evolve,
+      seeking common patterns across disciplines.
+    composed_of:
+    - chaos
+    tier: 2
+  wimps:
+    defines: Weakly interacting massive particles — hypothetical chargeless leptons proposed as dark matter
+      candidates interacting only via gravity and the weak force.
+    composed_of:
+    - dark_matter
+    - neutrino
+    tier: 2
+  hubble_constant:
+    defines: The proportionality constant H₀ relating a galaxy's recession velocity to its distance, from
+      velocity-versus-distance graphs.
+    composed_of:
+    - cosmological_red_shift
+    tier: 3
+  gravitational_lensing:
+    defines: The bending of light by massive objects acting like a converging lens, as predicted by general
+      relativity.
+    composed_of:
+    - general_relativity
+    tier: 3
+  black_hole:
+    defines: An object with a gravitational field so strong that nothing, not even light, can escape from
+      within its event horizon.
+    composed_of:
+    - general_relativity
+    - escape_velocity
+    tier: 3
+  gravitational_waves:
+    defines: Mass-created distortions in space that propagate at the speed of light, predicted by general
+      relativity.
+    composed_of:
+    - general_relativity
+    tier: 3
+  quantum_gravity:
+    defines: The incomplete theoretical framework unifying general relativity and quantum mechanics, treating
+      gravity via graviton exchange.
+    composed_of:
+    - general_relativity
+    - quantum_mechanics
+    tier: 3
+  cosmological_constant:
+    defines: A term in general relativity that can counteract gravitational attraction, now associated
+      with dark energy driving accelerating expansion.
+    composed_of:
+    - general_relativity
+    tier: 3
+  high_temperature_superconductor:
+    defines: A ceramic superconductor with critical temperature above 77 K, enabling cooling with liquid
+      nitrogen rather than helium.
+    composed_of:
+    - critical_temperature
+    tier: 3
+  big_bang:
+    defines: The primordial explosion approximately 13-15 billion years ago from which all matter and
+      energy originated.
+    composed_of:
+    - hubble_constant
+    tier: 4
+  event_horizon:
+    defines: The boundary around a black hole at which the escape velocity equals the speed of light;
+      the point of no return.
+    composed_of:
+    - black_hole
+    tier: 4
+  hawking_radiation:
+    defines: Energy radiated by black holes through quantum particle-antiparticle pair creation near the
+      event horizon, causing slow shrinkage.
+    composed_of:
+    - black_hole
+    - quantum_mechanics
+    tier: 4
+  superstring_theory:
+    defines: A theory proposing fundamental particles are one-dimensional vibrating strings, attempting
+      to unify all four forces as a Theory of Everything.
+    composed_of:
+    - quantum_gravity
+    - four_basic_forces
+    tier: 4
+  critical_density:
+    defines: The average density of matter needed to just halt the expansion of the universe without a
+      cosmological constant.
+    composed_of:
+    - hubble_constant
+    - general_relativity
+    tier: 4
+  microlensing:
+    defines: Gravitational focusing of a distant star's light by a small massive body, causing characteristic
+      temporary brightening.
+    composed_of:
+    - gravitational_lensing
+    tier: 4
+  cosmic_microwave_background:
+    defines: The nearly uniform blackbody radiation at 2.725 K permeating all space, the cooled remnant
+      of the Big Bang fireball.
+    composed_of:
+    - big_bang
+    - blackbody_radiation
+    tier: 5
+  matter_antimatter_asymmetry:
+    defines: The observed dominance of matter over antimatter, caused by asymmetry in fundamental force
+      interactions during the Big Bang.
+    composed_of:
+    - big_bang
+    - four_basic_forces
+    tier: 5
+  spontaneous_symmetry_breaking:
+    defines: The phase-transition process during which unified forces became distinct as the universe
+      cooled after the Big Bang.
+    composed_of:
+    - four_basic_forces
+    - big_bang
+    tier: 5
+  schwarzschild_radius:
+    defines: The radius of the event horizon given by R_s = 2GM/c², defining the size of a black hole.
+    composed_of:
+    - event_horizon
+    tier: 5
+  universe_curvature:
+    defines: 'The geometry of the universe determined by its mass-energy content: open, closed, or flat.'
+    composed_of:
+    - critical_density
+    tier: 5
+  machos:
+    defines: Massive compact halo objects — dim bodies such as brown dwarfs proposed as dark matter candidates
+      detectable via microlensing.
+    composed_of:
+    - dark_matter
+    - microlensing
+    tier: 5
+  inflationary_scenario:
+    defines: The rapid exponential expansion of the universe by 10⁵⁰ between 10⁻³⁵ and 10⁻³² s after the
+      Big Bang, explaining CMBR smoothness.
+    composed_of:
+    - cosmic_microwave_background
+    tier: 6
+  electroweak_epoch:
+    defines: The era when electromagnetic and weak forces were unified at energies above about 100 GeV.
+    composed_of:
+    - spontaneous_symmetry_breaking
+    tier: 6
+  gut_epoch:
+    defines: The era when all forces except gravity were unified under Grand Unification Theory.
+    composed_of:
+    - electroweak_epoch
+    tier: 7
+  toe_epoch:
+    defines: The era when all four forces were hypothetically unified as a single superforce in a Theory
+      of Everything.
+    composed_of:
+    - gut_epoch
+    - quantum_gravity
+    tier: 8
+applications:
+  quasar:
+    defines: A distant galaxy with an extremely energetic core powered by a forming supermassive black
+      hole.
+    needs:
+    - galaxy
+    - black_hole
+    tier: 4
+  gravitational_wave_detection:
+    defines: The direct observation of gravitational waves using laser interferometers such as LIGO.
+    needs:
+    - gravitational_waves
+    tier: 4

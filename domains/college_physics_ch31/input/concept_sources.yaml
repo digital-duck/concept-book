@@ -1,0 +1,258 @@
+domain: college_physics_2e_ch31
+sources:
+  nucleus:
+    label: Nucleus
+    sections: []
+  proton:
+    label: Proton
+    sections: []
+  neutron:
+    label: Neutron
+    sections: []
+  electron:
+    label: Electron
+    sections: []
+  electromagnetic_force:
+    label: Electromagnetic Force
+    sections: []
+  mass_energy_equivalence:
+    label: Mass–Energy Equivalence
+    sections: []
+  photon:
+    label: Photon
+    sections: []
+  conservation_of_energy:
+    label: Conservation of Energy
+    sections: []
+  conservation_of_momentum:
+    label: Conservation of Momentum
+    sections: []
+  kinetic_energy:
+    label: Kinetic Energy
+    sections: []
+  wave_function:
+    label: Wave Function
+    sections: []
+  ionization:
+    label: Ionization
+    sections: []
+  radioactivity:
+    label: Nuclear Radioactivity
+    sections:
+    - id: ch31_s31_1
+      title: 31.1 Nuclear Radioactivity
+  nuclear_radiation:
+    label: Nuclear Radiation
+    sections:
+    - id: ch31_s31_1
+      title: 31.1 Nuclear Radioactivity
+  alpha_radiation:
+    label: Alpha Radiation
+    sections:
+    - id: ch31_s31_1
+      title: 31.1 Nuclear Radioactivity
+  beta_radiation:
+    label: Beta Radiation
+    sections:
+    - id: ch31_s31_1
+      title: 31.1 Nuclear Radioactivity
+  gamma_radiation:
+    label: Gamma Radiation
+    sections:
+    - id: ch31_s31_1
+      title: 31.1 Nuclear Radioactivity
+  ionizing_radiation:
+    label: Ionizing Radiation
+    sections:
+    - id: ch31_s31_1
+      title: 31.1 Nuclear Radioactivity
+  range_of_radiation:
+    label: Range of Radiation
+    sections:
+    - id: ch31_s31_1
+      title: 31.1 Nuclear Radioactivity
+  radiation_detector:
+    label: Radiation Detector
+    sections:
+    - id: ch31_s31_2
+      title: 31.2 Radiation Detection and Detectors
+  geiger_tube:
+    label: Geiger Tube
+    sections:
+    - id: ch31_s31_2
+      title: 31.2 Radiation Detection and Detectors
+  scintillator:
+    label: Scintillator
+    sections:
+    - id: ch31_s31_2
+      title: 31.2 Radiation Detection and Detectors
+  photomultiplier:
+    label: Photomultiplier
+    sections:
+    - id: ch31_s31_2
+      title: 31.2 Radiation Detection and Detectors
+  solid_state_detector:
+    label: Solid-State Radiation Detector
+    sections:
+    - id: ch31_s31_2
+      title: 31.2 Radiation Detection and Detectors
+  nucleon:
+    label: Nucleon
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  unified_atomic_mass_unit:
+    label: Unified Atomic Mass Unit
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  atomic_number:
+    label: Atomic Number
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  mass_number:
+    label: Mass Number
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  nuclide:
+    label: Nuclide
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  isotope:
+    label: Isotope
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  nuclear_radius:
+    label: Nuclear Radius
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  strong_nuclear_force:
+    label: Strong Nuclear Force
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  weak_nuclear_force:
+    label: Weak Nuclear Force
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  chart_of_nuclides:
+    label: Chart of the Nuclides
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  magic_numbers:
+    label: Magic Numbers
+    sections:
+    - id: ch31_s31_3
+      title: 31.3 Substructure of the Nucleus
+  nuclear_decay:
+    label: Nuclear Decay
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  decay_series:
+    label: Decay Series
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  alpha_decay:
+    label: Alpha Decay
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  nuclear_reaction_energy:
+    label: Nuclear Reaction Energy
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  beta_minus_decay:
+    label: Beta-Minus Decay
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  neutrino:
+    label: Neutrino
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  positron_decay:
+    label: Positron (Beta-Plus) Decay
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  electron_capture:
+    label: Electron Capture
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  gamma_decay:
+    label: Gamma Decay
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  antimatter:
+    label: Antimatter
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  conservation_of_electron_family_number:
+    label: Conservation of Electron Family Number
+    sections:
+    - id: ch31_s31_4
+      title: 31.4 Nuclear Decay and Conservation Laws
+  half_life:
+    label: Half-Life
+    sections:
+    - id: ch31_s31_5
+      title: 31.5 Half-Life and Activity
+  exponential_decay_law:
+    label: Exponential Decay Law
+    sections:
+    - id: ch31_s31_5
+      title: 31.5 Half-Life and Activity
+  decay_constant:
+    label: Decay Constant
+    sections:
+    - id: ch31_s31_5
+      title: 31.5 Half-Life and Activity
+  activity:
+    label: Activity
+    sections:
+    - id: ch31_s31_5
+      title: 31.5 Half-Life and Activity
+  radioactive_dating:
+    label: Radioactive Dating
+    sections:
+    - id: ch31_s31_5
+      title: 31.5 Half-Life and Activity
+  binding_energy:
+    label: Binding Energy
+    sections:
+    - id: ch31_s31_6
+      title: 31.6 Binding Energy
+  mass_defect:
+    label: Mass Defect
+    sections:
+    - id: ch31_s31_6
+      title: 31.6 Binding Energy
+  binding_energy_per_nucleon:
+    label: Binding Energy per Nucleon
+    sections:
+    - id: ch31_s31_6
+      title: 31.6 Binding Energy
+  quantum_tunneling:
+    label: Quantum Mechanical Tunneling
+    sections:
+    - id: ch31_s31_7
+      title: 31.7 Tunneling
+  potential_energy_barrier:
+    label: Potential Energy Barrier
+    sections:
+    - id: ch31_s31_7
+      title: 31.7 Tunneling
