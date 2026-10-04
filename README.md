@@ -26,7 +26,10 @@ Pick a domain, click any concept node, see the exact learning path, and generate
 |  [Graph Theory and Complex Network](https://digital-duck.github.io/cb-graph-network/) | CS |College| [digital-duck/cb-graph-network](https://github.com/digital-duck/cb-graph-network) | https://www.distributed-systems.net/index.php/books/gtcn/ | [🚦](https://github.com/digital-duck/cb-graph-network/graphs/traffic) |
 |  [Principle of Data Science by OpenStax.org](https://digital-duck.github.io/cb-data-science/) |CS | College| [digital-duck/cb-data-science](https://github.com/digital-duck/cb-data-science) | https://openstax.org/books/principles-data-science/pages/1-introduction | [🚦](https://github.com/digital-duck/cb-data-science/graphs/traffic) |
 | [Chinese Characters by Wen Gong](https://digital-duck.github.io/cb-zinets/) | Language | Intro | [digital-duck/cb-zinets](https://github.com/digital-duck/cb-zinets) | https://arxiv.org/abs/2502.19428 | [🚦](https://github.com/digital-duck/cb-zinets/graphs/traffic) |
+| [Meta-Health](https://digital-duck.github.io/cb-meta-health/) | Health | Intro | [digital-duck/cb-meta-health](https://github.com/digital-duck/cb-meta-health) |  | [🚦](https://github.com/digital-duck/cb-meta-health/graphs/traffic) |
+| [History of World Powers](https://digital-duck.github.io/cb-world-powers/) | Health | Intro | [digital-duck/cb-world-powers](https://github.com/digital-duck/cb-world-powers) |  | [🚦](https://github.com/digital-duck/cb-world-powers/graphs/traffic) |
 | Structured Prompt Language (SPL) | CS | Research | [digital-duck/SPL.py](https://github.com/digital-duck/SPL.py) |  https://arxiv.org/abs/2607.07727 | [🚦](https://github.com/digital-duck/SPL.py/graphs/traffic) |
+
 
 
 ---
